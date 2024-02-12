@@ -512,6 +512,38 @@
 
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="slls_functions.html">overview of functions provided</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="struct_slls_control_type.html">slls_control_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+<li class="toctree-l3 has-children"><a class="reference internal" href="struct_slls_inform_type.html">slls_inform_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+<li class="toctree-l3 has-children"><a class="reference internal" href="struct_slls_time_type.html">slls_time_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_slls_control_type.html">slls_control_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_slls_inform_type.html">slls_inform_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_slls_time_type.html">slls_time_type structure</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+</ul>
+</li>
 </ul>
 
   </div>
@@ -718,8 +750,8 @@ illustrations of use.</p>
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span class="std std-ref">real_sp_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span class="std std-ref">real_sp_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
@@ -775,17 +807,17 @@ illustrations of use.</p>
     <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">o</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">Ao_ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">Ao_val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">Ao_val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">x_stat</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[],</span>
-    <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="n">eval_prec</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[],</span>
+    <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="n">eval_prec</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">blls_solve_reverse_a_prod</span></a><span></span><span class="p">(</span>
@@ -794,22 +826,22 @@ illustrations of use.</p>
     <span class="kt">int</span><span class="o">*</span> <span class="n">eval_status</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">o</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">x_stat</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">v</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">p</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">v</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">p</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">nz_v</span><span class="p">[],</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">nz_v_start</span><span class="p">,</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">nz_v_end</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">int</span> <span class="n">nz_p</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">nz_p_end</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[]</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[]</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">blls_information</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structblls-inform-type"><span class="std std-ref">blls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">);</span>
@@ -1086,17 +1118,17 @@ inform.bad_alloc respectively.</p>
     <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">o</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">Ao_ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">Ao_val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">Ao_val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">x_stat</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[],</span>
-    <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="n">eval_prec</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[],</span>
+    <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">[],</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="n">eval_prec</span>
 <span class="p">)</span></pre>
 <p>Solve the bound-constrained linear least-squares problem when the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> is available.</p>
 <p class="rubric">Parameters:</p>
@@ -1241,22 +1273,22 @@ be symptomatic of a badly scaled problem.</p>
     <span class="kt">int</span><span class="o">*</span> <span class="n">eval_status</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">o</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_l</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x_u</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">x</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">z</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">r</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">g</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">x_stat</span><span class="p">[],</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">v</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">p</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">v</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">p</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">nz_v</span><span class="p">[],</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">nz_v_start</span><span class="p">,</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">nz_v_end</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">int</span> <span class="n">nz_p</span><span class="p">[],</span>
     <span class="kt">int</span> <span class="n">nz_p_end</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[]</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">w</span><span class="p">[]</span>
 <span class="p">)</span></pre>
 <p>Solve the bound-constrained linear least-squares problem when the products of the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors may be computed by the calling program.</p>
 <p class="rubric">Parameters:</p>
@@ -1589,18 +1621,18 @@ control.preconditioner = 2.</p>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-control-type-1a7a1029142a22f3e2a1963c3428276849"><span class="std std-ref">cg_maxit</span></a><span></span><span class="p">;</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-control-type-1a7dceaf3624973df51f1baa0937420517"><span class="std std-ref">arcsearch_max_steps</span></a><span></span><span class="p">;</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span class="std std-ref">sif_file_device</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1adcd20aeaf7042e972ddab56f3867ce70"><span class="std std-ref">weight</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span class="std std-ref">infinity</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a12784541c48f57127781bc1c5937c616"><span class="std std-ref">stop_d</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1abc74ac9bbf6375075f8943aac6ee09e4"><span class="std std-ref">identical_bounds_tol</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1acd5b41623ff5db9a81dc5a8421fe5e2f"><span class="std std-ref">stop_cg_relative</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-structblls-control-type-1ad8ba10f33e624074c203f079afed54f8"><span></span><span class="n">stop_cg_absolute</span></span><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a283df1a15f52c266a119dc0b37262f93"><span class="std std-ref">alpha_max</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a9c84d5b6142e91ff0c56960bcdcf9eb5"><span class="std std-ref">alpha_initial</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a94762277f055ecfb1c48bd439066fb21"><span class="std std-ref">alpha_reduction</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1ac73142611027bffbf7cdb6552704152b"><span class="std std-ref">arcsearch_acceptance_tol</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a6024e0b85e16b28075c69743433267cd"><span class="std std-ref">stabilisation_weight</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a52f14ff3f85e6805f2373eef5d0f3dfd"><span class="std std-ref">cpu_time_limit</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1adcd20aeaf7042e972ddab56f3867ce70"><span class="std std-ref">weight</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span class="std std-ref">infinity</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a12784541c48f57127781bc1c5937c616"><span class="std std-ref">stop_d</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1abc74ac9bbf6375075f8943aac6ee09e4"><span class="std std-ref">identical_bounds_tol</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1acd5b41623ff5db9a81dc5a8421fe5e2f"><span class="std std-ref">stop_cg_relative</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-structblls-control-type-1ad8ba10f33e624074c203f079afed54f8"><span></span><span class="n">stop_cg_absolute</span></span><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a283df1a15f52c266a119dc0b37262f93"><span class="std std-ref">alpha_max</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a9c84d5b6142e91ff0c56960bcdcf9eb5"><span class="std std-ref">alpha_initial</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a94762277f055ecfb1c48bd439066fb21"><span class="std std-ref">alpha_reduction</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1ac73142611027bffbf7cdb6552704152b"><span class="std std-ref">arcsearch_acceptance_tol</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a6024e0b85e16b28075c69743433267cd"><span class="std std-ref">stabilisation_weight</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a52f14ff3f85e6805f2373eef5d0f3dfd"><span class="std std-ref">cpu_time_limit</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structblls-control-type-1ade9a921baa01ea4f50c39b7f640cd416"><span class="std std-ref">direct_subproblem_solve</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structblls-control-type-1abd8ff06ab50d29e781cf407702346a4b"><span class="std std-ref">exact_arc_search</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structblls-control-type-1adc86e2518dfd985256913c727dd2b84a"><span class="std std-ref">advance</span></a><span></span><span class="p">;</span>
@@ -1609,7 +1641,7 @@ control.preconditioner = 2.</p>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structblls-control-type-1aa75b3a16d146c0d7ad57bf9817033843"><span class="std std-ref">generate_sif_file</span></a><span></span><span class="p">;</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structblls-control-type-1aaa95e830b709da79d9790471bab54193"><span class="std std-ref">sif_file_name</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structblls-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span class="std std-ref">prefix</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span class="std std-ref">sbls_control</span></a><span></span><span class="p">;</span>
+    <span class="k">struct</span> <a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span class="std std-ref">sbls_control</span></a><span></span><span class="p">;</span>
     <span class="k">struct</span> <a class="reference internal" href="convert.html#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-control-type-1ad5c7fdb1978f9943554af877e3e1e37b"><span class="std std-ref">convert_control</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
@@ -1648,27 +1680,27 @@ control.preconditioner = 2.</p>
 <p>the maximum number of steps allowed in a piecewise arcsearch (-ve=infini</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span id="index-26"></span><span></span><span class="kt">int</span> <span class="n">sif_file_device</span></pre>
 <p>the unit number to write generated SIF file describing the current probl</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1adcd20aeaf7042e972ddab56f3867ce70"><span id="index-27"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">weight</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1adcd20aeaf7042e972ddab56f3867ce70"><span id="index-27"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">weight</span></pre>
 <p>the value of the non-negative regularization weight sigma, i.e., the quadratic objective function q(x) will be regularized by adding 1/2 weight ||x||^2; any value smaller than zero will be regarded as zero.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-28"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">infinity</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-28"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">infinity</span></pre>
 <p>any bound larger than infinity in modulus will be regarded as infinite</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a12784541c48f57127781bc1c5937c616"><span id="index-29"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stop_d</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a12784541c48f57127781bc1c5937c616"><span id="index-29"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stop_d</span></pre>
 <p>the required accuracy for the dual infeasibility</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1abc74ac9bbf6375075f8943aac6ee09e4"><span id="index-30"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">identical_bounds_tol</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1abc74ac9bbf6375075f8943aac6ee09e4"><span id="index-30"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">identical_bounds_tol</span></pre>
 <p>any pair of constraint bounds (x_l,x_u) that are closer than identical_bounds_tol will be reset to the average of their values</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1acd5b41623ff5db9a81dc5a8421fe5e2f"><span id="index-31"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stop_cg_relative</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1acd5b41623ff5db9a81dc5a8421fe5e2f"><span id="index-31"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stop_cg_relative</span></pre>
 <p>the CG iteration will be stopped as soon as the current norm of the preconditioned gradient is smaller than max( stop_cg_relative * initial preconditioned gradient, stop_cg_absolute)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a283df1a15f52c266a119dc0b37262f93"><span id="index-32"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a283df1a15f52c266a119dc0b37262f93"><span id="index-32"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_max</span></pre>
 <p>the largest permitted arc length during the piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a9c84d5b6142e91ff0c56960bcdcf9eb5"><span id="index-33"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_initial</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a9c84d5b6142e91ff0c56960bcdcf9eb5"><span id="index-33"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_initial</span></pre>
 <p>the initial arc length during the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a94762277f055ecfb1c48bd439066fb21"><span id="index-34"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_reduction</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a94762277f055ecfb1c48bd439066fb21"><span id="index-34"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">alpha_reduction</span></pre>
 <p>the arc length reduction factor for the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1ac73142611027bffbf7cdb6552704152b"><span id="index-35"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">arcsearch_acceptance_tol</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1ac73142611027bffbf7cdb6552704152b"><span id="index-35"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">arcsearch_acceptance_tol</span></pre>
 <p>the required relative reduction during the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a6024e0b85e16b28075c69743433267cd"><span id="index-36"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stabilisation_weight</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a6024e0b85e16b28075c69743433267cd"><span id="index-36"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">stabilisation_weight</span></pre>
 <p>the stabilisation weight added to the search-direction subproblem</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a52f14ff3f85e6805f2373eef5d0f3dfd"><span id="index-37"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">cpu_time_limit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a52f14ff3f85e6805f2373eef5d0f3dfd"><span id="index-37"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">cpu_time_limit</span></pre>
 <p>the maximum CPU time allowed (-ve = no limit)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1ade9a921baa01ea4f50c39b7f640cd416"><span id="index-38"></span><span></span><span class="kt">bool</span> <span class="n">direct_subproblem_solve</span></pre>
 <p>direct_subproblem_solve is true if the least-squares subproblem is to be solved using a matrix factorization, and false if conjugate gradients are to be preferred</p>
@@ -1686,7 +1718,7 @@ control.preconditioner = 2.</p>
 <p>name (max 30 characters) of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-45"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>all output lines will be prefixed by a string (max 30 characters) prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-46"></span><span></span><span class="k">struct</span> <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span> <span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-46"></span><span></span><span class="k">struct</span> <a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span> <span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-1ad5c7fdb1978f9943554af877e3e1e37b"><span id="index-47"></span><span></span><span class="k">struct</span> <a class="reference internal" href="convert.html#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span> <span class="n">convert_control</span></pre>
 <p>control parameters for CONVERT</p>
@@ -1701,14 +1733,14 @@ control.preconditioner = 2.</p>
 <span class="k">struct</span> <span class="n">blls_time_type</span> <span class="p">{</span>
     <span class="c1">// components</span>
 
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a9c5b9155e1665977103d8c32881d9f00"><span class="std std-ref">analyse</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a79e62dbb4cbb6e99d82167e60c703015"><span class="std std-ref">factorize</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a4c971b10c915041b89daa05a29125376"><span class="std std-ref">solve</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a3394e706afb175d930c81c4b86fe8f4b"><span class="std std-ref">clock_analyse</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ad3f0f50628260b90d6cf974e02f86192"><span class="std std-ref">clock_factorize</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1af569df4b8828eb7ac8a05ef1030d1358"><span class="std std-ref">clock_solve</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a9c5b9155e1665977103d8c32881d9f00"><span class="std std-ref">analyse</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a79e62dbb4cbb6e99d82167e60c703015"><span class="std std-ref">factorize</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a4c971b10c915041b89daa05a29125376"><span class="std std-ref">solve</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1a3394e706afb175d930c81c4b86fe8f4b"><span class="std std-ref">clock_analyse</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1ad3f0f50628260b90d6cf974e02f86192"><span class="std std-ref">clock_factorize</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-time-type-1af569df4b8828eb7ac8a05ef1030d1358"><span class="std std-ref">clock_solve</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structblls-time-type">
@@ -1716,21 +1748,21 @@ control.preconditioner = 2.</p>
 <p>time derived type as a C struct</p>
 <section id="id12">
 <h3>components<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-49"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-49"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a9c5b9155e1665977103d8c32881d9f00"><span id="index-50"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a9c5b9155e1665977103d8c32881d9f00"><span id="index-50"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">analyse</span></pre>
 <p>the CPU time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a79e62dbb4cbb6e99d82167e60c703015"><span id="index-51"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a79e62dbb4cbb6e99d82167e60c703015"><span id="index-51"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">factorize</span></pre>
 <p>the CPU time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a4c971b10c915041b89daa05a29125376"><span id="index-52"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a4c971b10c915041b89daa05a29125376"><span id="index-52"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">solve</span></pre>
 <p>the CPU time spent in the linear solution phase</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-53"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-53"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_total</span></pre>
 <p>the total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a3394e706afb175d930c81c4b86fe8f4b"><span id="index-54"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1a3394e706afb175d930c81c4b86fe8f4b"><span id="index-54"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_analyse</span></pre>
 <p>the clock time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ad3f0f50628260b90d6cf974e02f86192"><span id="index-55"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1ad3f0f50628260b90d6cf974e02f86192"><span id="index-55"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_factorize</span></pre>
 <p>the clock time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1af569df4b8828eb7ac8a05ef1030d1358"><span id="index-56"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-1af569df4b8828eb7ac8a05ef1030d1358"><span id="index-56"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_solve</span></pre>
 <p>the clock time spent in the linear solution phase</p>
 </section>
 </section>
@@ -1748,11 +1780,11 @@ control.preconditioner = 2.</p>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span class="std std-ref">factorization_status</span></a><span></span><span class="p">;</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span class="std std-ref">iter</span></a><span></span><span class="p">;</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-structblls-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span class="std std-ref">cg_iter</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span class="std std-ref">obj</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1acb02a4d1ae275a55874bb9897262b1fe"><span class="std std-ref">norm_pg</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span class="std std-ref">obj</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1acb02a4d1ae275a55874bb9897262b1fe"><span class="std std-ref">norm_pg</span></a><span></span><span class="p">;</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structblls-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structblls-time-type"><span class="std std-ref">blls_time_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1ac8d53b198a1597a4a9fe75d4c1191ec0"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span class="std std-ref">sbls_inform</span></a><span></span><span class="p">;</span>
+    <span class="k">struct</span> <a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span class="std std-ref">sbls_inform</span></a><span></span><span class="p">;</span>
     <span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span> <a class="reference internal" href="#doxid-structblls-inform-type-1a7006a98737e58bb90259d7705ef537ae"><span class="std std-ref">convert_inform</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
@@ -1771,15 +1803,15 @@ control.preconditioner = 2.</p>
 <p>number of iterations required</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span id="index-62"></span><span></span><span class="kt">int</span> <span class="n">cg_iter</span></pre>
 <p>number of CG iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-63"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">obj</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-63"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">obj</span></pre>
 <p>current value of the objective function, r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1acb02a4d1ae275a55874bb9897262b1fe"><span id="index-64"></span><a class="reference internal" href="blls_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">norm_pg</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1acb02a4d1ae275a55874bb9897262b1fe"><span id="index-64"></span><a class="reference internal" href="wcp.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">norm_pg</span></pre>
 <p>current value of the Euclidean norm of projected gradient of r(x).</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-65"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>name of array which provoked an allocate failure</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1ac8d53b198a1597a4a9fe75d4c1191ec0"><span id="index-66"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structblls-time-type"><span class="std std-ref">blls_time_type</span></a><span></span> <span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-67"></span><span></span><span class="k">struct</span> <a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span> <span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-67"></span><span></span><span class="k">struct</span> <a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span> <span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-1a7006a98737e58bb90259d7705ef537ae"><span id="index-68"></span><span></span><span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span> <span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>
@@ -1808,22 +1840,18 @@ if the preproccesor variable <code class="docutils literal notranslate"><span cl
 #include &quot;galahad_cfunctions.h&quot;
 #include &quot;galahad_blls.h&quot;
 
-// define max
-
-#define max(a,b)             \
-({                           \
-    __typeof__ (a) _a = (a); \
-    __typeof__ (b) _b = (b); \
-    _a &gt; _b ? _a : _b;       \
-})
+// Define imax
+ipc_ imax(ipc_ a, ipc_ b) {
+    return (a &gt; b) ? a : b;
+};
 
 // Custom userdata struct
 struct userdata_type {
-   real_wp_ scale;
+   rpc_ scale;
 };
 
 // Function prototypes
-int prec( int n, const real_wp_ v[], real_wp_ p[], const void * );
+ipc_ prec( ipc_ n, const rpc_ v[], rpc_ p[], const void * );
 
 int main(void) {
 
@@ -1837,70 +1865,70 @@ int main(void) {
     userdata.scale = 1.0;
 
     // Set problem data
-    int n = 10; // dimension
-    int o = n + 1; // number of residuals
-    int Ao_ne = 2 * n; // sparse Jacobian elements
-    int Ao_dense_ne = o * n; // dense Jacobian elements
+    ipc_ n = 10; // dimension
+    ipc_ o = n + 1; // number of residuals
+    ipc_ Ao_ne = 2 * n; // sparse Jacobian elements
+    ipc_ Ao_dense_ne = o * n; // dense Jacobian elements
     // row-wise storage
-    int Ao_row[Ao_ne]; // row indices,
-    int Ao_col[Ao_ne]; // column indices
-    int Ao_ptr_ne = o+1; // number of row pointers
-    int Ao_ptr[ Ao_ptr_ne];  // row pointers
-    real_wp_ Ao_val[Ao_ne]; // values
-    real_wp_ Ao_dense[Ao_dense_ne]; // dense values
+    ipc_ Ao_row[Ao_ne]; // row indices,
+    ipc_ Ao_col[Ao_ne]; // column indices
+    ipc_ Ao_ptr_ne = o+1; // number of row pointers
+    ipc_ Ao_ptr[ Ao_ptr_ne];  // row pointers
+    rpc_ Ao_val[Ao_ne]; // values
+    rpc_ Ao_dense[Ao_dense_ne]; // dense values
     // column-wise storage
-    int Ao_by_col_row[Ao_ne]; // row indices,
-    int Ao_by_col_ptr_ne = n+1; // number of column pointers
-    int Ao_by_col_ptr[Ao_by_col_ptr_ne];  // column pointers
-    real_wp_ Ao_by_col_val[Ao_ne]; // values
-    real_wp_ Ao_by_col_dense[Ao_dense_ne]; // dense values
-    real_wp_ b[o];  // linear term in the objective
-    real_wp_ x_l[n]; // variable lower bound
-    real_wp_ x_u[n]; // variable upper bound
-    real_wp_ x[n]; // variables
-    real_wp_ z[n]; // dual variables
-    real_wp_ r[o]; // residual
-    real_wp_ g[n]; // gradient
-    real_wp_ w[o]; // weights
+    ipc_ Ao_by_col_row[Ao_ne]; // row indices,
+    ipc_ Ao_by_col_ptr_ne = n+1; // number of column pointers
+    ipc_ Ao_by_col_ptr[Ao_by_col_ptr_ne];  // column pointers
+    rpc_ Ao_by_col_val[Ao_ne]; // values
+    rpc_ Ao_by_col_dense[Ao_dense_ne]; // dense values
+    rpc_ b[o];  // linear term in the objective
+    rpc_ x_l[n]; // variable lower bound
+    rpc_ x_u[n]; // variable upper bound
+    rpc_ x[n]; // variables
+    rpc_ z[n]; // dual variables
+    rpc_ r[o]; // residual
+    rpc_ g[n]; // gradient
+    rpc_ w[o]; // weights
 
     // Set output storage
-    int x_stat[n]; // variable status
+    ipc_ x_stat[n]; // variable status
     char st[3];
-    int i, l, status;
+    ipc_ i, l, status;
 
     x_l[0] = -1.0;
-    for( int i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
+    for( ipc_ i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
     x_u[0] = 1.0;
     x_u[1] = INFINITY;
-    for( int i = 2; i &lt; n; i++) x_u[i] = 2.0;
+    for( ipc_ i = 2; i &lt; n; i++) x_u[i] = 2.0;
 
     //   A = (  I  )  and b = ( i * e )
     //       ( e^T )          ( n + 1 )
 
-    for( int i = 0; i &lt; n; i++) b[i] = i + 1;
+    for( ipc_ i = 0; i &lt; n; i++) b[i] = i + 1;
     b[n] = n+1;
 
     //w[0] = 2.0;
     w[0] = 1.0;
-    for( int i = 1; i &lt; o; i++) w[i] = 1.0;
+    for( ipc_ i = 1; i &lt; o; i++) w[i] = 1.0;
 
     // A by rows
 
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
       Ao_ptr[i] = i;
       Ao_row[i] = i; Ao_col[i] = i; Ao_val[i] = 1.0;
     }
     Ao_ptr[n] = n;
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
       Ao_row[n+i] = n; Ao_col[n+i] = i; Ao_val[n+i] = 1.0;
     }
     Ao_ptr[o] = Ao_ne;
     l = - 1;
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
-      for( int j = 0; j &lt; n; j++)
+      for( ipc_ j = 0; j &lt; n; j++)
       {
         l = l + 1;
         if ( i == j ) {
@@ -1911,7 +1939,7 @@ int main(void) {
         }
       }
     }
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
       l = l + 1;
       Ao_dense[l] = 1.0;
@@ -1920,7 +1948,7 @@ int main(void) {
     // A by columns
 
     l = - 1;
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
       l = l + 1;  Ao_by_col_ptr[j] = l ;
       Ao_by_col_row[l] = j ; Ao_by_col_val[l] = 1.0;
@@ -1929,9 +1957,9 @@ int main(void) {
     }
     Ao_by_col_ptr[n] = Ao_ne;
     l = - 1;
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
-      for( int i = 0; i &lt; n; i++)
+      for( ipc_ i = 0; i &lt; n; i++)
       {
         l = l + 1;
         if ( i == j ) {
@@ -1949,7 +1977,7 @@ int main(void) {
 
     printf(&quot; basic tests of blls storage formats\n\n&quot;);
 
-    for( int d=1; d &lt;= 5; d++){
+    for( ipc_ d=1; d &lt;= 5; d++){
 
         // Initialize BLLS
         blls_initialize( &amp;data, &amp;control, &amp;status );
@@ -1959,8 +1987,8 @@ int main(void) {
         //control.print_level = 1;
 
         // Start from 0
-        for( int i = 0; i &lt; n; i++) x[i] = 0.0;
-        for( int i = 0; i &lt; n; i++) z[i] = 0.0;
+        for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+        for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
         switch(d){
             case 1: // sparse co-ordinate storage
@@ -2011,17 +2039,17 @@ int main(void) {
         blls_information( &amp;data, &amp;inform, &amp;status );
 
         if(inform.status == 0){
-            printf(&quot;%s:%6i iterations. Optimal objective value = %5.2f&quot;
-                   &quot; status = %1i\n&quot;,
+            printf(&quot;%s:%6&quot; i_ipc_ &quot; iterations. Optimal objective value = %5.2f&quot;
+                   &quot; status = %1&quot; i_ipc_ &quot;\n&quot;,
                    st, inform.iter, inform.obj, inform.status);
         }else{
-            printf(&quot;%s: BLLS_solve exit status = %1i\n&quot;, st, inform.status);
+            printf(&quot;%s: BLLS_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
         }
         //printf(&quot;x: &quot;);
-        //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
         //printf(&quot;\n&quot;);
         //printf(&quot;gradient: &quot;);
-        //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
         //printf(&quot;\n&quot;);
 
         // Delete internal workspace
@@ -2031,11 +2059,11 @@ int main(void) {
     printf(&quot;\n tests reverse-communication options\n\n&quot;);
 
     // reverse-communication input/output
-    int on;
-    on = max( o, n );
-    int eval_status, nz_v_start, nz_v_end, nz_p_end;
-    int nz_v[on], nz_p[o], mask[o];
-    real_wp_ v[on], p[on];
+    ipc_ on;
+    on = imax( o, n );
+    ipc_ eval_status, nz_v_start, nz_v_end, nz_p_end;
+    ipc_ nz_v[on], nz_p[o], mask[o];
+    rpc_ v[on], p[on];
 
     nz_p_end = 0;
 
@@ -2047,11 +2075,11 @@ int main(void) {
     // control.print_level = 1;
 
     // Start from 0
-    for( int i = 0; i &lt; n; i++) x[i] = 0.0;
-    for( int i = 0; i &lt; n; i++) z[i] = 0.0;
+    for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+    for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
     strcpy( st, &quot;RC&quot; );
-    for( int i = 0; i &lt; o; i++) mask[i] = 0;
+    for( ipc_ i = 0; i &lt; o; i++) mask[i] = 0;
     blls_import_without_a( &amp;control, &amp;data, &amp;status, n, o ) ;
     while(true){ // reverse-communication loop
         blls_solve_reverse_a_prod( &amp;data, &amp;status, &amp;eval_status, n, o, b,
@@ -2064,23 +2092,23 @@ int main(void) {
             break;
         }else if(status == 2){ // evaluate p = Av
           p[n]=0.0;
-          for( int i = 0; i &lt; n; i++){
+          for( ipc_ i = 0; i &lt; n; i++){
             p[i] = v[i];
             p[n] = p[n] + v[i];
           }
         }else if(status == 3){ // evaluate p = A^Tv
-          for( int i = 0; i &lt; n; i++) p[i] = v[i] + v[n];
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = v[i] + v[n];
         }else if(status == 4){ // evaluate p = Av for sparse v
           p[n]=0.0;
-          for( int i = 0; i &lt; n; i++) p[i] = 0.0;
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = 0.0;
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l];
             p[i] = v[i];
             p[n] = p[n] + v[i];
           }
         }else if(status == 5){ // evaluate p = sparse Av for sparse v
           nz_p_end = 0;
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l];
             if (mask[i] == 0){
               mask[i] = 1;
@@ -2097,16 +2125,16 @@ int main(void) {
               p[n] = p[n] + v[i];
             }
           }
-          for( int l = 0; l &lt; nz_p_end; l++) mask[nz_p[l]] = 0;
+          for( ipc_ l = 0; l &lt; nz_p_end; l++) mask[nz_p[l]] = 0;
         }else if(status == 6){ // evaluate p = sparse A^Tv
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l];
             p[i] = v[i] + v[n];
           }
         }else if(status == 7){ // evaluate p = P^{-}v
-          for( int i = 0; i &lt; n; i++) p[i] = userdata.scale * v[i];
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = userdata.scale * v[i];
         }else{
-            printf(&quot; the value %1i of status should not occur\n&quot;, status);
+            printf(&quot; the value %1&quot; i_ipc_ &quot; of status should not occur\n&quot;, status);
             break;
         }
         eval_status = 0;
@@ -2117,17 +2145,17 @@ int main(void) {
 
     // Print solution details
     if(inform.status == 0){
-        printf(&quot;%s:%6i iterations. Optimal objective value = %5.2f&quot;
-               &quot; status = %1i\n&quot;,
+        printf(&quot;%s:%6&quot; i_ipc_ &quot; iterations. Optimal objective value = %5.2f&quot;
+               &quot; status = %1&quot; i_ipc_ &quot;\n&quot;,
                st, inform.iter, inform.obj, inform.status);
     }else{
-        printf(&quot;%s: BLLS_solve exit status = %1i\n&quot;, st, inform.status);
+        printf(&quot;%s: BLLS_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
     }
     //printf(&quot;x: &quot;);
-    //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
     //printf(&quot;\n&quot;);
     //printf(&quot;gradient: &quot;);
-    //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
     //printf(&quot;\n&quot;);
 
     // Delete internal workspace
@@ -2135,10 +2163,10 @@ int main(void) {
 }
 
 // Apply preconditioner
-int prec( int n, const real_wp_ v[], real_wp_ p[], const void *userdata ){
+ipc_ prec( ipc_ n, const rpc_ v[], rpc_ p[], const void *userdata ){
   struct userdata_type *myuserdata = (struct userdata_type *) userdata;
-  real_wp_ scale = myuserdata-&gt;scale;
-  for( int i = 0; i &lt; n; i++) p[i] = scale * v[i];
+  rpc_ scale = myuserdata-&gt;scale;
+  for( ipc_ i = 0; i &lt; n; i++) p[i] = scale * v[i];
    return 0;
 }
 </pre></div>
@@ -2155,22 +2183,18 @@ the code is available in $GALAHAD/src/blls/C/bllstf.c .</p>
 #include &quot;galahad_cfunctions.h&quot;
 #include &quot;galahad_blls.h&quot;
 
-// define max
-
-#define max(a,b)             \
-({                           \
-    __typeof__ (a) _a = (a); \
-    __typeof__ (b) _b = (b); \
-    _a &gt; _b ? _a : _b;       \
-})
+// Define imax
+ipc_ imax(ipc_ a, ipc_ b) {
+    return (a &gt; b) ? a : b;
+};
 
 // Custom userdata struct
 struct userdata_type {
-   real_wp_ scale;
+   rpc_ scale;
 };
 
 // Function prototypes
-int prec( int n, const real_wp_ v[], real_wp_ p[], const void * );
+ipc_ prec( ipc_ n, const rpc_ v[], rpc_ p[], const void * );
 
 int main(void) {
 
@@ -2184,70 +2208,70 @@ int main(void) {
     userdata.scale = 1.0;
 
     // Set problem data
-    int n = 10; // dimension
-    int o = n + 1; // number of residuals
-    int Ao_ne = 2 * n; // sparse Jacobian elements
-    int Ao_dense_ne = o * n; // dense Jacobian elements
+    ipc_ n = 10; // dimension
+    ipc_ o = n + 1; // number of residuals
+    ipc_ Ao_ne = 2 * n; // sparse Jacobian elements
+    ipc_ Ao_dense_ne = o * n; // dense Jacobian elements
     // row-wise storage
-    int Ao_row[Ao_ne]; // row indices,
-    int Ao_col[Ao_ne]; // column indices
-    int Ao_ptr_ne = o+1; // number of row pointers
-    int Ao_ptr[ Ao_ptr_ne];  // row pointers
-    real_wp_ Ao_val[Ao_ne]; // values
-    real_wp_ Ao_dense[Ao_dense_ne]; // dense values
+    ipc_ Ao_row[Ao_ne]; // row indices,
+    ipc_ Ao_col[Ao_ne]; // column indices
+    ipc_ Ao_ptr_ne = o+1; // number of row pointers
+    ipc_ Ao_ptr[ Ao_ptr_ne];  // row pointers
+    rpc_ Ao_val[Ao_ne]; // values
+    rpc_ Ao_dense[Ao_dense_ne]; // dense values
     // column-wise storage
-    int Ao_by_col_row[Ao_ne]; // row indices,
-    int Ao_by_col_ptr_ne = n+1; // number of column pointers
-    int Ao_by_col_ptr[Ao_by_col_ptr_ne];  // column pointers
-    real_wp_ Ao_by_col_val[Ao_ne]; // values
-    real_wp_ Ao_by_col_dense[Ao_dense_ne]; // dense values
-    real_wp_ b[o];  // linear term in the objective
-    real_wp_ x_l[n]; // variable lower bound
-    real_wp_ x_u[n]; // variable upper bound
-    real_wp_ x[n]; // variables
-    real_wp_ z[n]; // dual variables
-    real_wp_ r[o]; // residual
-    real_wp_ g[n]; // gradient
-    real_wp_ w[o]; // weights
+    ipc_ Ao_by_col_row[Ao_ne]; // row indices,
+    ipc_ Ao_by_col_ptr_ne = n+1; // number of column pointers
+    ipc_ Ao_by_col_ptr[Ao_by_col_ptr_ne];  // column pointers
+    rpc_ Ao_by_col_val[Ao_ne]; // values
+    rpc_ Ao_by_col_dense[Ao_dense_ne]; // dense values
+    rpc_ b[o];  // linear term in the objective
+    rpc_ x_l[n]; // variable lower bound
+    rpc_ x_u[n]; // variable upper bound
+    rpc_ x[n]; // variables
+    rpc_ z[n]; // dual variables
+    rpc_ r[o]; // residual
+    rpc_ g[n]; // gradient
+    rpc_ w[o]; // weights
 
     // Set output storage
-    int x_stat[n]; // variable status
+    ipc_ x_stat[n]; // variable status
     char st[3];
-    int i, l, status;
+    ipc_ i, l, status;
 
     x_l[0] = -1.0;
-    for( int i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
+    for( ipc_ i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
     x_u[0] = 1.0;
     x_u[1] = INFINITY;
-    for( int i = 2; i &lt; n; i++) x_u[i] = 2.0;
+    for( ipc_ i = 2; i &lt; n; i++) x_u[i] = 2.0;
 
     //   A = (  I  )  and b = ( i * e )
     //       ( e^T )          ( n + 1 )
 
-    for( int i = 0; i &lt; n; i++) b[i] = i + 1;
+    for( ipc_ i = 0; i &lt; n; i++) b[i] = i + 1;
     b[n] = n+1;
 
     // w[0] = 2.0;
     w[0] = 1.0;
-    for( int i = 1; i &lt; o; i++) w[i] = 1.0;
+    for( ipc_ i = 1; i &lt; o; i++) w[i] = 1.0;
 
     // A by rows
 
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
       Ao_ptr[i] = i + 1;
       Ao_row[i] = i + 1; Ao_col[i] = i + 1; Ao_val[i] = 1.0;
     }
     Ao_ptr[n] = n + 1;
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
       Ao_row[n+i] = o; Ao_col[n+i] = i + 1; Ao_val[n+i] = 1.0;
     }
     Ao_ptr[o] = Ao_ne + 1;
     l = - 1;
-    for( int i = 0; i &lt; n; i++)
+    for( ipc_ i = 0; i &lt; n; i++)
     {
-      for( int j = 0; j &lt; n; j++)
+      for( ipc_ j = 0; j &lt; n; j++)
       {
         l = l + 1;
         if ( i == j ) {
@@ -2258,7 +2282,7 @@ int main(void) {
         }
       }
     }
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
       l = l + 1;
       Ao_dense[l] = 1.0;
@@ -2267,7 +2291,7 @@ int main(void) {
     // A by columns
 
     l = - 1;
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
       l = l + 1;  Ao_by_col_ptr[j] = l + 1;
       Ao_by_col_row[l] = j + 1; Ao_by_col_val[l] = 1.0;
@@ -2276,9 +2300,9 @@ int main(void) {
     }
     Ao_by_col_ptr[n] = Ao_ne + 1;
     l = - 1;
-    for( int j = 0; j &lt; n; j++)
+    for( ipc_ j = 0; j &lt; n; j++)
     {
-      for( int i = 0; i &lt; n; i++)
+      for( ipc_ i = 0; i &lt; n; i++)
       {
         l = l + 1;
         if ( i == j ) {
@@ -2296,7 +2320,7 @@ int main(void) {
 
     printf(&quot; basic tests of blls storage formats\n\n&quot;);
 
-    for( int d=1; d &lt;= 5; d++){
+    for( ipc_ d=1; d &lt;= 5; d++){
 
         // Initialize BLLS
         blls_initialize( &amp;data, &amp;control, &amp;status );
@@ -2305,8 +2329,8 @@ int main(void) {
         control.f_indexing = true; // fortran sparse matrix indexing
 
         // Start from 0
-        for( int i = 0; i &lt; n; i++) x[i] = 0.0;
-        for( int i = 0; i &lt; n; i++) z[i] = 0.0;
+        for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+        for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
         switch(d){
             case 1: // sparse co-ordinate storage
@@ -2357,17 +2381,17 @@ int main(void) {
         blls_information( &amp;data, &amp;inform, &amp;status );
 
         if(inform.status == 0){
-            printf(&quot;%s:%6i iterations. Optimal objective value = %5.2f&quot;
-                   &quot; status = %1i\n&quot;,
+            printf(&quot;%s:%6&quot; i_ipc_ &quot; iterations. Optimal objective value = %5.2f&quot;
+                   &quot; status = %1&quot; i_ipc_ &quot;\n&quot;,
                    st, inform.iter, inform.obj, inform.status);
         }else{
-            printf(&quot;%s: BLLS_solve exit status = %1i\n&quot;, st, inform.status);
+            printf(&quot;%s: BLLS_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
         }
         //printf(&quot;x: &quot;);
-        //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
         //printf(&quot;\n&quot;);
         //printf(&quot;gradient: &quot;);
-        //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
         //printf(&quot;\n&quot;);
 
         // Delete internal workspace
@@ -2377,11 +2401,11 @@ int main(void) {
     printf(&quot;\n tests reverse-communication options\n\n&quot;);
 
     // reverse-communication input/output
-    int on;
-    on = max( o, n );
-    int eval_status, nz_v_start, nz_v_end, nz_p_end;
-    int nz_v[on], nz_p[o], mask[o];
-    real_wp_ v[on], p[on];
+    ipc_ on;
+    on = imax( o, n );
+    ipc_ eval_status, nz_v_start, nz_v_end, nz_p_end;
+    ipc_ nz_v[on], nz_p[o], mask[o];
+    rpc_ v[on], p[on];
 
     nz_p_end = 0;
 
@@ -2392,11 +2416,11 @@ int main(void) {
     control.f_indexing = true; // fortran sparse matrix indexing
 
     // Start from 0
-    for( int i = 0; i &lt; n; i++) x[i] = 0.0;
-    for( int i = 0; i &lt; n; i++) z[i] = 0.0;
+    for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+    for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
     strcpy( st, &quot;RC&quot; );
-    for( int i = 0; i &lt; o; i++) mask[i] = 0;
+    for( ipc_ i = 0; i &lt; o; i++) mask[i] = 0;
     blls_import_without_a( &amp;control, &amp;data, &amp;status, n, o ) ;
     while(true){ // reverse-communication loop
         blls_solve_reverse_a_prod( &amp;data, &amp;status, &amp;eval_status, n, o, b,
@@ -2409,23 +2433,23 @@ int main(void) {
             break;
         }else if(status == 2){ // evaluate p = Av
           p[n]=0.0;
-          for( int i = 0; i &lt; n; i++){
+          for( ipc_ i = 0; i &lt; n; i++){
             p[i] = v[i];
             p[n] = p[n] + v[i];
           }
         }else if(status == 3){ // evaluate p = A^Tv
-          for( int i = 0; i &lt; n; i++) p[i] = v[i] + v[n];
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = v[i] + v[n];
         }else if(status == 4){ // evaluate p = Av for sparse v
           p[n]=0.0;
-          for( int i = 0; i &lt; n; i++) p[i] = 0.0;
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = 0.0;
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l]-1;
             p[i] = v[i];
             p[n] = p[n] + v[i];
           }
         }else if(status == 5){ // evaluate p = sparse Av for sparse v
           nz_p_end = 0;
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l]-1;
             if (mask[i] == 0){
               mask[i] = 1;
@@ -2442,16 +2466,16 @@ int main(void) {
               p[n] = p[n] + v[i];
             }
           }
-          for( int l = 0; l &lt; nz_p_end; l++) mask[nz_p[l]-1] = 0;
+          for( ipc_ l = 0; l &lt; nz_p_end; l++) mask[nz_p[l]-1] = 0;
         }else if(status == 6){ // evaluate p = sparse A^Tv
-          for( int l = nz_v_start - 1; l &lt; nz_v_end; l++){
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
             i = nz_v[l]-1;
             p[i] = v[i] + v[n];
           }
         }else if(status == 7){ // evaluate p = P^{-}v
-          for( int i = 0; i &lt; n; i++) p[i] = userdata.scale * v[i];
+          for( ipc_ i = 0; i &lt; n; i++) p[i] = userdata.scale * v[i];
         }else{
-            printf(&quot; the value %1i of status should not occur\n&quot;, status);
+            printf(&quot; the value %1&quot; i_ipc_ &quot; of status should not occur\n&quot;, status);
             break;
         }
         eval_status = 0;
@@ -2462,17 +2486,17 @@ int main(void) {
 
     // Print solution details
     if(inform.status == 0){
-        printf(&quot;%s:%6i iterations. Optimal objective value = %5.2f&quot;
-               &quot; status = %1i\n&quot;,
+        printf(&quot;%s:%6&quot; i_ipc_ &quot; iterations. Optimal objective value = %5.2f&quot;
+               &quot; status = %1&quot; i_ipc_ &quot;\n&quot;,
                st, inform.iter, inform.obj, inform.status);
     }else{
-        printf(&quot;%s: BLLS_solve exit status = %1i\n&quot;, st, inform.status);
+        printf(&quot;%s: BLLS_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
     }
     //printf(&quot;x: &quot;);
-    //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
     //printf(&quot;\n&quot;);
     //printf(&quot;gradient: &quot;);
-    //for( int i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
     //printf(&quot;\n&quot;);
 
     // Delete internal workspace
@@ -2480,10 +2504,10 @@ int main(void) {
 }
 
 // Apply preconditioner
-int prec( int n, const real_wp_ v[], real_wp_ p[], const void *userdata ){
+ipc_ prec( ipc_ n, const rpc_ v[], rpc_ p[], const void *userdata ){
   struct userdata_type *myuserdata = (struct userdata_type *) userdata;
-  real_wp_ scale = myuserdata-&gt;scale;
-  for( int i = 0; i &lt; n; i++) p[i] = scale * v[i];
+  rpc_ scale = myuserdata-&gt;scale;
+  for( ipc_ i = 0; i &lt; n; i++) p[i] = scale * v[i];
   return 0;
 }
 </pre></div>
