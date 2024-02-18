@@ -641,52 +641,57 @@
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span class="std std-ref">real_sp_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
-<span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-time-type"><span class="std std-ref">fdc_time_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
-<span class="kt">void</span> <a class="reference internal" href="fdc.html#doxid-galahad-fdc-8h-1a09ed47873fc4b54eac5b10958939459b"><span class="std std-ref">fdc_initialize</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">);</span>
-<span class="kt">void</span> <a class="reference internal" href="fdc.html#doxid-galahad-fdc-8h-1aa5e20e6a3ed015cdd927c1bfc7f00a2a"><span class="std std-ref">fdc_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-fdc-8h-1a09ed47873fc4b54eac5b10958939459b"><span class="std std-ref">fdc_initialize</span></a><span></span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-fdc-8h-1aa5e20e6a3ed015cdd927c1bfc7f00a2a"><span class="std std-ref">fdc_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="fdc.html#doxid-galahad-fdc-8h-1a37ea723b9a1b8799e7971344858d020a"><span class="std std-ref">fdc_find_dependent_rows</span></a><span></span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-fdc-8h-1a37ea723b9a1b8799e7971344858d020a"><span class="std std-ref">fdc_find_dependent_rows</span></a><span></span><span class="p">(</span>
+    <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">A_ne</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">A_col</span><span class="p">[],</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">A_ptr</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">A_val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">n_depen</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">depen</span><span class="p">[]</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">A_val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">n_depen</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">depen</span><span class="p">[]</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="fdc.html#doxid-galahad-fdc-8h-1a9c0167379258891dee32b35e0529b9f9"><span class="std std-ref">fdc_terminate</span></a><span></span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-fdc-8h-1a9c0167379258891dee32b35e0529b9f9"><span class="std std-ref">fdc_terminate</span></a><span></span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
 <span id="details-global"></span><h1>typedefs<a class="headerlink" href="#typedefs" title="Permalink to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">real_sp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_sp_</span></code> is real single precision</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">real_wp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_wp_</span></code> is the real working precision used</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-spc-8h"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">spc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">spc_</span></code> is real single precision</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpc-8h"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">rpc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">rpc_</span></code> is the real working precision used, but may be changed to <code class="docutils literal notranslate"><span class="pre">float</span></code> by
+defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">SINGLE</span></code>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ipc-8h"><span id="index-2"></span><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ipc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">ipc_</span></code> is the default integer word length used, but may be changed to
+<code class="docutils literal notranslate"><span class="pre">int64_t</span></code> by defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">INTEGER_64</span></code>.</p>
 </section>
 <section id="function-calls">
 <h1>function calls<a class="headerlink" href="#function-calls" title="Permalink to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a09ed47873fc4b54eac5b10958939459b"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">fdc_initialize</span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a09ed47873fc4b54eac5b10958939459b"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">fdc_initialize</span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -699,10 +704,10 @@
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -714,7 +719,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1aa5e20e6a3ed015cdd927c1bfc7f00a2a"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">fdc_read_specfile</span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[])</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1aa5e20e6a3ed015cdd927c1bfc7f00a2a"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">fdc_read_specfile</span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[])</span></pre>
 <p>Read the content of a specification file, and assign values
 associated with given keywords to the corresponding control
 parameters. An in-depth discussion of specification files is
@@ -731,27 +736,27 @@ relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a character string containing the name of the specification file</p></td>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a37ea723b9a1b8799e7971344858d020a"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">fdc_find_dependent_rows</span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a37ea723b9a1b8799e7971344858d020a"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">fdc_find_dependent_rows</span><span class="p">(</span>
+    <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">A_ne</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">A_col</span><span class="p">[],</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">A_ptr</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">A_val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="sbls.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">n_depen</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">depen</span><span class="p">[]</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">A_val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">b</span><span class="p">[],</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">n_depen</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">depen</span><span class="p">[]</span>
 <span class="p">)</span></pre>
 <p>Find dependent rows and, if any, check if <span class="math notranslate nohighlight">\(A x = b\)</span> is consistent</p>
 <p class="rubric">Parameters:</p>
@@ -762,7 +767,7 @@ relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -771,7 +776,7 @@ relate to the components of the control structure.</p>
 <td><p>is a struct containing output information (see <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the entry and exit status from the package.</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -831,37 +836,37 @@ inform.factor_status.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type int, that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type int, that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type int, that holds the number of nonzero entries in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of nonzero entries in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type int, that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in a row-wise storage scheme. The nonzeros must be ordered so that those in row i appear directly before those in row i+1, the order within each row is unimportant.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in a row-wise storage scheme. The nonzeros must be ordered so that those in row i appear directly before those in row i+1, the order within each row is unimportant.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type int, that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
-<td><p>is a one-dimensional array of size a_ne and type double, that holds the values of the entries of the <span class="math notranslate nohighlight">\(A\)</span> ordered as in A_col and A_ptr.</p></td>
+<td><p>is a one-dimensional array of size a_ne and type <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a>, that holds the values of the entries of the <span class="math notranslate nohighlight">\(A\)</span> ordered as in A_col and A_ptr.</p></td>
 </tr>
 <tr class="row-odd"><td><p>b</p></td>
-<td><p>is a one-dimensional array of size m and type double, that holds the linear term <span class="math notranslate nohighlight">\(b\)</span> in the constraints. The i-th component of b, i = 0, … , m-1, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
+<td><p>is a one-dimensional array of size m and type <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a>, that holds the linear term <span class="math notranslate nohighlight">\(b\)</span> in the constraints. The i-th component of b, i = 0, … , m-1, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>n_depen</p></td>
-<td><p>is a scalar variable of type int, that holds the number of dependent constraints, if any.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of dependent constraints, if any.</p></td>
 </tr>
 <tr class="row-odd"><td><p>depen</p></td>
-<td><p>is a one-dimensional array of size m and type int, whose first n_depen components contain the indices of dependent constraints.</p></td>
+<td><p>is a one-dimensional array of size m and type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, whose first n_depen components contain the indices of dependent constraints.</p></td>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a9c0167379258891dee32b35e0529b9f9"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">fdc_terminate</span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-fdc-8h-1a9c0167379258891dee32b35e0529b9f9"><span id="index-6"></span><span></span><span class="kt">void</span> <span class="n">fdc_terminate</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
@@ -876,7 +881,7 @@ inform.factor_status.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
 <td><p>is a struct containing output information (see <a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a>)</p></td>

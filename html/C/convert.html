@@ -754,48 +754,53 @@ method employed and other details.</p>
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span class="std std-ref">real_sp_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-time-type"><span class="std std-ref">convert_time_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
 <span class="kt">void</span> <a class="reference internal" href="convert_functions.html#doxid-galahad-convert-8h-1a6b9f4c72cb9c23cae9d4900816685ad6"><span class="std std-ref">convert_initialize</span></a><span></span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="convert_functions.html#doxid-galahad-convert-8h-1aba73d8119f28983efa000812bd970be6"><span class="std std-ref">convert_information</span></a><span></span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="convert_functions.html#doxid-galahad-convert-8h-1a98d7b586061edf44052ae76b80cd2697"><span class="std std-ref">convert_terminate</span></a><span></span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
 <span id="details-global"></span><h2>typedefs<a class="headerlink" href="#typedefs" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">real_sp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_sp_</span></code> is real single precision</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">real_wp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_wp_</span></code> is the real working precision used</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-spc-8h"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">spc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">spc_</span></code> is real single precision</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpc-8h"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">rpc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">rpc_</span></code> is the real working precision used, but may be changed to <code class="docutils literal notranslate"><span class="pre">float</span></code> by
+defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">SINGLE</span></code>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ipc-8h"><span id="index-2"></span><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ipc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">ipc_</span></code> is the default integer word length used, but may be changed to
+<code class="docutils literal notranslate"><span class="pre">int64_t</span></code> by defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">INTEGER_64</span></code>.</p>
 </section>
 <section id="function-calls">
 <h2>function calls<a class="headerlink" href="#function-calls" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1a6b9f4c72cb9c23cae9d4900816685ad6"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">convert_initialize</span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1a6b9f4c72cb9c23cae9d4900816685ad6"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">convert_initialize</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
@@ -812,7 +817,7 @@ method employed and other details.</p>
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -824,10 +829,10 @@ method employed and other details.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1aba73d8119f28983efa000812bd970be6"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">convert_information</span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <span class="kt">int</span><span class="o">*</span> <span class="n">status</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1aba73d8119f28983efa000812bd970be6"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">convert_information</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
@@ -841,10 +846,10 @@ method employed and other details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -856,10 +861,10 @@ method employed and other details.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1a98d7b586061edf44052ae76b80cd2697"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">convert_terminate</span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-convert-8h-1a98d7b586061edf44052ae76b80cd2697"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">convert_terminate</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
@@ -876,7 +881,7 @@ method employed and other details.</p>
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -885,7 +890,7 @@ method employed and other details.</p>
 <h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="convert-control-type-structure">
-<span id="doxid-structconvert-control-type"></span><span id="index-5"></span><h2>convert_control_type structure<a class="headerlink" href="#convert-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structconvert-control-type"></span><span id="index-6"></span><h2>convert_control_type structure<a class="headerlink" href="#convert-control-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_convert.h&gt;</span><span class="cp"></span>
@@ -894,9 +899,9 @@ method employed and other details.</p>
     <span class="c1">// fields</span>
 
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a11614f44ef4d939bdd984953346a7572"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structconvert-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-control-type-1a11614f44ef4d939bdd984953346a7572"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a25a62de4b18dc349803bf5447052d673"><span class="std std-ref">transpose</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a6a46ec71c5b01b04c75c9bf0038d1762"><span class="std std-ref">sum_duplicates</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structconvert-control-type-1a0176c64e4b8b660bf4ac9cdc29b852ce"><span class="std std-ref">order</span></a><span></span><span class="p">;</span>
@@ -910,30 +915,30 @@ method employed and other details.</p>
 <p>control derived type as a C struct</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-6"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-7"></span><span></span><span class="kt">int</span> <span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-8"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-8"></span><span></span><span class="kt">int</span> <span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-9"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-9"></span><span></span><span class="kt">int</span> <span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-10"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a25a62de4b18dc349803bf5447052d673"><span id="index-10"></span><span></span><span class="kt">bool</span> <span class="n">transpose</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a25a62de4b18dc349803bf5447052d673"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">transpose</span></pre>
 <p>obtain the transpose of the input matrix?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a6a46ec71c5b01b04c75c9bf0038d1762"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">sum_duplicates</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a6a46ec71c5b01b04c75c9bf0038d1762"><span id="index-12"></span><span></span><span class="kt">bool</span> <span class="n">sum_duplicates</span></pre>
 <p>add the values of entries in duplicate positions?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a0176c64e4b8b660bf4ac9cdc29b852ce"><span id="index-12"></span><span></span><span class="kt">bool</span> <span class="n">order</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a0176c64e4b8b660bf4ac9cdc29b852ce"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">order</span></pre>
 <p>order row or column data by increasing index?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-14"></span><span></span><span class="kt">bool</span> <span class="n">space_critical</span></pre>
 <p>if space is critical, ensure allocated arrays are no bigger than needed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-14"></span><span></span><span class="kt">bool</span> <span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-15"></span><span></span><span class="kt">bool</span> <span class="n">deallocate_error_fatal</span></pre>
 <p>exit if any deallocation fails</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-15"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-16"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 </section>
 </section>
 <section id="convert-time-type-structure">
-<span id="doxid-structconvert-time-type"></span><span id="index-16"></span><h2>convert_time_type structure<a class="headerlink" href="#convert-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structconvert-time-type"></span><span id="index-17"></span><h2>convert_time_type structure<a class="headerlink" href="#convert-time-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_convert.h&gt;</span><span class="cp"></span>
@@ -941,8 +946,8 @@ method employed and other details.</p>
 <span class="k">struct</span> <span class="n">convert_time_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structconvert-time-type">
@@ -950,14 +955,14 @@ method employed and other details.</p>
 <p>time derived type as a C struct</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-17"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">total</span></pre>
 <p>total cpu time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-19"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_total</span></pre>
 <p>total clock time spent in the package</p>
 </section>
 </section>
 <section id="convert-inform-type-structure">
-<span id="doxid-structconvert-inform-type"></span><span id="index-19"></span><h2>convert_inform_type structure<a class="headerlink" href="#convert-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structconvert-inform-type"></span><span id="index-20"></span><h2>convert_inform_type structure<a class="headerlink" href="#convert-inform-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_convert.h&gt;</span><span class="cp"></span>
@@ -965,11 +970,11 @@ method employed and other details.</p>
 <span class="k">struct</span> <span class="n">convert_inform_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <span class="kt">int</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span class="std std-ref">duplicates</span></a><span></span><span class="p">;</span>
-    <span class="kt">char</span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-time-type"><span class="std std-ref">convert_time_type</span></a><span></span> <a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type-1a9d7e0c775ea50ee659169c07a40bb27d"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span class="std std-ref">duplicates</span></a><span></span><span class="p">;</span>
+    <span class="kt">char</span> <a class="reference internal" href="#doxid-structconvert-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-time-type"><span class="std std-ref">convert_time_type</span></a><span></span> <a class="reference internal" href="#doxid-structconvert-inform-type-1a9d7e0c775ea50ee659169c07a40bb27d"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structconvert-inform-type">
@@ -977,7 +982,7 @@ method employed and other details.</p>
 <p>inform derived type as a C struct</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-20"></span><span></span><span class="kt">int</span> <span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-21"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
 <p>the return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1016,13 +1021,13 @@ relevant string ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’,
 <p>a requested output format is not recognised.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-21"></span><span></span><span class="kt">int</span> <span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-22"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-22"></span><span></span><span class="kt">int</span> <span class="n">duplicates</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-23"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">duplicates</span></pre>
 <p>the number of duplicates found (-ve = not checked).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-23"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-24"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a9d7e0c775ea50ee659169c07a40bb27d"><span id="index-24"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-time-type"><span class="std std-ref">convert_time_type</span></a><span></span> <span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structconvert-inform-type-1a9d7e0c775ea50ee659169c07a40bb27d"><span id="index-25"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structconvert-time-type"><span class="std std-ref">convert_time_type</span></a><span></span> <span class="n">time</span></pre>
 <p>timings (see above).</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

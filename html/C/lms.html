@@ -782,36 +782,41 @@ limited memory methods’’.
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span class="std std-ref">real_sp_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-time-type"><span class="std std-ref">lms_time_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
-<span class="kt">void</span> <a class="reference internal" href="lms_functions.html#doxid-galahad-lms-8h-1a9abec0f0f82474e01c99ce43ab9252f5"><span class="std std-ref">lms_initialize</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">);</span>
-<span class="kt">void</span> <a class="reference internal" href="lms_functions.html#doxid-galahad-lms-8h-1a0c692aa607e53b87fd8a1a8de116f5aa"><span class="std std-ref">lms_information</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <a class="reference internal" href="lms_functions.html#doxid-galahad-lms-8h-1a9abec0f0f82474e01c99ce43ab9252f5"><span class="std std-ref">lms_initialize</span></a><span></span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <a class="reference internal" href="lms_functions.html#doxid-galahad-lms-8h-1a0c692aa607e53b87fd8a1a8de116f5aa"><span class="std std-ref">lms_information</span></a><span></span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="lms_functions.html#doxid-galahad-lms-8h-1a6c036818c80d8e54dcf4d0e7bb341e33"><span class="std std-ref">lms_terminate</span></a><span></span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
 <span id="details-global"></span><h2>typedefs<a class="headerlink" href="#typedefs" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1a3455cab03087949fd428a31cf302f98b"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">real_sp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_sp_</span></code> is real single precision</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">real_wp_</span></pre>
-<p><code class="docutils literal notranslate"><span class="pre">real_wp_</span></code> is the real working precision used</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-spc-8h"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">float</span> <span class="n">spc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">spc_</span></code> is real single precision</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpc-8h"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">rpc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">rpc_</span></code> is the real working precision used, but may be changed to <code class="docutils literal notranslate"><span class="pre">float</span></code> by
+defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">SINGLE</span></code>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ipc-8h"><span id="index-2"></span><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ipc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">ipc_</span></code> is the default integer word length used, but may be changed to
+<code class="docutils literal notranslate"><span class="pre">int64_t</span></code> by defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">INTEGER_64</span></code>.</p>
 </section>
 <section id="function-calls">
 <h2>function calls<a class="headerlink" href="#function-calls" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a9abec0f0f82474e01c99ce43ab9252f5"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">lms_initialize</span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a9abec0f0f82474e01c99ce43ab9252f5"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">lms_initialize</span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -827,7 +832,7 @@ limited memory methods’’.
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -839,7 +844,7 @@ limited memory methods’’.
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a0c692aa607e53b87fd8a1a8de116f5aa"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">lms_information</span><span class="p">(</span><span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a0c692aa607e53b87fd8a1a8de116f5aa"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">lms_information</span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -852,10 +857,10 @@ limited memory methods’’.
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type int, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -867,10 +872,10 @@ limited memory methods’’.
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a6c036818c80d8e54dcf4d0e7bb341e33"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">lms_terminate</span><span class="p">(</span>
-    <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-lms-8h-1a6c036818c80d8e54dcf4d0e7bb341e33"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">lms_terminate</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
@@ -887,7 +892,7 @@ limited memory methods’’.
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -896,7 +901,7 @@ limited memory methods’’.
 <h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="lms-control-type-structure">
-<span id="doxid-structlms-control-type"></span><span id="index-5"></span><h2>lms_control_type structure<a class="headerlink" href="#lms-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structlms-control-type"></span><span id="index-6"></span><h2>lms_control_type structure<a class="headerlink" href="#lms-control-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_lms.h&gt;</span><span class="cp"></span>
@@ -905,11 +910,11 @@ limited memory methods’’.
     <span class="c1">// fields</span>
 
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structlms-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structlms-control-type-1a11614f44ef4d939bdd984953346a7572"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structlms-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structlms-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structlms-control-type-1a43017042f3cf20a8e9b364b4f7be0104"><span class="std std-ref">memory_length</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="#doxid-structlms-control-type-1adcc9a19ad3119f823a658f6a49a24e64"><span class="std std-ref">method</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-control-type-1a11614f44ef4d939bdd984953346a7572"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-control-type-1a43017042f3cf20a8e9b364b4f7be0104"><span class="std std-ref">memory_length</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-control-type-1adcc9a19ad3119f823a658f6a49a24e64"><span class="std std-ref">method</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structlms-control-type-1a1314157047f4fc989c8d680141a32d6b"><span class="std std-ref">any_method</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structlms-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span class="std std-ref">space_critical</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structlms-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span class="std std-ref">deallocate_error_fatal</span></a><span></span><span class="p">;</span>
@@ -921,17 +926,17 @@ limited memory methods’’.
 <p>control derived type as a C struct</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-6"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-7"></span><span></span><span class="kt">int</span> <span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-8"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-8"></span><span></span><span class="kt">int</span> <span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-9"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-9"></span><span></span><span class="kt">int</span> <span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-10"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a43017042f3cf20a8e9b364b4f7be0104"><span id="index-10"></span><span></span><span class="kt">int</span> <span class="n">memory_length</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a43017042f3cf20a8e9b364b4f7be0104"><span id="index-11"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">memory_length</span></pre>
 <p>limited memory length</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1adcc9a19ad3119f823a658f6a49a24e64"><span id="index-11"></span><span></span><span class="kt">int</span> <span class="n">method</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1adcc9a19ad3119f823a658f6a49a24e64"><span id="index-12"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">method</span></pre>
 <p>limited-memory formula required (others may be added in due course):</p>
 <ul class="simple">
 <li><p>1 BFGS (default).</p></li>
@@ -939,18 +944,18 @@ limited memory methods’’.
 <li><p>3 The inverse of the BFGS formula.</p></li>
 <li><p>4 The inverse of the shifted BFGS formula. This should be used instead of .method = 3 whenever a shift is planned.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a1314157047f4fc989c8d680141a32d6b"><span id="index-12"></span><span></span><span class="kt">bool</span> <span class="n">any_method</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a1314157047f4fc989c8d680141a32d6b"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">any_method</span></pre>
 <p>allow space to permit different methods if required (less efficient)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-14"></span><span></span><span class="kt">bool</span> <span class="n">space_critical</span></pre>
 <p>if space is critical, ensure allocated arrays are no bigger than needed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-14"></span><span></span><span class="kt">bool</span> <span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-15"></span><span></span><span class="kt">bool</span> <span class="n">deallocate_error_fatal</span></pre>
 <p>exit if any deallocation fails</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-15"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-16"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 </section>
 </section>
 <section id="lms-time-type-structure">
-<span id="doxid-structlms-time-type"></span><span id="index-16"></span><h2>lms_time_type structure<a class="headerlink" href="#lms-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structlms-time-type"></span><span id="index-17"></span><h2>lms_time_type structure<a class="headerlink" href="#lms-time-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_lms.h&gt;</span><span class="cp"></span>
@@ -958,14 +963,14 @@ limited memory methods’’.
 <span class="k">struct</span> <span class="n">lms_time_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1aaa0ec60bfc99c0ffd31001a4f59036b4"><span class="std std-ref">setup</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1a8ac63de5e103d8e01b0e0f88bb7d230d"><span class="std std-ref">form</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1a9d8129bf5b1a9f21dfcc24dc5c706274"><span class="std std-ref">apply</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ac2bdffea5b986f6acd6b53c4d2344910"><span class="std std-ref">clock_setup</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ab275f3b71b8e019aa35acf43c3fd7473"><span class="std std-ref">clock_form</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1afbbb1dd5fc63c640620fbd32a0481493"><span class="std std-ref">clock_apply</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1aaa0ec60bfc99c0ffd31001a4f59036b4"><span class="std std-ref">setup</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1a8ac63de5e103d8e01b0e0f88bb7d230d"><span class="std std-ref">form</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1a9d8129bf5b1a9f21dfcc24dc5c706274"><span class="std std-ref">apply</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ac2bdffea5b986f6acd6b53c4d2344910"><span class="std std-ref">clock_setup</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1ab275f3b71b8e019aa35acf43c3fd7473"><span class="std std-ref">clock_form</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-time-type-1afbbb1dd5fc63c640620fbd32a0481493"><span class="std std-ref">clock_apply</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structlms-time-type">
@@ -973,26 +978,26 @@ limited memory methods’’.
 <p>time derived type as a C struct</p>
 <section id="id12">
 <h3>components<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-17"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">total</span></pre>
 <p>total cpu time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1aaa0ec60bfc99c0ffd31001a4f59036b4"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">setup</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1aaa0ec60bfc99c0ffd31001a4f59036b4"><span id="index-19"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">setup</span></pre>
 <p>cpu time spent setting up space for the secant approximation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1a8ac63de5e103d8e01b0e0f88bb7d230d"><span id="index-19"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">form</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1a8ac63de5e103d8e01b0e0f88bb7d230d"><span id="index-20"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">form</span></pre>
 <p>cpu time spent updating the secant approximation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1a9d8129bf5b1a9f21dfcc24dc5c706274"><span id="index-20"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">apply</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1a9d8129bf5b1a9f21dfcc24dc5c706274"><span id="index-21"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">apply</span></pre>
 <p>cpu time spent applying the secant approximation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-21"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ae9145eea8e19f9cae77904d3d00c5d1f"><span id="index-22"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_total</span></pre>
 <p>total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ac2bdffea5b986f6acd6b53c4d2344910"><span id="index-22"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_setup</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ac2bdffea5b986f6acd6b53c4d2344910"><span id="index-23"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_setup</span></pre>
 <p>clock time spent setting up space for the secant approximation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ab275f3b71b8e019aa35acf43c3fd7473"><span id="index-23"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_form</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1ab275f3b71b8e019aa35acf43c3fd7473"><span id="index-24"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_form</span></pre>
 <p>clock time spent updating the secant approximation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1afbbb1dd5fc63c640620fbd32a0481493"><span id="index-24"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-precision-8h-1ab82133d435678ff159433d2e50cf295e"><span class="std std-ref">real_wp_</span></a><span></span> <span class="n">clock_apply</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-time-type-1afbbb1dd5fc63c640620fbd32a0481493"><span id="index-25"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_apply</span></pre>
 <p>clock time spent applying the secant approximation</p>
 </section>
 </section>
 <section id="lms-inform-type-structure">
-<span id="doxid-structlms-inform-type"></span><span id="index-25"></span><h2>lms_inform_type structure<a class="headerlink" href="#lms-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structlms-inform-type"></span><span id="index-26"></span><h2>lms_inform_type structure<a class="headerlink" href="#lms-inform-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_lms.h&gt;</span><span class="cp"></span>
@@ -1000,12 +1005,12 @@ limited memory methods’’.
 <span class="k">struct</span> <span class="n">lms_inform_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <span class="kt">int</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
-    <span class="kt">int</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1a9f59b34b1f25fe00023291b678246bcc"><span class="std std-ref">length</span></a><span></span><span class="p">;</span>
-    <span class="kt">bool</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1a40b8937875a7d11bf4825d7f3bce57e8"><span class="std std-ref">updates_skipped</span></a><span></span><span class="p">;</span>
-    <span class="kt">char</span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-time-type"><span class="std std-ref">lms_time_type</span></a><span></span> <a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type-1aa55b2c025b7cbc14de6ba0e1acfdae05"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structlms-inform-type-1a9f59b34b1f25fe00023291b678246bcc"><span class="std std-ref">length</span></a><span></span><span class="p">;</span>
+    <span class="kt">bool</span> <a class="reference internal" href="#doxid-structlms-inform-type-1a40b8937875a7d11bf4825d7f3bce57e8"><span class="std std-ref">updates_skipped</span></a><span></span><span class="p">;</span>
+    <span class="kt">char</span> <a class="reference internal" href="#doxid-structlms-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
+    <span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-time-type"><span class="std std-ref">lms_time_type</span></a><span></span> <a class="reference internal" href="#doxid-structlms-inform-type-1aa55b2c025b7cbc14de6ba0e1acfdae05"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structlms-inform-type">
@@ -1013,7 +1018,7 @@ limited memory methods’’.
 <p>inform derived type as a C struct</p>
 <section id="id14">
 <h3>components<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-26"></span><span></span><span class="kt">int</span> <span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-27"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
 <p>the return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1047,15 +1052,15 @@ lhs_change_method has been called after control.any_method = false was
 specified when calling lhs_setup.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-27"></span><span></span><span class="kt">int</span> <span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-28"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a9f59b34b1f25fe00023291b678246bcc"><span id="index-28"></span><span></span><span class="kt">int</span> <span class="n">length</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a9f59b34b1f25fe00023291b678246bcc"><span id="index-29"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">length</span></pre>
 <p>the number of pairs (s,y) currently used to represent the limited-memory matrix.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a40b8937875a7d11bf4825d7f3bce57e8"><span id="index-29"></span><span></span><span class="kt">bool</span> <span class="n">updates_skipped</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a40b8937875a7d11bf4825d7f3bce57e8"><span id="index-30"></span><span></span><span class="kt">bool</span> <span class="n">updates_skipped</span></pre>
 <p>have (s,y) pairs been skipped when forming the limited-memory matrix?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-30"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-31"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1aa55b2c025b7cbc14de6ba0e1acfdae05"><span id="index-31"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-time-type"><span class="std std-ref">lms_time_type</span></a><span></span> <span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlms-inform-type-1aa55b2c025b7cbc14de6ba0e1acfdae05"><span id="index-32"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structlms-time-type"><span class="std std-ref">lms_time_type</span></a><span></span> <span class="n">time</span></pre>
 <p>timings (see above)</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
