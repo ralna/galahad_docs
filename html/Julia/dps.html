@@ -1306,110 +1306,124 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="c1"># Simple code to test the Julia interface to DPS</span>
 
 <span class="n">using</span> <span class="n">GALAHAD</span>
+<span class="n">using</span> <span class="n">Test</span>
 <span class="n">using</span> <span class="n">Printf</span>
+<span class="n">using</span> <span class="n">Accessors</span>
 
-<span class="c1"># Derived types</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()]</span>
-<span class="n">control</span> <span class="o">=</span> <span class="n">dps_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
-<span class="n">inform</span> <span class="o">=</span> <span class="n">dps_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
+<span class="n">function</span> <span class="n">test_dps</span><span class="p">()</span>
+  <span class="c1"># Derived types</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
 
-<span class="c1"># Set problem data</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># dimension of H</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># dimension of A</span>
-<span class="n">H_ne</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># number of elements of H</span>
-<span class="n">H_dense_ne</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># number of elements of H</span>
-<span class="n">H_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
-<span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">H_val</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
-<span class="n">H_dense</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mf">0.96</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">half_radius</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+  <span class="c1"># Set problem data</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension of H</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># dimension of A</span>
+  <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of elements of H</span>
+  <span class="n">H_dense_ne</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># number of elements of H</span>
+  <span class="n">H_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
+  <span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+  <span class="n">H_val</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
+  <span class="n">H_dense</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="mf">0.96</span>
+  <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.0</span>
+  <span class="n">half_radius</span> <span class="o">=</span> <span class="mf">0.5</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
-<span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-<span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
-<span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">storage_type</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
-  <span class="c1"># Initialize DPS</span>
-  <span class="n">dps_initialize</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
+  <span class="k">for</span> <span class="n">storage_type</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+    <span class="c1"># Initialize DPS</span>
+    <span class="n">dps_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
-  <span class="c1"># Set user-defined control options</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span>  <span class="c1"># fortran sparse matrix indexing</span>
-  <span class="n">solver</span> <span class="o">=</span> <span class="s2">&quot;sytr&quot;</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="p">(</span><span class="mi">115</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Set user-defined control options</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># fortran sparse matrix indexing</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
 
-  <span class="c1"># sparse co-ordinate storage</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">global</span> <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+    <span class="c1"># sparse co-ordinate storage</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+      <span class="c1"># import the control parameters and structural data</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                 <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-    <span class="c1"># import the control parameters and structural data</span>
-    <span class="n">dps_import</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[]</span> <span class="p">)</span>
+      <span class="c1"># solve the problem</span>
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
+                           <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
 
-    <span class="c1"># solve the problem</span>
-    <span class="n">dps_solve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
+    <span class="c1"># sparse by rows</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+      <span class="c1"># import the control parameters and structural data</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                 <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">)</span>
+
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
+                           <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># dense</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+      <span class="c1"># import the control parameters and structural data</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                 <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span>
+                           <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="n">dps_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_solve_problem exit status   = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="c1"># sparse co-ordinate storage</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+      <span class="c1"># solve the problem</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                             <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># sparse by rows</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                             <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># dense</span>
+    <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                             <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="n">dps_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_resolve_problem exit status = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="c1"># @printf(&quot;x: &quot;)</span>
+    <span class="c1"># for i = 1:n+m</span>
+    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
+    <span class="c1"># end</span>
+
+    <span class="c1"># Delete internal workspace</span>
+    <span class="n">dps_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
-  <span class="c1"># sparse by rows</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="k">global</span> <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+  <span class="k">return</span> <span class="mi">0</span>
+<span class="n">end</span>
 
-    <span class="c1"># import the control parameters and structural data</span>
-    <span class="n">dps_import</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span> <span class="p">)</span>
-
-    <span class="n">dps_solve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># dense</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
-    <span class="k">global</span> <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
-
-    <span class="c1"># import the control parameters and structural data</span>
-    <span class="n">dps_import</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">Cint</span><span class="p">[]</span> <span class="p">)</span>
-
-    <span class="n">dps_solve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="n">dps_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_solve_problem exit status   = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">obj</span> <span class="p">)</span>
-
-  <span class="c1"># sparse co-ordinate storage</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">global</span> <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-
-    <span class="c1"># solve the problem</span>
-    <span class="n">dps_resolve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># sparse by rows</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-
-    <span class="n">dps_resolve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># dense</span>
-  <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
-    <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
-
-    <span class="n">dps_resolve_tr_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="n">dps_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_resolve_problem exit status = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">obj</span> <span class="p">)</span>
-
-  <span class="c1"># @printf(&quot;x: &quot;)</span>
-  <span class="c1"># for i = 1:n+m</span>
-  <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-  <span class="c1"># end</span>
-
-  <span class="c1"># Delete internal workspace</span>
-  <span class="n">dps_terminate</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span> <span class="p">)</span>
+<span class="nd">@testset</span> <span class="s2">&quot;DPS&quot;</span> <span class="n">begin</span>
+  <span class="nd">@test</span> <span class="n">test_dps</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>

@@ -620,14 +620,7 @@ i.e., the quadratic objective function <span class="math notranslate nohighlight
 by adding <span class="math notranslate nohighlight">\(1/2 \sigma \|x\|_2^2\)</span>; any value of weight smaller
 than zero will be regarded as zero.</p>
 </dd>
-<dt>infinity<span class="classifier">float</span></dt><dd><p>any bound larger than infinity in modulus will be regarded
-as infinite.</p>
-</dd>
 <dt>stop_d<span class="classifier">float</span></dt><dd><p>the required accuracy for the dual infeasibility.</p>
-</dd>
-<dt>identical_bounds_tol<span class="classifier">float</span></dt><dd><p>any pair of constraint bounds <span class="math notranslate nohighlight">\((x_l,x_u)\)</span> that are closer
-than identical_bounds_tol will be reset to the average of
-their values.</p>
 </dd>
 <dt>stop_cg_relative<span class="classifier">float</span></dt><dd><p>the CG iteration will be stopped as soon as the current
 norm of the preconditioned gradient is smaller than max(
@@ -659,9 +652,6 @@ and False if conjugate gradients are to be preferred.</p>
 </dd>
 <dt>exact_arc_search<span class="classifier">bool</span></dt><dd><p>exact_arc_search is True if an exact arc_search is
 required, and False if an approximation suffices.</p>
-</dd>
-<dt>advance<span class="classifier">bool</span></dt><dd><p>advance is True if an inexact exact arc_search can
-increase steps as well as decrease them.</p>
 </dd>
 <dt>space_critical<span class="classifier">bool</span></dt><dd><p>if space_critical is True, every effort will be made to
 use as little space as possible. This may result in longer
@@ -930,13 +920,6 @@ to factorization.</p>
   <span class="n">Ao_val</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
   <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="c1">#  set the weights</span>
-
-<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-<span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">o</span><span class="p">):</span>
-  <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-
 <span class="c1"># allocate internal data and set default options</span>
 <span class="n">options</span> <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
@@ -958,7 +941,7 @@ to factorization.</p>
 <span class="c1"># find minimizer</span>
 <span class="c1">#print(&quot;\n solve slls&quot;)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
-  <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">solve_ls</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+  <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">solve_ls</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; z:&quot;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>

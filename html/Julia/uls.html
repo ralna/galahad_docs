@@ -1234,154 +1234,185 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="c1"># Simple code to test the Julia interface to ULS</span>
 
 <span class="n">using</span> <span class="n">GALAHAD</span>
+<span class="n">using</span> <span class="n">Test</span>
 <span class="n">using</span> <span class="n">Printf</span>
+<span class="n">using</span> <span class="n">Accessors</span>
 
-<span class="c1"># Function maxabsarray</span>
-<span class="n">maxabsarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="n">maximum</span><span class="p">(</span><span class="nb">abs</span><span class="o">.</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">function</span> <span class="n">test_uls</span><span class="p">()</span>
+  <span class="n">maxabsarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="n">maximum</span><span class="p">(</span><span class="nb">abs</span><span class="o">.</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 
-<span class="c1"># Derived types</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()]</span>
-<span class="n">control</span> <span class="o">=</span> <span class="n">uls_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
-<span class="n">inform</span> <span class="o">=</span> <span class="n">uls_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
+  <span class="c1"># Derived types</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">uls_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">uls_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
 
-<span class="c1"># Set problem data</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># column dimension of A</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># column dimension of A</span>
-<span class="n">ne</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># number of entries of A</span>
-<span class="n">dense_ne</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># number of elements of A as a dense matrix</span>
-<span class="n">row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices</span>
-<span class="n">col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># column indices</span>
-<span class="n">ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># pointers to indices</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
-<span class="n">dense</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span>
-                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
-                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">rhs</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">33.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
-<span class="n">rhst</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">]</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">error</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="c1"># Set problem data</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># column dimension of A</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># column dimension of A</span>
+  <span class="n">ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># number of entries of A</span>
+  <span class="n">dense_ne</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># number of elements of A as a dense matrix</span>
+  <span class="n">row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices</span>
+  <span class="n">col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># pointers to indices</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
+  <span class="n">dense</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+  <span class="n">rhs</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">33.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
+  <span class="n">rhst</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">]</span>
+  <span class="n">sol</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">error</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">good_x</span> <span class="o">=</span> <span class="n">eps</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="n">good_x</span> <span class="o">=</span> <span class="n">eps</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; storage  RHS   refine   RHST  refine</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; storage  RHS   refine   RHST  refine</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+    <span class="c1"># Initialize ULS - use the gls solver</span>
+    <span class="n">uls_initialize</span><span class="p">(</span><span class="s2">&quot;getr&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
-  <span class="c1"># Initialize ULS - use the gls solver</span>
-  <span class="n">uls_initialize</span><span class="p">(</span> <span class="s2">&quot;getr&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
+    <span class="c1"># Set user-defined control options</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
 
-  <span class="c1"># Set user-defined control options</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span>  <span class="c1"># Fortran sparse matrix indexing</span>
-
-  <span class="c1"># sparse co-ordinate storage</span>
-  <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; coordinate &quot;</span><span class="p">)</span>
-    <span class="n">uls_factorize_matrix</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                          <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[]</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># sparse by rows</span>
-  <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; sparse by rows &quot;</span><span class="p">)</span>
-    <span class="n">uls_factorize_matrix</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                          <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">col</span><span class="p">,</span> <span class="n">ptr</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># dense</span>
-  <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; dense  &quot;</span><span class="p">)</span>
-    <span class="n">uls_factorize_matrix</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                          <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">,</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">Cint</span><span class="p">[],</span> <span class="n">Cint</span><span class="p">[]</span> <span class="p">)</span>
-  <span class="n">end</span>
-
-  <span class="c1"># Set right-hand side and solve the system Ax = b</span>
-  <span class="n">x</span> <span class="o">.=</span> <span class="n">rhs</span>
-  <span class="n">trans</span> <span class="o">=</span> <span class="n">false</span>
-  <span class="n">uls_solve_system</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span> <span class="p">)</span>
-  <span class="n">uls_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-
-  <span class="k">if</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">error</span> <span class="o">.=</span>  <span class="n">x</span> <span class="o">.-</span> <span class="n">sol</span>
-    <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   ok  &quot;</span><span class="p">)</span>
-    <span class="k">else</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">)</span>
+    <span class="c1"># sparse co-ordinate storage</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; coordinate &quot;</span><span class="p">)</span>
+      <span class="n">uls_factorize_matrix</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                           <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
     <span class="n">end</span>
-  <span class="k">else</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
-  <span class="n">end</span>
 
-  <span class="c1"># @printf(&quot;sol: &quot;)</span>
-  <span class="c1"># for i = 1:n</span>
-  <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-  <span class="c1"># end</span>
-
-  <span class="c1"># resolve, this time using iterative refinement</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">uls_reset_control</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-  <span class="n">x</span> <span class="o">.=</span> <span class="n">rhs</span>
-  <span class="n">uls_solve_system</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span> <span class="p">)</span>
-  <span class="n">uls_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-
-  <span class="k">if</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">error</span> <span class="o">.=</span> <span class="n">x</span> <span class="o">.-</span> <span class="n">sol</span>
-    <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;ok  &quot;</span><span class="p">)</span>
-    <span class="k">else</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">)</span>
+    <span class="c1"># sparse by rows</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; sparse by rows &quot;</span><span class="p">)</span>
+      <span class="n">uls_factorize_matrix</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                           <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">ptr</span><span class="p">)</span>
     <span class="n">end</span>
-  <span class="k">else</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
-  <span class="n">end</span>
 
-  <span class="c1"># Set right-hand side and solve the system Aᵀx = b</span>
-  <span class="n">x</span> <span class="o">.=</span> <span class="n">rhst</span>
-  <span class="n">trans</span> <span class="o">=</span> <span class="n">true</span>
-  <span class="n">uls_solve_system</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span> <span class="p">)</span>
-  <span class="n">uls_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-
-  <span class="k">if</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">error</span> <span class="o">.=</span> <span class="n">x</span> <span class="o">.-</span> <span class="n">sol</span>
-    <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   ok  &quot;</span><span class="p">)</span>
-    <span class="k">else</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">)</span>
+    <span class="c1"># dense</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; dense  &quot;</span><span class="p">)</span>
+      <span class="n">uls_factorize_matrix</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                           <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
     <span class="n">end</span>
-  <span class="k">else</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
-  <span class="n">end</span>
 
-  <span class="c1"># @printf(&quot;sol: &quot;)</span>
-  <span class="c1"># for i = 1:n</span>
-  <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-  <span class="c1"># end</span>
-
-  <span class="c1"># resolve, this time using iterative refinement</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">uls_reset_control</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-  <span class="n">x</span> <span class="o">.=</span> <span class="n">rhst</span>
-  <span class="n">uls_solve_system</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span> <span class="p">)</span>
-  <span class="n">uls_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-
-  <span class="k">if</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">error</span> <span class="o">.=</span> <span class="n">x</span> <span class="o">.-</span> <span class="n">sol</span>
-    <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;ok  &quot;</span><span class="p">)</span>
-    <span class="k">else</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">)</span>
+    <span class="c1"># Set right-hand side and solve the system A x = b</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">end</span>
-  <span class="k">else</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="n">uls_solve_system</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
+    <span class="n">uls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+        <span class="n">error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">end</span>
+      <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   ok  &quot;</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">)</span>
+      <span class="n">end</span>
+    <span class="k">else</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># @printf(&quot;sol: &quot;)</span>
+    <span class="c1"># for i = 1:n</span>
+    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
+    <span class="c1"># end</span>
+
+    <span class="c1"># resolve, this time using iterative refinement</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">uls_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">end</span>
+
+    <span class="n">uls_solve_system</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
+    <span class="n">uls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+        <span class="n">error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">end</span>
+      <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;ok  &quot;</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">)</span>
+      <span class="n">end</span>
+    <span class="k">else</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># Set right-hand side and solve the system A^T x = b</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">end</span>
+
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="n">uls_solve_system</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
+    <span class="n">uls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+        <span class="n">error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">end</span>
+      <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   ok  &quot;</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">)</span>
+      <span class="n">end</span>
+    <span class="k">else</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># @printf(&quot;sol: &quot;)</span>
+    <span class="c1"># for i = 1:n</span>
+    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
+    <span class="c1"># end</span>
+
+    <span class="c1"># resolve, this time using iterative refinement</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">uls_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">end</span>
+
+    <span class="n">uls_solve_system</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
+    <span class="n">uls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+        <span class="n">error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">end</span>
+      <span class="n">norm_residual</span> <span class="o">=</span> <span class="n">maxabsarray</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">norm_residual</span> <span class="o">&lt;</span> <span class="n">good_x</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;ok  &quot;</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">)</span>
+      <span class="n">end</span>
+    <span class="k">else</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># Delete internal workspace</span>
+    <span class="n">uls_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="n">end</span>
 
-  <span class="c1"># Delete internal workspace</span>
-  <span class="n">uls_terminate</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span> <span class="p">)</span>
+  <span class="k">return</span> <span class="mi">0</span>
+<span class="n">end</span>
+
+<span class="nd">@testset</span> <span class="s2">&quot;ULS&quot;</span> <span class="n">begin</span>
+  <span class="nd">@test</span> <span class="n">test_uls</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>

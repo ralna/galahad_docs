@@ -420,7 +420,8 @@ b_{i,j} s_j^{(k)} - y_i^{(k)} \right]^2,\]</div>
 has a unique minimizer. Since this requires that there are at least
 as many <span class="math notranslate nohighlight">\((s^{(k)}, y^{(k)})\)</span> pairs as the maximum number of nonzeros
 in any row, this may be prohibitive in some cases. We might then be content
-with a minimum-norm (under-determined) least-squares solution. Or, we may
+with a minimum-norm (under-determined) least-squares solution; each row
+may then be processed in parallel. Or, we may
 take advantage of the symmetry of the Hessian, and note that if we
 have already found the values in row <span class="math notranslate nohighlight">\(j\)</span>, then the value <span class="math notranslate nohighlight">\(b_{i,j} = b_{j,i}\)</span>
 in (1) is known before we process row <span class="math notranslate nohighlight">\(i\)</span>. Thus by ordering the rows
@@ -445,9 +446,15 @@ is in block form
 \[\begin{split}B = \begin{pmatrix} B_{11} &amp; B_{12} \\ B^T_{12} &amp; B_{22}\end{pmatrix},\end{split}\]</div>
 </p>
 <p>the <span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> rows are processed without regard
-for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>, and finally
-the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed either with the option of exploiting
-symmetry. More details of the precise algorithms (Algorithms 2.1–2.5)
+for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>,
+and finally
+the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed knowing <span class="math notranslate nohighlight">\(B^T_{12}\)</span>
+again without respecting symmetry. The rows in blocks
+<span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> and <span class="math notranslate nohighlight">\(B_{22}\)</span> may be computed in parallel.
+It is also possible to generalise this so that <span class="math notranslate nohighlight">\(B\)</span> is decomposed into
+<span class="math notranslate nohighlight">\(r\)</span> blocks, and the blocks processed one at a time recursively using the
+symmetry from previos rows.
+More details of the precise algorithms (Algorithms 2.1–2.5)
 are given in the reference below. The linear least-squares problems (1)
 themselves are solved by a choice of LAPACK packages.</p>
 </section>
@@ -457,7 +464,7 @@ themselves are solved by a choice of LAPACK packages.</p>
 <blockquote>
 <div><p>J. M. Fowkes, N. I. M. Gould and J. A. Scott,
 “Approximating large-scale Hessians using secant equations”.
-Technical Report TR-2023, Rutherford Appleton Laboratory.</p>
+Preprint TR-2024-001, Rutherford Appleton Laboratory.</p>
 </div></blockquote>
 </section>
 

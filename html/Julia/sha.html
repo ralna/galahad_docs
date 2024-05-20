@@ -493,7 +493,8 @@ b_{i,j} s_j^{(k)} - y_i^{(k)} \right]^2,\]</div>
 has a unique minimizer. Since this requires that there are at least
 as many <span class="math notranslate nohighlight">\((s^{(k)}, y^{(k)})\)</span> pairs as the maximum number of nonzeros
 in any row, this may be prohibitive in some cases. We might then be content
-with a minimum-norm (under-determined) least-squares solution. Or, we may
+with a minimum-norm (under-determined) least-squares solution; each row
+may then be processed in parallel. Or, we may
 take advantage of the symmetry of the Hessian, and note that if we
 have already found the values in row <span class="math notranslate nohighlight">\(j\)</span>, then the value <span class="math notranslate nohighlight">\(b_{i,j} = b_{j,i}\)</span>
 in (1) is known before we process row <span class="math notranslate nohighlight">\(i\)</span>. Thus by ordering the rows
@@ -518,9 +519,15 @@ is in block form
 \[\begin{split}B = \begin{pmatrix} B_{11} &amp; B_{12} \\ B^T_{12} &amp; B_{22}\end{pmatrix},\end{split}\]</div>
 </p>
 <p>the <span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> rows are processed without regard
-for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>, and finally
-the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed either with the option of exploiting
-symmetry. More details of the precise algorithms (Algorithms 2.1–2.5)
+for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>,
+and finally
+the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed knowing <span class="math notranslate nohighlight">\(B^T_{12}\)</span>
+again without respecting symmetry. The rows in blocks
+<span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> and <span class="math notranslate nohighlight">\(B_{22}\)</span> may be computed in parallel.
+It is also possible to generalise this so that <span class="math notranslate nohighlight">\(B\)</span> is decomposed into
+<span class="math notranslate nohighlight">\(r\)</span> blocks, and the blocks processed one at a time recursively using the
+symmetry from previos rows.
+More details of the precise algorithms (Algorithms 2.1–2.5)
 are given in the reference below. The linear least-squares problems (1)
 themselves are solved by a choice of LAPACK packages.</p>
 </section>
@@ -530,7 +537,7 @@ themselves are solved by a choice of LAPACK packages.</p>
 <blockquote>
 <div><p>J. M. Fowkes, N. I. M. Gould and J. A. Scott,
 “Approximating large-scale Hessians using secant equations”.
-Technical Report TR-2023, Rutherford Appleton Laboratory.</p>
+Preprint TR-2024-001, Rutherford Appleton Laboratory.</p>
 </div></blockquote>
 <div class="toctree-wrapper compound">
 </div>
@@ -559,7 +566,7 @@ are available with T as Float32.</p>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
 <td><p>is a structure containing control information (see
-<a class="reference internal" href="#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_control_type.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -594,7 +601,7 @@ keywords relate to the components of the control structure.</p>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
 <td><p>is a structure containing control information (see
-<a class="reference internal" href="#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_control_type.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that
@@ -615,7 +622,7 @@ used when estimating its values.</p>
 <tr class="row-odd"><td><p>control</p></td>
 <td><p>is a structure whose members provide control paramters
 for the remaining prcedures (see
-<a class="reference internal" href="#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_control_type.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -627,6 +634,13 @@ status from the package.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The import and analysis were conducted successfully.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>1</strong></dt><dd><p>Insufficient data pairs <span class="math notranslate nohighlight">\((s_i,y_i)\)</span> have been provided,
+as m is too small. The returned <span class="math notranslate nohighlight">\(B\)</span> is likely not fully
+accurate.</p>
 </dd>
 </dl>
 </li>
@@ -813,7 +827,7 @@ order should be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
 <td><p>is a structure containing output information (see
-<a class="reference internal" href="#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_inform_type.html#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -844,11 +858,11 @@ status from the package. Possible values are
 </tr>
 <tr class="row-even"><td><p>control</p></td>
 <td><p>is a structure containing control information (see
-<a class="reference internal" href="#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_control_type.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
 <td><p>is a structure containing output information (see
-<a class="reference internal" href="#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a>)</p></td>
+<a class="reference internal" href="struct_sha_inform_type.html#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -867,8 +881,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">approximation_algorithm</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">dense_linear_solver</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_sparse_degree</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">extra_differences</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
+<span class="w">      </span><span class="n">sparse_row</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
+<span class="w">      </span><span class="n">recursion_max</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
+<span class="w">      </span><span class="n">recursion_entries_required</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span></pre>
@@ -889,10 +905,10 @@ status from the package. Possible values are
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1af04b00dd3ef8468bec194d10ee43f8b7"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">approximation_algorithm</span></pre>
 <p>which approximation algorithm should be used?</p>
 <ul class="simple">
-<li><p>0 : unsymmetric (alg 2.1 in paper)</p></li>
-<li><p>1 : symmetric (alg 2.2 in paper)</p></li>
-<li><p>2 : composite (alg 2.3 in paper)</p></li>
-<li><p>3 : composite 2 (alg 2.2/3 in paper)</p></li>
+<li><p>1 : unsymmetric, parallel (Alg 2.1 in paper)</p></li>
+<li><p>2 : symmetric (Alg 2.2 in pape)</p></li>
+<li><p>3 : composite, parallel (Alg 2.3 in paper)</p></li>
+<li><p>4 : composite, block parallel (Alg 2.4 in paper)</p></li>
 </ul>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a59b9cb51e0d19a10a7714b4582a883b1"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dense_linear_solver</span></pre>
 <p>which dense linear equation solver should be used?</p>
@@ -902,20 +918,25 @@ status from the package. Possible values are
 <li><p>3 : singular-value decomposition</p></li>
 <li><p>4 : singular-value decomposition with divide-and-conquer</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f0"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_sparse_degree</span></pre>
-<p>the maximum sparse degree if the combined version is used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a16e4be90c05808f00af594b1feabadbe"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">extra_differences</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a16e4be90c05808f00af594b1feabadbe"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">extra_differences</span></pre>
 <p>if available use an addition extra_differences differences</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-15"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f0"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sparse_row</span></pre>
+<p>a row is considered sparse if it has no more than .sparse_row entries</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f1"><span id="index-15"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_max</span></pre>
+<p>limit on the maximum number of levels of recursion (Alg. 2.4)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f2"><span id="index-16"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_entries_required</span></pre>
+<p>the minimum number of entries in a reduced row that are required
+if a further level of recuresion is allowed (Alg. 2.4)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-17"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if space is critical, ensure allocated arrays are no bigger than needed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-16"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-18"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>exit if any deallocation fails</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-17"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-19"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 </section>
 </section>
 <section id="sha-inform-type-structure">
-<span id="doxid-structsha-inform-type"></span><span id="index-18"></span><h2>sha_inform_type structure<a class="headerlink" href="#sha-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structsha-inform-type"></span><span id="index-20"></span><h2>sha_inform_type structure<a class="headerlink" href="#sha-inform-type-structure" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sha_inform_type</span><span class="w"></span>
@@ -924,6 +945,7 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">max_degree</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">differences_needed</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">max_reduced_degree</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
+<span class="w">      </span><span class="n">approximation_algorith_used</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">bad_row</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span></pre>
 </section>
@@ -932,21 +954,21 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See SHA_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a8eabc621540d71c2a7e3076d6c3826bc"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_degree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a8eabc621540d71c2a7e3076d6c3826bc"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_degree</span></pre>
 <p>the maximum degree in the adgacency graph.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a0"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">approximation_algorithm_used</span></pre>
-<p>the approximation algorithm actually used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a6"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">differences_needed</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a6"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">differences_needed</span></pre>
 <p>the number of differences that will be needed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a389835dfe2e9309431892a98be9beb2c"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_reduced_degree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a389835dfe2e9309431892a98be9beb2c"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_reduced_degree</span></pre>
 <p>the maximum reduced degree in the adgacency graph.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1ab9c826769c483d92749a2bad8b0b972b"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">bad_row</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a0"><span id="index-26"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">approximation_algorithm_used</span></pre>
+<p>the approximation algorithm actually used</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1ab9c826769c483d92749a2bad8b0b972b"><span id="index-27"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">bad_row</span></pre>
 <p>a failure occured when forming the bad_row-th row (0 = no failure).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-26"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-28"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

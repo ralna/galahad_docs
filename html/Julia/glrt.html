@@ -526,12 +526,12 @@ optimization. Part {I}: motivation, convergence and numerical results’’.
 <p>To solve a given problem, functions from the glrt package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a3a086b68a942ba1049f1d6a1b4724d32"><span class="std std-ref">glrt_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a4a436dfac6a63cf991cd629b3ed0e725"><span class="std std-ref">glrt_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a722a069ab53a2f47dae17d01d6b505a1"><span class="std std-ref">glrt_import_control</span></a> - import control parameters prior to solution</p></li>
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a3570dffe8910d5f3cb86020a65566c8d"><span class="std std-ref">glrt_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a107fe137aba04a93fdbcbb0b9e768812"><span class="std std-ref">glrt_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a3a086b68a942ba1049f1d6a1b4724d32"><span class="std std-ref">glrt_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a4a436dfac6a63cf991cd629b3ed0e725"><span class="std std-ref">glrt_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a722a069ab53a2f47dae17d01d6b505a1"><span class="std std-ref">glrt_import_control</span></a> - import control parameters prior to solution</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a3570dffe8910d5f3cb86020a65566c8d"><span class="std std-ref">glrt_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a107fe137aba04a93fdbcbb0b9e768812"><span class="std std-ref">glrt_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-glrt-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -559,7 +559,7 @@ are available with T as Float32.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -593,7 +593,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -610,7 +610,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -759,7 +759,7 @@ infinity</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_glrt_inform_type.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -789,10 +789,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_glrt_inform_type.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -905,7 +905,7 @@ status from the package. Possible values are
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-29"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
-<p>return status. See <a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> for details</p>
+<p>return status. See <a class="reference internal" href="#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-30"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-31"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
@@ -937,91 +937,104 @@ status from the package. Possible values are
 <span id="doxid-index-glrt-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Permalink to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a regularization
 subproblem; the code is available in $GALAHAD/src/glrt/Julia/test_glrt.jl .</p>
-<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_glrt.jl</span>
-<span class="c1"># Simple code to test the Julia interface to GLRT</span>
+<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span># test_glrt.jl
+# Simple code to test the Julia interface to GLRT
 
-<span class="n">using</span> <span class="n">GALAHAD</span>
-<span class="n">using</span> <span class="n">Printf</span>
+using GALAHAD
+using Test
+using Printf
+using Accessors
 
-<span class="c1"># Derived types</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()]</span>
-<span class="n">control</span> <span class="o">=</span> <span class="n">glrt_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
-<span class="n">inform</span> <span class="o">=</span> <span class="n">glrt_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}()</span>
+function test_glrt()
+  # Derived types
+  data = Ref{Ptr{Cvoid}}()
+  control = Ref{glrt_control_type{Float64}}()
+  inform = Ref{glrt_inform_type{Float64}}()
 
-<span class="c1"># Set problem data</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># dimension</span>
+  # Set problem data
+  n = 100 # dimension
 
-<span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-<span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">power</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">vector</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">h_vector</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  status = Ref{Cint}()
+  weight = Ref{Float64}()
+  power = 3.0
+  x = zeros(Float64, n)
+  r = zeros(Float64, n)
+  vector = zeros(Float64, n)
+  h_vector = zeros(Float64, n)
 
-<span class="c1"># Initialize glrt</span>
-<span class="n">glrt_initialize</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
+  # Initialize glrt
+  glrt_initialize(data, control, status)
 
-<span class="c1"># use a unit M ?</span>
-<span class="k">for</span> <span class="n">unit_m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span>
-  <span class="k">if</span> <span class="n">unit_m</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">control</span><span class="o">.</span><span class="n">unitm</span> <span class="o">=</span> <span class="n">false</span>
-  <span class="k">else</span>
-    <span class="n">control</span><span class="o">.</span><span class="n">unitm</span> <span class="o">=</span> <span class="n">true</span>
-  <span class="n">end</span>
+  # use a unit M ?
+  for unit_m in 0:1
+    if unit_m == 0
+      @reset control[].unitm = false
+    else
+      @reset control[].unitm = true
+    end
 
-  <span class="n">glrt_import_control</span><span class="p">(</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
+    glrt_import_control(control, data, status)
 
-  <span class="c1"># resolve with a larger weight ?</span>
-  <span class="k">for</span> <span class="n">new_weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">new_weight</span> <span class="o">==</span> <span class="mi">0</span>
-      <span class="k">global</span> <span class="n">weight</span> <span class="o">=</span> <span class="mf">1.0</span>
-      <span class="n">status</span><span class="p">[]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">else</span>
-      <span class="k">global</span> <span class="n">weight</span> <span class="o">=</span> <span class="mf">10.0</span>
-      <span class="n">status</span><span class="p">[]</span> <span class="o">=</span> <span class="mi">6</span>
-    <span class="n">end</span>
+    # resolve with a larger weight ?
+    for new_weight in 0:1
+      if new_weight == 0
+        weight[] = 1.0
+        status[] = 1
+      else
+        weight[] = 10.0
+        status[] = 6
+      end
 
-    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-      <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">end</span>
+      for i in 1:n
+        r[i] = 1.0
+      end
 
-    <span class="c1"># iteration loop to find the minimizer</span>
-    <span class="k">while</span> <span class="n">true</span>  <span class="c1"># reverse-communication loop</span>
-      <span class="n">glrt_solve_problem</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vector</span> <span class="p">)</span>
-      <span class="k">if</span> <span class="n">status</span><span class="p">[]</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c1"># successful termination</span>
-        <span class="k">break</span>
-      <span class="n">elseif</span> <span class="n">status</span><span class="p">[]</span> <span class="o">&lt;</span> <span class="mi">0</span>  <span class="c1"># error exit</span>
-        <span class="n">error</span><span class="p">(</span><span class="s2">&quot;GLRT -- status = $(status[])&quot;</span><span class="p">)</span>
-      <span class="n">elseif</span> <span class="n">status</span><span class="p">[]</span> <span class="o">==</span> <span class="mi">2</span>  <span class="c1"># form the preconditioned vector</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-          <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mf">2.0</span>
-        <span class="n">end</span>
-      <span class="n">elseif</span> <span class="n">status</span><span class="p">[]</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># form the Hessian-vector product</span>
-        <span class="n">h_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="mf">2.0</span> <span class="o">*</span> <span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
-          <span class="n">h_vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">end</span>
-        <span class="n">h_vector</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">vector</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-          <span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h_vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">end</span>
-      <span class="n">elseif</span> <span class="n">status</span><span class="p">[]</span> <span class="o">==</span> <span class="mi">4</span>  <span class="c1"># restart</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-          <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="n">end</span>
-      <span class="k">else</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; the value </span><span class="si">%1i</span><span class="s2"> of status should not occur</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-      <span class="n">end</span>
-    <span class="n">end</span>
+      # iteration loop to find the minimizer
+      terminated = false
+      while !terminated # reverse-communication loop
+        glrt_solve_problem(data, status, n, power, weight[], x, r, vector)
+        if status[] == 0 # successful termination
+          terminated = true
+        elseif status[] &lt; 0 # error exit
+          terminated = true
+        elseif status[] == 2 # form the preconditioned vector
+          for i in 1:n
+            vector[i] = vector[i] / 2.0
+          end
+        elseif status[] == 3 # form the Hessian-vector product
+          h_vector[1] = 2.0 * vector[1] + vector[2]
+          for i in 2:(n - 1)
+            h_vector[i] = vector[i - 1] + 2.0 * vector[i] + vector[i + 1]
+          end
+          h_vector[n] = vector[n - 1] + 2.0 * vector[n]
+          for i in 1:n
+            vector[i] = h_vector[i]
+          end
+        elseif status[] == 4 # restart
+          for i in 1:n
+            r[i] = 1.0
+          end
+        else
+          @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+        end
+      end
 
-    <span class="n">glrt_information</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span> <span class="p">)</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;MR = </span><span class="si">%1i%1i</span><span class="s2"> glrt_solve_problem exit status = </span><span class="si">%i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">unit_m</span><span class="p">,</span> <span class="n">new_weight</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">obj_regularized</span> <span class="p">)</span>
-  <span class="n">end</span>
-<span class="n">end</span>
+      glrt_information(data, inform, status)
+      @printf(&quot;MR = %1i%1i glrt_solve_problem exit status = %i, f = %.2f\n&quot;, unit_m,
+              new_weight, inform[].status,
+              inform[].obj_regularized)
+    end
+  end
 
-<span class="c1"># Delete internal workspace</span>
-<span class="n">glrt_terminate</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span> <span class="p">)</span>
+  # Delete internal workspace
+  glrt_terminate(data, control, inform)
+
+  return 0
+end
+
+@testset &quot;GLRT&quot; begin
+  @test test_glrt() == 0
+end
 </pre></div>
 </div>
 </section>

@@ -452,7 +452,8 @@ b_{i,j} s_j^{(k)} - y_i^{(k)} \right]^2,\]</div>
 has a unique minimizer. Since this requires that there are at least
 as many <span class="math notranslate nohighlight">\((s^{(k)}, y^{(k)})\)</span> pairs as the maximum number of nonzeros
 in any row, this may be prohibitive in some cases. We might then be content
-with a minimum-norm (under-determined) least-squares solution. Or, we may
+with a minimum-norm (under-determined) least-squares solution; each row
+may then be processed in parallel. Or, we may
 take advantage of the symmetry of the Hessian, and note that if we
 have already found the values in row <span class="math notranslate nohighlight">\(j\)</span>, then the value <span class="math notranslate nohighlight">\(b_{i,j} = b_{j,i}\)</span>
 in (1) is known before we process row <span class="math notranslate nohighlight">\(i\)</span>. Thus by ordering the rows
@@ -477,9 +478,15 @@ is in block form
 \[\begin{split}B = \begin{pmatrix} B_{11} &amp; B_{12} \\ B^T_{12} &amp; B_{22}\end{pmatrix},\end{split}\]</div>
 </p>
 <p>the <span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> rows are processed without regard
-for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>, and finally
-the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed either with the option of exploiting
-symmetry. More details of the precise algorithms (Algorithms 2.1–2.5)
+for symmetry but give the <span class="math notranslate nohighlight">\(2,1\)</span> block <span class="math notranslate nohighlight">\(B^T_{12}\)</span>,
+and finally
+the <span class="math notranslate nohighlight">\(2,2\)</span> block <span class="math notranslate nohighlight">\(B_{22}\)</span> is processed knowing <span class="math notranslate nohighlight">\(B^T_{12}\)</span>
+again without respecting symmetry. The rows in blocks
+<span class="math notranslate nohighlight">\(( B_{11} \;\; B_{12})\)</span> and <span class="math notranslate nohighlight">\(B_{22}\)</span> may be computed in parallel.
+It is also possible to generalise this so that <span class="math notranslate nohighlight">\(B\)</span> is decomposed into
+<span class="math notranslate nohighlight">\(r\)</span> blocks, and the blocks processed one at a time recursively using the
+symmetry from previos rows.
+More details of the precise algorithms (Algorithms 2.1–2.5)
 are given in the reference below. The linear least-squares problems (1)
 themselves are solved by a choice of LAPACK packages.</p>
 </section>
@@ -489,7 +496,7 @@ themselves are solved by a choice of LAPACK packages.</p>
 <blockquote>
 <div><p>J. M. Fowkes, N. I. M. Gould and J. A. Scott,
 “Approximating large-scale Hessians using secant equations”.
-Technical Report TR-2023, Rutherford Appleton Laboratory.</p>
+Preprint TR-2024-001, Rutherford Appleton Laboratory.</p>
 </div></blockquote>
 </section>
 <section id="functions">
@@ -526,19 +533,16 @@ Technical Report TR-2023, Rutherford Appleton Laboratory.</p>
 <dt>approximation_algorithm<span class="classifier">int</span></dt><dd><p>which approximation algorithm should be used? Possible values are:</p>
 <ul>
 <li><p><strong>1</strong></p>
-<p>unsymmetric (alg 2.1 in paper).</p>
+<p>unsymmetric, parallel (Alg 2.1 in paper).</p>
 </li>
 <li><p><strong>2</strong></p>
-<p>symmetric (alg 2.2 in paper).</p>
+<p>symmetric (Alg 2.2 in paper).</p>
 </li>
 <li><p><strong>3</strong></p>
-<p>composite (alg 2.3 in paper).</p>
+<p>composite, parallel (Alg 2.3 in paper).</p>
 </li>
 <li><p><strong>4</strong></p>
-<p>composite 2 (alg 2.4 in paper).</p>
-</li>
-<li><p><strong>5</strong></p>
-<p>cautious (alg 2.5 in paper).</p>
+<p>composite, block parallel (Alg 2.4 in paper).</p>
 </li>
 </ul>
 </dd>
@@ -559,9 +563,15 @@ Possible values are:</p>
 </li>
 </ul>
 </dd>
-<dt>max_sparse_degree<span class="classifier">int</span></dt><dd><p>the maximum sparse degree if the combined version is used.</p>
-</dd>
 <dt>extra_differences<span class="classifier">int</span></dt><dd><p>if available use an addition extra_differences differences.</p>
+</dd>
+<dt>sparse_row<span class="classifier">int</span></dt><dd><p>a row is considered sparse if it has no more than .sparse_row
+entries.</p>
+</dd>
+<dt>recursion_max<span class="classifier">int</span></dt><dd><p>limit on the maximum number of levels of recursion (Alg. 2.4).</p>
+</dd>
+<dt>recursion_entries_required<span class="classifier">int</span></dt><dd><p>the minimum number of entries in a reduced row that are required
+if a further level of recuresion is allowed (Alg. 2.4).</p>
 </dd>
 <dt>space_critical<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">space_critical</span></code> is True, every effort will be made to use
 as little space as possible. This may result in longer
@@ -611,7 +621,8 @@ be needed to recover a good Hessian approximation.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.sha.sha.recover_matrix">
 <span class="sig-prename descclassname"><span class="pre">sha.</span></span><span class="sig-name descname"><span class="pre">recover_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ly1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ly2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.sha.sha.recover_matrix" title="Permalink to this definition">#</a></dt>
-<dd><p>Factorize the matrix <span class="math notranslate nohighlight">\(A\)</span> prior to solution.</p>
+<dd><p>Compute the Hessian estimate <span class="math notranslate nohighlight">\(B\)</span> from given difference pairs
+<span class="math notranslate nohighlight">\((s^{(k)},y^{(k)})\)</span>.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
 <dt>ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the upper triangular part of
@@ -646,7 +657,7 @@ case order should be None.</p>
 <p><strong>Returns:</strong></p>
 <dl class="simple">
 <dt>val<span class="classifier">ndarray(ne)</span></dt><dd><p>holds the values of the nonzeros in the upper triangle of the matrix
-<span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
+<span class="math notranslate nohighlight">\(B\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">sha.analyse_matrix</span></code>.</p>
 </dd>
 </dl>
@@ -664,6 +675,10 @@ case order should be None.</p>
 <ul>
 <li><p><strong>0</strong></p>
 <p>The call was successful.</p>
+</li>
+<li><p><strong>1</strong></p>
+<p>Insufficient data pairs <span class="math notranslate nohighlight">\((s_i,y_i)\)</span> have been provided, as m
+is too small. The returned <span class="math notranslate nohighlight">\(B\)</span> is likely not fully accurate.</p>
 </li>
 <li><p><strong>-1</strong></p>
 <p>An allocation error occurred. A message indicating the
@@ -696,11 +711,11 @@ error occurred.</p>
 </dd>
 <dt>max_degree<span class="classifier">int</span></dt><dd><p>the maximum degree in the adgacency graph.</p>
 </dd>
-<dt>approximation_algorithm_used<span class="classifier">int</span></dt><dd><p>the approximation algorithm actually used.</p>
-</dd>
 <dt>differences_needed<span class="classifier">int</span></dt><dd><p>the number of differences that will be needed.</p>
 </dd>
 <dt>max_reduced_degree<span class="classifier">int</span></dt><dd><p>the maximum reduced degree in the adgacency graph.</p>
+</dd>
+<dt>approximation_algorithm_used<span class="classifier">int</span></dt><dd><p>the approximation algorithm actually used.</p>
 </dd>
 <dt>bad_row<span class="classifier">int</span></dt><dd><p>a failure occured when forming the bad_row-th row
 (0 = no failure).</p>

@@ -454,18 +454,18 @@ Lipschitz functions and Lipschitz first derivatives”
 <p>To solve a given problem, functions from the ugo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-ugo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1095,96 +1095,100 @@ the code is available in $GALAHAD/src/ugo/Julia/test_ugo.jl .</p>
 # Simple code to test the Julia interface to UGO
 
 using GALAHAD
+using Test
 using Printf
+using Accessors
 
-# Test problem objective
-function objf(x)
-  a = 10.0
-  res = x * x * cos( a*x )
-  return Ref{Float64}(res)
-end
-
-# Test problem first derivative
-function gradf(x)
-  a = 10.0
-  res = - a * x * x * sin( a*x ) + 2.0 * x * cos( a*x )
-  return Ref{Float64}(res)
-end
-
-# Test problem second derivative
-function hessf(x)
-  a = 10.0
-  res = - a * a* x * x * cos( a*x ) - 4.0 * a * x * sin( a*x ) + 2.0 * cos( a*x )
-  return Ref{Float64}(res)
-end
-
-# Derived types
-data = [Ptr{Ptr{Cvoid}}()]
-control = ugo_control_type{Float64}()
-inform = ugo_inform_type{Float64}()
-
-# Initialize UGO
-status = Ref{Cint}()
-eval_status = Ref{Cint}()
-ugo_initialize( data, control, status )
-
-# Set user-defined control options
-control.print_level = 1
-
-# control.prefix = &quot;&#39;ugo: &#39;&quot;
-control.prefix = (34, 39, 117, 103, 111, 58, 32, 39, 34, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 0)
-
-# Read options from specfile
-specfile = &quot;UGO.SPC&quot;
-ugo_read_specfile(control, specfile)
-
-# Test problem bounds
-x_l = Ref{Float64}(-1.0)
-x_u = Ref{Float64}(2.0)
-
-# Test problem objective, gradient, Hessian values
-global x = Ref{Float64}(0.0)
-global f = Ref{Float64}(0.0)
-global g = Ref{Float64}(0.0)
-global h = Ref{Float64}(0.0)
-
-# import problem data
-ugo_import( control, data, status, x_l, x_u )
-
-# Set for initial entry
-status = Ref{Cint}(1)
-
-# Solve the problem: min f(x), x_l ≤ x ≤ x_u
-while true
-
-  # Call UGO_solve
-  ugo_solve_reverse(data, status, eval_status, x, f, g, h )
-
-  # Evaluate f(x) and its derivatives as required
-  if (status[] ≥ 2)  # need objective
-    global f = objf(x[])
-    if (status[] ≥ 3)  # need first derivative
-      global g = gradf(x[])
-      if (status[] ≥ 4) # need second derivative
-        global h = hessf(x[])
-      end
-    end
-  else  # the solution has been found (or an error has occured)
-    break
+function test_ugo()
+  # Test problem objective
+  function objf(x::Float64)
+    a = 10.0
+    res = x * x * cos(a * x)
+    return res
   end
+
+  # Test problem first derivative
+  function gradf(x::Float64)
+    a = 10.0
+    res = -a * x * x * sin(a * x) + 2.0 * x * cos(a * x)
+    return res
+  end
+
+  # Test problem second derivative
+  function hessf(x::Float64)
+    a = 10.0
+    res = -a * a * x * x * cos(a * x) - 4.0 * a * x * sin(a * x) + 2.0 * cos(a * x)
+    return res
+  end
+
+  # Derived types
+  data = Ref{Ptr{Cvoid}}()
+  control = Ref{ugo_control_type{Float64}}()
+  inform = Ref{ugo_inform_type{Float64}}()
+
+  # Initialize UGO
+  status = Ref{Cint}()
+  eval_status = Ref{Cint}()
+  ugo_initialize(data, control, status)
+
+  # Set user-defined control options
+  @reset control[].print_level = Cint(1)
+
+  # Test problem bounds
+  x_l = Ref{Float64}(-1.0)
+  x_u = Ref{Float64}(2.0)
+
+  # Test problem objective, gradient, Hessian values
+  x = Ref{Float64}(0.0)
+  f = Ref{Float64}(objf(x[]))
+  g = Ref{Float64}(gradf(x[]))
+  h = Ref{Float64}(hessf(x[]))
+
+  # import problem data
+  ugo_import(control, data, status, x_l, x_u)
+
+  # Set for initial entry
+  status[] = 1
+
+  # Solve the problem: min f(x), x_l ≤ x ≤ x_u
+  terminated = false
+  while !terminated
+    # Call UGO_solve
+    ugo_solve_reverse(data, status, eval_status, x, f, g, h)
+
+    # Evaluate f(x) and its derivatives as required
+    if (status[] ≥ 2)  # need objective
+      f[] = objf(x[])
+      if (status[] ≥ 3)  # need first derivative
+        g[] = gradf(x[])
+        if (status[] ≥ 4) # need second derivative
+          h[] = hessf(x[])
+        end
+      end
+    else  # the solution has been found (or an error has occured)
+      terminated = true
+    end
+  end
+
+  # Record solution information
+  ugo_information(data, inform, status)
+
+  if inform[].status == 0
+    @printf(&quot;%i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;,
+            inform[].f_eval, f[], inform[].status)
+  else
+    @printf(&quot;UGO_solve exit status = %1i\n&quot;, inform[].status)
+  end
+
+  # Delete internal workspace
+  ugo_terminate(data, control, inform)
+
+  return 0
 end
 
-# Record solution information
-ugo_information( data, inform, status )
-
-if inform.status == 0
-  @printf(&quot;%i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;, inform.f_eval, f[], inform.status)
-else
-  @printf(&quot;BGO_solve exit status = %1i\n&quot;, inform.status)
+@testset &quot;UGO&quot; begin
+  @test test_ugo() == 0
 end
-
-# Delete internal workspace
-ugo_terminate( data, control, inform )
 </pre></div>
 </div>
 </section>
