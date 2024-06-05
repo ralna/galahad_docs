@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>GALAHAD &#8212; Fortran documentation</title>
+    <title>Generally-constrained Optimization &#8212; GALAHAD Fortran 5.0 documentation</title>
   
   
   
@@ -41,10 +41,11 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/target-highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bco';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Unconstrained Optimization" href="uco.html" />
+    <link rel="next" title="GALAHAD TRB package" href="trb.html" />
+    <link rel="prev" title="tru_time_type structure" href="struct_tru_time_type.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -88,7 +89,7 @@
   
 
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
 
   
   
@@ -125,23 +126,21 @@
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="bco.html">
                         Bound-constrained Optimization
                       </a>
                     </li>
                 
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Generally-constrained Optimization
+                      </a>
+                    </li>
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ls.html">
                         Least-Squares
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
                       </a>
                     </li>
                 
@@ -158,6 +157,13 @@
                 </button>
                 <div class="dropdown-menu">
                     
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="lp.html">
+                        Linear Programming
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="reg.html">
                         Regularization subproblems
@@ -243,7 +249,7 @@
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div class="bd-sidebar-primary bd-sidebar">
         
   
   <div class="sidebar-header-items sidebar-primary__section">
@@ -265,9 +271,16 @@
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="bco.html">
                         Bound-constrained Optimization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Generally-constrained Optimization
                       </a>
                     </li>
                 
@@ -275,13 +288,6 @@
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="ls.html">
                         Least-Squares
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
                       </a>
                     </li>
                 
@@ -298,6 +304,13 @@
                 </button>
                 <div class="dropdown-menu">
                     
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="lp.html">
+                        Linear Programming
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="reg.html">
                         Regularization subproblems
@@ -357,6 +370,31 @@
   </div>
 
   
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="lancelot.html">LANCELOT - generally-constrained local optimization of a smooth function</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
 
   
   <div class="sidebar-end-items sidebar-primary__section">
@@ -381,115 +419,31 @@
             
             <article class="bd-article" role="main">
               
-  <section id="galahad-c-interfaces">
-<h1>GALAHAD Fortran Interfaces<a class="headerlink" href="#galahad-c-interfaces" title="Permalink to this heading">#</a></h1>
+  <section id="generally-constrained-optimization">
+<h1>Generally-constrained Optimization<a class="headerlink" href="#generally-constrained-optimization" title="Permalink to this heading">#</a></h1>
 <p><strong>Release:</strong> 5.0</p>
 <p><strong>Date:</strong> Jun 4, 2024</p>
 <p><strong>Author:</strong> <a class="reference external" href="mailto:nick&#46;gould&#37;&#52;&#48;stfc&#46;ac&#46;uk">Nick Gould</a></p>
 <p>GALAHAD <a class="footnote-reference superscript" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> is a suite of open-source routines for large-scale continuous
-optimization.</p>
+optimization.  Currently there are two packages designed to find a local
+minimum of a function whose variables are required to lie in a region 
+defined by linear and/or nonlinear constraints.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uco.html">Unconstrained Optimization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="arc.pdf">ARC - unconstrained local optimization of a smooth function using a regularization method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tru.pdf">TRU - unconstrained local optimization of a smooth function using a trust-region method</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="bco.html">Bound-constrained Optimization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trb.pdf">TRB - bound-constrained local optimization of a smooth function</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nlp.html">Generally-constrained Optimization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lancelot.pdf">LANCELOT - generally-constrained local optimization of a smooth function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lancelot_simple.pdf">LANCELOT_SIMPLE - generally-constrained local optimization of a smooth function of a few variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ls.html">Least-Squares</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="blls.pdf">BLLS - bound-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bllsb.pdf">BLLSB - bound-constrained linear least-squares using an interior-point method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clls.pdf">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nls.pdf">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="slls.pdf">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="lp.html">Linear Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lpa.pdf">LPA - linear programming using the simplex method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lpb.pdf">LPB - linear programming using an interior-point method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wcp.pdf">WCP - find a well-centered point within a polyhedral set</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="qp.html">Quadratic Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bqp.pdf">BQP - bound-constrained quadratic programming using a preconditioned, projected-gradient method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bqpb.pdf">BQPB - bound-constrained quadratic programming using an interior-point method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cqp.pdf">CQP - convex quadratic programming using an interior-point method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cro.pdf">CRO - crossover from an interior-point to basic solution for convex quadratic programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dqp.pdf">DQP - convex quadratic programming using a dual active-set method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eqp.pdf">EQP - equality-constrained quadratic programming using an iterative method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lsqp.pdf">LSQP - linear or separable convex quadratic programming using an interior-point trust-region method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpa.pdf">QPA - non-convex quadratic programming using an active-set method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpb.pdf">QPB - non-convex quadratic programming using an interior-point method</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reg.html">Regularization subproblems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trs.pdf">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rqs.pdf">RQS - global minization of a regularized quadratic function using matrix factorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dps.pdf">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gltr.pdf">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="glrt.pdf">GLRT - global minization of a regularized quadratic function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="llsr.pdf">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="llst.pdf">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lstr.pdf">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lsrt.pdf">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="l2rt.pdf">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sys.html">Linear Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sls.pdf">SLS - solve symmetric systems of linear equations (übersolver)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uls.pdf">ULS - solve unsymmetric systems of linear equations (übersolver)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sbls.pdf">SBLS - precondition and solve block symmetric systems of linear equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="psls.pdf">PSLS - precondition symmetric, positive-definite systems of linear equations (übersolver)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sils.pdf">SILS - solve symmetric systems of linear equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gls.pdf">GLS - solve unsymmetric systems of linear equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fdc.pdf">FDC - find an equivalent linearly independent subset of a system of linear equations</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="go.html">Global Optimization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ugo.pdf">UGO - univariate global optimization of a smooth function over an interval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bgo.pdf">BGO - multivariate global optimization of a smooth function within a box using stochastic methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dgo.pdf">DGO - multivariate global optimization of a smooth function within a box using deterministic methods</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="auxiliary.html">Auxiliary Procedures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bsc.pdf">BSC - build and use the Schur complement from constituent matrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="convert.pdf">CONVERT - convert a sparse matrix from one format to another</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fit.pdf">FIT - fit function and derivative values to data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hash.pdf">HASH - set up and use a chained scatter table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ir.pdf">IR - given matrix factors, perform iterative refinement to solve systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lhs.pdf">LHS - compute an array of Latin Hypercube samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lms.pdf">LMS - maintain limited-memory Hessian approximations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roots.pdf">ROOTS - find real roots of real polynomials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rpd.pdf">RPD - convert LP/QP data to and from QPLIB format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scu.pdf">SCU - build and extend factors for an evolving block sparse matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sec.pdf">SEC - maintain dense BFGS and SR1 secant approximations to a Hessian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sha.pdf">SHA - find a sparse Hessian matrix approximation using componentwise secant approximation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="presolve.pdf">PRESOLVE - transform LP/QP data so that the resulting problem is easier to solve</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="lancelot.pdf">LANCELOT - generally-constrained local optimization of a smooth function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lancelot_simple.pdf">LANCELOT_SIMPLE - generally-constrained local optimization of a smooth function of a few variables</a></li>
 </ul>
 </div>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<aside class="footnote-list superscript">
-<aside class="footnote superscript" id="id2" role="note">
+<blockquote>
+<div><aside class="footnote superscript" id="id2" role="note">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
 <p>Gould, N. I. M., Orban, D., &amp; Toint, Ph. L. (2003). GALAHAD, a library of thread-safe Fortran 90 packages for large-scale nonlinear optimization. ACM Transactions on Mathematical Software (TOMS), 29(4), 353-372.</p>
 </aside>
 </aside>
+</div></blockquote>
 </section>
 </section>
 
@@ -501,10 +455,17 @@ optimization.</p>
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='right-next' id="next-link" href="uco.html" title="next page">
+  <a class='left-prev' id="prev-link" href="trb.pdf" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">GALAHAD TRB package</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="blls.pdf" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Unconstrained Optimization</p>
+      <p class="prev-next-title">GALAHAD BLLS package</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -546,7 +507,7 @@ optimization.</p>
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="_sources/index.rst.txt">
+    <a href="_sources/bco.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>
