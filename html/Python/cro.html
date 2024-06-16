@@ -632,7 +632,7 @@ will result in the prefix word.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.cro.cro.crossover_solution">
-<span class="sig-prename descclassname"><span class="pre">cro.</span></span><span class="sig-name descname"><span class="pre">crossover_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_equal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.cro.cro.crossover_solution" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">cro.</span></span><span class="sig-name descname"><span class="pre">crossover_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_equal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.cro.cro.crossover_solution" title="Permalink to this definition">#</a></dt>
 <dd><p>Crossover a primal-dual interior-point solution to a basic one.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
@@ -685,21 +685,23 @@ above should be set no smaller than <code class="docutils literal notranslate"><
 </dd>
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </dd>
+<dt>c<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(c(x) = Ax\)</span>.</p>
+</dd>
 <dt>y<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the Lagrange multipliers associated with the
 general linear constraints.</p>
 </dd>
 <dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the dual variables associated with the
 simple bound constraints.</p>
 </dd>
-<dt>c_stat<span class="classifier">ndarray(m)</span></dt><dd><p>holds the input status for each constraint. The i-th component will
-be negative if the value of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint <span class="math notranslate nohighlight">\((Ax)_i\)</span>) lies on
-its lower bound, positive if it lies on its upper bound, and
-zero if it lies between bounds.</p>
-</dd>
 <dt>x_stat<span class="classifier">ndarray(n)</span></dt><dd><p>holds the input status for each variable. The i-th component will be
 negative if the <span class="math notranslate nohighlight">\(i\)</span>-th variable lies on its lower bound,
 positive if it lies on its upper bound, and zero if it lies
 between bounds.</p>
+</dd>
+<dt>c_stat<span class="classifier">ndarray(m)</span></dt><dd><p>holds the input status for each constraint. The i-th component will
+be negative if the value of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint <span class="math notranslate nohighlight">\((Ax)_i\)</span>) lies on
+its lower bound, positive if it lies on its upper bound, and
+zero if it lies between bounds.</p>
 </dd>
 <dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">cro.initialize</span></code>).</p>
 </dd>
@@ -708,8 +710,6 @@ between bounds.</p>
 <dl>
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
 a successful call.</p>
-</dd>
-<dt>c<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(c(x) = Ax\)</span>.</p>
 </dd>
 <dt>y<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the Lagrange multipliers associated with the
 general linear constraints.</p>

@@ -45,7 +45,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="NLS" href="nls.html" />
-    <link rel="prev" title="BLLS" href="blls.html" />
+    <link rel="prev" title="BLLSB" href="bllsb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -367,8 +367,10 @@
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="blls.html">BLLS - bound-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bllsb.html">BLLSB - bound-constrained linear least-squares using an interior-point method</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nls.html">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
 </ul>
 
   </div>
@@ -906,7 +908,7 @@ and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.clls.clls.solve_clls">
-<span class="sig-prename descclassname"><span class="pre">clls.</span></span><span class="sig-name descname"><span class="pre">solve_clls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.clls.clls.solve_clls" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">clls.</span></span><span class="sig-name descname"><span class="pre">solve_clls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.clls.clls.solve_clls" title="Permalink to this definition">#</a></dt>
 <dd><p>Find a solution to the constrained (regularized) linear least-squares
 problem.</p>
 <p><strong>Parameters:</strong></p>
@@ -917,18 +919,18 @@ problem.</p>
 </dd>
 <dt>m<span class="classifier">int</span></dt><dd><p>holds the number of general linear constraints.</p>
 </dd>
-<dt>ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the objective design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
+<dt>Ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the objective design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
 </dd>
-<dt>Ao_val<span class="classifier">ndarray(ao_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as
+<dt>Ao_val<span class="classifier">ndarray(Ao_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as
 specified in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">clls.load</span></code>.</p>
 </dd>
 <dt>b<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(g\)</span> in the objective function.</p>
 </dd>
 <dt>sigma<span class="classifier">float</span></dt><dd><p>holds the regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p>
 </dd>
-<dt>a_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<dt>A_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A\)</span>.</p>
 </dd>
-<dt>A_val<span class="classifier">ndarray(a_ne)</span></dt><dd><p>holds the values of the nonzeros in the constraint Jacobian
+<dt>A_val<span class="classifier">ndarray(A_ne)</span></dt><dd><p>holds the values of the nonzeros in the constraint Jacobian
 <span class="math notranslate nohighlight">\(A\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">clls.load</span></code>.</p>
 </dd>
@@ -1267,11 +1269,11 @@ to factorization.</p>
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="blls.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="bllsb.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">BLLS</p>
+          <p class="prev-next-title">BLLSB</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="nls.html" title="next page">

@@ -682,7 +682,7 @@ other schemes are used, and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.dps.dps.solve_tr_problem">
-<span class="sig-prename descclassname"><span class="pre">dps.</span></span><span class="sig-name descname"><span class="pre">solve_tr_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.dps.dps.solve_tr_problem" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">dps.</span></span><span class="sig-name descname"><span class="pre">solve_tr_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.dps.dps.solve_tr_problem" title="Permalink to this definition">#</a></dt>
 <dd><p>Find the global moinimizer of the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span>
 within the trust-region.</p>
 <p><strong>Parameters:</strong></p>
@@ -695,10 +695,10 @@ within the trust-region.</p>
 </dd>
 <dt>g<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(g\)</span> in the objective function.</p>
 </dd>
-<dt>h_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the Hessian <span class="math notranslate nohighlight">\(H\)</span>.</p>
 </dd>
-<dt>H_val<span class="classifier">ndarray(h_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
+<dt>H_val<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
 <span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">dps.load</span></code>.</p>
 </dd>
@@ -713,7 +713,7 @@ a successful call.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.dps.rqs.solve_rq_problem">
-<span class="sig-prename descclassname"><span class="pre">rqs.</span></span><span class="sig-name descname"><span class="pre">solve_rq_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.dps.rqs.solve_rq_problem" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">rqs.</span></span><span class="sig-name descname"><span class="pre">solve_rq_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.dps.rqs.solve_rq_problem" title="Permalink to this definition">#</a></dt>
 <dd><p>Find the global moinimizer of the regularized quadratic objective
 function <span class="math notranslate nohighlight">\(r(x)\)</span></p>
 <p><strong>Parameters:</strong></p>
@@ -728,10 +728,10 @@ function <span class="math notranslate nohighlight">\(r(x)\)</span></p>
 </dd>
 <dt>g<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(g\)</span> in the objective function.</p>
 </dd>
-<dt>h_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the Hessian <span class="math notranslate nohighlight">\(H\)</span>.</p>
 </dd>
-<dt>H_val<span class="classifier">ndarray(h_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
+<dt>H_val<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
 <span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">rqs.load</span></code>.</p>
 </dd>

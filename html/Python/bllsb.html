@@ -865,7 +865,7 @@ and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.bllsb.bllsb.solve_blls">
-<span class="sig-prename descclassname"><span class="pre">bllsb.</span></span><span class="sig-name descname"><span class="pre">solve_blls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.bllsb.bllsb.solve_blls" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bllsb.</span></span><span class="sig-name descname"><span class="pre">solve_blls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.bllsb.bllsb.solve_blls" title="Permalink to this definition">#</a></dt>
 <dd><p>Find a solution to the bound-constrained (regularized) linear
 least-squares problem.</p>
 <p><strong>Parameters:</strong></p>
@@ -874,9 +874,9 @@ least-squares problem.</p>
 </dd>
 <dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
 </dd>
-<dt>ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the objective design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
+<dt>Ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the objective design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
 </dd>
-<dt>Ao_val<span class="classifier">ndarray(ao_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as
+<dt>Ao_val<span class="classifier">ndarray(Ao_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as
 specified in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">bllsb.load</span></code>.</p>
 </dd>
 <dt>b<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(b\)</span> in the objective function.</p>

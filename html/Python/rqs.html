@@ -849,43 +849,43 @@ and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.rqs.rqs.solve_problem">
-<span class="sig-prename descclassname"><span class="pre">rqs.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.rqs.rqs.solve_problem" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">rqs.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.rqs.rqs.solve_problem" title="Permalink to this definition">#</a></dt>
 <dd><p>Find the global minimizer of the regularized quadratic objective
 function <span class="math notranslate nohighlight">\(r(x)\)</span> subject to the affine constraints.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
 </dd>
-<dt>weight<span class="classifier">float</span></dt><dd><p>holds the strictly positive regularization weight, <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
-</dd>
 <dt>power<span class="classifier">float</span></dt><dd><p>holds the regularization power, <span class="math notranslate nohighlight">\(p \geq 2\)</span>.</p>
+</dd>
+<dt>weight<span class="classifier">float</span></dt><dd><p>holds the strictly positive regularization weight, <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 </dd>
 <dt>f<span class="classifier">float</span></dt><dd><p>holds the constant term <span class="math notranslate nohighlight">\(f\)</span> in the objective function.</p>
 </dd>
 <dt>g<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(g\)</span> in the objective function.</p>
 </dd>
-<dt>h_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the Hessian <span class="math notranslate nohighlight">\(H\)</span>.</p>
 </dd>
-<dt>H_val<span class="classifier">ndarray(h_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
+<dt>H_val<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
 <span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">rqs.load</span></code>.</p>
 </dd>
-<dt>m_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>M_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the scaling matrix <span class="math notranslate nohighlight">\(M\)</span> if it is not the identity matrix.
 Otherwise it should be None.</p>
 </dd>
-<dt>M_val<span class="classifier">ndarray(m_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the scaling
+<dt>M_val<span class="classifier">ndarray(M_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the scaling
 matrix <span class="math notranslate nohighlight">\(M\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">rqs.load_m</span></code> if needed. Otherwise it should be None.</p>
 </dd>
 <dt>m<span class="classifier">int</span></dt><dd><p>holds the number of constraints.</p>
 </dd>
-<dt>a_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>A_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the constraint matrix <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(m &gt; 0\)</span>.
 Otherwise it should be None.</p>
 </dd>
-<dt>A_val<span class="classifier">ndarray(a_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the
+<dt>A_val<span class="classifier">ndarray(A_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the
 constraint matrix <span class="math notranslate nohighlight">\(A\)</span> in the same order as specified in the
 sparsity pattern in <code class="docutils literal notranslate"><span class="pre">rqs.load_a</span></code> if needed.
 Otherwise it should be None.</p>

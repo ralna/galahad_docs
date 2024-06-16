@@ -410,17 +410,16 @@
 a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
 
 where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
 <strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
 \[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
-and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
+the norm <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
 <span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
+<span class="math notranslate nohighlight">\(b\)</span> is a vector, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
 <span class="math notranslate nohighlight">\(e\)</span> is a vector of ones, and any of the components
 of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
 The method offers the choice of direct and iterative solution of the key
@@ -437,7 +436,7 @@ the <strong>primal optimality conditions</strong>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
+\[A_o^T ( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
 
 and the <strong>complementary slackness conditions</strong>
 <div class="math notranslate nohighlight">
@@ -451,7 +450,7 @@ and the vector inequalities hold component-wise.</p>
 <h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
 <p>Projected-gradient methods iterate towards a point that satisfies
 these optimality conditions by ultimately aiming to satisfy
-<span class="math notranslate nohighlight">\(A_o^T W ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
+<span class="math notranslate nohighlight">\(A_o^T ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
 that the remaining conditions are satisfied at each stage.
 Appropriate norms of the amounts by which the optimality conditions
 fail to be satisfied are known as the primal and dual infeasibility,
@@ -480,10 +479,10 @@ All computation is designed to exploit sparsity in <span class="math notranslate
 <h2>reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
 <p>Full details are provided in</p>
 <blockquote>
-<div><p>N. I. M. Gould (2022).
-<a href="#id1"><span class="problematic" id="id2">``</span></a>A projection method for bound-constrained linear least-squares’’.
+<div><p>N. I. M. Gould (2023).
+<a href="#id1"><span class="problematic" id="id2">``</span></a>Linear least-squares over the unit simplex’’.
 STFC-Rutherford Appleton Laboratory Computational Mathematics Group
-Internal Report 2023-1 (2023).</p>
+Internal Report 2023-2.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
@@ -728,7 +727,7 @@ and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.slls.slls.solve_ls">
-<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">solve_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.solve_ls" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">solve_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.solve_ls" title="Permalink to this definition">#</a></dt>
 <dd><p>Find a solution to the simplex-constraind regularized linear least-squares
 problem involving the least-squares objective function <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
 <p><strong>Parameters:</strong></p>
@@ -737,11 +736,9 @@ problem involving the least-squares objective function <span class="math notrans
 </dd>
 <dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
 </dd>
-<dt>w<span class="classifier">ndarray(o)</span></dt><dd><p>holds the weights <span class="math notranslate nohighlight">\(w\)</span> in the objective function.</p>
+<dt>Ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
 </dd>
-<dt>ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
-</dd>
-<dt>Ao_val<span class="classifier">ndarray(ao_ne)</span></dt><dd><p>holds the values of the nonzeros in the constraint Jacobian
+<dt>Ao_val<span class="classifier">ndarray(Ao_ne)</span></dt><dd><p>holds the values of the nonzeros in the constraint Jacobian
 <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">slls.load</span></code>.</p>
 </dd>

@@ -785,18 +785,18 @@ other schemes are used, and in this case can be None.</p>
 </dd>
 <dt>weight<span class="classifier">float</span></dt><dd><p>holds the strictly positive regularization weight, <span class="math notranslate nohighlight">\(\weight\)</span>.</p>
 </dd>
-<dt>a_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the model matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<dt>A_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the model matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 </dd>
-<dt>A_val<span class="classifier">ndarray(a_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A\)</span> in the same order as
+<dt>A_val<span class="classifier">ndarray(A_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A\)</span> in the same order as
 specified in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">llsr.load</span></code>.</p>
 </dd>
 <dt>b<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the observations <span class="math notranslate nohighlight">\(b\)</span>.</p>
 </dd>
-<dt>s_ne<span class="classifier">int, optional</span></dt><dd><p>holds the number of entries in the lower triangular part of
+<dt>S_ne<span class="classifier">int, optional</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it is not the identity matrix.
 Otherwise it should be None.</p>
 </dd>
-<dt>S_val<span class="classifier">ndarray(s_ne), optional</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of <span class="math notranslate nohighlight">\(S\)</span> in
+<dt>S_val<span class="classifier">ndarray(S_ne), optional</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of <span class="math notranslate nohighlight">\(S\)</span> in
 the same order as specified in the sparsity pattern in
 <code class="docutils literal notranslate"><span class="pre">llsr.load_scaling</span></code> if needed. Otherwise it should be None.</p>
 </dd>
