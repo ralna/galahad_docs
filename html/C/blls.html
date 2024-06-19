@@ -1988,6 +1988,8 @@ int main(void) {
 
         // Initialize BLLS
         blls_initialize( &amp;data, &amp;control, &amp;status );
+        strcpy(control.sbls_control.symmetric_linear_solver, &quot;sytr &quot;) ;
+        strcpy(control.sbls_control.definite_linear_solver, &quot;potr &quot;) ;
 
         // Set user-defined control options
         control.f_indexing = false; // C sparse matrix indexing
@@ -2331,6 +2333,8 @@ int main(void) {
 
         // Initialize BLLS
         blls_initialize( &amp;data, &amp;control, &amp;status );
+        strcpy(control.sbls_control.symmetric_linear_solver, &quot;sytr &quot;) ;
+        strcpy(control.sbls_control.definite_linear_solver, &quot;potr &quot;) ;
 
         // Set user-defined control options
         control.f_indexing = true; // fortran sparse matrix indexing

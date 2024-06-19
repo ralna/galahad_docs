@@ -427,17 +427,16 @@
 a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
 
 where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
 <strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
 \[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
-and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
+the norm <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
 <span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
+<span class="math notranslate nohighlight">\(b\)</span> is a vector, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
 <span class="math notranslate nohighlight">\(e\)</span> is a vector of ones, and any of the components
 of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
 The method offers the choice of direct and iterative solution of the key
@@ -454,7 +453,7 @@ the <strong>primal optimality conditions</strong>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
+\[A_o^T ( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
 
 and the <strong>complementary slackness conditions</strong>
 <div class="math notranslate nohighlight">
@@ -468,7 +467,7 @@ and the vector inequalities hold component-wise.</p>
 <h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
 <p>Projected-gradient methods iterate towards a point that satisfies
 these optimality conditions by ultimately aiming to satisfy
-<span class="math notranslate nohighlight">\(A_o^T W ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
+<span class="math notranslate nohighlight">\(A_o^T ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
 that the remaining conditions are satisfied at each stage.
 Appropriate norms of the amounts by which the optimality conditions
 fail to be satisfied are known as the primal and dual infeasibility,
@@ -497,10 +496,10 @@ All computation is designed to exploit sparsity in <span class="math notranslate
 <h2>reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
 <p>Full details are provided in</p>
 <blockquote>
-<div><p>N. I. M. Gould (2022).
-<a href="#id1"><span class="problematic" id="id2">``</span></a>A projection method for bound-constrained linear least-squares’’.
+<div><p>N. I. M. Gould (2023).
+<a href="#id1"><span class="problematic" id="id2">``</span></a>Linear least-squares over the unit simplex’’.
 STFC-Rutherford Appleton Laboratory Computational Mathematics Group
-Internal Report 2023-1 (2023).</p>
+Internal Report 2023-2.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
@@ -1450,7 +1449,7 @@ control.preconditioner = 2.</p>
 <p>name of array which provoked an allocate failure</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-1ac8d53b198a1597a4a9fe75d4c1191ec0"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_slls_time_type.html#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-1a7006a98737e58bb90259d7705ef537ae"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>

@@ -2055,6 +2055,7 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
 
 <span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;math.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
 <span class="c1">#include &quot;galahad_precision.h&quot;</span>
 <span class="c1">#include &quot;galahad_cfunctions.h&quot;</span>
 <span class="c1">#include &quot;galahad_bgo.h&quot;</span>
@@ -2124,6 +2125,9 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
 
         <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BGO</span>
         <span class="n">bgo_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span><span class="p">,</span><span class="s2">&quot;sytr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">psls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
         <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> <span class="o">//</span> <span class="n">C</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>
@@ -2208,6 +2212,9 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
 
         <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BGO</span>
         <span class="n">bgo_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span><span class="p">,</span><span class="s2">&quot;sytr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">psls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
         <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> <span class="o">//</span> <span class="n">C</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>
@@ -2728,6 +2735,7 @@ the code is available in $GALAHAD/src/bgo/C/bgotf.c .</p>
 
 <span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;math.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
 <span class="c1">#include &quot;galahad_precision.h&quot;</span>
 <span class="c1">#include &quot;galahad_cfunctions.h&quot;</span>
 <span class="c1">#include &quot;galahad_bgo.h&quot;</span>
@@ -2798,6 +2806,9 @@ the code is available in $GALAHAD/src/bgo/C/bgotf.c .</p>
 
         <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BGO</span>
         <span class="n">bgo_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span><span class="p">,</span><span class="s2">&quot;sytr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">psls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
         <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">Fortran</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>
@@ -2882,6 +2893,9 @@ the code is available in $GALAHAD/src/bgo/C/bgotf.c .</p>
 
         <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BGO</span>
         <span class="n">bgo_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span><span class="p">,</span><span class="s2">&quot;sytr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">trs_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">trb_control</span><span class="o">.</span><span class="n">psls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span><span class="p">,</span><span class="s2">&quot;potr &quot;</span><span class="p">);</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
         <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">Fortran</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>

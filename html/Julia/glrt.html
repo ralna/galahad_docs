@@ -526,12 +526,12 @@ optimization. Part {I}: motivation, convergence and numerical results’’.
 <p>To solve a given problem, functions from the glrt package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a3a086b68a942ba1049f1d6a1b4724d32"><span class="std std-ref">glrt_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a4a436dfac6a63cf991cd629b3ed0e725"><span class="std std-ref">glrt_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a722a069ab53a2f47dae17d01d6b505a1"><span class="std std-ref">glrt_import_control</span></a> - import control parameters prior to solution</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a3570dffe8910d5f3cb86020a65566c8d"><span class="std std-ref">glrt_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-glrt-8h-1a107fe137aba04a93fdbcbb0b9e768812"><span class="std std-ref">glrt_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a3a086b68a942ba1049f1d6a1b4724d32"><span class="std std-ref">glrt_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a4a436dfac6a63cf991cd629b3ed0e725"><span class="std std-ref">glrt_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a722a069ab53a2f47dae17d01d6b505a1"><span class="std std-ref">glrt_import_control</span></a> - import control parameters prior to solution</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a3570dffe8910d5f3cb86020a65566c8d"><span class="std std-ref">glrt_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1a107fe137aba04a93fdbcbb0b9e768812"><span class="std std-ref">glrt_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-glrt-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -559,7 +559,7 @@ are available with T as Float32.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -593,7 +593,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -610,7 +610,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -759,7 +759,7 @@ infinity</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_glrt_inform_type.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -789,10 +789,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_glrt_inform_type.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -905,7 +905,7 @@ status from the package. Possible values are
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-29"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
-<p>return status. See <a class="reference internal" href="#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> for details</p>
+<p>return status. See <a class="reference internal" href="glrt_functions.html#doxid-galahad-glrt-8h-1aa5e9905bd3a79584bc5133b7f7a6816f"><span class="std std-ref">glrt_solve_problem</span></a> for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-30"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structglrt-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-31"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
