@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GALAHAD LLSR package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
   
@@ -12,35 +14,36 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/target-highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'llsr';</script>
@@ -48,401 +51,423 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="llsr_functions.html" />
     <link rel="prev" title="callable functions" href="glrt_functions.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </button>
   
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="trs_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="rqs.html">RQS - global minization of a regularized quadratic function using matrix factorization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rqs.html">RQS - global minization of a regularized quadratic function using matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="rqs_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="dps_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="gltr_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="glrt_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="llsr_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="llst.html">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="llst.html">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="llst_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lstr.html">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lstr.html">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="lstr_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="lsrt_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="l2rt_functions.html">callable functions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="reg.html" class="nav-link">Regularization subproblems</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD LLSR package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="module-galahad.llsr">
-<span id="galahad-llsr-package"></span><span id="doxid-index-llsr"></span><h1>GALAHAD LLSR package<a class="headerlink" href="#module-galahad.llsr" title="Permalink to this heading">#</a></h1>
+<span id="galahad-llsr-package"></span><span id="doxid-index-llsr"></span><h1>GALAHAD LLSR package<a class="headerlink" href="#module-galahad.llsr" title="Link to this heading">#</a></h1>
 <section id="purpose">
-<h2>purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
 <p>Given a real <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> model matrix <span class="math notranslate nohighlight">\(A\)</span>, a real <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> symmetric
 diagonally-dominant matrix <span class="math notranslate nohighlight">\(S\)</span>, a real <span class="math notranslate nohighlight">\(m\)</span> vector of observations <span class="math notranslate nohighlight">\(b\)</span>
 and scalars <span class="math notranslate nohighlight">\(\sigma&gt;0\)</span> and <span class="math notranslate nohighlight">\(p \geq 2\)</span>, the <code class="docutils literal notranslate"><span class="pre">llsr</span></code> package finds a
@@ -466,7 +491,7 @@ If this is not the case, the package <code class="docutils literal notranslate">
 <p>See Section 4 of $GALAHAD/doc/llsr.pdf for additional details.</p>
 </section>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>The required solution <span class="math notranslate nohighlight">\(x_*\)</span> necessarily satisfies the optimality condition
 <span class="math notranslate nohighlight">\(A^T A x_* + \lambda_* S x_* = A^T b\)</span>,
 where <span class="math notranslate nohighlight">\(\lambda_* = \sigma \|x_*\|^{p-2}\)</span>.</p>
@@ -502,7 +527,7 @@ coefficient matrix of (3) is
 often preferred to a Cholesky factorization of that of (2).</p>
 </section>
 <section id="reference">
-<h2>reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <p>The method is the obvious adaptation to the linear least-squares
 problem of that described in detail in</p>
 <blockquote>
@@ -512,9 +537,9 @@ problem of that described in detail in</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<span id="details-as-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Permalink to this heading">#</a></h2>
+<span id="details-as-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <section id="unsymmetric-storage">
-<span id="details-as-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Permalink to this heading">#</a></h3>
+<span id="details-as-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h3>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> model matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -567,7 +592,7 @@ storage than the co-ordinate format.
 The string A_type = ‘sparse_by_columns’ should be specified.</p>
 </section>
 <section id="symmetric-storage">
-<span id="details-as-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Permalink to this heading">#</a></h3>
+<span id="details-as-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h3>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> scaing matrix <span class="math notranslate nohighlight">\(S\)</span> may also
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
@@ -628,7 +653,7 @@ the string S_type = ‘zero’ or ‘none’ should be specified.</p>
 </section>
 </section>
 <section id="introduction-to-function-calls">
-<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Permalink to this heading">#</a></h2>
+<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the llsr package must be
 called in the following order:</p>
 <ul class="simple">
@@ -645,19 +670,16 @@ called in the following order:</p>
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Permalink to this heading">#</a></h2>
+<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).
-Calable functions as described are with T as Float64, but variants
-(with the additional suffix <code class="docutils literal notranslate"><span class="pre">_s</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">llsr_initialize_s</span></code>)
-are available with T as Float32.</p>
+(single precision) or Float64 (double precision).</p>
 </section>
 <section id="callable-functions">
-<h2>callable functions<a class="headerlink" href="#callable-functions" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -684,7 +706,8 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_read_specfile</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -694,7 +717,7 @@ $GALAHAD/src/llsr/LLSR.template.  See also Table 2.1 in the Fortran
 documentation provided in $GALAHAD/doc/llsr.pdf for a list of how these
 keywords relate to the components of the control structure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -708,11 +731,12 @@ keywords relate to the components of the control structure.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                         </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -788,11 +812,12 @@ violated.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                                 </span><span class="n">S_type</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">)</span></pre>
 <p>Import the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> into internal storage prior to solution. Thus must have been preceeded by a call to llsr_import.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -864,10 +889,11 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -891,11 +917,12 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">)</span></pre>
 <p>Solve the regularization-region problem.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1016,10 +1043,11 @@ progress is impossible.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1044,10 +1072,11 @@ progress is impossible.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1064,41 +1093,42 @@ progress is impossible.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="available-structures">
-<h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
+<h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="llsr-control-type-structure">
-<span id="doxid-structllsr-control-type"></span><span id="index-8"></span><h2>llsr_control_type structure<a class="headerlink" href="#llsr-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structllsr-control-type"></span><span id="index-8"></span><h2>llsr_control_type structure<a class="headerlink" href="#llsr-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">new_s</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_factorizations</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">taylor_max_degree</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_multiplier</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">lower</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_normal</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">use_initial_multiplier</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">definite_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">new_s</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_factorizations</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">taylor_max_degree</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">initial_multiplier</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">lower</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_normal</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">use_initial_multiplier</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">definite_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">ir_control</span><span class="o">::</span><span class="kt">ir_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-structllsr-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-structllsr-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
 <p>control derived type as a Julia structure</p>
 <section id="components">
-<h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-9"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
@@ -1152,26 +1182,26 @@ progress is impossible.</p>
 </section>
 </section>
 <section id="llsr-time-type-structure">
-<span id="doxid-structllsr-time-type"></span><span id="index-29"></span><h2>llsr_time_type structure<a class="headerlink" href="#llsr-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structllsr-time-type"></span><span id="index-29"></span><h2>llsr_time_type structure<a class="headerlink" href="#llsr-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">assemble</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_assemble</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">assemble</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_assemble</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structllsr-time-type">
-<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-time-type" title="Permalink to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
 <section id="id4">
-<h3>components<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-time-type-1ad3803b3bb79c5c74d9300520fbe733f4"><span id="index-30"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-time-type-1ae84d232eee798a974ebaeb9c82d623f4"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">assemble</span></pre>
@@ -1195,19 +1225,19 @@ progress is impossible.</p>
 </section>
 </section>
 <section id="llsr-history-type-structure">
-<span id="doxid-structllsr-history-type"></span><span id="index-40"></span><h2>llsr_history_type structure<a class="headerlink" href="#llsr-history-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structllsr-history-type"></span><span id="index-40"></span><h2>llsr_history_type structure<a class="headerlink" href="#llsr-history-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_history_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">lambda</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_history_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lambda</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">r_norm</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structllsr-history-type">
-<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-history-type" title="Permalink to this heading">#</a></h2>
+<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-history-type" title="Link to this heading">#</a></h2>
 <p>history derived type as a Julia structure</p>
 <section id="id6">
-<h3>components<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-history-type-1a69856cb11373bfb6f36d8a28df6dd08f"><span id="index-41"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">lambda</span></pre>
 <p>the value of <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-history-type-1a32b3ba51ed1b0d7941f34e736da26ae3"><span id="index-42"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">x_norm</span></pre>
@@ -1217,29 +1247,29 @@ progress is impossible.</p>
 </section>
 </section>
 <section id="llsr-inform-type-structure">
-<span id="doxid-structllsr-inform-type"></span><span id="index-44"></span><h2>llsr_inform_type structure<a class="headerlink" href="#llsr-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structllsr-inform-type"></span><span id="index-44"></span><h2>llsr_inform_type structure<a class="headerlink" href="#llsr-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorizations</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">len_history</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">r_norm</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">llsr_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">history</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">100</span><span class="p">,</span><span class="kt">llsr_history_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">llsr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorizations</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">len_history</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">r_norm</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">llsr_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">history</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">100</span><span class="p">,</span><span class="kt">llsr_history_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}}</span>
+<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">ir_inform</span><span class="o">::</span><span class="kt">ir_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="details-structllsr-inform-type">
-<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-inform-type" title="Permalink to this heading">#</a></h2>
+<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structllsr-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id8">
-<h3>components<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-45"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
@@ -1295,7 +1325,7 @@ progress is impossible.</p>
 </section>
 </section>
 <section id="example-calls">
-<span id="doxid-index-llsr-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Permalink to this heading">#</a></h2>
+<span id="doxid-index-llsr-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a regularized linear
 least-squares subproblem;
 the code is available in $GALAHAD/src/llsr/Julia/test_llsr.jl .
@@ -1308,11 +1338,11 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Printf</span>
 <span class="n">using</span> <span class="n">Accessors</span>
 
-<span class="n">function</span> <span class="n">test_llsr</span><span class="p">()</span>
+<span class="n">function</span> <span class="n">test_llsr</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">llsr_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">llsr_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">llsr_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">llsr_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
   <span class="c1"># set dimensions</span>
@@ -1324,7 +1354,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">A_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">)</span>
   <span class="n">A_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">)</span>
   <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-  <span class="n">A_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">)</span>
+  <span class="n">A_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">)</span>
 
   <span class="c1"># store A in sparse formats</span>
   <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1347,7 +1377,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># store A in dense format</span>
   <span class="n">A_dense_ne</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span>
-  <span class="n">A_dense_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">)</span>
+  <span class="n">A_dense_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">)</span>
   <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
     <span class="n">A_dense_val</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -1361,7 +1391,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">S_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
   <span class="n">S_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
   <span class="n">S_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-  <span class="n">S_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+  <span class="n">S_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
 
   <span class="c1"># store S in sparse formats</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
@@ -1374,7 +1404,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># store S in dense format</span>
   <span class="n">S_dense_ne</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-  <span class="n">S_dense_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">S_dense_ne</span><span class="p">)</span>
+  <span class="n">S_dense_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S_dense_ne</span><span class="p">)</span>
   <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
     <span class="n">S_dense_val</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
@@ -1382,14 +1412,14 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">end</span>
 
   <span class="c1"># b is a vector of ones</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># observations</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># observations</span>
 
   <span class="c1"># cubic regularization, weight is one</span>
   <span class="n">power</span> <span class="o">=</span> <span class="mf">3.0</span>
   <span class="n">weight</span> <span class="o">=</span> <span class="mf">1.0</span>
 
   <span class="c1"># Set output storage</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Float64</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># solution</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># solution</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
   <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
 
@@ -1400,7 +1430,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
 
     <span class="c1"># Initialize LLSR</span>
-    <span class="n">llsr_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">llsr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">sbls_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">sbls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span>
@@ -1415,18 +1445,18 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="c1"># sparse co-ordinate storage</span>
       <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-        <span class="n">llsr_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                     <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">use_s</span> <span class="o">==</span> <span class="mi">0</span>
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">else</span>
-          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                               <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span>
                               <span class="n">S_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
@@ -1434,18 +1464,18 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="c1"># sparse by rows</span>
       <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-        <span class="n">llsr_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                     <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">use_s</span> <span class="o">==</span> <span class="mi">0</span>
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">else</span>
-          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                               <span class="n">S_col</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">)</span>
 
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
@@ -1453,18 +1483,18 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="c1"># dense</span>
       <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
-        <span class="n">llsr_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                     <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">use_s</span> <span class="o">==</span> <span class="mi">0</span>
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                              <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">else</span>
-          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                               <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">S_dense_ne</span><span class="p">,</span>
                               <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                              <span class="n">S_dense_ne</span><span class="p">,</span> <span class="n">S_dense_val</span><span class="p">)</span>
         <span class="n">end</span>
@@ -1473,21 +1503,21 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="c1"># diagonal</span>
       <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">4</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span>
-        <span class="n">llsr_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                     <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">use_s</span> <span class="o">==</span> <span class="mi">0</span>
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">else</span>
-          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                               <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+          <span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
                              <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
 
-      <span class="n">llsr_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+      <span class="n">llsr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
       <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;storage type </span><span class="si">%c%1i</span><span class="s2">:  status = </span><span class="si">%1i</span><span class="s2">, ||r|| = </span><span class="si">%5.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">use_s</span><span class="p">,</span>
@@ -1505,13 +1535,14 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">llsr_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">llsr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
 <span class="nd">@testset</span> <span class="s2">&quot;LLSR&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_llsr</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_llsr</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_llsr</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1519,243 +1550,151 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="glrt_functions.html" title="previous page">
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="glrt_functions.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">callable functions</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">callable functions</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="llsr_functions.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">callable functions</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
+    </a>
+    <a class="right-next"
+       href="llsr_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">callable functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </footer>
               
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#purpose">
-   purpose
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   reference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-storage">
-   matrix storage
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsymmetric-storage">
-     unsymmetric storage
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#symmetric-storage">
-     symmetric storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-function-calls">
-   introduction to function calls
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parametric-real-type-t">
-   parametric real type T
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callable-functions">
-   callable functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#available-structures">
-   available structures
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#llsr-control-type-structure">
-   llsr_control_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#detailed-documentation">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#llsr-time-type-structure">
-   llsr_time_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structllsr-time-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#llsr-history-type-structure">
-   llsr_history_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structllsr-history-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#llsr-inform-type-structure">
-   llsr_inform_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structllsr-inform-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-calls">
-   example calls
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="_sources/llsr.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-</div>
-
-</div>
-
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsymmetric-storage">unsymmetric storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-storage">symmetric storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llsr-control-type-structure">llsr_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llsr-time-type-structure">llsr_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structllsr-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llsr-history-type-structure">llsr_history_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structllsr-history-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llsr-inform-type-structure">llsr_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structllsr-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/llsr.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>

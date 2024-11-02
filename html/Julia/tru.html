@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GALAHAD TRU package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
   
@@ -12,35 +14,36 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/target-highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tru';</script>
@@ -48,369 +51,391 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="tru_functions.html" />
     <link rel="prev" title="callable functions" href="arc_functions.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </button>
   
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="arc.html">ARC - unconstrained local optimization of a smooth function using a regularization method</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="arc.html">ARC - unconstrained local optimization of a smooth function using a regularization method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="arc_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">TRU - unconstrained local optimization of a smooth function using a trust-region method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">TRU - unconstrained local optimization of a smooth function using a trust-region method</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="tru_functions.html">callable functions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="uco.html" class="nav-link">Unconstrained Optimization</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD TRU package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="module-galahad.tru">
-<span id="galahad-tru-package"></span><span id="doxid-index-tru"></span><h1>GALAHAD TRU package<a class="headerlink" href="#module-galahad.tru" title="Permalink to this heading">#</a></h1>
+<span id="galahad-tru-package"></span><span id="doxid-index-tru"></span><h1>GALAHAD TRU package<a class="headerlink" href="#module-galahad.tru" title="Link to this heading">#</a></h1>
 <section id="module-0">
-<span id="purpose"></span><h2>purpose<a class="headerlink" href="#module-0" title="Permalink to this heading">#</a></h2>
+<span id="purpose"></span><h2>purpose<a class="headerlink" href="#module-0" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">tru</span></code> package uses a trust-region method to find a (local)
 minimizer of a differentiable objective function <span class="math notranslate nohighlight">\(f(x)\)</span> of
 many variables <span class="math notranslate nohighlight">\(x\)</span>. The method offers the choice of direct
@@ -420,7 +445,7 @@ if second derivatives can be calculated, they will be exploited.</p>
 <p>See Section 4 of $GALAHAD/doc/tru.pdf for additional  details.</p>
 </section>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>A trust-region method is used. In this, an improvement to a current
 estimate of the required minimizer, <span class="math notranslate nohighlight">\(x_k\)</span> is sought by computing a
 step <span class="math notranslate nohighlight">\(s_k\)</span>. The step is chosen to approximately minimize a model <span class="math notranslate nohighlight">\(m_k(s)\)</span>
@@ -463,7 +488,7 @@ However when factorizations of <span class="math notranslate nohighlight">\(B_k\
 is often more efficient.</p>
 </section>
 <section id="reference">
-<h2>reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <p>The generic trust-region method is described in detail in</p>
 <blockquote>
 <div><p>A. R. Conn, N. I. M. Gould and Ph. L. Toint,
@@ -472,7 +497,7 @@ SIAM/MPS Series on Optimization (2000).</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<span id="details-hx-storage-sym"></span><span id="details-hx-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Permalink to this heading">#</a></h2>
+<span id="details-hx-storage-sym"></span><span id="details-hx-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = \nabla^2_{xx}f\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the lower triangular part
@@ -519,7 +544,7 @@ The string H_type = ‘diagonal’ should be specified.</p>
 </div>
 </section>
 <section id="introduction-to-function-calls">
-<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Permalink to this heading">#</a></h2>
+<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the tru package must be
 called in the following order:</p>
 <ul class="simple">
@@ -542,19 +567,16 @@ called in the following order:</p>
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Permalink to this heading">#</a></h2>
+<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).
-Calable functions as described are with T as Float64, but variants
-(with the additional suffix <code class="docutils literal notranslate"><span class="pre">_s</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">tru_initialize_s</span></code>)
-are available with T as Float32.</p>
+(single precision) or Float64 (double precision).</p>
 </section>
 <section id="callable-functions">
-<h2>callable functions<a class="headerlink" href="#callable-functions" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1af7def0657e11fee556d3006fb64fe267"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1af7def0657e11fee556d3006fb64fe267"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -581,7 +603,8 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a870a28132f2747e12d7c93c9ce6ffd01"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_read_specfile</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a870a28132f2747e12d7c93c9ce6ffd01"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -591,7 +614,7 @@ $GALAHAD/src/tru/TRU.template.  See also Table 2.1 in the Fortran
 documentation provided in $GALAHAD/doc/tru.pdf for a list of how these
 keywords relate to the components of the control structure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -605,11 +628,12 @@ keywords relate to the components of the control structure.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a8175a402569a69faa351e2dcd3c48b94"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a8175a402569a69faa351e2dcd3c48b94"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -681,10 +705,11 @@ violated.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a97ce8d0956fdb4165504433a93714495"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a97ce8d0956fdb4165504433a93714495"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -711,14 +736,15 @@ for the solve phase</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a638a31d7027eaf1ae39aa7278e7c5c5a"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_with_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a638a31d7027eaf1ae39aa7278e7c5c5a"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_h</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is provided
 specifically, and all function/derivative information is available by
 function calls.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -892,14 +918,15 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1aaa508227d17d8da723bb0401023acd96"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_without_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1aaa508227d17d8da723bb0401023acd96"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
 <span class="w">                                   </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where access to <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is
 provided by Hessian-vector products, and all function/derivative
 information is available by function calls.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1072,14 +1099,15 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a804863856294e362b724fca8953300d5"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_reverse_with_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a804863856294e362b724fca8953300d5"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is provided
 specifically, but function/derivative information is only available by
 returning to the calling procedure</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1269,14 +1297,15 @@ eval_status to a non-zero value.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a97252b83eaab0b4d5d3ac53e6b317206"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_reverse_without_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a97252b83eaab0b4d5d3ac53e6b317206"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                           </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where access to <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is
 provided by Hessian-vector products, but function/derivative information
 is only available by returning to the calling procedure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1462,10 +1491,11 @@ eval_status to a non-zero value.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a7c756ce759b44ddbd1ffac77bf497e5a"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1a7c756ce759b44ddbd1ffac77bf497e5a"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1490,10 +1520,11 @@ eval_status to a non-zero value.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1aa38f8880b4f63e610ae1f269353ac46e"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-tru-8h-1aa38f8880b4f63e610ae1f269353ac46e"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">tru_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1510,70 +1541,71 @@ eval_status to a non-zero value.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="available-structures">
-<h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
+<h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="tru-control-type-structure">
-<span id="doxid-structtru-control-type"></span><span id="index-10"></span><h2>tru_control_type structure<a class="headerlink" href="#tru-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structtru-control-type"></span><span id="index-10"></span><h2>tru_control_type structure<a class="headerlink" href="#tru-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">lbfgs_vectors</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_dxg</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">advanced_start</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_radius</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">maximum_radius</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">radius_increase</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">radius_reduce</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">radius_reduce_max</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">obj_unbounded</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">retrospective_trust_region</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">renormalize_radius</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">trs_control</span><span class="o">::</span><span class="kt">trs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">gltr_control</span><span class="o">::</span><span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">dps_control</span><span class="o">::</span><span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">lms_control</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">lms_control_prec</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sec_control</span><span class="o">::</span><span class="kt">sec_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">lbfgs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_dxg</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">advanced_start</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">initial_radius</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">maximum_radius</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">radius_increase</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">radius_reduce</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">radius_reduce_max</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">obj_unbounded</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">retrospective_trust_region</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">renormalize_radius</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">trs_control</span><span class="o">::</span><span class="kt">trs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">gltr_control</span><span class="o">::</span><span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">dps_control</span><span class="o">::</span><span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_control</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_control_prec</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sec_control</span><span class="o">::</span><span class="kt">sec_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">sha_control</span><span class="o">::</span><span class="kt">sha_control_type</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-structtru-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-structtru-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
 <p>control derived type as a Julia structure</p>
 <section id="components">
-<h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
@@ -1713,26 +1745,26 @@ eval_status to a non-zero value.</p>
 </section>
 </section>
 <section id="tru-time-type-structure">
-<span id="doxid-structtru-time-type"></span><span id="index-60"></span><h2>tru_time_type structure<a class="headerlink" href="#tru-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structtru-time-type"></span><span id="index-60"></span><h2>tru_time_type structure<a class="headerlink" href="#tru-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">preprocess</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_preprocess</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">preprocess</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_preprocess</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structtru-time-type">
-<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structtru-time-type" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structtru-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
 <section id="id2">
-<h3>components<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-time-type-1aa7b2ccce10ffc8ef240d5be56ec1fbbc"><span id="index-61"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-time-type-1adc5369028902776a12fe8d393be67174"><span id="index-62"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -1756,42 +1788,42 @@ eval_status to a non-zero value.</p>
 </section>
 </section>
 <section id="tru-inform-type-structure">
-<span id="doxid-structtru-inform-type"></span><span id="index-71"></span><h2>tru_inform_type structure<a class="headerlink" href="#tru-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structtru-inform-type"></span><span id="index-71"></span><h2>tru_inform_type structure<a class="headerlink" href="#tru-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">radius</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">tru_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">trs_inform</span><span class="o">::</span><span class="kt">trs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">gltr_inform</span><span class="o">::</span><span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">dps_inform</span><span class="o">::</span><span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">lms_inform</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">lms_inform_prec</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sec_inform</span><span class="o">::</span><span class="kt">sec_inform_type</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">tru_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">radius</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">tru_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">trs_inform</span><span class="o">::</span><span class="kt">trs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">gltr_inform</span><span class="o">::</span><span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">dps_inform</span><span class="o">::</span><span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_inform</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_inform_prec</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sec_inform</span><span class="o">::</span><span class="kt">sec_inform_type</span>
 <span class="w">      </span><span class="n">sha_inform</span><span class="o">::</span><span class="kt">sha_inform_type</span></pre>
 </section>
 <section id="details-structtru-inform-type">
-<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structtru-inform-type" title="Permalink to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structtru-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
-<h3>components<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-72"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See TRU_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-73"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1850,7 +1882,7 @@ eval_status to a non-zero value.</p>
 </section>
 </section>
 <section id="example-calls">
-<span id="doxid-index-tru-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Permalink to this heading">#</a></h2>
+<span id="doxid-index-tru-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to minimize a multi-dimenstional
 objective function; the code is available in
 $GALAHAD/src/tru/Julia/test_tru.jl .
@@ -1864,21 +1896,21 @@ using Printf
 using Accessors
 
 # Custom userdata struct
-mutable struct userdata_tru
-  p::Float64
+mutable struct userdata_tru{T}
+  p::T
 end
 
-function test_tru()
+function test_tru(::Type{T}) where T
 
   # Objective function
-  function fun(n::Int, x::Vector{Float64}, f::Ref{Float64}, userdata::userdata_tru)
+  function fun(n::Int, x::Vector{T}, f::Ref{T}, userdata::userdata_tru)
     p = userdata.p
     f[] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 + cos(x[1])
     return 0
   end
 
   # Gradient of the objective
-  function grad(n::Int, x::Vector{Float64}, g::Vector{Float64}, userdata::userdata_tru)
+  function grad(n::Int, x::Vector{T}, g::Vector{T}, userdata::userdata_tru)
     p = userdata.p
     g[1] = 2.0 * (x[1] + x[3] + p) - sin(x[1])
     g[2] = 2.0 * (x[2] + x[3])
@@ -1887,7 +1919,7 @@ function test_tru()
   end
 
   # Hessian of the objective
-  function hess(n::Int, ne::Int, x::Vector{Float64}, hval::Vector{Float64},
+  function hess(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
                 userdata::userdata_tru)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 2.0
@@ -1898,7 +1930,7 @@ function test_tru()
   end
 
   # Dense Hessian
-  function hess_dense(n::Int, ne::Int, x::Vector{Float64}, hval::Vector{Float64},
+  function hess_dense(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
                       userdata::userdata_tru)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 0.0
@@ -1910,7 +1942,7 @@ function test_tru()
   end
 
   # Hessian-vector product
-  function hessprod(n::Int, x::Vector{Float64}, u::Vector{Float64}, v::Vector{Float64},
+  function hessprod(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
                     got_h::Bool, userdata::userdata_tru)
     u[1] = u[1] + 2.0 * (v[1] + v[3]) - cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * (v[2] + v[3])
@@ -1919,7 +1951,7 @@ function test_tru()
   end
 
   # Apply preconditioner
-  function prec(n::Int, x::Vector{Float64}, u::Vector{Float64}, v::Vector{Float64},
+  function prec(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
                 userdata::userdata_tru)
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
@@ -1928,14 +1960,14 @@ function test_tru()
   end
 
   # Objective function
-  function fun_diag(n::Int, x::Vector{Float64}, f::Ref{Float64}, userdata::userdata_tru)
+  function fun_diag(n::Int, x::Vector{T}, f::Ref{T}, userdata::userdata_tru)
     p = userdata.p
     f[] = (x[3] + p)^2 + x[2]^2 + cos(x[1])
     return 0
   end
 
   # Gradient of the objective
-  function grad_diag(n::Int, x::Vector{Float64}, g::Vector{Float64}, userdata::userdata_tru)
+  function grad_diag(n::Int, x::Vector{T}, g::Vector{T}, userdata::userdata_tru)
     p = userdata.p
     g[1] = -sin(x[1])
     g[2] = 2.0 * x[2]
@@ -1944,7 +1976,7 @@ function test_tru()
   end
 
   # Hessian of the objective
-  function hess_diag(n::Int, ne::Int, x::Vector{Float64}, hval::Vector{Float64},
+  function hess_diag(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
                      userdata::userdata_tru)
     hval[1] = -cos(x[1])
     hval[2] = 2.0
@@ -1953,7 +1985,7 @@ function test_tru()
   end
 
   # Hessian-vector product
-  function hessprod_diag(n::Int, x::Vector{Float64}, u::Vector{Float64}, v::Vector{Float64},
+  function hessprod_diag(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
                          got_h::Bool, userdata::userdata_tru)
     u[1] = u[1] + -cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * v[2]
@@ -1963,8 +1995,8 @@ function test_tru()
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{tru_control_type{Float64}}()
-  inform = Ref{tru_inform_type{Float64}}()
+  control = Ref{tru_control_type{T}}()
+  inform = Ref{tru_inform_type{T}}()
 
   # Set user data
   userdata = userdata_tru(4.0)
@@ -1977,7 +2009,7 @@ function test_tru()
   H_ptr = Cint[1, 2, 3, 6]  # row pointers
 
   # Set storage
-  g = zeros(Float64, n) # gradient
+  g = zeros(T, n) # gradient
   st = &#39; &#39;
   status = Ref{Cint}()
 
@@ -1986,18 +2018,18 @@ function test_tru()
 
   # reverse-communication input/output
   eval_status = Ref{Cint}()
-  f = Ref{Float64}(0.0)
-  u = zeros(Float64, n)
-  v = zeros(Float64, n)
+  f = Ref{T}(0.0)
+  u = zeros(T, n)
+  v = zeros(T, n)
   index_nz_u = zeros(Cint, n)
   index_nz_v = zeros(Cint, n)
-  H_val = zeros(Float64, ne)
-  H_dense = zeros(Float64, div(n * (n + 1), 2))
-  H_diag = zeros(Float64, n)
+  H_val = zeros(T, ne)
+  H_dense = zeros(T, div(n * (n + 1), 2))
+  H_diag = zeros(T, n)
 
   for d in 1:5
     # Initialize TRU
-    tru_initialize(data, control, status)
+    tru_initialize(T, data, control, status)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
@@ -2005,17 +2037,17 @@ function test_tru()
     # @reset control[].maxit = Cint(1)
 
     # Start from 1.5
-    x = Float64[1.5, 1.5, 1.5]
+    x = T[1.5, 1.5, 1.5]
 
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      tru_import(control, data, status, n, &quot;coordinate&quot;,
+      tru_import(T, control, data, status, n, &quot;coordinate&quot;,
                  ne, H_row, H_col, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        tru_solve_reverse_with_mat(data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        tru_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2037,12 +2069,12 @@ function test_tru()
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      tru_import(control, data, status, n, &quot;sparse_by_rows&quot;, ne,
+      tru_import(T, control, data, status, n, &quot;sparse_by_rows&quot;, ne,
                  C_NULL, H_col, H_ptr)
 
       terminated = false
       while !terminated # reverse-communication loop
-        tru_solve_reverse_with_mat(data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        tru_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2064,12 +2096,12 @@ function test_tru()
     # dense
     if d == 3
       st = &#39;D&#39;
-      tru_import(control, data, status, n, &quot;dense&quot;,
+      tru_import(T, control, data, status, n, &quot;dense&quot;,
                  ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        tru_solve_reverse_with_mat(data, status, eval_status, n, x, f[], g,
+        tru_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g,
                                    div(n * (n + 1), 2), H_dense, u, v)
         if status[] == 0 # successful termination
           terminated = true
@@ -2092,11 +2124,11 @@ function test_tru()
     # diagonal
     if d == 4
       st = &#39;I&#39;
-      tru_import(control, data, status, n, &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
+      tru_import(T, control, data, status, n, &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        tru_solve_reverse_with_mat(data, status, eval_status, n, x, f[], g, n, H_diag, u, v)
+        tru_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g, n, H_diag, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2118,12 +2150,12 @@ function test_tru()
     # access by products
     if d == 5
       st = &#39;P&#39;
-      tru_import(control, data, status, n, &quot;absent&quot;,
+      tru_import(T, control, data, status, n, &quot;absent&quot;,
                  ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        tru_solve_reverse_without_mat(data, status, eval_status, n, x, f[], g, u, v)
+        tru_solve_reverse_without_mat(T, data, status, eval_status, n, x, f[], g, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2142,7 +2174,7 @@ function test_tru()
       end
     end
 
-    tru_information(data, inform, status)
+    tru_information(T, data, inform, status)
 
     if inform[].status == 0
       @printf(&quot;%c:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
@@ -2163,14 +2195,15 @@ function test_tru()
     # @printf(&quot;\n&quot;)
 
     # Delete internal workspace
-    tru_terminate(data, control, inform)
+    tru_terminate(T, data, control, inform)
   end
 
   return 0
 end
 
 @testset &quot;TRU&quot; begin
-  @test test_tru() == 0
+  @test test_tru(Float32) == 0
+  @test test_tru(Float64) == 0
 end
 </pre></div>
 </div>
@@ -2178,214 +2211,142 @@ end
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="arc_functions.html" title="previous page">
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="arc_functions.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">callable functions</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">callable functions</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="tru_functions.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">callable functions</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
+    </a>
+    <a class="right-next"
+       href="tru_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">callable functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </footer>
               
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-0">
-   purpose
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   reference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-storage">
-   matrix storage
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-function-calls">
-   introduction to function calls
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parametric-real-type-t">
-   parametric real type T
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callable-functions">
-   callable functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#available-structures">
-   available structures
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tru-control-type-structure">
-   tru_control_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#detailed-documentation">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tru-time-type-structure">
-   tru_time_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structtru-time-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tru-inform-type-structure">
-   tru_inform_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structtru-inform-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-calls">
-   example calls
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="_sources/tru.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-</div>
-
-</div>
-
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-0">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tru-control-type-structure">tru_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tru-time-type-structure">tru_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtru-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tru-inform-type-structure">tru_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtru-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/tru.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>

@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GALAHAD NLS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
   
@@ -12,35 +14,36 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/target-highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'nls';</script>
@@ -48,381 +51,403 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="nls_functions.html" />
     <link rel="prev" title="callable functions" href="clls_functions.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </button>
   
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="blls.html">BLLS - bound-constrained linear least-squares using a preconditioned, projected-gradient method</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="blls.html">BLLS - bound-constrained linear least-squares using a preconditioned, projected-gradient method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="blls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bllsb.html">BLLSB - bound-constrained linear least-squares using an interior-point method</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bllsb.html">BLLSB - bound-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bllsb_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="clls.html">CLLS - linearly-constrained linear least-squares using an interior-point method</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="clls.html">CLLS - linearly-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="clls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">NLS - unconstrained local nonlinear least-squares using a regularization method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">NLS - unconstrained local nonlinear least-squares using a regularization method</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="nls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="slls_functions.html">callable functions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="ls.html" class="nav-link">Least-Squares</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD NLS package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="module-galahad.nls">
-<span id="galahad-nls-package"></span><span id="doxid-index-nls"></span><h1>GALAHAD NLS package<a class="headerlink" href="#module-galahad.nls" title="Permalink to this heading">#</a></h1>
+<span id="galahad-nls-package"></span><span id="doxid-index-nls"></span><h1>GALAHAD NLS package<a class="headerlink" href="#module-galahad.nls" title="Link to this heading">#</a></h1>
 <section id="purpose">
-<h2>purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">nls</span></code> package uses a regularization method to find a (local) unconstrained
 minimizer of a differentiable weighted sum-of-squares objective function
 <div class="math notranslate nohighlight">
@@ -437,7 +462,7 @@ second derivatives of the <span class="math notranslate nohighlight">\(c_i(x)\)<
 <p>See Section 4 of $GALAHAD/doc/nls.pdf for additional details.</p>
 </section>
 <section id="terminology">
-<h2>terminology<a class="headerlink" href="#terminology" title="Permalink to this heading">#</a></h2>
+<h2>terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h2>
 <p>The <strong>gradient</strong> <span class="math notranslate nohighlight">\(\nabla_x f(x)\)</span> of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is the vector
 whose <span class="math notranslate nohighlight">\(i\)</span>-th component is <span class="math notranslate nohighlight">\(\partial f(x)/\partial x_i\)</span>.
 The <strong>Hessian</strong> <span class="math notranslate nohighlight">\(\nabla_{xx} f(x)\)</span> of <span class="math notranslate nohighlight">\(f(x)\)</span> is the symmetric matrix
@@ -497,7 +522,7 @@ where <span class="math notranslate nohighlight">\(W\)</span> is the diagonal ma
 </ol>
 </section>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>An adaptive regularization method is used.
 In this, an improvement to a current
 estimate of the required minimizer, <span class="math notranslate nohighlight">\(x_k\)</span> is sought by computing a
@@ -541,7 +566,7 @@ model. The quartic model often gives a better approximation, but at the
 cost of more involved derivative requirements.</p>
 </section>
 <section id="references">
-<h2>references<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>references<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>The generic adaptive cubic regularization method is described in detail in</p>
 <blockquote>
 <div><p>C. Cartis,  N. I. M. Gould and Ph. L. Toint,
@@ -567,9 +592,9 @@ tensor-Newton method for solving nonlinear least-squares problems’’.
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<span id="details-nls-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Permalink to this heading">#</a></h2>
+<span id="details-nls-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <section id="unsymmetric-storage">
-<span id="details-nls-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Permalink to this heading">#</a></h3>
+<span id="details-nls-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h3>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J = J(x)\)</span> and the
 residual-Hessians-vector product matrix <span class="math notranslate nohighlight">\(P(x,v)\)</span> may be presented
 and stored in a variety of convenient input formats. Let
@@ -624,7 +649,7 @@ storage than the co-ordinate format.
 The string A_type = ‘sparse_by_columns’ should be specified.</p>
 </section>
 <section id="symmetric-storage">
-<span id="details-nls-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Permalink to this heading">#</a></h3>
+<span id="details-nls-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h3>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = H(x,y)\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the lower triangular part
@@ -683,7 +708,7 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 </section>
 </section>
 <section id="introduction-to-function-calls">
-<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Permalink to this heading">#</a></h2>
+<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the nls package must be
 called in the following order:</p>
 <p>To solve a given problem, functions from the nls package must be called in the following order:</p>
@@ -707,19 +732,16 @@ called in the following order:</p>
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Permalink to this heading">#</a></h2>
+<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).
-Calable functions as described are with T as Float64, but variants
-(with the additional suffix <code class="docutils literal notranslate"><span class="pre">_s</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">nls_initialize_s</span></code>)
-are available with T as Float32.</p>
+(single precision) or Float64 (double precision).</p>
 </section>
 <section id="callable-functions">
-<span id="global"></span><h2>callable functions<a class="headerlink" href="#callable-functions" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<span id="global"></span><h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -736,7 +758,8 @@ are available with T as Float32.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_read_specfile</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -746,7 +769,7 @@ $GALAHAD/src/nls/NLS.template.  See also Table 2.1 in the Fortran
 documentation provided in $GALAHAD/doc/nls.pdf for a list of how these
 keywords relate to the components of the control structure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -760,13 +783,14 @@ keywords relate to the components of the control structure.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="n">J_type</span><span class="p">,</span><span class="w"> </span><span class="n">J_ne</span><span class="p">,</span><span class="w"> </span><span class="n">J_row</span><span class="p">,</span><span class="w"> </span><span class="n">J_col</span><span class="p">,</span><span class="w"> </span><span class="n">J_ptr</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">J_type</span><span class="p">,</span><span class="w"> </span><span class="n">J_ne</span><span class="p">,</span><span class="w"> </span><span class="n">J_row</span><span class="p">,</span><span class="w"> </span><span class="n">J_col</span><span class="p">,</span><span class="w"> </span><span class="n">J_ptr</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">P_type</span><span class="p">,</span><span class="w"> </span><span class="n">P_ne</span><span class="p">,</span><span class="w"> </span><span class="n">P_row</span><span class="p">,</span><span class="w"> </span><span class="n">P_col</span><span class="p">,</span><span class="w"> </span><span class="n">P_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -876,10 +900,11 @@ violated.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -906,15 +931,16 @@ for the solve phase</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_with_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                </span><span class="n">eval_c</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_j</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_h</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">eval_c</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_j</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_h</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">p_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprods</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is provided
 specifically, and all function/derivative information is available by
 function calls.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1101,15 +1127,16 @@ into <code class="docutils literal notranslate"><span class="pre">eval_hprods</s
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_without_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                   </span><span class="n">eval_c</span><span class="p">,</span><span class="w"> </span><span class="n">eval_jprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">eval_c</span><span class="p">,</span><span class="w"> </span><span class="n">eval_jprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span>
 <span class="w">                                   </span><span class="n">p_ne</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprods</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where access to <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is
 provided by Hessian-vector products, and all function/derivative
 information is available by function calls.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1295,15 +1322,16 @@ into <code class="docutils literal notranslate"><span class="pre">eval_hprods</s
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_reverse_with_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">J_val</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">J_val</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p_ne</span><span class="p">,</span><span class="w"> </span><span class="n">P_val</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is provided
 specifically, but function/derivative information is only available by
 returning to the calling procedure</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1518,15 +1546,16 @@ Newton models is selected.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_reverse_without_mat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                           </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">transpose</span><span class="p">,</span><span class="w"></span>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<span class="w">                                           </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">transpose</span><span class="p">,</span>
 <span class="w">                                           </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">p_ne</span><span class="p">,</span><span class="w"> </span><span class="n">P_val</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a trust-region method.</p>
 <p>This call is for the case where access to <span class="math notranslate nohighlight">\(H = \nabla_{xx}f(x)\)</span> is
 provided by Hessian-vector products, but function/derivative information
 is only available by returning to the calling procedure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1731,10 +1760,11 @@ Newton models is selected.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1761,10 +1791,11 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1781,70 +1812,71 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="available-structures">
-<h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
+<h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="nls-subproblem-control-type-structure">
-<span id="doxid-structnls-subproblem-control-type"></span><span id="index-10"></span><h2>nls_subproblem_control_type structure<a class="headerlink" href="#nls-subproblem-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structnls-subproblem-control-type"></span><span id="index-10"></span><h2>nls_subproblem_control_type structure<a class="headerlink" href="#nls-subproblem-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_subproblem_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">jacobian_available</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_update_strategy</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_c_absolute</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_c_relative</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">power</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">minimum_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_inner_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_decrease_min</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_decrease</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_increase</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_increase_max</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">reduce_gap</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">tiny_gap</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">large_root</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">switch_to_newton</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">renormalize_weight</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">magic_step</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_obj</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bsc_control</span><span class="o">::</span><span class="kt">bsc_control_type</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_subproblem_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">jacobian_available</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">weight_update_strategy</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_c_absolute</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_c_relative</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">power</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">initial_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">minimum_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">initial_inner_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_decrease_min</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_decrease</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_increase</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_increase_max</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">reduce_gap</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">tiny_gap</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">large_root</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">switch_to_newton</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">renormalize_weight</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">magic_step</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">print_obj</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_control</span><span class="o">::</span><span class="kt">bsc_control_type</span>
 <span class="w">      </span><span class="n">roots_control</span><span class="o">::</span><span class="kt">roots_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-structnls-subproblem-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-structnls-subproblem-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
 <p>subproblem_control derived type as a Julia structure</p>
 <section id="components">
-<h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
@@ -1988,67 +2020,67 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 </section>
 </section>
 <section id="nls-control-type-structure">
-<span id="doxid-structnls-control-type"></span><span id="index-60"></span><h2>nls_control_type structure<a class="headerlink" href="#nls-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structnls-control-type"></span><span id="index-60"></span><h2>nls_control_type structure<a class="headerlink" href="#nls-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">jacobian_available</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_update_strategy</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_c_absolute</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_c_relative</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">power</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">minimum_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">initial_inner_weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_decrease_min</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_decrease</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_increase</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight_increase_max</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">reduce_gap</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">tiny_gap</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">large_root</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">switch_to_newton</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">renormalize_weight</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">magic_step</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_obj</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bsc_control</span><span class="o">::</span><span class="kt">bsc_control_type</span><span class="w"></span>
-<span class="w">      </span><span class="n">roots_control</span><span class="o">::</span><span class="kt">roots_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">jacobian_available</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">weight_update_strategy</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">stop_c_absolute</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_c_relative</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">power</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">initial_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">minimum_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">initial_inner_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_very_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">eta_too_successful</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_decrease_min</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_decrease</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_increase</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight_increase_max</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">reduce_gap</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">tiny_gap</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">large_root</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">switch_to_newton</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">renormalize_weight</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">magic_step</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">print_obj</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_control</span><span class="o">::</span><span class="kt">bsc_control_type</span>
+<span class="w">      </span><span class="n">roots_control</span><span class="o">::</span><span class="kt">roots_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">subproblem_control</span><span class="o">::</span><span class="kt">nls_subproblem_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="details-structnls-control-type">
-<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-control-type" title="Permalink to this heading">#</a></h2>
+<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-control-type" title="Link to this heading">#</a></h2>
 <p>control derived type as a Julia structure</p>
 <section id="id10">
-<h3>components<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-61"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-62"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
@@ -2198,26 +2230,26 @@ if the step is less than .stop_s</p>
 </section>
 </section>
 <section id="nls-time-type-structure">
-<span id="doxid-structnls-time-type"></span><span id="index-112"></span><h2>nls_time_type structure<a class="headerlink" href="#nls-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structnls-time-type"></span><span id="index-112"></span><h2>nls_time_type structure<a class="headerlink" href="#nls-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">preprocess</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_preprocess</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">preprocess</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_preprocess</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structnls-time-type">
-<span id="id11"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-time-type" title="Permalink to this heading">#</a></h2>
+<span id="id11"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
 <section id="id12">
-<h3>components<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-time-type-1aa7b2ccce10ffc8ef240d5be56ec1fbbc"><span id="index-113"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-time-type-1adc5369028902776a12fe8d393be67174"><span id="index-114"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -2241,41 +2273,41 @@ if the step is less than .stop_s</p>
 </section>
 </section>
 <section id="nls-subproblem-inform-type-structure">
-<span id="doxid-structnls-subproblem-inform-type"></span><span id="index-123"></span><h2>nls_subproblem_inform_type structure<a class="headerlink" href="#nls-subproblem-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structnls-subproblem-inform-type"></span><span id="index-123"></span><h2>nls_subproblem_inform_type structure<a class="headerlink" href="#nls-subproblem-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_subproblem_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_eval</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">c_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">j_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_c</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bsc_inform</span><span class="o">::</span><span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_subproblem_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bad_eval</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">c_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">j_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_c</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_inform</span><span class="o">::</span><span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">roots_inform</span><span class="o">::</span><span class="kt">roots_inform_type</span></pre>
 </section>
 <section id="details-structnls-subproblem-inform-type">
-<span id="id13"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-subproblem-inform-type" title="Permalink to this heading">#</a></h2>
+<span id="id13"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-subproblem-inform-type" title="Link to this heading">#</a></h2>
 <p>subproblem_inform derived type as a Julia structure</p>
 <section id="id14">
-<h3>components<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-124"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See NLS_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-125"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -2329,42 +2361,42 @@ if the step is less than .stop_s</p>
 </section>
 </section>
 <section id="nls-inform-type-structure">
-<span id="doxid-structnls-inform-type"></span><span id="index-149"></span><h2>nls_inform_type structure<a class="headerlink" href="#nls-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structnls-inform-type"></span><span id="index-149"></span><h2>nls_inform_type structure<a class="headerlink" href="#nls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_eval</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">c_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">j_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_c</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">bsc_inform</span><span class="o">::</span><span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">roots_inform</span><span class="o">::</span><span class="kt">roots_inform_type</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bad_eval</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">c_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">j_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_average</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_c</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">nls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_inform</span><span class="o">::</span><span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">roots_inform</span><span class="o">::</span><span class="kt">roots_inform_type</span>
 <span class="w">      </span><span class="n">subproblem_inform</span><span class="o">::</span><span class="kt">nls_subproblem_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="details-structnls-inform-type">
-<span id="id15"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-inform-type" title="Permalink to this heading">#</a></h2>
+<span id="id15"></span><h2>detailed documentation<a class="headerlink" href="#details-structnls-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id16">
-<h3>components<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-150"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See NLS_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-151"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -2423,7 +2455,7 @@ if the step is less than .stop_s</p>
 </section>
 </section>
 <section id="example-calls">
-<span id="doxid-index-nls-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Permalink to this heading">#</a></h2>
+<span id="doxid-index-nls-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a nonlinear least-squares
 problem; the code is available in $GALAHAD/src/nls/Julia/test_nls.jl .
 A variety of supported Hessian and constraint matrix storage formats are shown.</p>
@@ -2436,13 +2468,14 @@ using Printf
 using Accessors
 
 # Custom userdata struct
-struct userdata_nls
-  p::Float64
+struct userdata_nls{T}
+  p::T
 end
 
-function test_nls()
+function test_nls(::Type{T}) where T
+
   # compute the residuals
-  function res(n::Int, m::Int, x::Vector{Float64}, c::Vector{Float64},
+  function res(n::Int, m::Int, x::Vector{T}, c::Vector{T},
                userdata::userdata_nls)
     c[1] = x[1]^2 + userdata.p
     c[2] = x[1] + x[2]^2
@@ -2451,7 +2484,7 @@ function test_nls()
   end
 
   # compute the Jacobian
-  function jac(n::Int, m::Int, jne::Int, x::Vector{Float64}, jval::Vector{Float64},
+  function jac(n::Int, m::Int, jne::Int, x::Vector{T}, jval::Vector{T},
                userdata::userdata_nls)
     jval[1] = 2.0 * x[1]
     jval[2] = 1.0
@@ -2462,16 +2495,16 @@ function test_nls()
   end
 
   # compute the Hessian
-  function hess(n::Int, m::Int, hne::Int, x::Vector{Float64}, y::Vector{Float64},
-                hval::Vector{Float64}, userdata::userdata_nls)
+  function hess(n::Int, m::Int, hne::Int, x::Vector{T}, y::Vector{T},
+                hval::Vector{T}, userdata::userdata_nls)
     hval[1] = 2.0 * y[1]
     hval[2] = 2.0 * y[2]
     return 0
   end
 
   # compute Jacobian-vector products
-  function jacprod(n::Int, m::Int, x::Vector{Float64}, trans::Bool, u::Vector{Float64},
-                   v::Vector{Float64}, got_j::Bool, userdata::userdata_nls)
+  function jacprod(n::Int, m::Int, x::Vector{T}, trans::Bool, u::Vector{T},
+                   v::Vector{T}, got_j::Bool, userdata::userdata_nls)
     if trans
       u[1] = u[1] + 2.0 * x[1] * v[1] + v[2] + v[3]
       u[2] = u[2] + 2.0 * x[2] * v[2] - v[3]
@@ -2484,8 +2517,8 @@ function test_nls()
   end
 
   # compute Hessian-vector products
-  function hessprod(n::Int, m::Int, x::Vector{Float64}, y::Vector{Float64},
-                    u::Vector{Float64}, v::Vector{Float64}, got_h::Bool,
+  function hessprod(n::Int, m::Int, x::Vector{T}, y::Vector{T},
+                    u::Vector{T}, v::Vector{T}, got_h::Bool,
                     userdata::userdata_nls)
     u[1] = u[1] + 2.0 * y[1] * v[1]
     u[2] = u[2] + 2.0 * y[2] * v[2]
@@ -2493,15 +2526,15 @@ function test_nls()
   end
 
   # compute residual-Hessians-vector products
-  function rhessprods(n::Int, m::Int, pne::Int, x::Vector{Float64}, v::Vector{Float64},
-                      pval::Vector{Float64}, got_h::Bool, userdata::userdata_nls)
+  function rhessprods(n::Int, m::Int, pne::Int, x::Vector{T}, v::Vector{T},
+                      pval::Vector{T}, got_h::Bool, userdata::userdata_nls)
     pval[1] = 2.0 * v[1]
     pval[2] = 2.0 * v[2]
     return 0
   end
 
   # # scale v
-  function scale(n::Int, m::Int, x::Vector{Float64}, u::Vector{Float64}, v::Vector{Float64},
+  function scale(n::Int, m::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
                  userdata::userdata_nls)
     u[1] = v[1]
     u[2] = v[2]
@@ -2509,7 +2542,7 @@ function test_nls()
   end
 
   # compute the dense Jacobian
-  function jac_dense(n::Int, m::Int, jne::Int, x::Vector{Float64}, jval::Vector{Float64},
+  function jac_dense(n::Int, m::Int, jne::Int, x::Vector{T}, jval::Vector{T},
                      userdata::userdata_nls)
     jval[1] = 2.0 * x[1]
     jval[2] = 0.0
@@ -2521,8 +2554,8 @@ function test_nls()
   end
 
   # compute the dense Hessian
-  function hess_dense(n::Int, m::Int, hne::Int, x::Vector{Float64}, y::Vector{Float64},
-                      hval::Vector{Float64}, userdata::userdata_nls)
+  function hess_dense(n::Int, m::Int, hne::Int, x::Vector{T}, y::Vector{T},
+                      hval::Vector{T}, userdata::userdata_nls)
     hval[1] = 2.0 * y[1]
     hval[2] = 0.0
     hval[3] = 2.0 * y[2]
@@ -2530,8 +2563,8 @@ function test_nls()
   end
 
   # compute dense residual-Hessians-vector products
-  function rhessprods_dense(n::Int, m::Int, pne::Int, x::Vector{Float64},
-                            v::Vector{Float64}, pval::Vector{Float64}, got_h::Bool,
+  function rhessprods_dense(n::Int, m::Int, pne::Int, x::Vector{T},
+                            v::Vector{T}, pval::Vector{T}, got_h::Bool,
                             userdata::userdata_nls)
     pval[1] = 2.0 * v[1]
     pval[2] = 0.0
@@ -2544,8 +2577,8 @@ function test_nls()
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{nls_control_type{Float64}}()
-  inform = Ref{nls_inform_type{Float64}}()
+  control = Ref{nls_control_type{T}}()
+  inform = Ref{nls_inform_type{T}}()
 
   # Set user data
   userdata = userdata_nls(1.0)
@@ -2566,10 +2599,10 @@ function test_nls()
   P_ptr = Cint[1, 2, 3, 3]  # column pointers
 
   # Set storage
-  g = zeros(Float64, n) # gradient
-  c = zeros(Float64, m) # residual
-  y = zeros(Float64, m) # multipliers
-  W = Float64[1.0, 1.0, 1.0]  # weights
+  g = zeros(T, n) # gradient
+  c = zeros(T, m) # residual
+  y = zeros(T, m) # multipliers
+  W = T[1.0, 1.0, 1.0]  # weights
   st = &#39; &#39;
   status = Ref{Cint}()
 
@@ -2578,22 +2611,22 @@ function test_nls()
 
   # reverse-communication input/output
   eval_status = Ref{Cint}()
-  u = zeros(Float64, max(m, n))
-  v = zeros(Float64, max(m, n))
-  J_val = zeros(Float64, j_ne)
-  J_dense = zeros(Float64, m * n)
-  H_val = zeros(Float64, h_ne)
-  H_dense = zeros(Float64, div(n * (n + 1), 2))
-  H_diag = zeros(Float64, n)
-  P_val = zeros(Float64, p_ne)
-  P_dense = zeros(Float64, m * n)
+  u = zeros(T, max(m, n))
+  v = zeros(T, max(m, n))
+  J_val = zeros(T, j_ne)
+  J_dense = zeros(T, m * n)
+  H_val = zeros(T, h_ne)
+  H_dense = zeros(T, div(n * (n + 1), 2))
+  H_diag = zeros(T, n)
+  P_val = zeros(T, p_ne)
+  P_dense = zeros(T, m * n)
   trans = Ref{Bool}()
   got_j = false
   got_h = false
 
   for d in 1:5
     # Initialize NLS
-    nls_initialize(data, control, inform)
+    nls_initialize(T, data, control, inform)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
@@ -2601,19 +2634,19 @@ function test_nls()
     @reset control[].jacobian_available = Cint(2)
     @reset control[].hessian_available = Cint(2)
     @reset control[].model = Cint(6)
-    x = Float64[1.5, 1.5]  # starting point
-    W = Float64[1.0, 1.0, 1.0]  # weights
+    x = T[1.5, 1.5]  # starting point
+    W = T[1.0, 1.0, 1.0]  # weights
 
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      nls_import(control, data, status, n, m,
+      nls_import(T, control, data, status, n, m,
                  &quot;coordinate&quot;, j_ne, J_row, J_col, C_NULL,
                  &quot;coordinate&quot;, h_ne, H_row, H_col, C_NULL,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
       terminated = false
       while !terminated # reverse-communication loop
-        nls_solve_reverse_with_mat(data, status, eval_status,
+        nls_solve_reverse_with_mat(T, data, status, eval_status,
                                    n, m, x, c, g, j_ne, J_val, y,
                                    h_ne, H_val, v, p_ne, P_val)
         if status[] == 0 # successful termination
@@ -2637,14 +2670,14 @@ function test_nls()
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      nls_import(control, data, status, n, m,
+      nls_import(T, control, data, status, n, m,
                  &quot;sparse_by_rows&quot;, j_ne, C_NULL, J_col, J_ptr,
                  &quot;sparse_by_rows&quot;, h_ne, C_NULL, H_col, H_ptr,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
       terminated = false
       while !terminated # reverse-communication loop
-        nls_solve_reverse_with_mat(data, status, eval_status,
+        nls_solve_reverse_with_mat(T, data, status, eval_status,
                                    n, m, x, c, g, j_ne, J_val, y,
                                    h_ne, H_val, v, p_ne, P_val)
         if status[] == 0 # successful termination
@@ -2668,14 +2701,14 @@ function test_nls()
     # dense
     if d == 3
       st = &#39;D&#39;
-      nls_import(control, data, status, n, m,
+      nls_import(T, control, data, status, n, m,
                  &quot;dense&quot;, j_ne, C_NULL, C_NULL, C_NULL,
                  &quot;dense&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                  &quot;dense&quot;, p_ne, C_NULL, C_NULL, C_NULL, W)
 
       terminated = false
       while !terminated # reverse-communication loop
-        nls_solve_reverse_with_mat(data, status, eval_status,
+        nls_solve_reverse_with_mat(T, data, status, eval_status,
                                    n, m, x, c, g, m * n, J_dense, y,
                                    n * (n + 1) / 2, H_dense, v, m * n,
                                    P_dense)
@@ -2700,14 +2733,14 @@ function test_nls()
     # diagonal
     if d == 4
       st = &#39;I&#39;
-      nls_import(control, data, status, n, m,
+      nls_import(T, control, data, status, n, m,
                  &quot;sparse_by_rows&quot;, j_ne, C_NULL, J_col, J_ptr,
                  &quot;diagonal&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
       terminated = false
       while !terminated # reverse-communication loop
-        nls_solve_reverse_with_mat(data, status, eval_status,
+        nls_solve_reverse_with_mat(T, data, status, eval_status,
                                    n, m, x, c, g, j_ne, J_val, y,
                                    n, H_diag, v, p_ne, P_val)
         if status[] == 0 # successful termination
@@ -2732,14 +2765,14 @@ function test_nls()
     if d == 5
       st = &#39;P&#39;
       # @reset control[].print_level = Cint(1)
-      nls_import(control, data, status, n, m,
+      nls_import(T, control, data, status, n, m,
                  &quot;absent&quot;, j_ne, C_NULL, C_NULL, C_NULL,
                  &quot;absent&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
       terminated = false
       while !terminated # reverse-communication loop
-        nls_solve_reverse_without_mat(data, status, eval_status,
+        nls_solve_reverse_without_mat(T, data, status, eval_status,
                                       n, m, x, c, g, trans,
                                       u, v, y, p_ne, P_val)
         if status[] == 0 # successful termination
@@ -2760,7 +2793,7 @@ function test_nls()
       end
     end
 
-    nls_information(data, inform, status)
+    nls_information(T, data, inform, status)
 
     if inform[].status == 0
       @printf(&quot;%c:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;,
@@ -2770,13 +2803,13 @@ function test_nls()
     end
 
     # Delete internal workspace
-    nls_terminate(data, control, inform)
+    nls_terminate(T, data, control, inform)
   end
 
   @printf(&quot;\n basic tests of models used, reverse access\n\n&quot;)
   for model in 3:8
     # Initialize NLS
-    nls_initialize(data, control, inform)
+    nls_initialize(T, data, control, inform)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
@@ -2784,17 +2817,17 @@ function test_nls()
     @reset control[].jacobian_available = Cint(2)
     @reset control[].hessian_available = Cint(2)
     @reset control[].model = Cint(model)
-    x = Float64[1.5, 1.5]  # starting point
-    W = Float64[1.0, 1.0, 1.0]  # weights
+    x = T[1.5, 1.5]  # starting point
+    W = T[1.0, 1.0, 1.0]  # weights
 
-    nls_import(control, data, status, n, m,
+    nls_import(T, control, data, status, n, m,
                &quot;sparse_by_rows&quot;, j_ne, C_NULL, J_col, J_ptr,
                &quot;sparse_by_rows&quot;, h_ne, C_NULL, H_col, H_ptr,
                &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
     terminated = false
     while !terminated # reverse-communication loop
-      nls_solve_reverse_with_mat(data, status, eval_status,
+      nls_solve_reverse_with_mat(T, data, status, eval_status,
                                  n, m, x, c, g, j_ne, J_val, y,
                                  h_ne, H_val, v, p_ne, P_val)
       if status[] == 0 # successful termination
@@ -2814,7 +2847,7 @@ function test_nls()
       end
     end
 
-    nls_information(data, inform, status)
+    nls_information(T, data, inform, status)
 
     if inform[].status == 0
       @printf(&quot;P%1i:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;,
@@ -2824,13 +2857,13 @@ function test_nls()
     end
 
     # Delete internal workspace
-    nls_terminate(data, control, inform)
+    nls_terminate(T, data, control, inform)
   end
 
   @printf(&quot;\n basic tests of models used, reverse access by products\n\n&quot;)
   for model in 3:8
     # Initialize NLS
-    nls_initialize(data, control, inform)
+    nls_initialize(T, data, control, inform)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
@@ -2838,17 +2871,17 @@ function test_nls()
     @reset control[].jacobian_available = Cint(2)
     @reset control[].hessian_available = Cint(2)
     @reset control[].model = Cint(model)
-    x = Float64[1.5, 1.5]  # starting point
-    W = Float64[1.0, 1.0, 1.0]  # weights
+    x = T[1.5, 1.5]  # starting point
+    W = T[1.0, 1.0, 1.0]  # weights
 
-    nls_import(control, data, status, n, m,
+    nls_import(T, control, data, status, n, m,
                &quot;absent&quot;, j_ne, C_NULL, C_NULL, C_NULL,
                &quot;absent&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
     terminated = false
     while !terminated # reverse-communication loop
-      nls_solve_reverse_without_mat(data, status, eval_status,
+      nls_solve_reverse_without_mat(T, data, status, eval_status,
                                     n, m, x, c, g, trans,
                                     u, v, y, p_ne, P_val)
       if status[] == 0 # successful termination
@@ -2868,7 +2901,7 @@ function test_nls()
       end
     end
 
-    nls_information(data, inform, status)
+    nls_information(T, data, inform, status)
 
     if inform[].status == 0
       @printf(&quot;P%1i:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;,
@@ -2878,14 +2911,15 @@ function test_nls()
     end
 
     # Delete internal workspace
-    nls_terminate(data, control, inform)
+    nls_terminate(T, data, control, inform)
   end
 
   return 0
 end
 
 @testset &quot;NLS&quot; begin
-  @test test_nls() == 0
+  @test test_nls(Float32) == 0
+  @test test_nls(Float64) == 0
 end
 </pre></div>
 </div>
@@ -2893,265 +2927,157 @@ end
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="clls_functions.html" title="previous page">
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="clls_functions.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">callable functions</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">callable functions</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="nls_functions.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">callable functions</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
+    </a>
+    <a class="right-next"
+       href="nls_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">callable functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </footer>
               
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#purpose">
-   purpose
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#terminology">
-   terminology
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   references
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-storage">
-   matrix storage
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsymmetric-storage">
-     unsymmetric storage
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#symmetric-storage">
-     symmetric storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-function-calls">
-   introduction to function calls
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parametric-real-type-t">
-   parametric real type T
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callable-functions">
-   callable functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#available-structures">
-   available structures
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nls-subproblem-control-type-structure">
-   nls_subproblem_control_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#detailed-documentation">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nls-control-type-structure">
-   nls_control_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structnls-control-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nls-time-type-structure">
-   nls_time_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structnls-time-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nls-subproblem-inform-type-structure">
-   nls_subproblem_inform_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structnls-subproblem-inform-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nls-inform-type-structure">
-   nls_inform_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structnls-inform-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id16">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-calls">
-   example calls
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="_sources/nls.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-</div>
-
-</div>
-
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">terminology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsymmetric-storage">unsymmetric storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-storage">symmetric storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nls-subproblem-control-type-structure">nls_subproblem_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nls-control-type-structure">nls_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnls-control-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nls-time-type-structure">nls_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnls-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nls-subproblem-inform-type-structure">nls_subproblem_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnls-subproblem-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nls-inform-type-structure">nls_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnls-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/nls.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>

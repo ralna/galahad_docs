@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GALAHAD PSLS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
   
@@ -12,35 +14,36 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/target-highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'psls';</script>
@@ -48,331 +51,329 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="psls_functions.html" />
     <link rel="prev" title="callable functions" href="sbls_functions.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </button>
   
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="sls.html">SLS - solve symmetric systems of linear equations (übersolver)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sls.html">SLS - solve symmetric systems of linear equations (übersolver)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sls_functions.html">callable functions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="struct_hsl_types.html">ma48_control structure</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_hsl_types.html">ma48_control structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 
 
 
@@ -398,18 +399,18 @@
 
 
 
-<li class="toctree-l2 has-children"><a class="reference internal" href="struct_ssids_types.html">spral_ssids_options structure</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_ssids_types.html">spral_ssids_options structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="uls.html">ULS - solve unsymmetric systems of linear equations (übersolver)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="uls.html">ULS - solve unsymmetric systems of linear equations (übersolver)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="uls_functions.html">callable functions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="struct_hsl_types.html">ma48_control structure</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_hsl_types.html">ma48_control structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 
 
 
@@ -436,62 +437,86 @@
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="sbls.html">SBLS - precondition and solve block symmetric systems of linear equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sbls.html">SBLS - precondition and solve block symmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sbls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">PSLS - precondition symmetric, positive-definite systems of linear equations (übersolver)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">PSLS - precondition symmetric, positive-definite systems of linear equations (übersolver)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="psls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="sils.html">SILS - solve symmetric systems of linear equations</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sils.html">SILS - solve symmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sils_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="gls.html">GLS - solve unsymmetric systems of linear equations</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="gls.html">GLS - solve unsymmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="gls_functions.html">callable functions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fdc.html">FDC - find an equivalent linearly independent subset of a system of linear equations</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fdc.html">FDC - find an equivalent linearly independent subset of a system of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="fdc_functions.html">callable functions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="sys.html" class="nav-link">Linear Systems</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD PSLS package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="module-galahad.psls">
-<span id="galahad-psls-package"></span><span id="doxid-index-psls"></span><h1>GALAHAD PSLS package<a class="headerlink" href="#module-galahad.psls" title="Permalink to this heading">#</a></h1>
+<span id="galahad-psls-package"></span><span id="doxid-index-psls"></span><h1>GALAHAD PSLS package<a class="headerlink" href="#module-galahad.psls" title="Link to this heading">#</a></h1>
 <section id="purpose">
-<h2>purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
 <p>Given a sparse symmetric matrix <span class="math notranslate nohighlight">\(A = \{ a_{ij} \}_{n \times n}\)</span>,
 the <code class="docutils literal notranslate"><span class="pre">psls</span></code> package <strong>builds a suitable symmetric, positive definite—or
 diagonally dominant—preconditioner <span class="math notranslate nohighlight">\(P\)</span> of <span class="math notranslate nohighlight">\(A\)</span></strong> or a symmetric
@@ -501,7 +526,7 @@ remove rows and columns (symmetrically) from the initial preconditioner
 without a full re-factorization.</p>
 </section>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>The basic preconditioners are described in detail in</p>
 <blockquote>
 <div><p>A. R. Conn, N. I. M. Gould and Ph. L. Toint,
@@ -526,8 +551,8 @@ limited-memory incomplete Cholesky factorization code’’.
 with some preconditioners are described in the documentation to that
 package. The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">sls</span></code>
 are given in the following table.</p>
-<table class="table" id="id11">
-<caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id11" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id11">
+<caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 19.2%" />
 <col style="width: 19.2%" />
@@ -636,6 +661,7 @@ are given in the following table.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Note that, with the exception of <code class="docutils literal notranslate"><span class="pre">SSIDS</span></code> and the Netlib
 reference LAPACK codes,
 <strong>the solvers themselves do not form part of this package and
@@ -657,7 +683,7 @@ is achieved using the Schur-complement updating package <code class="docutils li
 unless a complete re-factorization is likely more efficient.</p>
 </section>
 <section id="matrix-storage">
-<span id="details-s-storage-sym"></span><span id="details-s-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Permalink to this heading">#</a></h2>
+<span id="details-s-storage-sym"></span><span id="details-s-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
@@ -715,7 +741,7 @@ the string A_type = ‘zero’ or ‘none’ should be specified.</p>
 </div>
 </section>
 <section id="introduction-to-function-calls">
-<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Permalink to this heading">#</a></h2>
+<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the psls package must be
 called in the following order:</p>
 <ul class="simple">
@@ -738,19 +764,16 @@ called in the following order:</p>
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Permalink to this heading">#</a></h2>
+<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).
-Calable functions as described are with T as Float64, but variants
-(with the additional suffix <code class="docutils literal notranslate"><span class="pre">_s</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">psls_initialize_s</span></code>)
-are available with T as Float32.</p>
+(single precision) or Float64 (double precision).</p>
 </section>
 <section id="callable-functions">
-<h2>callable functions<a class="headerlink" href="#callable-functions" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -777,7 +800,8 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_read_specfile</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -787,7 +811,7 @@ $GALAHAD/src/psls/PSLS.template.  See also Table 2.1 in the Fortran
 documentation provided in $GALAHAD/doc/psls.pdf for a list of how these
 keywords relate to the components of the control structure.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -801,10 +825,11 @@ keywords relate to the components of the control structure.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
 <p>Import structural matrix data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -876,10 +901,11 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_reset_control</span><span class="p">(</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -906,10 +932,11 @@ for the solve phase</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
 <p>Form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -969,10 +996,11 @@ respectively.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_subset_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_sub</span><span class="p">,</span><span class="w"> </span><span class="n">sub</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_subset_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_sub</span><span class="p">,</span><span class="w"> </span><span class="n">sub</span><span class="p">)</span></pre>
 <p>Form and factorize a <span class="math notranslate nohighlight">\(P\)</span> preconditioner of a symmetric submatrix of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1038,10 +1066,11 @@ respectively.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_update_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_del</span><span class="p">,</span><span class="w"> </span><span class="n">del</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_update_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_del</span><span class="p">,</span><span class="w"> </span><span class="n">del</span><span class="p">)</span></pre>
 <p>Update the preconditioner <span class="math notranslate nohighlight">\(P\)</span> when rows (amd columns) are removed.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1107,10 +1136,11 @@ respectively.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
 <p>Solve the linear system <span class="math notranslate nohighlight">\(Px=b\)</span>.</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1160,10 +1190,11 @@ respectively.</p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provide output information</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1190,10 +1221,11 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -1210,43 +1242,44 @@ status from the package. Possible values are
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="available-structures">
-<h2>available structures<a class="headerlink" href="#available-structures" title="Permalink to this heading">#</a></h2>
+<h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="psls-control-type-structure">
-<span id="doxid-structpsls-control-type"></span><span id="index-10"></span><h2>psls_control_type structure<a class="headerlink" href="#psls-control-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structpsls-control-type"></span><span id="index-10"></span><h2>psls_control_type structure<a class="headerlink" href="#psls-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">min_diagonal</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">new_structure</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">get_semi_bandwidth</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">get_norm_residual</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">definite_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">min_diagonal</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">new_structure</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">get_semi_bandwidth</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">get_norm_residual</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">definite_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mi28_control</span><span class="o">::</span><span class="kt">mi28_control</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-structpsls-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-structpsls-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
 <p>control derived type as a Julia structure</p>
 <section id="components">
-<h3>components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
@@ -1308,28 +1341,28 @@ status from the package. Possible values are
 </section>
 </section>
 <section id="psls-time-type-structure">
-<span id="doxid-structpsls-time-type"></span><span id="index-33"></span><h2>psls_time_type structure<a class="headerlink" href="#psls-time-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structpsls-time-type"></span><span id="index-33"></span><h2>psls_time_type structure<a class="headerlink" href="#psls-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">assemble</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">update</span><span class="o">::</span><span class="kt">Float32</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_assemble</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">assemble</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">update</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_assemble</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_update</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structpsls-time-type">
-<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structpsls-time-type" title="Permalink to this heading">#</a></h2>
+<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structpsls-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
 <section id="id8">
-<h3>components<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-time-type-1aa7b2ccce10ffc8ef240d5be56ec1fbbc"><span id="index-34"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">total</span></pre>
 <p>total time</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-time-type-1a10940eefc2f59c72a3ecc6cb4f44e233"><span id="index-35"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">assemble</span></pre>
@@ -1357,42 +1390,42 @@ status from the package. Possible values are
 </section>
 </section>
 <section id="psls-inform-type-structure">
-<span id="doxid-structpsls-inform-type"></span><span id="index-46"></span><h2>psls_inform_type structure<a class="headerlink" href="#psls-inform-type-structure" title="Permalink to this heading">#</a></h2>
+<span id="doxid-structpsls-inform-type"></span><span id="index-46"></span><h2>psls_inform_type structure<a class="headerlink" href="#psls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">analyse_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorize_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">solve_status</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span><span class="w"></span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">reordered_semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">semi_bandwidth_used</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">neg1</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">neg2</span><span class="o">::</span><span class="kt">Int32</span><span class="w"></span>
-<span class="w">      </span><span class="n">perturbed</span><span class="o">::</span><span class="kt">Bool</span><span class="w"></span>
-<span class="w">      </span><span class="n">fill_in_ratio</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">norm_residual</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
-<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">mc61_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">psls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">analyse_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorize_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">solve_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">reordered_semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">semi_bandwidth_used</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">neg1</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">neg2</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">perturbed</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">fill_in_ratio</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">norm_residual</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc61_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">psls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mi28_info</span><span class="o">::</span><span class="kt">mi28_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="details-structpsls-inform-type">
-<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structpsls-inform-type" title="Permalink to this heading">#</a></h2>
+<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structpsls-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id10">
-<h3>components<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
@@ -1465,7 +1498,7 @@ status from the package. Possible values are
 </section>
 </section>
 <section id="example-calls">
-<span id="doxid-index-psls-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Permalink to this heading">#</a></h2>
+<span id="doxid-index-psls-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a definite linear system;
 the code is available in $GALAHAD/src/psls/Julia/test_psls.jl .
 A variety of supported matrix storage formats are shown.</p>
@@ -1477,11 +1510,11 @@ A variety of supported matrix storage formats are shown.</p>
 <span class="n">using</span> <span class="n">Printf</span>
 <span class="n">using</span> <span class="n">Accessors</span>
 
-<span class="n">function</span> <span class="n">test_psls</span><span class="p">()</span>
+<span class="n">function</span> <span class="n">test_psls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_control_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_inform_type</span><span class="p">{</span><span class="n">Float64</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
   <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># dimension of A</span>
@@ -1491,8 +1524,8 @@ A variety of supported matrix storage formats are shown.</p>
   <span class="n">row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># A indices  values, NB lower triangle</span>
   <span class="n">col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
   <span class="n">ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-  <span class="n">val</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-  <span class="n">dense</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+  <span class="n">dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
                   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
   <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
@@ -1503,7 +1536,7 @@ A variety of supported matrix storage formats are shown.</p>
 
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
     <span class="c1"># Initialize PSLS</span>
-    <span class="n">psls_initialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">preconditioner</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># band preconditioner</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">semi_bandwidth</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># semibandwidth</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sils&quot;</span><span class="p">)</span>
@@ -1515,38 +1548,38 @@ A variety of supported matrix storage formats are shown.</p>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">ptr</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># dense</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># Set right-hand side b in x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Float64</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">31.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">]</span>  <span class="c1"># values</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">31.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">]</span>  <span class="c1"># values</span>
 
     <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-      <span class="n">psls_information</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-      <span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status_apply</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+      <span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+      <span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status_apply</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">else</span>
       <span class="n">status_apply</span><span class="p">[]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">end</span>
@@ -1560,14 +1593,15 @@ A variety of supported matrix storage formats are shown.</p>
     <span class="c1"># end</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">psls_terminate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
 <span class="nd">@testset</span> <span class="s2">&quot;PSLS&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1575,209 +1609,141 @@ A variety of supported matrix storage formats are shown.</p>
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="sbls_functions.html" title="previous page">
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sbls_functions.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">callable functions</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">callable functions</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="psls_functions.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">callable functions</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
+    </a>
+    <a class="right-next"
+       href="psls_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">callable functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </footer>
               
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#purpose">
-   purpose
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-storage">
-   matrix storage
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-function-calls">
-   introduction to function calls
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parametric-real-type-t">
-   parametric real type T
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callable-functions">
-   callable functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#available-structures">
-   available structures
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#psls-control-type-structure">
-   psls_control_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#detailed-documentation">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#psls-time-type-structure">
-   psls_time_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structpsls-time-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#psls-inform-type-structure">
-   psls_inform_type structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-structpsls-inform-type">
-   detailed documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     components
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-calls">
-   example calls
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="_sources/psls.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-</div>
-
-</div>
-
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psls-control-type-structure">psls_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psls-time-type-structure">psls_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structpsls-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psls-inform-type-structure">psls_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structpsls-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/psls.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>
