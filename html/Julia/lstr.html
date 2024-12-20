@@ -587,12 +587,12 @@ least-squares problems’’.
 <p>To solve a given problem, functions from the lstr package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1ae423bf7ffc77c89f461448ca1f5c286c"><span class="std std-ref">lstr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1a3d3fa989fe4c3b40cd7e296249d2205d"><span class="std std-ref">lstr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1a1a8ad63d944dc046fd2040554d6d01e5"><span class="std std-ref">lstr_import_control</span></a> - import control parameters prior to solution</p></li>
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1af3355e5a8df63a9c7173eb974a1e7562"><span class="std std-ref">lstr_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1a5929f00ea00af253ede33a6749451481"><span class="std std-ref">lstr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1aa198189942e179e52699e1fedfcdf9d1"><span class="std std-ref">lstr_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1ae423bf7ffc77c89f461448ca1f5c286c"><span class="std std-ref">lstr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1a3d3fa989fe4c3b40cd7e296249d2205d"><span class="std std-ref">lstr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1a1a8ad63d944dc046fd2040554d6d01e5"><span class="std std-ref">lstr_import_control</span></a> - import control parameters prior to solution</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1af3355e5a8df63a9c7173eb974a1e7562"><span class="std std-ref">lstr_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1a5929f00ea00af253ede33a6749451481"><span class="std std-ref">lstr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lstr-8h-1aa198189942e179e52699e1fedfcdf9d1"><span class="std std-ref">lstr_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-lstr-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -600,7 +600,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -617,7 +618,7 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lstr_control_type.html#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -652,7 +653,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lstr_control_type.html#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -670,7 +671,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_lstr_control_type.html#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -824,7 +825,7 @@ bounds</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lstr_inform_type.html#doxid-structlstr-inform-type"><span class="std std-ref">lstr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlstr-inform-type"><span class="std std-ref">lstr_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -855,10 +856,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lstr_control_type.html#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlstr-control-type"><span class="std std-ref">lstr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lstr_inform_type.html#doxid-structlstr-inform-type"><span class="std std-ref">lstr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlstr-inform-type"><span class="std std-ref">lstr_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -965,7 +966,7 @@ status from the package. Possible values are
 <section id="id8">
 <h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlstr-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-28"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
-<p>return status. See <a class="reference internal" href="lstr_functions.html#doxid-galahad-lstr-8h-1af3355e5a8df63a9c7173eb974a1e7562"><span class="std std-ref">lstr_solve_problem</span></a> for details</p>
+<p>return status. See <a class="reference internal" href="#doxid-galahad-lstr-8h-1af3355e5a8df63a9c7173eb974a1e7562"><span class="std std-ref">lstr_solve_problem</span></a> for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlstr-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-29"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlstr-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-30"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>

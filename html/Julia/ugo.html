@@ -479,18 +479,18 @@ Lipschitz functions and Lipschitz first derivatives”
 <p>To solve a given problem, functions from the ugo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-ugo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -498,7 +498,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>

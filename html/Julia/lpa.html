@@ -637,13 +637,13 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 called in the following order:</p>
 <p>To solve a given problem, functions from the lpa package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a28046b64b944ea19d21a0c983b980bac"><span class="std std-ref">lpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a41f85821e1a31f1c2aed14c283bd31e5"><span class="std std-ref">lpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a949901759f43b5be6533c7f7508cb6ca"><span class="std std-ref">lpa_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a7bef5d2b18c73eb3e3471e1e26763627"><span class="std std-ref">lpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a02c01a71baefde6b4a2cf0a819a6bb7c"><span class="std std-ref">lpa_solve_lp</span></a> - solve the linear program</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a73c17ac59bd8ffe7456fbb1288df5ece"><span class="std std-ref">lpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="lpa_functions.html#doxid-galahad-lpa-8h-1a7c2959b854911544161f0d3699d18d05"><span class="std std-ref">lpa_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a28046b64b944ea19d21a0c983b980bac"><span class="std std-ref">lpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a41f85821e1a31f1c2aed14c283bd31e5"><span class="std std-ref">lpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a949901759f43b5be6533c7f7508cb6ca"><span class="std std-ref">lpa_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a7bef5d2b18c73eb3e3471e1e26763627"><span class="std std-ref">lpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a02c01a71baefde6b4a2cf0a819a6bb7c"><span class="std std-ref">lpa_solve_lp</span></a> - solve the linear program</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a73c17ac59bd8ffe7456fbb1288df5ece"><span class="std std-ref">lpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lpa-8h-1a7c2959b854911544161f0d3699d18d05"><span class="std std-ref">lpa_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-lpa-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -651,7 +651,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -668,7 +669,7 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lpa_control_type.html#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -703,7 +704,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lpa_control_type.html#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -722,7 +723,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_lpa_control_type.html#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -800,7 +801,7 @@ A_type contains its relevant string ‘dense’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_lpa_control_type.html#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -994,7 +995,7 @@ be symptomatic of a badly scaled problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lpa_inform_type.html#doxid-structlpa-inform-type"><span class="std std-ref">lpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlpa-inform-type"><span class="std std-ref">lpa_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -1025,10 +1026,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lpa_control_type.html#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlpa-control-type"><span class="std std-ref">lpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lpa_inform_type.html#doxid-structlpa-inform-type"><span class="std std-ref">lpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlpa-inform-type"><span class="std std-ref">lpa_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1220,9 +1221,9 @@ status from the package. Possible values are
 <p>is the returned “solution” feasible?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlpa-inform-type-1a1dcb2a53d683485290d30e0a16d7e2ee"><span id="index-57"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">RINFO</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span></pre>
 <p>the information array from LA04</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlpa-inform-type-1a06efd7a01012eda3b046d741ef9584fa"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lpa_time_type.html#doxid-structlpa-time-type"><span class="std std-ref">lpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlpa-inform-type-1a06efd7a01012eda3b046d741ef9584fa"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structlpa-time-type"><span class="std std-ref">lpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlpa-inform-type-1a823701505feea7615e9f8995769d8b60"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlpa-inform-type-1a823701505feea7615e9f8995769d8b60"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rpd.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
 <p>inform parameters for RPD</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

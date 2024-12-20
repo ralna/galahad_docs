@@ -579,20 +579,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the bgo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a5d2b6e10b7c04279d6037e9abd32e19f"><span class="std std-ref">bgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a7a9e6738996809b7fd96a6e9bee6e467"><span class="std std-ref">bgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a5902cb8c7c213954de6b963a507f3a4b"><span class="std std-ref">bgo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1acd46c656b1551f4659d725e65b70e1e6"><span class="std std-ref">bgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a5d2b6e10b7c04279d6037e9abd32e19f"><span class="std std-ref">bgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a7a9e6738996809b7fd96a6e9bee6e467"><span class="std std-ref">bgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a5902cb8c7c213954de6b963a507f3a4b"><span class="std std-ref">bgo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1acd46c656b1551f4659d725e65b70e1e6"><span class="std std-ref">bgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1ab9193a994bd19d94aa97156e83345bd4"><span class="std std-ref">bgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1aeaa490762fe0950e577509ade6ae36d5"><span class="std std-ref">bgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1af99998a6921ff67b79e6558fb2a27f2f"><span class="std std-ref">bgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a84e69267132736f46cb7b5970a24b772"><span class="std std-ref">bgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1ab9193a994bd19d94aa97156e83345bd4"><span class="std std-ref">bgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1aeaa490762fe0950e577509ade6ae36d5"><span class="std std-ref">bgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1af99998a6921ff67b79e6558fb2a27f2f"><span class="std std-ref">bgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a84e69267132736f46cb7b5970a24b772"><span class="std std-ref">bgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a96c2a39622f5c497a4286f5e8ebc4ddc"><span class="std std-ref">bgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1ae41275e1234f0e01ff2aae00746d94d6"><span class="std std-ref">bgo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a96c2a39622f5c497a4286f5e8ebc4ddc"><span class="std std-ref">bgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1ae41275e1234f0e01ff2aae00746d94d6"><span class="std std-ref">bgo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bgo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -600,7 +600,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -617,7 +618,7 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
@@ -650,7 +651,7 @@ keywords relate to the components of the control structure.
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -669,7 +670,7 @@ keywords relate to the components of the control structure.
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -752,7 +753,7 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1664,7 +1665,7 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bgo_inform_type.html#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
@@ -1693,10 +1694,10 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bgo_inform_type.html#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1789,7 +1790,7 @@ should then set eval_status to a non-zero value.</p>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-control-type-1a750a67a99a91211b1c9521111a471960"><span id="index-30"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ugo.html#doxid-structugo-control-type"><span class="std std-ref">ugo_control_type</span></a><span></span><span class="w"> </span><span class="n">ugo_control</span></pre>
 <p>control parameters for UGO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-control-type-1a4938e30d02d3b452486980daef1f6f73"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lhs_control_type.html#doxid-structlhs-control-type"><span class="std std-ref">lhs_control_type</span></a><span></span><span class="w"> </span><span class="n">lhs_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-control-type-1a4938e30d02d3b452486980daef1f6f73"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lhs.html#doxid-structlhs-control-type"><span class="std std-ref">lhs_control_type</span></a><span></span><span class="w"> </span><span class="n">lhs_control</span></pre>
 <p>control parameters for LHS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-control-type-1a8538960a9c63512c78babb9a8f4b1ca2"><span id="index-32"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="trb.html#doxid-structtrb-control-type"><span class="std std-ref">trb_control_type</span></a><span></span><span class="w"> </span><span class="n">trb_control</span></pre>
 <p>control parameters for TRB</p>
@@ -1867,11 +1868,11 @@ should then set eval_status to a non-zero value.</p>
 <p>the value of the objective function at the best estimate of the solution determined by BGO_solve</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1acb02a4d1ae275a55874bb9897262b1fe"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
 <p>the norm of the projected gradient of the objective function at the best estimate of the solution determined by BGO_solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1a323c159d2e08628b6db82791b80a2f30"><span id="index-49"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bgo_time_type.html#doxid-structbgo-time-type"><span class="std std-ref">bgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1a323c159d2e08628b6db82791b80a2f30"><span id="index-49"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbgo-time-type"><span class="std std-ref">bgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1a51109e95a1bf5edbca5d7d1279b5a554"><span id="index-50"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ugo.html#doxid-structugo-inform-type"><span class="std std-ref">ugo_inform_type</span></a><span></span><span class="w"> </span><span class="n">ugo_inform</span></pre>
 <p>inform parameters for UGO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1aa1305fc54f2639b2f4c39c629b39cd48"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lhs_inform_type.html#doxid-structlhs-inform-type"><span class="std std-ref">lhs_inform_type</span></a><span></span><span class="w"> </span><span class="n">lhs_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1aa1305fc54f2639b2f4c39c629b39cd48"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lhs.html#doxid-structlhs-inform-type"><span class="std std-ref">lhs_inform_type</span></a><span></span><span class="w"> </span><span class="n">lhs_inform</span></pre>
 <p>inform parameters for LHS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-1a60ab8c5ff5dacc22bcaa60f4d6e8b321"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="trb.html#doxid-structtrb-inform-type"><span class="std std-ref">trb_inform_type</span></a><span></span><span class="w"> </span><span class="n">trb_inform</span></pre>
 <p>inform parameters for TRB</p>

@@ -591,23 +591,23 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the bqp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a4466621895dd2314f1b3c21b4bc7f615"><span class="std std-ref">bqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a0e3ffdd29be95753292694c7619a43e6"><span class="std std-ref">bqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a4466621895dd2314f1b3c21b4bc7f615"><span class="std std-ref">bqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a0e3ffdd29be95753292694c7619a43e6"><span class="std std-ref">bqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p>set up problem data structures and fixed values by caling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a0cfa65e832fd80e3dfcf9e0c65a69e56"><span class="std std-ref">bqp_import</span></a> - in the case that <span class="math notranslate nohighlight">\(H\)</span> is explicitly available</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a9a99d880b3bfbcfb7b093756019c5f0e"><span class="std std-ref">bqp_import_without_h</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(H\)</span> to a vector is possible</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a0cfa65e832fd80e3dfcf9e0c65a69e56"><span class="std std-ref">bqp_import</span></a> - in the case that <span class="math notranslate nohighlight">\(H\)</span> is explicitly available</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a9a99d880b3bfbcfb7b093756019c5f0e"><span class="std std-ref">bqp_import_without_h</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(H\)</span> to a vector is possible</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a315ce83042f67a466cfdd868c27a2850"><span class="std std-ref">bqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a315ce83042f67a466cfdd868c27a2850"><span class="std std-ref">bqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1acb5ad644890efe38b7cf7048d6297308"><span class="std std-ref">bqp_solve_given_h</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(H\)</span></p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a116b9b4ff28b9e2d18be0f0900ce2755"><span class="std std-ref">bqp_solve_reverse_h_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(H\)</span> with specified vectors</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1acb5ad644890efe38b7cf7048d6297308"><span class="std std-ref">bqp_solve_given_h</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(H\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a116b9b4ff28b9e2d18be0f0900ce2755"><span class="std std-ref">bqp_solve_reverse_h_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(H\)</span> with specified vectors</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a75b662635f281148e9c19e12e0788362"><span class="std std-ref">bqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a34db499197d1fd6fb78b294473796fbc"><span class="std std-ref">bqp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a75b662635f281148e9c19e12e0788362"><span class="std std-ref">bqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a34db499197d1fd6fb78b294473796fbc"><span class="std std-ref">bqp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bqp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -615,7 +615,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -632,7 +633,7 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
@@ -665,7 +666,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -684,7 +685,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -733,7 +734,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 <td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="h_storage.html#details-h-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="bqpb.html#details-h-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
 <td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
@@ -760,7 +761,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -815,7 +816,7 @@ respectively.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1205,7 +1206,7 @@ nz_p_end-nz_p_start will be small).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bqp_inform_type.html#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -1236,10 +1237,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bqp_inform_type.html#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1344,7 +1345,7 @@ status from the package. Possible values are
 <p>name (max 30 characters) of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-37"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by a string (max 30 characters) prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 </section>
 </section>
@@ -1427,9 +1428,9 @@ status from the package. Possible values are
 <p>current value of the projected gradient</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-52"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7f44be002389597b3f6c06e9a9b6eefa"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bqp_time_type.html#doxid-structbqp-time-type"><span class="std std-ref">bqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7f44be002389597b3f6c06e9a9b6eefa"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbqp-time-type"><span class="std std-ref">bqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1441,256 +1442,273 @@ status from the package. Possible values are
 <p>This is an example of how to use the package to solve a bound-constrained QP;
 the code is available in $GALAHAD/src/bqp/C/bqpt.c .
 A variety of supported Hessian and constraint matrix storage formats are shown.</p>
-<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">bqpt</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
-<span class="o">/*</span> <span class="n">Full</span> <span class="n">test</span> <span class="k">for</span> <span class="n">the</span> <span class="n">BQP</span> <span class="n">C</span> <span class="n">interface</span> <span class="n">using</span> <span class="n">C</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span> <span class="o">*/</span>
+<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span>/* bqpt.c */
+/* Full test for the BQP C interface using C sparse matrix indexing */
 
-<span class="c1">#include &lt;stdio.h&gt;</span>
-<span class="c1">#include &lt;math.h&gt;</span>
-<span class="c1">#include &quot;galahad_precision.h&quot;</span>
-<span class="c1">#include &quot;galahad_cfunctions.h&quot;</span>
-<span class="c1">#include &quot;galahad_bqp.h&quot;</span>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#include &quot;galahad_precision.h&quot;
+#include &quot;galahad_cfunctions.h&quot;
+#include &quot;galahad_bqp.h&quot;
+#ifdef REAL_128
+#include &lt;quadmath.h&gt;
+#endif
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
+int main(void) {
 
-    <span class="o">//</span> <span class="n">Derived</span> <span class="n">types</span>
-    <span class="n">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
-    <span class="n">struct</span> <span class="n">bqp_control_type</span> <span class="n">control</span><span class="p">;</span>
-    <span class="n">struct</span> <span class="n">bqp_inform_type</span> <span class="n">inform</span><span class="p">;</span>
+    // Derived types
+    void *data;
+    struct bqp_control_type control;
+    struct bqp_inform_type inform;
 
-    <span class="o">//</span> <span class="n">Set</span> <span class="n">problem</span> <span class="n">data</span>
-    <span class="n">ipc_</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">//</span> <span class="n">dimension</span>
-    <span class="n">ipc_</span> <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="n">Hesssian</span> <span class="n">elements</span><span class="p">,</span> <span class="n">NB</span> <span class="n">lower</span> <span class="n">triangle</span>
-    <span class="n">ipc_</span> <span class="n">H_dense_ne</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="o">//</span> <span class="n">dense</span> <span class="n">Hessian</span> <span class="n">elements</span>
-    <span class="n">ipc_</span> <span class="n">H_row</span><span class="p">[</span><span class="n">H_ne</span><span class="p">];</span> <span class="o">//</span> <span class="n">row</span> <span class="n">indices</span><span class="p">,</span>
-    <span class="n">ipc_</span> <span class="n">H_col</span><span class="p">[</span><span class="n">H_ne</span><span class="p">];</span> <span class="o">//</span> <span class="n">column</span> <span class="n">indices</span>
-    <span class="n">ipc_</span> <span class="n">H_ptr</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>  <span class="o">//</span> <span class="n">row</span> <span class="n">pointers</span>
-    <span class="n">rpc_</span> <span class="n">H_val</span><span class="p">[</span><span class="n">H_ne</span><span class="p">];</span> <span class="o">//</span> <span class="n">values</span>
-    <span class="n">rpc_</span> <span class="n">H_dense</span><span class="p">[</span><span class="n">H_dense_ne</span><span class="p">];</span> <span class="o">//</span> <span class="n">dense</span> <span class="n">values</span>
-    <span class="n">rpc_</span> <span class="n">H_diag</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>   <span class="o">//</span> <span class="n">diagonal</span> <span class="n">values</span>
-    <span class="n">rpc_</span> <span class="n">g</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>  <span class="o">//</span> <span class="n">linear</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">objective</span>
-    <span class="n">rpc_</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>  <span class="o">//</span> <span class="n">constant</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">objective</span>
-    <span class="n">rpc_</span> <span class="n">x_l</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="o">//</span> <span class="n">variable</span> <span class="n">lower</span> <span class="n">bound</span>
-    <span class="n">rpc_</span> <span class="n">x_u</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="o">//</span> <span class="n">variable</span> <span class="n">upper</span> <span class="n">bound</span>
-    <span class="n">rpc_</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="o">//</span> <span class="n">variables</span>
-    <span class="n">rpc_</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="o">//</span> <span class="n">dual</span> <span class="n">variables</span>
+    // Set problem data
+    ipc_ n = 10; // dimension
+    ipc_ H_ne = 2 * n - 1; // Hesssian elements, NB lower triangle
+    ipc_ H_dense_ne = n * ( n + 1 ) / 2; // dense Hessian elements
+    ipc_ H_row[H_ne]; // row indices,
+    ipc_ H_col[H_ne]; // column indices
+    ipc_ H_ptr[n+1];  // row pointers
+    rpc_ H_val[H_ne]; // values
+    rpc_ H_dense[H_dense_ne]; // dense values
+    rpc_ H_diag[n];   // diagonal values
+    rpc_ g[n];  // linear term in the objective
+    rpc_ f = 1.0;  // constant term in the objective
+    rpc_ x_l[n]; // variable lower bound
+    rpc_ x_u[n]; // variable upper bound
+    rpc_ x[n]; // variables
+    rpc_ z[n]; // dual variables
 
-    <span class="o">//</span> <span class="n">Set</span> <span class="n">output</span> <span class="n">storage</span>
-    <span class="n">ipc_</span> <span class="n">x_stat</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="o">//</span> <span class="n">variable</span> <span class="n">status</span>
-    <span class="n">char</span> <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
-    <span class="n">ipc_</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">status</span><span class="p">;</span>
+    // Set output storage
+    ipc_ x_stat[n]; // variable status
+    char st = &#39; &#39;;
+    ipc_ i, l, status;
 
-    <span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-    <span class="n">x_l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x_l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">INFINITY</span><span class="p">;</span>
-    <span class="n">x_u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-    <span class="n">x_u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">INFINITY</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x_u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+    g[0] = 2.0;
+    for( ipc_ i = 1; i &lt; n; i++) g[i] = 0.0;
+    x_l[0] = -1.0;
+    for( ipc_ i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
+    x_u[0] = 1.0;
+    x_u[1] = INFINITY;
+    for( ipc_ i = 2; i &lt; n; i++) x_u[i] = 2.0;
 
-    <span class="o">//</span> <span class="n">H</span> <span class="o">=</span> <span class="n">tridiag</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">H_dense</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    // H = tridiag(2,1), H_dense = diag(2)
 
-    <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
-    <span class="n">H_ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
-    <span class="n">H_row</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">H_col</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">H_val</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="n">H_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
-      <span class="n">H_row</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">H_col</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">H_val</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-      <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="n">H_row</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">H_col</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">H_val</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">H_ptr</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    l = 0 ;
+    H_ptr[0] = l;
+    H_row[l] = 0; H_col[l] = 0; H_val[l] = 2.0;
+    for( ipc_ i = 1; i &lt; n; i++)
+    {
+      l = l + 1;
+      H_ptr[i] = l;
+      H_row[l] = i; H_col[l] = i - 1; H_val[l] = 1.0;
+      l = l + 1;
+      H_row[l] = i; H_col[l] = i; H_val[l] = 2.0;
+    }
+    H_ptr[n] = l + 1;
 
-    <span class="n">l</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">H_diag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
-      <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="n">H_dense</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="n">H_dense</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-          <span class="n">H_dense</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+    l = - 1 ;
+    for( ipc_ i = 0; i &lt; n; i++)
+    {
+      H_diag[i] = 2.0;
+      for( ipc_ j = 0; j &lt;= i; j++)
+      {
+        l = l + 1;
+        if ( j &lt; i - 1 ) {
+          H_dense[l] = 0.0;
+        }
+        else if ( j == i - 1 ) {
+          H_dense[l] = 1.0;
+        }
+        else {
+          H_dense[l] = 2.0;
+        }
+      }
+    }
 
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; C sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    printf(&quot; C sparse matrix indexing\n\n&quot;);
 
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; basic tests of bqp storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    printf(&quot; basic tests of bqp storage formats\n\n&quot;);
 
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">d</span><span class="o">++</span><span class="p">){</span>
+    for( ipc_ d=1; d &lt;= 4; d++){
 
-        <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BQP</span>
-        <span class="n">bqp_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        // Initialize BQP
+        bqp_initialize( &amp;data, &amp;control, &amp;status );
 
-        <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
-        <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> <span class="o">//</span> <span class="n">C</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>
+        // Set user-defined control options
+        control.f_indexing = false; // C sparse matrix indexing
 
-        <span class="o">//</span> <span class="n">Start</span> <span class="kn">from</span> <span class="mi">0</span>
-        <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        // Start from 0
+        for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+        for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
-        <span class="n">switch</span><span class="p">(</span><span class="n">d</span><span class="p">){</span>
-            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> <span class="o">//</span> <span class="n">sparse</span> <span class="n">co</span><span class="o">-</span><span class="n">ordinate</span> <span class="n">storage</span>
-                <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">;</span>
-                <span class="n">bqp_import</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                            <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">NULL</span> <span class="p">);</span>
-                <span class="n">bqp_solve_given_h</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
-                                   <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span> <span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; case %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot; break</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
-            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span> <span class="o">//</span> <span class="n">sparse</span> <span class="n">by</span> <span class="n">rows</span>
-                <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span><span class="p">;</span>
-                <span class="n">bqp_import</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                             <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span> <span class="p">);</span>
-                <span class="n">bqp_solve_given_h</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
-                                   <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span> <span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> <span class="o">//</span> <span class="n">dense</span>
-                <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span><span class="p">;</span>
-                <span class="n">bqp_import</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                             <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span> <span class="p">);</span>
-                <span class="n">bqp_solve_given_h</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span>
-                                   <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span> <span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="mi">4</span><span class="p">:</span> <span class="o">//</span> <span class="n">diagonal</span>
-                <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span><span class="p">;</span>
-                <span class="n">bqp_import</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                             <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span> <span class="p">);</span>
-                <span class="n">bqp_solve_given_h</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_diag</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
-                                   <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span> <span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="n">bqp_information</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+        switch(d){
+            case 1: // sparse co-ordinate storage
+                st = &#39;C&#39;;
+                bqp_import( &amp;control, &amp;data, &amp;status, n,
+                            &quot;coordinate&quot;, H_ne, H_row, H_col, NULL );
+                bqp_solve_given_h( &amp;data, &amp;status, n, H_ne, H_val, g, f,
+                                   x_l, x_u, x, z, x_stat );
+                break;
+            printf(&quot; case %1&quot; i_ipc_ &quot; break\n&quot;,d);
+            case 2: // sparse by rows
+                st = &#39;R&#39;;
+                bqp_import( &amp;control, &amp;data, &amp;status, n,
+                             &quot;sparse_by_rows&quot;, H_ne, NULL, H_col, H_ptr );
+                bqp_solve_given_h( &amp;data, &amp;status, n, H_ne, H_val, g, f,
+                                   x_l, x_u, x, z, x_stat );
+                break;
+            case 3: // dense
+                st = &#39;D&#39;;
+                bqp_import( &amp;control, &amp;data, &amp;status, n,
+                             &quot;dense&quot;, H_dense_ne, NULL, NULL, NULL );
+                bqp_solve_given_h( &amp;data, &amp;status, n, H_dense_ne, H_dense,
+                                   g, f, x_l, x_u, x, z, x_stat );
+                break;
+            case 4: // diagonal
+                st = &#39;L&#39;;
+                bqp_import( &amp;control, &amp;data, &amp;status, n,
+                             &quot;diagonal&quot;, H_ne, NULL, NULL, NULL );
+                bqp_solve_given_h( &amp;data, &amp;status, n, n, H_diag, g, f,
+                                   x_l, x_u, x, z, x_stat );
+                break;
+            }
+        bqp_information( &amp;data, &amp;inform, &amp;status );
 
-        <span class="k">if</span><span class="p">(</span><span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:%6&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot; iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-                   <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">iter</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: BQP_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;x: &quot;</span><span class="p">);</span>
-        <span class="o">//</span><span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-        <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;gradient: &quot;</span><span class="p">);</span>
-        <span class="o">//</span><span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        if(inform.status == 0){
+#ifdef REAL_128
+// interim replacement for quad output: $GALAHAD/include/galahad_pquad_f.h
+#include &quot;galahad_pquad_f.h&quot;
+#else
+            printf(&quot;%c:%6&quot; i_ipc_ &quot; iterations. Optimal objective &quot;
+                   &quot;value = %.2f status = %1&quot; i_ipc_ &quot;\n&quot;,
+                   st, inform.iter, inform.obj, inform.status);
+#endif
+        }else{
+            printf(&quot;%c: BQP_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;,
+                   st, inform.status);
+        }
+        //printf(&quot;x: &quot;);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+        //printf(&quot;\n&quot;);
+        //printf(&quot;gradient: &quot;);
+        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+        //printf(&quot;\n&quot;);
 
-        <span class="o">//</span> <span class="n">Delete</span> <span class="n">internal</span> <span class="n">workspace</span>
-        <span class="n">bqp_terminate</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inform</span> <span class="p">);</span>
-    <span class="p">}</span>
+        // Delete internal workspace
+        bqp_terminate( &amp;data, &amp;control, &amp;inform );
+    }
 
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> tests reverse-communication options</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    printf(&quot;\n tests reverse-communication options\n\n&quot;);
 
-    <span class="o">//</span> <span class="n">reverse</span><span class="o">-</span><span class="n">communication</span> <span class="nb">input</span><span class="o">/</span><span class="n">output</span>
-    <span class="n">ipc_</span> <span class="n">nz_v_start</span><span class="p">,</span> <span class="n">nz_v_end</span><span class="p">,</span> <span class="n">nz_prod_end</span><span class="p">;</span>
-    <span class="n">ipc_</span> <span class="n">nz_v</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">nz_prod</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">mask</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-    <span class="n">rpc_</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">prod</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    // reverse-communication input/output
+    ipc_ nz_v_start, nz_v_end, nz_prod_end;
+    ipc_ nz_v[n], nz_prod[n], mask[n];
+    rpc_ v[n], prod[n];
 
-    <span class="n">nz_prod_end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    nz_prod_end = 0;
 
-    <span class="o">//</span> <span class="n">Initialize</span> <span class="n">BQP</span>
-    <span class="n">bqp_initialize</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
-   <span class="o">//</span> <span class="n">control</span><span class="o">.</span><span class="n">print_level</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    // Initialize BQP
+    bqp_initialize( &amp;data, &amp;control, &amp;status );
+   // control.print_level = 1;
 
-   <span class="o">//</span> <span class="n">Set</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">control</span> <span class="n">options</span>
-    <span class="n">control</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> <span class="o">//</span> <span class="n">C</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="n">indexing</span>
+   // Set user-defined control options
+    control.f_indexing = false; // C sparse matrix indexing
 
-    <span class="o">//</span> <span class="n">Start</span> <span class="kn">from</span> <span class="mi">0</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    // Start from 0
+    for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
+    for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
 
-    <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">bqp_import_without_h</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span> <span class="p">)</span> <span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">true</span><span class="p">){</span> <span class="o">//</span> <span class="n">reverse</span><span class="o">-</span><span class="n">communication</span> <span class="n">loop</span>
-        <span class="n">bqp_solve_reverse_h_prod</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
-                                  <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">prod</span><span class="p">,</span>
-                                  <span class="n">nz_v</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nz_v_start</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nz_v_end</span><span class="p">,</span>
-                                  <span class="n">nz_prod</span><span class="p">,</span> <span class="n">nz_prod_end</span> <span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span> <span class="o">//</span> <span class="n">successful</span> <span class="n">termination</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span> <span class="o">//</span> <span class="n">error</span> <span class="n">exit</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span> <span class="o">//</span> <span class="n">evaluate</span> <span class="n">Hv</span>
-          <span class="n">prod</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-          <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
-          <span class="n">prod</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
-        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">){</span> <span class="o">//</span> <span class="n">evaluate</span> <span class="n">Hv</span> <span class="k">for</span> <span class="n">sparse</span> <span class="n">v</span>
-          <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
-          <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">l</span> <span class="o">=</span> <span class="n">nz_v_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">nz_v_end</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">){</span>
-             <span class="n">i</span> <span class="o">=</span> <span class="n">nz_v</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
-             <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-             <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-             <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-           <span class="p">}</span>
-        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="mi">4</span><span class="p">){</span> <span class="o">//</span> <span class="n">evaluate</span> <span class="n">sarse</span> <span class="n">Hv</span> <span class="k">for</span> <span class="n">sparse</span> <span class="n">v</span>
-          <span class="n">nz_prod_end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-          <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">l</span> <span class="o">=</span> <span class="n">nz_v_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">nz_v_end</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">){</span>
-             <span class="n">i</span> <span class="o">=</span> <span class="n">nz_v</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
-             <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
-               <span class="k">if</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-                 <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">nz_prod</span><span class="p">[</span><span class="n">nz_prod_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">nz_prod_end</span> <span class="o">=</span> <span class="n">nz_prod_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-               <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-                 <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-               <span class="p">}</span>
-             <span class="p">}</span>
-             <span class="k">if</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-               <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-               <span class="n">nz_prod</span><span class="p">[</span><span class="n">nz_prod_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-               <span class="n">nz_prod_end</span> <span class="o">=</span> <span class="n">nz_prod_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-               <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-             <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-               <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-             <span class="p">}</span>
-             <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-               <span class="k">if</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-                 <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">nz_prod</span><span class="p">[</span><span class="n">nz_prod_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">nz_prod_end</span> <span class="o">=</span> <span class="n">nz_prod_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-                 <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-               <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-                 <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-               <span class="p">}</span>
-             <span class="p">}</span>
-          <span class="p">}</span>
-          <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">nz_prod_end</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">)</span> <span class="n">mask</span><span class="p">[</span><span class="n">nz_prod</span><span class="p">[</span><span class="n">l</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; the value %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot; of status should not occur</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+    st = &#39;I&#39;;
+    for( ipc_ i = 0; i &lt; n; i++) mask[i] = 0;
+    bqp_import_without_h( &amp;control, &amp;data, &amp;status, n ) ;
+    while(true){ // reverse-communication loop
+        bqp_solve_reverse_h_prod( &amp;data, &amp;status, n, g, f, x_l, x_u,
+                                  x, z, x_stat, v, prod,
+                                  nz_v, &amp;nz_v_start, &amp;nz_v_end,
+                                  nz_prod, nz_prod_end );
+        if(status == 0){ // successful termination
+            break;
+        }else if(status &lt; 0){ // error exit
+            break;
+        }else if(status == 2){ // evaluate Hv
+          prod[0] = 2.0 * v[0] + v[1];
+          for( ipc_ i = 1; i &lt; n-1; i++) prod[i] = 2.0 * v[i] + v[i-1] + v[i+1];
+          prod[n-1] = 2.0 * v[n-1] + v[n-2];
+        }else if(status == 3){ // evaluate Hv for sparse v
+          for( ipc_ i = 0; i &lt; n; i++) prod[i] = 0.0;
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
+             i = nz_v[l];
+             if (i &gt; 0) prod[i-1] = prod[i-1] + v[i];
+             prod[i] = prod[i] + 2.0 * v[i];
+             if (i &lt; n-1) prod[i+1] = prod[i+1] + v[i];
+           }
+        }else if(status == 4){ // evaluate sarse Hv for sparse v
+          nz_prod_end = 0;
+          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
+             i = nz_v[l];
+             if (i &gt; 0){
+               if (mask[i-1] == 0){
+                 mask[i-1] = 1;
+                 nz_prod[nz_prod_end] = i - 1;
+                 nz_prod_end = nz_prod_end + 1;
+                 prod[i-1] = v[i];
+               }else{
+                 prod[i-1] = prod[i-1] + v[i];
+               }
+             }
+             if (mask[i] == 0){
+               mask[i] = 1;
+               nz_prod[nz_prod_end] = i;
+               nz_prod_end = nz_prod_end + 1;
+               prod[i] = 2.0 * v[i];
+             }else{
+               prod[i] = prod[i] + 2.0 * v[i];
+             }
+             if (i &lt; n-1){
+               if (mask[i+1] == 0){
+                 mask[i+1] = 1;
+                 nz_prod[nz_prod_end] = i + 1;
+                 nz_prod_end = nz_prod_end + 1;
+                 prod[i+1] = prod[i+1] + v[i];
+               }else{
+                 prod[i+1] = prod[i+1] + v[i];
+               }
+             }
+          }
+          for( ipc_ l = 0; l &lt; nz_prod_end; l++) mask[nz_prod[l]] = 0;
+        }else{
+            printf(&quot; the value %1&quot; i_ipc_ &quot; of status should not occur\n&quot;,
+                   status);
+            break;
+        }
+    }
 
-    <span class="o">//</span> <span class="n">Record</span> <span class="n">solution</span> <span class="n">information</span>
-    <span class="n">bqp_information</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span> <span class="p">);</span>
+    // Record solution information
+    bqp_information( &amp;data, &amp;inform, &amp;status );
 
-    <span class="o">//</span> <span class="n">Print</span> <span class="n">solution</span> <span class="n">details</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">inform</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:%6&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot; iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-               <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">iter</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: BQP_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;x: &quot;</span><span class="p">);</span>
-    <span class="o">//</span><span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;gradient: &quot;</span><span class="p">);</span>
-    <span class="o">//</span><span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="o">//</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    // Print solution details
+    if(inform.status == 0){
+#ifdef REAL_128
+// interim replacement for quad output: $GALAHAD/include/galahad_pquad_f.h
+#include &quot;galahad_pquad_f.h&quot;
+#else
+        printf(&quot;%c:%6&quot; i_ipc_ &quot; iterations. Optimal objective &quot;
+               &quot;value = %.2f status = %1&quot; i_ipc_ &quot;\n&quot;,
+               st, inform.iter, inform.obj, inform.status);
+#endif
+    }else{
+        printf(&quot;%c: BQP_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
+    }
+    //printf(&quot;x: &quot;);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
+    //printf(&quot;\n&quot;);
+    //printf(&quot;gradient: &quot;);
+    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
+    //printf(&quot;\n&quot;);
 
-    <span class="o">//</span> <span class="n">Delete</span> <span class="n">internal</span> <span class="n">workspace</span>
-    <span class="n">bqp_terminate</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">control</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inform</span> <span class="p">);</span>
-<span class="p">}</span>
+    // Delete internal workspace
+    bqp_terminate( &amp;data, &amp;control, &amp;inform );
+}
 </pre></div>
 </div>
 </section>

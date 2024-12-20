@@ -785,19 +785,19 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the qpa package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1afc82144e136ab34fe8a7aea4acd870fc"><span class="std std-ref">qpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a41a3965eddf14d030a6fa30795149369"><span class="std std-ref">qpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a2ecf96b51001b1613ac0637c3bc44824"><span class="std std-ref">qpa_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a9d60441b2beaddb4c653156592ffc1ea"><span class="std std-ref">qpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1afc82144e136ab34fe8a7aea4acd870fc"><span class="std std-ref">qpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a41a3965eddf14d030a6fa30795149369"><span class="std std-ref">qpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a2ecf96b51001b1613ac0637c3bc44824"><span class="std std-ref">qpa_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a9d60441b2beaddb4c653156592ffc1ea"><span class="std std-ref">qpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1af9c60939ef803461d90631dd48cb55d7"><span class="std std-ref">qpa_solve_qp</span></a> - solve the quadratic program (2)-(4)</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a1a95adb548b743128e0df4ab4e801f19"><span class="std std-ref">qpa_solve_l1qp</span></a> - solve the l1 quadratic program (1)</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a5b5ef5f0d8134d8f02b1da62a04a3ace"><span class="std std-ref">qpa_solve_bcl1qp</span></a> - solve the bound constrained l1 quadratic program (4)-(5)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1af9c60939ef803461d90631dd48cb55d7"><span class="std std-ref">qpa_solve_qp</span></a> - solve the quadratic program (2)-(4)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a1a95adb548b743128e0df4ab4e801f19"><span class="std std-ref">qpa_solve_l1qp</span></a> - solve the l1 quadratic program (1)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a5b5ef5f0d8134d8f02b1da62a04a3ace"><span class="std std-ref">qpa_solve_bcl1qp</span></a> - solve the bound constrained l1 quadratic program (4)-(5)</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a631cf6ec1a95b27c712ace4fa7dc06f0"><span class="std std-ref">qpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a18b73b54796470edc039e3ac85bd30d5"><span class="std std-ref">qpa_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a631cf6ec1a95b27c712ace4fa7dc06f0"><span class="std std-ref">qpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a18b73b54796470edc039e3ac85bd30d5"><span class="std std-ref">qpa_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-qpa-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -805,7 +805,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -822,7 +823,7 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -857,7 +858,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -877,7 +878,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -978,7 +979,7 @@ been specified.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1533,7 +1534,7 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_qpa_inform_type.html#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type Int32 that gives the exit
@@ -1564,10 +1565,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_qpa_inform_type.html#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1741,7 +1742,7 @@ status from the package. Possible values are
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-control-type-1a1c67e9287c98ef959b05e041803f16a9"><span id="index-59"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">each_interval</span></pre>
 <p>component specifically for parametric problems (not used at present)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-60"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-60"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
 </section>
 </section>
@@ -1852,9 +1853,9 @@ status from the package. Possible values are
 <p>the 1-norm of the infeasibility of the simple-bound constraints</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-1a231e0f500c3a8e0e9acfa786b03381d9"><span id="index-89"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">merit</span></pre>
 <p>the merit function value = obj + rho_g * infeas_g + rho_b * infeas_b</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-1af9a10dd74244e6c12e136ae0828ae3a7"><span id="index-90"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_qpa_time_type.html#doxid-structqpa-time-type"><span class="std std-ref">qpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-1af9a10dd74244e6c12e136ae0828ae3a7"><span id="index-90"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structqpa-time-type"><span class="std std-ref">qpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters for SLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

@@ -705,13 +705,13 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the wcp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span class="std std-ref">wcp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span class="std std-ref">wcp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span class="std std-ref">wcp_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span class="std std-ref">wcp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span class="std std-ref">wcp_find_wcp</span></a> - find a well-centered point</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span class="std std-ref">wcp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a0b1cc55b8418826d80e4435ab555e256"><span class="std std-ref">wcp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span class="std std-ref">wcp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span class="std std-ref">wcp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span class="std std-ref">wcp_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span class="std std-ref">wcp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span class="std std-ref">wcp_find_wcp</span></a> - find a well-centered point</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span class="std std-ref">wcp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a0b1cc55b8418826d80e4435ab555e256"><span class="std std-ref">wcp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-wcp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -719,7 +719,8 @@ illustrations of use.</p>
 <section id="parametric-real-type-t">
 <h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
-(single precision) or Float64 (double precision).</p>
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
@@ -1303,9 +1304,9 @@ be symptomatic of a badly scaled problem.</p>
 <p>if .record_c_status is true, the array inform.C_status will be allocated and the status of the general constraints will be reported on exit.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-56"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-57"></span><span></span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-57"></span><span></span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-58"></span><span></span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-58"></span><span></span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 </section>
 </section>
@@ -1422,9 +1423,9 @@ be symptomatic of a badly scaled problem.</p>
 <p>is the returned primal-dual “solution” strictly feasible?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1afd2e59f6d17df493c93987f3f6b8b042"><span id="index-89"></span><span></span><span class="kt">wcp_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="#doxid-structwcp-time-type"><span class="std std-ref">wcp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-90"></span><span></span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-90"></span><span></span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-91"></span><span></span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-91"></span><span></span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform parameters for SBLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

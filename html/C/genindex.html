@@ -1,7 +1,9 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,374 +13,371 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/target-highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD C interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD C interfaces 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
-  
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      
+      
         
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
 
 <h1 id="index">Index</h1>
 
@@ -480,7 +479,7 @@
     alloc_status
 
       <ul>
-        <li><a href="arc.html#index-79">variable</a>, <a href="bgo.html#index-45">[1]</a>, <a href="blls.html#index-60">[2]</a>, <a href="bllsb.html#index-89">[3]</a>, <a href="bqp.html#index-49">[4]</a>, <a href="bqpb.html#index-88">[5]</a>, <a href="bsc.html#index-20">[6]</a>, <a href="clls.html#index-89">[7]</a>, <a href="convert.html#index-22">[8]</a>, <a href="cqp.html#index-88">[9]</a>, <a href="cro.html#index-37">[10]</a>, <a href="dgo.html#index-53">[11]</a>, <a href="dps.html#index-44">[12]</a>, <a href="dqp.html#index-85">[13]</a>, <a href="eqp.html#index-62">[14]</a>, <a href="fdc.html#index-35">[15]</a>, <a href="fit.html#index-16">[16]</a>, <a href="glrt.html#index-33">[17]</a>, <a href="gltr.html#index-35">[18]</a>, <a href="hash.html#index-15">[19]</a>, <a href="ir.html#index-21">[20]</a>, <a href="l2rt.html#index-32">[21]</a>, <a href="lhs.html#index-19">[22]</a>, <a href="llsr.html#index-49">[23]</a>, <a href="llst.html#index-50">[24]</a>, <a href="lms.html#index-28">[25]</a>, <a href="lpa.html#index-52">[26]</a>, <a href="lpb.html#index-85">[27]</a>, <a href="lsqp.html#index-82">[28]</a>, <a href="lsrt.html#index-32">[29]</a>, <a href="lstr.html#index-32">[30]</a>, <a href="nls.html#index-128">[31]</a>, <a href="nls.html#index-154">[32]</a>, <a href="psls.html#index-51">[33]</a>, <a href="qpa.html#index-77">[34]</a>, <a href="qpb.html#index-100">[35]</a>, <a href="roots.html#index-19">[36]</a>, <a href="rpd.html#index-28">[37]</a>, <a href="rqs.html#index-58">[38]</a>, <a href="sbls.html#index-64">[39]</a>, <a href="scu.html#index-9">[40]</a>, <a href="sha.html#index-25">[41]</a>, <a href="slls.html#index-53">[42]</a>, <a href="sls.html#index-83">[43]</a>, <a href="struct_arc_inform_type.html#index-2">[44]</a>, <a href="struct_bgo_inform_type.html#index-2">[45]</a>, <a href="struct_blls_inform_type.html#index-2">[46]</a>, <a href="struct_bllsb_inform_type.html#index-2">[47]</a>, <a href="struct_bqp_inform_type.html#index-2">[48]</a>, <a href="struct_bqpb_inform_type.html#index-2">[49]</a>, <a href="struct_bsc_inform_type.html#index-2">[50]</a>, <a href="struct_clls_inform_type.html#index-2">[51]</a>, <a href="struct_convert_inform_type.html#index-2">[52]</a>, <a href="struct_cqp_inform_type.html#index-2">[53]</a>, <a href="struct_cro_inform_type.html#index-2">[54]</a>, <a href="struct_dgo_inform_type.html#index-2">[55]</a>, <a href="struct_dps_inform_type.html#index-2">[56]</a>, <a href="struct_dqp_inform_type.html#index-2">[57]</a>, <a href="struct_eqp_inform_type.html#index-2">[58]</a>, <a href="struct_fdc_inform_type.html#index-2">[59]</a>, <a href="struct_fit_inform_type.html#index-2">[60]</a>, <a href="struct_glrt_inform_type.html#index-2">[61]</a>, <a href="struct_gltr_inform_type.html#index-2">[62]</a>, <a href="struct_hash_inform_type.html#index-2">[63]</a>, <a href="struct_ir_inform_type.html#index-2">[64]</a>, <a href="struct_l2rt_inform_type.html#index-2">[65]</a>, <a href="struct_lhs_inform_type.html#index-2">[66]</a>, <a href="struct_llsr_inform_type.html#index-2">[67]</a>, <a href="struct_llst_inform_type.html#index-2">[68]</a>, <a href="struct_lms_inform_type.html#index-2">[69]</a>, <a href="struct_lpa_inform_type.html#index-2">[70]</a>, <a href="struct_lpb_inform_type.html#index-2">[71]</a>, <a href="struct_lsqp_inform_type.html#index-2">[72]</a>, <a href="struct_lsrt_inform_type.html#index-2">[73]</a>, <a href="struct_lstr_inform_type.html#index-2">[74]</a>, <a href="struct_nls_inform_type.html#index-2">[75]</a>, <a href="struct_nls_subproblem_inform_type.html#index-2">[76]</a>, <a href="struct_psls_inform_type.html#index-2">[77]</a>, <a href="struct_qpa_inform_type.html#index-2">[78]</a>, <a href="struct_qpb_inform_type.html#index-2">[79]</a>, <a href="struct_roots_inform_type.html#index-2">[80]</a>, <a href="struct_rpd_inform_type.html#index-2">[81]</a>, <a href="struct_rqs_inform_type.html#index-2">[82]</a>, <a href="struct_sbls_inform_type.html#index-2">[83]</a>, <a href="struct_scu_inform_type.html#index-2">[84]</a>, <a href="struct_sha_inform_type.html#index-2">[85]</a>, <a href="struct_slls_inform_type.html#index-2">[86]</a>, <a href="struct_sls_inform_type.html#index-2">[87]</a>, <a href="struct_trb_inform_type.html#index-2">[88]</a>, <a href="struct_trs_inform_type.html#index-2">[89]</a>, <a href="struct_tru_inform_type.html#index-2">[90]</a>, <a href="struct_ugo_inform_type.html#index-3">[91]</a>, <a href="struct_uls_inform_type.html#index-2">[92]</a>, <a href="struct_wcp_inform_type.html#index-2">[93]</a>, <a href="trb.html#index-80">[94]</a>, <a href="trs.html#index-61">[95]</a>, <a href="tru.html#index-76">[96]</a>, <a href="ugo.html#index-46">[97]</a>, <a href="uls.html#index-39">[98]</a>, <a href="wcp.html#index-77">[99]</a>
+        <li><a href="arc.html#index-79">variable</a>, <a href="bgo.html#index-45">[1]</a>, <a href="blls.html#index-60">[2]</a>, <a href="bllsb.html#index-89">[3]</a>, <a href="bqp.html#index-49">[4]</a>, <a href="bqpb.html#index-88">[5]</a>, <a href="bsc.html#index-20">[6]</a>, <a href="clls.html#index-89">[7]</a>, <a href="convert.html#index-22">[8]</a>, <a href="cqp.html#index-88">[9]</a>, <a href="cro.html#index-37">[10]</a>, <a href="dgo.html#index-53">[11]</a>, <a href="dps.html#index-44">[12]</a>, <a href="dqp.html#index-85">[13]</a>, <a href="eqp.html#index-62">[14]</a>, <a href="fdc.html#index-35">[15]</a>, <a href="fit.html#index-16">[16]</a>, <a href="glrt.html#index-33">[17]</a>, <a href="gltr.html#index-35">[18]</a>, <a href="hash.html#index-15">[19]</a>, <a href="ir.html#index-21">[20]</a>, <a href="l2rt.html#index-32">[21]</a>, <a href="lhs.html#index-19">[22]</a>, <a href="llsr.html#index-49">[23]</a>, <a href="llst.html#index-50">[24]</a>, <a href="lms.html#index-28">[25]</a>, <a href="lpa.html#index-52">[26]</a>, <a href="lpb.html#index-85">[27]</a>, <a href="lsqp.html#index-82">[28]</a>, <a href="lsrt.html#index-32">[29]</a>, <a href="lstr.html#index-32">[30]</a>, <a href="nls.html#index-128">[31]</a>, <a href="nls.html#index-154">[32]</a>, <a href="psls.html#index-51">[33]</a>, <a href="qpa.html#index-77">[34]</a>, <a href="qpb.html#index-100">[35]</a>, <a href="roots.html#index-19">[36]</a>, <a href="rpd.html#index-28">[37]</a>, <a href="rqs.html#index-58">[38]</a>, <a href="sbls.html#index-64">[39]</a>, <a href="scu.html#index-9">[40]</a>, <a href="sha.html#index-26">[41]</a>, <a href="slls.html#index-53">[42]</a>, <a href="sls.html#index-83">[43]</a>, <a href="struct_arc_inform_type.html#index-2">[44]</a>, <a href="struct_bgo_inform_type.html#index-2">[45]</a>, <a href="struct_blls_inform_type.html#index-2">[46]</a>, <a href="struct_bllsb_inform_type.html#index-2">[47]</a>, <a href="struct_bqp_inform_type.html#index-2">[48]</a>, <a href="struct_bqpb_inform_type.html#index-2">[49]</a>, <a href="struct_bsc_inform_type.html#index-2">[50]</a>, <a href="struct_clls_inform_type.html#index-2">[51]</a>, <a href="struct_convert_inform_type.html#index-2">[52]</a>, <a href="struct_cqp_inform_type.html#index-2">[53]</a>, <a href="struct_cro_inform_type.html#index-2">[54]</a>, <a href="struct_dgo_inform_type.html#index-2">[55]</a>, <a href="struct_dps_inform_type.html#index-2">[56]</a>, <a href="struct_dqp_inform_type.html#index-2">[57]</a>, <a href="struct_eqp_inform_type.html#index-2">[58]</a>, <a href="struct_fdc_inform_type.html#index-2">[59]</a>, <a href="struct_fit_inform_type.html#index-2">[60]</a>, <a href="struct_glrt_inform_type.html#index-2">[61]</a>, <a href="struct_gltr_inform_type.html#index-2">[62]</a>, <a href="struct_hash_inform_type.html#index-2">[63]</a>, <a href="struct_ir_inform_type.html#index-2">[64]</a>, <a href="struct_l2rt_inform_type.html#index-2">[65]</a>, <a href="struct_lhs_inform_type.html#index-2">[66]</a>, <a href="struct_llsr_inform_type.html#index-2">[67]</a>, <a href="struct_llst_inform_type.html#index-2">[68]</a>, <a href="struct_lms_inform_type.html#index-2">[69]</a>, <a href="struct_lpa_inform_type.html#index-2">[70]</a>, <a href="struct_lpb_inform_type.html#index-2">[71]</a>, <a href="struct_lsqp_inform_type.html#index-2">[72]</a>, <a href="struct_lsrt_inform_type.html#index-2">[73]</a>, <a href="struct_lstr_inform_type.html#index-2">[74]</a>, <a href="struct_nls_inform_type.html#index-2">[75]</a>, <a href="struct_nls_subproblem_inform_type.html#index-2">[76]</a>, <a href="struct_psls_inform_type.html#index-2">[77]</a>, <a href="struct_qpa_inform_type.html#index-2">[78]</a>, <a href="struct_qpb_inform_type.html#index-2">[79]</a>, <a href="struct_roots_inform_type.html#index-2">[80]</a>, <a href="struct_rpd_inform_type.html#index-2">[81]</a>, <a href="struct_rqs_inform_type.html#index-2">[82]</a>, <a href="struct_sbls_inform_type.html#index-2">[83]</a>, <a href="struct_scu_inform_type.html#index-2">[84]</a>, <a href="struct_sha_inform_type.html#index-2">[85]</a>, <a href="struct_slls_inform_type.html#index-2">[86]</a>, <a href="struct_sls_inform_type.html#index-2">[87]</a>, <a href="struct_trb_inform_type.html#index-2">[88]</a>, <a href="struct_trs_inform_type.html#index-2">[89]</a>, <a href="struct_tru_inform_type.html#index-2">[90]</a>, <a href="struct_ugo_inform_type.html#index-3">[91]</a>, <a href="struct_uls_inform_type.html#index-2">[92]</a>, <a href="struct_wcp_inform_type.html#index-2">[93]</a>, <a href="trb.html#index-80">[94]</a>, <a href="trs.html#index-61">[95]</a>, <a href="tru.html#index-76">[96]</a>, <a href="ugo.html#index-46">[97]</a>, <a href="uls.html#index-39">[98]</a>, <a href="wcp.html#index-77">[99]</a>
 </li>
       </ul></li>
       <li>
@@ -571,11 +570,9 @@
     approximation_algorithm_used
 
       <ul>
-        <li><a href="sha.html#index-29">variable</a>, <a href="struct_sha_inform_type.html#index-6">[1]</a>
+        <li><a href="sha.html#index-30">variable</a>, <a href="struct_sha_inform_type.html#index-6">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     arc
 
@@ -583,6 +580,8 @@
         <li><a href="bllsb.html#index-22">variable</a>, <a href="bqpb.html#index-23">[1]</a>, <a href="clls.html#index-22">[2]</a>, <a href="cqp.html#index-23">[3]</a>, <a href="lpb.html#index-22">[4]</a>, <a href="struct_bllsb_control_type.html#index-12">[5]</a>, <a href="struct_bqpb_control_type.html#index-12">[6]</a>, <a href="struct_clls_control_type.html#index-12">[7]</a>, <a href="struct_cqp_control_type.html#index-12">[8]</a>, <a href="struct_lpb_control_type.html#index-12">[9]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     arc_control_type
 
@@ -737,6 +736,13 @@
         <li><a href="bgo.html#index-18">variable</a>, <a href="struct_bgo_control_type.html#index-5">[1]</a>
 </li>
       </ul></li>
+      <li>
+    average_off_diagonals
+
+      <ul>
+        <li><a href="sha.html#index-20">variable</a>, <a href="struct_sha_control_type.html#index-11">[1]</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -761,7 +767,7 @@
     bad_alloc
 
       <ul>
-        <li><a href="arc.html#index-80">variable</a>, <a href="bgo.html#index-46">[1]</a>, <a href="blls.html#index-66">[2]</a>, <a href="bllsb.html#index-90">[3]</a>, <a href="bqp.html#index-55">[4]</a>, <a href="bqpb.html#index-89">[5]</a>, <a href="bsc.html#index-21">[6]</a>, <a href="clls.html#index-90">[7]</a>, <a href="convert.html#index-24">[8]</a>, <a href="cqp.html#index-89">[9]</a>, <a href="cro.html#index-38">[10]</a>, <a href="dgo.html#index-54">[11]</a>, <a href="dps.html#index-53">[12]</a>, <a href="dqp.html#index-86">[13]</a>, <a href="eqp.html#index-63">[14]</a>, <a href="fdc.html#index-36">[15]</a>, <a href="fit.html#index-17">[16]</a>, <a href="glrt.html#index-34">[17]</a>, <a href="gltr.html#index-36">[18]</a>, <a href="hash.html#index-16">[19]</a>, <a href="ir.html#index-22">[20]</a>, <a href="l2rt.html#index-33">[21]</a>, <a href="lhs.html#index-20">[22]</a>, <a href="llsr.html#index-55">[23]</a>, <a href="llst.html#index-56">[24]</a>, <a href="lms.html#index-31">[25]</a>, <a href="lpa.html#index-53">[26]</a>, <a href="lpb.html#index-86">[27]</a>, <a href="lsqp.html#index-83">[28]</a>, <a href="lsrt.html#index-33">[29]</a>, <a href="lstr.html#index-33">[30]</a>, <a href="nls.html#index-129">[31]</a>, <a href="nls.html#index-155">[32]</a>, <a href="psls.html#index-70">[33]</a>, <a href="qpa.html#index-78">[34]</a>, <a href="qpb.html#index-101">[35]</a>, <a href="roots.html#index-20">[36]</a>, <a href="rpd.html#index-29">[37]</a>, <a href="rqs.html#index-69">[38]</a>, <a href="sbls.html#index-65">[39]</a>, <a href="sha.html#index-31">[40]</a>, <a href="slls.html#index-59">[41]</a>, <a href="sls.html#index-84">[42]</a>, <a href="struct_arc_inform_type.html#index-3">[43]</a>, <a href="struct_bgo_inform_type.html#index-3">[44]</a>, <a href="struct_blls_inform_type.html#index-8">[45]</a>, <a href="struct_bllsb_inform_type.html#index-3">[46]</a>, <a href="struct_bqp_inform_type.html#index-8">[47]</a>, <a href="struct_bqpb_inform_type.html#index-3">[48]</a>, <a href="struct_bsc_inform_type.html#index-3">[49]</a>, <a href="struct_clls_inform_type.html#index-3">[50]</a>, <a href="struct_convert_inform_type.html#index-4">[51]</a>, <a href="struct_cqp_inform_type.html#index-3">[52]</a>, <a href="struct_cro_inform_type.html#index-3">[53]</a>, <a href="struct_dgo_inform_type.html#index-3">[54]</a>, <a href="struct_dps_inform_type.html#index-11">[55]</a>, <a href="struct_dqp_inform_type.html#index-3">[56]</a>, <a href="struct_eqp_inform_type.html#index-3">[57]</a>, <a href="struct_fdc_inform_type.html#index-3">[58]</a>, <a href="struct_fit_inform_type.html#index-3">[59]</a>, <a href="struct_glrt_inform_type.html#index-3">[60]</a>, <a href="struct_gltr_inform_type.html#index-3">[61]</a>, <a href="struct_hash_inform_type.html#index-3">[62]</a>, <a href="struct_ir_inform_type.html#index-3">[63]</a>, <a href="struct_l2rt_inform_type.html#index-3">[64]</a>, <a href="struct_lhs_inform_type.html#index-3">[65]</a>, <a href="struct_llsr_inform_type.html#index-8">[66]</a>, <a href="struct_llst_inform_type.html#index-8">[67]</a>, <a href="struct_lms_inform_type.html#index-5">[68]</a>, <a href="struct_lpa_inform_type.html#index-3">[69]</a>, <a href="struct_lpb_inform_type.html#index-3">[70]</a>, <a href="struct_lsqp_inform_type.html#index-3">[71]</a>, <a href="struct_lsrt_inform_type.html#index-3">[72]</a>, <a href="struct_lstr_inform_type.html#index-3">[73]</a>, <a href="struct_nls_inform_type.html#index-3">[74]</a>, <a href="struct_nls_subproblem_inform_type.html#index-3">[75]</a>, <a href="struct_psls_inform_type.html#index-21">[76]</a>, <a href="struct_qpa_inform_type.html#index-3">[77]</a>, <a href="struct_qpb_inform_type.html#index-3">[78]</a>, <a href="struct_roots_inform_type.html#index-3">[79]</a>, <a href="struct_rpd_inform_type.html#index-3">[80]</a>, <a href="struct_rqs_inform_type.html#index-13">[81]</a>, <a href="struct_sbls_inform_type.html#index-3">[82]</a>, <a href="struct_sha_inform_type.html#index-8">[83]</a>, <a href="struct_slls_inform_type.html#index-8">[84]</a>, <a href="struct_sls_inform_type.html#index-3">[85]</a>, <a href="struct_trb_inform_type.html#index-3">[86]</a>, <a href="struct_trs_inform_type.html#index-12">[87]</a>, <a href="struct_tru_inform_type.html#index-3">[88]</a>, <a href="struct_ugo_inform_type.html#index-4">[89]</a>, <a href="struct_uls_inform_type.html#index-3">[90]</a>, <a href="struct_wcp_inform_type.html#index-3">[91]</a>, <a href="trb.html#index-81">[92]</a>, <a href="trs.html#index-71">[93]</a>, <a href="tru.html#index-77">[94]</a>, <a href="ugo.html#index-47">[95]</a>, <a href="uls.html#index-40">[96]</a>, <a href="wcp.html#index-78">[97]</a>
+        <li><a href="arc.html#index-80">variable</a>, <a href="bgo.html#index-46">[1]</a>, <a href="blls.html#index-66">[2]</a>, <a href="bllsb.html#index-90">[3]</a>, <a href="bqp.html#index-55">[4]</a>, <a href="bqpb.html#index-89">[5]</a>, <a href="bsc.html#index-21">[6]</a>, <a href="clls.html#index-90">[7]</a>, <a href="convert.html#index-24">[8]</a>, <a href="cqp.html#index-89">[9]</a>, <a href="cro.html#index-38">[10]</a>, <a href="dgo.html#index-54">[11]</a>, <a href="dps.html#index-53">[12]</a>, <a href="dqp.html#index-86">[13]</a>, <a href="eqp.html#index-63">[14]</a>, <a href="fdc.html#index-36">[15]</a>, <a href="fit.html#index-17">[16]</a>, <a href="glrt.html#index-34">[17]</a>, <a href="gltr.html#index-36">[18]</a>, <a href="hash.html#index-16">[19]</a>, <a href="ir.html#index-22">[20]</a>, <a href="l2rt.html#index-33">[21]</a>, <a href="lhs.html#index-20">[22]</a>, <a href="llsr.html#index-55">[23]</a>, <a href="llst.html#index-56">[24]</a>, <a href="lms.html#index-31">[25]</a>, <a href="lpa.html#index-53">[26]</a>, <a href="lpb.html#index-86">[27]</a>, <a href="lsqp.html#index-83">[28]</a>, <a href="lsrt.html#index-33">[29]</a>, <a href="lstr.html#index-33">[30]</a>, <a href="nls.html#index-129">[31]</a>, <a href="nls.html#index-155">[32]</a>, <a href="psls.html#index-70">[33]</a>, <a href="qpa.html#index-78">[34]</a>, <a href="qpb.html#index-101">[35]</a>, <a href="roots.html#index-20">[36]</a>, <a href="rpd.html#index-29">[37]</a>, <a href="rqs.html#index-69">[38]</a>, <a href="sbls.html#index-65">[39]</a>, <a href="sha.html#index-33">[40]</a>, <a href="slls.html#index-59">[41]</a>, <a href="sls.html#index-84">[42]</a>, <a href="struct_arc_inform_type.html#index-3">[43]</a>, <a href="struct_bgo_inform_type.html#index-3">[44]</a>, <a href="struct_blls_inform_type.html#index-8">[45]</a>, <a href="struct_bllsb_inform_type.html#index-3">[46]</a>, <a href="struct_bqp_inform_type.html#index-8">[47]</a>, <a href="struct_bqpb_inform_type.html#index-3">[48]</a>, <a href="struct_bsc_inform_type.html#index-3">[49]</a>, <a href="struct_clls_inform_type.html#index-3">[50]</a>, <a href="struct_convert_inform_type.html#index-4">[51]</a>, <a href="struct_cqp_inform_type.html#index-3">[52]</a>, <a href="struct_cro_inform_type.html#index-3">[53]</a>, <a href="struct_dgo_inform_type.html#index-3">[54]</a>, <a href="struct_dps_inform_type.html#index-11">[55]</a>, <a href="struct_dqp_inform_type.html#index-3">[56]</a>, <a href="struct_eqp_inform_type.html#index-3">[57]</a>, <a href="struct_fdc_inform_type.html#index-3">[58]</a>, <a href="struct_fit_inform_type.html#index-3">[59]</a>, <a href="struct_glrt_inform_type.html#index-3">[60]</a>, <a href="struct_gltr_inform_type.html#index-3">[61]</a>, <a href="struct_hash_inform_type.html#index-3">[62]</a>, <a href="struct_ir_inform_type.html#index-3">[63]</a>, <a href="struct_l2rt_inform_type.html#index-3">[64]</a>, <a href="struct_lhs_inform_type.html#index-3">[65]</a>, <a href="struct_llsr_inform_type.html#index-8">[66]</a>, <a href="struct_llst_inform_type.html#index-8">[67]</a>, <a href="struct_lms_inform_type.html#index-5">[68]</a>, <a href="struct_lpa_inform_type.html#index-3">[69]</a>, <a href="struct_lpb_inform_type.html#index-3">[70]</a>, <a href="struct_lsqp_inform_type.html#index-3">[71]</a>, <a href="struct_lsrt_inform_type.html#index-3">[72]</a>, <a href="struct_lstr_inform_type.html#index-3">[73]</a>, <a href="struct_nls_inform_type.html#index-3">[74]</a>, <a href="struct_nls_subproblem_inform_type.html#index-3">[75]</a>, <a href="struct_psls_inform_type.html#index-21">[76]</a>, <a href="struct_qpa_inform_type.html#index-3">[77]</a>, <a href="struct_qpb_inform_type.html#index-3">[78]</a>, <a href="struct_roots_inform_type.html#index-3">[79]</a>, <a href="struct_rpd_inform_type.html#index-3">[80]</a>, <a href="struct_rqs_inform_type.html#index-13">[81]</a>, <a href="struct_sbls_inform_type.html#index-3">[82]</a>, <a href="struct_sha_inform_type.html#index-9">[83]</a>, <a href="struct_slls_inform_type.html#index-8">[84]</a>, <a href="struct_sls_inform_type.html#index-3">[85]</a>, <a href="struct_trb_inform_type.html#index-3">[86]</a>, <a href="struct_trs_inform_type.html#index-12">[87]</a>, <a href="struct_tru_inform_type.html#index-3">[88]</a>, <a href="struct_ugo_inform_type.html#index-4">[89]</a>, <a href="struct_uls_inform_type.html#index-3">[90]</a>, <a href="struct_wcp_inform_type.html#index-3">[91]</a>, <a href="trb.html#index-81">[92]</a>, <a href="trs.html#index-71">[93]</a>, <a href="tru.html#index-77">[94]</a>, <a href="ugo.html#index-47">[95]</a>, <a href="uls.html#index-40">[96]</a>, <a href="wcp.html#index-78">[97]</a>
 </li>
       </ul></li>
       <li>
@@ -775,7 +781,7 @@
     bad_row
 
       <ul>
-        <li><a href="sha.html#index-30">variable</a>, <a href="struct_sha_inform_type.html#index-7">[1]</a>
+        <li><a href="sha.html#index-31">variable</a>, <a href="struct_sha_inform_type.html#index-7">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -2051,7 +2057,7 @@
     deallocate_error_fatal
 
       <ul>
-        <li><a href="arc.html#index-57">variable</a>, <a href="bgo.html#index-31">[1]</a>, <a href="blls.html#index-43">[2]</a>, <a href="bllsb.html#index-62">[3]</a>, <a href="bqp.html#index-37">[4]</a>, <a href="bqpb.html#index-62">[5]</a>, <a href="bsc.html#index-16">[6]</a>, <a href="clls.html#index-62">[7]</a>, <a href="convert.html#index-15">[8]</a>, <a href="cqp.html#index-62">[9]</a>, <a href="cro.html#index-18">[10]</a>, <a href="dgo.html#index-39">[11]</a>, <a href="dps.html#index-28">[12]</a>, <a href="dqp.html#index-55">[13]</a>, <a href="eqp.html#index-43">[14]</a>, <a href="fdc.html#index-20">[15]</a>, <a href="fit.html#index-12">[16]</a>, <a href="glrt.html#index-27">[17]</a>, <a href="gltr.html#index-29">[18]</a>, <a href="hash.html#index-11">[19]</a>, <a href="ir.html#index-17">[20]</a>, <a href="l2rt.html#index-28">[21]</a>, <a href="lhs.html#index-15">[22]</a>, <a href="llsr.html#index-26">[23]</a>, <a href="llst.html#index-27">[24]</a>, <a href="lms.html#index-15">[25]</a>, <a href="lpa.html#index-39">[26]</a>, <a href="lpb.html#index-59">[27]</a>, <a href="lsqp.html#index-61">[28]</a>, <a href="lsrt.html#index-28">[29]</a>, <a href="lstr.html#index-28">[30]</a>, <a href="nls.html#index-107">[31]</a>, <a href="nls.html#index-56">[32]</a>, <a href="psls.html#index-31">[33]</a>, <a href="qpa.html#index-57">[34]</a>, <a href="qpb.html#index-68">[35]</a>, <a href="roots.html#index-15">[36]</a>, <a href="rpd.html#index-25">[37]</a>, <a href="rqs.html#index-35">[38]</a>, <a href="sbls.html#index-46">[39]</a>, <a href="sha.html#index-21">[40]</a>, <a href="slls.html#index-40">[41]</a>, <a href="struct_arc_control_type.html#index-44">[42]</a>, <a href="struct_bgo_control_type.html#index-18">[43]</a>, <a href="struct_blls_control_type.html#index-31">[44]</a>, <a href="struct_bllsb_control_type.html#index-52">[45]</a>, <a href="struct_bqp_control_type.html#index-25">[46]</a>, <a href="struct_bqpb_control_type.html#index-51">[47]</a>, <a href="struct_bsc_control_type.html#index-10">[48]</a>, <a href="struct_clls_control_type.html#index-52">[49]</a>, <a href="struct_convert_control_type.html#index-9">[50]</a>, <a href="struct_cqp_control_type.html#index-51">[51]</a>, <a href="struct_cro_control_type.html#index-11">[52]</a>, <a href="struct_dgo_control_type.html#index-26">[53]</a>, <a href="struct_dps_control_type.html#index-15">[54]</a>, <a href="struct_dqp_control_type.html#index-44">[55]</a>, <a href="struct_eqp_control_type.html#index-31">[56]</a>, <a href="struct_fdc_control_type.html#index-13">[57]</a>, <a href="struct_fit_control_type.html#index-6">[58]</a>, <a href="struct_glrt_control_type.html#index-18">[59]</a>, <a href="struct_gltr_control_type.html#index-20">[60]</a>, <a href="struct_hash_control_type.html#index-5">[61]</a>, <a href="struct_ir_control_type.html#index-11">[62]</a>, <a href="struct_l2rt_control_type.html#index-19">[63]</a>, <a href="struct_lhs_control_type.html#index-6">[64]</a>, <a href="struct_llsr_control_type.html#index-15">[65]</a>, <a href="struct_llst_control_type.html#index-16">[66]</a>, <a href="struct_lms_control_type.html#index-9">[67]</a>, <a href="struct_lpa_control_type.html#index-29">[68]</a>, <a href="struct_lpb_control_type.html#index-49">[69]</a>, <a href="struct_lsqp_control_type.html#index-51">[70]</a>, <a href="struct_lsrt_control_type.html#index-19">[71]</a>, <a href="struct_lstr_control_type.html#index-19">[72]</a>, <a href="struct_nls_control_type.html#index-44">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-43">[74]</a>, <a href="struct_psls_control_type.html#index-18">[75]</a>, <a href="struct_qpa_control_type.html#index-45">[76]</a>, <a href="struct_qpb_control_type.html#index-58">[77]</a>, <a href="struct_roots_control_type.html#index-9">[78]</a>, <a href="struct_rpd_control_type.html#index-7">[79]</a>, <a href="struct_rqs_control_type.html#index-23">[80]</a>, <a href="struct_sbls_control_type.html#index-35">[81]</a>, <a href="struct_sha_control_type.html#index-12">[82]</a>, <a href="struct_slls_control_type.html#index-28">[83]</a>, <a href="struct_trb_control_type.html#index-46">[84]</a>, <a href="struct_trs_control_type.html#index-26">[85]</a>, <a href="struct_tru_control_type.html#index-40">[86]</a>, <a href="struct_ugo_control_type.html#index-27">[87]</a>, <a href="struct_wcp_control_type.html#index-46">[88]</a>, <a href="trb.html#index-59">[89]</a>, <a href="trs.html#index-38">[90]</a>, <a href="tru.html#index-53">[91]</a>, <a href="ugo.html#index-38">[92]</a>, <a href="wcp.html#index-56">[93]</a>
+        <li><a href="arc.html#index-57">variable</a>, <a href="bgo.html#index-31">[1]</a>, <a href="blls.html#index-43">[2]</a>, <a href="bllsb.html#index-62">[3]</a>, <a href="bqp.html#index-37">[4]</a>, <a href="bqpb.html#index-62">[5]</a>, <a href="bsc.html#index-16">[6]</a>, <a href="clls.html#index-62">[7]</a>, <a href="convert.html#index-15">[8]</a>, <a href="cqp.html#index-62">[9]</a>, <a href="cro.html#index-18">[10]</a>, <a href="dgo.html#index-39">[11]</a>, <a href="dps.html#index-28">[12]</a>, <a href="dqp.html#index-55">[13]</a>, <a href="eqp.html#index-43">[14]</a>, <a href="fdc.html#index-20">[15]</a>, <a href="fit.html#index-12">[16]</a>, <a href="glrt.html#index-27">[17]</a>, <a href="gltr.html#index-29">[18]</a>, <a href="hash.html#index-11">[19]</a>, <a href="ir.html#index-17">[20]</a>, <a href="l2rt.html#index-28">[21]</a>, <a href="lhs.html#index-15">[22]</a>, <a href="llsr.html#index-26">[23]</a>, <a href="llst.html#index-27">[24]</a>, <a href="lms.html#index-15">[25]</a>, <a href="lpa.html#index-39">[26]</a>, <a href="lpb.html#index-59">[27]</a>, <a href="lsqp.html#index-61">[28]</a>, <a href="lsrt.html#index-28">[29]</a>, <a href="lstr.html#index-28">[30]</a>, <a href="nls.html#index-107">[31]</a>, <a href="nls.html#index-56">[32]</a>, <a href="psls.html#index-31">[33]</a>, <a href="qpa.html#index-57">[34]</a>, <a href="qpb.html#index-68">[35]</a>, <a href="roots.html#index-15">[36]</a>, <a href="rpd.html#index-25">[37]</a>, <a href="rqs.html#index-35">[38]</a>, <a href="sbls.html#index-46">[39]</a>, <a href="sha.html#index-22">[40]</a>, <a href="slls.html#index-40">[41]</a>, <a href="struct_arc_control_type.html#index-44">[42]</a>, <a href="struct_bgo_control_type.html#index-18">[43]</a>, <a href="struct_blls_control_type.html#index-31">[44]</a>, <a href="struct_bllsb_control_type.html#index-52">[45]</a>, <a href="struct_bqp_control_type.html#index-25">[46]</a>, <a href="struct_bqpb_control_type.html#index-51">[47]</a>, <a href="struct_bsc_control_type.html#index-10">[48]</a>, <a href="struct_clls_control_type.html#index-52">[49]</a>, <a href="struct_convert_control_type.html#index-9">[50]</a>, <a href="struct_cqp_control_type.html#index-51">[51]</a>, <a href="struct_cro_control_type.html#index-11">[52]</a>, <a href="struct_dgo_control_type.html#index-26">[53]</a>, <a href="struct_dps_control_type.html#index-15">[54]</a>, <a href="struct_dqp_control_type.html#index-44">[55]</a>, <a href="struct_eqp_control_type.html#index-31">[56]</a>, <a href="struct_fdc_control_type.html#index-13">[57]</a>, <a href="struct_fit_control_type.html#index-6">[58]</a>, <a href="struct_glrt_control_type.html#index-18">[59]</a>, <a href="struct_gltr_control_type.html#index-20">[60]</a>, <a href="struct_hash_control_type.html#index-5">[61]</a>, <a href="struct_ir_control_type.html#index-11">[62]</a>, <a href="struct_l2rt_control_type.html#index-19">[63]</a>, <a href="struct_lhs_control_type.html#index-6">[64]</a>, <a href="struct_llsr_control_type.html#index-15">[65]</a>, <a href="struct_llst_control_type.html#index-16">[66]</a>, <a href="struct_lms_control_type.html#index-9">[67]</a>, <a href="struct_lpa_control_type.html#index-29">[68]</a>, <a href="struct_lpb_control_type.html#index-49">[69]</a>, <a href="struct_lsqp_control_type.html#index-51">[70]</a>, <a href="struct_lsrt_control_type.html#index-19">[71]</a>, <a href="struct_lstr_control_type.html#index-19">[72]</a>, <a href="struct_nls_control_type.html#index-44">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-43">[74]</a>, <a href="struct_psls_control_type.html#index-18">[75]</a>, <a href="struct_qpa_control_type.html#index-45">[76]</a>, <a href="struct_qpb_control_type.html#index-58">[77]</a>, <a href="struct_roots_control_type.html#index-9">[78]</a>, <a href="struct_rpd_control_type.html#index-7">[79]</a>, <a href="struct_rqs_control_type.html#index-23">[80]</a>, <a href="struct_sbls_control_type.html#index-35">[81]</a>, <a href="struct_sha_control_type.html#index-13">[82]</a>, <a href="struct_slls_control_type.html#index-28">[83]</a>, <a href="struct_trb_control_type.html#index-46">[84]</a>, <a href="struct_trs_control_type.html#index-26">[85]</a>, <a href="struct_tru_control_type.html#index-40">[86]</a>, <a href="struct_ugo_control_type.html#index-27">[87]</a>, <a href="struct_wcp_control_type.html#index-46">[88]</a>, <a href="trb.html#index-59">[89]</a>, <a href="trs.html#index-38">[90]</a>, <a href="tru.html#index-53">[91]</a>, <a href="ugo.html#index-38">[92]</a>, <a href="wcp.html#index-56">[93]</a>
 </li>
       </ul></li>
       <li>
@@ -2219,7 +2225,7 @@
     differences_needed
 
       <ul>
-        <li><a href="sha.html#index-27">variable</a>, <a href="struct_sha_inform_type.html#index-4">[1]</a>
+        <li><a href="sha.html#index-28">variable</a>, <a href="struct_sha_inform_type.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -6183,7 +6189,7 @@
     max_degree
 
       <ul>
-        <li><a href="sha.html#index-26">variable</a>, <a href="struct_sha_inform_type.html#index-3">[1]</a>
+        <li><a href="sha.html#index-27">variable</a>, <a href="struct_sha_inform_type.html#index-3">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -6313,6 +6319,13 @@
 </li>
       </ul></li>
       <li>
+    max_off_diagonal_difference
+
+      <ul>
+        <li><a href="sha.html#index-32">variable</a>, <a href="struct_sha_inform_type.html#index-8">[1]</a>
+</li>
+      </ul></li>
+      <li>
     max_real_factor_size
 
       <ul>
@@ -6323,7 +6336,7 @@
     max_reduced_degree
 
       <ul>
-        <li><a href="sha.html#index-28">variable</a>, <a href="struct_sha_inform_type.html#index-5">[1]</a>
+        <li><a href="sha.html#index-29">variable</a>, <a href="struct_sha_inform_type.html#index-5">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -6501,6 +6514,8 @@
         <li><a href="arc.html#index-32">variable</a>, <a href="psls.html#index-25">[1]</a>, <a href="struct_arc_control_type.html#index-19">[2]</a>, <a href="struct_psls_control_type.html#index-12">[3]</a>, <a href="struct_trb_control_type.html#index-20">[4]</a>, <a href="struct_tru_control_type.html#index-19">[5]</a>, <a href="trb.html#index-33">[6]</a>, <a href="tru.html#index-32">[7]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     min_diagonal
 
@@ -6508,8 +6523,6 @@
         <li><a href="eqp.html#index-34">variable</a>, <a href="psls.html#index-26">[1]</a>, <a href="sbls.html#index-35">[2]</a>, <a href="struct_eqp_control_type.html#index-22">[3]</a>, <a href="struct_psls_control_type.html#index-13">[4]</a>, <a href="struct_sbls_control_type.html#index-24">[5]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     min_integer_factor_size
 
@@ -7716,7 +7729,7 @@
     prefix
 
       <ul>
-        <li><a href="arc.html#index-58">variable</a>, <a href="bgo.html#index-32">[1]</a>, <a href="blls.html#index-46">[2]</a>, <a href="bllsb.html#index-67">[3]</a>, <a href="bqp.html#index-40">[4]</a>, <a href="bqpb.html#index-67">[5]</a>, <a href="bsc.html#index-17">[6]</a>, <a href="clls.html#index-67">[7]</a>, <a href="convert.html#index-16">[8]</a>, <a href="cqp.html#index-67">[9]</a>, <a href="cro.html#index-21">[10]</a>, <a href="dgo.html#index-40">[11]</a>, <a href="dps.html#index-31">[12]</a>, <a href="dqp.html#index-63">[13]</a>, <a href="eqp.html#index-46">[14]</a>, <a href="fdc.html#index-23">[15]</a>, <a href="fit.html#index-13">[16]</a>, <a href="glrt.html#index-30">[17]</a>, <a href="gltr.html#index-32">[18]</a>, <a href="hash.html#index-12">[19]</a>, <a href="ir.html#index-18">[20]</a>, <a href="l2rt.html#index-29">[21]</a>, <a href="lhs.html#index-16">[22]</a>, <a href="llsr.html#index-28">[23]</a>, <a href="llst.html#index-29">[24]</a>, <a href="lms.html#index-16">[25]</a>, <a href="lpa.html#index-44">[26]</a>, <a href="lpb.html#index-64">[27]</a>, <a href="lsqp.html#index-64">[28]</a>, <a href="lsrt.html#index-29">[29]</a>, <a href="lstr.html#index-29">[30]</a>, <a href="nls.html#index-108">[31]</a>, <a href="nls.html#index-57">[32]</a>, <a href="psls.html#index-33">[33]</a>, <a href="qpa.html#index-61">[34]</a>, <a href="qpb.html#index-71">[35]</a>, <a href="roots.html#index-16">[36]</a>, <a href="rqs.html#index-39">[37]</a>, <a href="sbls.html#index-50">[38]</a>, <a href="sec.html#index-13">[39]</a>, <a href="sha.html#index-22">[40]</a>, <a href="slls.html#index-43">[41]</a>, <a href="sls.html#index-63">[42]</a>, <a href="struct_arc_control_type.html#index-45">[43]</a>, <a href="struct_bgo_control_type.html#index-19">[44]</a>, <a href="struct_blls_control_type.html#index-34">[45]</a>, <a href="struct_bllsb_control_type.html#index-57">[46]</a>, <a href="struct_bqp_control_type.html#index-28">[47]</a>, <a href="struct_bqpb_control_type.html#index-56">[48]</a>, <a href="struct_bsc_control_type.html#index-11">[49]</a>, <a href="struct_clls_control_type.html#index-57">[50]</a>, <a href="struct_convert_control_type.html#index-10">[51]</a>, <a href="struct_cqp_control_type.html#index-56">[52]</a>, <a href="struct_cro_control_type.html#index-14">[53]</a>, <a href="struct_dgo_control_type.html#index-27">[54]</a>, <a href="struct_dps_control_type.html#index-18">[55]</a>, <a href="struct_dqp_control_type.html#index-52">[56]</a>, <a href="struct_eqp_control_type.html#index-34">[57]</a>, <a href="struct_fdc_control_type.html#index-16">[58]</a>, <a href="struct_fit_control_type.html#index-7">[59]</a>, <a href="struct_glrt_control_type.html#index-21">[60]</a>, <a href="struct_gltr_control_type.html#index-23">[61]</a>, <a href="struct_hash_control_type.html#index-6">[62]</a>, <a href="struct_ir_control_type.html#index-12">[63]</a>, <a href="struct_l2rt_control_type.html#index-20">[64]</a>, <a href="struct_lhs_control_type.html#index-7">[65]</a>, <a href="struct_llsr_control_type.html#index-17">[66]</a>, <a href="struct_llst_control_type.html#index-18">[67]</a>, <a href="struct_lms_control_type.html#index-10">[68]</a>, <a href="struct_lpa_control_type.html#index-34">[69]</a>, <a href="struct_lpb_control_type.html#index-54">[70]</a>, <a href="struct_lsqp_control_type.html#index-54">[71]</a>, <a href="struct_lsrt_control_type.html#index-20">[72]</a>, <a href="struct_lstr_control_type.html#index-20">[73]</a>, <a href="struct_nls_control_type.html#index-45">[74]</a>, <a href="struct_nls_subproblem_control_type.html#index-44">[75]</a>, <a href="struct_psls_control_type.html#index-20">[76]</a>, <a href="struct_qpa_control_type.html#index-49">[77]</a>, <a href="struct_qpb_control_type.html#index-61">[78]</a>, <a href="struct_roots_control_type.html#index-10">[79]</a>, <a href="struct_rqs_control_type.html#index-27">[80]</a>, <a href="struct_sbls_control_type.html#index-39">[81]</a>, <a href="struct_sec_control_type.html#index-7">[82]</a>, <a href="struct_sha_control_type.html#index-13">[83]</a>, <a href="struct_slls_control_type.html#index-31">[84]</a>, <a href="struct_sls_control_type.html#index-51">[85]</a>, <a href="struct_trb_control_type.html#index-47">[86]</a>, <a href="struct_trs_control_type.html#index-30">[87]</a>, <a href="struct_tru_control_type.html#index-41">[88]</a>, <a href="struct_ugo_control_type.html#index-28">[89]</a>, <a href="struct_uls_control_type.html#index-26">[90]</a>, <a href="struct_wcp_control_type.html#index-49">[91]</a>, <a href="trb.html#index-60">[92]</a>, <a href="trs.html#index-42">[93]</a>, <a href="tru.html#index-54">[94]</a>, <a href="ugo.html#index-39">[95]</a>, <a href="uls.html#index-36">[96]</a>, <a href="wcp.html#index-59">[97]</a>
+        <li><a href="arc.html#index-58">variable</a>, <a href="bgo.html#index-32">[1]</a>, <a href="blls.html#index-46">[2]</a>, <a href="bllsb.html#index-67">[3]</a>, <a href="bqp.html#index-40">[4]</a>, <a href="bqpb.html#index-67">[5]</a>, <a href="bsc.html#index-17">[6]</a>, <a href="clls.html#index-67">[7]</a>, <a href="convert.html#index-16">[8]</a>, <a href="cqp.html#index-67">[9]</a>, <a href="cro.html#index-21">[10]</a>, <a href="dgo.html#index-40">[11]</a>, <a href="dps.html#index-31">[12]</a>, <a href="dqp.html#index-63">[13]</a>, <a href="eqp.html#index-46">[14]</a>, <a href="fdc.html#index-23">[15]</a>, <a href="fit.html#index-13">[16]</a>, <a href="glrt.html#index-30">[17]</a>, <a href="gltr.html#index-32">[18]</a>, <a href="hash.html#index-12">[19]</a>, <a href="ir.html#index-18">[20]</a>, <a href="l2rt.html#index-29">[21]</a>, <a href="lhs.html#index-16">[22]</a>, <a href="llsr.html#index-28">[23]</a>, <a href="llst.html#index-29">[24]</a>, <a href="lms.html#index-16">[25]</a>, <a href="lpa.html#index-44">[26]</a>, <a href="lpb.html#index-64">[27]</a>, <a href="lsqp.html#index-64">[28]</a>, <a href="lsrt.html#index-29">[29]</a>, <a href="lstr.html#index-29">[30]</a>, <a href="nls.html#index-108">[31]</a>, <a href="nls.html#index-57">[32]</a>, <a href="psls.html#index-33">[33]</a>, <a href="qpa.html#index-61">[34]</a>, <a href="qpb.html#index-71">[35]</a>, <a href="roots.html#index-16">[36]</a>, <a href="rqs.html#index-39">[37]</a>, <a href="sbls.html#index-50">[38]</a>, <a href="sec.html#index-13">[39]</a>, <a href="sha.html#index-23">[40]</a>, <a href="slls.html#index-43">[41]</a>, <a href="sls.html#index-63">[42]</a>, <a href="struct_arc_control_type.html#index-45">[43]</a>, <a href="struct_bgo_control_type.html#index-19">[44]</a>, <a href="struct_blls_control_type.html#index-34">[45]</a>, <a href="struct_bllsb_control_type.html#index-57">[46]</a>, <a href="struct_bqp_control_type.html#index-28">[47]</a>, <a href="struct_bqpb_control_type.html#index-56">[48]</a>, <a href="struct_bsc_control_type.html#index-11">[49]</a>, <a href="struct_clls_control_type.html#index-57">[50]</a>, <a href="struct_convert_control_type.html#index-10">[51]</a>, <a href="struct_cqp_control_type.html#index-56">[52]</a>, <a href="struct_cro_control_type.html#index-14">[53]</a>, <a href="struct_dgo_control_type.html#index-27">[54]</a>, <a href="struct_dps_control_type.html#index-18">[55]</a>, <a href="struct_dqp_control_type.html#index-52">[56]</a>, <a href="struct_eqp_control_type.html#index-34">[57]</a>, <a href="struct_fdc_control_type.html#index-16">[58]</a>, <a href="struct_fit_control_type.html#index-7">[59]</a>, <a href="struct_glrt_control_type.html#index-21">[60]</a>, <a href="struct_gltr_control_type.html#index-23">[61]</a>, <a href="struct_hash_control_type.html#index-6">[62]</a>, <a href="struct_ir_control_type.html#index-12">[63]</a>, <a href="struct_l2rt_control_type.html#index-20">[64]</a>, <a href="struct_lhs_control_type.html#index-7">[65]</a>, <a href="struct_llsr_control_type.html#index-17">[66]</a>, <a href="struct_llst_control_type.html#index-18">[67]</a>, <a href="struct_lms_control_type.html#index-10">[68]</a>, <a href="struct_lpa_control_type.html#index-34">[69]</a>, <a href="struct_lpb_control_type.html#index-54">[70]</a>, <a href="struct_lsqp_control_type.html#index-54">[71]</a>, <a href="struct_lsrt_control_type.html#index-20">[72]</a>, <a href="struct_lstr_control_type.html#index-20">[73]</a>, <a href="struct_nls_control_type.html#index-45">[74]</a>, <a href="struct_nls_subproblem_control_type.html#index-44">[75]</a>, <a href="struct_psls_control_type.html#index-20">[76]</a>, <a href="struct_qpa_control_type.html#index-49">[77]</a>, <a href="struct_qpb_control_type.html#index-61">[78]</a>, <a href="struct_roots_control_type.html#index-10">[79]</a>, <a href="struct_rqs_control_type.html#index-27">[80]</a>, <a href="struct_sbls_control_type.html#index-39">[81]</a>, <a href="struct_sec_control_type.html#index-7">[82]</a>, <a href="struct_sha_control_type.html#index-14">[83]</a>, <a href="struct_slls_control_type.html#index-31">[84]</a>, <a href="struct_sls_control_type.html#index-51">[85]</a>, <a href="struct_trb_control_type.html#index-47">[86]</a>, <a href="struct_trs_control_type.html#index-30">[87]</a>, <a href="struct_tru_control_type.html#index-41">[88]</a>, <a href="struct_ugo_control_type.html#index-28">[89]</a>, <a href="struct_uls_control_type.html#index-26">[90]</a>, <a href="struct_wcp_control_type.html#index-49">[91]</a>, <a href="trb.html#index-60">[92]</a>, <a href="trs.html#index-42">[93]</a>, <a href="tru.html#index-54">[94]</a>, <a href="ugo.html#index-39">[95]</a>, <a href="uls.html#index-36">[96]</a>, <a href="wcp.html#index-59">[97]</a>
 </li>
       </ul></li>
       <li>
@@ -9105,7 +9118,7 @@
     sha_inform_type
 
       <ul>
-        <li><a href="sha.html#index-23">table</a>, <a href="struct_sha_inform_type.html#index-0">[1]</a>
+        <li><a href="sha.html#index-24">table</a>, <a href="struct_sha_inform_type.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -9569,7 +9582,7 @@
     space_critical
 
       <ul>
-        <li><a href="arc.html#index-56">variable</a>, <a href="bgo.html#index-30">[1]</a>, <a href="blls.html#index-42">[2]</a>, <a href="bllsb.html#index-61">[3]</a>, <a href="bqp.html#index-36">[4]</a>, <a href="bqpb.html#index-61">[5]</a>, <a href="bsc.html#index-15">[6]</a>, <a href="clls.html#index-61">[7]</a>, <a href="convert.html#index-14">[8]</a>, <a href="cqp.html#index-61">[9]</a>, <a href="cro.html#index-17">[10]</a>, <a href="dgo.html#index-38">[11]</a>, <a href="dps.html#index-27">[12]</a>, <a href="dqp.html#index-54">[13]</a>, <a href="eqp.html#index-42">[14]</a>, <a href="fdc.html#index-19">[15]</a>, <a href="fit.html#index-11">[16]</a>, <a href="glrt.html#index-26">[17]</a>, <a href="gltr.html#index-28">[18]</a>, <a href="hash.html#index-10">[19]</a>, <a href="ir.html#index-16">[20]</a>, <a href="l2rt.html#index-27">[21]</a>, <a href="lhs.html#index-14">[22]</a>, <a href="llsr.html#index-25">[23]</a>, <a href="llst.html#index-26">[24]</a>, <a href="lms.html#index-14">[25]</a>, <a href="lpa.html#index-38">[26]</a>, <a href="lpb.html#index-58">[27]</a>, <a href="lsqp.html#index-60">[28]</a>, <a href="lsrt.html#index-27">[29]</a>, <a href="lstr.html#index-27">[30]</a>, <a href="nls.html#index-106">[31]</a>, <a href="nls.html#index-55">[32]</a>, <a href="psls.html#index-30">[33]</a>, <a href="qpa.html#index-56">[34]</a>, <a href="qpb.html#index-67">[35]</a>, <a href="roots.html#index-14">[36]</a>, <a href="rpd.html#index-24">[37]</a>, <a href="rqs.html#index-34">[38]</a>, <a href="sbls.html#index-45">[39]</a>, <a href="sha.html#index-20">[40]</a>, <a href="slls.html#index-39">[41]</a>, <a href="struct_arc_control_type.html#index-43">[42]</a>, <a href="struct_bgo_control_type.html#index-17">[43]</a>, <a href="struct_blls_control_type.html#index-30">[44]</a>, <a href="struct_bllsb_control_type.html#index-51">[45]</a>, <a href="struct_bqp_control_type.html#index-24">[46]</a>, <a href="struct_bqpb_control_type.html#index-50">[47]</a>, <a href="struct_bsc_control_type.html#index-9">[48]</a>, <a href="struct_clls_control_type.html#index-51">[49]</a>, <a href="struct_convert_control_type.html#index-8">[50]</a>, <a href="struct_cqp_control_type.html#index-50">[51]</a>, <a href="struct_cro_control_type.html#index-10">[52]</a>, <a href="struct_dgo_control_type.html#index-25">[53]</a>, <a href="struct_dps_control_type.html#index-14">[54]</a>, <a href="struct_dqp_control_type.html#index-43">[55]</a>, <a href="struct_eqp_control_type.html#index-30">[56]</a>, <a href="struct_fdc_control_type.html#index-12">[57]</a>, <a href="struct_fit_control_type.html#index-5">[58]</a>, <a href="struct_glrt_control_type.html#index-17">[59]</a>, <a href="struct_gltr_control_type.html#index-19">[60]</a>, <a href="struct_hash_control_type.html#index-4">[61]</a>, <a href="struct_ir_control_type.html#index-10">[62]</a>, <a href="struct_l2rt_control_type.html#index-18">[63]</a>, <a href="struct_lhs_control_type.html#index-5">[64]</a>, <a href="struct_llsr_control_type.html#index-14">[65]</a>, <a href="struct_llst_control_type.html#index-15">[66]</a>, <a href="struct_lms_control_type.html#index-8">[67]</a>, <a href="struct_lpa_control_type.html#index-28">[68]</a>, <a href="struct_lpb_control_type.html#index-48">[69]</a>, <a href="struct_lsqp_control_type.html#index-50">[70]</a>, <a href="struct_lsrt_control_type.html#index-18">[71]</a>, <a href="struct_lstr_control_type.html#index-18">[72]</a>, <a href="struct_nls_control_type.html#index-43">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-42">[74]</a>, <a href="struct_psls_control_type.html#index-17">[75]</a>, <a href="struct_qpa_control_type.html#index-44">[76]</a>, <a href="struct_qpb_control_type.html#index-57">[77]</a>, <a href="struct_roots_control_type.html#index-8">[78]</a>, <a href="struct_rpd_control_type.html#index-6">[79]</a>, <a href="struct_rqs_control_type.html#index-22">[80]</a>, <a href="struct_sbls_control_type.html#index-34">[81]</a>, <a href="struct_sha_control_type.html#index-11">[82]</a>, <a href="struct_slls_control_type.html#index-27">[83]</a>, <a href="struct_trb_control_type.html#index-45">[84]</a>, <a href="struct_trs_control_type.html#index-25">[85]</a>, <a href="struct_tru_control_type.html#index-39">[86]</a>, <a href="struct_ugo_control_type.html#index-26">[87]</a>, <a href="struct_wcp_control_type.html#index-45">[88]</a>, <a href="trb.html#index-58">[89]</a>, <a href="trs.html#index-37">[90]</a>, <a href="tru.html#index-52">[91]</a>, <a href="ugo.html#index-37">[92]</a>, <a href="wcp.html#index-55">[93]</a>
+        <li><a href="arc.html#index-56">variable</a>, <a href="bgo.html#index-30">[1]</a>, <a href="blls.html#index-42">[2]</a>, <a href="bllsb.html#index-61">[3]</a>, <a href="bqp.html#index-36">[4]</a>, <a href="bqpb.html#index-61">[5]</a>, <a href="bsc.html#index-15">[6]</a>, <a href="clls.html#index-61">[7]</a>, <a href="convert.html#index-14">[8]</a>, <a href="cqp.html#index-61">[9]</a>, <a href="cro.html#index-17">[10]</a>, <a href="dgo.html#index-38">[11]</a>, <a href="dps.html#index-27">[12]</a>, <a href="dqp.html#index-54">[13]</a>, <a href="eqp.html#index-42">[14]</a>, <a href="fdc.html#index-19">[15]</a>, <a href="fit.html#index-11">[16]</a>, <a href="glrt.html#index-26">[17]</a>, <a href="gltr.html#index-28">[18]</a>, <a href="hash.html#index-10">[19]</a>, <a href="ir.html#index-16">[20]</a>, <a href="l2rt.html#index-27">[21]</a>, <a href="lhs.html#index-14">[22]</a>, <a href="llsr.html#index-25">[23]</a>, <a href="llst.html#index-26">[24]</a>, <a href="lms.html#index-14">[25]</a>, <a href="lpa.html#index-38">[26]</a>, <a href="lpb.html#index-58">[27]</a>, <a href="lsqp.html#index-60">[28]</a>, <a href="lsrt.html#index-27">[29]</a>, <a href="lstr.html#index-27">[30]</a>, <a href="nls.html#index-106">[31]</a>, <a href="nls.html#index-55">[32]</a>, <a href="psls.html#index-30">[33]</a>, <a href="qpa.html#index-56">[34]</a>, <a href="qpb.html#index-67">[35]</a>, <a href="roots.html#index-14">[36]</a>, <a href="rpd.html#index-24">[37]</a>, <a href="rqs.html#index-34">[38]</a>, <a href="sbls.html#index-45">[39]</a>, <a href="sha.html#index-21">[40]</a>, <a href="slls.html#index-39">[41]</a>, <a href="struct_arc_control_type.html#index-43">[42]</a>, <a href="struct_bgo_control_type.html#index-17">[43]</a>, <a href="struct_blls_control_type.html#index-30">[44]</a>, <a href="struct_bllsb_control_type.html#index-51">[45]</a>, <a href="struct_bqp_control_type.html#index-24">[46]</a>, <a href="struct_bqpb_control_type.html#index-50">[47]</a>, <a href="struct_bsc_control_type.html#index-9">[48]</a>, <a href="struct_clls_control_type.html#index-51">[49]</a>, <a href="struct_convert_control_type.html#index-8">[50]</a>, <a href="struct_cqp_control_type.html#index-50">[51]</a>, <a href="struct_cro_control_type.html#index-10">[52]</a>, <a href="struct_dgo_control_type.html#index-25">[53]</a>, <a href="struct_dps_control_type.html#index-14">[54]</a>, <a href="struct_dqp_control_type.html#index-43">[55]</a>, <a href="struct_eqp_control_type.html#index-30">[56]</a>, <a href="struct_fdc_control_type.html#index-12">[57]</a>, <a href="struct_fit_control_type.html#index-5">[58]</a>, <a href="struct_glrt_control_type.html#index-17">[59]</a>, <a href="struct_gltr_control_type.html#index-19">[60]</a>, <a href="struct_hash_control_type.html#index-4">[61]</a>, <a href="struct_ir_control_type.html#index-10">[62]</a>, <a href="struct_l2rt_control_type.html#index-18">[63]</a>, <a href="struct_lhs_control_type.html#index-5">[64]</a>, <a href="struct_llsr_control_type.html#index-14">[65]</a>, <a href="struct_llst_control_type.html#index-15">[66]</a>, <a href="struct_lms_control_type.html#index-8">[67]</a>, <a href="struct_lpa_control_type.html#index-28">[68]</a>, <a href="struct_lpb_control_type.html#index-48">[69]</a>, <a href="struct_lsqp_control_type.html#index-50">[70]</a>, <a href="struct_lsrt_control_type.html#index-18">[71]</a>, <a href="struct_lstr_control_type.html#index-18">[72]</a>, <a href="struct_nls_control_type.html#index-43">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-42">[74]</a>, <a href="struct_psls_control_type.html#index-17">[75]</a>, <a href="struct_qpa_control_type.html#index-44">[76]</a>, <a href="struct_qpb_control_type.html#index-57">[77]</a>, <a href="struct_roots_control_type.html#index-8">[78]</a>, <a href="struct_rpd_control_type.html#index-6">[79]</a>, <a href="struct_rqs_control_type.html#index-22">[80]</a>, <a href="struct_sbls_control_type.html#index-34">[81]</a>, <a href="struct_sha_control_type.html#index-12">[82]</a>, <a href="struct_slls_control_type.html#index-27">[83]</a>, <a href="struct_trb_control_type.html#index-45">[84]</a>, <a href="struct_trs_control_type.html#index-25">[85]</a>, <a href="struct_tru_control_type.html#index-39">[86]</a>, <a href="struct_ugo_control_type.html#index-26">[87]</a>, <a href="struct_wcp_control_type.html#index-45">[88]</a>, <a href="trb.html#index-58">[89]</a>, <a href="trs.html#index-37">[90]</a>, <a href="tru.html#index-52">[91]</a>, <a href="ugo.html#index-37">[92]</a>, <a href="wcp.html#index-55">[93]</a>
 </li>
       </ul></li>
       <li>
@@ -9681,7 +9694,7 @@
     status
 
       <ul>
-        <li><a href="arc.html#index-78">variable</a>, <a href="bgo.html#index-44">[1]</a>, <a href="blls.html#index-59">[2]</a>, <a href="bllsb.html#index-88">[3]</a>, <a href="bqp.html#index-48">[4]</a>, <a href="bqpb.html#index-87">[5]</a>, <a href="bsc.html#index-19">[6]</a>, <a href="clls.html#index-88">[7]</a>, <a href="convert.html#index-21">[8]</a>, <a href="cqp.html#index-87">[9]</a>, <a href="cro.html#index-36">[10]</a>, <a href="dgo.html#index-52">[11]</a>, <a href="dps.html#index-43">[12]</a>, <a href="dqp.html#index-84">[13]</a>, <a href="eqp.html#index-61">[14]</a>, <a href="fdc.html#index-34">[15]</a>, <a href="fit.html#index-15">[16]</a>, <a href="glrt.html#index-32">[17]</a>, <a href="gltr.html#index-34">[18]</a>, <a href="hash.html#index-14">[19]</a>, <a href="ir.html#index-20">[20]</a>, <a href="l2rt.html#index-31">[21]</a>, <a href="lhs.html#index-18">[22]</a>, <a href="llsr.html#index-48">[23]</a>, <a href="llst.html#index-49">[24]</a>, <a href="lms.html#index-27">[25]</a>, <a href="lpa.html#index-51">[26]</a>, <a href="lpb.html#index-84">[27]</a>, <a href="lsqp.html#index-81">[28]</a>, <a href="lsrt.html#index-31">[29]</a>, <a href="lstr.html#index-31">[30]</a>, <a href="nls.html#index-127">[31]</a>, <a href="nls.html#index-153">[32]</a>, <a href="presolve.html#index-49">[33]</a>, <a href="psls.html#index-50">[34]</a>, <a href="qpa.html#index-76">[35]</a>, <a href="qpb.html#index-99">[36]</a>, <a href="roots.html#index-18">[37]</a>, <a href="rpd.html#index-27">[38]</a>, <a href="rqs.html#index-57">[39]</a>, <a href="sbls.html#index-63">[40]</a>, <a href="scu.html#index-8">[41]</a>, <a href="sec.html#index-15">[42]</a>, <a href="sha.html#index-24">[43]</a>, <a href="slls.html#index-52">[44]</a>, <a href="sls.html#index-82">[45]</a>, <a href="struct_arc_inform_type.html#index-1">[46]</a>, <a href="struct_bgo_inform_type.html#index-1">[47]</a>, <a href="struct_blls_inform_type.html#index-1">[48]</a>, <a href="struct_bllsb_inform_type.html#index-1">[49]</a>, <a href="struct_bqp_inform_type.html#index-1">[50]</a>, <a href="struct_bqpb_inform_type.html#index-1">[51]</a>, <a href="struct_bsc_inform_type.html#index-1">[52]</a>, <a href="struct_clls_inform_type.html#index-1">[53]</a>, <a href="struct_convert_inform_type.html#index-1">[54]</a>, <a href="struct_cqp_inform_type.html#index-1">[55]</a>, <a href="struct_cro_inform_type.html#index-1">[56]</a>, <a href="struct_dgo_inform_type.html#index-1">[57]</a>, <a href="struct_dps_inform_type.html#index-1">[58]</a>, <a href="struct_dqp_inform_type.html#index-1">[59]</a>, <a href="struct_eqp_inform_type.html#index-1">[60]</a>, <a href="struct_fdc_inform_type.html#index-1">[61]</a>, <a href="struct_fit_inform_type.html#index-1">[62]</a>, <a href="struct_glrt_inform_type.html#index-1">[63]</a>, <a href="struct_gltr_inform_type.html#index-1">[64]</a>, <a href="struct_hash_inform_type.html#index-1">[65]</a>, <a href="struct_ir_inform_type.html#index-1">[66]</a>, <a href="struct_l2rt_inform_type.html#index-1">[67]</a>, <a href="struct_lhs_inform_type.html#index-1">[68]</a>, <a href="struct_llsr_inform_type.html#index-1">[69]</a>, <a href="struct_llst_inform_type.html#index-1">[70]</a>, <a href="struct_lms_inform_type.html#index-1">[71]</a>, <a href="struct_lpa_inform_type.html#index-1">[72]</a>, <a href="struct_lpb_inform_type.html#index-1">[73]</a>, <a href="struct_lsqp_inform_type.html#index-1">[74]</a>, <a href="struct_lsrt_inform_type.html#index-1">[75]</a>, <a href="struct_lstr_inform_type.html#index-1">[76]</a>, <a href="struct_nls_inform_type.html#index-1">[77]</a>, <a href="struct_nls_subproblem_inform_type.html#index-1">[78]</a>, <a href="struct_presolve_inform_type.html#index-1">[79]</a>, <a href="struct_psls_inform_type.html#index-1">[80]</a>, <a href="struct_qpa_inform_type.html#index-1">[81]</a>, <a href="struct_qpb_inform_type.html#index-1">[82]</a>, <a href="struct_roots_inform_type.html#index-1">[83]</a>, <a href="struct_rpd_inform_type.html#index-1">[84]</a>, <a href="struct_rqs_inform_type.html#index-1">[85]</a>, <a href="struct_sbls_inform_type.html#index-1">[86]</a>, <a href="struct_scu_inform_type.html#index-1">[87]</a>, <a href="struct_sec_inform_type.html#index-1">[88]</a>, <a href="struct_sha_inform_type.html#index-1">[89]</a>, <a href="struct_slls_inform_type.html#index-1">[90]</a>, <a href="struct_sls_inform_type.html#index-1">[91]</a>, <a href="struct_trb_inform_type.html#index-1">[92]</a>, <a href="struct_trs_inform_type.html#index-1">[93]</a>, <a href="struct_tru_inform_type.html#index-1">[94]</a>, <a href="struct_ugo_inform_type.html#index-1">[95]</a>, <a href="struct_uls_inform_type.html#index-1">[96]</a>, <a href="struct_wcp_inform_type.html#index-1">[97]</a>, <a href="trb.html#index-79">[98]</a>, <a href="trs.html#index-60">[99]</a>, <a href="tru.html#index-75">[100]</a>, <a href="ugo.html#index-44">[101]</a>, <a href="uls.html#index-38">[102]</a>, <a href="wcp.html#index-76">[103]</a>
+        <li><a href="arc.html#index-78">variable</a>, <a href="bgo.html#index-44">[1]</a>, <a href="blls.html#index-59">[2]</a>, <a href="bllsb.html#index-88">[3]</a>, <a href="bqp.html#index-48">[4]</a>, <a href="bqpb.html#index-87">[5]</a>, <a href="bsc.html#index-19">[6]</a>, <a href="clls.html#index-88">[7]</a>, <a href="convert.html#index-21">[8]</a>, <a href="cqp.html#index-87">[9]</a>, <a href="cro.html#index-36">[10]</a>, <a href="dgo.html#index-52">[11]</a>, <a href="dps.html#index-43">[12]</a>, <a href="dqp.html#index-84">[13]</a>, <a href="eqp.html#index-61">[14]</a>, <a href="fdc.html#index-34">[15]</a>, <a href="fit.html#index-15">[16]</a>, <a href="glrt.html#index-32">[17]</a>, <a href="gltr.html#index-34">[18]</a>, <a href="hash.html#index-14">[19]</a>, <a href="ir.html#index-20">[20]</a>, <a href="l2rt.html#index-31">[21]</a>, <a href="lhs.html#index-18">[22]</a>, <a href="llsr.html#index-48">[23]</a>, <a href="llst.html#index-49">[24]</a>, <a href="lms.html#index-27">[25]</a>, <a href="lpa.html#index-51">[26]</a>, <a href="lpb.html#index-84">[27]</a>, <a href="lsqp.html#index-81">[28]</a>, <a href="lsrt.html#index-31">[29]</a>, <a href="lstr.html#index-31">[30]</a>, <a href="nls.html#index-127">[31]</a>, <a href="nls.html#index-153">[32]</a>, <a href="presolve.html#index-49">[33]</a>, <a href="psls.html#index-50">[34]</a>, <a href="qpa.html#index-76">[35]</a>, <a href="qpb.html#index-99">[36]</a>, <a href="roots.html#index-18">[37]</a>, <a href="rpd.html#index-27">[38]</a>, <a href="rqs.html#index-57">[39]</a>, <a href="sbls.html#index-63">[40]</a>, <a href="scu.html#index-8">[41]</a>, <a href="sec.html#index-15">[42]</a>, <a href="sha.html#index-25">[43]</a>, <a href="slls.html#index-52">[44]</a>, <a href="sls.html#index-82">[45]</a>, <a href="struct_arc_inform_type.html#index-1">[46]</a>, <a href="struct_bgo_inform_type.html#index-1">[47]</a>, <a href="struct_blls_inform_type.html#index-1">[48]</a>, <a href="struct_bllsb_inform_type.html#index-1">[49]</a>, <a href="struct_bqp_inform_type.html#index-1">[50]</a>, <a href="struct_bqpb_inform_type.html#index-1">[51]</a>, <a href="struct_bsc_inform_type.html#index-1">[52]</a>, <a href="struct_clls_inform_type.html#index-1">[53]</a>, <a href="struct_convert_inform_type.html#index-1">[54]</a>, <a href="struct_cqp_inform_type.html#index-1">[55]</a>, <a href="struct_cro_inform_type.html#index-1">[56]</a>, <a href="struct_dgo_inform_type.html#index-1">[57]</a>, <a href="struct_dps_inform_type.html#index-1">[58]</a>, <a href="struct_dqp_inform_type.html#index-1">[59]</a>, <a href="struct_eqp_inform_type.html#index-1">[60]</a>, <a href="struct_fdc_inform_type.html#index-1">[61]</a>, <a href="struct_fit_inform_type.html#index-1">[62]</a>, <a href="struct_glrt_inform_type.html#index-1">[63]</a>, <a href="struct_gltr_inform_type.html#index-1">[64]</a>, <a href="struct_hash_inform_type.html#index-1">[65]</a>, <a href="struct_ir_inform_type.html#index-1">[66]</a>, <a href="struct_l2rt_inform_type.html#index-1">[67]</a>, <a href="struct_lhs_inform_type.html#index-1">[68]</a>, <a href="struct_llsr_inform_type.html#index-1">[69]</a>, <a href="struct_llst_inform_type.html#index-1">[70]</a>, <a href="struct_lms_inform_type.html#index-1">[71]</a>, <a href="struct_lpa_inform_type.html#index-1">[72]</a>, <a href="struct_lpb_inform_type.html#index-1">[73]</a>, <a href="struct_lsqp_inform_type.html#index-1">[74]</a>, <a href="struct_lsrt_inform_type.html#index-1">[75]</a>, <a href="struct_lstr_inform_type.html#index-1">[76]</a>, <a href="struct_nls_inform_type.html#index-1">[77]</a>, <a href="struct_nls_subproblem_inform_type.html#index-1">[78]</a>, <a href="struct_presolve_inform_type.html#index-1">[79]</a>, <a href="struct_psls_inform_type.html#index-1">[80]</a>, <a href="struct_qpa_inform_type.html#index-1">[81]</a>, <a href="struct_qpb_inform_type.html#index-1">[82]</a>, <a href="struct_roots_inform_type.html#index-1">[83]</a>, <a href="struct_rpd_inform_type.html#index-1">[84]</a>, <a href="struct_rqs_inform_type.html#index-1">[85]</a>, <a href="struct_sbls_inform_type.html#index-1">[86]</a>, <a href="struct_scu_inform_type.html#index-1">[87]</a>, <a href="struct_sec_inform_type.html#index-1">[88]</a>, <a href="struct_sha_inform_type.html#index-1">[89]</a>, <a href="struct_slls_inform_type.html#index-1">[90]</a>, <a href="struct_sls_inform_type.html#index-1">[91]</a>, <a href="struct_trb_inform_type.html#index-1">[92]</a>, <a href="struct_trs_inform_type.html#index-1">[93]</a>, <a href="struct_tru_inform_type.html#index-1">[94]</a>, <a href="struct_ugo_inform_type.html#index-1">[95]</a>, <a href="struct_uls_inform_type.html#index-1">[96]</a>, <a href="struct_wcp_inform_type.html#index-1">[97]</a>, <a href="trb.html#index-79">[98]</a>, <a href="trs.html#index-60">[99]</a>, <a href="tru.html#index-75">[100]</a>, <a href="ugo.html#index-44">[101]</a>, <a href="uls.html#index-38">[102]</a>, <a href="wcp.html#index-76">[103]</a>
 </li>
       </ul></li>
       <li>
@@ -10306,7 +10319,7 @@
 </li>
         <li><a href="sha.html#index-9">sha_control_type</a>, <a href="struct_sha_control_type.html#index-0">[1]</a>
 </li>
-        <li><a href="sha.html#index-23">sha_inform_type</a>, <a href="struct_sha_inform_type.html#index-0">[1]</a>
+        <li><a href="sha.html#index-24">sha_inform_type</a>, <a href="struct_sha_inform_type.html#index-0">[1]</a>
 </li>
         <li><a href="sils.html#index-9">sils_control_type</a>, <a href="struct_sils_control_type.html#index-0">[1]</a>
 </li>
@@ -11106,7 +11119,7 @@
 </li>
         <li><a href="arc.html#index-22">alive_unit</a>, <a href="bgo.html#index-22">[1]</a>, <a href="dgo.html#index-24">[2]</a>, <a href="nls.html#index-21">[3]</a>, <a href="nls.html#index-72">[4]</a>, <a href="struct_arc_control_type.html#index-9">[5]</a>, <a href="struct_bgo_control_type.html#index-9">[6]</a>, <a href="struct_dgo_control_type.html#index-11">[7]</a>, <a href="struct_nls_control_type.html#index-9">[8]</a>, <a href="struct_nls_subproblem_control_type.html#index-8">[9]</a>, <a href="struct_trb_control_type.html#index-9">[10]</a>, <a href="struct_tru_control_type.html#index-9">[11]</a>, <a href="struct_ugo_control_type.html#index-14">[12]</a>, <a href="trb.html#index-22">[13]</a>, <a href="tru.html#index-22">[14]</a>, <a href="ugo.html#index-25">[15]</a>
 </li>
-        <li><a href="arc.html#index-79">alloc_status</a>, <a href="bgo.html#index-45">[1]</a>, <a href="blls.html#index-60">[2]</a>, <a href="bllsb.html#index-89">[3]</a>, <a href="bqp.html#index-49">[4]</a>, <a href="bqpb.html#index-88">[5]</a>, <a href="bsc.html#index-20">[6]</a>, <a href="clls.html#index-89">[7]</a>, <a href="convert.html#index-22">[8]</a>, <a href="cqp.html#index-88">[9]</a>, <a href="cro.html#index-37">[10]</a>, <a href="dgo.html#index-53">[11]</a>, <a href="dps.html#index-44">[12]</a>, <a href="dqp.html#index-85">[13]</a>, <a href="eqp.html#index-62">[14]</a>, <a href="fdc.html#index-35">[15]</a>, <a href="fit.html#index-16">[16]</a>, <a href="glrt.html#index-33">[17]</a>, <a href="gltr.html#index-35">[18]</a>, <a href="hash.html#index-15">[19]</a>, <a href="ir.html#index-21">[20]</a>, <a href="l2rt.html#index-32">[21]</a>, <a href="lhs.html#index-19">[22]</a>, <a href="llsr.html#index-49">[23]</a>, <a href="llst.html#index-50">[24]</a>, <a href="lms.html#index-28">[25]</a>, <a href="lpa.html#index-52">[26]</a>, <a href="lpb.html#index-85">[27]</a>, <a href="lsqp.html#index-82">[28]</a>, <a href="lsrt.html#index-32">[29]</a>, <a href="lstr.html#index-32">[30]</a>, <a href="nls.html#index-128">[31]</a>, <a href="nls.html#index-154">[32]</a>, <a href="psls.html#index-51">[33]</a>, <a href="qpa.html#index-77">[34]</a>, <a href="qpb.html#index-100">[35]</a>, <a href="roots.html#index-19">[36]</a>, <a href="rpd.html#index-28">[37]</a>, <a href="rqs.html#index-58">[38]</a>, <a href="sbls.html#index-64">[39]</a>, <a href="scu.html#index-9">[40]</a>, <a href="sha.html#index-25">[41]</a>, <a href="slls.html#index-53">[42]</a>, <a href="sls.html#index-83">[43]</a>, <a href="struct_arc_inform_type.html#index-2">[44]</a>, <a href="struct_bgo_inform_type.html#index-2">[45]</a>, <a href="struct_blls_inform_type.html#index-2">[46]</a>, <a href="struct_bllsb_inform_type.html#index-2">[47]</a>, <a href="struct_bqp_inform_type.html#index-2">[48]</a>, <a href="struct_bqpb_inform_type.html#index-2">[49]</a>, <a href="struct_bsc_inform_type.html#index-2">[50]</a>, <a href="struct_clls_inform_type.html#index-2">[51]</a>, <a href="struct_convert_inform_type.html#index-2">[52]</a>, <a href="struct_cqp_inform_type.html#index-2">[53]</a>, <a href="struct_cro_inform_type.html#index-2">[54]</a>, <a href="struct_dgo_inform_type.html#index-2">[55]</a>, <a href="struct_dps_inform_type.html#index-2">[56]</a>, <a href="struct_dqp_inform_type.html#index-2">[57]</a>, <a href="struct_eqp_inform_type.html#index-2">[58]</a>, <a href="struct_fdc_inform_type.html#index-2">[59]</a>, <a href="struct_fit_inform_type.html#index-2">[60]</a>, <a href="struct_glrt_inform_type.html#index-2">[61]</a>, <a href="struct_gltr_inform_type.html#index-2">[62]</a>, <a href="struct_hash_inform_type.html#index-2">[63]</a>, <a href="struct_ir_inform_type.html#index-2">[64]</a>, <a href="struct_l2rt_inform_type.html#index-2">[65]</a>, <a href="struct_lhs_inform_type.html#index-2">[66]</a>, <a href="struct_llsr_inform_type.html#index-2">[67]</a>, <a href="struct_llst_inform_type.html#index-2">[68]</a>, <a href="struct_lms_inform_type.html#index-2">[69]</a>, <a href="struct_lpa_inform_type.html#index-2">[70]</a>, <a href="struct_lpb_inform_type.html#index-2">[71]</a>, <a href="struct_lsqp_inform_type.html#index-2">[72]</a>, <a href="struct_lsrt_inform_type.html#index-2">[73]</a>, <a href="struct_lstr_inform_type.html#index-2">[74]</a>, <a href="struct_nls_inform_type.html#index-2">[75]</a>, <a href="struct_nls_subproblem_inform_type.html#index-2">[76]</a>, <a href="struct_psls_inform_type.html#index-2">[77]</a>, <a href="struct_qpa_inform_type.html#index-2">[78]</a>, <a href="struct_qpb_inform_type.html#index-2">[79]</a>, <a href="struct_roots_inform_type.html#index-2">[80]</a>, <a href="struct_rpd_inform_type.html#index-2">[81]</a>, <a href="struct_rqs_inform_type.html#index-2">[82]</a>, <a href="struct_sbls_inform_type.html#index-2">[83]</a>, <a href="struct_scu_inform_type.html#index-2">[84]</a>, <a href="struct_sha_inform_type.html#index-2">[85]</a>, <a href="struct_slls_inform_type.html#index-2">[86]</a>, <a href="struct_sls_inform_type.html#index-2">[87]</a>, <a href="struct_trb_inform_type.html#index-2">[88]</a>, <a href="struct_trs_inform_type.html#index-2">[89]</a>, <a href="struct_tru_inform_type.html#index-2">[90]</a>, <a href="struct_ugo_inform_type.html#index-3">[91]</a>, <a href="struct_uls_inform_type.html#index-2">[92]</a>, <a href="struct_wcp_inform_type.html#index-2">[93]</a>, <a href="trb.html#index-80">[94]</a>, <a href="trs.html#index-61">[95]</a>, <a href="tru.html#index-76">[96]</a>, <a href="ugo.html#index-46">[97]</a>, <a href="uls.html#index-39">[98]</a>, <a href="wcp.html#index-77">[99]</a>
+        <li><a href="arc.html#index-79">alloc_status</a>, <a href="bgo.html#index-45">[1]</a>, <a href="blls.html#index-60">[2]</a>, <a href="bllsb.html#index-89">[3]</a>, <a href="bqp.html#index-49">[4]</a>, <a href="bqpb.html#index-88">[5]</a>, <a href="bsc.html#index-20">[6]</a>, <a href="clls.html#index-89">[7]</a>, <a href="convert.html#index-22">[8]</a>, <a href="cqp.html#index-88">[9]</a>, <a href="cro.html#index-37">[10]</a>, <a href="dgo.html#index-53">[11]</a>, <a href="dps.html#index-44">[12]</a>, <a href="dqp.html#index-85">[13]</a>, <a href="eqp.html#index-62">[14]</a>, <a href="fdc.html#index-35">[15]</a>, <a href="fit.html#index-16">[16]</a>, <a href="glrt.html#index-33">[17]</a>, <a href="gltr.html#index-35">[18]</a>, <a href="hash.html#index-15">[19]</a>, <a href="ir.html#index-21">[20]</a>, <a href="l2rt.html#index-32">[21]</a>, <a href="lhs.html#index-19">[22]</a>, <a href="llsr.html#index-49">[23]</a>, <a href="llst.html#index-50">[24]</a>, <a href="lms.html#index-28">[25]</a>, <a href="lpa.html#index-52">[26]</a>, <a href="lpb.html#index-85">[27]</a>, <a href="lsqp.html#index-82">[28]</a>, <a href="lsrt.html#index-32">[29]</a>, <a href="lstr.html#index-32">[30]</a>, <a href="nls.html#index-128">[31]</a>, <a href="nls.html#index-154">[32]</a>, <a href="psls.html#index-51">[33]</a>, <a href="qpa.html#index-77">[34]</a>, <a href="qpb.html#index-100">[35]</a>, <a href="roots.html#index-19">[36]</a>, <a href="rpd.html#index-28">[37]</a>, <a href="rqs.html#index-58">[38]</a>, <a href="sbls.html#index-64">[39]</a>, <a href="scu.html#index-9">[40]</a>, <a href="sha.html#index-26">[41]</a>, <a href="slls.html#index-53">[42]</a>, <a href="sls.html#index-83">[43]</a>, <a href="struct_arc_inform_type.html#index-2">[44]</a>, <a href="struct_bgo_inform_type.html#index-2">[45]</a>, <a href="struct_blls_inform_type.html#index-2">[46]</a>, <a href="struct_bllsb_inform_type.html#index-2">[47]</a>, <a href="struct_bqp_inform_type.html#index-2">[48]</a>, <a href="struct_bqpb_inform_type.html#index-2">[49]</a>, <a href="struct_bsc_inform_type.html#index-2">[50]</a>, <a href="struct_clls_inform_type.html#index-2">[51]</a>, <a href="struct_convert_inform_type.html#index-2">[52]</a>, <a href="struct_cqp_inform_type.html#index-2">[53]</a>, <a href="struct_cro_inform_type.html#index-2">[54]</a>, <a href="struct_dgo_inform_type.html#index-2">[55]</a>, <a href="struct_dps_inform_type.html#index-2">[56]</a>, <a href="struct_dqp_inform_type.html#index-2">[57]</a>, <a href="struct_eqp_inform_type.html#index-2">[58]</a>, <a href="struct_fdc_inform_type.html#index-2">[59]</a>, <a href="struct_fit_inform_type.html#index-2">[60]</a>, <a href="struct_glrt_inform_type.html#index-2">[61]</a>, <a href="struct_gltr_inform_type.html#index-2">[62]</a>, <a href="struct_hash_inform_type.html#index-2">[63]</a>, <a href="struct_ir_inform_type.html#index-2">[64]</a>, <a href="struct_l2rt_inform_type.html#index-2">[65]</a>, <a href="struct_lhs_inform_type.html#index-2">[66]</a>, <a href="struct_llsr_inform_type.html#index-2">[67]</a>, <a href="struct_llst_inform_type.html#index-2">[68]</a>, <a href="struct_lms_inform_type.html#index-2">[69]</a>, <a href="struct_lpa_inform_type.html#index-2">[70]</a>, <a href="struct_lpb_inform_type.html#index-2">[71]</a>, <a href="struct_lsqp_inform_type.html#index-2">[72]</a>, <a href="struct_lsrt_inform_type.html#index-2">[73]</a>, <a href="struct_lstr_inform_type.html#index-2">[74]</a>, <a href="struct_nls_inform_type.html#index-2">[75]</a>, <a href="struct_nls_subproblem_inform_type.html#index-2">[76]</a>, <a href="struct_psls_inform_type.html#index-2">[77]</a>, <a href="struct_qpa_inform_type.html#index-2">[78]</a>, <a href="struct_qpb_inform_type.html#index-2">[79]</a>, <a href="struct_roots_inform_type.html#index-2">[80]</a>, <a href="struct_rpd_inform_type.html#index-2">[81]</a>, <a href="struct_rqs_inform_type.html#index-2">[82]</a>, <a href="struct_sbls_inform_type.html#index-2">[83]</a>, <a href="struct_scu_inform_type.html#index-2">[84]</a>, <a href="struct_sha_inform_type.html#index-2">[85]</a>, <a href="struct_slls_inform_type.html#index-2">[86]</a>, <a href="struct_sls_inform_type.html#index-2">[87]</a>, <a href="struct_trb_inform_type.html#index-2">[88]</a>, <a href="struct_trs_inform_type.html#index-2">[89]</a>, <a href="struct_tru_inform_type.html#index-2">[90]</a>, <a href="struct_ugo_inform_type.html#index-3">[91]</a>, <a href="struct_uls_inform_type.html#index-2">[92]</a>, <a href="struct_wcp_inform_type.html#index-2">[93]</a>, <a href="trb.html#index-80">[94]</a>, <a href="trs.html#index-61">[95]</a>, <a href="tru.html#index-76">[96]</a>, <a href="ugo.html#index-46">[97]</a>, <a href="uls.html#index-39">[98]</a>, <a href="wcp.html#index-77">[99]</a>
 </li>
         <li><a href="sbls.html#index-41">allow_singular</a>, <a href="struct_sbls_control_type.html#index-30">[1]</a>
 </li>
@@ -11132,7 +11145,7 @@
 </li>
         <li><a href="sha.html#index-14">approximation_algorithm</a>, <a href="struct_sha_control_type.html#index-5">[1]</a>
 </li>
-        <li><a href="sha.html#index-29">approximation_algorithm_used</a>, <a href="struct_sha_inform_type.html#index-6">[1]</a>
+        <li><a href="sha.html#index-30">approximation_algorithm_used</a>, <a href="struct_sha_inform_type.html#index-6">[1]</a>
 </li>
         <li><a href="bllsb.html#index-22">arc</a>, <a href="bqpb.html#index-23">[1]</a>, <a href="clls.html#index-22">[2]</a>, <a href="cqp.html#index-23">[3]</a>, <a href="lpb.html#index-22">[4]</a>, <a href="struct_bllsb_control_type.html#index-12">[5]</a>, <a href="struct_bqpb_control_type.html#index-12">[6]</a>, <a href="struct_clls_control_type.html#index-12">[7]</a>, <a href="struct_cqp_control_type.html#index-12">[8]</a>, <a href="struct_lpb_control_type.html#index-12">[9]</a>
 </li>
@@ -11154,15 +11167,17 @@
 </li>
         <li><a href="bgo.html#index-18">attempts_max</a>, <a href="struct_bgo_control_type.html#index-5">[1]</a>
 </li>
+        <li><a href="sha.html#index-20">average_off_diagonals</a>, <a href="struct_sha_control_type.html#index-11">[1]</a>
+</li>
         <li><a href="sls.html#index-122">backward_error_1</a>, <a href="struct_sls_inform_type.html#index-41">[1]</a>
 </li>
         <li><a href="sls.html#index-123">backward_error_2</a>, <a href="struct_sls_inform_type.html#index-42">[1]</a>
 </li>
-        <li><a href="arc.html#index-80">bad_alloc</a>, <a href="bgo.html#index-46">[1]</a>, <a href="blls.html#index-66">[2]</a>, <a href="bllsb.html#index-90">[3]</a>, <a href="bqp.html#index-55">[4]</a>, <a href="bqpb.html#index-89">[5]</a>, <a href="bsc.html#index-21">[6]</a>, <a href="clls.html#index-90">[7]</a>, <a href="convert.html#index-24">[8]</a>, <a href="cqp.html#index-89">[9]</a>, <a href="cro.html#index-38">[10]</a>, <a href="dgo.html#index-54">[11]</a>, <a href="dps.html#index-53">[12]</a>, <a href="dqp.html#index-86">[13]</a>, <a href="eqp.html#index-63">[14]</a>, <a href="fdc.html#index-36">[15]</a>, <a href="fit.html#index-17">[16]</a>, <a href="glrt.html#index-34">[17]</a>, <a href="gltr.html#index-36">[18]</a>, <a href="hash.html#index-16">[19]</a>, <a href="ir.html#index-22">[20]</a>, <a href="l2rt.html#index-33">[21]</a>, <a href="lhs.html#index-20">[22]</a>, <a href="llsr.html#index-55">[23]</a>, <a href="llst.html#index-56">[24]</a>, <a href="lms.html#index-31">[25]</a>, <a href="lpa.html#index-53">[26]</a>, <a href="lpb.html#index-86">[27]</a>, <a href="lsqp.html#index-83">[28]</a>, <a href="lsrt.html#index-33">[29]</a>, <a href="lstr.html#index-33">[30]</a>, <a href="nls.html#index-129">[31]</a>, <a href="nls.html#index-155">[32]</a>, <a href="psls.html#index-70">[33]</a>, <a href="qpa.html#index-78">[34]</a>, <a href="qpb.html#index-101">[35]</a>, <a href="roots.html#index-20">[36]</a>, <a href="rpd.html#index-29">[37]</a>, <a href="rqs.html#index-69">[38]</a>, <a href="sbls.html#index-65">[39]</a>, <a href="sha.html#index-31">[40]</a>, <a href="slls.html#index-59">[41]</a>, <a href="sls.html#index-84">[42]</a>, <a href="struct_arc_inform_type.html#index-3">[43]</a>, <a href="struct_bgo_inform_type.html#index-3">[44]</a>, <a href="struct_blls_inform_type.html#index-8">[45]</a>, <a href="struct_bllsb_inform_type.html#index-3">[46]</a>, <a href="struct_bqp_inform_type.html#index-8">[47]</a>, <a href="struct_bqpb_inform_type.html#index-3">[48]</a>, <a href="struct_bsc_inform_type.html#index-3">[49]</a>, <a href="struct_clls_inform_type.html#index-3">[50]</a>, <a href="struct_convert_inform_type.html#index-4">[51]</a>, <a href="struct_cqp_inform_type.html#index-3">[52]</a>, <a href="struct_cro_inform_type.html#index-3">[53]</a>, <a href="struct_dgo_inform_type.html#index-3">[54]</a>, <a href="struct_dps_inform_type.html#index-11">[55]</a>, <a href="struct_dqp_inform_type.html#index-3">[56]</a>, <a href="struct_eqp_inform_type.html#index-3">[57]</a>, <a href="struct_fdc_inform_type.html#index-3">[58]</a>, <a href="struct_fit_inform_type.html#index-3">[59]</a>, <a href="struct_glrt_inform_type.html#index-3">[60]</a>, <a href="struct_gltr_inform_type.html#index-3">[61]</a>, <a href="struct_hash_inform_type.html#index-3">[62]</a>, <a href="struct_ir_inform_type.html#index-3">[63]</a>, <a href="struct_l2rt_inform_type.html#index-3">[64]</a>, <a href="struct_lhs_inform_type.html#index-3">[65]</a>, <a href="struct_llsr_inform_type.html#index-8">[66]</a>, <a href="struct_llst_inform_type.html#index-8">[67]</a>, <a href="struct_lms_inform_type.html#index-5">[68]</a>, <a href="struct_lpa_inform_type.html#index-3">[69]</a>, <a href="struct_lpb_inform_type.html#index-3">[70]</a>, <a href="struct_lsqp_inform_type.html#index-3">[71]</a>, <a href="struct_lsrt_inform_type.html#index-3">[72]</a>, <a href="struct_lstr_inform_type.html#index-3">[73]</a>, <a href="struct_nls_inform_type.html#index-3">[74]</a>, <a href="struct_nls_subproblem_inform_type.html#index-3">[75]</a>, <a href="struct_psls_inform_type.html#index-21">[76]</a>, <a href="struct_qpa_inform_type.html#index-3">[77]</a>, <a href="struct_qpb_inform_type.html#index-3">[78]</a>, <a href="struct_roots_inform_type.html#index-3">[79]</a>, <a href="struct_rpd_inform_type.html#index-3">[80]</a>, <a href="struct_rqs_inform_type.html#index-13">[81]</a>, <a href="struct_sbls_inform_type.html#index-3">[82]</a>, <a href="struct_sha_inform_type.html#index-8">[83]</a>, <a href="struct_slls_inform_type.html#index-8">[84]</a>, <a href="struct_sls_inform_type.html#index-3">[85]</a>, <a href="struct_trb_inform_type.html#index-3">[86]</a>, <a href="struct_trs_inform_type.html#index-12">[87]</a>, <a href="struct_tru_inform_type.html#index-3">[88]</a>, <a href="struct_ugo_inform_type.html#index-4">[89]</a>, <a href="struct_uls_inform_type.html#index-3">[90]</a>, <a href="struct_wcp_inform_type.html#index-3">[91]</a>, <a href="trb.html#index-81">[92]</a>, <a href="trs.html#index-71">[93]</a>, <a href="tru.html#index-77">[94]</a>, <a href="ugo.html#index-47">[95]</a>, <a href="uls.html#index-40">[96]</a>, <a href="wcp.html#index-78">[97]</a>
+        <li><a href="arc.html#index-80">bad_alloc</a>, <a href="bgo.html#index-46">[1]</a>, <a href="blls.html#index-66">[2]</a>, <a href="bllsb.html#index-90">[3]</a>, <a href="bqp.html#index-55">[4]</a>, <a href="bqpb.html#index-89">[5]</a>, <a href="bsc.html#index-21">[6]</a>, <a href="clls.html#index-90">[7]</a>, <a href="convert.html#index-24">[8]</a>, <a href="cqp.html#index-89">[9]</a>, <a href="cro.html#index-38">[10]</a>, <a href="dgo.html#index-54">[11]</a>, <a href="dps.html#index-53">[12]</a>, <a href="dqp.html#index-86">[13]</a>, <a href="eqp.html#index-63">[14]</a>, <a href="fdc.html#index-36">[15]</a>, <a href="fit.html#index-17">[16]</a>, <a href="glrt.html#index-34">[17]</a>, <a href="gltr.html#index-36">[18]</a>, <a href="hash.html#index-16">[19]</a>, <a href="ir.html#index-22">[20]</a>, <a href="l2rt.html#index-33">[21]</a>, <a href="lhs.html#index-20">[22]</a>, <a href="llsr.html#index-55">[23]</a>, <a href="llst.html#index-56">[24]</a>, <a href="lms.html#index-31">[25]</a>, <a href="lpa.html#index-53">[26]</a>, <a href="lpb.html#index-86">[27]</a>, <a href="lsqp.html#index-83">[28]</a>, <a href="lsrt.html#index-33">[29]</a>, <a href="lstr.html#index-33">[30]</a>, <a href="nls.html#index-129">[31]</a>, <a href="nls.html#index-155">[32]</a>, <a href="psls.html#index-70">[33]</a>, <a href="qpa.html#index-78">[34]</a>, <a href="qpb.html#index-101">[35]</a>, <a href="roots.html#index-20">[36]</a>, <a href="rpd.html#index-29">[37]</a>, <a href="rqs.html#index-69">[38]</a>, <a href="sbls.html#index-65">[39]</a>, <a href="sha.html#index-33">[40]</a>, <a href="slls.html#index-59">[41]</a>, <a href="sls.html#index-84">[42]</a>, <a href="struct_arc_inform_type.html#index-3">[43]</a>, <a href="struct_bgo_inform_type.html#index-3">[44]</a>, <a href="struct_blls_inform_type.html#index-8">[45]</a>, <a href="struct_bllsb_inform_type.html#index-3">[46]</a>, <a href="struct_bqp_inform_type.html#index-8">[47]</a>, <a href="struct_bqpb_inform_type.html#index-3">[48]</a>, <a href="struct_bsc_inform_type.html#index-3">[49]</a>, <a href="struct_clls_inform_type.html#index-3">[50]</a>, <a href="struct_convert_inform_type.html#index-4">[51]</a>, <a href="struct_cqp_inform_type.html#index-3">[52]</a>, <a href="struct_cro_inform_type.html#index-3">[53]</a>, <a href="struct_dgo_inform_type.html#index-3">[54]</a>, <a href="struct_dps_inform_type.html#index-11">[55]</a>, <a href="struct_dqp_inform_type.html#index-3">[56]</a>, <a href="struct_eqp_inform_type.html#index-3">[57]</a>, <a href="struct_fdc_inform_type.html#index-3">[58]</a>, <a href="struct_fit_inform_type.html#index-3">[59]</a>, <a href="struct_glrt_inform_type.html#index-3">[60]</a>, <a href="struct_gltr_inform_type.html#index-3">[61]</a>, <a href="struct_hash_inform_type.html#index-3">[62]</a>, <a href="struct_ir_inform_type.html#index-3">[63]</a>, <a href="struct_l2rt_inform_type.html#index-3">[64]</a>, <a href="struct_lhs_inform_type.html#index-3">[65]</a>, <a href="struct_llsr_inform_type.html#index-8">[66]</a>, <a href="struct_llst_inform_type.html#index-8">[67]</a>, <a href="struct_lms_inform_type.html#index-5">[68]</a>, <a href="struct_lpa_inform_type.html#index-3">[69]</a>, <a href="struct_lpb_inform_type.html#index-3">[70]</a>, <a href="struct_lsqp_inform_type.html#index-3">[71]</a>, <a href="struct_lsrt_inform_type.html#index-3">[72]</a>, <a href="struct_lstr_inform_type.html#index-3">[73]</a>, <a href="struct_nls_inform_type.html#index-3">[74]</a>, <a href="struct_nls_subproblem_inform_type.html#index-3">[75]</a>, <a href="struct_psls_inform_type.html#index-21">[76]</a>, <a href="struct_qpa_inform_type.html#index-3">[77]</a>, <a href="struct_qpb_inform_type.html#index-3">[78]</a>, <a href="struct_roots_inform_type.html#index-3">[79]</a>, <a href="struct_rpd_inform_type.html#index-3">[80]</a>, <a href="struct_rqs_inform_type.html#index-13">[81]</a>, <a href="struct_sbls_inform_type.html#index-3">[82]</a>, <a href="struct_sha_inform_type.html#index-9">[83]</a>, <a href="struct_slls_inform_type.html#index-8">[84]</a>, <a href="struct_sls_inform_type.html#index-3">[85]</a>, <a href="struct_trb_inform_type.html#index-3">[86]</a>, <a href="struct_trs_inform_type.html#index-12">[87]</a>, <a href="struct_tru_inform_type.html#index-3">[88]</a>, <a href="struct_ugo_inform_type.html#index-4">[89]</a>, <a href="struct_uls_inform_type.html#index-3">[90]</a>, <a href="struct_wcp_inform_type.html#index-3">[91]</a>, <a href="trb.html#index-81">[92]</a>, <a href="trs.html#index-71">[93]</a>, <a href="tru.html#index-77">[94]</a>, <a href="ugo.html#index-47">[95]</a>, <a href="uls.html#index-40">[96]</a>, <a href="wcp.html#index-78">[97]</a>
 </li>
         <li><a href="nls.html#index-130">bad_eval</a>, <a href="nls.html#index-156">[1]</a>, <a href="struct_nls_inform_type.html#index-4">[2]</a>, <a href="struct_nls_subproblem_inform_type.html#index-4">[3]</a>
 </li>
-        <li><a href="sha.html#index-30">bad_row</a>, <a href="struct_sha_inform_type.html#index-7">[1]</a>
+        <li><a href="sha.html#index-31">bad_row</a>, <a href="struct_sha_inform_type.html#index-7">[1]</a>
 </li>
         <li><a href="struct_wcp_control_type.html#index-43">balance_initial_complementarity</a>, <a href="wcp.html#index-53">[1]</a>
 </li>
@@ -11328,7 +11343,7 @@
 </li>
         <li><a href="sbls.html#index-71">d_plus</a>, <a href="struct_sbls_inform_type.html#index-9">[1]</a>
 </li>
-        <li><a href="arc.html#index-57">deallocate_error_fatal</a>, <a href="bgo.html#index-31">[1]</a>, <a href="blls.html#index-43">[2]</a>, <a href="bllsb.html#index-62">[3]</a>, <a href="bqp.html#index-37">[4]</a>, <a href="bqpb.html#index-62">[5]</a>, <a href="bsc.html#index-16">[6]</a>, <a href="clls.html#index-62">[7]</a>, <a href="convert.html#index-15">[8]</a>, <a href="cqp.html#index-62">[9]</a>, <a href="cro.html#index-18">[10]</a>, <a href="dgo.html#index-39">[11]</a>, <a href="dps.html#index-28">[12]</a>, <a href="dqp.html#index-55">[13]</a>, <a href="eqp.html#index-43">[14]</a>, <a href="fdc.html#index-20">[15]</a>, <a href="fit.html#index-12">[16]</a>, <a href="glrt.html#index-27">[17]</a>, <a href="gltr.html#index-29">[18]</a>, <a href="hash.html#index-11">[19]</a>, <a href="ir.html#index-17">[20]</a>, <a href="l2rt.html#index-28">[21]</a>, <a href="lhs.html#index-15">[22]</a>, <a href="llsr.html#index-26">[23]</a>, <a href="llst.html#index-27">[24]</a>, <a href="lms.html#index-15">[25]</a>, <a href="lpa.html#index-39">[26]</a>, <a href="lpb.html#index-59">[27]</a>, <a href="lsqp.html#index-61">[28]</a>, <a href="lsrt.html#index-28">[29]</a>, <a href="lstr.html#index-28">[30]</a>, <a href="nls.html#index-107">[31]</a>, <a href="nls.html#index-56">[32]</a>, <a href="psls.html#index-31">[33]</a>, <a href="qpa.html#index-57">[34]</a>, <a href="qpb.html#index-68">[35]</a>, <a href="roots.html#index-15">[36]</a>, <a href="rpd.html#index-25">[37]</a>, <a href="rqs.html#index-35">[38]</a>, <a href="sbls.html#index-46">[39]</a>, <a href="sha.html#index-21">[40]</a>, <a href="slls.html#index-40">[41]</a>, <a href="struct_arc_control_type.html#index-44">[42]</a>, <a href="struct_bgo_control_type.html#index-18">[43]</a>, <a href="struct_blls_control_type.html#index-31">[44]</a>, <a href="struct_bllsb_control_type.html#index-52">[45]</a>, <a href="struct_bqp_control_type.html#index-25">[46]</a>, <a href="struct_bqpb_control_type.html#index-51">[47]</a>, <a href="struct_bsc_control_type.html#index-10">[48]</a>, <a href="struct_clls_control_type.html#index-52">[49]</a>, <a href="struct_convert_control_type.html#index-9">[50]</a>, <a href="struct_cqp_control_type.html#index-51">[51]</a>, <a href="struct_cro_control_type.html#index-11">[52]</a>, <a href="struct_dgo_control_type.html#index-26">[53]</a>, <a href="struct_dps_control_type.html#index-15">[54]</a>, <a href="struct_dqp_control_type.html#index-44">[55]</a>, <a href="struct_eqp_control_type.html#index-31">[56]</a>, <a href="struct_fdc_control_type.html#index-13">[57]</a>, <a href="struct_fit_control_type.html#index-6">[58]</a>, <a href="struct_glrt_control_type.html#index-18">[59]</a>, <a href="struct_gltr_control_type.html#index-20">[60]</a>, <a href="struct_hash_control_type.html#index-5">[61]</a>, <a href="struct_ir_control_type.html#index-11">[62]</a>, <a href="struct_l2rt_control_type.html#index-19">[63]</a>, <a href="struct_lhs_control_type.html#index-6">[64]</a>, <a href="struct_llsr_control_type.html#index-15">[65]</a>, <a href="struct_llst_control_type.html#index-16">[66]</a>, <a href="struct_lms_control_type.html#index-9">[67]</a>, <a href="struct_lpa_control_type.html#index-29">[68]</a>, <a href="struct_lpb_control_type.html#index-49">[69]</a>, <a href="struct_lsqp_control_type.html#index-51">[70]</a>, <a href="struct_lsrt_control_type.html#index-19">[71]</a>, <a href="struct_lstr_control_type.html#index-19">[72]</a>, <a href="struct_nls_control_type.html#index-44">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-43">[74]</a>, <a href="struct_psls_control_type.html#index-18">[75]</a>, <a href="struct_qpa_control_type.html#index-45">[76]</a>, <a href="struct_qpb_control_type.html#index-58">[77]</a>, <a href="struct_roots_control_type.html#index-9">[78]</a>, <a href="struct_rpd_control_type.html#index-7">[79]</a>, <a href="struct_rqs_control_type.html#index-23">[80]</a>, <a href="struct_sbls_control_type.html#index-35">[81]</a>, <a href="struct_sha_control_type.html#index-12">[82]</a>, <a href="struct_slls_control_type.html#index-28">[83]</a>, <a href="struct_trb_control_type.html#index-46">[84]</a>, <a href="struct_trs_control_type.html#index-26">[85]</a>, <a href="struct_tru_control_type.html#index-40">[86]</a>, <a href="struct_ugo_control_type.html#index-27">[87]</a>, <a href="struct_wcp_control_type.html#index-46">[88]</a>, <a href="trb.html#index-59">[89]</a>, <a href="trs.html#index-38">[90]</a>, <a href="tru.html#index-53">[91]</a>, <a href="ugo.html#index-38">[92]</a>, <a href="wcp.html#index-56">[93]</a>
+        <li><a href="arc.html#index-57">deallocate_error_fatal</a>, <a href="bgo.html#index-31">[1]</a>, <a href="blls.html#index-43">[2]</a>, <a href="bllsb.html#index-62">[3]</a>, <a href="bqp.html#index-37">[4]</a>, <a href="bqpb.html#index-62">[5]</a>, <a href="bsc.html#index-16">[6]</a>, <a href="clls.html#index-62">[7]</a>, <a href="convert.html#index-15">[8]</a>, <a href="cqp.html#index-62">[9]</a>, <a href="cro.html#index-18">[10]</a>, <a href="dgo.html#index-39">[11]</a>, <a href="dps.html#index-28">[12]</a>, <a href="dqp.html#index-55">[13]</a>, <a href="eqp.html#index-43">[14]</a>, <a href="fdc.html#index-20">[15]</a>, <a href="fit.html#index-12">[16]</a>, <a href="glrt.html#index-27">[17]</a>, <a href="gltr.html#index-29">[18]</a>, <a href="hash.html#index-11">[19]</a>, <a href="ir.html#index-17">[20]</a>, <a href="l2rt.html#index-28">[21]</a>, <a href="lhs.html#index-15">[22]</a>, <a href="llsr.html#index-26">[23]</a>, <a href="llst.html#index-27">[24]</a>, <a href="lms.html#index-15">[25]</a>, <a href="lpa.html#index-39">[26]</a>, <a href="lpb.html#index-59">[27]</a>, <a href="lsqp.html#index-61">[28]</a>, <a href="lsrt.html#index-28">[29]</a>, <a href="lstr.html#index-28">[30]</a>, <a href="nls.html#index-107">[31]</a>, <a href="nls.html#index-56">[32]</a>, <a href="psls.html#index-31">[33]</a>, <a href="qpa.html#index-57">[34]</a>, <a href="qpb.html#index-68">[35]</a>, <a href="roots.html#index-15">[36]</a>, <a href="rpd.html#index-25">[37]</a>, <a href="rqs.html#index-35">[38]</a>, <a href="sbls.html#index-46">[39]</a>, <a href="sha.html#index-22">[40]</a>, <a href="slls.html#index-40">[41]</a>, <a href="struct_arc_control_type.html#index-44">[42]</a>, <a href="struct_bgo_control_type.html#index-18">[43]</a>, <a href="struct_blls_control_type.html#index-31">[44]</a>, <a href="struct_bllsb_control_type.html#index-52">[45]</a>, <a href="struct_bqp_control_type.html#index-25">[46]</a>, <a href="struct_bqpb_control_type.html#index-51">[47]</a>, <a href="struct_bsc_control_type.html#index-10">[48]</a>, <a href="struct_clls_control_type.html#index-52">[49]</a>, <a href="struct_convert_control_type.html#index-9">[50]</a>, <a href="struct_cqp_control_type.html#index-51">[51]</a>, <a href="struct_cro_control_type.html#index-11">[52]</a>, <a href="struct_dgo_control_type.html#index-26">[53]</a>, <a href="struct_dps_control_type.html#index-15">[54]</a>, <a href="struct_dqp_control_type.html#index-44">[55]</a>, <a href="struct_eqp_control_type.html#index-31">[56]</a>, <a href="struct_fdc_control_type.html#index-13">[57]</a>, <a href="struct_fit_control_type.html#index-6">[58]</a>, <a href="struct_glrt_control_type.html#index-18">[59]</a>, <a href="struct_gltr_control_type.html#index-20">[60]</a>, <a href="struct_hash_control_type.html#index-5">[61]</a>, <a href="struct_ir_control_type.html#index-11">[62]</a>, <a href="struct_l2rt_control_type.html#index-19">[63]</a>, <a href="struct_lhs_control_type.html#index-6">[64]</a>, <a href="struct_llsr_control_type.html#index-15">[65]</a>, <a href="struct_llst_control_type.html#index-16">[66]</a>, <a href="struct_lms_control_type.html#index-9">[67]</a>, <a href="struct_lpa_control_type.html#index-29">[68]</a>, <a href="struct_lpb_control_type.html#index-49">[69]</a>, <a href="struct_lsqp_control_type.html#index-51">[70]</a>, <a href="struct_lsrt_control_type.html#index-19">[71]</a>, <a href="struct_lstr_control_type.html#index-19">[72]</a>, <a href="struct_nls_control_type.html#index-44">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-43">[74]</a>, <a href="struct_psls_control_type.html#index-18">[75]</a>, <a href="struct_qpa_control_type.html#index-45">[76]</a>, <a href="struct_qpb_control_type.html#index-58">[77]</a>, <a href="struct_roots_control_type.html#index-9">[78]</a>, <a href="struct_rpd_control_type.html#index-7">[79]</a>, <a href="struct_rqs_control_type.html#index-23">[80]</a>, <a href="struct_sbls_control_type.html#index-35">[81]</a>, <a href="struct_sha_control_type.html#index-13">[82]</a>, <a href="struct_slls_control_type.html#index-28">[83]</a>, <a href="struct_trb_control_type.html#index-46">[84]</a>, <a href="struct_trs_control_type.html#index-26">[85]</a>, <a href="struct_tru_control_type.html#index-40">[86]</a>, <a href="struct_ugo_control_type.html#index-27">[87]</a>, <a href="struct_wcp_control_type.html#index-46">[88]</a>, <a href="trb.html#index-59">[89]</a>, <a href="trs.html#index-38">[90]</a>, <a href="tru.html#index-53">[91]</a>, <a href="ugo.html#index-38">[92]</a>, <a href="wcp.html#index-56">[93]</a>
 </li>
         <li><a href="dqp.html#index-59">definite_linear_solver</a>, <a href="llsr.html#index-27">[1]</a>, <a href="llst.html#index-28">[2]</a>, <a href="psls.html#index-32">[3]</a>, <a href="rqs.html#index-38">[4]</a>, <a href="sbls.html#index-48">[5]</a>, <a href="struct_dqp_control_type.html#index-48">[6]</a>, <a href="struct_llsr_control_type.html#index-16">[7]</a>, <a href="struct_llst_control_type.html#index-17">[8]</a>, <a href="struct_psls_control_type.html#index-19">[9]</a>, <a href="struct_rqs_control_type.html#index-26">[10]</a>, <a href="struct_sbls_control_type.html#index-37">[11]</a>, <a href="struct_trs_control_type.html#index-29">[12]</a>, <a href="trs.html#index-41">[13]</a>
 </li>
@@ -11350,7 +11365,7 @@
 </li>
         <li><a href="dgo.html#index-23">dictionary_size</a>, <a href="struct_dgo_control_type.html#index-10">[1]</a>
 </li>
-        <li><a href="sha.html#index-27">differences_needed</a>, <a href="struct_sha_inform_type.html#index-4">[1]</a>
+        <li><a href="sha.html#index-28">differences_needed</a>, <a href="struct_sha_inform_type.html#index-4">[1]</a>
 </li>
         <li><a href="blls.html#index-39">direct_subproblem_solve</a>, <a href="slls.html#index-37">[1]</a>, <a href="struct_blls_control_type.html#index-27">[2]</a>, <a href="struct_slls_control_type.html#index-25">[3]</a>
 </li>
@@ -11796,7 +11811,7 @@
 </li>
         <li><a href="bsc.html#index-22">max_col_a</a>, <a href="struct_bsc_inform_type.html#index-4">[1]</a>
 </li>
-        <li><a href="sha.html#index-26">max_degree</a>, <a href="struct_sha_inform_type.html#index-3">[1]</a>
+        <li><a href="sha.html#index-27">max_degree</a>, <a href="struct_sha_inform_type.html#index-3">[1]</a>
 </li>
         <li><a href="sls.html#index-91">max_depth_assembly_tree</a>, <a href="struct_sls_inform_type.html#index-10">[1]</a>
 </li>
@@ -11834,9 +11849,11 @@
 </li>
         <li><a href="presolve.html#index-13">max_nbr_transforms</a>, <a href="struct_presolve_control_type.html#index-3">[1]</a>
 </li>
+        <li><a href="sha.html#index-32">max_off_diagonal_difference</a>, <a href="struct_sha_inform_type.html#index-8">[1]</a>
+</li>
         <li><a href="sls.html#index-29">max_real_factor_size</a>, <a href="struct_sls_control_type.html#index-17">[1]</a>
 </li>
-        <li><a href="sha.html#index-28">max_reduced_degree</a>, <a href="struct_sha_inform_type.html#index-5">[1]</a>
+        <li><a href="sha.html#index-29">max_reduced_degree</a>, <a href="struct_sha_inform_type.html#index-5">[1]</a>
 </li>
         <li><a href="dqp.html#index-21">max_sc</a>, <a href="qpa.html#index-22">[1]</a>, <a href="struct_dqp_control_type.html#index-10">[2]</a>, <a href="struct_qpa_control_type.html#index-10">[3]</a>
 </li>
@@ -12166,7 +12183,7 @@
 </li>
         <li><a href="blls.html#index-22">preconditioner</a>, <a href="eqp.html#index-24">[1]</a>, <a href="psls.html#index-18">[2]</a>, <a href="psls.html#index-57">[3]</a>, <a href="sbls.html#index-24">[4]</a>, <a href="sbls.html#index-69">[5]</a>, <a href="slls.html#index-22">[6]</a>, <a href="struct_blls_control_type.html#index-10">[7]</a>, <a href="struct_eqp_control_type.html#index-12">[8]</a>, <a href="struct_psls_control_type.html#index-5">[9]</a>, <a href="struct_psls_inform_type.html#index-8">[10]</a>, <a href="struct_sbls_control_type.html#index-13">[11]</a>, <a href="struct_sbls_inform_type.html#index-7">[12]</a>, <a href="struct_slls_control_type.html#index-10">[13]</a>
 </li>
-        <li><a href="arc.html#index-58">prefix</a>, <a href="bgo.html#index-32">[1]</a>, <a href="blls.html#index-46">[2]</a>, <a href="bllsb.html#index-67">[3]</a>, <a href="bqp.html#index-40">[4]</a>, <a href="bqpb.html#index-67">[5]</a>, <a href="bsc.html#index-17">[6]</a>, <a href="clls.html#index-67">[7]</a>, <a href="convert.html#index-16">[8]</a>, <a href="cqp.html#index-67">[9]</a>, <a href="cro.html#index-21">[10]</a>, <a href="dgo.html#index-40">[11]</a>, <a href="dps.html#index-31">[12]</a>, <a href="dqp.html#index-63">[13]</a>, <a href="eqp.html#index-46">[14]</a>, <a href="fdc.html#index-23">[15]</a>, <a href="fit.html#index-13">[16]</a>, <a href="glrt.html#index-30">[17]</a>, <a href="gltr.html#index-32">[18]</a>, <a href="hash.html#index-12">[19]</a>, <a href="ir.html#index-18">[20]</a>, <a href="l2rt.html#index-29">[21]</a>, <a href="lhs.html#index-16">[22]</a>, <a href="llsr.html#index-28">[23]</a>, <a href="llst.html#index-29">[24]</a>, <a href="lms.html#index-16">[25]</a>, <a href="lpa.html#index-44">[26]</a>, <a href="lpb.html#index-64">[27]</a>, <a href="lsqp.html#index-64">[28]</a>, <a href="lsrt.html#index-29">[29]</a>, <a href="lstr.html#index-29">[30]</a>, <a href="nls.html#index-108">[31]</a>, <a href="nls.html#index-57">[32]</a>, <a href="psls.html#index-33">[33]</a>, <a href="qpa.html#index-61">[34]</a>, <a href="qpb.html#index-71">[35]</a>, <a href="roots.html#index-16">[36]</a>, <a href="rqs.html#index-39">[37]</a>, <a href="sbls.html#index-50">[38]</a>, <a href="sec.html#index-13">[39]</a>, <a href="sha.html#index-22">[40]</a>, <a href="slls.html#index-43">[41]</a>, <a href="sls.html#index-63">[42]</a>, <a href="struct_arc_control_type.html#index-45">[43]</a>, <a href="struct_bgo_control_type.html#index-19">[44]</a>, <a href="struct_blls_control_type.html#index-34">[45]</a>, <a href="struct_bllsb_control_type.html#index-57">[46]</a>, <a href="struct_bqp_control_type.html#index-28">[47]</a>, <a href="struct_bqpb_control_type.html#index-56">[48]</a>, <a href="struct_bsc_control_type.html#index-11">[49]</a>, <a href="struct_clls_control_type.html#index-57">[50]</a>, <a href="struct_convert_control_type.html#index-10">[51]</a>, <a href="struct_cqp_control_type.html#index-56">[52]</a>, <a href="struct_cro_control_type.html#index-14">[53]</a>, <a href="struct_dgo_control_type.html#index-27">[54]</a>, <a href="struct_dps_control_type.html#index-18">[55]</a>, <a href="struct_dqp_control_type.html#index-52">[56]</a>, <a href="struct_eqp_control_type.html#index-34">[57]</a>, <a href="struct_fdc_control_type.html#index-16">[58]</a>, <a href="struct_fit_control_type.html#index-7">[59]</a>, <a href="struct_glrt_control_type.html#index-21">[60]</a>, <a href="struct_gltr_control_type.html#index-23">[61]</a>, <a href="struct_hash_control_type.html#index-6">[62]</a>, <a href="struct_ir_control_type.html#index-12">[63]</a>, <a href="struct_l2rt_control_type.html#index-20">[64]</a>, <a href="struct_lhs_control_type.html#index-7">[65]</a>, <a href="struct_llsr_control_type.html#index-17">[66]</a>, <a href="struct_llst_control_type.html#index-18">[67]</a>, <a href="struct_lms_control_type.html#index-10">[68]</a>, <a href="struct_lpa_control_type.html#index-34">[69]</a>, <a href="struct_lpb_control_type.html#index-54">[70]</a>, <a href="struct_lsqp_control_type.html#index-54">[71]</a>, <a href="struct_lsrt_control_type.html#index-20">[72]</a>, <a href="struct_lstr_control_type.html#index-20">[73]</a>, <a href="struct_nls_control_type.html#index-45">[74]</a>, <a href="struct_nls_subproblem_control_type.html#index-44">[75]</a>, <a href="struct_psls_control_type.html#index-20">[76]</a>, <a href="struct_qpa_control_type.html#index-49">[77]</a>, <a href="struct_qpb_control_type.html#index-61">[78]</a>, <a href="struct_roots_control_type.html#index-10">[79]</a>, <a href="struct_rqs_control_type.html#index-27">[80]</a>, <a href="struct_sbls_control_type.html#index-39">[81]</a>, <a href="struct_sec_control_type.html#index-7">[82]</a>, <a href="struct_sha_control_type.html#index-13">[83]</a>, <a href="struct_slls_control_type.html#index-31">[84]</a>, <a href="struct_sls_control_type.html#index-51">[85]</a>, <a href="struct_trb_control_type.html#index-47">[86]</a>, <a href="struct_trs_control_type.html#index-30">[87]</a>, <a href="struct_tru_control_type.html#index-41">[88]</a>, <a href="struct_ugo_control_type.html#index-28">[89]</a>, <a href="struct_uls_control_type.html#index-26">[90]</a>, <a href="struct_wcp_control_type.html#index-49">[91]</a>, <a href="trb.html#index-60">[92]</a>, <a href="trs.html#index-42">[93]</a>, <a href="tru.html#index-54">[94]</a>, <a href="ugo.html#index-39">[95]</a>, <a href="uls.html#index-36">[96]</a>, <a href="wcp.html#index-59">[97]</a>
+        <li><a href="arc.html#index-58">prefix</a>, <a href="bgo.html#index-32">[1]</a>, <a href="blls.html#index-46">[2]</a>, <a href="bllsb.html#index-67">[3]</a>, <a href="bqp.html#index-40">[4]</a>, <a href="bqpb.html#index-67">[5]</a>, <a href="bsc.html#index-17">[6]</a>, <a href="clls.html#index-67">[7]</a>, <a href="convert.html#index-16">[8]</a>, <a href="cqp.html#index-67">[9]</a>, <a href="cro.html#index-21">[10]</a>, <a href="dgo.html#index-40">[11]</a>, <a href="dps.html#index-31">[12]</a>, <a href="dqp.html#index-63">[13]</a>, <a href="eqp.html#index-46">[14]</a>, <a href="fdc.html#index-23">[15]</a>, <a href="fit.html#index-13">[16]</a>, <a href="glrt.html#index-30">[17]</a>, <a href="gltr.html#index-32">[18]</a>, <a href="hash.html#index-12">[19]</a>, <a href="ir.html#index-18">[20]</a>, <a href="l2rt.html#index-29">[21]</a>, <a href="lhs.html#index-16">[22]</a>, <a href="llsr.html#index-28">[23]</a>, <a href="llst.html#index-29">[24]</a>, <a href="lms.html#index-16">[25]</a>, <a href="lpa.html#index-44">[26]</a>, <a href="lpb.html#index-64">[27]</a>, <a href="lsqp.html#index-64">[28]</a>, <a href="lsrt.html#index-29">[29]</a>, <a href="lstr.html#index-29">[30]</a>, <a href="nls.html#index-108">[31]</a>, <a href="nls.html#index-57">[32]</a>, <a href="psls.html#index-33">[33]</a>, <a href="qpa.html#index-61">[34]</a>, <a href="qpb.html#index-71">[35]</a>, <a href="roots.html#index-16">[36]</a>, <a href="rqs.html#index-39">[37]</a>, <a href="sbls.html#index-50">[38]</a>, <a href="sec.html#index-13">[39]</a>, <a href="sha.html#index-23">[40]</a>, <a href="slls.html#index-43">[41]</a>, <a href="sls.html#index-63">[42]</a>, <a href="struct_arc_control_type.html#index-45">[43]</a>, <a href="struct_bgo_control_type.html#index-19">[44]</a>, <a href="struct_blls_control_type.html#index-34">[45]</a>, <a href="struct_bllsb_control_type.html#index-57">[46]</a>, <a href="struct_bqp_control_type.html#index-28">[47]</a>, <a href="struct_bqpb_control_type.html#index-56">[48]</a>, <a href="struct_bsc_control_type.html#index-11">[49]</a>, <a href="struct_clls_control_type.html#index-57">[50]</a>, <a href="struct_convert_control_type.html#index-10">[51]</a>, <a href="struct_cqp_control_type.html#index-56">[52]</a>, <a href="struct_cro_control_type.html#index-14">[53]</a>, <a href="struct_dgo_control_type.html#index-27">[54]</a>, <a href="struct_dps_control_type.html#index-18">[55]</a>, <a href="struct_dqp_control_type.html#index-52">[56]</a>, <a href="struct_eqp_control_type.html#index-34">[57]</a>, <a href="struct_fdc_control_type.html#index-16">[58]</a>, <a href="struct_fit_control_type.html#index-7">[59]</a>, <a href="struct_glrt_control_type.html#index-21">[60]</a>, <a href="struct_gltr_control_type.html#index-23">[61]</a>, <a href="struct_hash_control_type.html#index-6">[62]</a>, <a href="struct_ir_control_type.html#index-12">[63]</a>, <a href="struct_l2rt_control_type.html#index-20">[64]</a>, <a href="struct_lhs_control_type.html#index-7">[65]</a>, <a href="struct_llsr_control_type.html#index-17">[66]</a>, <a href="struct_llst_control_type.html#index-18">[67]</a>, <a href="struct_lms_control_type.html#index-10">[68]</a>, <a href="struct_lpa_control_type.html#index-34">[69]</a>, <a href="struct_lpb_control_type.html#index-54">[70]</a>, <a href="struct_lsqp_control_type.html#index-54">[71]</a>, <a href="struct_lsrt_control_type.html#index-20">[72]</a>, <a href="struct_lstr_control_type.html#index-20">[73]</a>, <a href="struct_nls_control_type.html#index-45">[74]</a>, <a href="struct_nls_subproblem_control_type.html#index-44">[75]</a>, <a href="struct_psls_control_type.html#index-20">[76]</a>, <a href="struct_qpa_control_type.html#index-49">[77]</a>, <a href="struct_qpb_control_type.html#index-61">[78]</a>, <a href="struct_roots_control_type.html#index-10">[79]</a>, <a href="struct_rqs_control_type.html#index-27">[80]</a>, <a href="struct_sbls_control_type.html#index-39">[81]</a>, <a href="struct_sec_control_type.html#index-7">[82]</a>, <a href="struct_sha_control_type.html#index-14">[83]</a>, <a href="struct_slls_control_type.html#index-31">[84]</a>, <a href="struct_sls_control_type.html#index-51">[85]</a>, <a href="struct_trb_control_type.html#index-47">[86]</a>, <a href="struct_trs_control_type.html#index-30">[87]</a>, <a href="struct_tru_control_type.html#index-41">[88]</a>, <a href="struct_ugo_control_type.html#index-28">[89]</a>, <a href="struct_uls_control_type.html#index-26">[90]</a>, <a href="struct_wcp_control_type.html#index-49">[91]</a>, <a href="trb.html#index-60">[92]</a>, <a href="trs.html#index-42">[93]</a>, <a href="tru.html#index-54">[94]</a>, <a href="ugo.html#index-39">[95]</a>, <a href="uls.html#index-36">[96]</a>, <a href="wcp.html#index-59">[97]</a>
 </li>
         <li><a href="arc.html#index-68">preprocess</a>, <a href="bllsb.html#index-76">[1]</a>, <a href="bqpb.html#index-75">[2]</a>, <a href="clls.html#index-76">[3]</a>, <a href="cqp.html#index-75">[4]</a>, <a href="dqp.html#index-70">[5]</a>, <a href="lpa.html#index-47">[6]</a>, <a href="lpb.html#index-72">[7]</a>, <a href="lsqp.html#index-69">[8]</a>, <a href="nls.html#index-117">[9]</a>, <a href="qpa.html#index-66">[10]</a>, <a href="qpb.html#index-79">[11]</a>, <a href="struct_arc_time_type.html#index-2">[12]</a>, <a href="struct_bllsb_time_type.html#index-2">[13]</a>, <a href="struct_bqpb_time_type.html#index-2">[14]</a>, <a href="struct_clls_time_type.html#index-2">[15]</a>, <a href="struct_cqp_time_type.html#index-2">[16]</a>, <a href="struct_dqp_time_type.html#index-2">[17]</a>, <a href="struct_lpa_time_type.html#index-2">[18]</a>, <a href="struct_lpb_time_type.html#index-2">[19]</a>, <a href="struct_lsqp_time_type.html#index-2">[20]</a>, <a href="struct_nls_time_type.html#index-2">[21]</a>, <a href="struct_qpa_time_type.html#index-2">[22]</a>, <a href="struct_qpb_time_type.html#index-2">[23]</a>, <a href="struct_trb_time_type.html#index-2">[24]</a>, <a href="struct_tru_time_type.html#index-2">[25]</a>, <a href="struct_wcp_time_type.html#index-2">[26]</a>, <a href="trb.html#index-69">[27]</a>, <a href="tru.html#index-65">[28]</a>, <a href="wcp.html#index-64">[29]</a>
 </li>
@@ -12404,7 +12421,7 @@
 </li>
         <li><a href="sils.html#index-15">sp</a>, <a href="struct_sils_control_type.html#index-6">[1]</a>
 </li>
-        <li><a href="arc.html#index-56">space_critical</a>, <a href="bgo.html#index-30">[1]</a>, <a href="blls.html#index-42">[2]</a>, <a href="bllsb.html#index-61">[3]</a>, <a href="bqp.html#index-36">[4]</a>, <a href="bqpb.html#index-61">[5]</a>, <a href="bsc.html#index-15">[6]</a>, <a href="clls.html#index-61">[7]</a>, <a href="convert.html#index-14">[8]</a>, <a href="cqp.html#index-61">[9]</a>, <a href="cro.html#index-17">[10]</a>, <a href="dgo.html#index-38">[11]</a>, <a href="dps.html#index-27">[12]</a>, <a href="dqp.html#index-54">[13]</a>, <a href="eqp.html#index-42">[14]</a>, <a href="fdc.html#index-19">[15]</a>, <a href="fit.html#index-11">[16]</a>, <a href="glrt.html#index-26">[17]</a>, <a href="gltr.html#index-28">[18]</a>, <a href="hash.html#index-10">[19]</a>, <a href="ir.html#index-16">[20]</a>, <a href="l2rt.html#index-27">[21]</a>, <a href="lhs.html#index-14">[22]</a>, <a href="llsr.html#index-25">[23]</a>, <a href="llst.html#index-26">[24]</a>, <a href="lms.html#index-14">[25]</a>, <a href="lpa.html#index-38">[26]</a>, <a href="lpb.html#index-58">[27]</a>, <a href="lsqp.html#index-60">[28]</a>, <a href="lsrt.html#index-27">[29]</a>, <a href="lstr.html#index-27">[30]</a>, <a href="nls.html#index-106">[31]</a>, <a href="nls.html#index-55">[32]</a>, <a href="psls.html#index-30">[33]</a>, <a href="qpa.html#index-56">[34]</a>, <a href="qpb.html#index-67">[35]</a>, <a href="roots.html#index-14">[36]</a>, <a href="rpd.html#index-24">[37]</a>, <a href="rqs.html#index-34">[38]</a>, <a href="sbls.html#index-45">[39]</a>, <a href="sha.html#index-20">[40]</a>, <a href="slls.html#index-39">[41]</a>, <a href="struct_arc_control_type.html#index-43">[42]</a>, <a href="struct_bgo_control_type.html#index-17">[43]</a>, <a href="struct_blls_control_type.html#index-30">[44]</a>, <a href="struct_bllsb_control_type.html#index-51">[45]</a>, <a href="struct_bqp_control_type.html#index-24">[46]</a>, <a href="struct_bqpb_control_type.html#index-50">[47]</a>, <a href="struct_bsc_control_type.html#index-9">[48]</a>, <a href="struct_clls_control_type.html#index-51">[49]</a>, <a href="struct_convert_control_type.html#index-8">[50]</a>, <a href="struct_cqp_control_type.html#index-50">[51]</a>, <a href="struct_cro_control_type.html#index-10">[52]</a>, <a href="struct_dgo_control_type.html#index-25">[53]</a>, <a href="struct_dps_control_type.html#index-14">[54]</a>, <a href="struct_dqp_control_type.html#index-43">[55]</a>, <a href="struct_eqp_control_type.html#index-30">[56]</a>, <a href="struct_fdc_control_type.html#index-12">[57]</a>, <a href="struct_fit_control_type.html#index-5">[58]</a>, <a href="struct_glrt_control_type.html#index-17">[59]</a>, <a href="struct_gltr_control_type.html#index-19">[60]</a>, <a href="struct_hash_control_type.html#index-4">[61]</a>, <a href="struct_ir_control_type.html#index-10">[62]</a>, <a href="struct_l2rt_control_type.html#index-18">[63]</a>, <a href="struct_lhs_control_type.html#index-5">[64]</a>, <a href="struct_llsr_control_type.html#index-14">[65]</a>, <a href="struct_llst_control_type.html#index-15">[66]</a>, <a href="struct_lms_control_type.html#index-8">[67]</a>, <a href="struct_lpa_control_type.html#index-28">[68]</a>, <a href="struct_lpb_control_type.html#index-48">[69]</a>, <a href="struct_lsqp_control_type.html#index-50">[70]</a>, <a href="struct_lsrt_control_type.html#index-18">[71]</a>, <a href="struct_lstr_control_type.html#index-18">[72]</a>, <a href="struct_nls_control_type.html#index-43">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-42">[74]</a>, <a href="struct_psls_control_type.html#index-17">[75]</a>, <a href="struct_qpa_control_type.html#index-44">[76]</a>, <a href="struct_qpb_control_type.html#index-57">[77]</a>, <a href="struct_roots_control_type.html#index-8">[78]</a>, <a href="struct_rpd_control_type.html#index-6">[79]</a>, <a href="struct_rqs_control_type.html#index-22">[80]</a>, <a href="struct_sbls_control_type.html#index-34">[81]</a>, <a href="struct_sha_control_type.html#index-11">[82]</a>, <a href="struct_slls_control_type.html#index-27">[83]</a>, <a href="struct_trb_control_type.html#index-45">[84]</a>, <a href="struct_trs_control_type.html#index-25">[85]</a>, <a href="struct_tru_control_type.html#index-39">[86]</a>, <a href="struct_ugo_control_type.html#index-26">[87]</a>, <a href="struct_wcp_control_type.html#index-45">[88]</a>, <a href="trb.html#index-58">[89]</a>, <a href="trs.html#index-37">[90]</a>, <a href="tru.html#index-52">[91]</a>, <a href="ugo.html#index-37">[92]</a>, <a href="wcp.html#index-55">[93]</a>
+        <li><a href="arc.html#index-56">space_critical</a>, <a href="bgo.html#index-30">[1]</a>, <a href="blls.html#index-42">[2]</a>, <a href="bllsb.html#index-61">[3]</a>, <a href="bqp.html#index-36">[4]</a>, <a href="bqpb.html#index-61">[5]</a>, <a href="bsc.html#index-15">[6]</a>, <a href="clls.html#index-61">[7]</a>, <a href="convert.html#index-14">[8]</a>, <a href="cqp.html#index-61">[9]</a>, <a href="cro.html#index-17">[10]</a>, <a href="dgo.html#index-38">[11]</a>, <a href="dps.html#index-27">[12]</a>, <a href="dqp.html#index-54">[13]</a>, <a href="eqp.html#index-42">[14]</a>, <a href="fdc.html#index-19">[15]</a>, <a href="fit.html#index-11">[16]</a>, <a href="glrt.html#index-26">[17]</a>, <a href="gltr.html#index-28">[18]</a>, <a href="hash.html#index-10">[19]</a>, <a href="ir.html#index-16">[20]</a>, <a href="l2rt.html#index-27">[21]</a>, <a href="lhs.html#index-14">[22]</a>, <a href="llsr.html#index-25">[23]</a>, <a href="llst.html#index-26">[24]</a>, <a href="lms.html#index-14">[25]</a>, <a href="lpa.html#index-38">[26]</a>, <a href="lpb.html#index-58">[27]</a>, <a href="lsqp.html#index-60">[28]</a>, <a href="lsrt.html#index-27">[29]</a>, <a href="lstr.html#index-27">[30]</a>, <a href="nls.html#index-106">[31]</a>, <a href="nls.html#index-55">[32]</a>, <a href="psls.html#index-30">[33]</a>, <a href="qpa.html#index-56">[34]</a>, <a href="qpb.html#index-67">[35]</a>, <a href="roots.html#index-14">[36]</a>, <a href="rpd.html#index-24">[37]</a>, <a href="rqs.html#index-34">[38]</a>, <a href="sbls.html#index-45">[39]</a>, <a href="sha.html#index-21">[40]</a>, <a href="slls.html#index-39">[41]</a>, <a href="struct_arc_control_type.html#index-43">[42]</a>, <a href="struct_bgo_control_type.html#index-17">[43]</a>, <a href="struct_blls_control_type.html#index-30">[44]</a>, <a href="struct_bllsb_control_type.html#index-51">[45]</a>, <a href="struct_bqp_control_type.html#index-24">[46]</a>, <a href="struct_bqpb_control_type.html#index-50">[47]</a>, <a href="struct_bsc_control_type.html#index-9">[48]</a>, <a href="struct_clls_control_type.html#index-51">[49]</a>, <a href="struct_convert_control_type.html#index-8">[50]</a>, <a href="struct_cqp_control_type.html#index-50">[51]</a>, <a href="struct_cro_control_type.html#index-10">[52]</a>, <a href="struct_dgo_control_type.html#index-25">[53]</a>, <a href="struct_dps_control_type.html#index-14">[54]</a>, <a href="struct_dqp_control_type.html#index-43">[55]</a>, <a href="struct_eqp_control_type.html#index-30">[56]</a>, <a href="struct_fdc_control_type.html#index-12">[57]</a>, <a href="struct_fit_control_type.html#index-5">[58]</a>, <a href="struct_glrt_control_type.html#index-17">[59]</a>, <a href="struct_gltr_control_type.html#index-19">[60]</a>, <a href="struct_hash_control_type.html#index-4">[61]</a>, <a href="struct_ir_control_type.html#index-10">[62]</a>, <a href="struct_l2rt_control_type.html#index-18">[63]</a>, <a href="struct_lhs_control_type.html#index-5">[64]</a>, <a href="struct_llsr_control_type.html#index-14">[65]</a>, <a href="struct_llst_control_type.html#index-15">[66]</a>, <a href="struct_lms_control_type.html#index-8">[67]</a>, <a href="struct_lpa_control_type.html#index-28">[68]</a>, <a href="struct_lpb_control_type.html#index-48">[69]</a>, <a href="struct_lsqp_control_type.html#index-50">[70]</a>, <a href="struct_lsrt_control_type.html#index-18">[71]</a>, <a href="struct_lstr_control_type.html#index-18">[72]</a>, <a href="struct_nls_control_type.html#index-43">[73]</a>, <a href="struct_nls_subproblem_control_type.html#index-42">[74]</a>, <a href="struct_psls_control_type.html#index-17">[75]</a>, <a href="struct_qpa_control_type.html#index-44">[76]</a>, <a href="struct_qpb_control_type.html#index-57">[77]</a>, <a href="struct_roots_control_type.html#index-8">[78]</a>, <a href="struct_rpd_control_type.html#index-6">[79]</a>, <a href="struct_rqs_control_type.html#index-22">[80]</a>, <a href="struct_sbls_control_type.html#index-34">[81]</a>, <a href="struct_sha_control_type.html#index-12">[82]</a>, <a href="struct_slls_control_type.html#index-27">[83]</a>, <a href="struct_trb_control_type.html#index-45">[84]</a>, <a href="struct_trs_control_type.html#index-25">[85]</a>, <a href="struct_tru_control_type.html#index-39">[86]</a>, <a href="struct_ugo_control_type.html#index-26">[87]</a>, <a href="struct_wcp_control_type.html#index-45">[88]</a>, <a href="trb.html#index-58">[89]</a>, <a href="trs.html#index-37">[90]</a>, <a href="tru.html#index-52">[91]</a>, <a href="ugo.html#index-37">[92]</a>, <a href="wcp.html#index-55">[93]</a>
 </li>
         <li><a href="sha.html#index-17">sparse_row</a>, <a href="struct_sha_control_type.html#index-8">[1]</a>
 </li>
@@ -12434,7 +12451,7 @@
 </li>
         <li><a href="sls.html#index-17">statistics</a>, <a href="struct_sls_control_type.html#index-5">[1]</a>
 </li>
-        <li><a href="arc.html#index-78">status</a>, <a href="bgo.html#index-44">[1]</a>, <a href="blls.html#index-59">[2]</a>, <a href="bllsb.html#index-88">[3]</a>, <a href="bqp.html#index-48">[4]</a>, <a href="bqpb.html#index-87">[5]</a>, <a href="bsc.html#index-19">[6]</a>, <a href="clls.html#index-88">[7]</a>, <a href="convert.html#index-21">[8]</a>, <a href="cqp.html#index-87">[9]</a>, <a href="cro.html#index-36">[10]</a>, <a href="dgo.html#index-52">[11]</a>, <a href="dps.html#index-43">[12]</a>, <a href="dqp.html#index-84">[13]</a>, <a href="eqp.html#index-61">[14]</a>, <a href="fdc.html#index-34">[15]</a>, <a href="fit.html#index-15">[16]</a>, <a href="glrt.html#index-32">[17]</a>, <a href="gltr.html#index-34">[18]</a>, <a href="hash.html#index-14">[19]</a>, <a href="ir.html#index-20">[20]</a>, <a href="l2rt.html#index-31">[21]</a>, <a href="lhs.html#index-18">[22]</a>, <a href="llsr.html#index-48">[23]</a>, <a href="llst.html#index-49">[24]</a>, <a href="lms.html#index-27">[25]</a>, <a href="lpa.html#index-51">[26]</a>, <a href="lpb.html#index-84">[27]</a>, <a href="lsqp.html#index-81">[28]</a>, <a href="lsrt.html#index-31">[29]</a>, <a href="lstr.html#index-31">[30]</a>, <a href="nls.html#index-127">[31]</a>, <a href="nls.html#index-153">[32]</a>, <a href="presolve.html#index-49">[33]</a>, <a href="psls.html#index-50">[34]</a>, <a href="qpa.html#index-76">[35]</a>, <a href="qpb.html#index-99">[36]</a>, <a href="roots.html#index-18">[37]</a>, <a href="rpd.html#index-27">[38]</a>, <a href="rqs.html#index-57">[39]</a>, <a href="sbls.html#index-63">[40]</a>, <a href="scu.html#index-8">[41]</a>, <a href="sec.html#index-15">[42]</a>, <a href="sha.html#index-24">[43]</a>, <a href="slls.html#index-52">[44]</a>, <a href="sls.html#index-82">[45]</a>, <a href="struct_arc_inform_type.html#index-1">[46]</a>, <a href="struct_bgo_inform_type.html#index-1">[47]</a>, <a href="struct_blls_inform_type.html#index-1">[48]</a>, <a href="struct_bllsb_inform_type.html#index-1">[49]</a>, <a href="struct_bqp_inform_type.html#index-1">[50]</a>, <a href="struct_bqpb_inform_type.html#index-1">[51]</a>, <a href="struct_bsc_inform_type.html#index-1">[52]</a>, <a href="struct_clls_inform_type.html#index-1">[53]</a>, <a href="struct_convert_inform_type.html#index-1">[54]</a>, <a href="struct_cqp_inform_type.html#index-1">[55]</a>, <a href="struct_cro_inform_type.html#index-1">[56]</a>, <a href="struct_dgo_inform_type.html#index-1">[57]</a>, <a href="struct_dps_inform_type.html#index-1">[58]</a>, <a href="struct_dqp_inform_type.html#index-1">[59]</a>, <a href="struct_eqp_inform_type.html#index-1">[60]</a>, <a href="struct_fdc_inform_type.html#index-1">[61]</a>, <a href="struct_fit_inform_type.html#index-1">[62]</a>, <a href="struct_glrt_inform_type.html#index-1">[63]</a>, <a href="struct_gltr_inform_type.html#index-1">[64]</a>, <a href="struct_hash_inform_type.html#index-1">[65]</a>, <a href="struct_ir_inform_type.html#index-1">[66]</a>, <a href="struct_l2rt_inform_type.html#index-1">[67]</a>, <a href="struct_lhs_inform_type.html#index-1">[68]</a>, <a href="struct_llsr_inform_type.html#index-1">[69]</a>, <a href="struct_llst_inform_type.html#index-1">[70]</a>, <a href="struct_lms_inform_type.html#index-1">[71]</a>, <a href="struct_lpa_inform_type.html#index-1">[72]</a>, <a href="struct_lpb_inform_type.html#index-1">[73]</a>, <a href="struct_lsqp_inform_type.html#index-1">[74]</a>, <a href="struct_lsrt_inform_type.html#index-1">[75]</a>, <a href="struct_lstr_inform_type.html#index-1">[76]</a>, <a href="struct_nls_inform_type.html#index-1">[77]</a>, <a href="struct_nls_subproblem_inform_type.html#index-1">[78]</a>, <a href="struct_presolve_inform_type.html#index-1">[79]</a>, <a href="struct_psls_inform_type.html#index-1">[80]</a>, <a href="struct_qpa_inform_type.html#index-1">[81]</a>, <a href="struct_qpb_inform_type.html#index-1">[82]</a>, <a href="struct_roots_inform_type.html#index-1">[83]</a>, <a href="struct_rpd_inform_type.html#index-1">[84]</a>, <a href="struct_rqs_inform_type.html#index-1">[85]</a>, <a href="struct_sbls_inform_type.html#index-1">[86]</a>, <a href="struct_scu_inform_type.html#index-1">[87]</a>, <a href="struct_sec_inform_type.html#index-1">[88]</a>, <a href="struct_sha_inform_type.html#index-1">[89]</a>, <a href="struct_slls_inform_type.html#index-1">[90]</a>, <a href="struct_sls_inform_type.html#index-1">[91]</a>, <a href="struct_trb_inform_type.html#index-1">[92]</a>, <a href="struct_trs_inform_type.html#index-1">[93]</a>, <a href="struct_tru_inform_type.html#index-1">[94]</a>, <a href="struct_ugo_inform_type.html#index-1">[95]</a>, <a href="struct_uls_inform_type.html#index-1">[96]</a>, <a href="struct_wcp_inform_type.html#index-1">[97]</a>, <a href="trb.html#index-79">[98]</a>, <a href="trs.html#index-60">[99]</a>, <a href="tru.html#index-75">[100]</a>, <a href="ugo.html#index-44">[101]</a>, <a href="uls.html#index-38">[102]</a>, <a href="wcp.html#index-76">[103]</a>
+        <li><a href="arc.html#index-78">status</a>, <a href="bgo.html#index-44">[1]</a>, <a href="blls.html#index-59">[2]</a>, <a href="bllsb.html#index-88">[3]</a>, <a href="bqp.html#index-48">[4]</a>, <a href="bqpb.html#index-87">[5]</a>, <a href="bsc.html#index-19">[6]</a>, <a href="clls.html#index-88">[7]</a>, <a href="convert.html#index-21">[8]</a>, <a href="cqp.html#index-87">[9]</a>, <a href="cro.html#index-36">[10]</a>, <a href="dgo.html#index-52">[11]</a>, <a href="dps.html#index-43">[12]</a>, <a href="dqp.html#index-84">[13]</a>, <a href="eqp.html#index-61">[14]</a>, <a href="fdc.html#index-34">[15]</a>, <a href="fit.html#index-15">[16]</a>, <a href="glrt.html#index-32">[17]</a>, <a href="gltr.html#index-34">[18]</a>, <a href="hash.html#index-14">[19]</a>, <a href="ir.html#index-20">[20]</a>, <a href="l2rt.html#index-31">[21]</a>, <a href="lhs.html#index-18">[22]</a>, <a href="llsr.html#index-48">[23]</a>, <a href="llst.html#index-49">[24]</a>, <a href="lms.html#index-27">[25]</a>, <a href="lpa.html#index-51">[26]</a>, <a href="lpb.html#index-84">[27]</a>, <a href="lsqp.html#index-81">[28]</a>, <a href="lsrt.html#index-31">[29]</a>, <a href="lstr.html#index-31">[30]</a>, <a href="nls.html#index-127">[31]</a>, <a href="nls.html#index-153">[32]</a>, <a href="presolve.html#index-49">[33]</a>, <a href="psls.html#index-50">[34]</a>, <a href="qpa.html#index-76">[35]</a>, <a href="qpb.html#index-99">[36]</a>, <a href="roots.html#index-18">[37]</a>, <a href="rpd.html#index-27">[38]</a>, <a href="rqs.html#index-57">[39]</a>, <a href="sbls.html#index-63">[40]</a>, <a href="scu.html#index-8">[41]</a>, <a href="sec.html#index-15">[42]</a>, <a href="sha.html#index-25">[43]</a>, <a href="slls.html#index-52">[44]</a>, <a href="sls.html#index-82">[45]</a>, <a href="struct_arc_inform_type.html#index-1">[46]</a>, <a href="struct_bgo_inform_type.html#index-1">[47]</a>, <a href="struct_blls_inform_type.html#index-1">[48]</a>, <a href="struct_bllsb_inform_type.html#index-1">[49]</a>, <a href="struct_bqp_inform_type.html#index-1">[50]</a>, <a href="struct_bqpb_inform_type.html#index-1">[51]</a>, <a href="struct_bsc_inform_type.html#index-1">[52]</a>, <a href="struct_clls_inform_type.html#index-1">[53]</a>, <a href="struct_convert_inform_type.html#index-1">[54]</a>, <a href="struct_cqp_inform_type.html#index-1">[55]</a>, <a href="struct_cro_inform_type.html#index-1">[56]</a>, <a href="struct_dgo_inform_type.html#index-1">[57]</a>, <a href="struct_dps_inform_type.html#index-1">[58]</a>, <a href="struct_dqp_inform_type.html#index-1">[59]</a>, <a href="struct_eqp_inform_type.html#index-1">[60]</a>, <a href="struct_fdc_inform_type.html#index-1">[61]</a>, <a href="struct_fit_inform_type.html#index-1">[62]</a>, <a href="struct_glrt_inform_type.html#index-1">[63]</a>, <a href="struct_gltr_inform_type.html#index-1">[64]</a>, <a href="struct_hash_inform_type.html#index-1">[65]</a>, <a href="struct_ir_inform_type.html#index-1">[66]</a>, <a href="struct_l2rt_inform_type.html#index-1">[67]</a>, <a href="struct_lhs_inform_type.html#index-1">[68]</a>, <a href="struct_llsr_inform_type.html#index-1">[69]</a>, <a href="struct_llst_inform_type.html#index-1">[70]</a>, <a href="struct_lms_inform_type.html#index-1">[71]</a>, <a href="struct_lpa_inform_type.html#index-1">[72]</a>, <a href="struct_lpb_inform_type.html#index-1">[73]</a>, <a href="struct_lsqp_inform_type.html#index-1">[74]</a>, <a href="struct_lsrt_inform_type.html#index-1">[75]</a>, <a href="struct_lstr_inform_type.html#index-1">[76]</a>, <a href="struct_nls_inform_type.html#index-1">[77]</a>, <a href="struct_nls_subproblem_inform_type.html#index-1">[78]</a>, <a href="struct_presolve_inform_type.html#index-1">[79]</a>, <a href="struct_psls_inform_type.html#index-1">[80]</a>, <a href="struct_qpa_inform_type.html#index-1">[81]</a>, <a href="struct_qpb_inform_type.html#index-1">[82]</a>, <a href="struct_roots_inform_type.html#index-1">[83]</a>, <a href="struct_rpd_inform_type.html#index-1">[84]</a>, <a href="struct_rqs_inform_type.html#index-1">[85]</a>, <a href="struct_sbls_inform_type.html#index-1">[86]</a>, <a href="struct_scu_inform_type.html#index-1">[87]</a>, <a href="struct_sec_inform_type.html#index-1">[88]</a>, <a href="struct_sha_inform_type.html#index-1">[89]</a>, <a href="struct_slls_inform_type.html#index-1">[90]</a>, <a href="struct_sls_inform_type.html#index-1">[91]</a>, <a href="struct_trb_inform_type.html#index-1">[92]</a>, <a href="struct_trs_inform_type.html#index-1">[93]</a>, <a href="struct_tru_inform_type.html#index-1">[94]</a>, <a href="struct_ugo_inform_type.html#index-1">[95]</a>, <a href="struct_uls_inform_type.html#index-1">[96]</a>, <a href="struct_wcp_inform_type.html#index-1">[97]</a>, <a href="trb.html#index-79">[98]</a>, <a href="trs.html#index-60">[99]</a>, <a href="tru.html#index-75">[100]</a>, <a href="ugo.html#index-44">[101]</a>, <a href="uls.html#index-38">[102]</a>, <a href="wcp.html#index-76">[103]</a>
 </li>
         <li><a href="lpa.html#index-37">steepest_edge</a>, <a href="struct_lpa_control_type.html#index-27">[1]</a>
 </li>
@@ -12980,86 +12997,74 @@
 
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </article>
               
-<div class="toc-item">
-  
-<div id="searchbox"></div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
 </div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-</div>
-
+                </footer>
+              
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>
