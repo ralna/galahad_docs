@@ -1418,6 +1418,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Test</span>
 <span class="n">using</span> <span class="n">Printf</span>
 <span class="n">using</span> <span class="n">Accessors</span>
+<span class="n">using</span> <span class="n">Quadmath</span>
 
 <span class="n">function</span> <span class="n">test_bqpb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
   <span class="c1"># Derived types</span>
@@ -1433,7 +1434,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># linear term in the objective</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># constant term in the objective</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># constant term in the objective</span>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">]</span>  <span class="c1"># variable lower bound</span>
   <span class="n">x_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">Inf</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># variable upper bound</span>
 
@@ -1611,6 +1612,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="nd">@testset</span> <span class="s2">&quot;BQPB&quot;</span> <span class="n">begin</span>
   <span class="nd">@test</span> <span class="n">test_bqpb</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
   <span class="nd">@test</span> <span class="n">test_bqpb</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_bqpb</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>

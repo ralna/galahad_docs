@@ -1336,6 +1336,7 @@ are shown.</p>
 <span class="n">using</span> <span class="n">Test</span>
 <span class="n">using</span> <span class="n">Printf</span>
 <span class="n">using</span> <span class="n">Accessors</span>
+<span class="n">using</span> <span class="n">Quadmath</span>
 
 <span class="n">function</span> <span class="n">test_bllsb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
   <span class="c1"># Derived types</span>
@@ -1346,7 +1347,7 @@ are shown.</p>
   <span class="c1"># Set problem data</span>
   <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension</span>
   <span class="n">o</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of observations</span>
-  <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># regularization weight</span>
+  <span class="n">sigma</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="c1"># regularization weight</span>
   <span class="n">b</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># observations</span>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">]</span>  <span class="c1"># variable lower bound</span>
   <span class="n">x_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">Inf</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># variable upper bound</span>
@@ -1480,6 +1481,7 @@ are shown.</p>
 <span class="nd">@testset</span> <span class="s2">&quot;BLLSB&quot;</span> <span class="n">begin</span>
   <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
   <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>

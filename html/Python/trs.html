@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>TRS &#8212; GALAHAD Python Interface 1.0 documentation</title>
   
@@ -12,33 +14,34 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'trs';</script>
@@ -46,325 +49,323 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="RQS" href="rqs.html" />
     <link rel="prev" title="Regularization subproblems" href="reg.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
-  <label class="overlay overlay-primary" for="__primary"></label>
-
-  
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-    </div>
-  </div>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
-  </label>
-  <div id="navbar-start">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
+      <div class="navbar-item">
+
+  
     
   
-
 
 <a class="navbar-brand logo" href="index.html">
-
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
   
   
-
-  
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="Logo image">
-    <img src="_static/galahad.small.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
-                <div class="dropdown-menu">
+                <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </button>
   
-
 </div>
-  </nav>
+
+    </header>
   
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="uco.html">
-                        Unconstrained Optimization
-                      </a>
-                    </li>
-                
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="bco.html">
-                        Bound-constrained Optimization
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="ls.html">
-                        Least-Squares
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="lp.html">
-                        Linear Programming
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="qp.html">
-                        Quadratic Programming
-                      </a>
-                    </li>
-                
-            <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More
-                </button>
-                <div class="dropdown-menu">
-                    
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="reg.html">
-                        Regularization subproblems
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="sys.html">
-                        Linear Systems
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="go.html">
-                        Global Optimization
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="auxiliary.html">
-                        Auxiliary Procedures
-                      </a>
-                    </li>
-                
-                </div>
-            </div>
-            
-    </ul>
-</nav>
-      </div>
-      
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
       </div>
     
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
 
-    
-    
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
       </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a regularized quadratic function using matrix factorization</a></li>
@@ -377,40 +378,64 @@
 <li class="toctree-l1"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a></li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
-      <main id="main-content" class="bd-main">
+      
+      <main id="main-content" class="bd-main" role="main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="reg.html" class="nav-link">Regularization subproblems</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TRS</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="module-galahad.trs">
-<span id="trs"></span><h1>TRS<a class="headerlink" href="#module-galahad.trs" title="Permalink to this heading">#</a></h1>
+<span id="trs"></span><h1>TRS<a class="headerlink" href="#module-galahad.trs" title="Link to this heading">#</a></h1>
 <section id="purpose">
-<h2>purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">trs</span></code> package uses <strong>matrix factorization</strong> to find the
 global minimizer of a <strong>quadratic objective function</strong> within
 an <strong>ellipsoidal region</strong>; this is commonly known as the
@@ -442,7 +467,7 @@ this is not the case, the package <code class="docutils literal notranslate"><sp
 <p>See Section 4 of $GALAHAD/doc/trs.pdf for additional details.</p>
 </section>
 <section id="method">
-<h2>method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>The required solution <span class="math notranslate nohighlight">\(x_*\)</span> necessarily satisfies the optimality condition
 <span class="math notranslate nohighlight">\(H x_* + \lambda_* M x_* + A^T y_* + g = 0\)</span> and
 <span class="math notranslate nohighlight">\(A x_* = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \geq 0\)</span> is a Lagrange
@@ -490,7 +515,7 @@ a sparse symmetric, indefinite factorization of (1) is used
 rather than a Cholesky factorization.</p>
 </section>
 <section id="reference">
-<h2>reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <p>The method is described in detail in</p>
 <blockquote>
 <div><p>H. S. Dollar, N. I. M. Gould and D. P. Robinson.
@@ -499,7 +524,7 @@ rather than a Cholesky factorization.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Permalink to this heading">#</a></h2>
+<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, if it is needed, may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -607,11 +632,11 @@ The same is true if <span class="math notranslate nohighlight">\(H\)</span> is t
 the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 </section>
 <section id="functions">
-<h2>functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+<h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.initialize">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.initialize" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.initialize" title="Link to this definition">#</a></dt>
 <dd><p>Set default option values and initialize private data</p>
 <p><strong>Returns:</strong></p>
 <dl>
@@ -766,7 +791,7 @@ will result in the prefix word.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.load">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
@@ -802,7 +827,7 @@ other schemes are used, and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.load_m">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load_m</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load_m" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load_m</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load_m" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data for the scaling matrix <span class="math notranslate nohighlight">\(M\)</span>, if needed,
 into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
@@ -839,7 +864,7 @@ other schemes are used, and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.load_a">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load_a" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">load_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.load_a" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data for the constraint matrix <span class="math notranslate nohighlight">\(A\)</span>, if needed,
 into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
@@ -874,7 +899,7 @@ and in this case can be None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.solve_problem">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.solve_problem" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.solve_problem" title="Link to this definition">#</a></dt>
 <dd><p>Find the global minimizer of the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span>
 within the intersection of the trust-region and affine constraints.</p>
 <p><strong>Parameters:</strong></p>
@@ -1071,310 +1096,238 @@ factorization.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trs.trs.terminate">
-<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.terminate" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trs.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trs.trs.terminate" title="Link to this definition">#</a></dt>
 <dd><p>Deallocate all internal private storage.</p>
 </dd></dl>
 
 </div></blockquote>
 </section>
 <section id="example-code">
-<h2>example code<a class="headerlink" href="#example-code" title="Permalink to this heading">#</a></h2>
-<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">trs</span>
-<span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span>
-<span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: trs&quot;</span><span class="punctuation">)</span>
+<h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
+<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">trs</span><span class="whitespace">
+</span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
+</span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: trs&quot;</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># set parameters</span>
-<span class="name">p</span> <span class="operator">=</span> <span class="literal number float">1.0</span>
-<span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">3</span>
-<span class="name">m</span> <span class="operator">=</span> <span class="literal number integer">1</span>
-<span class="name">infinity</span> <span class="operator">=</span> <span class="name builtin">float</span><span class="punctuation">(</span><span class="literal string double">&quot;inf&quot;</span><span class="punctuation">)</span>
+</span><span class="comment single"># set parameters</span><span class="whitespace">
+</span><span class="name">p</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+</span><span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+</span><span class="name">m</span> <span class="operator">=</span> <span class="literal number integer">1</span><span class="whitespace">
+</span><span class="name">infinity</span> <span class="operator">=</span> <span class="name builtin">float</span><span class="punctuation">(</span><span class="literal string double">&quot;inf&quot;</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single">#  describe objective function</span>
+</span><span class="comment single">#  describe objective function</span><span class="whitespace">
 
-<span class="name">f</span> <span class="operator">=</span> <span class="literal number float">0.96</span>
-<span class="name">g</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">0.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">0.0</span><span class="punctuation">])</span>
-<span class="name">H_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span>
-<span class="name">H_ne</span> <span class="operator">=</span> <span class="literal number integer">4</span>
-<span class="name">H_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span>
-<span class="name">H_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">])</span>
-<span class="name">H_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span>
-<span class="name">H_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">3.0</span><span class="punctuation">,</span><span class="literal number float">4.0</span><span class="punctuation">])</span>
+</span><span class="name">f</span> <span class="operator">=</span> <span class="literal number float">0.96</span><span class="whitespace">
+</span><span class="name">g</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">0.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">0.0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">H_ne</span> <span class="operator">=</span> <span class="literal number integer">4</span><span class="whitespace">
+</span><span class="name">H_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">H_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">3.0</span><span class="punctuation">,</span><span class="literal number float">4.0</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single">#  describe norm</span>
+</span><span class="comment single">#  describe norm</span><span class="whitespace">
 
-<span class="name">M_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span>
-<span class="name">M_ne</span> <span class="operator">=</span> <span class="literal number integer">3</span>
-<span class="name">M_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span>
-<span class="name">M_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span>
-<span class="name">M_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span>
-<span class="name">M_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span>
+</span><span class="name">M_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">M_ne</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+</span><span class="name">M_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">M_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">M_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">M_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single">#  describe constraint</span>
+</span><span class="comment single">#  describe constraint</span><span class="whitespace">
 
-<span class="name">A_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span>
-<span class="name">A_ne</span> <span class="operator">=</span> <span class="literal number integer">3</span>
-<span class="name">A_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">])</span>
-<span class="name">A_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span>
-<span class="name">A_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span>
-<span class="name">A_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span>
+</span><span class="name">A_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">A_ne</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+</span><span class="name">A_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">A_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">A_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">A_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single"># set trust-region radius</span>
+</span><span class="comment single"># set trust-region radius</span><span class="whitespace">
 
-<span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span>
+</span><span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
 
-<span class="comment single"># allocate internal data and set default options</span>
-<span class="name">options</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span>
+</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
 
-<span class="comment single"># set some non-default options</span>
-<span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span>
-<span class="comment single">#print(&quot;options:&quot;, options)</span>
+</span><span class="comment single"># set some non-default options</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
 
-<span class="comment single"># load data (and optionally non-default options)</span>
-<span class="name">trs</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_type</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_row</span><span class="punctuation">,</span> <span class="name">H_col</span><span class="punctuation">,</span> <span class="name">H_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span>
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">trs</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_type</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_row</span><span class="punctuation">,</span> <span class="name">H_col</span><span class="punctuation">,</span> <span class="name">H_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># find minimum of quadratic within the trust region</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 1&quot;</span><span class="punctuation">)</span>
-<span class="name">x</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">)</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span>
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 1&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># get information</span>
-<span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span>
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single"># load data (and optionally non-default options)</span>
-<span class="name">trs</span><span class="operator">.</span><span class="name">load_m</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">M_type</span><span class="punctuation">,</span> <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_row</span><span class="punctuation">,</span> <span class="name">M_col</span><span class="punctuation">,</span> <span class="name">M_ptr</span><span class="punctuation">)</span>
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">trs</span><span class="operator">.</span><span class="name">load_m</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">M_type</span><span class="punctuation">,</span> <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_row</span><span class="punctuation">,</span> <span class="name">M_col</span><span class="punctuation">,</span> <span class="name">M_ptr</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># find minimum of quadratic within the trust region</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 2 with additional non-unit norm&quot;</span><span class="punctuation">)</span>
-<span class="name">x</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_val</span><span class="punctuation">)</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span>
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 2 with additional non-unit norm&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_val</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># get information</span>
-<span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span>
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single"># load data (and optionally non-default options)</span>
-<span class="name">trs</span><span class="operator">.</span><span class="name">load_a</span><span class="punctuation">(</span><span class="name">m</span><span class="punctuation">,</span> <span class="name">A_type</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_row</span><span class="punctuation">,</span> <span class="name">A_col</span><span class="punctuation">,</span> <span class="name">A_ptr</span><span class="punctuation">)</span>
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">trs</span><span class="operator">.</span><span class="name">load_a</span><span class="punctuation">(</span><span class="name">m</span><span class="punctuation">,</span> <span class="name">A_type</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_row</span><span class="punctuation">,</span> <span class="name">A_col</span><span class="punctuation">,</span> <span class="name">A_ptr</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># find minimum of quadratic within the trust region</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 3 with additional linear constraint&quot;</span><span class="punctuation">)</span>
-<span class="name">x</span><span class="punctuation">,</span> <span class="name">y</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span>
-                         <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_val</span><span class="punctuation">,</span> <span class="name">m</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_val</span><span class="punctuation">)</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; y:&quot;</span><span class="punctuation">,</span><span class="name">y</span><span class="punctuation">)</span>
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 3 with additional linear constraint&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span><span class="punctuation">,</span> <span class="name">y</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">f</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span><span class="whitespace">
+</span>                         <span class="name">M_ne</span><span class="punctuation">,</span> <span class="name">M_val</span><span class="punctuation">,</span> <span class="name">m</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_val</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; y:&quot;</span><span class="punctuation">,</span><span class="name">y</span><span class="punctuation">)</span><span class="whitespace">
 
-<span class="comment single"># get information</span>
-<span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span>
-<span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** trs exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span>
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trs</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** trs exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span><span class="whitespace">
 
-<span class="comment single"># deallocate internal data</span>
+</span><span class="comment single"># deallocate internal data</span><span class="whitespace">
 
-<span class="name">trs</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
+</span><span class="name">trs</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
 <p>This example code is available in $GALAHAD/src/trs/Python/test_trs.py .</p>
 </section>
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="reg.html" title="previous page">
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reg.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Regularization subproblems</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regularization subproblems</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="rqs.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">RQS</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
+    </a>
+    <a class="right-next"
+       href="rqs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RQS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
+                </footer>
               
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#purpose">
-   purpose
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   reference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-storage">
-   matrix storage
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions">
-   functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.initialize">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.initialize()
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.load">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.load()
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.load_m">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.load_m()
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.load_a">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.load_a()
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.solve_problem">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.solve_problem()
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#galahad.trs.trs.terminate">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       trs.terminate()
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-code">
-   example code
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="_sources/trs.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-</div>
-
-</div>
-
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.initialize"><code class="docutils literal notranslate"><span class="pre">trs.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.load"><code class="docutils literal notranslate"><span class="pre">trs.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.load_m"><code class="docutils literal notranslate"><span class="pre">trs.load_m()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.load_a"><code class="docutils literal notranslate"><span class="pre">trs.load_a()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.solve_problem"><code class="docutils literal notranslate"><span class="pre">trs.solve_problem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trs.trs.terminate"><code class="docutils literal notranslate"><span class="pre">trs.terminate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/trs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
-<p class="copyright">
-
-    &copy; Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.<br>
-
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
-  
-  <div class="footer-item">
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.
+      <br/>
     
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
-</p>
+  </p>
+</div>
+      
+        <div class="footer-item">
 
-  </div>
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>

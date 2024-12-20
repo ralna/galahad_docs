@@ -931,6 +931,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Test</span>
 <span class="n">using</span> <span class="n">Printf</span>
 <span class="n">using</span> <span class="n">Accessors</span>
+<span class="n">using</span> <span class="n">Quadmath</span>
 
 <span class="n">function</span> <span class="n">test_fdc</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
   <span class="c1"># Derived types</span>
@@ -986,6 +987,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="nd">@testset</span> <span class="s2">&quot;FDC&quot;</span> <span class="n">begin</span>
   <span class="nd">@test</span> <span class="n">test_fdc</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
   <span class="nd">@test</span> <span class="n">test_fdc</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nd">@test</span> <span class="n">test_fdc</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="n">end</span>
 </pre></div>
 </div>
