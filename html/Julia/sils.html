@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD SILS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD SILS package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -535,15 +535,16 @@ method employed and other details.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1adfa46fc519194d9acfbeccac4c5a1af3"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1adfa46fc519194d9acfbeccac4c5a1af3"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -556,10 +557,10 @@ method employed and other details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sils_control_type.html#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -574,7 +575,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a12447d25d91610c87b4c8ce7744aefd7"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a12447d25d91610c87b4c8ce7744aefd7"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -591,7 +592,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sils_control_type.html#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -599,7 +600,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a78d5647031a8a4522541064853b021ba"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a78d5647031a8a4522541064853b021ba"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -609,13 +610,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sils_control_type.html#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -658,7 +659,7 @@ violated.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a34e5304b29c89525543cd512f426ac4f"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a34e5304b29c89525543cd512f426ac4f"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -668,13 +669,13 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sils_control_type.html#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -689,7 +690,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a27320b6d18c7508283cfb19dc8fecf37"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ainfo</span><span class="p">,</span><span class="w"> </span><span class="n">finfo</span><span class="p">,</span><span class="w"> </span><span class="n">sinfo</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1a27320b6d18c7508283cfb19dc8fecf37"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ainfo</span><span class="p">,</span><span class="w"> </span><span class="n">finfo</span><span class="p">,</span><span class="w"> </span><span class="n">sinfo</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -702,16 +703,16 @@ for the solve phase</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>ainfo</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsils-ainfo-type"><span class="std std-ref">sils_ainfo_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sils_ainfo_type.html#doxid-structsils-ainfo-type"><span class="std std-ref">sils_ainfo_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>finfo</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsils-finfo-type"><span class="std std-ref">sils_finfo_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sils_finfo_type.html#doxid-structsils-finfo-type"><span class="std std-ref">sils_finfo_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>sinfo</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsils-sinfo-type"><span class="std std-ref">sils_sinfo_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sils_sinfo_type.html#doxid-structsils-sinfo-type"><span class="std std-ref">sils_sinfo_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -726,7 +727,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1aa862612cd37fce35b1d35bd6ad295d82"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_finalize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sils-8h-1aa862612cd37fce35b1d35bd6ad295d82"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sils_finalize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -739,10 +740,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sils_control_type.html#doxid-structsils-control-type"><span class="std std-ref">sils_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -770,25 +771,25 @@ status from the package. Possible values are
 <span id="doxid-structsils-control-type"></span><span id="index-6"></span><h2>sils_control_type structure<a class="headerlink" href="#sils-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">ICNTL</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">30</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
-<span class="w">      </span><span class="n">lp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">wp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">sp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ldiag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">la</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">liw</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxla</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxliw</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">pivoting</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nemin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorblocking</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">solveblocking</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">thresh</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">ICNTL</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">30</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">wp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">sp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ldiag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">la</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">liw</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxla</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxliw</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">pivoting</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nemin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorblocking</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">solveblocking</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">thresh</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">CNTL</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">reduce</span><span class="o">::</span><span class="kt">T</span>
@@ -805,27 +806,27 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a7d01102f1deac390a1e4e22a7bb59ea0"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ICNTL</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a7d01102f1deac390a1e4e22a7bb59ea0"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ICNTL</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span></pre>
 <p>MA27 internal integer controls.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a3eec33a4e6d8295c25d117bb25dd1b9b"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a3eec33a4e6d8295c25d117bb25dd1b9b"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lp</span></pre>
 <p>Unit for error messages.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1af203f5ddbac4a47afed1a07b97e7e477"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">wp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1af203f5ddbac4a47afed1a07b97e7e477"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">wp</span></pre>
 <p>Unit for warning messages.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a4b5efeeced2b749191f71afc3bc8bebd"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a4b5efeeced2b749191f71afc3bc8bebd"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mp</span></pre>
 <p>Unit for monitor output.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a024603cda52d9847e8d8df3c2e884b8c"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a024603cda52d9847e8d8df3c2e884b8c"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sp</span></pre>
 <p>Unit for statistical output.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1ad0e905fe282a7125424a53219afc0791"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ldiag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1ad0e905fe282a7125424a53219afc0791"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ldiag</span></pre>
 <p>Controls level of diagnostic output.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a8e48dcc59e4b8bbe40fe5b58321e4e72"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">la</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a8e48dcc59e4b8bbe40fe5b58321e4e72"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">la</span></pre>
 <p>Initial size for real array for the factors. If less than nrlnec, default size used.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a534631c6f6077b8813cb930ea43f3bfc"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">liw</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a534631c6f6077b8813cb930ea43f3bfc"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">liw</span></pre>
 <p>Initial size for integer array for the factors. If less than nirnec, default size used.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6437ead17fd48daf197640949e8d4ff3"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxla</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6437ead17fd48daf197640949e8d4ff3"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxla</span></pre>
 <p>Max. size for real array for the factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6f46a87af5a04d87697736b7d789ea33"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxliw</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6f46a87af5a04d87697736b7d789ea33"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxliw</span></pre>
 <p>Max. size for integer array for the factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1aa4d2d93f87da5df80b8aa2bce688c030"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pivoting</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1aa4d2d93f87da5df80b8aa2bce688c030"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pivoting</span></pre>
 <p>Controls pivoting. Possible values are:</p>
 <ul class="simple">
 <li><p>1 Numerical pivoting will be performed.</p></li>
@@ -833,15 +834,15 @@ status from the package. Possible values are
 <li><p>3 No pivoting will be performed and an error exit will occur if a zero pivot is detected.</p></li>
 <li><p>4 No pivoting is performed but pivots are changed to all be positive.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a2683299c9b72fbc4bf7d0b3078cd75ca"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nemin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a2683299c9b72fbc4bf7d0b3078cd75ca"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nemin</span></pre>
 <p>Minimum number of eliminations in a step (unused)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a32bd98cbf6436700c5a8848d77ce3917"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorblocking</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a32bd98cbf6436700c5a8848d77ce3917"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorblocking</span></pre>
 <p>Level 3 blocking in factorize (unused)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1ae3a41a26d065502707d23c2936aaed6e"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">solveblocking</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1ae3a41a26d065502707d23c2936aaed6e"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">solveblocking</span></pre>
 <p>Level 2 and 3 blocking in solve.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6cf8bf160a02413bc3d5d18b0294b581"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">thresh</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a6cf8bf160a02413bc3d5d18b0294b581"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">thresh</span></pre>
 <p>Controls threshold for detecting full rows in analyse, registered as percentage of N, 100 Only fully dense rows detected (default)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ordering</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ordering</span></pre>
 <p>Controls ordering: Possible values are:</p>
 <ul class="simple">
 <li><p>0 AMD using HSL’s MC47</p></li>
@@ -852,7 +853,7 @@ status from the package. Possible values are
 <li><p>5 Ordering chosen depending on matrix characteristics. At the moment choices are HSL’s MC50 or Metis_nodend</p></li>
 <li><p>&gt;5 Presently equivalent to 5 but may chnage</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">scaling</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">scaling</span></pre>
 <p>Controls scaling: Possible values are:</p>
 <ul class="simple">
 <li><p>0 No scaling</p></li>
@@ -880,22 +881,22 @@ status from the package. Possible values are
 <span id="doxid-structsils-ainfo-type"></span><span id="index-33"></span><h2>sils_ainfo_type structure<a class="headerlink" href="#sils-ainfo-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nsteps</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrltot</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nirtot</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrlnec</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nirnec</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrladu</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">niradu</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ncmpa</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">oor</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">dup</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxfrt</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">faulty</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nsteps</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrltot</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nirtot</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrlnec</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nirnec</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrladu</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">niradu</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ncmpa</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">oor</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">dup</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxfrt</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">faulty</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">opsa</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">opse</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
@@ -904,35 +905,35 @@ status from the package. Possible values are
 <p>ainfo derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-35"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-35"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more</span></pre>
 <p>More information on failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1aa2414080b021dbb9b56eeaeedec0ffa2"><span id="index-36"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nsteps</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1aa2414080b021dbb9b56eeaeedec0ffa2"><span id="index-36"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nsteps</span></pre>
 <p>Number of elimination steps.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a87d1fb870bb3dc94213c3adf550a7a3a"><span id="index-37"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrltot</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a87d1fb870bb3dc94213c3adf550a7a3a"><span id="index-37"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrltot</span></pre>
 <p>Size for a without compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1af19131d647173a929ed0594f33c46999"><span id="index-38"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nirtot</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1af19131d647173a929ed0594f33c46999"><span id="index-38"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nirtot</span></pre>
 <p>Size for iw without compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a812f6ee1b4bd452745b3876b084cd4af"><span id="index-39"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrlnec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a812f6ee1b4bd452745b3876b084cd4af"><span id="index-39"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrlnec</span></pre>
 <p>Size for a with compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a2db255a81b52a84b3fec32d8c1a4ec17"><span id="index-40"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nirnec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a2db255a81b52a84b3fec32d8c1a4ec17"><span id="index-40"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nirnec</span></pre>
 <p>Size for iw with compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a881410b19c211fe38617f51dcb6709d7"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrladu</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a881410b19c211fe38617f51dcb6709d7"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrladu</span></pre>
 <p>Number of reals to hold factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a900738bbb8814829eb8e674c53a68ae3"><span id="index-42"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">niradu</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a900738bbb8814829eb8e674c53a68ae3"><span id="index-42"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">niradu</span></pre>
 <p>Number of integers to hold factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a5e8b1d7aba05cfece368396811da24a3"><span id="index-43"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ncmpa</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a5e8b1d7aba05cfece368396811da24a3"><span id="index-43"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ncmpa</span></pre>
 <p>Number of compresses.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1afa0283d540a2a393c746b5eb05c3431c"><span id="index-44"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">oor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1afa0283d540a2a393c746b5eb05c3431c"><span id="index-44"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">oor</span></pre>
 <p>Number of indices out-of-range.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1adc4cf3f551bb367858644559d69cfdf5"><span id="index-45"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dup</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1adc4cf3f551bb367858644559d69cfdf5"><span id="index-45"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dup</span></pre>
 <p>Number of duplicates.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a1a03f6fb5030d0b1d6bf3703d8c24cc4"><span id="index-46"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxfrt</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a1a03f6fb5030d0b1d6bf3703d8c24cc4"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxfrt</span></pre>
 <p>Forecast maximum front size.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a6dfcf1d95eca288e459a114d6418d6f1"><span id="index-48"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">faulty</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a6dfcf1d95eca288e459a114d6418d6f1"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">faulty</span></pre>
 <p>legacy component, now not used</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-ainfo-type-1a5514c74cf880eb762c480fe9c94b45dd"><span id="index-49"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">opsa</span></pre>
 <p>Anticipated number of operations in assembly.</p>
@@ -944,29 +945,29 @@ status from the package. Possible values are
 <span id="doxid-structsils-finfo-type"></span><span id="index-51"></span><h2>sils_finfo_type structure<a class="headerlink" href="#sils-finfo-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxfrt</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nebdu</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrlbdu</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nirbdu</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrltot</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nirtot</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nrlnec</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nirnec</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ncmpbr</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ncmpbi</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ntwo</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">neig</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">delay</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">signc</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nstatic</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">modstep</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">faulty</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">step</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxfrt</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nebdu</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrlbdu</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nirbdu</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrltot</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nirtot</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nrlnec</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nirnec</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ncmpbr</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ncmpbi</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ntwo</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">neig</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">delay</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">signc</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nstatic</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">modstep</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">faulty</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">step</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">opsa</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">opse</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">opsb</span><span class="o">::</span><span class="kt">T</span>
@@ -979,49 +980,49 @@ status from the package. Possible values are
 <p>finfo derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-52"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-52"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-53"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-53"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more</span></pre>
 <p>More information on failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a1a03f6fb5030d0b1d6bf3703d8c24cc4"><span id="index-54"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxfrt</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a1a03f6fb5030d0b1d6bf3703d8c24cc4"><span id="index-54"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxfrt</span></pre>
 <p>Largest front size.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1ad711b100f86e360e8a840d058d96671a"><span id="index-55"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nebdu</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1ad711b100f86e360e8a840d058d96671a"><span id="index-55"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nebdu</span></pre>
 <p>Number of entries in factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1af2c296d8547ed8e4278a63772f775e50"><span id="index-56"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrlbdu</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1af2c296d8547ed8e4278a63772f775e50"><span id="index-56"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrlbdu</span></pre>
 <p>Number of reals that hold factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a8fbe1e93500e9552d69c42a20dbeb7ba"><span id="index-57"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nirbdu</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a8fbe1e93500e9552d69c42a20dbeb7ba"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nirbdu</span></pre>
 <p>Number of integers that hold factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a87d1fb870bb3dc94213c3adf550a7a3a"><span id="index-58"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrltot</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a87d1fb870bb3dc94213c3adf550a7a3a"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrltot</span></pre>
 <p>Size for a without compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1af19131d647173a929ed0594f33c46999"><span id="index-59"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nirtot</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1af19131d647173a929ed0594f33c46999"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nirtot</span></pre>
 <p>Size for iw without compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a812f6ee1b4bd452745b3876b084cd4af"><span id="index-60"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nrlnec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a812f6ee1b4bd452745b3876b084cd4af"><span id="index-60"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nrlnec</span></pre>
 <p>Size for a with compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a2db255a81b52a84b3fec32d8c1a4ec17"><span id="index-61"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nirnec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a2db255a81b52a84b3fec32d8c1a4ec17"><span id="index-61"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nirnec</span></pre>
 <p>Size for iw with compression.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a1f120d69b5f9dad9acb22de7946169ac"><span id="index-62"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ncmpbr</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a1f120d69b5f9dad9acb22de7946169ac"><span id="index-62"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ncmpbr</span></pre>
 <p>Number of compresses of real data.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a56e6baa407d862416316a7ef3edc345c"><span id="index-63"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ncmpbi</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a56e6baa407d862416316a7ef3edc345c"><span id="index-63"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ncmpbi</span></pre>
 <p>Number of compresses of integer data.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1aa8a36bb6a93ac6d099aef27c76ccc1f8"><span id="index-64"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ntwo</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1aa8a36bb6a93ac6d099aef27c76ccc1f8"><span id="index-64"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ntwo</span></pre>
 <p>Number of 2x2 pivots.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a5a9c67ca97b64a81e04f18d037242075"><span id="index-65"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">neig</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a5a9c67ca97b64a81e04f18d037242075"><span id="index-65"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">neig</span></pre>
 <p>Number of negative eigenvalues.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6f1be1f780ff54ec75b41451cd4d90bd"><span id="index-66"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">delay</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6f1be1f780ff54ec75b41451cd4d90bd"><span id="index-66"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">delay</span></pre>
 <p>Number of delayed pivots (total)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a3321ebac07d2b23b0fcc04ac6f0129bf"><span id="index-67"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">signc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a3321ebac07d2b23b0fcc04ac6f0129bf"><span id="index-67"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">signc</span></pre>
 <p>Number of pivot sign changes when control.pivoting=3.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a4f8d909bc8fbafc899cd820077eb802b"><span id="index-68"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nstatic</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a4f8d909bc8fbafc899cd820077eb802b"><span id="index-68"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nstatic</span></pre>
 <p>Number of static pivots chosen.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a7fdac7d8f75bd2eff8fac17e9a36da64"><span id="index-69"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">modstep</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a7fdac7d8f75bd2eff8fac17e9a36da64"><span id="index-69"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">modstep</span></pre>
 <p>First pivot modification when control.pivoting=4.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-70"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-70"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">rank</span></pre>
 <p>Rank of original factorization.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-71"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-71"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6dfcf1d95eca288e459a114d6418d6f1"><span id="index-72"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">faulty</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a6dfcf1d95eca288e459a114d6418d6f1"><span id="index-72"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">faulty</span></pre>
 <p>legacy component, now not used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1abc16e65f240ed0c8f3e876e8732c0a33"><span id="index-73"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">step</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1abc16e65f240ed0c8f3e876e8732c0a33"><span id="index-73"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">step</span></pre>
 <p>legacy component, now not used</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-finfo-type-1a5514c74cf880eb762c480fe9c94b45dd"><span id="index-74"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">opsa</span></pre>
 </section>
@@ -1043,9 +1044,9 @@ status from the package. Possible values are
 <span id="doxid-structsils-sinfo-type"></span><span id="index-80"></span><h2>sils_sinfo_type structure<a class="headerlink" href="#sils-sinfo-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_sinfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sils_sinfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">cond</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">cond2</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">berr</span><span class="o">::</span><span class="kt">T</span>
@@ -1057,9 +1058,9 @@ status from the package. Possible values are
 <p>sinfo derived type as a Julia structure</p>
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-sinfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-81"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-sinfo-type-1adf916204820072417ed73a32de1cefcf"><span id="index-81"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-sinfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-82"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-sinfo-type-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>STAT value after allocate failure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsils-sinfo-type-1a006d728493fbea61aabf1e6229e34185"><span id="index-83"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">cond</span></pre>
 <p>Condition number of matrix (category 1 eqs)</p>
@@ -1126,7 +1127,7 @@ status from the package. Possible values are
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sils-control-type-structure">sils_control_type structure</a></li>
@@ -1187,7 +1188,7 @@ status from the package. Possible values are
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

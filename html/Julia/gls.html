@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD gls package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD gls package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -536,15 +536,16 @@ method employed and other details.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1ab7827883517db347ee1229eda004ede5"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1ab7827883517db347ee1229eda004ede5"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -557,12 +558,12 @@ method employed and other details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gls_control.html#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a428c3dcc1d0de87f6108d396eec6e176"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a428c3dcc1d0de87f6108d396eec6e176"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -579,7 +580,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gls_control.html#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -587,7 +588,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a1b34338e803f603af4161082a25f4e58"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a1b34338e803f603af4161082a25f4e58"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -597,13 +598,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_gls_control.html#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -646,7 +647,7 @@ violated.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a8b84f081ccc0b05b733adc2f0a829c07"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a8b84f081ccc0b05b733adc2f0a829c07"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -656,13 +657,13 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_gls_control.html#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -677,7 +678,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a620dc0f7a9ef6049a7bafdc02913da47"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ainfo</span><span class="p">,</span><span class="w"> </span><span class="n">finfo</span><span class="p">,</span><span class="w"> </span><span class="n">sinfo</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a620dc0f7a9ef6049a7bafdc02913da47"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ainfo</span><span class="p">,</span><span class="w"> </span><span class="n">finfo</span><span class="p">,</span><span class="w"> </span><span class="n">sinfo</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -690,16 +691,16 @@ for the solve phase</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>ainfo</p></td>
-<td><p>is a structure containing analysis output information (see <a class="reference internal" href="#doxid-structgls-ainfo"><span class="std std-ref">gls_ainfo</span></a>)</p></td>
+<td><p>is a structure containing analysis output information (see <a class="reference internal" href="struct_gls_ainfo.html#doxid-structgls-ainfo"><span class="std std-ref">gls_ainfo</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>finfo</p></td>
-<td><p>is a structure containing factorization output information (see <a class="reference internal" href="#doxid-structgls-finfo"><span class="std std-ref">gls_finfo</span></a>)</p></td>
+<td><p>is a structure containing factorization output information (see <a class="reference internal" href="struct_gls_finfo.html#doxid-structgls-finfo"><span class="std std-ref">gls_finfo</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>sinfo</p></td>
-<td><p>is a structure containing solver output information (see <a class="reference internal" href="#doxid-structgls-sinfo"><span class="std std-ref">gls_sinfo</span></a>)</p></td>
+<td><p>is a structure containing solver output information (see <a class="reference internal" href="struct_gls_sinfo.html#doxid-structgls-sinfo"><span class="std std-ref">gls_sinfo</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -714,7 +715,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a4758f1fc9cad110a33c1778254b51390"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_finalize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gls-8h-1a4758f1fc9cad110a33c1778254b51390"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gls_finalize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -727,10 +728,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gls_control.html#doxid-structgls-control"><span class="std std-ref">gls_control</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -753,21 +754,21 @@ status from the package. Possible values are
 <span id="doxid-structgls-control"></span><span id="index-6"></span><h2>struct gls_control<a class="headerlink" href="#struct-gls-control" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">lp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">wp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mp</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ldiag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">btf</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factor_blocking</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">solve_blas</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">la</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">la_int</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxla</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">pivoting</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">fill_in</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">lp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">wp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mp</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ldiag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">btf</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factor_blocking</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">solve_blas</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">la</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">la_int</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxla</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">pivoting</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">fill_in</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">reduce</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">u</span><span class="o">::</span><span class="kt">T</span>
@@ -785,31 +786,31 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a3eec33a4e6d8295c25d117bb25dd1b9b"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a3eec33a4e6d8295c25d117bb25dd1b9b"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lp</span></pre>
 <p>Unit for error messages.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1af203f5ddbac4a47afed1a07b97e7e477"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">wp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1af203f5ddbac4a47afed1a07b97e7e477"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">wp</span></pre>
 <p>Unit for warning messages.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a4b5efeeced2b749191f71afc3bc8bebd"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a4b5efeeced2b749191f71afc3bc8bebd"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mp</span></pre>
 <p>Unit for monitor output.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ad0e905fe282a7125424a53219afc0791"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ldiag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ad0e905fe282a7125424a53219afc0791"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ldiag</span></pre>
 <p>Controls level of diagnostic output.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a48e951043b7ec1aab5e2e1b62f1d4021"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">btf</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a48e951043b7ec1aab5e2e1b62f1d4021"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">btf</span></pre>
 <p>Minimum block size for block-triangular form (BTF). Set to <span class="math notranslate nohighlight">\(n\)</span> to avoid.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ab717630b215f0362699acac11fb3652c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ab717630b215f0362699acac11fb3652c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>Maximum number of iterations.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1abca1e309e7d2d73481534b8fdad872e7"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factor_blocking</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1abca1e309e7d2d73481534b8fdad872e7"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factor_blocking</span></pre>
 <p>Level 3 blocking in factorize.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ab2cc1341183896b96cacc4c6a39acdde"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">solve_blas</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ab2cc1341183896b96cacc4c6a39acdde"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">solve_blas</span></pre>
 <p>Switch for using Level 1 or 2 BLAS in solve.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a8e48dcc59e4b8bbe40fe5b58321e4e72"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">la</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a8e48dcc59e4b8bbe40fe5b58321e4e72"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">la</span></pre>
 <p>Initial size for real array for the factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a7d8b6a8163160b2aa8f730ead5dd3727"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">la_int</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a7d8b6a8163160b2aa8f730ead5dd3727"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">la_int</span></pre>
 <p>Initial size for integer array for the factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a6437ead17fd48daf197640949e8d4ff3"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxla</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1a6437ead17fd48daf197640949e8d4ff3"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxla</span></pre>
 <p>Maximum size for real array for the factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1aa4d2d93f87da5df80b8aa2bce688c030"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pivoting</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1aa4d2d93f87da5df80b8aa2bce688c030"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pivoting</span></pre>
 <p>Controls pivoting: Number of columns searched. Zero for Markowitz.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1afdaf7f9c41586b488e08ac26dd5d93b8"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">fill_in</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1afdaf7f9c41586b488e08ac26dd5d93b8"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">fill_in</span></pre>
 <p>Initially fill_in * ne space allocated for factors.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-control-1ac8bfb1ed777319ef92b7039c66f9a9b0"><span id="index-21"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">multiplier</span></pre>
 <p>Factor by which arrays sizes are to be increased if they are too small.</p>
@@ -835,21 +836,21 @@ status from the package. Possible values are
 <span id="doxid-structgls-ainfo"></span><span id="index-30"></span><h2>gls_ainfo structure<a class="headerlink" href="#gls-ainfo-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">len_analyse</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">len_factorize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ncmpa</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">drop</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">struc_rank</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">oor</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">dup</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">lblock</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">sblock</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">tblock</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">len_analyse</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">len_factorize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ncmpa</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">drop</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">struc_rank</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">oor</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">dup</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">lblock</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">sblock</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">tblock</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">ops</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structgls-ainfo">
@@ -857,33 +858,33 @@ status from the package. Possible values are
 <p>ainfo derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adf916204820072417ed73a32de1cefcf"><span id="index-31"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adf916204820072417ed73a32de1cefcf"><span id="index-31"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-32"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-32"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more</span></pre>
 <p>More information on failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1aa0296ccd8aa2c86d573fc176876ad1b3"><span id="index-33"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">len_analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1aa0296ccd8aa2c86d573fc176876ad1b3"><span id="index-33"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">len_analyse</span></pre>
 <p>Size for analysis.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a41ce64037dc7aae66b5a4ac582a2985a"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">len_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a41ce64037dc7aae66b5a4ac582a2985a"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">len_factorize</span></pre>
 <p>Size for factorize.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a5e8b1d7aba05cfece368396811da24a3"><span id="index-35"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ncmpa</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a5e8b1d7aba05cfece368396811da24a3"><span id="index-35"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ncmpa</span></pre>
 <p>Number of compresses.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-36"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-36"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">rank</span></pre>
 <p>Estimated rank.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a56da9169fe581b834e971dee4997ecfd"><span id="index-37"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">drop</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a56da9169fe581b834e971dee4997ecfd"><span id="index-37"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">drop</span></pre>
 <p>Number of entries dropped.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adb25a546fdb408d29ea28385fe414361"><span id="index-38"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">struc_rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adb25a546fdb408d29ea28385fe414361"><span id="index-38"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">struc_rank</span></pre>
 <p>Structural rank of matrix.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1afa0283d540a2a393c746b5eb05c3431c"><span id="index-39"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">oor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1afa0283d540a2a393c746b5eb05c3431c"><span id="index-39"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">oor</span></pre>
 <p>Number of indices out-of-range.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adc4cf3f551bb367858644559d69cfdf5"><span id="index-40"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dup</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1adc4cf3f551bb367858644559d69cfdf5"><span id="index-40"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dup</span></pre>
 <p>Number of duplicates.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a1e1f13a9a57bbd9e84303bdc2b49b2fc"><span id="index-42"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lblock</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1a1e1f13a9a57bbd9e84303bdc2b49b2fc"><span id="index-42"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lblock</span></pre>
 <p>Size largest non-triangular block.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1ad319083836152d74198f05040820282b"><span id="index-43"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sblock</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1ad319083836152d74198f05040820282b"><span id="index-43"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sblock</span></pre>
 <p>Sum of orders of non-triangular blocks.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1aed4a0eb964f83e8a0a29ae1f2e0f5cce"><span id="index-44"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">tblock</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1aed4a0eb964f83e8a0a29ae1f2e0f5cce"><span id="index-44"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">tblock</span></pre>
 <p>Total entries in all non-tringular blocks.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-ainfo-1af0a337c9f4d03e088123ec071639aad7"><span id="index-45"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">ops</span></pre>
 <p>Number of operations in elimination.</p>
@@ -893,14 +894,14 @@ status from the package. Possible values are
 <span id="doxid-structgls-finfo"></span><span id="index-46"></span><h2>gls_finfo structure<a class="headerlink" href="#gls-finfo-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">size_factor</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">len_factorize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">drop</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">size_factor</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">len_factorize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">drop</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">ops</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structgls-finfo">
@@ -908,19 +909,19 @@ status from the package. Possible values are
 <p>finfo derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1adf916204820072417ed73a32de1cefcf"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1adf916204820072417ed73a32de1cefcf"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-48"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more</span></pre>
 <p>More information on failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a79b3c4b1d5426fdbd7eaf1b346be2c49"><span id="index-49"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">size_factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a79b3c4b1d5426fdbd7eaf1b346be2c49"><span id="index-49"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">size_factor</span></pre>
 <p>Number of words to hold factors.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a41ce64037dc7aae66b5a4ac582a2985a"><span id="index-50"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">len_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a41ce64037dc7aae66b5a4ac582a2985a"><span id="index-50"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">len_factorize</span></pre>
 <p>Size for subsequent factorization.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a56da9169fe581b834e971dee4997ecfd"><span id="index-51"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">drop</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a56da9169fe581b834e971dee4997ecfd"><span id="index-51"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">drop</span></pre>
 <p>Number of entries dropped.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-52"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-52"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">rank</span></pre>
 <p>Estimated rank.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-53"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-53"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>Status value after allocate failure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-finfo-1af0a337c9f4d03e088123ec071639aad7"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">ops</span></pre>
 <p>Number of operations in elimination.</p>
@@ -930,21 +931,21 @@ status from the package. Possible values are
 <span id="doxid-structgls-sinfo"></span><span id="index-55"></span><h2>gls_sinfo structure<a class="headerlink" href="#gls-sinfo-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_sinfo_type</span>
-<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">Int32</span></pre>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gls_sinfo_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">flag</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">more</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stat</span><span class="o">::</span><span class="kt">INT</span></pre>
 </section>
 <section id="details-structgls-sinfo">
 <span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structgls-sinfo" title="Link to this heading">#</a></h2>
 <p>sinfo derived type as a Julia structure</p>
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1adf916204820072417ed73a32de1cefcf"><span id="index-56"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">flag</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1adf916204820072417ed73a32de1cefcf"><span id="index-56"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">flag</span></pre>
 <p>Flags success or failure case.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-57"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1a4628f2fb17af64608416810cc4e5a9d0"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more</span></pre>
 <p>More information on failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-58"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stat</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgls-sinfo-1a7d6f8a25e94209bd3ba29b2051ca4f08"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stat</span></pre>
 <p>Status value after allocate failure.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1001,7 +1002,7 @@ status from the package. Possible values are
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-gls-control">struct gls_control</a></li>
@@ -1061,7 +1062,7 @@ status from the package. Possible values are
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

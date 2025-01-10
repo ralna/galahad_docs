@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>callable functions &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>callable functions &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -469,7 +469,7 @@
                   
   <section id="callable-functions">
 <h1>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -485,7 +485,7 @@
 <td><p>is a structure containing control information (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -500,7 +500,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -525,7 +525,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                         </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
@@ -542,7 +542,7 @@ keywords relate to the components of the control structure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -583,30 +583,30 @@ violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of residuals, i.e., the number of rows of <span class="math notranslate nohighlight">\(A\)</span>. m must be positive.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals, i.e., the number of rows of <span class="math notranslate nohighlight">\(A\)</span>. m must be positive.</p></td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables, i.e., the number of columns of <span class="math notranslate nohighlight">\(A\)</span>. n must be positive.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables, i.e., the number of columns of <span class="math notranslate nohighlight">\(A\)</span>. n must be positive.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="llst.html#details-as-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span> if any. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span>, if used, in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span>, if used, in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_row</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_import_scaling</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                                 </span><span class="n">S_type</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">)</span></pre>
 <p>Import the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> into internal storage prior to solution. Thus must have been preceeded by a call to llsr_import.</p>
 <p class="rubric">Parameters:</p>
@@ -623,7 +623,7 @@ violated.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -663,27 +663,27 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables, i.e., the number of rows and columns of <span class="math notranslate nohighlight">\(S\)</span>. n must be positive.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables, i.e., the number of rows and columns of <span class="math notranslate nohighlight">\(S\)</span>. n must be positive.</p></td>
 </tr>
 <tr class="row-odd"><td><p>S_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="llst.html#details-as-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(S\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’ or ‘diagonal’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>S_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>S_row</p></td>
-<td><p>is a one-dimensional array of size S_ne and type Int32 that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>S_col</p></td>
-<td><p>is a one-dimensional array of size S_ne and type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>S_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(S\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -699,7 +699,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><ol class="arabic simple">
 <li><p>The import was successful, and the package is ready for the solve phase</p></li>
@@ -711,7 +711,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">)</span></pre>
 <p>Solve the regularization-region problem.</p>
 <p class="rubric">Parameters:</p>
@@ -725,7 +725,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -805,10 +805,10 @@ progress is impossible.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of residuals</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>power</p></td>
 <td><p>is a scalar of type T that holds the regularization power, <span class="math notranslate nohighlight">\(p\)</span>, used. power must be greater than or equal to two.</p></td>
@@ -817,7 +817,7 @@ progress is impossible.</p>
 <td><p>is a scalar of type T that holds the regularization power, <span class="math notranslate nohighlight">\(\sigma\)</span>, used. weight must be strictly positive</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the observation matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the observation matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size A_ne and type T that holds the values of the entries of the observation matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
@@ -829,7 +829,7 @@ progress is impossible.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>S_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it not the identity matrix.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it not the identity matrix.</p></td>
 </tr>
 <tr class="row-even"><td><p>S_val</p></td>
 <td><p>is a one-dimensional array of size S_ne and type T that holds the values of the entries of the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> in any of the available storage schemes. If S_val is C_NULL, <span class="math notranslate nohighlight">\(S\)</span> will be taken to be the identity matrix.</p></td>
@@ -837,7 +837,7 @@ progress is impossible.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -853,7 +853,7 @@ progress is impossible.</p>
 <td><p>is a structure containing output information (see <a class="reference internal" href="struct_llsr_inform_type.html#doxid-structllsr-inform-type"><span class="std std-ref">llsr_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -866,7 +866,7 @@ progress is impossible.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">llsr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -962,7 +962,7 @@ progress is impossible.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

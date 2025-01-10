@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD SCU package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD SCU package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -544,21 +544,22 @@ called in the following order:</p>
 <li><p><span class="xref std std-ref">scu_solve_system</span> - solve the block system (1)</p></li>
 <li><p><span class="xref std std-ref">scu_add_rows_and_cols</span> (optional) - update the factors of the Schur-complement matrix when rows and columns are added to (1).</p></li>
 <li><p><span class="xref std std-ref">scu_delete_rows_and_cols</span> (optional) - update the factors of the Schur-complement matrix when rows and columns are removed from (1).</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span class="std std-ref">scu_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span class="std std-ref">scu_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="scu_functions.html#doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span class="std std-ref">scu_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="scu_functions.html#doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span class="std std-ref">scu_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <span class="xref std std-ref">examples</span> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">scu_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">scu_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -571,10 +572,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_scu_inform_type.html#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -589,7 +590,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">scu_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">scu_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -602,10 +603,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structscu-control-type"><span class="std std-ref">scu_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_scu_control_type.html#doxid-structscu-control-type"><span class="std std-ref">scu_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_scu_inform_type.html#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -634,21 +635,21 @@ status from the package. Possible values are
 <span id="doxid-structscu-inform-type"></span><span id="index-4"></span><h2>scu_inform_type structure<a class="headerlink" href="#scu-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">scu_inform_type</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">inertia</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span></pre>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">scu_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">inertia</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structscu-inform-type">
 <span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structscu-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-5"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. A non-zero value indicates an error or a request for further information. See SCU_solve for details.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-6"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the return status from the last attempted internal workspace array allocation or deallocation. A non-zero value indicates that the allocation or deallocation was unsuccessful, and corresponds to the fortran STAT= value on the user’s system.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4387aa0c0c3c91d72fb78c8925f05993"><span id="index-7"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4387aa0c0c3c91d72fb78c8925f05993"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
 <p>the inertia of <span class="math notranslate nohighlight">\(S\)</span> when the extended matrix is symmetric. Specifically, inertia(i), i=0,1,2 give the number of positive, negative and zero eigenvalues of <span class="math notranslate nohighlight">\(S\)</span> respectively.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -707,7 +708,7 @@ status from the package. Possible values are
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scu-control-type-structure">scu_control_type structure</a></li>
@@ -757,7 +758,7 @@ status from the package. Possible values are
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

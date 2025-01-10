@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD ARC package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD ARC package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -558,33 +558,34 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the arc package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span class="std std-ref">arc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span class="std std-ref">arc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span class="std std-ref">arc_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span class="std std-ref">arc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span class="std std-ref">arc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span class="std std-ref">arc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span class="std std-ref">arc_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span class="std std-ref">arc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span class="std std-ref">arc_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span class="std std-ref">arc_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span class="std std-ref">arc_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span class="std std-ref">arc_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span class="std std-ref">arc_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span class="std std-ref">arc_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span class="std std-ref">arc_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span class="std std-ref">arc_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span class="std std-ref">arc_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span class="std std-ref">arc_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span class="std std-ref">arc_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span class="std std-ref">arc_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-arc-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -597,10 +598,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -613,7 +614,7 @@ illustrations of use.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -630,7 +631,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -638,7 +639,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -648,13 +649,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>1</strong></dt><dd><p>The import was successful, and the package is ready
@@ -694,27 +695,27 @@ violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="tru.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_row</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-even"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -724,13 +725,13 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>1</strong></dt><dd><p>The import was successful, and the package is ready
@@ -744,7 +745,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_h</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a regularization
 method.</p>
@@ -765,7 +766,7 @@ function calls.</p>
 <td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the entry and exit status from the package.</p>
+<td><p>is a scalar variable of type INT that gives the entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -861,7 +862,7 @@ unit control.alive_unit.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -870,7 +871,7 @@ unit control.alive_unit.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>eval_f</p></td>
 <td><p>is  a  user-supplied  function   that  must  have  the
@@ -926,7 +927,7 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
 <span class="w">                                   </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a regularization
 method.</p>
@@ -947,7 +948,7 @@ information is available by function calls.</p>
 <td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1044,7 +1045,7 @@ unit control.alive_unit.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1108,7 +1109,7 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a regularization
 method.</p>
@@ -1126,7 +1127,7 @@ returning to the calling procedure</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1278,10 +1279,10 @@ eval_status to a non-zero value.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type Int32 that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
+<td><p>is a scalar variable of type INT that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1293,7 +1294,7 @@ eval_status to a non-zero value.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -1307,7 +1308,7 @@ eval_status to a non-zero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                           </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span></pre>
 <p>Find a local minimizer of a given function using a regularization
 method.</p>
@@ -1325,7 +1326,7 @@ is only available by returning to the calling procedure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1478,10 +1479,10 @@ eval_status to a non-zero value.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type Int32 that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
+<td><p>is a scalar variable of type INT that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1501,7 +1502,7 @@ eval_status to a non-zero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1514,10 +1515,10 @@ eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_arc_inform_type.html#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -1530,7 +1531,7 @@ eval_status to a non-zero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">arc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1543,10 +1544,10 @@ eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_arc_inform_type.html#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1559,27 +1560,27 @@ eval_status to a non-zero value.</p>
 <span id="doxid-structarc-control-type"></span><span id="index-10"></span><h2>arc_control_type structure<a class="headerlink" href="#arc-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">arc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">arc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">lbfgs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_dxg</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">advanced_start</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">non_monotone</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">model</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">norm</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">lbfgs_vectors</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_dxg</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">advanced_start</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">stop_g_absolute</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_g_relative</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span>
@@ -1605,13 +1606,13 @@ eval_status to a non-zero value.</p>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">dps_control</span><span class="o">::</span><span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">lms_control</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">lms_control_prec</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sha_control</span><span class="o">::</span><span class="kt">sha_control_type</span></pre>
+<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">rqs_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_control</span><span class="o">::</span><span class="kt">glrt_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">dps_control</span><span class="o">::</span><span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_control</span><span class="o">::</span><span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_control</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_control_prec</span><span class="o">::</span><span class="kt">lms_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sha_control</span><span class="o">::</span><span class="kt">sha_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structarc-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1620,11 +1621,11 @@ eval_status to a non-zero value.</p>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 gives no output,</p></li>
@@ -1632,26 +1633,26 @@ eval_status to a non-zero value.</p>
 <li><p>= 2 gives a summary of the inner iteration for each iteration,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\geq\)</span> 3 gives increasingly verbose (debugging) output</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">start_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
 <p>any printing will start on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
 <p>any printing will stop on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_gap</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_gap</span></pre>
 <p>the number of iterations between printing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>the maximum number of iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alive_unit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alive_unit</span></pre>
 <p>removal of the file alive_file from unit alive_unit terminates execution</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ac631699a26f321b14dbed37115f3c006"><span id="index-20"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">alive_file</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>see alive_unit</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a856b2df558071805c217b6d72a1e215b"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">non_monotone</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a856b2df558071805c217b6d72a1e215b"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">non_monotone</span></pre>
 <p>the descent strategy used.</p>
 <p>Possible values are</p>
 <ul class="simple">
 <li><p>&lt;= 0 a monotone strategy is used.</p></li>
 <li><p>anything else, a non-monotone strategy with history length .non_monotine is used.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a027a1f1731d22465c926ce57be2364c3"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">model</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a027a1f1731d22465c926ce57be2364c3"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">model</span></pre>
 <p>the model used.</p>
 <p>Possible values are</p>
 <ul class="simple">
@@ -1662,7 +1663,7 @@ eval_status to a non-zero value.</p>
 <li><p>4 secant second-order (limited-memory BFGS, with .lbfgs_vectors history) (<em>not yet implemented</em>)</p></li>
 <li><p>5 secant second-order (limited-memory SR1, with .lbfgs_vectors history) (<em>not yet implemented</em>)</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a5b6da5fd1d9c6f86967fa0b4197e3498"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">norm</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a5b6da5fd1d9c6f86967fa0b4197e3498"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">norm</span></pre>
 <p>the regularization norm used.</p>
 <p>The norm is defined via <span class="math notranslate nohighlight">\(\|v\|^2 = v^T P v\)</span>, and will define the preconditioner used for iterative methods. Possible values for <span class="math notranslate nohighlight">\(P\)</span> are</p>
 <ul class="simple">
@@ -1681,19 +1682,19 @@ eval_status to a non-zero value.</p>
 <li><p>9 expanding band of Hessian (<em>not yet implemented</em>)</p></li>
 <li><p>10 diagonalizing norm from GALAHAD_DPS (<em>subproblem_direct only</em>)</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
 <p>specify the semi-bandwidth of the band matrix P if required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a90eb3c326cdd5cd8f81f084c4ec5bf30"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lbfgs_vectors</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a90eb3c326cdd5cd8f81f084c4ec5bf30"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lbfgs_vectors</span></pre>
 <p>number of vectors used by the L-BFGS matrix P if required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a0d14c8b2992107c3e0f8099cf7f3d04f"><span id="index-26"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_dxg</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a0d14c8b2992107c3e0f8099cf7f3d04f"><span id="index-26"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_dxg</span></pre>
 <p>number of vectors used by the sparsity-based secant Hessian if required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1adb095f545799aab1d69fcdca912d4afd"><span id="index-27"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">icfs_vectors</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1adb095f545799aab1d69fcdca912d4afd"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">icfs_vectors</span></pre>
 <p>number of vectors used by the Lin-More’ incomplete factorization matrix P if required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a97a46af6187162b529821f79d1559827"><span id="index-28"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mi28_lsize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a97a46af6187162b529821f79d1559827"><span id="index-28"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mi28_lsize</span></pre>
 <p>the maximum number of fill entries within each column of the incomplete factor L computed by HSL_MI28. In general, increasing .mi28_lsize improve the quality of the preconditioner but increases the time to compute and then apply the preconditioner. Values less than 0 are treated as 0</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a8cd04d404e41a2a09c29eeb2de78cd85"><span id="index-29"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mi28_rsize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a8cd04d404e41a2a09c29eeb2de78cd85"><span id="index-29"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mi28_rsize</span></pre>
 <p>the maximum number of entries within each column of the strictly lower triangular matrix <span class="math notranslate nohighlight">\(R\)</span> used in the computation of the preconditioner by HSL_MI28. Rank-1 arrays of size .mi28_rsize \* n are allocated internally to hold <span class="math notranslate nohighlight">\(R\)</span>. Thus the amount of memory used, as well as the amount of work involved in computing the preconditioner, depends on .mi28_rsize. Setting .mi28_rsize &gt; 0 generally leads to a higher quality preconditioner than using .mi28_rsize = 0, and choosing .mi28_rsize &gt;= .mi28_lsize is generally recommended</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7565611061db14e471a4f68e6dabbc17"><span id="index-30"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">advanced_start</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7565611061db14e471a4f68e6dabbc17"><span id="index-30"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">advanced_start</span></pre>
 <p>try to pick a good initial regularization weight using .advanced_start iterates of a variant on the strategy of Sartenaer SISC 18(6) 1990:1788-1803</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a6182fed3e6c11b9aa39e1460c1def7f8"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_g_absolute</span></pre>
 <p>overall convergence tolerances. The iteration will terminate when the norm of the gradient of the objective function is smaller than MAX( .stop_g_absolute, .stop_g_relative * norm of the initial gradient ) or if the step is less than .stop_s</p>
@@ -1746,19 +1747,19 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <p>if .deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-55"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7339f172b9757ed89a7595a29c4bca2b"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rqs.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a><span></span><span class="w"> </span><span class="n">rqs_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7339f172b9757ed89a7595a29c4bca2b"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a><span></span><span class="w"> </span><span class="n">rqs_control</span></pre>
 <p>control parameters for RQS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ac872f3f7f159cedfac4d6898d51842a3"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="glrt.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a><span></span><span class="w"> </span><span class="n">glrt_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1ac872f3f7f159cedfac4d6898d51842a3"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a><span></span><span class="w"> </span><span class="n">glrt_control</span></pre>
 <p>control parameters for GLRT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a400a915be09fbe2f8114fc9f7f9dddf1"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="dps.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a><span></span><span class="w"> </span><span class="n">dps_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a400a915be09fbe2f8114fc9f7f9dddf1"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a><span></span><span class="w"> </span><span class="n">dps_control</span></pre>
 <p>control parameters for DPS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a6fe2b1a82e177fbd1a39d9de9652a2c5"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a6fe2b1a82e177fbd1a39d9de9652a2c5"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
 <p>control parameters for PSLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7149e4807d93e93adf2eb1e3e42c6fb6"><span id="index-60"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lms.html#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="w"> </span><span class="n">lms_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a7149e4807d93e93adf2eb1e3e42c6fb6"><span id="index-60"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_control_type.html#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="w"> </span><span class="n">lms_control</span></pre>
 <p>control parameters for LMS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1aaad01db9888c4f77c450ff45fac4dfec"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lms.html#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="w"> </span><span class="n">lms_control_prec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1aaad01db9888c4f77c450ff45fac4dfec"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_control_type.html#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="w"> </span><span class="n">lms_control_prec</span></pre>
 <p>control parameters for LMS used for preconditioning</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a0e0b1319a0f3da41507bfb343a26ab96"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sha.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type</span></a><span></span><span class="w"> </span><span class="n">sha_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-control-type-1a0e0b1319a0f3da41507bfb343a26ab96"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sha_control_type.html#doxid-structsha-control-type"><span class="std std-ref">sha_control_type{INT}</span></a><span></span><span class="w"> </span><span class="n">sha_control</span></pre>
 <p>control parameters for SHA</p>
 </section>
 </section>
@@ -1809,17 +1810,17 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <span id="doxid-structarc-inform-type"></span><span id="index-74"></span><h2>arc_inform_type structure<a class="headerlink" href="#arc-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">arc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">arc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization_max</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">max_entries_factors</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
@@ -1828,38 +1829,38 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <span class="w">      </span><span class="n">norm_g</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">arc_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">dps_inform</span><span class="o">::</span><span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">lms_inform</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">lms_inform_prec</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sha_inform</span><span class="o">::</span><span class="kt">sha_inform_type</span></pre>
+<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">glrt_inform</span><span class="o">::</span><span class="kt">glrt_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">dps_inform</span><span class="o">::</span><span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">psls_inform</span><span class="o">::</span><span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_inform</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">lms_inform_prec</span><span class="o">::</span><span class="kt">lms_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sha_inform</span><span class="o">::</span><span class="kt">sha_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structarc-inform-type">
 <span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structarc-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id10">
 <h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-75"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-75"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See ARC_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-76"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-76"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-77"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-78"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-78"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span id="index-79"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">cg_iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span id="index-79"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
 <p>the total number of CG iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-80"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">f_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-80"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">f_eval</span></pre>
 <p>the total number of evaluations of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-81"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">g_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-81"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">g_eval</span></pre>
 <p>the total number of evaluations of the gradient of the objective functio</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-82"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">h_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">h_eval</span></pre>
 <p>the total number of evaluations of the Hessian of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-83"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
 <p>the return status from the factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a97dadabf3b7bdf921c4dcd1f43129f05"><span id="index-84"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a97dadabf3b7bdf921c4dcd1f43129f05"><span id="index-84"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_max</span></pre>
 <p>the maximum number of factorizations in a sub-problem solve</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a177e429e737cfa2cd3df051a65fcfb68"><span id="index-85"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">max_entries_factors</span></pre>
 <p>the maximum number of entries in the factors</p>
@@ -1875,21 +1876,21 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <p>the norm of the gradient of the objective function at the best estimate of the solution determined by the package.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1adcd20aeaf7042e972ddab56f3867ce70"><span id="index-91"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">weight</span></pre>
 <p>the current value of the regularization weight</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4288efaa60a28f967b947ef1b07cf445"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structarc-time-type"><span class="std std-ref">arc_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4288efaa60a28f967b947ef1b07cf445"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_arc_time_type.html#doxid-structarc-time-type"><span class="std std-ref">arc_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a68497e7bbd1695ac9b830fc8fe594d60"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rqs.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a><span></span><span class="w"> </span><span class="n">rqs_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a68497e7bbd1695ac9b830fc8fe594d60"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rqs_inform_type.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a><span></span><span class="w"> </span><span class="n">rqs_inform</span></pre>
 <p>inform parameters for RQS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa5a47a840c1f9680ac8b9e4db3eb9e88"><span id="index-94"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="glrt.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a><span></span><span class="w"> </span><span class="n">glrt_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aa5a47a840c1f9680ac8b9e4db3eb9e88"><span id="index-94"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_glrt_inform_type.html#doxid-structglrt-inform-type"><span class="std std-ref">glrt_inform_type</span></a><span></span><span class="w"> </span><span class="n">glrt_inform</span></pre>
 <p>inform parameters for GLRT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aec61ddb290b679c265693de171a6394f"><span id="index-95"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="dps.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a><span></span><span class="w"> </span><span class="n">dps_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1aec61ddb290b679c265693de171a6394f"><span id="index-95"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a><span></span><span class="w"> </span><span class="n">dps_inform</span></pre>
 <p>inform parameters for DPS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a57ca5ed37882eb917736f845d3cdb8ee"><span id="index-96"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a><span></span><span class="w"> </span><span class="n">psls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a57ca5ed37882eb917736f845d3cdb8ee"><span id="index-96"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_inform_type.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a><span></span><span class="w"> </span><span class="n">psls_inform</span></pre>
 <p>inform parameters for PSLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a6428cf213f8c899aa1bfb1fc3d24f37d"><span id="index-97"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lms.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="w"> </span><span class="n">lms_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a6428cf213f8c899aa1bfb1fc3d24f37d"><span id="index-97"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="w"> </span><span class="n">lms_inform</span></pre>
 <p>inform parameters for LMS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a2040147e726e4ad18ef6d81d8339644e"><span id="index-98"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="lms.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="w"> </span><span class="n">lms_inform_prec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a2040147e726e4ad18ef6d81d8339644e"><span id="index-98"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="w"> </span><span class="n">lms_inform_prec</span></pre>
 <p>inform parameters for LMS used for preconditioning</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a196d9da91c7ed4a67aa6e009e336e101"><span id="index-99"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sha.html#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a><span></span><span class="w"> </span><span class="n">sha_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a196d9da91c7ed4a67aa6e009e336e101"><span id="index-99"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sha_inform_type.html#doxid-structsha-inform-type"><span class="std std-ref">sha_inform_type</span></a><span></span><span class="w"> </span><span class="n">sha_inform</span></pre>
 <p>inform parameters for SHA</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1916,17 +1917,17 @@ struct userdata_arc{T}
   p::T
 end
 
-function test_arc(::Type{T}) where T
+function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
 
   # Objective function
-  function fun(n::Int, x::Vector{T}, f::Ref{T}, userdata::userdata_arc)
+  function fun(x::Vector{T}, f::Ref{T}, userdata::userdata_arc)
     p = userdata.p
     f[] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 + cos(x[1])
     return 0
   end
 
   # Gradient of the objective
-  function grad(n::Int, x::Vector{T}, g::Vector{T}, userdata::userdata_arc)
+  function grad(x::Vector{T}, g::Vector{T}, userdata::userdata_arc)
     p = userdata.p
     g[1] = 2.0 * (x[1] + x[3] + p) - sin(x[1])
     g[2] = 2.0 * (x[2] + x[3])
@@ -1935,8 +1936,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Hessian of the objective
-  function hess(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
-                userdata::userdata_arc)
+  function hess(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 2.0
     hval[3] = 2.0
@@ -1946,8 +1946,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Dense Hessian
-  function hess_dense(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
-                      userdata::userdata_arc)
+  function hess_dense(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 0.0
     hval[3] = 2.0
@@ -1958,8 +1957,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Hessian-vector product
-  function hessprod(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                    got_h::Bool, userdata::userdata_arc)
+  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_arc)
     u[1] = u[1] + 2.0 * (v[1] + v[3]) - cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * (v[2] + v[3])
     u[3] = u[3] + 2.0 * (v[1] + v[2] + 2.0 * v[3])
@@ -1967,8 +1965,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Apply preconditioner
-  function prec(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                userdata::userdata_arc)
+  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T}, userdata::userdata_arc)
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
     u[3] = 0.25 * v[3]
@@ -1976,14 +1973,14 @@ function test_arc(::Type{T}) where T
   end
 
   # Objective function
-  function fun_diag(n::Int, x::Vector{T}, f::Ref{T}, userdata::userdata_arc)
+  function fun_diag(x::Vector{T}, f::Ref{T}, userdata::userdata_arc)
     p = userdata.p
     f[] = (x[3] + p)^2 + x[2]^2 + cos(x[1])
     return 0
   end
 
   # Gradient of the objective
-  function grad_diag(n::Int, x::Vector{T}, g::Vector{T}, userdata::userdata_arc)
+  function grad_diag(x::Vector{T}, g::Vector{T}, userdata::userdata_arc)
     p = userdata.p
     g[1] = -sin(x[1])
     g[2] = 2.0 * x[2]
@@ -1992,8 +1989,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Hessian of the objective
-  function hess_diag(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
-                     userdata::userdata_arc)
+  function hess_diag(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
     hval[1] = -cos(x[1])
     hval[2] = 2.0
     hval[3] = 2.0
@@ -2001,8 +1997,7 @@ function test_arc(::Type{T}) where T
   end
 
   # Hessian-vector product
-  function hessprod_diag(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                         got_h::Bool, userdata::userdata_arc)
+  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_arc)
     u[1] = u[1] + -cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * v[2]
     u[3] = u[3] + 2.0 * v[3]
@@ -2011,29 +2006,29 @@ function test_arc(::Type{T}) where T
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{arc_control_type{T}}()
-  inform = Ref{arc_inform_type{T}}()
+  control = Ref{arc_control_type{T,INT}}()
+  inform = Ref{arc_inform_type{T,INT}}()
 
   # Set user data
   userdata = userdata_arc(4.0)
 
   # Set problem data
-  n = 3 # dimension
-  ne = 5 # Hesssian elements
-  H_row = Cint[1, 2, 3, 3, 3]  # Hessian H
-  H_col = Cint[1, 2, 1, 2, 3]  # NB lower triangle
-  H_ptr = Cint[1, 2, 3, 6]  # row pointers
+  n = INT(3)  # dimension
+  ne = INT(5)  # Hesssian elements
+  H_row = INT[1, 2, 3, 3, 3]  # Hessian H
+  H_col = INT[1, 2, 1, 2, 3]  # NB lower triangle
+  H_ptr = INT[1, 2, 3, 6]  # row pointers
 
   # Set storage
   g = zeros(T, n) # gradient
   st = &#39; &#39;
-  status = Ref{Cint}()
+  status = Ref{INT}()
 
   @printf(&quot; Fortran sparse matrix indexing\n\n&quot;)
   @printf(&quot; tests reverse-communication options\n\n&quot;)
 
   # reverse-communication input/output
-  eval_status = Ref{Cint}()
+  eval_status = Ref{INT}()
   f = Ref{T}(0.0)
   u = zeros(T, n)
   v = zeros(T, n)
@@ -2044,11 +2039,11 @@ function test_arc(::Type{T}) where T
   for d in 1:5
 
     # Initialize ARC
-    arc_initialize(T, data, control, status)
+    arc_initialize(T, INT, data, control, status)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
-    # @reset control[].print_level = Cint(1)
+    # @reset control[].print_level = INT(1)
 
     # Start from 1.5
     x = T[1.5, 1.5, 1.5]
@@ -2056,24 +2051,24 @@ function test_arc(::Type{T}) where T
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      arc_import(T, control, data, status, n, &quot;coordinate&quot;,
+      arc_import(T, INT, control, data, status, n, &quot;coordinate&quot;,
                  ne, H_row, H_col, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        arc_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess(n, ne, x, H_val, userdata)
+          eval_status[] = hess(x, H_val, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2083,25 +2078,25 @@ function test_arc(::Type{T}) where T
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      arc_import(T, control, data, status, n, &quot;sparse_by_rows&quot;, ne,
+      arc_import(T, INT, control, data, status, n, &quot;sparse_by_rows&quot;, ne,
                  C_NULL, H_col, H_ptr)
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_with_mat(T, data, status, eval_status,
+        arc_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess(n, ne, x, H_val, userdata)
+          eval_status[] = hess(x, H_val, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2111,25 +2106,25 @@ function test_arc(::Type{T}) where T
     # dense
     if d == 3
       st = &#39;D&#39;
-      arc_import(T, control, data, status, n, &quot;dense&quot;,
+      arc_import(T, INT, control, data, status, n, &quot;dense&quot;,
                  ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_with_mat(T, data, status, eval_status,
+        arc_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, div(n * (n + 1), 2), H_dense, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess_dense(n, div(n * (n + 1), 2), x, H_dense, userdata)
+          eval_status[] = hess_dense(x, H_dense, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2139,25 +2134,25 @@ function test_arc(::Type{T}) where T
     # diagonal
     if d == 4
       st = &#39;I&#39;
-      arc_import(T, control, data, status, n, &quot;diagonal&quot;,
+      arc_import(T, INT, control, data, status, n, &quot;diagonal&quot;,
                  ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_with_mat(T, data, status, eval_status,
+        arc_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, n, H_diag, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun_diag(n, x, f, userdata)
+          eval_status[] = fun_diag(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad_diag(n, x, g, userdata)
+          eval_status[] = grad_diag(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess_diag(n, n, x, H_diag, userdata)
+          eval_status[] = hess_diag(x, H_diag, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2167,32 +2162,32 @@ function test_arc(::Type{T}) where T
     # access by products
     if d == 5
       st = &#39;P&#39;
-      arc_import(T, control, data, status, n, &quot;absent&quot;,
+      arc_import(T, INT, control, data, status, n, &quot;absent&quot;,
                  ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_without_mat(T, data, status, eval_status,
+        arc_solve_reverse_without_mat(T, INT, data, status, eval_status,
                                       n, x, f[], g, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 5 # evaluate H
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
       end
     end
 
-    arc_information(T, data, inform, status)
+    arc_information(T, INT, data, inform, status)
 
     if inform[].status[] == 0
       @printf(&quot;%c:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
@@ -2213,15 +2208,22 @@ function test_arc(::Type{T}) where T
     # @printf(&quot;\n&quot;)
 
     # Delete internal workspace
-    arc_terminate(T, data, control, inform)
+    arc_terminate(T, INT, data, control, inform)
   end
   return 0
 end
 
-@testset &quot;ARC&quot; begin
-  @test test_arc(Float32) == 0
-  @test test_arc(Float64) == 0
-  @test test_arc(Float128) == 0
+for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
+                             (Float32 , Int64, GALAHAD.libgalahad_single_64   ),
+                             (Float64 , Int32, GALAHAD.libgalahad_double      ),
+                             (Float64 , Int64, GALAHAD.libgalahad_double_64   ),
+                             (Float128, Int32, GALAHAD.libgalahad_quadruple   ),
+                             (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
+  if isfile(libgalahad)
+    @testset &quot;ARC -- $T -- $INT&quot; begin
+      @test test_arc(T, INT) == 0
+    end
+  end
 end
 </pre></div>
 </div>
@@ -2280,7 +2282,7 @@ end
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arc-control-type-structure">arc_control_type structure</a></li>
@@ -2336,7 +2338,7 @@ end
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

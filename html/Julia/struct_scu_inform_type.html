@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>scu_inform_type structure &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>scu_inform_type structure &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -117,8 +117,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -413,21 +413,21 @@
 <span id="doxid-structscu-inform-type"></span><span id="index-0"></span><h1>scu_inform_type structure<a class="headerlink" href="#scu-inform-type-structure" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">scu_inform_type</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">inertia</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span></pre>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">scu_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">inertia</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structscu-inform-type"></span><h1>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h1>
 <p>inform derived type as a Julia structure</p>
 <section id="components">
 <h2>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. A non-zero value indicates an error or a request for further information. See SCU_solve for details.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-2"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-2"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the return status from the last attempted internal workspace array allocation or deallocation. A non-zero value indicates that the allocation or deallocation was unsuccessful, and corresponds to the fortran STAT= value on the user’s system.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4387aa0c0c3c91d72fb78c8925f05993"><span id="index-3"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4387aa0c0c3c91d72fb78c8925f05993"><span id="index-3"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
 <p>the inertia of <span class="math notranslate nohighlight">\(S\)</span> when the extended matrix is symmetric. Specifically, inertia(i), i=0,1,2 give the number of positive, negative and zero eigenvalues of <span class="math notranslate nohighlight">\(S\)</span> respectively.</p>
 </section>
 </section>
@@ -504,7 +504,7 @@
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

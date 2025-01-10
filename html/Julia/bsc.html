@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD BSC package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD BSC package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -497,26 +497,27 @@ method employed and other details.</p>
 <p>To solve a given problem, functions from the bsc package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
 <li><p><span class="xref std std-ref">bsc_read_specfile</span> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p><span class="xref std std-ref">bsc_import</span> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 <li><p><span class="xref std std-ref">bsc_reset_control</span> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p><span class="xref std std-ref">bsc_form</span> - form the Schur complement <span class="math notranslate nohighlight">\(S\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
+<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <span class="xref std std-ref">examples</span> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -529,10 +530,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -547,7 +548,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -560,10 +561,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -578,7 +579,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -591,10 +592,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -609,12 +610,12 @@ status from the package. Possible values are
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bsc_control_type</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">extra_space_s</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">extra_space_s</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">s_also_by_column</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
@@ -627,15 +628,15 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-4"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-5"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-6"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-7"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
 <p>maximum permitted number of nonzeros in a column of <span class="math notranslate nohighlight">\(A\)</span>; -ve means unlimit</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a7bea45d51fd9384037bbbf82f7750ce6"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">new_a</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1a7bea45d51fd9384037bbbf82f7750ce6"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_a</span></pre>
 <p>how much has <span class="math notranslate nohighlight">\(A\)</span> changed since it was last accessed:</p>
 <ul class="simple">
 <li><p>0 = not changed,</p></li>
@@ -643,7 +644,7 @@ status from the package. Possible values are
 <li><p>2 = structure changed</p></li>
 <li><p>3 = structure changed but values not required</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1ad1d6fbcd01c19f28d44ca8ba150efce5"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">extra_space_s</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1ad1d6fbcd01c19f28d44ca8ba150efce5"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_space_s</span></pre>
 <p>how much extra space is to be allocated in <span class="math notranslate nohighlight">\(S\)</span> above that needed to hold the Schur complement</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-1abad1637e3128deb63e2a8eab714e5ffd"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">s_also_by_column</span></pre>
 <p>should s.ptr also be set to indicate the first entry in each column of <span class="math notranslate nohighlight">\(S\)</span></p>
@@ -659,12 +660,12 @@ status from the package. Possible values are
 <span id="doxid-structbsc-inform-type"></span><span id="index-15"></span><h2>bsc_inform_type structure<a class="headerlink" href="#bsc-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">max_col_a</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">exceeds_max_col</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_col_a</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">exceeds_max_col</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_time</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
@@ -673,7 +674,7 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>the return status from the package. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -697,13 +698,13 @@ its relevant string ‘dense’, ‘coordinate’ or ‘sparse_by_rows’ has be
 violated.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-18"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1afa7a035a987c746be5967674390199c2"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_col_a</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1afa7a035a987c746be5967674390199c2"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col_a</span></pre>
 <p>the maximum number of entries in a column of <span class="math notranslate nohighlight">\(A\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a182eb2982f975bbbdce953a362bf0c2d"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">exceeds_max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1a182eb2982f975bbbdce953a362bf0c2d"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">exceeds_max_col</span></pre>
 <p>the number of columns of <span class="math notranslate nohighlight">\(A\)</span> that have more than control.max_col entries</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-1afb418c91547eccd73ea85693be0e1cea"><span id="index-21"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">time</span></pre>
 <p>the total CPU time spent in the package</p>
@@ -765,7 +766,7 @@ violated.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bsc-control-type-structure">bsc_control_type structure</a></li>
@@ -815,7 +816,7 @@ violated.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

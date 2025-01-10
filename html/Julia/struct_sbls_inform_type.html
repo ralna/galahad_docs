@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sbls_inform_type structure &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>sbls_inform_type structure &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -117,8 +117,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -413,56 +413,56 @@
 <span id="doxid-structsbls-inform-type"></span><span id="index-0"></span><h1>sbls_inform_type structure<a class="headerlink" href="#sbls-inform-type-structure" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sort_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">sort_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">d_plus</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">d_plus</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">rank_def</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">perturbed</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">iter_pcg</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter_pcg</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">norm_residual</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">alternative</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">sbls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">uls_inform</span><span class="o">::</span><span class="kt">uls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">uls_inform</span><span class="o">::</span><span class="kt">uls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structsbls-inform-type"></span><h1>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h1>
 <p>inform derived type as a Julia structure</p>
 <section id="components">
 <h2>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See SBLS_form_and_factorize for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-2"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-2"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-3"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1acb9e43ddb17591d930fc31faa3e6f69f"><span id="index-4"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sort_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1acb9e43ddb17591d930fc31faa3e6f69f"><span id="index-4"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sort_status</span></pre>
 <p>the return status from the sorting routines</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a29cd3a5b0f30227170f825116d9ade9e"><span id="index-5"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_integer</span></pre>
 <p>the total integer workspace required for the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1ad73643c24d3cd34c356c3ccd2ebfb1cc"><span id="index-6"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_real</span></pre>
 <p>the total real workspace required for the factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-7"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">preconditioner</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">preconditioner</span></pre>
 <p>the preconditioner used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a108359f1209601e6c6074c215e3abd8b"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a108359f1209601e6c6074c215e3abd8b"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization</span></pre>
 <p>the factorization used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a9e94a7e5692a82e8c239c857be5b80ea"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">d_plus</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a9e94a7e5692a82e8c239c857be5b80ea"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">d_plus</span></pre>
 <p>how many of the diagonals in the factorization are positive</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">rank</span></pre>
 <p>the computed rank of <span class="math notranslate nohighlight">\(A\)</span></p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1aad74061a53e6daf7ca65b2e82290871b"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">rank_def</span></pre>
 <p>is the matrix A rank defficient?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a6e04ee4d6dc38d2c5231d39d4f21be75"><span id="index-12"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">perturbed</span></pre>
 <p>has the used preconditioner been perturbed to guarantee correct inertia?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a1694e6d072d1a8d796f85f4da8a054af"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter_pcg</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a1694e6d072d1a8d796f85f4da8a054af"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter_pcg</span></pre>
 <p>the total number of projected CG iterations required</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-1a1f77ff3a30a89cc31d4de01c54343e86"><span id="index-14"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_residual</span></pre>
 <p>the norm of the residual</p>
@@ -549,7 +549,7 @@
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

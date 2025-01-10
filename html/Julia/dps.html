@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD DPS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD DPS package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -558,37 +558,38 @@ given by</p>
 <p>To solve a given problem, functions from the dps package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span class="std std-ref">dps_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span class="std std-ref">dps_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span class="std std-ref">dps_import</span></a> - import control and matrix data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span class="std std-ref">dps_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span class="std std-ref">dps_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span class="std std-ref">dps_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span class="std std-ref">dps_import</span></a> - import control and matrix data structures</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span class="std std-ref">dps_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span class="std std-ref">dps_solve_tr_problem</span></a> - solve the trust-region problem (1)</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span class="std std-ref">dps_solve_rq_problem</span></a> - solve the regularized-quadratic problem (2)</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span class="std std-ref">dps_solve_tr_problem</span></a> - solve the trust-region problem (1)</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span class="std std-ref">dps_solve_rq_problem</span></a> - solve the regularized-quadratic problem (2)</p></li>
 </ul>
 </li>
 <li><p>optionally one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span class="std std-ref">dps_resolve_tr_problem</span></a> - resolve the trust-region problem (1) when the non-matrix data has changed</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span class="std std-ref">dps_resolve_rq_problem</span></a> - resolve the regularized-quadratic problem (2) when the non-matrix data has changed</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span class="std std-ref">dps_resolve_tr_problem</span></a> - resolve the trust-region problem (1) when the non-matrix data has changed</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span class="std std-ref">dps_resolve_rq_problem</span></a> - resolve the regularized-quadratic problem (2) when the non-matrix data has changed</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span class="std std-ref">dps_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span class="std std-ref">dps_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span class="std std-ref">dps_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span class="std std-ref">dps_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-dps-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -601,10 +602,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -617,7 +618,7 @@ illustrations of use.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -634,7 +635,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -642,7 +643,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
@@ -653,13 +654,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -699,27 +700,27 @@ or ‘sparse_by_rows’ has been violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="bqpb.html#details-h-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="h_storage.html#details-h-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_row</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-even"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -729,13 +730,13 @@ or ‘sparse_by_rows’ has been violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -750,7 +751,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
 <span class="w">                                  </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
 <p>Find the global minimizer of the trust-region problem (1).</p>
 <p class="rubric">Parameters:</p>
@@ -764,7 +765,7 @@ for the solve phase</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -830,10 +831,10 @@ preconditioner.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -853,7 +854,7 @@ preconditioner.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_solve_rq_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_solve_rq_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
 <span class="w">                                  </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
 <p>Find the global minimizer of the regularized-quadartic problem (2).</p>
 <p class="rubric">Parameters:</p>
@@ -867,7 +868,7 @@ preconditioner.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -933,10 +934,10 @@ preconditioner.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -959,7 +960,7 @@ preconditioner.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
 <p>Find the global minimizer of the trust-region problem (1) if some non-matrix components have changed since a call to dps_solve_tr_problem.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -972,7 +973,7 @@ preconditioner.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1018,7 +1019,7 @@ progress is impossible.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>c</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(c\)</span> in the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">c</span></code>, j = 1, … , m, contains <span class="math notranslate nohighlight">\(c_j\)</span>.</p></td>
@@ -1035,7 +1036,7 @@ progress is impossible.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_resolve_rq_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_resolve_rq_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></pre>
 <p>Find the global minimizer of the regularized-quadartic problem (2) if some non-matrix components have changed since a call to dps_solve_rq_problem.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1048,7 +1049,7 @@ progress is impossible.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1087,7 +1088,7 @@ progress is impossible.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>c</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(c\)</span> in the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">c</span></code>, j = 1, … , m, contains <span class="math notranslate nohighlight">\(c_j\)</span>.</p></td>
@@ -1107,7 +1108,7 @@ progress is impossible.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1120,10 +1121,10 @@ progress is impossible.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1138,7 +1139,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dps_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1151,10 +1152,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1167,14 +1168,14 @@ status from the package. Possible values are
 <span id="doxid-structdps-control-type"></span><span id="index-10"></span><h2>dps_control_type structure<a class="headerlink" href="#dps-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dps_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">problem</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">new_h</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">taylor_max_degree</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">problem</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">new_h</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">taylor_max_degree</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">eigen_min</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">lower</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">T</span>
@@ -1186,7 +1187,7 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">problem_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">symmetric_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structdps-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1195,22 +1196,22 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a540c0b4e7d398c31890f62ad69cd551c"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">problem</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a540c0b4e7d398c31890f62ad69cd551c"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">problem</span></pre>
 <p>unit to write problem data into file problem_file</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1ae60c5b5b987dd62f25253ba4164813f5"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">new_h</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1ae60c5b5b987dd62f25253ba4164813f5"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_h</span></pre>
 <p>how much of <span class="math notranslate nohighlight">\(H\)</span> has changed since the previous call. Possible values are</p>
 <ul class="simple">
 <li><p>0 unchanged</p></li>
 <li><p>1 values but not indices have changed</p></li>
 <li><p>2 values and indices have changed</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a338fa3956816be173e13bfd4198c4078"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">taylor_max_degree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a338fa3956816be173e13bfd4198c4078"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">taylor_max_degree</span></pre>
 <p>maximum degree of Taylor approximant allowed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a133028d7b94139b129034f5b820ffdef"><span id="index-18"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">eigen_min</span></pre>
 <p>smallest allowable value of an eigenvalue of the block diagonal factor of <span class="math notranslate nohighlight">\(H\)</span></p>
@@ -1234,7 +1235,7 @@ status from the package. Possible values are
 <p>symmetric (indefinite) linear equation solver</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-28"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for the Cholesky factorization and solution</p>
 </section>
 </section>
@@ -1279,11 +1280,11 @@ status from the package. Possible values are
 <span id="doxid-structdps-inform-type"></span><span id="index-39"></span><h2>dps_inform_type structure<a class="headerlink" href="#dps-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mod_1by1</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mod_2by2</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dps_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mod_1by1</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mod_2by2</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">obj_regularized</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span>
@@ -1292,20 +1293,20 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">hard_case</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">dps_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structdps-inform-type">
 <span id="id11"></span><h2>detailed documentation<a class="headerlink" href="#details-structdps-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id12">
 <h3>components<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-40"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-40"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See DPS_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a2a214743335ff43abbc71e6b00a50ea2"><span id="index-42"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mod_1by1</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a2a214743335ff43abbc71e6b00a50ea2"><span id="index-42"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mod_1by1</span></pre>
 <p>the number of 1 by 1 blocks from the factorization of H that were modified when constructing <span class="math notranslate nohighlight">\(M\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a6597a7caccf77ae67ed2b86f9281804a"><span id="index-43"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mod_2by2</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a6597a7caccf77ae67ed2b86f9281804a"><span id="index-43"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mod_2by2</span></pre>
 <p>the number of 2 by 2 blocks from the factorization of H that were modified when constructing <span class="math notranslate nohighlight">\(M\)</span></p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-44"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the quadratic function</p>
@@ -1321,9 +1322,9 @@ status from the package. Possible values are
 <p>has the hard case occurred?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-50"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array that provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1ac1ae6841280bc6d2f24f9665cb75c40e"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structdps-time-type"><span class="std std-ref">dps_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1ac1ae6841280bc6d2f24f9665cb75c40e"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_time_type.html#doxid-structdps-time-type"><span class="std std-ref">dps_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>information from SLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1344,20 +1345,20 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_dps</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_dps</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension of H</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># dimension of A</span>
-  <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of elements of H</span>
-  <span class="n">H_dense_ne</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># number of elements of H</span>
-  <span class="n">H_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
-  <span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># dimension of H</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># dimension of A</span>
+  <span class="n">H_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># number of elements of H</span>
+  <span class="n">H_dense_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># number of elements of H</span>
+  <span class="n">H_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
+  <span class="n">H_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
   <span class="n">H_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="mf">0.96</span><span class="p">)</span>
@@ -1366,7 +1367,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1374,7 +1375,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="k">for</span> <span class="n">storage_type</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
     <span class="c1"># Initialize DPS</span>
-    <span class="n">dps_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">dps_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># fortran sparse matrix indexing</span>
@@ -1384,11 +1385,11 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
       <span class="c1"># import the control parameters and structural data</span>
-      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                  <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
       <span class="c1"># solve the problem</span>
-      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
                            <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1396,10 +1397,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
       <span class="c1"># import the control parameters and structural data</span>
-      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">)</span>
 
-      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span>
                            <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1407,14 +1408,14 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
       <span class="c1"># import the control parameters and structural data</span>
-      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                  <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span>
+      <span class="n">dps_solve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span>
                            <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_solve_problem exit status   = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
 
@@ -1422,25 +1423,25 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
       <span class="c1"># solve the problem</span>
-      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                              <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                              <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># dense</span>
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
-      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">dps_resolve_tr_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                              <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">half_radius</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">dps_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_resolve_problem exit status = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
 
@@ -1450,16 +1451,23 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># end</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">dps_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">dps_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;DPS&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_dps</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_dps</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_dps</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;DPS -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_dps</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1517,7 +1525,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dps-control-type-structure">dps_control_type structure</a></li>
@@ -1573,7 +1581,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

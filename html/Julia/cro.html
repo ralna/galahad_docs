@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD CRO package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD CRO package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -618,23 +618,24 @@ integer array H_col, and real array H_val, respectively.</p>
 called in the following order:</p>
 <p>To solve a given problem, functions from the cro package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span class="std std-ref">cro_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span class="std std-ref">cro_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span class="std std-ref">cro_crossover_solution</span></a> - move from a primal-dual soution to a full rank one</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span class="std std-ref">cro_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="cro_functions.html#doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span class="std std-ref">cro_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="cro_functions.html#doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span class="std std-ref">cro_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="cro_functions.html#doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span class="std std-ref">cro_crossover_solution</span></a> - move from a primal-dual soution to a full rank one</p></li>
+<li><p><a class="reference internal" href="cro_functions.html#doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span class="std std-ref">cro_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-cro-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -647,10 +648,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -663,7 +664,7 @@ illustrations of use.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -680,7 +681,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -688,7 +689,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m_equal</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m_equal</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
@@ -702,13 +703,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>). The parameter .status is as follows:</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>). The parameter .status is as follows:</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data.</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a>). The component .status gives the exit status from the package. Possible values are:</p>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a>). The component .status gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The crossover was successful.</p>
@@ -786,37 +787,37 @@ unsatisfactory.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>m_equal</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear equality constraints. Such constraints must occur first in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear equality constraints. Such constraints must occur first in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the <strong>lower triangular</strong> part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the <strong>lower triangular</strong> part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>. The entries are stored by consecutive rows, the order within each row is unimportant.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, in the same order as those in H_val.</p></td>
+<td><p>is a one-dimensional array of type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, in the same order as those in H_val.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>. The n+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>. The n+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>. The entries are stored by consecutive rows, the order within each row is unimportant. <strong>Equality constraints must be ordered first.</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the same order as those in A_val.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the same order as those in A_val.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size m+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>. The m+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
+<td><p>is a one-dimensional array of size m+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>. The m+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
 </tr>
 <tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(g\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
@@ -846,15 +847,15 @@ unsatisfactory.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that must be set on entry to give the status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(j\)</span> -th component of x_stat is -1 if the variable is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
+<td><p>is a one-dimensional array of size n and type INT that must be set on entry to give the status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(j\)</span> -th component of x_stat is -1 if the variable is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
 </tr>
 <tr class="row-odd"><td><p>c_stat</p></td>
-<td><p>is a one-dimensional array of size m and type Int32 that must be set on entry to give the status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^Tx\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(i\)</span> -th component of x_stat is -1 if the constraint is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
+<td><p>is a one-dimensional array of size m and type INT that must be set on entry to give the status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^Tx\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(i\)</span> -th component of x_stat is -1 if the constraint is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -867,10 +868,10 @@ unsatisfactory.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -883,12 +884,12 @@ unsatisfactory.</p>
 <span id="doxid-structcro-control-type"></span><span id="index-4"></span><h2>cro_control_type structure<a class="headerlink" href="#cro-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">cro_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">cro_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_schur_complement</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_schur_complement</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">feasibility_tolerance</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">check_io</span><span class="o">::</span><span class="kt">Bool</span>
@@ -898,10 +899,10 @@ unsatisfactory.</p>
 <span class="w">      </span><span class="n">symmetric_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">unsymmetric_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">uls_control</span><span class="o">::</span><span class="kt">uls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ir_control</span><span class="o">::</span><span class="kt">ir_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">uls_control</span><span class="o">::</span><span class="kt">uls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ir_control</span><span class="o">::</span><span class="kt">ir_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structcro-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -910,13 +911,13 @@ unsatisfactory.</p>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-5"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-6"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-7"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1abd1f3cb576a120eb097ebb819874af8d"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_schur_complement</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1abd1f3cb576a120eb097ebb819874af8d"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_schur_complement</span></pre>
 <p>the maximum permitted size of the Schur complement before a refactorization is performed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-10"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
 <p>any bound larger than infinity in modulus will be regarded as infinite</p>
@@ -936,13 +937,13 @@ unsatisfactory.</p>
 <p>unsymmetric linear equation solver</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-18"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-19"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-19"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-20"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-20"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1ac6782df4602dd9c04417e2554d72bb00"><span id="index-21"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="uls.html#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="w"> </span><span class="n">uls_control</span></pre>
 <p>control parameters for ULS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1ab87f601227d3bf99916ff3caa3413404"><span id="index-22"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ir.html#doxid-structir-control-type"><span class="std std-ref">ir_control_type</span></a><span></span><span class="w"> </span><span class="n">ir_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-control-type-1ab87f601227d3bf99916ff3caa3413404"><span id="index-22"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ir_control_type.html#doxid-structir-control-type"><span class="std std-ref">ir_control_type</span></a><span></span><span class="w"> </span><span class="n">ir_control</span></pre>
 <p>control parameters for iterative refinement</p>
 </section>
 </section>
@@ -987,45 +988,45 @@ unsatisfactory.</p>
 <span id="doxid-structcro-inform-type"></span><span id="index-32"></span><h2>cro_inform_type structure<a class="headerlink" href="#cro-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">cro_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">cro_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">dependent</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">dependent</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">cro_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">uls_inform</span><span class="o">::</span><span class="kt">uls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">scu_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">uls_inform</span><span class="o">::</span><span class="kt">uls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">scu_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">scu_inform</span><span class="o">::</span><span class="kt">scu_inform_type</span>
-<span class="w">      </span><span class="n">ir_inform</span><span class="o">::</span><span class="kt">ir_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">ir_inform</span><span class="o">::</span><span class="kt">ir_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structcro-inform-type">
 <span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structcro-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-33"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-33"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See CRO_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-35"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a3678dbffc0e2f3521f7ef27194b21ab6"><span id="index-36"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dependent</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a3678dbffc0e2f3521f7ef27194b21ab6"><span id="index-36"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dependent</span></pre>
 <p>the number of dependent active constraints</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0d99b2a30c1bf487fddf2643b03a3120"><span id="index-37"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structcro-time-type"><span class="std std-ref">cro_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0d99b2a30c1bf487fddf2643b03a3120"><span id="index-37"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_time_type.html#doxid-structcro-time-type"><span class="std std-ref">cro_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>information from SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-39"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-39"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>information from SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1aa39eb0d7b50d4a858849f8ef652ae84c"><span id="index-40"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="uls.html#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="w"> </span><span class="n">uls_inform</span></pre>
 <p>information from ULS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a25bf1e7f86c2b4f4836aa4de40019815"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">scu_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a25bf1e7f86c2b4f4836aa4de40019815"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">scu_status</span></pre>
 <p>information from SCU</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0b702af94f05b9d4bb2bb6416f2498ee"><span id="index-42"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="scu.html#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a><span></span><span class="w"> </span><span class="n">scu_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1a0b702af94f05b9d4bb2bb6416f2498ee"><span id="index-42"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_scu_inform_type.html#doxid-structscu-inform-type"><span class="std std-ref">scu_inform_type</span></a><span></span><span class="w"> </span><span class="n">scu_inform</span></pre>
 <p>see scu_status</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1ae3db15e2ecf7454c4db293d5b30bc7f5"><span id="index-43"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ir.html#doxid-structir-inform-type"><span class="std std-ref">ir_inform_type</span></a><span></span><span class="w"> </span><span class="n">ir_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structcro-inform-type-1ae3db15e2ecf7454c4db293d5b30bc7f5"><span id="index-43"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ir_inform_type.html#doxid-structir-inform-type"><span class="std std-ref">ir_inform_type</span></a><span></span><span class="w"> </span><span class="n">ir_inform</span></pre>
 <p>information from IR</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1047,34 +1048,34 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_cro</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_cro</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">cro_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">cro_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">cro_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">cro_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem dimensions</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># dimension</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># number of general constraints</span>
-  <span class="n">m_equal</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># number of equality constraints</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># dimension</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># number of general constraints</span>
+  <span class="n">m_equal</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># number of equality constraints</span>
 
   <span class="c1">#  describe the objective function</span>
 
-  <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">21</span>
+  <span class="n">H_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>
                   <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-  <span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
-  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+  <span class="n">H_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
 
   <span class="c1">#  describe constraints</span>
 
-  <span class="n">A_ne</span> <span class="o">=</span> <span class="mi">30</span>
+  <span class="n">A_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
   <span class="n">A_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>
                   <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-  <span class="n">A_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="n">A_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
                <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
-  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
   <span class="n">c_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">]</span>
   <span class="n">c_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">Inf</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
@@ -1087,36 +1088,43 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="n">z</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span>
 
   <span class="c1"># provide interior-point constraint and variable status</span>
-  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
   <span class="c1"># Set output storage</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
   <span class="c1"># Initialize CRO</span>
-  <span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+  <span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
   <span class="c1"># Set user-defined control options</span>
   <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
 
   <span class="c1"># crossover the solution</span>
-  <span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m_equal</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span>
+  <span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m_equal</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span>
                          <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
                          <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span><span class="p">)</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; CRO_crossover exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 
   <span class="c1"># Delete internal workspace</span>
-  <span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+  <span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;CRO&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_cro</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_cro</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_cro</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;CRO -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_cro</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1175,7 +1183,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cro-control-type-structure">cro_control_type structure</a></li>
@@ -1231,7 +1239,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

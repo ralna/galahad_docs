@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>callable functions &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>callable functions &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -465,7 +465,7 @@
                   
   <section id="callable-functions">
 <h1>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1aeb10643b5d27efef952b60d9ba0eb206"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -481,7 +481,7 @@
 <td><p>is a structure containing control information (see <a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -494,7 +494,7 @@
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a55c7770ae26847b5c17055c290a54c2a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -519,7 +519,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m_equal</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1a1ab8bdd6e394fe4d89c1c2acba8a5a7b"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_crossover_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m_equal</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">,</span>
 <span class="w">                                    </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
@@ -617,37 +617,37 @@ unsatisfactory.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>m_equal</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear equality constraints. Such constraints must occur first in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear equality constraints. Such constraints must occur first in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the <strong>lower triangular</strong> part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the <strong>lower triangular</strong> part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>. The entries are stored by consecutive rows, the order within each row is unimportant.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, in the same order as those in H_val.</p></td>
+<td><p>is a one-dimensional array of type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, in the same order as those in H_val.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>. The n+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>. The n+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>. The entries are stored by consecutive rows, the order within each row is unimportant. <strong>Equality constraints must be ordered first.</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the same order as those in A_val.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the same order as those in A_val.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size m+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>. The m+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
+<td><p>is a one-dimensional array of size m+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>. The m+1-st component holds the total number of entries (plus one if fortran indexing is used).</p></td>
 </tr>
 <tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(g\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
@@ -677,15 +677,15 @@ unsatisfactory.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that must be set on entry to give the status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(j\)</span> -th component of x_stat is -1 if the variable is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
+<td><p>is a one-dimensional array of size n and type INT that must be set on entry to give the status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(j\)</span> -th component of x_stat is -1 if the variable is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
 </tr>
 <tr class="row-odd"><td><p>c_stat</p></td>
-<td><p>is a one-dimensional array of size m and type Int32 that must be set on entry to give the status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^Tx\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(i\)</span> -th component of x_stat is -1 if the constraint is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
+<td><p>is a one-dimensional array of size m and type INT that must be set on entry to give the status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^Tx\)</span> is active on its lower bound, if it is positive, it is active and lies on its upper bound, and if it is zero, it is inactiive and lies between its bounds. On exit, the <span class="math notranslate nohighlight">\(i\)</span> -th component of x_stat is -1 if the constraint is basic and active on its lower bound, -2 it is non-basic but active on its lower bound, 1 if it is basic and active on its upper bound, 2 it is non-basic but active on its upper bound, and 0 if it is inactive.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-cro-8h-1ae0692951f03b0999f73a8f68b7d62212"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">cro_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -781,7 +781,7 @@ unsatisfactory.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

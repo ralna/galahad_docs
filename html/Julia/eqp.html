@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD EQP package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD EQP package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -668,32 +668,33 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the eqp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1a0d6a00469fba32b588f74c05a386626d"><span class="std std-ref">eqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1a24889f7ee5c51b3c76daab94687faed9"><span class="std std-ref">eqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1adbadbd11a40aedbbb705334023406de1"><span class="std std-ref">eqp_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1a1b8074313bdc2176203d0c0e9ea87c24"><span class="std std-ref">eqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1a0d6a00469fba32b588f74c05a386626d"><span class="std std-ref">eqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1a24889f7ee5c51b3c76daab94687faed9"><span class="std std-ref">eqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1adbadbd11a40aedbbb705334023406de1"><span class="std std-ref">eqp_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1a1b8074313bdc2176203d0c0e9ea87c24"><span class="std std-ref">eqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1abf97ed5ee46d2b3fd9a6f75023a95c3d"><span class="std std-ref">eqp_solve_qp</span></a> - solve the quadratic program</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1aaadb310c329e4857b3ad373bcee69e6f"><span class="std std-ref">eqp_solve_sldqp</span></a> - solve the shifted least-distance problem</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1abf97ed5ee46d2b3fd9a6f75023a95c3d"><span class="std std-ref">eqp_solve_qp</span></a> - solve the quadratic program</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1aaadb310c329e4857b3ad373bcee69e6f"><span class="std std-ref">eqp_solve_sldqp</span></a> - solve the shifted least-distance problem</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1abde96724e9b4b13c5cce1aae5cf93d8f"><span class="std std-ref">eqp_resolve_qp</span></a> (optional) - resolve the problem with the same Hessian and Jacobian, but different <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(f\)</span> and/or <span class="math notranslate nohighlight">\(c\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1aba10933446f1856fc435ecfbd98371d6"><span class="std std-ref">eqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-eqp-8h-1a237e3d3e43c6819205b3f303418324e0"><span class="std std-ref">eqp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1abde96724e9b4b13c5cce1aae5cf93d8f"><span class="std std-ref">eqp_resolve_qp</span></a> (optional) - resolve the problem with the same Hessian and Jacobian, but different <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(f\)</span> and/or <span class="math notranslate nohighlight">\(c\)</span></p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1aba10933446f1856fc435ecfbd98371d6"><span class="std std-ref">eqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="eqp_functions.html#doxid-galahad-eqp-8h-1a237e3d3e43c6819205b3f303418324e0"><span class="std std-ref">eqp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-eqp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a0d6a00469fba32b588f74c05a386626d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a0d6a00469fba32b588f74c05a386626d"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -706,10 +707,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_eqp_control_type.html#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -724,7 +725,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a24889f7ee5c51b3c76daab94687faed9"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a24889f7ee5c51b3c76daab94687faed9"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -741,7 +742,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_eqp_control_type.html#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -749,7 +750,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1adbadbd11a40aedbbb705334023406de1"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1adbadbd11a40aedbbb705334023406de1"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
@@ -761,13 +762,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_eqp_control_type.html#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -814,45 +815,45 @@ been specified.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="qpb.html#details-ah-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian, <span class="math notranslate nohighlight">\(H\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’, ‘scaled_identity’, ‘identity’, ‘zero’ or ‘none’, the latter pair if <span class="math notranslate nohighlight">\(H=0\)</span>; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_row</p></td>
-<td><p>is a one-dimensional array of size H_ne and type Int32 that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size H_ne and type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="qpb.html#details-ah-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_row</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a1b8074313bdc2176203d0c0e9ea87c24"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a1b8074313bdc2176203d0c0e9ea87c24"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -862,13 +863,13 @@ been specified.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_eqp_control_type.html#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The import was successful.</p>
@@ -881,7 +882,7 @@ been specified.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1abf97ed5ee46d2b3fd9a6f75023a95c3d"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1abf97ed5ee46d2b3fd9a6f75023a95c3d"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
 <span class="w">                          </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
 <p>Solve the quadratic program when the Hessian <span class="math notranslate nohighlight">\(H\)</span> is available.</p>
 <p class="rubric">Parameters:</p>
@@ -895,7 +896,7 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -995,13 +996,13 @@ been specified.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size h_ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -1013,7 +1014,7 @@ been specified.</p>
 <td><p>is a scalar of type T that holds the constant term <span class="math notranslate nohighlight">\(f\)</span> of the objective function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
@@ -1030,7 +1031,7 @@ been specified.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1aaadb310c329e4857b3ad373bcee69e6f"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_solve_sldqp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1aaadb310c329e4857b3ad373bcee69e6f"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_solve_sldqp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
 <span class="w">                             </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
 <p>Solve the shifted least-distance quadratic program</p>
 <p class="rubric">Parameters:</p>
@@ -1044,7 +1045,7 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -1144,10 +1145,10 @@ been specified.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>w</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values of the weights <span class="math notranslate nohighlight">\(w\)</span>.</p></td>
@@ -1162,7 +1163,7 @@ been specified.</p>
 <td><p>is a scalar of type T that holds the constant term <span class="math notranslate nohighlight">\(f\)</span> of the objective function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
@@ -1179,7 +1180,7 @@ been specified.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1abde96724e9b4b13c5cce1aae5cf93d8f"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_resolve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1abde96724e9b4b13c5cce1aae5cf93d8f"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_resolve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
 <p>Resolve the quadratic program or shifted least-distance quadratic program when some or all of the data <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(c\)</span> has changed</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1192,7 +1193,7 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -1278,10 +1279,10 @@ been specified.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(g\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
@@ -1301,7 +1302,7 @@ been specified.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1aba10933446f1856fc435ecfbd98371d6"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1aba10933446f1856fc435ecfbd98371d6"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1314,10 +1315,10 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structeqp-inform-type"><span class="std std-ref">eqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_eqp_inform_type.html#doxid-structeqp-inform-type"><span class="std std-ref">eqp_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1332,7 +1333,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a237e3d3e43c6819205b3f303418324e0"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-eqp-8h-1a237e3d3e43c6819205b3f303418324e0"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1345,10 +1346,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_eqp_control_type.html#doxid-structeqp-control-type"><span class="std std-ref">eqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structeqp-inform-type"><span class="std std-ref">eqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_eqp_inform_type.html#doxid-structeqp-inform-type"><span class="std std-ref">eqp_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1361,23 +1362,23 @@ status from the package. Possible values are
 <span id="doxid-structeqp-control-type"></span><span id="index-9"></span><h2>eqp_control_type structure<a class="headerlink" href="#eqp-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">eqp_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">eqp_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">indmin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">valmin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">len_ulsmin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">itref_max</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">cg_maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">new_h</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">sif_file_device</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">indmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">valmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">len_ulsmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">itref_max</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">cg_maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">new_a</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">new_h</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">sif_file_device</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">pivot_tol</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">pivot_tol_for_basis</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">zero_pivot</span><span class="o">::</span><span class="kt">T</span>
@@ -1396,9 +1397,9 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">generate_sif_file</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">sif_file_name</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">gltr_control</span><span class="o">::</span><span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">gltr_control</span><span class="o">::</span><span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structeqp-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1407,27 +1408,27 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-10"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a108359f1209601e6c6074c215e3abd8b"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a108359f1209601e6c6074c215e3abd8b"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization</span></pre>
 <p>the factorization to be used. Possible values are /li 0 automatic /li 1 Schur-complement factorization /li 2 augmented-system factorization (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
 <p>the maximum number of nonzeros in a column of A which is permitted with the Schur-complement factorization (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a5031bbc31f94e4cba6a540a3182b6d80"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">indmin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a5031bbc31f94e4cba6a540a3182b6d80"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">indmin</span></pre>
 <p>an initial guess as to the integer workspace required by SBLS (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a0e142fa8dc9c363c3c2993b6129b0955"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">valmin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a0e142fa8dc9c363c3c2993b6129b0955"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">valmin</span></pre>
 <p>an initial guess as to the real workspace required by SBLS (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a600c95211b782597cd1b2475bb2c54c6"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">len_ulsmin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a600c95211b782597cd1b2475bb2c54c6"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">len_ulsmin</span></pre>
 <p>an initial guess as to the workspace required by ULS (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a903ba4ef0869186a65d4c32459a6a0ed"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">itref_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a903ba4ef0869186a65d4c32459a6a0ed"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">itref_max</span></pre>
 <p>the maximum number of iterative refinements allowed (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7a1029142a22f3e2a1963c3428276849"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">cg_maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7a1029142a22f3e2a1963c3428276849"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_maxit</span></pre>
 <p>the maximum number of CG iterations allowed. If cg_maxit &lt; 0, this number will be reset to the dimension of the system + 1</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">preconditioner</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">preconditioner</span></pre>
 <p>the preconditioner to be used for the CG. Possible values are</p>
 <ul class="simple">
 <li><p>0 automatic</p></li>
@@ -1437,13 +1438,13 @@ status from the package. Possible values are
 <li><p>4 diagonal using the barrier terms within full factorization (OBSOLETE)</p></li>
 <li><p>5 optionally supplied diagonal, G = D</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
 <p>the semi-bandwidth of a band preconditioner, if appropriate (OBSOLETE)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7bea45d51fd9384037bbbf82f7750ce6"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">new_a</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7bea45d51fd9384037bbbf82f7750ce6"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_a</span></pre>
 <p>how much has A changed since last problem solved: 0 = not changed, 1 = values changed, 2 = structure changed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1ae60c5b5b987dd62f25253ba4164813f5"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">new_h</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1ae60c5b5b987dd62f25253ba4164813f5"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_h</span></pre>
 <p>how much has H changed since last problem solved: 0 = not changed, 1 = values changed, 2 = structure changed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sif_file_device</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sif_file_device</span></pre>
 <p>specifies the unit number to write generated SIF file describing the current problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a133347eb5f45a24a77b63b4afd4212e8"><span id="index-26"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">pivot_tol</span></pre>
 <p>the threshold pivot used by the matrix factorization. See the documentation for SBLS for details (OBSOLETE)</p>
@@ -1481,11 +1482,11 @@ status from the package. Possible values are
 <p>name of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-43"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-44"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-44"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-45"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-45"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1aa48d482633f3788830b1d8dc85fa91d6"><span id="index-46"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="gltr.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a><span></span><span class="w"> </span><span class="n">gltr_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-control-type-1aa48d482633f3788830b1d8dc85fa91d6"><span id="index-46"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a><span></span><span class="w"> </span><span class="n">gltr_control</span></pre>
 <p>control parameters for GLTR</p>
 </section>
 </section>
@@ -1533,34 +1534,34 @@ status from the package. Possible values are
 <span id="doxid-structeqp-inform-type"></span><span id="index-57"></span><h2>eqp_inform_type structure<a class="headerlink" href="#eqp-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">eqp_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">eqp_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">cg_iter_inter</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">cg_iter_inter</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">eqp_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">gltr_inform</span><span class="o">::</span><span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">gltr_inform</span><span class="o">::</span><span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structeqp-inform-type">
 <span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structeqp-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id10">
 <h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-58"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See EQP_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-59"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-60"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span id="index-61"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">cg_iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1ad37cf7ad93af3413bc01b6515aad692a"><span id="index-61"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
 <p>the total number of conjugate gradient iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1af9cff1fabd7b996847d1c93490c8db15"><span id="index-62"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">cg_iter_inter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1af9cff1fabd7b996847d1c93490c8db15"><span id="index-62"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter_inter</span></pre>
 <p>see cg_iter</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a29cd3a5b0f30227170f825116d9ade9e"><span id="index-63"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_integer</span></pre>
 <p>the total integer workspace required for the factorization</p>
@@ -1568,13 +1569,13 @@ status from the package. Possible values are
 <p>the total real workspace required for the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-65"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the objective function at the best estimate of the solution determined by QPB_solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1ab4ea6394e359e4f2ba2543eda324643a"><span id="index-66"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structeqp-time-type"><span class="std std-ref">eqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1ab4ea6394e359e4f2ba2543eda324643a"><span id="index-66"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_eqp_time_type.html#doxid-structeqp-time-type"><span class="std std-ref">eqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-68"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-68"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform parameters for SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a27a98844f05f18669d3dd60d3e6a8e46"><span id="index-69"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="gltr.html#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a><span></span><span class="w"> </span><span class="n">gltr_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structeqp-inform-type-1a27a98844f05f18669d3dd60d3e6a8e46"><span id="index-69"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_gltr_inform_type.html#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a><span></span><span class="w"> </span><span class="n">gltr_inform</span></pre>
 <p>return information from GLTR</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1595,41 +1596,41 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_eqp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_eqp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">eqp_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">eqp_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">eqp_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">eqp_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># number of general constraints</span>
-  <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># Hesssian elements</span>
-  <span class="n">H_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
-  <span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices, NB lower triangle</span>
-  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># dimension</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># number of general constraints</span>
+  <span class="n">H_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Hesssian elements</span>
+  <span class="n">H_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
+  <span class="n">H_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices, NB lower triangle</span>
+  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># linear term in the objective</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># constant term in the objective</span>
-  <span class="n">A_ne</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># Jacobian elements</span>
-  <span class="n">A_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row indices</span>
-  <span class="n">A_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices</span>
-  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">A_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Jacobian elements</span>
+  <span class="n">A_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row indices</span>
+  <span class="n">A_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">A_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># rhs of the constraints</span>
 
   <span class="c1"># Set output storage</span>
-  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
-  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># constraint status</span>
+  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
+  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># constraint status</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of qp storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span>
     <span class="c1"># Initialize EQP</span>
-    <span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
@@ -1646,22 +1647,22 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1673,59 +1674,59 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="n">H_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
       <span class="n">A_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># diagonal</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">4</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># scaled identity</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">5</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;scaled_identity&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># identity</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">6</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># zero</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">7</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_qp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                    <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:</span><span class="si">%6i</span><span class="s2"> cg iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
@@ -1746,14 +1747,14 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="c1"># test shifted least-distance interface</span>
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span>
 
     <span class="c1"># Initialize EQP</span>
-    <span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">eqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">use_sls</span> <span class="o">=</span> <span class="n">true</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">sbls_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
@@ -1775,15 +1776,15 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span>
-      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">eqp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;shifted_least_distance&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                  <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">eqp_solve_sldqp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
+      <span class="n">eqp_solve_sldqp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                       <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">eqp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:</span><span class="si">%6i</span><span class="s2"> cg iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
@@ -1804,16 +1805,23 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">eqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;EQP&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_eqp</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_eqp</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_eqp</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;EQP -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_eqp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1877,7 +1885,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eqp-control-type-structure">eqp_control_type structure</a></li>
@@ -1933,7 +1941,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

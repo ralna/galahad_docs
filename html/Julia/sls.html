@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD SLS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD SLS package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -841,32 +841,33 @@ the string A_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the sls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span class="std std-ref">sls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span class="std std-ref">sls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span class="std std-ref">sls_analyse_matrix</span></a> - set up matrix data structures and analyse the structure to choose a suitable order for factorization</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span class="std std-ref">sls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span class="std std-ref">sls_factorize_matrix</span></a> - form and factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span class="std std-ref">sls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span class="std std-ref">sls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span class="std std-ref">sls_analyse_matrix</span></a> - set up matrix data structures and analyse the structure to choose a suitable order for factorization</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span class="std std-ref">sls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span class="std std-ref">sls_factorize_matrix</span></a> - form and factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
 <li><p>one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span class="std std-ref">sls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span class="std std-ref">sls_partial_solve_system</span></a> - solve a linear system <span class="math notranslate nohighlight">\(Mx=b\)</span> involving one of the matrix factors <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span class="std std-ref">sls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span></p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span class="std std-ref">sls_partial_solve_system</span></a> - solve a linear system <span class="math notranslate nohighlight">\(Mx=b\)</span> involving one of the matrix factors <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(A\)</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span class="std std-ref">sls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span class="std std-ref">sls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span class="std std-ref">sls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span class="std std-ref">sls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-sls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">solver</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">solver</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Select solver, set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -882,10 +883,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -904,7 +905,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -921,7 +922,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -929,7 +930,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
 <p>Import structural matrix data into internal storage prior to solution</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -939,13 +940,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1055,27 +1056,27 @@ details.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of rows in the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows in the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-s-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>row</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>col</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage scheme is used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage scheme is used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1085,13 +1086,13 @@ details.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><ol class="arabic simple" start="0">
 <li><p>The import was successful.</p></li>
@@ -1103,7 +1104,7 @@ details.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
 <p>Form and factorize the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1116,7 +1117,7 @@ details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1226,7 +1227,7 @@ details.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
@@ -1234,7 +1235,7 @@ details.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
 <p>Solve the linear system <span class="math notranslate nohighlight">\(Ax=b\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1247,7 +1248,7 @@ details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1296,7 +1297,7 @@ for more details.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>sol</p></td>
 <td><p>is a one-dimensional array of size n and type double. On entry, it must hold the vector <span class="math notranslate nohighlight">\(b\)</span>. On a successful exit, its contains the solution <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
@@ -1304,7 +1305,7 @@ for more details.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">part</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">part</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
 <p>Given the factorization <span class="math notranslate nohighlight">\(A = L D U\)</span> with <span class="math notranslate nohighlight">\(U = L^T\)</span>, solve the linear
 system <div class="math notranslate nohighlight">
 \[Mx=b,\]</div>
@@ -1323,7 +1324,7 @@ system <div class="math notranslate nohighlight">
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1373,7 +1374,7 @@ for more details.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>sol</p></td>
 <td><p>is a one-dimensional array of size n and type double. On entry, it must hold the vector <span class="math notranslate nohighlight">\(b\)</span>. On a successful exit, its contains the solution <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
@@ -1381,7 +1382,7 @@ for more details.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provide output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1394,10 +1395,10 @@ for more details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1412,7 +1413,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">sls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1425,10 +1426,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1441,34 +1442,34 @@ status from the package. Possible values are
 <span id="doxid-structsls-control-type"></span><span id="index-9"></span><h2>sls_control_type structure<a class="headerlink" href="#sls-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">warning</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">statistics</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level_solver</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">bits</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">block_size_kernel</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">block_size_elimination</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">blas_block_size_factorize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">blas_block_size_solve</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">node_amalgamation</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">initial_pool_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">min_real_factor_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">min_integer_factor_size</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">warning</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">statistics</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level_solver</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">bits</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">block_size_kernel</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">block_size_elimination</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">blas_block_size_factorize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">blas_block_size_solve</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">node_amalgamation</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">initial_pool_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">min_real_factor_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">min_integer_factor_size</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">max_real_factor_size</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">max_integer_factor_size</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">max_in_core_store</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">array_increase_factor</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">array_decrease_factor</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">pivot_control</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">full_row_threshold</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">row_search_indefinite</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">scale_maxit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">pivot_control</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">full_row_threshold</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">row_search_indefinite</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">scale_maxit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">scale_thresh</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">relative_pivot_tolerance</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">minimum_pivot_tolerance</span><span class="o">::</span><span class="kt">T</span>
@@ -1479,12 +1480,12 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">static_pivot_tolerance</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">static_level_switch</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">consistency_tolerance</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">max_iterative_refinements</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_iterative_refinements</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">acceptable_residual_relative</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">acceptable_residual_absolute</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">multiple_rhs</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">generate_matrix_file</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">matrix_file_device</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">matrix_file_device</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">matrix_file_name</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">out_of_core_directory</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">401</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">out_of_core_integer_factor_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">401</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
@@ -1501,35 +1502,35 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-10"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1af44472f3bdd4c3af6ed5465266b25312"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">warning</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1af44472f3bdd4c3af6ed5465266b25312"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">warning</span></pre>
 <p>unit for warning messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ac1dde3b0d96e2c1bc0c226bc3da59846"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">statistics</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ac1dde3b0d96e2c1bc0c226bc3da59846"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">statistics</span></pre>
 <p>unit for statistical output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1afc17ef86601030a3cb1c7edb7a79a39f"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level_solver</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1afc17ef86601030a3cb1c7edb7a79a39f"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level_solver</span></pre>
 <p>controls level of diagnostic output from external solver</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ad1e28a1a66a25529b0b61b9ca4e66d44"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">bits</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ad1e28a1a66a25529b0b61b9ca4e66d44"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">bits</span></pre>
 <p>number of bits used in architecture</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a6074142046e83fb79960ed41f26750a1"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">block_size_kernel</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a6074142046e83fb79960ed41f26750a1"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">block_size_kernel</span></pre>
 <p>the target blocksize for kernel factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a8f2a7a17307a57f735f5d954d59e2eb8"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">block_size_elimination</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a8f2a7a17307a57f735f5d954d59e2eb8"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">block_size_elimination</span></pre>
 <p>the target blocksize for parallel elimination</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aa2177c655d92533f17fcff58482e52c1"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">blas_block_size_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aa2177c655d92533f17fcff58482e52c1"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">blas_block_size_factorize</span></pre>
 <p>level 3 blocking in factorize</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a1af3c20cdeaaee431f309395f9f09564"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">blas_block_size_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a1af3c20cdeaaee431f309395f9f09564"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">blas_block_size_solve</span></pre>
 <p>level 2 and 3 blocking in solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ac3c6c4a0c684c675b397c1d07b4eb170"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">node_amalgamation</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ac3c6c4a0c684c675b397c1d07b4eb170"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">node_amalgamation</span></pre>
 <p>a child node is merged with its parent if they both involve fewer than node_amalgamation eliminations</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ad5ba76433cbea285e63bf2bb54b4654c"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">initial_pool_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ad5ba76433cbea285e63bf2bb54b4654c"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">initial_pool_size</span></pre>
 <p>initial size of task-pool arrays for parallel elimination</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a60c3d0376bbe5c06260509a9be31c562"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">min_real_factor_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a60c3d0376bbe5c06260509a9be31c562"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">min_real_factor_size</span></pre>
 <p>initial size for real array for the factors and other data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1addaddc306c33f5d7e6ebf7eeeab2612e"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">min_integer_factor_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1addaddc306c33f5d7e6ebf7eeeab2612e"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">min_integer_factor_size</span></pre>
 <p>initial size for integer array for the factors and other data</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aba2b38ee264ef80678efeff94ef0d44b"><span id="index-26"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">max_real_factor_size</span></pre>
 <p>maximum size for real array for the factors and other data</p>
@@ -1541,7 +1542,7 @@ status from the package. Possible values are
 <p>factor by which arrays sizes are to be increased if they are too small</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1abee09e4efae03be7d0d1a8503b338ce7"><span id="index-30"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">array_decrease_factor</span></pre>
 <p>if previously allocated internal workspace arrays are greater than array_decrease_factor times the currently required sizes, they are reset to current requirements</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a7489428a42ce1420b4891f638153c99f"><span id="index-31"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pivot_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a7489428a42ce1420b4891f638153c99f"><span id="index-31"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pivot_control</span></pre>
 <p>pivot control:</p>
 <ul class="simple">
 <li><p>1 Numerical pivoting will be performed.</p></li>
@@ -1549,7 +1550,7 @@ status from the package. Possible values are
 <li><p>3 No pivoting will be performed and an error exit will occur if a zero pivot is detected.</p></li>
 <li><p>4 No pivoting is performed but pivots are changed to all be positive</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-32"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ordering</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-32"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ordering</span></pre>
 <p>controls ordering (ignored if explicit PERM argument present)</p>
 <ul class="simple">
 <li><p>&lt;0 chosen by the specified solver with its own ordering-selected value -ordering</p></li>
@@ -1562,11 +1563,11 @@ status from the package. Possible values are
 <li><p>6 Bandwidth reduction</p></li>
 <li><p>&gt;6 ordering chosen depending on matrix characteristics (not yet implemented)</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a3b64788f24cdaf2e3675ec0d030dc1b2"><span id="index-33"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">full_row_threshold</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a3b64788f24cdaf2e3675ec0d030dc1b2"><span id="index-33"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">full_row_threshold</span></pre>
 <p>controls threshold for detecting full rows in analyse, registered as percentage of matrix order. If 100, only fully dense rows detected (defa</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aae15c41cfdc178c1daa93e5d6cdee74a"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">row_search_indefinite</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1aae15c41cfdc178c1daa93e5d6cdee74a"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">row_search_indefinite</span></pre>
 <p>number of rows searched for pivot when using indefinite ordering</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-35"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">scaling</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-35"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">scaling</span></pre>
 <p>controls scaling (ignored if explicit SCALE argument present)</p>
 <ul class="simple">
 <li><p>&lt;0 chosen by the specified solver with its own scaling-selected value -scaling</p></li>
@@ -1575,7 +1576,7 @@ status from the package. Possible values are
 <li><p>2 Scaling using HSL’s MC77 based on the row one-norm</p></li>
 <li><p>3 Scaling using HSL’s MC77 based on the row infinity-norm</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1af5fd3fa336214d064c0573c95000440e"><span id="index-36"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">scale_maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1af5fd3fa336214d064c0573c95000440e"><span id="index-36"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">scale_maxit</span></pre>
 <p>the number of scaling iterations performed (default 10 used if .scale_maxit &lt; 0)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a6e985cab4e94c7266dd26ed49264814b"><span id="index-37"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">scale_thresh</span></pre>
 <p>the scaling iteration stops as soon as the row/column norms are less than 1+/-.scale_thresh</p>
@@ -1597,7 +1598,7 @@ status from the package. Possible values are
 <p>used for switch to static</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a7582103f0c0f9eac3b325bfff86236d1"><span id="index-46"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">consistency_tolerance</span></pre>
 <p>used to determine whether a system is consistent when seeking a Fredholm alternative</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ab044fd598767830ddc06560a91b80936"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_iterative_refinements</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ab044fd598767830ddc06560a91b80936"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_iterative_refinements</span></pre>
 <p>maximum number of iterative refinements allowed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a97a6571829dbdccad7598f7b5c3ddfbd"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">acceptable_residual_relative</span></pre>
 <p>refinement will cease as soon as the residual ||Ax-b|| falls below max( acceptable_residual_relative * ||b||, acceptable_residual_absolute</p>
@@ -1607,7 +1608,7 @@ status from the package. Possible values are
 <p>set .multiple_rhs to .true. if there is possibility that the solver will be required to solve systems with more than one right-hand side. More efficient execution may be possible when .multiple_rhs = .false.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1ac6d360fda05100d7c8a5580a78e44c59"><span id="index-51"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">generate_matrix_file</span></pre>
 <p>if .generate_matrix_file is .true. if a file describing the current matrix is to be generated</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a184e374e7f9b631289f30f2cbfd4f8a8"><span id="index-52"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">matrix_file_device</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a184e374e7f9b631289f30f2cbfd4f8a8"><span id="index-52"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">matrix_file_device</span></pre>
 <p>specifies the unit number to write the input matrix (in co-ordinate form</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-control-type-1a0861a0a49e00bd6642d2103f0d5fb7a3"><span id="index-53"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>name of generated matrix file containing input problem</p>
@@ -1692,18 +1693,18 @@ status from the package. Possible values are
 <span id="doxid-structsls-inform-type"></span><span id="index-78"></span><h2>sls_inform_type structure<a class="headerlink" href="#sls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">more_info</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">entries</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_depth_assembly_tree</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nodes_assembly_tree</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">more_info</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">entries</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_depth_assembly_tree</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nodes_assembly_tree</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">real_size_desirable</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">integer_size_desirable</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">real_size_necessary</span><span class="o">::</span><span class="kt">Int64</span>
@@ -1711,20 +1712,20 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">real_size_factors</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">integer_size_factors</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">entries_in_factors</span><span class="o">::</span><span class="kt">Int64</span>
-<span class="w">      </span><span class="n">max_task_pool_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_front_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">compresses_real</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">compresses_integer</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">two_by_two_pivots</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">delayed_pivots</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">pivot_sign_changes</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">static_pivots</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">first_modified_pivot</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">negative_eigenvalues</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">num_zero</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">iterative_refinements</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">max_task_pool_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_front_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">compresses_real</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">compresses_integer</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">two_by_two_pivots</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">delayed_pivots</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">pivot_sign_changes</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">static_pivots</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">first_modified_pivot</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">rank</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">negative_eigenvalues</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">num_zero</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">iterative_refinements</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">flops_assembly</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">flops_elimination</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">flops_blas</span><span class="o">::</span><span class="kt">Int64</span>
@@ -1739,44 +1740,44 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">alternative</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">21</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">sls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sils_ainfo</span><span class="o">::</span><span class="kt">sils_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sils_finfo</span><span class="o">::</span><span class="kt">sils_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sils_sinfo</span><span class="o">::</span><span class="kt">sils_sinfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma57_ainfo</span><span class="o">::</span><span class="kt">ma57_ainfo</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma57_finfo</span><span class="o">::</span><span class="kt">ma57_finfo</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma57_sinfo</span><span class="o">::</span><span class="kt">ma57_sinfo</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma77_info</span><span class="o">::</span><span class="kt">ma77_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma86_info</span><span class="o">::</span><span class="kt">ma86_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma87_info</span><span class="o">::</span><span class="kt">ma87_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ma97_info</span><span class="o">::</span><span class="kt">ma97_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ssids_inform</span><span class="o">::</span><span class="kt">spral_ssids_inform</span>
-<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sils_ainfo</span><span class="o">::</span><span class="kt">sils_ainfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sils_finfo</span><span class="o">::</span><span class="kt">sils_finfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sils_sinfo</span><span class="o">::</span><span class="kt">sils_sinfo_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma57_ainfo</span><span class="o">::</span><span class="kt">ma57_ainfo</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma57_finfo</span><span class="o">::</span><span class="kt">ma57_finfo</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma57_sinfo</span><span class="o">::</span><span class="kt">ma57_sinfo</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma77_info</span><span class="o">::</span><span class="kt">ma77_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma86_info</span><span class="o">::</span><span class="kt">ma86_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma87_info</span><span class="o">::</span><span class="kt">ma87_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ma97_info</span><span class="o">::</span><span class="kt">ma97_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ssids_inform</span><span class="o">::</span><span class="kt">spral_ssids_inform</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mc61_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mc64_info</span><span class="o">::</span><span class="kt">mc64_info</span>
-<span class="w">      </span><span class="n">mc68_info</span><span class="o">::</span><span class="kt">mc68_info</span>
-<span class="w">      </span><span class="n">mc77_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc64_info</span><span class="o">::</span><span class="kt">mc64_info</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc68_info</span><span class="o">::</span><span class="kt">mc68_info</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc77_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mc77_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mumps_error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mumps_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">80</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mumps_error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mumps_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">80</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mumps_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">40</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">pardiso_error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">pardiso_IPARM</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">pardiso_error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">pardiso_IPARM</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">pardiso_DPARM</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mkl_pardiso_error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mkl_pardiso_IPARM</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
-<span class="w">      </span><span class="n">pastix_info</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">wsmp_error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">wsmp_iparm</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mkl_pardiso_error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mkl_pardiso_IPARM</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">pastix_info</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">wsmp_error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">wsmp_iparm</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">wsmp_dparm</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">64</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mpi_ierr</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">lapack_error</span><span class="o">::</span><span class="kt">Int32</span></pre>
+<span class="w">      </span><span class="n">mpi_ierr</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">lapack_error</span><span class="o">::</span><span class="kt">INT</span></pre>
 </section>
 <section id="details-structsls-inform-type">
 <span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structsls-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-79"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-79"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1825,25 +1826,25 @@ status from the package. Possible values are
 <p>unknown solver</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-80"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-80"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>STAT value after allocate failure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-81"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a24d9e61a5ee1839c2fda4f8d5cff0cb7"><span id="index-82"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">more_info</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a24d9e61a5ee1839c2fda4f8d5cff0cb7"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">more_info</span></pre>
 <p>further information on failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a05de9d2e9fdfcc8bf932ca13b95ede29"><span id="index-83"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">entries</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a05de9d2e9fdfcc8bf932ca13b95ede29"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">entries</span></pre>
 <p>number of entries</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8daa2a776cae6116e9f14e2b009430a5"><span id="index-84"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out_of_range</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8daa2a776cae6116e9f14e2b009430a5"><span id="index-84"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out_of_range</span></pre>
 <p>number of indices out-of-range</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-85"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">duplicates</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-85"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">duplicates</span></pre>
 <p>number of duplicates</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0a1a19aadb8cf4f2b05d37a8798b667c"><span id="index-86"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">upper</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0a1a19aadb8cf4f2b05d37a8798b667c"><span id="index-86"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">upper</span></pre>
 <p>number of entries from the strict upper triangle</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8d33160feb6e388439a1d38641b00b3d"><span id="index-87"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">missing_diagonals</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8d33160feb6e388439a1d38641b00b3d"><span id="index-87"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">missing_diagonals</span></pre>
 <p>number of missing diagonal entries for an allegedly-definite matrix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6d6dc5b49ec465fb45c83d1a0de40e02"><span id="index-88"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_depth_assembly_tree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6d6dc5b49ec465fb45c83d1a0de40e02"><span id="index-88"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_depth_assembly_tree</span></pre>
 <p>maximum depth of the assembly tree</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac0b9b02071c45a104c814d8664d56a0c"><span id="index-89"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nodes_assembly_tree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac0b9b02071c45a104c814d8664d56a0c"><span id="index-89"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nodes_assembly_tree</span></pre>
 <p>nodes in the assembly tree (= number of elimination steps)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a578f47757db464cbf8ed9b83bc0fe19b"><span id="index-90"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">real_size_desirable</span></pre>
 <p>desirable or actual size for real array for the factors and other data</p>
@@ -1859,33 +1860,33 @@ status from the package. Possible values are
 <p>predicted or actual number of integers to hold factors</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ab741fb84b79d2b013a84d71932452681"><span id="index-96"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">entries_in_factors</span></pre>
 <p>number of entries in factors</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1adbfc63b37c8305f76154af9ab21a73e1"><span id="index-97"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_task_pool_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1adbfc63b37c8305f76154af9ab21a73e1"><span id="index-97"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_task_pool_size</span></pre>
 <p>maximum number of tasks in the factorization task pool</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a854d688fc9f75d1011046b68798c3ec3"><span id="index-98"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_front_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a854d688fc9f75d1011046b68798c3ec3"><span id="index-98"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_front_size</span></pre>
 <p>forecast or actual size of largest front</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a08f180b15976fad5be1793aeadd89d1d"><span id="index-99"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">compresses_real</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a08f180b15976fad5be1793aeadd89d1d"><span id="index-99"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">compresses_real</span></pre>
 <p>number of compresses of real data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ae278663a9e98a86e0947f89a75549d51"><span id="index-100"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">compresses_integer</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ae278663a9e98a86e0947f89a75549d51"><span id="index-100"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">compresses_integer</span></pre>
 <p>number of compresses of integer data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1af922a8827cb6bb34ae8b7ea113eb88d9"><span id="index-101"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">two_by_two_pivots</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1af922a8827cb6bb34ae8b7ea113eb88d9"><span id="index-101"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">two_by_two_pivots</span></pre>
 <p>number of 2x2 pivots</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-102"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-102"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
 <p>semi-bandwidth of matrix following bandwidth reduction</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aceacc7f8144f94b9ff16506b1bc581e3"><span id="index-103"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">delayed_pivots</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aceacc7f8144f94b9ff16506b1bc581e3"><span id="index-103"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">delayed_pivots</span></pre>
 <p>number of delayed pivots (total)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac41ffa6bf566e674ac90de4178c81477"><span id="index-104"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pivot_sign_changes</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac41ffa6bf566e674ac90de4178c81477"><span id="index-104"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pivot_sign_changes</span></pre>
 <p>number of pivot sign changes if no pivoting is used successfully</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ab7569a21ad5852708f0a43b7c269ac0d"><span id="index-105"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">static_pivots</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ab7569a21ad5852708f0a43b7c269ac0d"><span id="index-105"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">static_pivots</span></pre>
 <p>number of static pivots chosen</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a735be3d14946330c6c7b451743b86ae9"><span id="index-106"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">first_modified_pivot</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a735be3d14946330c6c7b451743b86ae9"><span id="index-106"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">first_modified_pivot</span></pre>
 <p>first pivot modification when static pivoting</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-107"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6cfd95afd0afebd625b889fb6e58371c"><span id="index-107"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">rank</span></pre>
 <p>estimated rank of the matrix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ad9bf58dadb2657173be0588308d100b3"><span id="index-108"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">negative_eigenvalues</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ad9bf58dadb2657173be0588308d100b3"><span id="index-108"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">negative_eigenvalues</span></pre>
 <p>number of negative eigenvalues</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a9e21341bbd4963be2eaae5a0f8851648"><span id="index-109"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">num_zero</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a9e21341bbd4963be2eaae5a0f8851648"><span id="index-109"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">num_zero</span></pre>
 <p>number of pivots that are considered zero (and ignored)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a22c83a8ec8964a169bdd9d0cdf196cf1"><span id="index-110"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iterative_refinements</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a22c83a8ec8964a169bdd9d0cdf196cf1"><span id="index-110"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iterative_refinements</span></pre>
 <p>number of iterative refinements performed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a24b90be205ee95fe42ce3dc31d77ccfa"><span id="index-111"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">flops_assembly</span></pre>
 <p>anticipated or actual number of floating-point operations in assembly</p>
@@ -1914,13 +1915,13 @@ status from the package. Possible values are
 to solve <span class="math notranslate nohighlight">\(A x = b\)</span> ?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1af335c33211ea78f2d5b7314d7b1c210d"><span id="index-123"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">solver</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span></pre>
 <p>name of external solver used to factorize and solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aeb306e2c697a3b16156c7bbf95933d04"><span id="index-124"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structsls-time-type"><span class="std std-ref">sls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aeb306e2c697a3b16156c7bbf95933d04"><span id="index-124"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_time_type.html#doxid-structsls-time-type"><span class="std std-ref">sls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6490df077bf8d853c6ce6242ef95ef3f"><span id="index-125"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sils.html#doxid-structsils-ainfo-type"><span class="std std-ref">sils_ainfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_ainfo</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6490df077bf8d853c6ce6242ef95ef3f"><span id="index-125"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sils_ainfo_type.html#doxid-structsils-ainfo-type"><span class="std std-ref">sils_ainfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_ainfo</span></pre>
 <p>the analyse output structure from sils</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aaca9130b6f951c48e420ef2d880e2e6a"><span id="index-126"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sils.html#doxid-structsils-finfo-type"><span class="std std-ref">sils_finfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_finfo</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aaca9130b6f951c48e420ef2d880e2e6a"><span id="index-126"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sils_finfo_type.html#doxid-structsils-finfo-type"><span class="std std-ref">sils_finfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_finfo</span></pre>
 <p>the factorize output structure from sils</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a02b2db43c1e7bc2d42a9f584433dbe01"><span id="index-127"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sils.html#doxid-structsils-sinfo-type"><span class="std std-ref">sils_sinfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_sinfo</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a02b2db43c1e7bc2d42a9f584433dbe01"><span id="index-127"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sils_sinfo_type.html#doxid-structsils-sinfo-type"><span class="std std-ref">sils_sinfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_sinfo</span></pre>
 <p>the solve output structure from sils</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aa7061ae61ef272126c2d93c0bb7c3e92"><span id="index-128"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hsl_types.html#details-structma57-ainfo"><span class="std std-ref">ma57_ainfo</span></a><span></span><span class="w"> </span><span class="n">ma57_ainfo</span></pre>
 <p>the analyse output structure from hsl_ma57</p>
@@ -1938,7 +1939,7 @@ to solve <span class="math notranslate nohighlight">\(A x = b\)</span> ?</p>
 <p>the output structure from hsl_ma97</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a1460057cd78a3850b14e78583b051054"><span id="index-135"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ssids_types.html#details-structspral-ssids-inform"><span class="std std-ref">spral_ssids_inform</span></a><span></span><span class="w"> </span><span class="n">ssids_inform</span></pre>
 <p>the output structure from ssids</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ad29411cd0e18c59e43b474314a2adbe8"><span id="index-136"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mc61_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ad29411cd0e18c59e43b474314a2adbe8"><span id="index-136"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mc61_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
 <p>the real output array from mc61 from HSL</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a6966776cf11a3b9c447f7a1c9621152f"><span id="index-137"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">mc61_rinfo</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span></pre>
 <p>the integer output array from mc61 from HSL</p>
@@ -1946,37 +1947,37 @@ to solve <span class="math notranslate nohighlight">\(A x = b\)</span> ?</p>
 <p>the output structure from hsl_mc64</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a47a1ee8b0f64c664c47bbd23bacb4af6"><span id="index-139"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hsl_types.html#details-structmc68-info"><span class="std std-ref">mc68_info</span></a><span></span><span class="w"> </span><span class="n">mc68_info</span></pre>
 <p>the output structure from hsl_mc68</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac143b7dbde27738930a06678d7a84135"><span id="index-140"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mc77_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ac143b7dbde27738930a06678d7a84135"><span id="index-140"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mc77_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
 <p>the integer output array from mc77</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a02ac14c9a03a409b25bf374862f17166"><span id="index-141"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">mc77_rinfo</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
 <p>the real output array from mc77 from HSL</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aabe7dce2361151a723670484e385d4e2"><span id="index-142"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mumps_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aabe7dce2361151a723670484e385d4e2"><span id="index-142"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mumps_error</span></pre>
 <p>the output scalars and arrays from mumps</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a1e9b1230547090c9405ed025acddf937"><span id="index-143"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mumps_info</span><span class="p">[</span><span class="mi">80</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a1e9b1230547090c9405ed025acddf937"><span id="index-143"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mumps_info</span><span class="p">[</span><span class="mi">80</span><span class="p">]</span></pre>
 <p>see mumps_error</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0e35523297d295b968ff61aff25c6279"><span id="index-144"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">mumps_rinfo</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span></pre>
 <p>see mumps_error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1af4edf991dc128b2aa6bb7c5909bce7bb"><span id="index-145"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pardiso_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1af4edf991dc128b2aa6bb7c5909bce7bb"><span id="index-145"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pardiso_error</span></pre>
 <p>the output scalars and arrays from pardiso</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a94bd760acd69f7e452771c96f9a6d83b"><span id="index-146"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pardiso_IPARM</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a94bd760acd69f7e452771c96f9a6d83b"><span id="index-146"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pardiso_IPARM</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
 <p>see pardiso_error</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ad94ecfb58762fd0f79d1dcc51c1a6c13"><span id="index-147"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">pardiso_DPARM</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
 <p>see pardiso_error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0af76cb45fcf59f7749bf196c1f848f1"><span id="index-148"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mkl_pardiso_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0af76cb45fcf59f7749bf196c1f848f1"><span id="index-148"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mkl_pardiso_error</span></pre>
 <p>the output scalars and arrays from mkl_pardiso</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aeaa2b4360e0796404f57ede659a0dc5f"><span id="index-149"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mkl_pardiso_IPARM</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1aeaa2b4360e0796404f57ede659a0dc5f"><span id="index-149"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mkl_pardiso_IPARM</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
 <p>see mkl_pardiso_error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8317c10c22116e0cf019d281a7f07595"><span id="index-150"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">pastix_info</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a8317c10c22116e0cf019d281a7f07595"><span id="index-150"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">pastix_info</span></pre>
 <p>the output flag from pastix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a12ce464e4b92fb3ce21377773cf801ef"><span id="index-151"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">wsmp_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a12ce464e4b92fb3ce21377773cf801ef"><span id="index-151"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">wsmp_error</span></pre>
 <p>the output scalars and arrays from wsmp</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a9dafb01a424625a16f75ba37f96e6067"><span id="index-152"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">wsmp_iparm</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a9dafb01a424625a16f75ba37f96e6067"><span id="index-152"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">wsmp_iparm</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
 <p>see wsmp_error</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1acec90b9af7496ccc0a7fc9fc0dbfb49c"><span id="index-153"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">wsmp_dparm</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span></pre>
 <p>see wsmp_error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ab885ec4629b2033ab17e5ca273739488"><span id="index-154"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mpi_ierr</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1ab885ec4629b2033ab17e5ca273739488"><span id="index-154"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mpi_ierr</span></pre>
 <p>the output flag from MPI routines</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0319e2c4ee2d95fe244f92d276038bd4"><span id="index-155"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lapack_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-1a0319e2c4ee2d95fe244f92d276038bd4"><span id="index-155"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lapack_error</span></pre>
 <p>the output flag from LAPACK routines</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1997,27 +1998,27 @@ A variety of supported  matrix storage formats are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_sls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_sls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="n">maxabsarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="nb">abs</span><span class="o">.</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">maximum</span>
 
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">sls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">sls_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">sls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">sls_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># dimension of A</span>
-  <span class="n">ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># number of entries of A</span>
-  <span class="n">dense_ne</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1"># number of elements of A as a dense matrix</span>
-  <span class="n">row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
-  <span class="n">col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># column indices</span>
-  <span class="n">ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># pointers to indices</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># dimension of A</span>
+  <span class="n">ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># number of entries of A</span>
+  <span class="n">dense_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># number of elements of A as a dense matrix</span>
+  <span class="n">row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
+  <span class="n">col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># pointers to indices</span>
   <span class="n">val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
                   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">rhs</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">31.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">]</span>
   <span class="n">sol</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
   <span class="n">error</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
@@ -2030,7 +2031,7 @@ A variety of supported  matrix storage formats are shown.</p>
 
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
     <span class="c1"># Initialize SLS - use the sytr solver</span>
-    <span class="n">sls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">sls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
@@ -2038,25 +2039,25 @@ A variety of supported  matrix storage formats are shown.</p>
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; coordinate &quot;</span><span class="p">)</span>
-      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                          <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
-      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; sparse by rows &quot;</span><span class="p">)</span>
-      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                          <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">ptr</span><span class="p">)</span>
-      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># dense</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; dense  &quot;</span><span class="p">)</span>
-      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">sls_analyse_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                          <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
-      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
+      <span class="n">sls_factorize_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># Set right-hand side and solve the system</span>
@@ -2064,8 +2065,8 @@ A variety of supported  matrix storage formats are shown.</p>
       <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">end</span>
 
-    <span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
@@ -2089,15 +2090,15 @@ A variety of supported  matrix storage formats are shown.</p>
     <span class="c1"># end</span>
 
     <span class="c1"># resolve, this time using iterative refinement</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">sls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">max_iterative_refinements</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
       <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">end</span>
 
-    <span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">sls_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
@@ -2120,10 +2121,10 @@ A variety of supported  matrix storage formats are shown.</p>
       <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">end</span>
 
-    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">sls_partial_solve_system</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">sls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
@@ -2142,16 +2143,23 @@ A variety of supported  matrix storage formats are shown.</p>
     <span class="n">end</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">sls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">sls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;SLS&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_sls</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_sls</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_sls</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;SLS -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_sls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -2211,7 +2219,7 @@ A variety of supported  matrix storage formats are shown.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sls-control-type-structure">sls_control_type structure</a></li>
@@ -2267,7 +2275,7 @@ A variety of supported  matrix storage formats are shown.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

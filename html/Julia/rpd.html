@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD RPD package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD RPD package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -525,37 +525,38 @@ H_ptr. Once again, only the lower traingle is stored.</p>
 <p>To solve a given problem, functions from the rpd package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span class="std std-ref">rpd_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span class="std std-ref">rpd_get_stats</span></a> - read a given QPLIB file into internal data structures, and report vital statistics</p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span class="std std-ref">rpd_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span class="std std-ref">rpd_get_stats</span></a> - read a given QPLIB file into internal data structures, and report vital statistics</p></li>
 <li><p>(optionally, and in any order, where relevant)</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span class="std std-ref">rpd_get_g</span></a> - get the objective gradient term <span class="math notranslate nohighlight">\(g\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span class="std std-ref">rpd_get_f</span></a> - get the objective constant term <span class="math notranslate nohighlight">\(f\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the variable bounds <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the constraint bounds <span class="math notranslate nohighlight">\(c_l\)</span> and <span class="math notranslate nohighlight">\(c_u\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span class="std std-ref">rpd_get_h</span></a> - get the objective Hessian term <span class="math notranslate nohighlight">\(H\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span class="std std-ref">rpd_get_a</span></a> - get the constrain Jacobian term <span class="math notranslate nohighlight">\(A\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span class="std std-ref">rpd_get_h_c</span></a> - get the constraint Hessian terms <span class="math notranslate nohighlight">\(H_c\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span class="std std-ref">rpd_get_x_type</span></a> - determine the type of each variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span class="std std-ref">rpd_get_x</span></a> - get initial value of the variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span class="std std-ref">rpd_get_y</span></a> - get initial value of Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span class="std std-ref">rpd_get_z</span></a> - get initial value of the dual variables <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span class="std std-ref">rpd_get_g</span></a> - get the objective gradient term <span class="math notranslate nohighlight">\(g\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span class="std std-ref">rpd_get_f</span></a> - get the objective constant term <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the variable bounds <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the constraint bounds <span class="math notranslate nohighlight">\(c_l\)</span> and <span class="math notranslate nohighlight">\(c_u\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span class="std std-ref">rpd_get_h</span></a> - get the objective Hessian term <span class="math notranslate nohighlight">\(H\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span class="std std-ref">rpd_get_a</span></a> - get the constrain Jacobian term <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span class="std std-ref">rpd_get_h_c</span></a> - get the constraint Hessian terms <span class="math notranslate nohighlight">\(H_c\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span class="std std-ref">rpd_get_x_type</span></a> - determine the type of each variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span class="std std-ref">rpd_get_x</span></a> - get initial value of the variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span class="std std-ref">rpd_get_y</span></a> - get initial value of Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span class="std std-ref">rpd_get_z</span></a> - get initial value of the dual variables <span class="math notranslate nohighlight">\(z\)</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span class="std std-ref">rpd_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span class="std std-ref">rpd_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-rpd-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -568,10 +569,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -586,7 +587,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">qplib_file</span><span class="p">,</span><span class="w"> </span><span class="n">qplib_file_len</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">qplib_file</span><span class="p">,</span><span class="w"> </span><span class="n">qplib_file_len</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span>
 <span class="w">                           </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">p_type</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_ne</span><span class="p">)</span></pre>
 <p>Read the data from a specified QPLIB file into internal storage, and report the type of problem encoded, along with problem-specific dimensions.</p>
 <p class="rubric">Parameters:</p>
@@ -600,16 +601,16 @@ status from the package. Possible values are
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the name of the QPLIB file that is to be read.</p></td>
 </tr>
 <tr class="row-even"><td><p>qplib_file_len</p></td>
-<td><p>is a scalar variable of type Int32 that gives the number of characters in the name encoded in qplib_file.</p></td>
+<td><p>is a scalar variable of type INT that gives the number of characters in the name encoded in qplib_file.</p></td>
 </tr>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -678,24 +679,24 @@ respectively.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> stored in the sparse symmetric co-ordinate storage scheme.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> stored in the sparse symmetric co-ordinate storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> stored in the sparse co-ordinate storage scheme.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> stored in the sparse co-ordinate storage scheme.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_c_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> stored in the joint sparse co-ordinate storage scheme.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> stored in the joint sparse co-ordinate storage scheme.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">)</span></pre>
 <p>Recover the linear term <span class="math notranslate nohighlight">\(g\)</span> from in objective function</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -708,7 +709,7 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -725,7 +726,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that gives the linear term <span class="math notranslate nohighlight">\(g\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
@@ -733,7 +734,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span></pre>
 <p>Recover the constant term <span class="math notranslate nohighlight">\(f\)</span> in the objective function.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -746,7 +747,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -768,7 +769,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">)</span></pre>
 <p>Recover the variable lower and upper bounds <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -781,7 +782,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -798,7 +799,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_l</p></td>
 <td><p>is a one-dimensional array of size n and type T that gives the lower bounds <span class="math notranslate nohighlight">\(x_l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\((x_l)_j\)</span>.</p></td>
@@ -809,7 +810,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1aa3b44968b109ed194ed2bb04009f35ac"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1aa3b44968b109ed194ed2bb04009f35ac"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">)</span></pre>
 <p>Recover the constraint lower and upper bounds <span class="math notranslate nohighlight">\(c_l\)</span> and <span class="math notranslate nohighlight">\(c_u\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -822,7 +823,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -839,7 +840,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>c_l</p></td>
 <td><p>is a one-dimensional array of size m and type T that gives the lower bounds <span class="math notranslate nohighlight">\(c_l\)</span> on the constraints <span class="math notranslate nohighlight">\(A x\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">c_l</span></code>, i = 1, … , m, contains <span class="math notranslate nohighlight">\((c_l)_i\)</span>.</p></td>
@@ -850,7 +851,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">h_row</span><span class="p">,</span><span class="w"> </span><span class="n">h_col</span><span class="p">,</span><span class="w"> </span><span class="n">h_val</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">h_row</span><span class="p">,</span><span class="w"> </span><span class="n">h_col</span><span class="p">,</span><span class="w"> </span><span class="n">h_val</span><span class="p">)</span></pre>
 <p>Recover the Hessian term <span class="math notranslate nohighlight">\(H\)</span> in the objective function.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -863,7 +864,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -880,13 +881,13 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>h_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_row</p></td>
-<td><p>is a one-dimensional array of size h_ne and type Int32 that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size h_ne and type INT that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_col</p></td>
-<td><p>is a one-dimensional array of size h_ne and type Int32 that gives the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme.</p></td>
+<td><p>is a one-dimensional array of size h_ne and type INT that gives the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_val</p></td>
 <td><p>is a one-dimensional array of size h_ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme.</p></td>
@@ -894,7 +895,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">a_row</span><span class="p">,</span><span class="w"> </span><span class="n">a_col</span><span class="p">,</span><span class="w"> </span><span class="n">a_val</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">a_row</span><span class="p">,</span><span class="w"> </span><span class="n">a_col</span><span class="p">,</span><span class="w"> </span><span class="n">a_val</span><span class="p">)</span></pre>
 <p>Recover the Jacobian term <span class="math notranslate nohighlight">\(A\)</span> in the constraints.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -907,7 +908,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -924,13 +925,13 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>a_row</p></td>
-<td><p>is a one-dimensional array of size a_ne and type Int32 that gives the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size a_ne and type INT that gives the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_col</p></td>
-<td><p>is a one-dimensional array of size a_ne and type Int32 that gives the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate, storage scheme.</p></td>
+<td><p>is a one-dimensional array of size a_ne and type INT that gives the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate, storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>a_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that gives the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate scheme.</p></td>
@@ -938,7 +939,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_ne</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_ne</span><span class="p">,</span>
 <span class="w">                         </span><span class="n">h_c_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_row</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_col</span><span class="p">,</span><span class="w"> </span><span class="n">h_c_val</span><span class="p">)</span></pre>
 <p>Recover the Hessian terms <span class="math notranslate nohighlight">\(H_c\)</span> in the constraints.</p>
 <p class="rubric">Parameters:</p>
@@ -952,7 +953,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -969,16 +970,16 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>h_c_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_c_ptr</p></td>
-<td><p>is a one-dimensional array of size h_c_ne and type Int32 that gives the constraint indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">joint sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size h_c_ne and type INT that gives the constraint indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">joint sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_c_row</p></td>
-<td><p>is a one-dimensional array of size h_c_ne and type Int32 that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the joint sparse co-ordinate storage scheme.</p></td>
+<td><p>is a one-dimensional array of size h_c_ne and type INT that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the joint sparse co-ordinate storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_c_col</p></td>
-<td><p>is a one-dimensional array of size h_c_ne and type Int32 that gives the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the sparse co-ordinate storage scheme.</p></td>
+<td><p>is a one-dimensional array of size h_c_ne and type INT that gives the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the sparse co-ordinate storage scheme.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_c_val</p></td>
 <td><p>is a one-dimensional array of size h_c_ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H_c\)</span> in the sparse co-ordinate storage scheme.</p></td>
@@ -986,7 +987,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_type</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_type</span><span class="p">)</span></pre>
 <p>Recover the types of the variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -999,7 +1000,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1016,10 +1017,10 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_type</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that specifies the type of each variable <span class="math notranslate nohighlight">\(x\)</span>. Specifically, for j = 1, … , n, x(j) =</p>
+<td><p>is a one-dimensional array of size n and type INT that specifies the type of each variable <span class="math notranslate nohighlight">\(x\)</span>. Specifically, for j = 1, … , n, x(j) =</p>
 <ul class="simple">
 <li><p>0 if variable <span class="math notranslate nohighlight">\(x_j\)</span> is continuous,</p></li>
 <li><p>1 if variable <span class="math notranslate nohighlight">\(x_j\)</span> is integer, and</p></li>
@@ -1030,7 +1031,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span id="index-10"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span id="index-10"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span></pre>
 <p>Recover the initial values of the variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1043,7 +1044,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1060,7 +1061,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that gives the initial values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1068,7 +1069,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span id="index-11"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span id="index-11"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span></pre>
 <p>Recover the initial values of the Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1081,7 +1082,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1098,7 +1099,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>y</p></td>
 <td><p>is a one-dimensional array of size n and type T that gives the initial values <span class="math notranslate nohighlight">\(y\)</span> of the Lagrange multipliers for the general constraints. The j-th component of <code class="docutils literal notranslate"><span class="pre">y</span></code>, j = 1, … , m, contains <span class="math notranslate nohighlight">\(y_j\)</span>.</p></td>
@@ -1106,7 +1107,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span id="index-12"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span id="index-12"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span></pre>
 <p>Recover the initial values of the dual variables <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1119,7 +1120,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1136,7 +1137,7 @@ status from the package. Possible values are:</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-even"><td><p>z</p></td>
 <td><p>is a one-dimensional array of size n and type T that gives the initial values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
@@ -1144,7 +1145,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6deb3fc67d1b4e1d1cd1661af237d6b3"><span id="index-13"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1a6deb3fc67d1b4e1d1cd1661af237d6b3"><span id="index-13"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1157,10 +1158,10 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1175,7 +1176,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span id="index-14"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span id="index-14"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1188,10 +1189,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1204,12 +1205,12 @@ status from the package. Possible values are
 <span id="doxid-structrpd-control-type"></span><span id="index-15"></span><h2>rpd_control_type structure<a class="headerlink" href="#rpd-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">rpd_control_type</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">rpd_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">qplib</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">qplib</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span></pre>
 </section>
@@ -1220,13 +1221,13 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-16"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1ae6020f0898b39b85c5f656161513a1d0"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">qplib</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1ae6020f0898b39b85c5f656161513a1d0"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">qplib</span></pre>
 <p>QPLIB file input stream number.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 gives no output,</p></li>
@@ -1242,12 +1243,12 @@ status from the package. Possible values are
 <span id="doxid-structrpd-inform-type"></span><span id="index-23"></span><h2>rpd_inform_type structure<a class="headerlink" href="#rpd-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">rpd_inform_type</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">rpd_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">io_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">line</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">io_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">line</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">p_type</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span></pre>
 </section>
 <section id="details-structrpd-inform-type">
@@ -1255,7 +1256,7 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1283,13 +1284,13 @@ held in inform.alloc_status and inform.bad_alloc respectively.</p>
 <p>The problem type was not recognised.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation or deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-26"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation or deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a0ae587ad93ebdbad173f9e8475f936b9"><span id="index-27"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">io_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a0ae587ad93ebdbad173f9e8475f936b9"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">io_status</span></pre>
 <p>status from last read attempt</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a41ebd28ef1d7c6ade45642cb6acc1039"><span id="index-28"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">line</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a41ebd28ef1d7c6ade45642cb6acc1039"><span id="index-28"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">line</span></pre>
 <p>number of last line read from i/o file</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a1ed26df99ee0d5be3db580aff3ab5397"><span id="index-29"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">p_type</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span></pre>
 <p>problem type</p>
@@ -1312,36 +1313,36 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_rpd</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_rpd</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">rpd_control_type</span><span class="p">}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">rpd_inform_type</span><span class="p">}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">rpd_control_type</span><span class="p">{</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">rpd_inform_type</span><span class="p">{</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># extend the qplib_file string to include the actual position of the</span>
   <span class="c1"># provided ALLINIT.qplib example file provided as part GALAHAD</span>
   <span class="n">qplib_file</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">ENV</span><span class="p">[</span><span class="s2">&quot;GALAHAD&quot;</span><span class="p">],</span> <span class="s2">&quot;examples&quot;</span><span class="p">,</span> <span class="s2">&quot;ALLINIT.qplib&quot;</span><span class="p">)</span>
   <span class="n">qplib_file_len</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">qplib_file</span><span class="p">)</span>
 
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">h_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">a_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">h_c_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">h_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">a_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">h_c_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
   <span class="n">p_type</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">Cchar</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
   <span class="c1"># Initialize RPD */</span>
-  <span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+  <span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
   <span class="c1"># Set user-defined control options */</span>
   <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># fortran sparse matrix indexing</span>
 
   <span class="c1"># Recover vital statistics from the QPLIB file</span>
-  <span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">qplib_file</span><span class="p">,</span> <span class="n">qplib_file_len</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">p_type</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">,</span>
+  <span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">qplib_file</span><span class="p">,</span> <span class="n">qplib_file_len</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">p_type</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">,</span>
                 <span class="n">h_c_ne</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; QPLIB file is of type </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">Char</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="o">*</span><span class="p">,</span> <span class="n">p_type</span><span class="p">))</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; n = </span><span class="si">%i</span><span class="s2">, m = </span><span class="si">%i</span><span class="s2">, h_ne = </span><span class="si">%i</span><span class="s2">, a_ne = </span><span class="si">%i</span><span class="s2">, h_c_ne = </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">m</span><span class="p">[],</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">a_ne</span><span class="p">[],</span>
@@ -1349,90 +1350,95 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># Recover g</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">g</span><span class="p">)</span>
+  <span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">g</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; g = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
   <span class="c1"># Recover f</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">T</span><span class="p">}()</span>
-  <span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+  <span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; f = </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">[])</span>
 
   <span class="c1"># Recover xlu</span>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
   <span class="n">x_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">)</span>
+  <span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
   <span class="c1"># Recover clu</span>
   <span class="n">c_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
   <span class="n">c_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
-  <span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">)</span>
+  <span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
   <span class="c1"># Recover H</span>
-  <span class="n">h_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
-  <span class="n">h_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
+  <span class="n">h_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
+  <span class="n">h_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
   <span class="n">h_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">h_row</span><span class="p">,</span> <span class="n">h_col</span><span class="p">,</span> <span class="n">h_val</span><span class="p">)</span>
+  <span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">h_row</span><span class="p">,</span> <span class="n">h_col</span><span class="p">,</span> <span class="n">h_val</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_row, h_col, h_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_ne</span><span class="p">[]</span>
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
   <span class="n">end</span>
 
   <span class="c1"># Recover A</span>
-  <span class="n">a_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
-  <span class="n">a_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
+  <span class="n">a_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
+  <span class="n">a_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
   <span class="n">a_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[],</span> <span class="n">a_row</span><span class="p">,</span> <span class="n">a_col</span><span class="p">,</span> <span class="n">a_val</span><span class="p">)</span>
+  <span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[],</span> <span class="n">a_row</span><span class="p">,</span> <span class="n">a_col</span><span class="p">,</span> <span class="n">a_val</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; a_row, a_col, a_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">a_ne</span><span class="p">[]</span>
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
   <span class="n">end</span>
 
   <span class="c1"># Recover H_c</span>
-  <span class="n">h_c_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">h_c_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">h_c_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+  <span class="n">h_c_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+  <span class="n">h_c_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+  <span class="n">h_c_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
   <span class="n">h_c_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[],</span> <span class="n">h_c_ptr</span><span class="p">,</span> <span class="n">h_c_row</span><span class="p">,</span> <span class="n">h_c_col</span><span class="p">,</span> <span class="n">h_c_val</span><span class="p">)</span>
+  <span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[],</span> <span class="n">h_c_ptr</span><span class="p">,</span> <span class="n">h_c_row</span><span class="p">,</span> <span class="n">h_c_col</span><span class="p">,</span> <span class="n">h_c_val</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_c_row, h_c_col, h_c_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_c_ne</span><span class="p">[]</span>
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_c_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
   <span class="n">end</span>
 
   <span class="c1"># Recover x_type</span>
-  <span class="n">x_type</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_type</span><span class="p">)</span>
+  <span class="n">x_type</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+  <span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_type</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_type = </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
           <span class="n">x_type</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
   <span class="c1"># Recover x</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x</span><span class="p">)</span>
+  <span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
   <span class="c1"># Recover y</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
-  <span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">y</span><span class="p">)</span>
+  <span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">y</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; y = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
   <span class="c1"># Recover z</span>
   <span class="n">z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">z</span><span class="p">)</span>
+  <span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">z</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; z = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
   <span class="c1"># Delete internal workspace</span>
-  <span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+  <span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;RPD&quot;</span> <span class="n">begin</span>
-  <span class="k">if</span> <span class="n">haskey</span><span class="p">(</span><span class="n">ENV</span><span class="p">,</span> <span class="s2">&quot;GALAHAD&quot;</span><span class="p">)</span>
-    <span class="nd">@test</span> <span class="n">test_rpd</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="nd">@test</span> <span class="n">test_rpd</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="nd">@test</span> <span class="n">test_rpd</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">haskey</span><span class="p">(</span><span class="n">ENV</span><span class="p">,</span> <span class="s2">&quot;GALAHAD&quot;</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;RPD -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_rpd</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
   <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
@@ -1491,7 +1497,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rpd-control-type-structure">rpd_control_type structure</a></li>
@@ -1542,7 +1548,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

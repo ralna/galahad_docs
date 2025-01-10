@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD BLLSB package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD BLLSB package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -614,26 +614,27 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the bllsb package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bllsb-examples"><span class="std std-ref">examples</span></a> section for illustrations
 of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -646,10 +647,10 @@ of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -664,7 +665,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.
 An in-depth discussion of specification files is
@@ -681,7 +682,7 @@ components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -689,7 +690,7 @@ components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span id="index-2"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span id="index-2"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
 <span class="w">                      </span><span class="n">Ao_type</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_row</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_col</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr</span><span class="w"> </span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
@@ -700,13 +701,13 @@ components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><p><strong>0</strong>
@@ -735,33 +736,33 @@ been violated.</p></li>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>o</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of residuals.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <span class="xref std std-ref">unsymmetric storage scheme</span> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_row</p></td>
-<td><p>is a one-dimensional array of size Ao_ne and type Int32 that holds the row indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and sparse column-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size Ao_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and sparse column-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_col</p></td>
-<td><p>is a one-dimensional array of size Ao_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and the sparse row-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size Ao_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and the sparse row-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_ptr_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the length of the pointer array if sparse row or column storage scheme is used for <span class="math notranslate nohighlight">\(A_o\)</span>. For the sparse row scheme,  Ao_ptr_ne should be at least o+1, while for the sparse column scheme,  it should be at least n+1, It need not be set when the other schemes are used.</p></td>
+<td><p>is a scalar variable of type INT that holds the length of the pointer array if sparse row or column storage scheme is used for <span class="math notranslate nohighlight">\(A_o\)</span>. For the sparse row scheme,  Ao_ptr_ne should be at least o+1, while for the sparse column scheme,  it should be at least n+1, It need not be set when the other schemes are used.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each column of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type INT that holds the starting position of each column of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -771,13 +772,13 @@ been violated.</p></li>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><p><strong>0</strong>
@@ -788,7 +789,7 @@ The import was successful.</p></li>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
 <span class="w">                          </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
 <span class="w">                          </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
 <p>Solve the linearly-constrained regularized linear least-squares problem.</p>
@@ -803,7 +804,7 @@ The import was successful.</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
@@ -861,13 +862,13 @@ be symptomatic of a badly scaled problem.</p></li>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>o</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of residulas.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residulas.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the objectve design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the objectve design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_val</p></td>
 <td><p>is a one-dimensional array of size Ao_ne and type T that holds the values of the entries of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> in any of the available storage schemes.</p></td>
@@ -894,7 +895,7 @@ be symptomatic of a badly scaled problem.</p></li>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>w</p></td>
 <td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of strictly-positive observation weights. The i-th component of w, i = 0, … , o-1, contains <span class="math notranslate nohighlight">\(w_i\)</span>. If the weights are all one, w can be set to C_NULL.</p></td>
@@ -902,7 +903,7 @@ be symptomatic of a badly scaled problem.</p></li>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span id="index-5"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span id="index-5"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -915,10 +916,10 @@ be symptomatic of a badly scaled problem.</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bllsb_inform_type.html#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -930,7 +931,7 @@ The values were recorded successfully</p></li>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span id="index-6"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span id="index-6"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -943,10 +944,10 @@ The values were recorded successfully</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bllsb_inform_type.html#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -959,22 +960,22 @@ The values were recorded successfully</p></li>
 <span id="doxid-structbllsb-control-type"></span><span id="index-7"></span><h2>bllsb_control_type structure<a class="headerlink" href="#bllsb-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bllsb_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bllsb_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">infeas_max</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">muzero_fixed</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">restore_problem</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">indicator_type</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">arc</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">series_order</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">sif_file_device</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">qplib_file_device</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">infeas_max</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">muzero_fixed</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">restore_problem</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">indicator_type</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">arc</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">series_order</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">sif_file_device</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">qplib_file_device</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_abs_p</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_rel_p</span><span class="o">::</span><span class="kt">T</span>
@@ -1014,12 +1015,12 @@ The values were recorded successfully</p></li>
 <span class="w">      </span><span class="n">sif_file_name</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">qplib_file_name</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_pounce_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fit_control</span><span class="o">::</span><span class="kt">fit_control_type</span>
-<span class="w">      </span><span class="n">roots_control</span><span class="o">::</span><span class="kt">roots_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">cro_control</span><span class="o">::</span><span class="kt">cro_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_pounce_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">fit_control</span><span class="o">::</span><span class="kt">fit_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">roots_control</span><span class="o">::</span><span class="kt">roots_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">cro_control</span><span class="o">::</span><span class="kt">cro_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structbllsb-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1028,11 +1029,11 @@ The values were recorded successfully</p></li>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-8"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 gives no output,</p></li>
@@ -1040,31 +1041,31 @@ The values were recorded successfully</p></li>
 <li><p>= 2 gives a summary of the inner iteration for each iteration,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\geq\)</span> 3 gives increasingly verbose (debugging) output</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">start_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
 <p>any printing will start on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
 <p>any printing will stop on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>at most maxit inner iterations are allowed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1af7d33b88b67b2366d7e2df31d42083a9"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">infeas_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1af7d33b88b67b2366d7e2df31d42083a9"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">infeas_max</span></pre>
 <p>the number of iterations for which the overall infeasibility of the problem is not reduced by at least a factor .reduce_infeas before the problem is flagged as infeasible (see reduce_infeas)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ab62ab11b934e2380467d5bafe2aaacfb"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">muzero_fixed</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1ab62ab11b934e2380467d5bafe2aaacfb"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">muzero_fixed</span></pre>
 <p>the initial value of the barrier parameter will not be changed for the first muzero_fixed iterations</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a19f10912888ac7ebd153fb21baaeaefa"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">restore_problem</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a19f10912888ac7ebd153fb21baaeaefa"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">restore_problem</span></pre>
 <p>indicate whether and how much of the input problem should be restored on output. Possible values are</p>
 <ul class="simple">
 <li><p>0 nothing restored</p></li>
 <li><p>1 scalar and vector parameters</p></li>
 <li><p>2 all parameters</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a5abba51271587463f528b0cbdb478141"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">indicator_type</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a5abba51271587463f528b0cbdb478141"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">indicator_type</span></pre>
 <p>specifies the type of indicator function used. Possible values are</p>
 <ul class="simple">
 <li><p>1 primal indicator: a constraint is active if and only if the distance to its nearest bound <span class="math notranslate nohighlight">\(\leq\)</span>.indicator_p_tol</p></li>
 <li><p>2 primal-dual indicator: a constraint is active if and only if the distance to its nearest bound <span class="math notranslate nohighlight">\(\leq\)</span>.indicator_tol_pd \* size of corresponding multiplier</p></li>
 <li><p>3 primal-dual indicator: a constraint is active if and only if the distance to its nearest bound <span class="math notranslate nohighlight">\(\leq\)</span>.indicator_tol_tapia \* distance to same bound at previous iteration</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a30b5726116ac85ea64777e5d6e333894"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">arc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a30b5726116ac85ea64777e5d6e333894"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">arc</span></pre>
 <p>which residual trajectory should be used to aim from the current iterate to the solution. Possible values are</p>
 <ul class="simple">
 <li><p>1 the Zhang linear residual trajectory</p></li>
@@ -1073,11 +1074,11 @@ The values were recorded successfully</p></li>
 <li><p>4 the mixed linear-quadratic residual trajectory</p></li>
 <li><p>5 the Zhang arc ultimately switching to the mixed linear-quadratic residual trajectory</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a67cdd80087746b1190369ae6ed303b25"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">series_order</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a67cdd80087746b1190369ae6ed303b25"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">series_order</span></pre>
 <p>the order of (Taylor/Puiseux) series to fit to the path data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sif_file_device</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a65c6f8382f1e75cd0b8abd5d148188d0"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sif_file_device</span></pre>
 <p>specifies the unit number to write generated SIF file describing the current problem</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a580c343e54a25a2d687782410c9b6917"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">qplib_file_device</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a580c343e54a25a2d687782410c9b6917"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">qplib_file_device</span></pre>
 <p>specifies the unit number to write generated QPLIB file describing the current problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-23"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
 <p>any bound larger than infinity in modulus will be regarded as infinite</p>
@@ -1157,17 +1158,17 @@ The values were recorded successfully</p></li>
 <p>name of generated QPLIB file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-61"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a04ba974b3c8d21137deb070d0e8dfc3b"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a04ba974b3c8d21137deb070d0e8dfc3b"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
 <p>control parameters for SLS pounce</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a4b2e99077c510333b6b2a6f0b59114b9"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fit.html#doxid-structfit-control-type"><span class="std std-ref">fit_control_type</span></a><span></span><span class="w"> </span><span class="n">fit_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a4b2e99077c510333b6b2a6f0b59114b9"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fit_control_type.html#doxid-structfit-control-type"><span class="std std-ref">fit_control_type</span></a><span></span><span class="w"> </span><span class="n">fit_control</span></pre>
 <p>control parameters for FIT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a08df6708e7b5364ff3e8fbde29f29014"><span id="index-66"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="roots.html#doxid-structroots-control-type"><span class="std std-ref">roots_control_type</span></a><span></span><span class="w"> </span><span class="n">roots_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a08df6708e7b5364ff3e8fbde29f29014"><span id="index-66"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_roots_control_type.html#doxid-structroots-control-type"><span class="std std-ref">roots_control_type</span></a><span></span><span class="w"> </span><span class="n">roots_control</span></pre>
 <p>control parameters for ROOTS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a7fbe482405119bceefb8480356d6bd43"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="cro.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a><span></span><span class="w"> </span><span class="n">cro_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-1a7fbe482405119bceefb8480356d6bd43"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_control_type.html#doxid-structcro-control-type"><span class="std std-ref">cro_control_type</span></a><span></span><span class="w"> </span><span class="n">cro_control</span></pre>
 <p>control parameters for CRO</p>
 </section>
 </section>
@@ -1224,58 +1225,58 @@ The values were recorded successfully</p></li>
 <span id="doxid-structbllsb-inform-type"></span><span id="index-81"></span><h2>bllsb_inform_type structure<a class="headerlink" href="#bllsb-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bllsb_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bllsb_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
-<span class="w">      </span><span class="n">nfacts</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nbacts</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">threads</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">nfacts</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nbacts</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">threads</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">primal_infeasibility</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">dual_infeasibility</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">complementary_slackness</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">non_negligible_pivot</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">feasible</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">checkpointsIter</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">}</span>
+<span class="w">      </span><span class="n">checkpointsIter</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">checkpointsTime</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">bllsb_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_pounce_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fit_inform</span><span class="o">::</span><span class="kt">fit_inform_type</span>
-<span class="w">      </span><span class="n">roots_inform</span><span class="o">::</span><span class="kt">roots_inform_type</span>
-<span class="w">      </span><span class="n">cro_inform</span><span class="o">::</span><span class="kt">cro_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">rpd_inform</span><span class="o">::</span><span class="kt">rpd_inform_type</span></pre>
+<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sls_pounce_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">fit_inform</span><span class="o">::</span><span class="kt">fit_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">roots_inform</span><span class="o">::</span><span class="kt">roots_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">cro_inform</span><span class="o">::</span><span class="kt">cro_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">rpd_inform</span><span class="o">::</span><span class="kt">rpd_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structbllsb-inform-type">
 <span id="id15"></span><h2>detailed documentation<a class="headerlink" href="#details-structbllsb-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id16">
 <h3>components<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-82"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See BLLSB_solve for details.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-83"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-84"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-85"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-85"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-86"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-86"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
 <p>the return status from the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a29cd3a5b0f30227170f825116d9ade9e"><span id="index-87"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_integer</span></pre>
 <p>the total integer workspace required for the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1ad73643c24d3cd34c356c3ccd2ebfb1cc"><span id="index-88"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_real</span></pre>
 <p>the total real workspace required for the factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1af54a1b17cb663c1e89a5bcd5f1e9961f"><span id="index-89"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nfacts</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1af54a1b17cb663c1e89a5bcd5f1e9961f"><span id="index-89"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nfacts</span></pre>
 <p>the total number of factorizations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4b9a11ae940f04846c342978808696d6"><span id="index-90"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nbacts</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4b9a11ae940f04846c342978808696d6"><span id="index-90"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nbacts</span></pre>
 <p>the total number of “wasted” function evaluations during the linesearch</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4f987a98d3e1221916748962e45399fe"><span id="index-91"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">threads</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a4f987a98d3e1221916748962e45399fe"><span id="index-91"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">threads</span></pre>
 <p>the number of threads used</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-92"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the objective function at the best estimate of the solution determined by BLLSB_solve</p>
@@ -1297,25 +1298,25 @@ The values were recorded successfully</p></li>
 <p>the smallest pivot which was not judged to be zero when detecting linear dependent constraints</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1aa43a71eb35dd7b8676c0b6236ceee321"><span id="index-101"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">feasible</span></pre>
 <p>is the returned “solution” feasible?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1acb0789a29239327ab8a4e929e0fbc65b"><span id="index-102"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">checkpointsIter</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1acb0789a29239327ab8a4e929e0fbc65b"><span id="index-102"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">checkpointsIter</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span></pre>
 <p>checkpoints(i) records the iteration at which the criticality measures first fall below <span class="math notranslate nohighlight">\(10^{-i-1}\)</span>, i = 0, …, 15 (-1 means not achieved)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1af2d3b92abc0ea9392d412ab45438eeb9"><span id="index-103"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">checkpointsTime</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span></pre>
 <p>see checkpointsIter</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a437e235d4db7a908d3a2bdef228584a7"><span id="index-104"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbllsb-time-type"><span class="std std-ref">bllsb_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a437e235d4db7a908d3a2bdef228584a7"><span id="index-104"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bllsb_time_type.html#doxid-structbllsb-time-type"><span class="std std-ref">bllsb_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-105"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-105"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-106"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-106"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a7e7617645ca9908f4f75e5216bb7cf69"><span id="index-107"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a7e7617645ca9908f4f75e5216bb7cf69"><span id="index-107"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_inform</span></pre>
 <p>inform parameters for SLS pounce</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1ac6efa45e989564727014956bf3e00deb"><span id="index-108"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fit.html#doxid-structfit-inform-type"><span class="std std-ref">fit_inform_type</span></a><span></span><span class="w"> </span><span class="n">fit_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1ac6efa45e989564727014956bf3e00deb"><span id="index-108"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fit_inform_type.html#doxid-structfit-inform-type"><span class="std std-ref">fit_inform_type</span></a><span></span><span class="w"> </span><span class="n">fit_inform</span></pre>
 <p>return information from FIT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a68574d04a336f7be88a151fa8b975885"><span id="index-109"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="roots.html#doxid-structroots-inform-type"><span class="std std-ref">roots_inform_type</span></a><span></span><span class="w"> </span><span class="n">roots_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a68574d04a336f7be88a151fa8b975885"><span id="index-109"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_roots_inform_type.html#doxid-structroots-inform-type"><span class="std std-ref">roots_inform_type</span></a><span></span><span class="w"> </span><span class="n">roots_inform</span></pre>
 <p>return information from ROOTS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a594c21272a0c3d75d5ffa712f1d8f971"><span id="index-110"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="cro.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a><span></span><span class="w"> </span><span class="n">cro_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a594c21272a0c3d75d5ffa712f1d8f971"><span id="index-110"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a><span></span><span class="w"> </span><span class="n">cro_inform</span></pre>
 <p>inform parameters for CRO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a823701505feea7615e9f8995769d8b60"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rpd.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-1a823701505feea7615e9f8995769d8b60"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
 <p>inform parameters for RPD</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1338,15 +1339,15 @@ are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_bllsb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_bllsb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bllsb_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bllsb_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bllsb_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bllsb_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension</span>
-  <span class="n">o</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of observations</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># dimension</span>
+  <span class="n">o</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># number of observations</span>
   <span class="n">sigma</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="c1"># regularization weight</span>
   <span class="n">b</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># observations</span>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">]</span>  <span class="c1"># variable lower bound</span>
@@ -1355,16 +1356,16 @@ are shown.</p>
 
   <span class="c1"># Set output storage</span>
   <span class="n">r</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span> <span class="c1"># residual values</span>
-  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
+  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of bllsb storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
     <span class="c1"># Initialize BLLSB</span>
-    <span class="n">bllsb_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">bllsb_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
@@ -1381,14 +1382,14 @@ are shown.</p>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;CO&quot;</span>
       <span class="n">Ao_ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># objective Jacobian elements</span>
-      <span class="n">Ao_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># row indices</span>
-      <span class="n">Ao_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># column indices</span>
+      <span class="n">Ao_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># row indices</span>
+      <span class="n">Ao_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># column indices</span>
       <span class="n">Ao_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># vals</span>
 
-      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
+      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1397,16 +1398,16 @@ are shown.</p>
       <span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;SR&quot;</span>
 
       <span class="n">Ao_ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># objective Jacobian elements</span>
-      <span class="n">Ao_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># column indices</span>
+      <span class="n">Ao_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># column indices</span>
       <span class="n">Ao_ptr_ne</span> <span class="o">=</span> <span class="n">o</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># number of row pointers</span>
-      <span class="n">Ao_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+      <span class="n">Ao_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># row pointers</span>
       <span class="n">Ao_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># vals</span>
 
-      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
+      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span>
                    <span class="n">Ao_ptr_ne</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1414,16 +1415,16 @@ are shown.</p>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;SC&quot;</span>
       <span class="n">Ao_ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># objective Jacobian elements</span>
-      <span class="n">Ao_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices</span>
+      <span class="n">Ao_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices</span>
       <span class="n">Ao_ptr_ne</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># number of column pointers</span>
-      <span class="n">Ao_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># column pointers</span>
+      <span class="n">Ao_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># column pointers</span>
       <span class="n">Ao_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># vals</span>
 
-      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
+      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;sparse_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                    <span class="n">Ao_ptr_ne</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1432,10 +1433,10 @@ are shown.</p>
       <span class="n">Ao_ne</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># objective Jacobian elements</span>
       <span class="n">Ao_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
-      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
+      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">end</span>
 
@@ -1444,14 +1445,14 @@ are shown.</p>
       <span class="n">Ao_ne</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># objective Jacobian elements</span>
       <span class="n">Ao_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
-      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
+      <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;dense_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">bllsb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">bllsb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:</span><span class="si">%6i</span><span class="s2"> iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span>
@@ -1472,16 +1473,23 @@ are shown.</p>
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">bllsb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">bllsb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;BLLSB&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;BLLSB -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_bllsb</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1541,7 +1549,7 @@ are shown.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bllsb-control-type-structure">bllsb_control_type structure</a></li>
@@ -1597,7 +1605,7 @@ are shown.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

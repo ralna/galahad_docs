@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD DGO package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD DGO package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -558,33 +558,34 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the dgo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span class="std std-ref">dgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span class="std std-ref">dgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span class="std std-ref">dgo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span class="std std-ref">dgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span class="std std-ref">dgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span class="std std-ref">dgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span class="std std-ref">dgo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span class="std std-ref">dgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span class="std std-ref">dgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span class="std std-ref">dgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span class="std std-ref">dgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span class="std std-ref">dgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span class="std std-ref">dgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span class="std std-ref">dgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span class="std std-ref">dgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span class="std std-ref">dgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span class="std std-ref">dgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span class="std std-ref">dgo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span class="std std-ref">dgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span class="std std-ref">dgo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-dgo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -597,10 +598,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -613,7 +614,7 @@ illustrations of use.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -630,7 +631,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -638,7 +639,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
@@ -649,13 +650,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -696,7 +697,7 @@ violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables**</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables**</p></td>
 </tr>
 <tr class="row-odd"><td><p>x_l</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x^l\)</span> of the lower bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of x_l, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
@@ -708,21 +709,21 @@ violated.</p>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="tru.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_row</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the row indices of the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-even"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the column indices of the lower triangular part of H in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of H, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -732,13 +733,13 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -753,7 +754,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span>
 <span class="w">                                </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_h</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given function
 subject to simple bounds on the variables using a partition-and-bound
@@ -775,7 +776,7 @@ function calls.</p>
 <td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -883,7 +884,7 @@ function, but there are unfortunately no guarantees.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -892,7 +893,7 @@ function, but there are unfortunately no guarantees.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>eval_f</p></td>
 <td><p>is a user-supplied function that must have the
@@ -948,7 +949,7 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
 <span class="w">                                   </span><span class="n">eval_f</span><span class="p">,</span><span class="w"> </span><span class="n">eval_g</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hprod</span><span class="p">,</span>
 <span class="w">                                   </span><span class="n">eval_shprod</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given function
@@ -971,7 +972,7 @@ information is available by function calls.</p>
 <td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1072,7 +1073,7 @@ function, but there are unfortunately no guarantees.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1156,7 +1157,7 @@ may be passed into <code class="docutils literal notranslate"><span class="pre">
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_reverse_with_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given function
 subject to simple bounds on the variables using a partition-and-bound
@@ -1175,7 +1176,7 @@ returning to the calling procedure</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1372,10 +1373,10 @@ eval_status to a non-zero value.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type Int32 that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
+<td><p>is a scalar variable of type INT that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1387,7 +1388,7 @@ eval_status to a non-zero value.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -1401,7 +1402,7 @@ eval_status to a non-zero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_solve_reverse_without_mat</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                            </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">index_nz_v</span><span class="p">,</span>
 <span class="w">                                            </span><span class="n">nnz_v</span><span class="p">,</span><span class="w"> </span><span class="n">index_nz_u</span><span class="p">,</span><span class="w"> </span><span class="n">nnz_u</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given function
@@ -1421,7 +1422,7 @@ is only available by returning to the calling procedure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -1620,10 +1621,10 @@ should then set eval_status to a non-zero value.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type Int32 that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
+<td><p>is a scalar variable of type INT that is used to indicate if objective function/gradient/Hessian values can be provided (see above)</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1641,21 +1642,21 @@ should then set eval_status to a non-zero value.</p>
 <td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=5,6,7 above for details)</p></td>
 </tr>
 <tr class="row-even"><td><p>index_nz_v</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that is used for reverse communication (see status=7 above for details)</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=7 above for details)</p></td>
 </tr>
 <tr class="row-odd"><td><p>nnz_v</p></td>
-<td><p>is a scalar variable of type Int32 that is used for reverse communication (see status=7 above for details)</p></td>
+<td><p>is a scalar variable of type INT that is used for reverse communication (see status=7 above for details)</p></td>
 </tr>
 <tr class="row-even"><td><p>index_nz_u</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that is used for reverse communication (see status=7 above for details)</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=7 above for details)</p></td>
 </tr>
 <tr class="row-odd"><td><p>nnz_u</p></td>
-<td><p>is a scalar variable of type Int32 that is used for reverse communication (see status=7 above for details). On initial (status=1) entry, nnz_u should be set to an (arbitrary) nonzero value, and nnz_u=0 is recommended</p></td>
+<td><p>is a scalar variable of type INT that is used for reverse communication (see status=7 above for details). On initial (status=1) entry, nnz_u should be set to an (arbitrary) nonzero value, and nnz_u=0 is recommended</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1668,10 +1669,10 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dgo_inform_type.html#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -1684,7 +1685,7 @@ should then set eval_status to a non-zero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">dgo_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1697,10 +1698,10 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dgo_inform_type.html#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1713,18 +1714,18 @@ should then set eval_status to a non-zero value.</p>
 <span id="doxid-structdgo-control-type"></span><span id="index-10"></span><h2>dgo_control_type structure<a class="headerlink" href="#dgo-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dgo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dgo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_evals</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">dictionary_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_evals</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">dictionary_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">lipschitz_lower_bound</span><span class="o">::</span><span class="kt">T</span>
@@ -1741,9 +1742,9 @@ should then set eval_status to a non-zero value.</p>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">hash_control</span><span class="o">::</span><span class="kt">hash_control_type</span>
-<span class="w">      </span><span class="n">ugo_control</span><span class="o">::</span><span class="kt">ugo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">trb_control</span><span class="o">::</span><span class="kt">trb_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">hash_control</span><span class="o">::</span><span class="kt">hash_control_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ugo_control</span><span class="o">::</span><span class="kt">ugo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">trb_control</span><span class="o">::</span><span class="kt">trb_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structdgo-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1752,11 +1753,11 @@ should then set eval_status to a non-zero value.</p>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required. Possible values are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 no output,</p></li>
@@ -1764,19 +1765,19 @@ should then set eval_status to a non-zero value.</p>
 <li><p>2 a summary of each iteration</p></li>
 <li><p><span class="math notranslate nohighlight">\(\geq\)</span> 3 increasingly verbose (debugging) output</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">start_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
 <p>any printing will start on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
 <p>any printing will stop on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_gap</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_gap</span></pre>
 <p>the number of iterations between printing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>the maximum number of iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a19d3bb811675792cbe138aef2d1c6603"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_evals</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a19d3bb811675792cbe138aef2d1c6603"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_evals</span></pre>
 <p>the maximum number of function evaluations made</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1addc1a8bfd11b88c80efa2f03acd833bf"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dictionary_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1addc1a8bfd11b88c80efa2f03acd833bf"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dictionary_size</span></pre>
 <p>the size of the initial hash dictionary</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alive_unit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alive_unit</span></pre>
 <p>removal of the file alive_file from unit alive_unit terminates execution</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1ac631699a26f321b14dbed37115f3c006"><span id="index-22"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">alive_file</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>see alive_unit</p>
@@ -1813,7 +1814,7 @@ should then set eval_status to a non-zero value.</p>
 <p>if .deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-37"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a00007ea491013c422add9f9a1a336860"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="hash.html#doxid-structhash-control-type"><span class="std std-ref">hash_control_type</span></a><span></span><span class="w"> </span><span class="n">hash_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a00007ea491013c422add9f9a1a336860"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hash_control_type.html#doxid-structhash-control-type"><span class="std std-ref">hash_control_type</span></a><span></span><span class="w"> </span><span class="n">hash_control</span></pre>
 <p>control parameters for HASH</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-control-type-1a750a67a99a91211b1c9521111a471960"><span id="index-39"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ugo.html#doxid-structugo-control-type"><span class="std std-ref">ugo_control_type</span></a><span></span><span class="w"> </span><span class="n">ugo_control</span></pre>
 <p>control parameters for UGO</p>
@@ -1856,42 +1857,42 @@ should then set eval_status to a non-zero value.</p>
 <span id="doxid-structdgo-inform-type"></span><span id="index-48"></span><h2>dgo_inform_type structure<a class="headerlink" href="#dgo-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dgo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">dgo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">norm_pg</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">length_ratio</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">f_gap</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">why_stop</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">dgo_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">hash_inform</span><span class="o">::</span><span class="kt">hash_inform_type</span>
-<span class="w">      </span><span class="n">ugo_inform</span><span class="o">::</span><span class="kt">ugo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">trb_inform</span><span class="o">::</span><span class="kt">trb_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">hash_inform</span><span class="o">::</span><span class="kt">hash_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ugo_inform</span><span class="o">::</span><span class="kt">ugo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">trb_inform</span><span class="o">::</span><span class="kt">trb_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structdgo-inform-type">
 <span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structdgo-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id8">
 <h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-49"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-49"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See DGO_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-50"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-50"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-51"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-52"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-52"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-53"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">f_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-53"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">f_eval</span></pre>
 <p>the total number of evaluations of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-54"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">g_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-54"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">g_eval</span></pre>
 <p>the total number of evaluations of the gradient of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-55"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">h_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-55"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">h_eval</span></pre>
 <p>the total number of evaluations of the Hessian of the objective function</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-56"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the objective function at the best estimate of the solution determined by DGO_solve</p>
@@ -1903,9 +1904,9 @@ should then set eval_status to a non-zero value.</p>
 <p>the gap between the best objective value found and the lowest bound</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aa59a8565c1e8326a5e51ad319778042c"><span id="index-60"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">why_stop</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></pre>
 <p>why did the iteration stop? This wil be ‘D’ if the box length is small enough, ‘F’ if the objective gap is small enough, and ‘ ‘ otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a46152da6b6a2aecc3da098819a6a81ac"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structdgo-time-type"><span class="std std-ref">dgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a46152da6b6a2aecc3da098819a6a81ac"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dgo_time_type.html#doxid-structdgo-time-type"><span class="std std-ref">dgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a06ea21c222dde5731d218b41438f5c69"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="hash.html#doxid-structhash-inform-type"><span class="std std-ref">hash_inform_type</span></a><span></span><span class="w"> </span><span class="n">hash_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a06ea21c222dde5731d218b41438f5c69"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hash_inform_type.html#doxid-structhash-inform-type"><span class="std std-ref">hash_inform_type</span></a><span></span><span class="w"> </span><span class="n">hash_inform</span></pre>
 <p>inform parameters for HASH</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a51109e95a1bf5edbca5d7d1279b5a554"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ugo.html#doxid-structugo-inform-type"><span class="std std-ref">ugo_inform_type</span></a><span></span><span class="w"> </span><span class="n">ugo_inform</span></pre>
 <p>inform parameters for UGO</p>
@@ -1937,10 +1938,10 @@ struct userdata_dgo{T}
   mag::T
 end
 
-function test_dgo(::Type{T}) where T
+function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
 
   # Objective function
-  function fun(n::Int, x::Vector{T}, f::Ref{T}, userdata::userdata_dgo)
+  function fun(x::Vector{T}, f::Ref{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1949,7 +1950,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Gradient of the objective
-  function grad(n::Int, x::Vector{T}, g::Vector{T}, userdata::userdata_dgo)
+  function grad(x::Vector{T}, g::Vector{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1960,8 +1961,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Hessian of the objective
-  function hess(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
-                userdata::userdata_dgo)
+  function hess(x::Vector{T}, hval::Vector{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1973,8 +1973,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Dense Hessian
-  function hess_dense(n::Int, ne::Int, x::Vector{T}, hval::Vector{T},
-                      userdata::userdata_dgo)
+  function hess_dense(x::Vector{T}, hval::Vector{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1987,8 +1986,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Hessian-vector product
-  function hessprod(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                    got_h::Bool, userdata::userdata_dgo)
+  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1999,8 +1997,8 @@ function test_dgo(::Type{T}) where T
   end
 
   # Sparse Hessian-vector product
-  function shessprod(n::Int, x::Vector{T}, nnz_v::Cint, index_nz_v::Vector{Cint},
-                     v::Vector{T}, nnz_u::Ref{Cint}, index_nz_u::Vector{Cint},
+  function shessprod(x::Vector{T}, nnz_v::INT, index_nz_v::Vector{INT},
+                     v::Vector{T}, nnz_u::Ref{INT}, index_nz_u::Vector{INT},
                      u::Vector{T}, got_h::Bool, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
@@ -2041,8 +2039,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Apply preconditioner
-  function prec(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                userdata::userdata_dgo)
+  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T}, userdata::userdata_dgo)
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
     u[3] = 0.25 * v[3]
@@ -2050,7 +2047,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Objective function
-  function fun_diag(n::Int, x::Vector{T}, f::Ref{T}, userdata)
+  function fun_diag(x::Vector{T}, f::Ref{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -2060,7 +2057,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Gradient of the objective
-  function grad_diag(n::Int, x::Vector{T}, g::Vector{T}, userdata)
+  function grad_diag(x::Vector{T}, g::Vector{T}, userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -2072,7 +2069,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Hessian of the objective
-  function hess_diag(n::Int, ne::Int, x::Vector{T}, hval::Vector{T}, userdata)
+  function hess_diag(x::Vector{T}, hval::Vector{T}, userdata::userdata_dgo)
     freq = userdata.freq
     mag = userdata.mag
 
@@ -2083,8 +2080,7 @@ function test_dgo(::Type{T}) where T
   end
 
   # Hessian-vector product
-  function hessprod_diag(n::Int, x::Vector{T}, u::Vector{T}, v::Vector{T},
-                         got_h::Bool, userdata)
+  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_dgo)
     freq = userdata.freq
     mag = userdata.mag
 
@@ -2095,8 +2091,8 @@ function test_dgo(::Type{T}) where T
   end
 
   # Sparse Hessian-vector product
-  function shessprod_diag(n::Int, x::Vector{T}, nnz_v::Cint, index_nz_v::Vector{Cint},
-                          v::Vector{T}, nnz_u::Ref{Cint}, index_nz_u::Vector{Cint},
+  function shessprod_diag(x::Vector{T}, nnz_v::INT, index_nz_v::Vector{INT},
+                          v::Vector{T}, nnz_u::Ref{INT}, index_nz_u::Vector{INT},
                           u::Vector{T}, got_h::Bool, userdata)
     freq = userdata.freq
     mag = userdata.mag
@@ -2129,51 +2125,51 @@ function test_dgo(::Type{T}) where T
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{dgo_control_type{T}}()
-  inform = Ref{dgo_inform_type{T}}()
+  control = Ref{dgo_control_type{T,INT}}()
+  inform = Ref{dgo_inform_type{T,INT}}()
 
   # Set user data
   userdata = userdata_dgo(4.0, 10.0, 1000.0)
 
   # Set problem data
-  n = 3 # dimension
-  ne = 5 # Hesssian elements
+  n = INT(3)  # dimension
+  ne = INT(5)  # Hesssian elements
   x_l = T[-10, -10, -10]
   x_u = T[0.5, 0.5, 0.5]
-  H_row = Cint[1, 2, 3, 3, 3]  # Hessian H
-  H_col = Cint[1, 2, 1, 2, 3]  # NB lower triangle
-  H_ptr = Cint[1, 2, 3, 6]  # row pointers
+  H_row = INT[1, 2, 3, 3, 3]  # Hessian H
+  H_col = INT[1, 2, 1, 2, 3]  # NB lower triangle
+  H_ptr = INT[1, 2, 3, 6]  # row pointers
 
   # Set storage
   g = zeros(T, n) # gradient
   st = &#39; &#39;
-  status = Ref{Cint}()
+  status = Ref{INT}()
 
   @printf(&quot; Fortran sparse matrix indexing\n\n&quot;)
   @printf(&quot; tests reverse-communication options\n\n&quot;)
 
   # reverse-communication input/output
-  eval_status = Ref{Cint}()
-  nnz_u = Ref{Cint}()
-  nnz_v = Ref{Cint}()
+  eval_status = Ref{INT}()
+  nnz_u = Ref{INT}()
+  nnz_v = Ref{INT}()
   f = Ref{T}(0.0)
   u = zeros(T, n)
   v = zeros(T, n)
-  index_nz_u = zeros(Cint, n)
-  index_nz_v = zeros(Cint, n)
+  index_nz_u = zeros(INT, n)
+  index_nz_v = zeros(INT, n)
   H_val = zeros(T, ne)
   H_dense = zeros(T, div(n * (n + 1), 2))
   H_diag = zeros(T, n)
 
   for d in 1:5
     # Initialize DGO
-    dgo_initialize(T, data, control, status)
+    dgo_initialize(T, INT, data, control, status)
 
     # Set user-defined control options
     @reset control[].f_indexing = true # Fortran sparse matrix indexing
-    @reset control[].maxit = Cint(2500)
-    # @reset control[].trb_control[].maxit = Cint(100)
-    # @reset control[].print_level = Cint(1)
+    @reset control[].maxit = INT(2500)
+    # @reset control[].trb_control[].maxit = INT(100)
+    # @reset control[].print_level = INT(1)
 
     # Start from 0
     x = T[0.0, 0.0, 0.0]
@@ -2181,38 +2177,38 @@ function test_dgo(::Type{T}) where T
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      dgo_import(T, control, data, status, n, x_l, x_u, &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
+      dgo_import(T, INT, control, data, status, n, x_l, x_u, &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_with_mat(T, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess(n, ne, x, H_val, userdata)
+          eval_status[] = hess(x, H_val, userdata)
         elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2222,40 +2218,40 @@ function test_dgo(::Type{T}) where T
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      dgo_import(T, control, data, status, n, x_l, x_u,
+      dgo_import(T, INT, control, data, status, n, x_l, x_u,
                  &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
 
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_with_mat(T, data, status, eval_status,
+        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess(n, ne, x, H_val, userdata)
+          eval_status[] = hess(x, H_val, userdata)
         elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2265,12 +2261,12 @@ function test_dgo(::Type{T}) where T
     # dense
     if d == 3
       st = &#39;D&#39;
-      dgo_import(T, control, data, status, n, x_l, x_u,
+      dgo_import(T, INT, control, data, status, n, x_l, x_u,
                  &quot;dense&quot;, ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_with_mat(T, data, status, eval_status,
+        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, div(n * (n + 1), 2),
                                    H_dense, u, v)
         if status[] == 0 # successful termination
@@ -2278,28 +2274,28 @@ function test_dgo(::Type{T}) where T
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess_dense(n, div(n * (n + 1), 2), x, H_dense, userdata)
+          eval_status[] = hess_dense(x, H_dense, userdata)
         elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2309,44 +2305,40 @@ function test_dgo(::Type{T}) where T
     # diagonal
     if d == 4
       st = &#39;I&#39;
-      dgo_import(T, control, data, status, n, x_l, x_u,
+      dgo_import(T, INT, control, data, status, n, x_l, x_u,
                  &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_with_mat(T, data, status, eval_status,
+        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
                                    n, x, f[], g, n, H_diag, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun_diag(n, x, f, userdata)
+          eval_status[] = fun_diag(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad_diag(n, x, g, userdata)
+          eval_status[] = grad_diag(x, g, userdata)
         elseif status[] == 4 # evaluate H
-          eval_status[] = hess_diag(n, n, x, H_diag, userdata)
+          eval_status[] = hess_diag(x, H_diag, userdata)
         elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod_diag(n, x, u, v, false,
-                                        userdata)
+          eval_status[] = hessprod_diag(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun_diag(n, x, f, userdata)
-          eval_status[] = grad_diag(n, x, g, userdata)
+          eval_status[] = fun_diag(x, f, userdata)
+          eval_status[] = grad_diag(x, g, userdata)
         elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun_diag(n, x, f, userdata)
-          eval_status[] = hessprod_diag(n, x, u, v, false,
-                                        userdata)
+          eval_status[] = fun_diag(x, f, userdata)
+          eval_status[] = hessprod_diag(x, u, v, false, userdata)
         elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad_diag(n, x, g, userdata)
-          eval_status[] = hessprod_diag(n, x, u, v, false,
-                                        userdata)
+          eval_status[] = grad_diag(x, g, userdata)
+          eval_status[] = hessprod_diag(x, u, v, false, userdata)
         elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun_diag(n, x, f, userdata)
-          eval_status[] = grad_diag(n, x, g, userdata)
-          eval_status[] = hessprod_diag(n, x, u, v, false,
-                                        userdata)
+          eval_status[] = fun_diag(x, f, userdata)
+          eval_status[] = grad_diag(x, g, userdata)
+          eval_status[] = hessprod_diag(x, u, v, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2356,13 +2348,13 @@ function test_dgo(::Type{T}) where T
     # access by products
     if d == 5
       st = &#39;P&#39;
-      dgo_import(T, control, data, status, n, x_l, x_u,
+      dgo_import(T, INT, control, data, status, n, x_l, x_u,
                  &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
 
-      nnz_u = Ref{Cint}(0)
+      nnz_u = Ref{INT}(0)
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_without_mat(T, data, status, eval_status,
+        dgo_solve_reverse_without_mat(T, INT, data, status, eval_status,
                                       n, x, f[], g, u, v, index_nz_v,
                                       nnz_v, index_nz_u, nnz_u[])
         if status[] == 0 # successful termination
@@ -2370,30 +2362,30 @@ function test_dgo(::Type{T}) where T
         elseif status[] &lt; 0 # error exit
           terminated = true
         elseif status[] == 2 # evaluate f
-          eval_status[] = fun(n, x, f, userdata)
+          eval_status[] = fun(x, f, userdata)
         elseif status[] == 3 # evaluate g
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(n, x, u, v, userdata)
+          eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 7 # evaluate sparse Hess-vect product
-          eval_status[] = shessprod(n, x, nnz_v[], index_nz_v, v,
+          eval_status[] = shessprod(x, nnz_v[], index_nz_v, v,
                                     nnz_u, index_nz_u, u,
                                     false, userdata)
         elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
         elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(n, x, f, userdata)
-          eval_status[] = grad(n, x, g, userdata)
-          eval_status[] = hessprod(n, x, u, v, false, userdata)
+          eval_status[] = fun(x, f, userdata)
+          eval_status[] = grad(x, g, userdata)
+          eval_status[] = hessprod(x, u, v, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end
@@ -2401,7 +2393,7 @@ function test_dgo(::Type{T}) where T
     end
 
     # Record solution information
-    dgo_information(T, data, inform, status)
+    dgo_information(T, INT, data, inform, status)
 
     if inform[].status[] == 0
       @printf(&quot;%c:%6i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
@@ -2425,15 +2417,22 @@ function test_dgo(::Type{T}) where T
     # @printf(&quot;\n&quot;)
 
     # Delete internal workspace
-    dgo_terminate(T, data, control, inform)
+    dgo_terminate(T, INT, data, control, inform)
   end
   return 0
 end
 
-@testset &quot;DGO&quot; begin
-  @test test_dgo(Float32) == 0
-  @test test_dgo(Float64) == 0
-  @test test_dgo(Float128) == 0
+for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
+                             (Float32 , Int64, GALAHAD.libgalahad_single_64   ),
+                             (Float64 , Int32, GALAHAD.libgalahad_double      ),
+                             (Float64 , Int64, GALAHAD.libgalahad_double_64   ),
+                             (Float128, Int32, GALAHAD.libgalahad_quadruple   ),
+                             (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
+  if isfile(libgalahad)
+    @testset &quot;DGO -- $T -- $INT&quot; begin
+      @test test_dgo(T, INT) == 0
+    end
+  end
 end
 </pre></div>
 </div>
@@ -2492,7 +2491,7 @@ end
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dgo-control-type-structure">dgo_control_type structure</a></li>
@@ -2548,7 +2547,7 @@ end
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

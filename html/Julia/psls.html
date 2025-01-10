@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD PSLS package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD PSLS package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -745,33 +745,34 @@ the string A_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the psls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span class="std std-ref">psls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span class="std std-ref">psls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span class="std std-ref">psls_import</span></a> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span> prior to solution</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span class="std std-ref">psls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span class="std std-ref">psls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span class="std std-ref">psls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span class="std std-ref">psls_import</span></a> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span> prior to solution</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span class="std std-ref">psls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span class="std std-ref">psls_form_preconditioner</span></a> - form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span class="std std-ref">psls_form_subset_preconditioner</span></a> - form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of a symmetric submatrix of the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span class="std std-ref">psls_form_preconditioner</span></a> - form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span class="std std-ref">psls_form_subset_preconditioner</span></a> - form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of a symmetric submatrix of the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span class="std std-ref">psls_update_preconditioner</span></a> (optional) - update the preconditioner <span class="math notranslate nohighlight">\(P\)</span> when rows (amd columns) are removed</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span class="std std-ref">psls_apply_preconditioner</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Px=b\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span class="std std-ref">psls_information</span></a> (optional) - recover information about the preconditioner and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span class="std std-ref">psls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span class="std std-ref">psls_update_preconditioner</span></a> (optional) - update the preconditioner <span class="math notranslate nohighlight">\(P\)</span> when rows (amd columns) are removed</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span class="std std-ref">psls_apply_preconditioner</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Px=b\)</span></p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span class="std std-ref">psls_information</span></a> (optional) - recover information about the preconditioner and solution process</p></li>
+<li><p><a class="reference internal" href="psls_functions.html#doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span class="std std-ref">psls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-psls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1af5cb66dbf5b9e4f094e2e0a29631fd1b"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -784,10 +785,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -802,7 +803,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a34b978446b6aa5636f9e6efc18860366"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -819,7 +820,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -827,7 +828,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a3ff902c85fb82f1929a93514bb63c5d6"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span></pre>
 <p>Import structural matrix data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -837,13 +838,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -883,27 +884,27 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of rows in the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows in the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sls.html#details-s-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>row</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>col</p></td>
-<td><p>is a one-dimensional array of size ne and type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage scheme is used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage scheme is used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a90493b62c689237c97fe4aea665cd0ab"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -913,13 +914,13 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -934,7 +935,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a9cd4c449dcc5133932972866fd58cfc1"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span></pre>
 <p>Form and factorize a preconditioner <span class="math notranslate nohighlight">\(P\)</span> of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -947,7 +948,7 @@ for the solve phase</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -990,7 +991,7 @@ respectively.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
@@ -998,7 +999,7 @@ respectively.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_subset_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_sub</span><span class="p">,</span><span class="w"> </span><span class="n">sub</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a75fa79fcbe08ab367b9fa0b7f39adf65"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_form_subset_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_sub</span><span class="p">,</span><span class="w"> </span><span class="n">sub</span><span class="p">)</span></pre>
 <p>Form and factorize a <span class="math notranslate nohighlight">\(P\)</span> preconditioner of a symmetric submatrix of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1011,7 +1012,7 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1054,21 +1055,21 @@ respectively.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>n_sub</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of rows (and columns) of the required submatrix of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows (and columns) of the required submatrix of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>sub</p></td>
-<td><p>is a one-dimensional array of size n_sub and type Int32 that holds the indices of the rows of required submatrix.</p></td>
+<td><p>is a one-dimensional array of size n_sub and type INT that holds the indices of the rows of required submatrix.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_update_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_del</span><span class="p">,</span><span class="w"> </span><span class="n">del</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a42a8097e64b527cff18ab66c07a32d1d"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_update_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">n_del</span><span class="p">,</span><span class="w"> </span><span class="n">del</span><span class="p">)</span></pre>
 <p>Update the preconditioner <span class="math notranslate nohighlight">\(P\)</span> when rows (amd columns) are removed.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1081,7 +1082,7 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1124,21 +1125,21 @@ respectively.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>val</p></td>
 <td><p>is a one-dimensional array of size ne and type T that holds the values of the entries of the lower triangular part of the symmetric matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>n_del</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of rows (and columns) of (sub) matrix that are to be deleted.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows (and columns) of (sub) matrix that are to be deleted.</p></td>
 </tr>
 <tr class="row-even"><td><p>del</p></td>
-<td><p>is a one-dimensional array of size n_fix and type Int32 that holds the indices of the rows that are to be deleted.</p></td>
+<td><p>is a one-dimensional array of size n_fix and type INT that holds the indices of the rows that are to be deleted.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1a1bae97d4a0e63bce7380422ed83306e8"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">)</span></pre>
 <p>Solve the linear system <span class="math notranslate nohighlight">\(Px=b\)</span>.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1151,7 +1152,7 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
@@ -1184,7 +1185,7 @@ respectively.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the vectors <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>sol</p></td>
 <td><p>is a one-dimensional array of size n and type double. On entry, it must hold the vector <span class="math notranslate nohighlight">\(b\)</span>. On a successful exit, its contains the solution <span class="math notranslate nohighlight">\(x\)</span>. Any component corresponding to rows/columns not in the initial subset recorded by psls_form_subset_preconditioner, or in those subsequently deleted by psls_update_preconditioner, will not be altered.</p></td>
@@ -1192,7 +1193,7 @@ respectively.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ace5f302a9ccb0c3f8c29b28b42da7793"><span id="index-8"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provide output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1205,10 +1206,10 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_psls_inform_type.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1223,7 +1224,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-psls-8h-1ab62a2e262e7466fac3a2dc8cd300720d"><span id="index-9"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1236,10 +1237,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_psls_inform_type.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1252,19 +1253,19 @@ status from the package. Possible values are
 <span id="doxid-structpsls-control-type"></span><span id="index-10"></span><h2>psls_control_type structure<a class="headerlink" href="#psls-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">scaling</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ordering</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">icfs_vectors</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mi28_lsize</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">mi28_rsize</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">min_diagonal</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">new_structure</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">get_semi_bandwidth</span><span class="o">::</span><span class="kt">Bool</span>
@@ -1273,8 +1274,8 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">definite_linear_solver</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mi28_control</span><span class="o">::</span><span class="kt">mi28_control</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mi28_control</span><span class="o">::</span><span class="kt">mi28_control</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structpsls-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1283,13 +1284,13 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">preconditioner</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">preconditioner</span></pre>
 <p>which preconditioner to use:</p>
 <ul class="simple">
 <li><p>&lt;0 no preconditioning occurs, <span class="math notranslate nohighlight">\(P = I\)</span></p></li>
@@ -1305,19 +1306,19 @@ status from the package. Possible values are
 <li><p>&gt;8 treated as 0.</p></li>
 </ul>
 <p><strong>N.B.</strong> Options 3-8 may require additional external software that is not part of the package, and that must be obtained separately.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
 <p>the semi-bandwidth for band(H) when .preconditioner = 2,3</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">scaling</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a26f0572eeeaa419eabb09dc89c00b89d"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">scaling</span></pre>
 <p>not used at present</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ordering</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a4175ebe476addcfc3433fc97c19e0708"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ordering</span></pre>
 <p>see scaling</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
 <p>maximum number of nonzeros in a column of <span class="math notranslate nohighlight">\(A\)</span> for Schur-complement factorization to accommodate newly deleted rpws and columns</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1adb095f545799aab1d69fcdca912d4afd"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">icfs_vectors</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1adb095f545799aab1d69fcdca912d4afd"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">icfs_vectors</span></pre>
 <p>number of extra vectors of length n required by the Lin-More’ incomplete Cholesky preconditioner when .preconditioner = 6</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a97a46af6187162b529821f79d1559827"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mi28_lsize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a97a46af6187162b529821f79d1559827"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mi28_lsize</span></pre>
 <p>the maximum number of fill entries within each column of the incomplete factor L computed by HSL_MI28 when .preconditioner = 7. In general, increasing mi28_lsize improve the quality of the preconditioner but increases the time to compute and then apply the preconditioner. Values less than 0 are treated as 0</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a8cd04d404e41a2a09c29eeb2de78cd85"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mi28_rsize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a8cd04d404e41a2a09c29eeb2de78cd85"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mi28_rsize</span></pre>
 <p>the maximum number of entries within each column of the strictly lower triangular matrix <span class="math notranslate nohighlight">\(R\)</span> used in the computation of the preconditioner by HSL_MI28 when .preconditioner = 7. Rank-1 arrays of size .mi28_rsize \* n are allocated internally to hold <span class="math notranslate nohighlight">\(R\)</span>. Thus the amount of memory used, as well as the amount of work involved in computing the preconditioner, depends on mi28_rsize. Setting mi28_rsize &gt; 0 generally leads to a higher quality preconditioner than using mi28_rsize = 0, and choosing mi28_rsize &gt;= mi28_lsize is generally recommended</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a984528c49e15a61a1d30fc8fa2d166cc"><span id="index-23"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">min_diagonal</span></pre>
 <p>the minimum permitted diagonal in diag(max(H,.min_diagonal))</p>
@@ -1335,7 +1336,7 @@ status from the package. Possible values are
 <p>the definite linear equation <a class="reference internal" href="sls.html#details-sls-solvers"><span class="std std-ref">solver package</span></a> used when .preconditioner = 3,4. Possible choices are currently: sils, ma27, ma57, ma77, ma86, ma87, ma97, ssids, mumps, pardiso, mkl_pardiso,pastix, wsmp, potr and pbtr, although only sils, potr, pbtr and, for OMP 4.0-compliant compilers, ssids are installed by default.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-30"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a31b308b91955ee385daacc3de00f161b"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-control-type-1a0a72ba6769963a38f2428b875b1d295e"><span id="index-32"></span><span></span><span class="n">struct</span><span class="w"> </span>mi28_control<span></span><span class="w"> </span><span class="n">mi28_control</span></pre>
 <p>control parameters for HSL_MI28</p>
@@ -1394,40 +1395,40 @@ status from the package. Possible values are
 <span id="doxid-structpsls-inform-type"></span><span id="index-46"></span><h2>psls_inform_type structure<a class="headerlink" href="#psls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">analyse_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorize_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">solve_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">psls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">analyse_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorize_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">solve_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
-<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">reordered_semi_bandwidth</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">semi_bandwidth_used</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">neg1</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">neg2</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">preconditioner</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">reordered_semi_bandwidth</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out_of_range</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">duplicates</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">upper</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">missing_diagonals</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">semi_bandwidth_used</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">neg1</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">neg2</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">perturbed</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">fill_in_ratio</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">norm_residual</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">Cint</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mc61_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">psls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">mi28_info</span><span class="o">::</span><span class="kt">mi28_info</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">mi28_info</span><span class="o">::</span><span class="kt">mi28_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structpsls-inform-type">
 <span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structpsls-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id10">
 <h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1443,37 +1444,37 @@ status from the package. Possible values are
 <p>matrix data faulty (.n &lt; 1, .ne &lt; 0)</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-48"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ae38019a70cc3dffa90bd881451c6cf1b"><span id="index-49"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">analyse_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ae38019a70cc3dffa90bd881451c6cf1b"><span id="index-49"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">analyse_status</span></pre>
 <p>status return from factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a08c6a015b4a7616dffae6ab4972af1ab"><span id="index-50"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorize_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a08c6a015b4a7616dffae6ab4972af1ab"><span id="index-50"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorize_status</span></pre>
 <p>status return from factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1aaab916515d75c0f3abbc4a250381708b"><span id="index-51"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">solve_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1aaab916515d75c0f3abbc4a250381708b"><span id="index-51"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">solve_status</span></pre>
 <p>status return from solution phase</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a29cd3a5b0f30227170f825116d9ade9e"><span id="index-52"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_integer</span></pre>
 <p>number of integer words to hold factors</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ad73643c24d3cd34c356c3ccd2ebfb1cc"><span id="index-53"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_real</span></pre>
 <p>number of real words to hold factors</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-54"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">preconditioner</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1adf7719f1a4491459e361e80a00c55656"><span id="index-54"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">preconditioner</span></pre>
 <p>code for the actual preconditioner used (see control.preconditioner)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-55"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1abf884043df0f9c0d95bcff6fae1bf9bb"><span id="index-55"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth</span></pre>
 <p>the actual semi-bandwidth</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a626e2d4fb989dd770239efa3be051e0a"><span id="index-56"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">reordered_semi_bandwidth</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a626e2d4fb989dd770239efa3be051e0a"><span id="index-56"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">reordered_semi_bandwidth</span></pre>
 <p>the semi-bandwidth following reordering (if any)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8daa2a776cae6116e9f14e2b009430a5"><span id="index-57"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out_of_range</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8daa2a776cae6116e9f14e2b009430a5"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out_of_range</span></pre>
 <p>number of indices out-of-range</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-58"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">duplicates</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4266bf48aafe2914b08e60d6ef9cf446"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">duplicates</span></pre>
 <p>number of duplicates</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a0a1a19aadb8cf4f2b05d37a8798b667c"><span id="index-59"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">upper</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a0a1a19aadb8cf4f2b05d37a8798b667c"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">upper</span></pre>
 <p>number of entries from the strict upper triangle</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8d33160feb6e388439a1d38641b00b3d"><span id="index-60"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">missing_diagonals</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8d33160feb6e388439a1d38641b00b3d"><span id="index-60"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">missing_diagonals</span></pre>
 <p>number of missing diagonal entries for an allegedly-definite matrix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a981530ec3c99dba9d28c74cdacca6bbf"><span id="index-61"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">semi_bandwidth_used</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a981530ec3c99dba9d28c74cdacca6bbf"><span id="index-61"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">semi_bandwidth_used</span></pre>
 <p>the semi-bandwidth used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ac7c6e49ad4048d11de36fcc4ce540aba"><span id="index-62"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">neg1</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ac7c6e49ad4048d11de36fcc4ce540aba"><span id="index-62"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">neg1</span></pre>
 <p>number of 1 by 1 pivots in the factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8fe93b02eb981bd3300337dee7835d86"><span id="index-63"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">neg2</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a8fe93b02eb981bd3300337dee7835d86"><span id="index-63"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">neg2</span></pre>
 <p>number of 2 by 2 pivots in the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a6e04ee4d6dc38d2c5231d39d4f21be75"><span id="index-64"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">perturbed</span></pre>
 <p>has the preconditioner been perturbed during the fctorization?</p>
@@ -1483,13 +1484,13 @@ status from the package. Possible values are
 <p>the norm of the solution residual</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-67"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ad29411cd0e18c59e43b474314a2adbe8"><span id="index-68"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">mc61_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1ad29411cd0e18c59e43b474314a2adbe8"><span id="index-68"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">mc61_info</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span></pre>
 <p>the integer and real output arrays from mc61</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a6966776cf11a3b9c447f7a1c9621152f"><span id="index-69"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">mc61_rinfo</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span></pre>
 <p>see mc61_info</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4e85e8fc22799defca71ba5c448216ed"><span id="index-70"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structpsls-time-type"><span class="std std-ref">psls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a4e85e8fc22799defca71ba5c448216ed"><span id="index-70"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_time_type.html#doxid-structpsls-time-type"><span class="std std-ref">psls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-71"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1a0a9d7a6860aca6894830ccaabe3ceac0"><span id="index-71"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform values from SLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpsls-inform-type-1aa5913427f989eb08152b78bf6390c0b9"><span id="index-72"></span><span></span><span class="n">struct</span><span class="w"> </span>mi28_info<span></span><span class="w"> </span><span class="n">mi28_info</span></pre>
 <p>the output info structure from HSL’s mi28</p>
@@ -1512,35 +1513,35 @@ A variety of supported matrix storage formats are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_psls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_psls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">psls_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># dimension of A</span>
-  <span class="n">ne</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># number of elements of A</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># dimension of A</span>
+  <span class="n">ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># number of elements of A</span>
   <span class="n">dense_ne</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># number of elements of dense A</span>
 
-  <span class="n">row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># A indices  values, NB lower triangle</span>
-  <span class="n">col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-  <span class="n">ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+  <span class="n">row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># A indices  values, NB lower triangle</span>
+  <span class="n">col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+  <span class="n">ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
   <span class="n">val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
                   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-  <span class="n">status_apply</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="n">status_apply</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
     <span class="c1"># Initialize PSLS</span>
-    <span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">preconditioner</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># band preconditioner</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">semi_bandwidth</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># semibandwidth</span>
+    <span class="n">psls_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">preconditioner</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># band preconditioner</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">semi_bandwidth</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># semibandwidth</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sils&quot;</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
@@ -1550,38 +1551,38 @@ A variety of supported matrix storage formats are shown.</p>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">ptr</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># dense</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
 
-      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+      <span class="n">psls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                   <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
+      <span class="n">psls_form_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">dense_ne</span><span class="p">,</span> <span class="n">dense</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># Set right-hand side b in x</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">31.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">]</span>  <span class="c1"># values</span>
 
     <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
-      <span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-      <span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status_apply</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+      <span class="n">psls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+      <span class="n">psls_apply_preconditioner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status_apply</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">else</span>
       <span class="n">status_apply</span><span class="p">[]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">end</span>
@@ -1595,16 +1596,23 @@ A variety of supported matrix storage formats are shown.</p>
     <span class="c1"># end</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">psls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;PSLS&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;PSLS -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_psls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1662,7 +1670,7 @@ A variety of supported matrix storage formats are shown.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psls-control-type-structure">psls_control_type structure</a></li>
@@ -1718,7 +1726,7 @@ A variety of supported matrix storage formats are shown.</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

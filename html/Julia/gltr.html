@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD GLTR package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD GLTR package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -550,25 +550,26 @@ so.</p>
 <p>To solve a given problem, functions from the gltr package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1ac06a7060d9355146e801157c2f29ca5c"><span class="std std-ref">gltr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1a68a3273a88b27601e72b61f10a23de31"><span class="std std-ref">gltr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1acb8a654fc381e3f231c3d10858f111b3"><span class="std std-ref">gltr_import_control</span></a> - import control parameters prior to solution</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span class="std std-ref">gltr_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1a1b1b4d87884833c4bfe184ff79c1e2bb"><span class="std std-ref">gltr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-gltr-8h-1ac3e0cbd0ecc79b37251fad7fd6f47631"><span class="std std-ref">gltr_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1ac06a7060d9355146e801157c2f29ca5c"><span class="std std-ref">gltr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1a68a3273a88b27601e72b61f10a23de31"><span class="std std-ref">gltr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1acb8a654fc381e3f231c3d10858f111b3"><span class="std std-ref">gltr_import_control</span></a> - import control parameters prior to solution</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span class="std std-ref">gltr_solve_problem</span></a> - solve the problem by reverse communication, a sequence of calls are made under control of a status parameter, each exit either asks the user to provide additional informaton and to re-enter, or reports that either the solution has been found or that an error has occurred</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1a1b1b4d87884833c4bfe184ff79c1e2bb"><span class="std std-ref">gltr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1ac3e0cbd0ecc79b37251fad7fd6f47631"><span class="std std-ref">gltr_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-gltr-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ac06a7060d9355146e801157c2f29ca5c"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ac06a7060d9355146e801157c2f29ca5c"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -581,10 +582,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -599,7 +600,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1a68a3273a88b27601e72b61f10a23de31"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1a68a3273a88b27601e72b61f10a23de31"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -616,7 +617,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -624,7 +625,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1acb8a654fc381e3f231c3d10858f111b3"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_import_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1acb8a654fc381e3f231c3d10858f111b3"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_import_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Import control parameters prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -634,13 +635,13 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -656,7 +657,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span></pre>
 <p>Solve the trust-region problem using reverse communication.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -669,7 +670,7 @@ for the solve phase</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the
+<td><p>is a scalar variable of type INT that gives the
 entry and exit status from the package.</p>
 <p>This <strong>must</strong> be set to</p>
 <ul class="simple">
@@ -758,7 +759,7 @@ Steihaug-Toint mode</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>radius</p></td>
 <td><p>is a scalar of type T that holds the trust-region radius, <span class="math notranslate nohighlight">\(\Delta\)</span>, used. radius must be strictly positive</p></td>
@@ -775,7 +776,7 @@ Steihaug-Toint mode</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1a1b1b4d87884833c4bfe184ff79c1e2bb"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1a1b1b4d87884833c4bfe184ff79c1e2bb"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -788,10 +789,10 @@ Steihaug-Toint mode</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_gltr_inform_type.html#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -806,7 +807,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ac3e0cbd0ecc79b37251fad7fd6f47631"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-gltr-8h-1ac3e0cbd0ecc79b37251fad7fd6f47631"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">gltr_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -819,10 +820,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_gltr_inform_type.html#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -835,15 +836,15 @@ status from the package. Possible values are
 <span id="doxid-structgltr-control-type"></span><span id="index-6"></span><h2>gltr_control_type structure<a class="headerlink" href="#gltr-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gltr_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">itmax</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">Lanczos_itmax</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">extra_vectors</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">ritz_printout_device</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">itmax</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">Lanczos_itmax</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">extra_vectors</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">ritz_printout_device</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">stop_relative</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_absolute</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">fraction_opt</span><span class="o">::</span><span class="kt">T</span>
@@ -867,19 +868,19 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-8"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1ac8da2a7f67eddd46d6b08817471e3063"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">itmax</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1ac8da2a7f67eddd46d6b08817471e3063"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">itmax</span></pre>
 <p>the maximum number of iterations allowed (-ve = no bound)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a414b6b8e330ed0c54599623db9ccb0ba"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">Lanczos_itmax</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1a414b6b8e330ed0c54599623db9ccb0ba"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">Lanczos_itmax</span></pre>
 <p>the maximum number of iterations allowed once the boundary has been encountered (-ve = no bound)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1ac24a274f1682ee791e15979f6c4341e1"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">extra_vectors</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1ac24a274f1682ee791e15979f6c4341e1"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_vectors</span></pre>
 <p>the number of extra work vectors of length n used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1aa733751a194838432e841fce75b56682"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">ritz_printout_device</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1aa733751a194838432e841fce75b56682"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">ritz_printout_device</span></pre>
 <p>the unit number for writing debug Ritz values</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-control-type-1ae3103abf29cabc33010d53428da2f2fc"><span id="index-15"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_relative</span></pre>
 <p>the iteration stops successfully when the gradient in the M(inverse) nor is smaller than max( stop_relative * initial M(inverse) gradient norm, stop_absolute )</p>
@@ -917,12 +918,12 @@ status from the package. Possible values are
 <span id="doxid-structgltr-inform-type"></span><span id="index-30"></span><h2>gltr_inform_type structure<a class="headerlink" href="#gltr-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">gltr_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">iter_pass2</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">iter_pass2</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">mnormx</span><span class="o">::</span><span class="kt">T</span>
@@ -938,15 +939,15 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-31"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
-<p>return status. See <a class="reference internal" href="#doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span class="std std-ref">gltr_solve_problem</span></a> for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-32"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-31"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<p>return status. See <a class="reference internal" href="gltr_functions.html#doxid-galahad-gltr-8h-1ad77040d245e6bc307d13ea0cec355f18"><span class="std std-ref">gltr_solve_problem</span></a> for details</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-32"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-33"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1aa69f8ea5f07782fd8ad0318f87202ac4"><span id="index-35"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter_pass2</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1aa69f8ea5f07782fd8ad0318f87202ac4"><span id="index-35"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter_pass2</span></pre>
 <p>the total number of pass-2 iterations required if the solution lies on the trust-region boundary</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structgltr-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-36"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the quadratic function</p>
@@ -984,16 +985,16 @@ using Printf
 using Accessors
 using Quadmath
 
-function test_gltr(::Type{T}) where T
+function test_gltr(::Type{T}, ::Type{INT}) where {T,INT}
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{gltr_control_type{T}}()
-  inform = Ref{gltr_inform_type{T}}()
+  control = Ref{gltr_control_type{T,INT}}()
+  inform = Ref{gltr_inform_type{T,INT}}()
 
   # Set problem data
-  n = 100 # dimension
+  n = INT(100)  # dimension
 
-  status = Ref{Cint}()
+  status = Ref{INT}()
   radius = Ref{T}()
   x = zeros(T, n)
   r = zeros(T, n)
@@ -1001,7 +1002,7 @@ function test_gltr(::Type{T}) where T
   h_vector = zeros(T, n)
 
   # Initialize gltr
-  gltr_initialize(T, data, control, status)
+  gltr_initialize(T, INT, data, control, status)
 
   # use a unit M ?
   for unit_m in 0:1
@@ -1011,7 +1012,7 @@ function test_gltr(::Type{T}) where T
       @reset control[].unitm = true
     end
 
-    gltr_import_control(T, control, data, status)
+    gltr_import_control(T, INT, control, data, status)
 
     # resolve with a smaller radius ?
     for new_radius in 0:1
@@ -1030,7 +1031,7 @@ function test_gltr(::Type{T}) where T
       # iteration loop to find the minimizer
       terminated = false
       while !terminated # reverse-communication loop
-        gltr_solve_problem(T, data, status, n, radius[], x, r, vector)
+        gltr_solve_problem(T, INT, data, status, n, radius[], x, r, vector)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -1057,22 +1058,29 @@ function test_gltr(::Type{T}) where T
         end
       end
 
-      gltr_information(T, data, inform, status)
+      gltr_information(T, INT, data, inform, status)
       # @printf(&quot;MR = %1i%1i gltr_solve_problem exit status = %i, f = %.2f\n&quot;, unit_m,
       #         new_radius, inform[].status, inform[].obj)
     end
   end
 
   # Delete internal workspace
-  gltr_terminate(T, data, control, inform)
+  gltr_terminate(T, INT, data, control, inform)
 
   return 0
 end
 
-@testset &quot;GLTR&quot; begin
-  @test test_gltr(Float32) == 0
-  @test test_gltr(Float64) == 0
-  @test test_gltr(Float128) == 0
+for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
+                             (Float32 , Int64, GALAHAD.libgalahad_single_64   ),
+                             (Float64 , Int32, GALAHAD.libgalahad_double      ),
+                             (Float64 , Int64, GALAHAD.libgalahad_double_64   ),
+                             (Float128, Int32, GALAHAD.libgalahad_quadruple   ),
+                             (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
+  if isfile(libgalahad)
+    @testset &quot;GLTR -- $T -- $INT&quot; begin
+      @test test_gltr(T, INT) == 0
+    end
+  end
 end
 </pre></div>
 </div>
@@ -1130,7 +1138,7 @@ end
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gltr-control-type-structure">gltr_control_type structure</a></li>
@@ -1181,7 +1189,7 @@ end
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

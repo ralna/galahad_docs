@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>presolve_inform_type structure &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>presolve_inform_type structure &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -117,8 +117,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -413,11 +413,11 @@
 <span id="doxid-structpresolve-inform-type"></span><span id="index-0"></span><h1>presolve_inform_type structure<a class="headerlink" href="#presolve-inform-type-structure" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_inform_type</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">status_continue</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">status_continued</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nbr_transforms</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">status_continue</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">status_continued</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nbr_transforms</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">message</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}}</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -425,7 +425,7 @@
 <p>inform derived type as a Julia structure</p>
 <section id="components">
 <h2>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-1"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>The presolve exit condition. It can take the following values (symbol in parentheses is the related Fortran code):</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -671,7 +671,7 @@ H.ne &gt; 0 and A is stored in sparse coordinate format</p>
 <p>(WRONG_HNE) incompatible value of H_ne</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span id="index-2"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nbr_transforms</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span id="index-2"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nbr_transforms</span></pre>
 <p>The final number of problem transformations, as reported to the user at exit.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ad3ed7aeb962cfe24345625354d733206"><span id="index-3"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">message</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>A few lines containing a description of the exit condition on exit of PRESOLVE, typically including more information than indicated in the description of control.status above. It is printed out on device errout at the end of execution if control.print_level &gt;= 1.</p>
@@ -750,7 +750,7 @@ H.ne &gt; 0 and A is stored in sparse coordinate format</p>
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

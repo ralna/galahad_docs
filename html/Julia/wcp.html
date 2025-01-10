@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD WCP package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD WCP package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -705,26 +705,27 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the wcp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span class="std std-ref">wcp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span class="std std-ref">wcp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span class="std std-ref">wcp_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span class="std std-ref">wcp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span class="std std-ref">wcp_find_wcp</span></a> - find a well-centered point</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span class="std std-ref">wcp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-wcp-8h-1a0b1cc55b8418826d80e4435ab555e256"><span class="std std-ref">wcp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span class="std std-ref">wcp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span class="std std-ref">wcp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span class="std std-ref">wcp_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span class="std std-ref">wcp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span class="std std-ref">wcp_find_wcp</span></a> - find a well-centered point</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span class="std std-ref">wcp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="wcp_functions.html#doxid-galahad-wcp-8h-1a0b1cc55b8418826d80e4435ab555e256"><span class="std std-ref">wcp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-wcp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a78c76e090a879684ca1fa3ab17f55f34"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -740,7 +741,7 @@ illustrations of use.</p>
 <td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structwcp-control-type"><span class="std std-ref">wcp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -753,7 +754,7 @@ illustrations of use.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1af50523066dbb40bc7f955e0ef35881a9"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -778,7 +779,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a91b5d7b341c1333669564a1abacc2ad9"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -794,7 +795,7 @@ keywords relate to the components of the control structure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The import was successful.</p>
@@ -834,30 +835,30 @@ been violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-a-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_row</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a4b6ac93a46f87e3e986286c415155dd3"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -873,7 +874,7 @@ been violated.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -887,7 +888,7 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span id="index-4"></span><span></span><span class="w">     </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1a5ca84b359a491ced6fdb1c0927b25243"><span id="index-4"></span><span></span><span class="w">     </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span>
 <span class="w">                           </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">y_l</span><span class="p">,</span><span class="w"> </span><span class="n">y_u</span><span class="p">,</span><span class="w"> </span><span class="n">z_l</span><span class="p">,</span><span class="w"> </span><span class="n">z_u</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">c_stat</span><span class="p">)</span></pre>
 <p>Find a well-centered point in the feasible region</p>
 <p class="rubric">Parameters:</p>
@@ -901,7 +902,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the entry and exit status from the package.</p>
+<td><p>is a scalar variable of type INT that gives the entry and exit status from the package.</p>
 <p>Possible exit values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -999,16 +1000,16 @@ be symptomatic of a badly scaled problem.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the target vector <span class="math notranslate nohighlight">\(g\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>a_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
@@ -1044,15 +1045,15 @@ be symptomatic of a badly scaled problem.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z^u\)</span> of the dual variables for the upper bounds on the variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z^u_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type Int32 that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>c_stat</p></td>
-<td><p>is a one-dimensional array of size m and type Int32 that gives the optimal status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^T x\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+<td><p>is a one-dimensional array of size m and type INT that gives the optimal status of the general linear constraints. If c_stat(i) is negative, the constraint value <span class="math notranslate nohighlight">\(a_i^T x\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-wcp-8h-1aa3f76e788325ffff83f98dffa7ab8eb2"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">wcp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1068,7 +1069,7 @@ be symptomatic of a badly scaled problem.</p>
 <td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structwcp-inform-type"><span class="std std-ref">wcp_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -1110,23 +1111,23 @@ be symptomatic of a badly scaled problem.</p>
 <span id="doxid-structwcp-control-type"></span><span id="index-7"></span><h2>wcp_control_type structure<a class="headerlink" href="#wcp-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">wcp_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">wcp_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">initial_point</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factor</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">indmin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">valmin</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">itref_max</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">infeas_max</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">perturbation_strategy</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">restore_problem</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">initial_point</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factor</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_col</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">indmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">valmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">itref_max</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">infeas_max</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">perturbation_strategy</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">restore_problem</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_p</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_d</span><span class="o">::</span><span class="kt">T</span>
@@ -1160,8 +1161,8 @@ be symptomatic of a badly scaled problem.</p>
 <span class="w">      </span><span class="n">record_x_status</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">record_c_status</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">fdc_control</span><span class="o">::</span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_control</span><span class="o">::</span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structwcp-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
@@ -1170,42 +1171,42 @@ be symptomatic of a badly scaled problem.</p>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-8"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">start_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
 <p>any printing will start on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
 <p>any printing will stop on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>at most maxit inner iterations are allowed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a4b0d426781b9f3ffabcb4c55cbe4e01d"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">initial_point</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a4b0d426781b9f3ffabcb4c55cbe4e01d"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">initial_point</span></pre>
 <p>how to choose the initial point. Possible values are</p>
 <ul class="simple">
 <li><p>0 the values input in X, shifted to be at least prfeas from their nearest bound, will be used</p></li>
 <li><p>1 the nearest point to the “bound average” 0.5(X_l+X_u) that satisfies the linear constraints will be used</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a42eac05293c31fef9b90c92698928d7d"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a42eac05293c31fef9b90c92698928d7d"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factor</span></pre>
 <p>the factorization to be used. Possible values are</p>
 <ul class="simple">
 <li><p>0 automatic</p></li>
 <li><p>1 Schur-complement factorization</p></li>
 <li><p>2 augmented-system factorization</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1abca2db33b9520095e98790d45a1be93f"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
 <p>the maximum number of nonzeros in a column of A which is permitted with the Schur-complement factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a5031bbc31f94e4cba6a540a3182b6d80"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">indmin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a5031bbc31f94e4cba6a540a3182b6d80"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">indmin</span></pre>
 <p>an initial guess as to the integer workspace required by SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a0e142fa8dc9c363c3c2993b6129b0955"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">valmin</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a0e142fa8dc9c363c3c2993b6129b0955"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">valmin</span></pre>
 <p>an initial guess as to the real workspace required by SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a903ba4ef0869186a65d4c32459a6a0ed"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">itref_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a903ba4ef0869186a65d4c32459a6a0ed"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">itref_max</span></pre>
 <p>the maximum number of iterative refinements allowed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1af7d33b88b67b2366d7e2df31d42083a9"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">infeas_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1af7d33b88b67b2366d7e2df31d42083a9"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">infeas_max</span></pre>
 <p>the number of iterations for which the overall infeasibility of the problem is not reduced by at least a factor .required_infeas_reduction before the problem is flagged as infeasible (see required_infeas_reducti</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a890441c8643aa00c556c54171f2e5ae6"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">perturbation_strategy</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a890441c8643aa00c556c54171f2e5ae6"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">perturbation_strategy</span></pre>
 <p>the strategy used to reduce relaxed constraint bounds. Possible values are</p>
 <ul class="simple">
 <li><p>0 do not perturb the constraints</p></li>
@@ -1214,7 +1215,7 @@ be symptomatic of a badly scaled problem.</p>
 <li><p>3 reduce all perturbations by the same amount with superlinear reduction</p></li>
 <li><p>4 reduce each perturbation as much as possible with superlinear reduction</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a19f10912888ac7ebd153fb21baaeaefa"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">restore_problem</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a19f10912888ac7ebd153fb21baaeaefa"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">restore_problem</span></pre>
 <p>indicate whether and how much of the input problem should be restored on output. Possible values are</p>
 <ul class="simple">
 <li><p>0 nothing restored</p></li>
@@ -1304,9 +1305,9 @@ be symptomatic of a badly scaled problem.</p>
 <p>if .record_c_status is true, the array inform.C_status will be allocated and the status of the general constraints will be reported on exit.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-56"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-57"></span><span></span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a7bef6e4f678e16a4dcdc40677efddd80"><span id="index-57"></span><span></span><span class="kt">fdc_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-58"></span><span></span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-58"></span><span></span><span class="kt">sbls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 </section>
 </section>
@@ -1363,55 +1364,55 @@ be symptomatic of a badly scaled problem.</p>
 <span id="doxid-structwcp-inform-type"></span><span id="index-72"></span><h2>wcp_inform_type structure<a class="headerlink" href="#wcp-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">wcp_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">wcp_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">factorization_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">factorization_integer</span><span class="o">::</span><span class="kt">Int64</span>
 <span class="w">      </span><span class="n">factorization_real</span><span class="o">::</span><span class="kt">Int64</span>
-<span class="w">      </span><span class="n">nfacts</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">c_implicit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">x_implicit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">y_implicit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">z_implicit</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">nfacts</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">c_implicit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">x_implicit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">y_implicit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">z_implicit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">mu_final_target_max</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">non_negligible_pivot</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">feasible</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">wcp_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">fdc_inform</span><span class="o">::</span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structwcp-inform-type">
 <span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structwcp-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-73"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-73"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See WCP_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-74"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-74"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-75"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-76"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-76"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-77"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">factorization_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1aa448fed9eb03e70d5a03300b4fbbf210"><span id="index-77"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
 <p>the return status from the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a29cd3a5b0f30227170f825116d9ade9e"><span id="index-78"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_integer</span></pre>
 <p>the total integer workspace required for the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1ad73643c24d3cd34c356c3ccd2ebfb1cc"><span id="index-79"></span><span></span><span class="kt">Int64</span><span class="w"> </span><span class="n">factorization_real</span></pre>
 <p>the total real workspace required for the factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1af54a1b17cb663c1e89a5bcd5f1e9961f"><span id="index-80"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nfacts</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1af54a1b17cb663c1e89a5bcd5f1e9961f"><span id="index-80"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nfacts</span></pre>
 <p>the total number of factorizations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a67593aebe8ddd8c5a8d66377bd1eaf00"><span id="index-81"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">c_implicit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a67593aebe8ddd8c5a8d66377bd1eaf00"><span id="index-81"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">c_implicit</span></pre>
 <p>the number of general constraints that lie on (one) of their bounds for feasible solutions</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a15ecbcc95a8f49b406624abba6f9efe1"><span id="index-82"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">x_implicit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a15ecbcc95a8f49b406624abba6f9efe1"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">x_implicit</span></pre>
 <p>the number of variables that lie on (one) of their bounds for all feasible solutions</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7164fa79af695ec1d80d860366b291c9"><span id="index-83"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">y_implicit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7164fa79af695ec1d80d860366b291c9"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">y_implicit</span></pre>
 <p>the number of Lagrange multipliers for general constraints that lie on (one) of their bounds for all feasible solutions</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a52829cf481145b7ec90572748e73331b"><span id="index-84"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">z_implicit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a52829cf481145b7ec90572748e73331b"><span id="index-84"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">z_implicit</span></pre>
 <p>the number of dual variables that lie on (one) of their bounds for all feasible solutions</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a0cbcb28977ac1f47ab67d27e4216626d"><span id="index-85"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>the value of the objective function at the best estimate of the solution determined by WCP_solve</p>
@@ -1423,9 +1424,9 @@ be symptomatic of a badly scaled problem.</p>
 <p>is the returned primal-dual “solution” strictly feasible?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1afd2e59f6d17df493c93987f3f6b8b042"><span id="index-89"></span><span></span><span class="kt">wcp_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="#doxid-structwcp-time-type"><span class="std std-ref">wcp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-90"></span><span></span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a966b6933e7b53fb2d71f55f267ad00f4"><span id="index-90"></span><span></span><span class="kt">fdc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-91"></span><span></span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structwcp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-91"></span><span></span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform parameters for SBLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1446,20 +1447,20 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_wcp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_wcp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">wcp_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">wcp_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">wcp_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">wcp_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dimension</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># number of general constraints</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># dimension</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># number of general constraints</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># linear term in the objective</span>
-  <span class="n">A_ne</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># Jacobian elements</span>
-  <span class="n">A_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row indices</span>
-  <span class="n">A_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices</span>
-  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">A_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Jacobian elements</span>
+  <span class="n">A_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row indices</span>
+  <span class="n">A_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">A_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">c_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># constraint lower bound</span>
   <span class="n">c_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># constraint upper bound</span>
@@ -1468,10 +1469,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># Set output storage</span>
   <span class="n">c</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># constraint values</span>
-  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
-  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># constraint status</span>
+  <span class="n">x_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># variable status</span>
+  <span class="n">c_stat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># constraint status</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of wcp storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1479,7 +1480,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
 
     <span class="c1"># Initialize WCP</span>
-    <span class="n">wcp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">wcp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
@@ -1494,9 +1495,9 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
+      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                    <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y_l</span><span class="p">,</span> <span class="n">y_u</span><span class="p">,</span> <span class="n">z_l</span><span class="p">,</span> <span class="n">z_u</span><span class="p">,</span>
                    <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span><span class="p">)</span>
     <span class="n">end</span>
@@ -1504,10 +1505,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">)</span>
 
-      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
+      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                    <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y_l</span><span class="p">,</span> <span class="n">y_u</span><span class="p">,</span> <span class="n">z_l</span><span class="p">,</span> <span class="n">z_u</span><span class="p">,</span>
                    <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span><span class="p">)</span>
     <span class="n">end</span>
@@ -1518,15 +1519,15 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="n">A_dense_ne</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># number of elements of A</span>
       <span class="n">A_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 
-      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">wcp_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                  <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span>
+      <span class="n">wcp_find_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span>
                    <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y_l</span><span class="p">,</span> <span class="n">y_u</span><span class="p">,</span> <span class="n">z_l</span><span class="p">,</span> <span class="n">z_u</span><span class="p">,</span>
                    <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="n">wcp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">wcp_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:</span><span class="si">%6i</span><span class="s2"> iterations. Optimal objective value = </span><span class="si">%5.2f</span><span class="s2"> status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span>
@@ -1547,16 +1548,23 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">wcp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">wcp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;WCP&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_wcp</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_wcp</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_wcp</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;WCP -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_wcp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -1616,7 +1624,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wcp-control-type-structure">wcp_control_type structure</a></li>
@@ -1672,7 +1680,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

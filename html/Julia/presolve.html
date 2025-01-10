@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD PRESOLVE package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD PRESOLVE package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -896,26 +896,27 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the presolve package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span class="std std-ref">presolve_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span class="std std-ref">presolve_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span class="std std-ref">presolve_import_problem</span></a> - import the problem data and report the dimensions of the transformed problem</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1af6da8ac04a1d4fdfd1b91cd8868791a1"><span class="std std-ref">presolve_transform_problem</span></a> - apply the presolve algorithm to transform the data</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1acf572e4805407de63003cd712f0fc495"><span class="std std-ref">presolve_restore_solution</span></a> - restore the solution from that of the transformed problem</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span class="std std-ref">presolve_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span class="std std-ref">presolve_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span class="std std-ref">presolve_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span class="std std-ref">presolve_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span class="std std-ref">presolve_import_problem</span></a> - import the problem data and report the dimensions of the transformed problem</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1af6da8ac04a1d4fdfd1b91cd8868791a1"><span class="std std-ref">presolve_transform_problem</span></a> - apply the presolve algorithm to transform the data</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1acf572e4805407de63003cd712f0fc495"><span class="std std-ref">presolve_restore_solution</span></a> - restore the solution from that of the transformed problem</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span class="std std-ref">presolve_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span class="std std-ref">presolve_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-presolve-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -928,10 +929,10 @@ illustrations of use.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -946,7 +947,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -963,7 +964,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -971,7 +972,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
 <span class="w">                                     </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">,</span>
 <span class="w">                                     </span><span class="n">H_val</span><span class="p">,</span><span class="w">  </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span>
 <span class="w">                                     </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span>
@@ -987,13 +988,13 @@ crucial characteristics of the transformed variant</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1039,25 +1040,25 @@ been specified.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_type</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="qpb.html#details-ah-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian, <span class="math notranslate nohighlight">\(H\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’, ‘scaled_identity’, ‘identity’, ‘zero’ or ‘none’, the latter pair if <span class="math notranslate nohighlight">\(H=0\)</span>; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_row</p></td>
-<td><p>is a one-dimensional array of size H_ne and type Int32 that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size H_ne and type Int32 that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense, diagonal or (scaled) identity storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size h_ne and type T that holds the values of the entries of the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in any of the available storage schemes.</p></td>
@@ -1072,16 +1073,16 @@ been specified.</p>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="qpb.html#details-ah-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_row</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
@@ -1099,21 +1100,21 @@ been specified.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>n_out</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables in the transformed problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables in the transformed problem.</p></td>
 </tr>
 <tr class="row-odd"><td><p>m_out</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints in the transformed problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints in the transformed problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_ne_out</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the transformed problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the transformed problem.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne_out</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the transformed problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the transformed problem.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1af6da8ac04a1d4fdfd1b91cd8868791a1"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_transform_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1af6da8ac04a1d4fdfd1b91cd8868791a1"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_transform_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">H_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">A_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span><span class="w"> </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">y_l</span><span class="p">,</span><span class="w"> </span><span class="n">y_u</span><span class="p">,</span><span class="w"> </span><span class="n">z_l</span><span class="p">,</span><span class="w"> </span><span class="n">z_u</span><span class="p">)</span></pre>
@@ -1130,7 +1131,7 @@ the transformed variant</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1169,19 +1170,19 @@ presolve_import_problem.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables in the transformed problem. This must match the value n_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables in the transformed problem. This must match the value n_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints. This must match the value m_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints. This must match the value m_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span>. This must match the value H_ne_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span>. This must match the value H_ne_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_col</p></td>
-<td><p>is a one-dimensional array of size H_ne and type Int32 that holds the column indices of the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span> in the sparse row-wise storage scheme.</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the column indices of the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span> in the sparse row-wise storage scheme.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span> in the sparse row-wise storage scheme.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of the transformed <span class="math notranslate nohighlight">\(H\)</span> in the sparse row-wise storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>H_val</p></td>
 <td><p>is a one-dimensional array of size h_ne and type T that holds the values of the entries of the lower triangular part of the the transformed Hessian matrix <span class="math notranslate nohighlight">\(H\)</span> in the sparse row-wise storage scheme.</p></td>
@@ -1193,13 +1194,13 @@ presolve_import_problem.</p>
 <td><p>is a scalar of type T that holds the transformed constant term <span class="math notranslate nohighlight">\(f\)</span> of the objective function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of entries in the transformed <span class="math notranslate nohighlight">\(A\)</span>. This must match the value A_ne_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the transformed <span class="math notranslate nohighlight">\(A\)</span>. This must match the value A_ne_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size A_ne and type Int32 that holds the column indices of the transformed <span class="math notranslate nohighlight">\(A\)</span> in the sparse row-wise storage scheme.</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of the transformed <span class="math notranslate nohighlight">\(A\)</span> in the sparse row-wise storage scheme.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type Int32 that holds the starting position of each row of the transformed <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme.</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the transformed <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_val</p></td>
 <td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the transformed constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span> in the sparse row-wise storage scheme.</p></td>
@@ -1231,7 +1232,7 @@ presolve_import_problem.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1acf572e4805407de63003cd712f0fc495"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_restore_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n_in</span><span class="p">,</span><span class="w"> </span><span class="n">m_in</span><span class="p">,</span><span class="w"> </span><span class="n">x_in</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1acf572e4805407de63003cd712f0fc495"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_restore_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n_in</span><span class="p">,</span><span class="w"> </span><span class="n">m_in</span><span class="p">,</span><span class="w"> </span><span class="n">x_in</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">c_in</span><span class="p">,</span><span class="w"> </span><span class="n">y_in</span><span class="p">,</span><span class="w"> </span><span class="n">z_in</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span></pre>
 <p>Given the solution (x_in,c_in,y_in,z_in) to the transformed problem, restore to recover the solution (x,c,y,z) to the original</p>
 <p class="rubric">Parameters:</p>
@@ -1245,7 +1246,7 @@ presolve_import_problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1284,10 +1285,10 @@ presolve_import_problem.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>n_in</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables in the transformed problem. This must match the value n_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables in the transformed problem. This must match the value n_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>m_in</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints. This must match the value m_out from the last call to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints. This must match the value m_out from the last call to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-odd"><td><p>x_in</p></td>
 <td><p>is a one-dimensional array of size n_in and type T that holds the transformed values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1302,10 +1303,10 @@ presolve_import_problem.</p>
 <td><p>is a one-dimensional array of size n_in and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the transformed dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of variables in the transformed problem. This must match the value n as input to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables in the transformed problem. This must match the value n as input to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type Int32 that holds the number of general linear constraints. This must match the value m as input to presolve_import_problem.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general linear constraints. This must match the value m as input to presolve_import_problem.</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the transformed values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
@@ -1322,7 +1323,7 @@ presolve_import_problem.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1335,10 +1336,10 @@ presolve_import_problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32 that gives the exit
+<td><p>is a scalar variable of type INT that gives the exit
 status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -1353,7 +1354,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">presolve_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1366,10 +1367,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1382,42 +1383,42 @@ status from the package. Possible values are
 <span id="doxid-structpresolve-control-type"></span><span id="index-7"></span><h2>presolve_control_type structure<a class="headerlink" href="#presolve-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<p>control derived type as a Julia structureure <a class="reference internal" href="#details-structpresolve-control-type"><span class="std std-ref">More…</span></a></p>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<p>control derived type as a Julia structureure <a class="reference internal" href="struct_presolve_control_type.html#details-structpresolve-control-type"><span class="std std-ref">More…</span></a></p>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">termination</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_nbr_transforms</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_nbr_passes</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">termination</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_nbr_transforms</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_nbr_passes</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">c_accuracy</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">z_accuracy</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">errout</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">errout</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">dual_transformations</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">redundant_xc</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">primal_constraints_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">dual_constraints_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">singleton_columns_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">doubleton_columns_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">unc_variables_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">dependent_variables_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">sparsify_rows_freq</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">max_fill</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">transf_file_nbr</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">transf_buffer_size</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">transf_file_status</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">primal_constraints_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">dual_constraints_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">singleton_columns_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">doubleton_columns_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">unc_variables_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">dependent_variables_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">sparsify_rows_freq</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_fill</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">transf_file_nbr</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">transf_buffer_size</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">transf_file_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">transf_file_name</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">y_sign</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">inactive_y</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">z_sign</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">inactive_z</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">final_x_bounds</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">final_z_bounds</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">final_c_bounds</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">final_y_bounds</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">check_primal_feasibility</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">check_dual_feasibility</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">y_sign</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">inactive_y</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">z_sign</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">inactive_z</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">final_x_bounds</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">final_z_bounds</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">final_c_bounds</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">final_y_bounds</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">check_primal_feasibility</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">check_dual_feasibility</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">pivot_tol</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">min_rel_improve</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">max_growth_factor</span><span class="o">::</span><span class="kt">T</span></pre>
@@ -1429,15 +1430,15 @@ status from the package. Possible values are
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-8"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8812e14a78de75cb35920f1ca14f8fcb"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">termination</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8812e14a78de75cb35920f1ca14f8fcb"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">termination</span></pre>
 <p>Determines the strategy for terminating the presolve analysis. Possible values are:</p>
 <ul class="simple">
 <li><p>1 presolving is continued as long as one of the sizes of the problem (n, m, a_ne, or h_ne) is being reduced;</p></li>
 <li><p>2 presolving is continued as long as problem transformations remain possible. NOTE: the maximum number of analysis passes (control.max_nbr_passes) and the maximum number of problem transformations (control.max_nbr_transforms) set an upper limit on the presolving effort irrespective of the choice of control.termination. The only effect of this latter parameter is to allow for early termination.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ad2cba4a8892265253e3821f2a8398783"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_nbr_transforms</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ad2cba4a8892265253e3821f2a8398783"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_nbr_transforms</span></pre>
 <p>The maximum number of problem transformations, cumulated over all calls to <code class="docutils literal notranslate"><span class="pre">presolve</span></code>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ab9b9f9490ee04ad60a88c98bedeb69bf"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_nbr_passes</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ab9b9f9490ee04ad60a88c98bedeb69bf"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_nbr_passes</span></pre>
 <p>The maximum number of analysis passes for problem analysis during a single call of <code class="docutils literal notranslate"><span class="pre">presolve_transform_problem</span></code>.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1afb60a9e6d661aebf74d5da10af97233f"><span id="index-12"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">c_accuracy</span></pre>
 <p>The relative accuracy at which the general linear constraints are satisfied at the exit of the solver. Note that this value is not used before the restoration of the problem.</p>
@@ -1445,11 +1446,11 @@ status from the package. Possible values are
 <p>The relative accuracy at which the dual feasibility constraints are satisfied at the exit of the solver. Note that this value is not used before the restoration of the problem.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-14"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
 <p>The value beyond which a number is deemed equal to plus infinity (minus infinity being defined as its opposite)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>The unit number associated with the device used for printout.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a96f36bbf8aecb8c1df4e9479e0495341"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">errout</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a96f36bbf8aecb8c1df4e9479e0495341"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">errout</span></pre>
 <p>The unit number associated with the device used for error ouput.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>The level of printout requested by the user. Can take the values:</p>
 <ul class="simple">
 <li><p>0 no printout is produced</p></li>
@@ -1463,27 +1464,27 @@ status from the package. Possible values are
 <p>true if dual transformations of the problem are allowed. Note that this implies that the reduced problem is solved accurately (for the dual feasibility condition to hold) as to be able to restore the problem to the original constraints and variables. false prevents dual transformations to be applied, thus allowing for inexact solution of the reduced problem. The setting of this control parameter overides that of get_z, get_z_bounds, get_y, get_y_bounds, dual_constraints_freq, singleton_columns_freq, doubleton_columns_freq, z_accuracy, check_dual_feasibility.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a7fff1fe9af8dc83ace001c1f01daca4e"><span id="index-19"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">redundant_xc</span></pre>
 <p>true if the redundant variables and constraints (i.e. variables that do not appear in the objective function and appear with a consistent sign in the constraints) are to be removed with their associated constraints before other transformations are attempted.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ac5198d5a57920d3cbbc44fc43e1f461d"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">primal_constraints_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ac5198d5a57920d3cbbc44fc43e1f461d"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">primal_constraints_freq</span></pre>
 <p>The frequency of primal constraints analysis in terms of presolving passes. A value of j = 2 indicates that primal constraints are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a5de3600b41511490861e5f5cc52c6c8d"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dual_constraints_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a5de3600b41511490861e5f5cc52c6c8d"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dual_constraints_freq</span></pre>
 <p>The frequency of dual constraints analysis in terms of presolving passes. A value of j = 2 indicates that dual constraints are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a79b5f7f8d67056004a9ec1347eaf0b2a"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">singleton_columns_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a79b5f7f8d67056004a9ec1347eaf0b2a"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">singleton_columns_freq</span></pre>
 <p>The frequency of singleton column analysis in terms of presolving passes. A value of j = 2 indicates that singleton columns are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3f84400443972b69eb439c8ddbccd6e4"><span id="index-23"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">doubleton_columns_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3f84400443972b69eb439c8ddbccd6e4"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">doubleton_columns_freq</span></pre>
 <p>The frequency of doubleton column analysis in terms of presolving passes. A value of j indicates that doubleton columns are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a83a0db3aa9212dc0630226a80f23355e"><span id="index-24"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">unc_variables_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a83a0db3aa9212dc0630226a80f23355e"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">unc_variables_freq</span></pre>
 <p>The frequency of the attempts to fix linearly unconstrained variables, expressed in terms of presolving passes. A value of j = 2 indicates that attempts are made every 2 presolving passes. A zero value indicates that no attempt is ever made.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a916449dc4c15cc8c573f65d13a7b1837"><span id="index-25"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">dependent_variables_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a916449dc4c15cc8c573f65d13a7b1837"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dependent_variables_freq</span></pre>
 <p>The frequency of search for dependent variables in terms of presolving passes. A value of j = 2 indicates that dependent variables are searched for every 2 presolving passes. A zero value indicates that they are never searched for.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aedb83124a2aeb24018ca314263ea194d"><span id="index-26"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">sparsify_rows_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aedb83124a2aeb24018ca314263ea194d"><span id="index-26"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sparsify_rows_freq</span></pre>
 <p>The frequency of the attempts to make A sparser in terms of presolving passes. A value of j = 2 indicates that attempts are made every 2 presolving passes. A zero value indicates that no attempt is ever made.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a62b85e62f2dd65b004b9561006447321"><span id="index-27"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">max_fill</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a62b85e62f2dd65b004b9561006447321"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_fill</span></pre>
 <p>The maximum percentage of fill in each row of A. Note that this is a row-wise measure: globally fill never exceeds the storage initially used for A, no matter how large control.max_fill is chosen. If max_fill is negative, no limit is put on row fill.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af309919911cc80fb67ce4309caff53ee"><span id="index-28"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">transf_file_nbr</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af309919911cc80fb67ce4309caff53ee"><span id="index-28"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">transf_file_nbr</span></pre>
 <p>The unit number to be associated with the file(s) used for saving problem transformations on a disk file.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8e55be8b47271c8bfe04e4eb7abe41d9"><span id="index-29"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">transf_buffer_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8e55be8b47271c8bfe04e4eb7abe41d9"><span id="index-29"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">transf_buffer_size</span></pre>
 <p>The number of transformations that can be kept in memory at once (that is without being saved on a disk file).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3327bff5444eebb4a46aa1671123681f"><span id="index-30"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">transf_file_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3327bff5444eebb4a46aa1671123681f"><span id="index-30"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">transf_file_status</span></pre>
 <p>The exit status of the file where problem transformations are saved:</p>
 <ul class="simple">
 <li><p>0 the file is not deleted after program termination</p></li>
@@ -1491,31 +1492,31 @@ status from the package. Possible values are
 </ul>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af7814ff832c4c4e7fab56d53c26b4bed"><span id="index-31"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">transf_file_name</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>The name of the file (to be) used for storing problem transformation on disk. NOTE: this parameter must be identical for all calls to <code class="docutils literal notranslate"><span class="pre">presolve</span></code> following <code class="docutils literal notranslate"><span class="pre">presolve_read_specfile</span></code>. It can then only be changed after calling presolve_terminate.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a15a549b266499b20a45e93ce9a91f083"><span id="index-32"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">y_sign</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a15a549b266499b20a45e93ce9a91f083"><span id="index-32"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">y_sign</span></pre>
 <p>Determines the convention of sign used for the multipliers associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>1 All multipliers corresponding to active inequality constraints are non-negative for lower bound constraints and non-positive for upper bounds constraints.</p></li>
 <li><p>-1 All multipliers corresponding to active inequality constraints are non-positive for lower bound constraints and non-negative for upper bounds constraints.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a0ddf7a757e8d25df82bbd45c4cc522f4"><span id="index-33"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">inactive_y</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a0ddf7a757e8d25df82bbd45c4cc522f4"><span id="index-33"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inactive_y</span></pre>
 <p>Determines whether or not the multipliers corresponding to constraints that are inactive at the unreduced point corresponding to the reduced point on input to <code class="docutils literal notranslate"><span class="pre">presolve_restore_solution</span></code> must be set to zero. Possible values are: associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>0 All multipliers corresponding to inactive inequality constraints are forced to zero, possibly at the expense of deteriorating the dual feasibility condition.</p></li>
 <li><p>1 Multipliers corresponding to inactive inequality constraints are left unaltered.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa643ec4b5dfb05f11c4c932158d92a37"><span id="index-34"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">z_sign</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa643ec4b5dfb05f11c4c932158d92a37"><span id="index-34"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">z_sign</span></pre>
 <p>Determines the convention of sign used for the dual variables associated with the bound constraints.</p>
 <ul class="simple">
 <li><p>1 All dual variables corresponding to active lower bounds are non-negative, and non-positive for active upper bounds.</p></li>
 <li><p>-1 All dual variables corresponding to active lower bounds are non-positive, and non-negative for active upper bounds.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a02a187d6425a995f970b86ab1ae6deaa"><span id="index-35"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">inactive_z</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a02a187d6425a995f970b86ab1ae6deaa"><span id="index-35"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inactive_z</span></pre>
 <p>Determines whether or not the dual variables corresponding to bounds that are inactive at the unreduced point corresponding to the reduced point on input to <code class="docutils literal notranslate"><span class="pre">presolve_restore_solution</span></code> must be set to zero. Possible values are: associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>0: All dual variables corresponding to inactive bounds are forced to zero, possibly at the expense of deteriorating the dual feasibility condition.</p></li>
 <li><p>1 Dual variables corresponding to inactive bounds are left unaltered.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a980e04d17981a03c6ce9142915baeec6"><span id="index-36"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">final_x_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a980e04d17981a03c6ce9142915baeec6"><span id="index-36"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">final_x_bounds</span></pre>
 <p>The type of final bounds on the variables returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the variables (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1523,7 +1524,7 @@ status from the package. Possible values are
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8b0b8e949abf9bb7eae7f6e258a9fadf"><span id="index-37"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">final_z_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8b0b8e949abf9bb7eae7f6e258a9fadf"><span id="index-37"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">final_z_bounds</span></pre>
 <p>The type of final bounds on the dual variables returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the dual variables (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1531,7 +1532,7 @@ status from the package. Possible values are
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a7797130742a276bfa34e28713c5f69fe"><span id="index-38"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">final_c_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a7797130742a276bfa34e28713c5f69fe"><span id="index-38"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">final_c_bounds</span></pre>
 <p>The type of final bounds on the constraints returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the constraints (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1539,7 +1540,7 @@ status from the package. Possible values are
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTES: 1) This parameter must be identical for all calls to presolve (except presolve_initialize). 2) If different from 0, its value must be identical to that of control.final_x_bounds.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8d59a01fe70d5186b185454844aa5388"><span id="index-39"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">final_y_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8d59a01fe70d5186b185454844aa5388"><span id="index-39"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">final_y_bounds</span></pre>
 <p>The type of final bounds on the multipliers returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the multipliers (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1547,14 +1548,14 @@ status from the package. Possible values are
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a63d94a12589b2a15bedc5d4b172563d7"><span id="index-40"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">check_primal_feasibility</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a63d94a12589b2a15bedc5d4b172563d7"><span id="index-40"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">check_primal_feasibility</span></pre>
 <p>The level of feasibility check (on the values of x) at the start of the restoration phase. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 no check at all;</p></li>
 <li><p>1 the primal constraints are recomputed at x and a message issued if the computed value does not match the input value, or if it is out of bounds (if control.print_level &gt;= 2);</p></li>
 <li><p>2 the same as for 1, but presolve is terminated if an incompatibilty is detected.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a953e9d14756db97aaecceca97b78f334"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">check_dual_feasibility</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a953e9d14756db97aaecceca97b78f334"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">check_dual_feasibility</span></pre>
 <p>The level of dual feasibility check (on the values of x, y and z) at the start of the restoration phase. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 no check at all;</p></li>
@@ -1579,11 +1580,11 @@ status from the package. Possible values are
 <span id="doxid-structpresolve-inform-type"></span><span id="index-45"></span><h2>presolve_inform_type structure<a class="headerlink" href="#presolve-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_inform_type</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">status_continue</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">status_continued</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">nbr_transforms</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">presolve_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">status_continue</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">status_continued</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">nbr_transforms</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">message</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}}</span></pre>
 </section>
 <section id="details-structpresolve-inform-type">
@@ -1591,7 +1592,7 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-46"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>The presolve exit condition. It can take the following values (symbol in parentheses is the related Fortran code):</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1837,7 +1838,7 @@ H.ne &gt; 0 and A is stored in sparse coordinate format</p>
 <p>(WRONG_HNE) incompatible value of H_ne</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">nbr_transforms</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">nbr_transforms</span></pre>
 <p>The final number of problem transformations, as reported to the user at exit.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ad3ed7aeb962cfe24345625354d733206"><span id="index-48"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">message</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>A few lines containing a description of the exit condition on exit of PRESOLVE, typically including more information than indicated in the description of control.status above. It is printed out on device errout at the end of execution if control.print_level &gt;= 1.</p>
@@ -1860,26 +1861,26 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_presolve</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+<span class="n">function</span> <span class="n">test_presolve</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">presolve_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">presolve_inform_type</span><span class="p">}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">presolve_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">presolve_inform_type</span><span class="p">{</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># dimension</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of general constraints</span>
-  <span class="n">H_ne</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Hesssian elements</span>
-  <span class="n">H_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
-  <span class="n">H_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># column indices, NB lower triangle</span>
-  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># dimension</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># number of general constraints</span>
+  <span class="n">H_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hesssian elements</span>
+  <span class="n">H_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># row indices, NB lower triangle</span>
+  <span class="n">H_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># column indices, NB lower triangle</span>
+  <span class="n">H_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">g</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># linear term in the objective</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># constant term in the objective</span>
-  <span class="n">A_ne</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># Jacobian elements</span>
-  <span class="n">A_row</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices</span>
-  <span class="n">A_col</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># column indices</span>
-  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">Cint</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">A_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="c1"># Jacobian elements</span>
+  <span class="n">A_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># row indices</span>
+  <span class="n">A_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>  <span class="c1"># row pointers</span>
   <span class="n">A_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
   <span class="n">c_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>  <span class="c1"># constraint lower bound</span>
   <span class="n">c_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>  <span class="c1"># constraint upper bound</span>
@@ -1888,18 +1889,18 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># Set output storage</span>
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of qp storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span>
-    <span class="n">n_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-    <span class="n">m_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-    <span class="n">H_ne_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
-    <span class="n">A_ne_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Cint</span><span class="p">}()</span>
+    <span class="n">n_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">m_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">H_ne_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">A_ne_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
 
     <span class="c1"># Initialize PRESOLVE</span>
-    <span class="n">presolve_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">presolve_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># Fortran sparse matrix indexing</span>
@@ -1907,7 +1908,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1917,7 +1918,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># sparse by rows</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1934,7 +1935,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="n">A_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
                         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
                         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_dense</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span>
                               <span class="n">f</span><span class="p">,</span> <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1944,7 +1945,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># diagonal</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">4</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1954,7 +1955,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># scaled identity</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">5</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;scaled_identity&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1964,7 +1965,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># identity</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">6</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1974,7 +1975,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># zero</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">7</span>
       <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
-      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+      <span class="n">presolve_import_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
                               <span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span>
                               <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
                               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span>
@@ -1983,12 +1984,12 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
     <span class="c1"># @printf(&quot;%c: n, m, h_ne, a_ne = %2i, %2i, %2i, %2i\n&quot;, st, n_trans, m_trans, H_ne_trans, A_ne_trans)</span>
     <span class="n">f_trans</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">T</span><span class="p">}()</span> <span class="c1"># transformed constant term in the objective</span>
-    <span class="n">H_ptr_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># transformed Hessian row pointers</span>
-    <span class="n">H_col_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">H_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Hessian column indices</span>
+    <span class="n">H_ptr_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># transformed Hessian row pointers</span>
+    <span class="n">H_col_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">H_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Hessian column indices</span>
     <span class="n">H_val_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">H_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Hessian values</span>
     <span class="n">g_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[])</span> <span class="c1"># transformed gradient</span>
-    <span class="n">A_ptr_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">m_trans</span><span class="p">[]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># transformed Jacobian row pointers</span>
-    <span class="n">A_col_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">Cint</span><span class="p">,</span> <span class="n">A_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Jacobian column indices</span>
+    <span class="n">A_ptr_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">m_trans</span><span class="p">[]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># transformed Jacobian row pointers</span>
+    <span class="n">A_col_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">A_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Jacobian column indices</span>
     <span class="n">A_val_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A_ne_trans</span><span class="p">[])</span> <span class="c1"># transformed Jacobian values</span>
     <span class="n">x_l_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[])</span> <span class="c1"># transformed lower variable bounds</span>
     <span class="n">x_u_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[])</span> <span class="c1"># transformed upper variable bounds</span>
@@ -1999,7 +2000,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="n">z_l_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[])</span> <span class="c1"># transformed lower dual variable bounds</span>
     <span class="n">z_u_trans</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[])</span> <span class="c1"># transformed upper dual variable bounds</span>
 
-    <span class="n">presolve_transform_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[],</span> <span class="n">m_trans</span><span class="p">[],</span>
+    <span class="n">presolve_transform_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[],</span> <span class="n">m_trans</span><span class="p">[],</span>
                                <span class="n">H_ne_trans</span><span class="p">[],</span> <span class="n">H_col_trans</span><span class="p">,</span> <span class="n">H_ptr_trans</span><span class="p">,</span>
                                <span class="n">H_val_trans</span><span class="p">,</span> <span class="n">g_trans</span><span class="p">,</span> <span class="n">f_trans</span><span class="p">,</span> <span class="n">A_ne_trans</span><span class="p">[],</span>
                                <span class="n">A_col_trans</span><span class="p">,</span> <span class="n">A_ptr_trans</span><span class="p">,</span> <span class="n">A_val_trans</span><span class="p">,</span>
@@ -2029,10 +2030,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="n">z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># dual variables</span>
 
     <span class="c1"># @printf(&quot;%c: n_trans, m_trans, n, m = %2i, %2i, %2i, %2i\n&quot;, st, n_trans, m_trans, n, m)</span>
-    <span class="n">presolve_restore_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[],</span> <span class="n">m_trans</span><span class="p">[],</span>
+    <span class="n">presolve_restore_solution</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n_trans</span><span class="p">[],</span> <span class="n">m_trans</span><span class="p">[],</span>
                               <span class="n">x_trans</span><span class="p">,</span> <span class="n">c_trans</span><span class="p">,</span> <span class="n">y_trans</span><span class="p">,</span> <span class="n">z_trans</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 
-    <span class="n">presolve_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="n">presolve_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">:</span><span class="si">%6i</span><span class="s2"> transformations, n, m = </span><span class="si">%2i</span><span class="s2">, </span><span class="si">%2i</span><span class="s2">, status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span>
@@ -2053,16 +2054,23 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
-    <span class="n">presolve_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+    <span class="n">presolve_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
 
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
-<span class="nd">@testset</span> <span class="s2">&quot;PRESOLVE&quot;</span> <span class="n">begin</span>
-  <span class="nd">@test</span> <span class="n">test_presolve</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_presolve</span><span class="p">(</span><span class="n">Float64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="nd">@test</span> <span class="n">test_presolve</span><span class="p">(</span><span class="n">Float128</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;PRESOLVE -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_presolve</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>
@@ -2125,7 +2133,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presolve-control-type-structure">presolve_control_type structure</a></li>
@@ -2176,7 +2184,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>

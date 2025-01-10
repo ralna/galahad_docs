@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD UGO package &#8212; GALAHAD Julia interfaces 1.0 documentation</title>
+    <title>GALAHAD UGO package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
@@ -119,8 +119,8 @@
       
     
     
-    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
-    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
   
   
 </a></div>
@@ -479,31 +479,32 @@ Lipschitz functions and Lipschitz first derivatives”
 <p>To solve a given problem, functions from the ugo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-ugo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
-<section id="parametric-real-type-t">
-<h2>parametric real type T<a class="headerlink" href="#parametric-real-type-t" title="Link to this heading">#</a></h2>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
 <p>Below, the symbol T refers to a parametric real type that may be Float32
 (single precision), Float64 (double precision) or, if supported, Float128
-(quadruple precision).</p>
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -519,7 +520,7 @@ illustrations of use.</p>
 <td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structugo-control-type"><span class="std std-ref">ugo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 exit status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -534,7 +535,7 @@ exit status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
@@ -559,7 +560,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -580,7 +581,7 @@ keywords relate to the components of the control structure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -621,7 +622,7 @@ respectively.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -637,7 +638,7 @@ respectively.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -652,7 +653,7 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_solve_direct</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">eval_fgh</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_solve_direct</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">eval_fgh</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given univariate
 function with a Lipschitz gradient in an interval.</p>
 <p>This version is for the case where all function/derivative information
@@ -671,7 +672,7 @@ is available by function calls.</p>
 <td><p>is a structure that allows data to be passed into the function and derivative evaluation programs (see below).</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -762,7 +763,7 @@ return should be set to a nonzero value.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_solve_reverse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_solve_reverse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span></pre>
 <p>Find an approximation to the global minimizer of a given univariate
 function with a Lipschitz gradient in an interval.</p>
 <p>This version is for the case where function/derivative information is
@@ -778,7 +779,7 @@ only available by returning to the calling procedure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 entry and exit status from the package.</p>
 <p>On initial entry, status must be set to 1.</p>
 <p>Possible exit values are:</p>
@@ -871,7 +872,7 @@ true.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type Int32, that is used to indicate if objective function and its derivatives can be provided (see above).</p></td>
+<td><p>is a scalar variable of type INT, that is used to indicate if objective function and its derivatives can be provided (see above).</p></td>
 </tr>
 <tr class="row-even"><td><p>x</p></td>
 <td><p>is a scalar variable of type T, that holds the next value of <span class="math notranslate nohighlight">\(x\)</span> at which the user is required to evaluate the objective (and its derivatives) when status &gt; 0, or the value of the approximate global minimizer when status = 0</p></td>
@@ -888,7 +889,7 @@ true.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -904,7 +905,7 @@ true.</p>
 <td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structugo-inform-type"><span class="std std-ref">ugo_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type Int32, that gives the
+<td><p>is a scalar variable of type INT, that gives the
 exit status from the package. Possible values are
 (currently):</p>
 <ul class="simple">
@@ -919,7 +920,7 @@ exit status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">ugo_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -948,21 +949,21 @@ exit status from the package. Possible values are
 <span id="doxid-structugo-control-type"></span><span id="index-8"></span><h2>ugo_control_type structure<a class="headerlink" href="#ugo-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">ugo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">initial_points</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">storage_increment</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">buffer</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">lipschitz_estimate_used</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">next_interval_selection</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">refine_with_newton</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">ugo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">maxit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">initial_points</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">storage_increment</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">buffer</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">lipschitz_estimate_used</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">next_interval_selection</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">refine_with_newton</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">stop_length</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">small_g_for_newton</span><span class="o">::</span><span class="kt">T</span>
@@ -983,11 +984,11 @@ exit status from the package. Possible values are
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required. Possible values are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 no output,</p></li>
@@ -995,36 +996,36 @@ exit status from the package. Possible values are
 <li><p>2 a summary of each iteration</p></li>
 <li><p><span class="math notranslate nohighlight">\(\geq\)</span> 3 increasingly verbose (debugging) output</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">start_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ae0eb21dc79b53664e45ce07c9109b3aa"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
 <p>any printing will start on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a9a3d9960a04602d2a18009c82ae2124e"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
 <p>any printing will stop on this iteration</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-14"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">print_gap</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a31edaef6b722ef2721633484405a649b"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_gap</span></pre>
 <p>the number of iterations between printing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-15"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">maxit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ab717630b215f0362699acac11fb3652c"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">maxit</span></pre>
 <p>the maximum number of iterations allowed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a31cfe38db49ce764d93d56ea80a21bf5"><span id="index-16"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">initial_points</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a31cfe38db49ce764d93d56ea80a21bf5"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">initial_points</span></pre>
 <p>the number of initial (uniformly-spaced) evaluation points (&lt;2 reset to 2)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a1b1bbeca4053127c0829ac6e28505faf"><span id="index-17"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">storage_increment</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a1b1bbeca4053127c0829ac6e28505faf"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">storage_increment</span></pre>
 <p>incremenets of storage allocated (less that 1000 will be reset to 1000)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a0c7afc3fbe2c84da5f8852c76839b03b"><span id="index-18"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">buffer</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a0c7afc3fbe2c84da5f8852c76839b03b"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">buffer</span></pre>
 <p>unit for any out-of-core writing when expanding arrays</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ab4b797b153fd1ac00231b032263276b1"><span id="index-19"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">lipschitz_estimate_used</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ab4b797b153fd1ac00231b032263276b1"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lipschitz_estimate_used</span></pre>
 <p>what sort of Lipschitz constant estimate will be used:</p>
 <ul class="simple">
 <li><p>1 = global contant provided</p></li>
 <li><p>2 = global contant estimated</p></li>
 <li><p>3 = local costants estimated</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a6a3ba03a92a96dfc5cd1c094e1e3bf87"><span id="index-20"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">next_interval_selection</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a6a3ba03a92a96dfc5cd1c094e1e3bf87"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">next_interval_selection</span></pre>
 <p>how is the next interval for examination chosen:</p>
 <ul class="simple">
 <li><p>1 = traditional</p></li>
 <li><p>2 = local_improvement</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a6618fb3c3e71213bde65602fc84b92ac"><span id="index-21"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">refine_with_newton</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a6618fb3c3e71213bde65602fc84b92ac"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">refine_with_newton</span></pre>
 <p>try refine_with_newton Newton steps from the vacinity of the global minimizer to try to improve the estimate</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-22"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alive_unit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1a3fc6359d77a53a63d57ea600b51eac13"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alive_unit</span></pre>
 <p>removal of the file alive_file from unit alive_unit terminates execution</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-control-type-1ac631699a26f321b14dbed37115f3c006"><span id="index-23"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">alive_file</span></pre>
 <p>see alive_unit</p>
@@ -1079,15 +1080,15 @@ exit status from the package. Possible values are
 <span id="doxid-structugo-inform-type"></span><span id="index-40"></span><h2>ugo_inform_type structure<a class="headerlink" href="#ugo-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">ugo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
-<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">eval_status</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">Int32</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">ugo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">eval_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">Int32</span>
-<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">f_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">g_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">h_eval</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">ugo_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span></pre>
 </section>
 <section id="details-structugo-inform-type">
@@ -1095,21 +1096,21 @@ exit status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-41"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See UGO_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a7b88f94f39913a54e69ea23c12d3e4bd"><span id="index-42"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">eval_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a7b88f94f39913a54e69ea23c12d3e4bd"><span id="index-42"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">eval_status</span></pre>
 <p>evaluation status for reverse communication interface</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-43"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-43"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-44"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">)</span><span class="w"> </span><span class="kt">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-45"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1aab6f168571c2073e01e240524b8a3da0"><span id="index-45"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations performed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-46"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">f_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1aa9c29d7119d66d8540900c7531b2dcfa"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">f_eval</span></pre>
 <p>the total number of evaluations of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-47"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">g_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1acd459eb95ff0f2d74e9cc3931d8e5469"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">g_eval</span></pre>
 <p>the total number of evaluations of the gradient of the objective function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-48"></span><span></span><span class="kt">Int32</span><span class="w"> </span><span class="n">h_eval</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1af1410cb1718f2a083dd8a7dee9ab643a"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">h_eval</span></pre>
 <p>the total number of evaluations of the Hessian of the objective function</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structugo-inform-type-1a9113f4cf33f961d4a1a97455a054eac6"><span id="index-49"></span><span></span><span class="kt">ugo_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><a class="reference internal" href="#doxid-structugo-time-type"><span class="std std-ref">ugo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
@@ -1131,7 +1132,7 @@ using Printf
 using Accessors
 using Quadmath
 
-function test_ugo(::Type{T}) where T
+function test_ugo(::Type{T}, ::Type{INT}) where {T,INT}
   # Test problem objective
   function objf(x::T)
     a = 10.0
@@ -1155,16 +1156,16 @@ function test_ugo(::Type{T}) where T
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
-  control = Ref{ugo_control_type{T}}()
-  inform = Ref{ugo_inform_type{T}}()
+  control = Ref{ugo_control_type{T,INT}}()
+  inform = Ref{ugo_inform_type{T,INT}}()
 
   # Initialize UGO
-  status = Ref{Cint}()
-  eval_status = Ref{Cint}()
-  ugo_initialize(T, data, control, status)
+  status = Ref{INT}()
+  eval_status = Ref{INT}()
+  ugo_initialize(T, INT, data, control, status)
 
   # Set user-defined control options
-  @reset control[].print_level = Cint(1)
+  @reset control[].print_level = INT(1)
 
   # Test problem bounds
   x_l = Ref{T}(-1.0)
@@ -1177,7 +1178,7 @@ function test_ugo(::Type{T}) where T
   h = Ref{T}(hessf(x[]))
 
   # import problem data
-  ugo_import(T, control, data, status, x_l, x_u)
+  ugo_import(T, INT, control, data, status, x_l, x_u)
 
   # Set for initial entry
   status[] = 1
@@ -1186,7 +1187,7 @@ function test_ugo(::Type{T}) where T
   terminated = false
   while !terminated
     # Call UGO_solve
-    ugo_solve_reverse(T, data, status, eval_status, x, f, g, h)
+    ugo_solve_reverse(T, INT, data, status, eval_status, x, f, g, h)
 
     # Evaluate f(x) and its derivatives as required
     if (status[] ≥ 2)  # need objective
@@ -1203,7 +1204,7 @@ function test_ugo(::Type{T}) where T
   end
 
   # Record solution information
-  ugo_information(T, data, inform, status)
+  ugo_information(T, INT, data, inform, status)
 
   if inform[].status == 0
     @printf(&quot;%i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;,
@@ -1213,15 +1214,22 @@ function test_ugo(::Type{T}) where T
   end
 
   # Delete internal workspace
-  ugo_terminate(T, data, control, inform)
+  ugo_terminate(T, INT, data, control, inform)
 
   return 0
 end
 
-@testset &quot;UGO&quot; begin
-  @test test_ugo(Float32) == 0
-  @test test_ugo(Float64) == 0
-  @test test_ugo(Float128) == 0
+for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
+                             (Float32 , Int64, GALAHAD.libgalahad_single_64   ),
+                             (Float64 , Int32, GALAHAD.libgalahad_double      ),
+                             (Float64 , Int64, GALAHAD.libgalahad_double_64   ),
+                             (Float128, Int32, GALAHAD.libgalahad_quadruple   ),
+                             (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
+  if isfile(libgalahad)
+    @testset &quot;UGO -- $T -- $INT&quot; begin
+      @test test_ugo(T, INT) == 0
+    end
+  end
 end
 </pre></div>
 </div>
@@ -1279,7 +1287,7 @@ end
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t">parametric real type T</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ugo-control-type-structure">ugo_control_type structure</a></li>
@@ -1335,7 +1343,7 @@ end
 
   <p class="copyright">
     
-      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, Julia interfaces  copyright Fowkes/Gould/Montoison/Orban.
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
       <br/>
     
   </p>
