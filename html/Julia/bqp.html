@@ -591,23 +591,23 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the bqp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a4466621895dd2314f1b3c21b4bc7f615"><span class="std std-ref">bqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a0e3ffdd29be95753292694c7619a43e6"><span class="std std-ref">bqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a4466621895dd2314f1b3c21b4bc7f615"><span class="std std-ref">bqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a0e3ffdd29be95753292694c7619a43e6"><span class="std std-ref">bqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p>set up problem data structures and fixed values by caling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a0cfa65e832fd80e3dfcf9e0c65a69e56"><span class="std std-ref">bqp_import</span></a> - in the case that <span class="math notranslate nohighlight">\(H\)</span> is explicitly available</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a9a99d880b3bfbcfb7b093756019c5f0e"><span class="std std-ref">bqp_import_without_h</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(H\)</span> to a vector is possible</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a0cfa65e832fd80e3dfcf9e0c65a69e56"><span class="std std-ref">bqp_import</span></a> - in the case that <span class="math notranslate nohighlight">\(H\)</span> is explicitly available</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a9a99d880b3bfbcfb7b093756019c5f0e"><span class="std std-ref">bqp_import_without_h</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(H\)</span> to a vector is possible</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a315ce83042f67a466cfdd868c27a2850"><span class="std std-ref">bqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a315ce83042f67a466cfdd868c27a2850"><span class="std std-ref">bqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1acb5ad644890efe38b7cf7048d6297308"><span class="std std-ref">bqp_solve_given_h</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(H\)</span></p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a116b9b4ff28b9e2d18be0f0900ce2755"><span class="std std-ref">bqp_solve_reverse_h_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(H\)</span> with specified vectors</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1acb5ad644890efe38b7cf7048d6297308"><span class="std std-ref">bqp_solve_given_h</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(H\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a116b9b4ff28b9e2d18be0f0900ce2755"><span class="std std-ref">bqp_solve_reverse_h_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(H\)</span> with specified vectors</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a75b662635f281148e9c19e12e0788362"><span class="std std-ref">bqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="bqp_functions.html#doxid-galahad-bqp-8h-1a34db499197d1fd6fb78b294473796fbc"><span class="std std-ref">bqp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a75b662635f281148e9c19e12e0788362"><span class="std std-ref">bqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bqp-8h-1a34db499197d1fd6fb78b294473796fbc"><span class="std std-ref">bqp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bqp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -634,7 +634,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -667,7 +667,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -686,7 +686,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -762,7 +762,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -817,7 +817,7 @@ respectively.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1207,7 +1207,7 @@ nz_p_end-nz_p_start will be small).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bqp_inform_type.html#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1238,10 +1238,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bqp_control_type.html#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbqp-control-type"><span class="std std-ref">bqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bqp_inform_type.html#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbqp-inform-type"><span class="std std-ref">bqp_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1346,7 +1346,7 @@ status from the package. Possible values are
 <p>name (max 30 characters) of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-37"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by a string (max 30 characters) prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-control-type-1a04ba974b3c8d21137deb070d0e8dfc3a"><span id="index-38"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 </section>
 </section>
@@ -1429,9 +1429,9 @@ status from the package. Possible values are
 <p>current value of the projected gradient</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-52"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7f44be002389597b3f6c06e9a9b6eefa"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bqp_time_type.html#doxid-structbqp-time-type"><span class="std std-ref">bqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7f44be002389597b3f6c06e9a9b6eefa"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbqp-time-type"><span class="std std-ref">bqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqp-inform-type-1a7e7617645ca9908f4f75e5216bb7cf68"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1441,275 +1441,313 @@ status from the package. Possible values are
 <section id="example-calls">
 <span id="doxid-index-bqp-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a bound-constrained QP;
-the code is available in $GALAHAD/src/bqp/C/bqpt.c .
-A variety of supported Hessian and constraint matrix storage formats are shown.</p>
-<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span>/* bqpt.c */
-/* Full test for the BQP C interface using C sparse matrix indexing */
+the code is available in $GALAHAD/src/bqp/Julia/test_bqp.jl .
+A variety of supported  matrix storage formats are shown.</p>
+<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span># test_bqp.jl
+# Simple code to test the Julia interface to BQP
 
-#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
-#include &quot;galahad_precision.h&quot;
-#include &quot;galahad_cfunctions.h&quot;
-#include &quot;galahad_bqp.h&quot;
-#ifdef REAL_128
-#include &lt;quadmath.h&gt;
-#endif
+using GALAHAD
+using Test
+using Printf
+using Accessors
+using Quadmath
 
-int main(void) {
+function test_bqp(::Type{T}, ::Type{INT}) where {T,INT}
+  # Derived types
+  data = Ref{Ptr{Cvoid}}()
+  control = Ref{bqp_control_type{T,INT}}()
+  inform = Ref{bqp_inform_type{T,INT}}()
 
-    // Derived types
-    void *data;
-    struct bqp_control_type control;
-    struct bqp_inform_type inform;
+  # Set problem data
+  n = INT(10)  # dimension
+  H_ne = 2 * n - 1 # Hesssian elements, NB lower triangle
+  H_dense_ne = div(n * (n + 1), 2) # dense Hessian elements
+  H_row = zeros(INT, H_ne) # row indices,
+  H_col = zeros(INT, H_ne) # column indices
+  H_ptr = zeros(INT, n + 1)  # row pointers
+  H_val = zeros(T, H_ne) # values
+  H_dense = zeros(T, H_dense_ne) # dense values
+  H_diag = zeros(T, n)   # diagonal values
+  g = zeros(T, n)  # linear term in the objective
+  f = one(T)  # constant term in the objective
+  x_l = zeros(T, n) # variable lower bound
+  x_u = zeros(T, n) # variable upper bound
+  x = zeros(T, n) # variables
+  z = zeros(T, n) # dual variables
 
-    // Set problem data
-    ipc_ n = 10; // dimension
-    ipc_ H_ne = 2 * n - 1; // Hesssian elements, NB lower triangle
-    ipc_ H_dense_ne = n * ( n + 1 ) / 2; // dense Hessian elements
-    ipc_ H_row[H_ne]; // row indices,
-    ipc_ H_col[H_ne]; // column indices
-    ipc_ H_ptr[n+1];  // row pointers
-    rpc_ H_val[H_ne]; // values
-    rpc_ H_dense[H_dense_ne]; // dense values
-    rpc_ H_diag[n];   // diagonal values
-    rpc_ g[n];  // linear term in the objective
-    rpc_ f = 1.0;  // constant term in the objective
-    rpc_ x_l[n]; // variable lower bound
-    rpc_ x_u[n]; // variable upper bound
-    rpc_ x[n]; // variables
-    rpc_ z[n]; // dual variables
+  # Set output storage
+  x_stat = zeros(INT, n) # variable status
+  st = &#39; &#39;
+  status = Ref{INT}()
 
-    // Set output storage
-    ipc_ x_stat[n]; // variable status
-    char st = &#39; &#39;;
-    ipc_ i, l, status;
+  g[1] = 2.0
+  for i in 2:n
+    g[i] = 0.0
+  end
+  x_l[1] = -1.0
+  for i in 2:n
+    x_l[i] = -Inf
+  end
+  x_u[1] = 1.0
+  x_u[2] = Inf
+  for i in 3:n
+    x_u[i] = 2.0
+  end
 
-    g[0] = 2.0;
-    for( ipc_ i = 1; i &lt; n; i++) g[i] = 0.0;
-    x_l[0] = -1.0;
-    for( ipc_ i = 1; i &lt; n; i++) x_l[i] = - INFINITY;
-    x_u[0] = 1.0;
-    x_u[1] = INFINITY;
-    for( ipc_ i = 2; i &lt; n; i++) x_u[i] = 2.0;
+  # H = tridiag(2,1), H_dense = diag(2)
+  l = 1
+  H_ptr[1] = l
+  H_row[l] = 1
+  H_col[l] = 1
+  H_val[l] = 2.0
+  for i in 2:n
+    l = l + 1
+    H_ptr[i] = l
+    H_row[l] = i
+    H_col[l] = i - 1
+    H_val[l] = 1.0
+    l = l + 1
+    H_row[l] = i
+    H_col[l] = i
+    H_val[l] = 2.0
+  end
+  H_ptr[n + 1] = l + 1
 
-    // H = tridiag(2,1), H_dense = diag(2)
+  l = 0
+  for i in 1:n
+    H_diag[i] = 2.0
+    for j in 1:i
+      l = l + 1
+      if j &lt; i - 1
+        H_dense[l] = 0.0
+      elseif j == i - 1
+        H_dense[l] = 1.0
+      else
+        H_dense[l] = 2.0
+      end
+    end
+  end
 
-    l = 0 ;
-    H_ptr[0] = l;
-    H_row[l] = 0; H_col[l] = 0; H_val[l] = 2.0;
-    for( ipc_ i = 1; i &lt; n; i++)
-    {
-      l = l + 1;
-      H_ptr[i] = l;
-      H_row[l] = i; H_col[l] = i - 1; H_val[l] = 1.0;
-      l = l + 1;
-      H_row[l] = i; H_col[l] = i; H_val[l] = 2.0;
-    }
-    H_ptr[n] = l + 1;
+  @printf(&quot; fortran sparse matrix indexing\n\n&quot;)
+  @printf(&quot; basic tests of bqp storage formats\n\n&quot;)
 
-    l = - 1 ;
-    for( ipc_ i = 0; i &lt; n; i++)
-    {
-      H_diag[i] = 2.0;
-      for( ipc_ j = 0; j &lt;= i; j++)
-      {
-        l = l + 1;
-        if ( j &lt; i - 1 ) {
-          H_dense[l] = 0.0;
-        }
-        else if ( j == i - 1 ) {
-          H_dense[l] = 1.0;
-        }
-        else {
-          H_dense[l] = 2.0;
-        }
-      }
-    }
+  for d in 1:4
 
-    printf(&quot; C sparse matrix indexing\n\n&quot;);
+    # Initialize BQP
+    bqp_initialize(T, INT, data, control, status)
 
-    printf(&quot; basic tests of bqp storage formats\n\n&quot;);
+    # Set user-defined control options
+    @reset control[].f_indexing = true # fortran sparse matrix indexing
 
-    for( ipc_ d=1; d &lt;= 4; d++){
+    # Start from 0
+    for i in 1:n
+      x[i] = 0.0
+      z[i] = 0.0
+    end
 
-        // Initialize BQP
-        bqp_initialize( &amp;data, &amp;control, &amp;status );
+    # sparse co-ordinate storage
+    if d == 1
+      st = &#39;C&#39;
+      bqp_import(T, INT, control, data, status, n,
+                 &quot;coordinate&quot;, H_ne, H_row, H_col, C_NULL)
 
-        // Set user-defined control options
-        control.f_indexing = false; // C sparse matrix indexing
+      bqp_solve_given_h(T, INT, data, status, n, H_ne, H_val, g, f,
+                        x_l, x_u, x, z, x_stat)
+    end
 
-        // Start from 0
-        for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
-        for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
+    # sparse by rows
+    if d == 2
+      st = &#39;R&#39;
+      bqp_import(T, INT, control, data, status, n,
+                 &quot;sparse_by_rows&quot;, H_ne, C_NULL, H_col, H_ptr)
 
-        switch(d){
-            case 1: // sparse co-ordinate storage
-                st = &#39;C&#39;;
-                bqp_import( &amp;control, &amp;data, &amp;status, n,
-                            &quot;coordinate&quot;, H_ne, H_row, H_col, NULL );
-                bqp_solve_given_h( &amp;data, &amp;status, n, H_ne, H_val, g, f,
-                                   x_l, x_u, x, z, x_stat );
-                break;
-            printf(&quot; case %1&quot; i_ipc_ &quot; break\n&quot;,d);
-            case 2: // sparse by rows
-                st = &#39;R&#39;;
-                bqp_import( &amp;control, &amp;data, &amp;status, n,
-                             &quot;sparse_by_rows&quot;, H_ne, NULL, H_col, H_ptr );
-                bqp_solve_given_h( &amp;data, &amp;status, n, H_ne, H_val, g, f,
-                                   x_l, x_u, x, z, x_stat );
-                break;
-            case 3: // dense
-                st = &#39;D&#39;;
-                bqp_import( &amp;control, &amp;data, &amp;status, n,
-                             &quot;dense&quot;, H_dense_ne, NULL, NULL, NULL );
-                bqp_solve_given_h( &amp;data, &amp;status, n, H_dense_ne, H_dense,
-                                   g, f, x_l, x_u, x, z, x_stat );
-                break;
-            case 4: // diagonal
-                st = &#39;L&#39;;
-                bqp_import( &amp;control, &amp;data, &amp;status, n,
-                             &quot;diagonal&quot;, H_ne, NULL, NULL, NULL );
-                bqp_solve_given_h( &amp;data, &amp;status, n, n, H_diag, g, f,
-                                   x_l, x_u, x, z, x_stat );
-                break;
-            }
-        bqp_information( &amp;data, &amp;inform, &amp;status );
+      bqp_solve_given_h(T, INT, data, status, n, H_ne, H_val, g, f,
+                        x_l, x_u, x, z, x_stat)
+    end
 
-        if(inform.status == 0){
-#ifdef REAL_128
-// interim replacement for quad output: $GALAHAD/include/galahad_pquad_f.h
-#include &quot;galahad_pquad_f.h&quot;
-#else
-            printf(&quot;%c:%6&quot; i_ipc_ &quot; iterations. Optimal objective &quot;
-                   &quot;value = %.2f status = %1&quot; i_ipc_ &quot;\n&quot;,
-                   st, inform.iter, inform.obj, inform.status);
-#endif
-        }else{
-            printf(&quot;%c: BQP_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;,
-                   st, inform.status);
-        }
-        //printf(&quot;x: &quot;);
-        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
-        //printf(&quot;\n&quot;);
-        //printf(&quot;gradient: &quot;);
-        //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
-        //printf(&quot;\n&quot;);
+    # dense
+    if d == 3
+      st = &#39;D&#39;
+      bqp_import(T, INT, control, data, status, n,
+                 &quot;dense&quot;, H_dense_ne, C_NULL, C_NULL, C_NULL)
 
-        // Delete internal workspace
-        bqp_terminate( &amp;data, &amp;control, &amp;inform );
-    }
+      bqp_solve_given_h(T, INT, data, status, n, H_dense_ne, H_dense,
+                        g, f, x_l, x_u, x, z, x_stat)
+    end
 
-    printf(&quot;\n tests reverse-communication options\n\n&quot;);
+    # diagonal
+    if d == 4
+      st = &#39;L&#39;
+      bqp_import(T, INT, control, data, status, n,
+                 &quot;diagonal&quot;, H_ne, C_NULL, C_NULL, C_NULL)
 
-    // reverse-communication input/output
-    ipc_ nz_v_start, nz_v_end, nz_prod_end;
-    ipc_ nz_v[n], nz_prod[n], mask[n];
-    rpc_ v[n], prod[n];
+      bqp_solve_given_h(T, INT, data, status, n, n, H_diag, g, f,
+                        x_l, x_u, x, z, x_stat)
+    end
 
-    nz_prod_end = 0;
+    bqp_information(T, INT, data, inform, status)
 
-    // Initialize BQP
-    bqp_initialize( &amp;data, &amp;control, &amp;status );
-   // control.print_level = 1;
+    if inform[].status == 0
+      @printf(&quot;%c:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
+              inform[].iter, inform[].obj, inform[].status)
+    else
+      @printf(&quot;%c: BQP_solve exit status = %1i\n&quot;, st, inform[].status)
+    end
 
-   // Set user-defined control options
-    control.f_indexing = false; // C sparse matrix indexing
+    # @printf(&quot;x: &quot;)
+    # for i = 1:n
+    #   @printf(&quot;%f &quot;, x[i])
+    # end
+    # @printf(&quot;\n&quot;)
+    # @printf(&quot;gradient: &quot;)
+    # for i = 1:n
+    #   @printf(&quot;%f &quot;, g[i])
+    # end
+    # @printf(&quot;\n&quot;)
 
-    // Start from 0
-    for( ipc_ i = 0; i &lt; n; i++) x[i] = 0.0;
-    for( ipc_ i = 0; i &lt; n; i++) z[i] = 0.0;
+    # Delete internal workspace
+    bqp_terminate(T, INT, data, control, inform)
+  end
 
-    st = &#39;I&#39;;
-    for( ipc_ i = 0; i &lt; n; i++) mask[i] = 0;
-    bqp_import_without_h( &amp;control, &amp;data, &amp;status, n ) ;
-    while(true){ // reverse-communication loop
-        bqp_solve_reverse_h_prod( &amp;data, &amp;status, n, g, f, x_l, x_u,
-                                  x, z, x_stat, v, prod,
-                                  nz_v, &amp;nz_v_start, &amp;nz_v_end,
-                                  nz_prod, nz_prod_end );
-        if(status == 0){ // successful termination
-            break;
-        }else if(status &lt; 0){ // error exit
-            break;
-        }else if(status == 2){ // evaluate Hv
-          prod[0] = 2.0 * v[0] + v[1];
-          for( ipc_ i = 1; i &lt; n-1; i++) prod[i] = 2.0 * v[i] + v[i-1] + v[i+1];
-          prod[n-1] = 2.0 * v[n-1] + v[n-2];
-        }else if(status == 3){ // evaluate Hv for sparse v
-          for( ipc_ i = 0; i &lt; n; i++) prod[i] = 0.0;
-          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
-             i = nz_v[l];
-             if (i &gt; 0) prod[i-1] = prod[i-1] + v[i];
-             prod[i] = prod[i] + 2.0 * v[i];
-             if (i &lt; n-1) prod[i+1] = prod[i+1] + v[i];
-           }
-        }else if(status == 4){ // evaluate sarse Hv for sparse v
-          nz_prod_end = 0;
-          for( ipc_ l = nz_v_start - 1; l &lt; nz_v_end; l++){
-             i = nz_v[l];
-             if (i &gt; 0){
-               if (mask[i-1] == 0){
-                 mask[i-1] = 1;
-                 nz_prod[nz_prod_end] = i - 1;
-                 nz_prod_end = nz_prod_end + 1;
-                 prod[i-1] = v[i];
-               }else{
-                 prod[i-1] = prod[i-1] + v[i];
-               }
-             }
-             if (mask[i] == 0){
-               mask[i] = 1;
-               nz_prod[nz_prod_end] = i;
-               nz_prod_end = nz_prod_end + 1;
-               prod[i] = 2.0 * v[i];
-             }else{
-               prod[i] = prod[i] + 2.0 * v[i];
-             }
-             if (i &lt; n-1){
-               if (mask[i+1] == 0){
-                 mask[i+1] = 1;
-                 nz_prod[nz_prod_end] = i + 1;
-                 nz_prod_end = nz_prod_end + 1;
-                 prod[i+1] = prod[i+1] + v[i];
-               }else{
-                 prod[i+1] = prod[i+1] + v[i];
-               }
-             }
-          }
-          for( ipc_ l = 0; l &lt; nz_prod_end; l++) mask[nz_prod[l]] = 0;
-        }else{
-            printf(&quot; the value %1&quot; i_ipc_ &quot; of status should not occur\n&quot;,
-                   status);
-            break;
-        }
-    }
+  @printf(&quot;\n tests reverse-communication options\n\n&quot;)
 
-    // Record solution information
-    bqp_information( &amp;data, &amp;inform, &amp;status );
+  # reverse-communication input/output
+  nz_v_start = Ref{INT}()
+  nz_v_end = Ref{INT}()
+  nz_v = zeros(INT, n)
+  nz_prod = zeros(INT, n)
+  mask = zeros(INT, n)
+  v = zeros(T, n)
+  prod = zeros(T, n)
 
-    // Print solution details
-    if(inform.status == 0){
-#ifdef REAL_128
-// interim replacement for quad output: $GALAHAD/include/galahad_pquad_f.h
-#include &quot;galahad_pquad_f.h&quot;
-#else
-        printf(&quot;%c:%6&quot; i_ipc_ &quot; iterations. Optimal objective &quot;
-               &quot;value = %.2f status = %1&quot; i_ipc_ &quot;\n&quot;,
-               st, inform.iter, inform.obj, inform.status);
-#endif
-    }else{
-        printf(&quot;%c: BQP_solve exit status = %1&quot; i_ipc_ &quot;\n&quot;, st, inform.status);
-    }
-    //printf(&quot;x: &quot;);
-    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, x[i]);
-    //printf(&quot;\n&quot;);
-    //printf(&quot;gradient: &quot;);
-    //for( ipc_ i = 0; i &lt; n; i++) printf(&quot;%f &quot;, g[i]);
-    //printf(&quot;\n&quot;);
+  nz_prod_end = 1
 
-    // Delete internal workspace
-    bqp_terminate( &amp;data, &amp;control, &amp;inform );
-}
+  # Initialize BQP
+  bqp_initialize(T, INT, data, control, status)
+  # @reset control[].print_level = 1
+
+  # Set user-defined control options
+  @reset control[].f_indexing = true # fortran sparse matrix indexing
+
+  # Start from 0
+  for i in 1:n
+    x[i] = 0.0
+    z[i] = 0.0
+  end
+
+  st = &#39;I&#39;
+  for i in 1:n
+    mask[i] = 0
+  end
+  bqp_import_without_h(T, INT, control, data, status, n)
+
+  terminated = false
+  while !terminated # reverse-communication loop
+    bqp_solve_reverse_h_prod(T, INT, data, status, n, g, f, x_l, x_u, x, z, x_stat, v, prod, nz_v,
+                             nz_v_start, nz_v_end, nz_prod, nz_prod_end)
+
+    if status[] == 0 # successful termination
+      terminated = true
+    elseif status[] &lt; 0 # error exit
+      terminated = true
+    elseif status[] == 2 # evaluate Hv
+      prod[1] = 2.0 * v[1] + v[2]
+      for i in 2:(n - 1)
+        prod[i] = 2.0 * v[i] + v[i - 1] + v[i + 1]
+      end
+      prod[n] = 2.0 * v[n] + v[n - 1]
+    elseif status[] == 3 # evaluate Hv for sparse v
+      for i in 1:n
+        prod[i] = 0.0
+      end
+      for l in nz_v_start[]:nz_v_end[]
+        i = nz_v[l]
+        if i &gt; 1
+          prod[i - 1] = prod[i - 1] + v[i]
+        end
+        prod[i] = prod[i] + 2.0 * v[i]
+        if i &lt; n
+          prod[i + 1] = prod[i + 1] + v[i]
+        end
+      end
+    elseif status[] == 4 # evaluate sarse Hv for sparse v
+      nz_prod_end = 1
+      for l in nz_v_start[]:nz_v_end[]
+        i = nz_v[l]
+        if i &gt; 1
+          if mask[i - 1] == 0
+            mask[i - 1] = 1
+            nz_prod[nz_prod_end] = i - 1
+            nz_prod_end = nz_prod_end + 1
+            prod[i - 1] = v[i]
+          else
+            prod[i - 1] = prod[i - 1] + v[i]
+          end
+        end
+        if mask[i] == 0
+          mask[i] = 1
+          nz_prod[nz_prod_end] = i
+          nz_prod_end = nz_prod_end + 1
+          prod[i] = 2.0 * v[i]
+        else
+          prod[i] = prod[i] + 2.0 * v[i]
+        end
+        if i &lt; n
+          if mask[i + 1] == 0
+            mask[i + 1] = 1
+            nz_prod[nz_prod_end] = i + 1
+            nz_prod_end = nz_prod_end + 1
+          end
+          prod[i + 1] = prod[i + 1] + v[i]
+        end
+        for l in 1:nz_prod_end
+          mask[nz_prod[l]] = 0
+        end
+      end
+    else
+      @printf(&quot; the value %1i of status should not occur\n&quot;, status[])
+    end
+  end
+
+  # Record solution information
+  bqp_information(T, INT, data, inform, status)
+
+  # Print solution details
+  if inform[].status == 0
+    @printf(&quot;%c:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
+            inform[].iter, inform[].obj, inform[].status)
+  else
+    @printf(&quot;%c: BQP_solve exit status = %1i\n&quot;, st, inform[].status)
+  end
+
+  # @printf(&quot;x: &quot;)
+  # for i = 1:n
+  #   @printf(&quot;%f &quot;, x[i])
+  # end
+  # @printf(&quot;\n&quot;)
+  # @printf(&quot;gradient: &quot;)
+  # for i = 1:n
+  #   @printf(&quot;%f &quot;, g[i])
+  # end
+  # @printf(&quot;\n&quot;)
+
+  # Delete internal workspace
+  bqp_terminate(T, INT, data, control, inform)
+  return 0
+end
+
+for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
+                             (Float32 , Int64, GALAHAD.libgalahad_single_64   ),
+                             (Float64 , Int32, GALAHAD.libgalahad_double      ),
+                             (Float64 , Int64, GALAHAD.libgalahad_double_64   ),
+                             (Float128, Int32, GALAHAD.libgalahad_quadruple   ),
+                             (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
+  if isfile(libgalahad)
+    @testset &quot;BQP -- $T -- $INT&quot; begin
+      @test test_bqp(T, INT) == 0
+    end
+  end
+end
 </pre></div>
 </div>
 </section>

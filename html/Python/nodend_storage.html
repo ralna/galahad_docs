@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>purpose &#8212; GALAHAD Python Interface 1.0 documentation</title>
+    <title>matrix storage &#8212; GALAHAD Python Interface 1.0 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'nodend_intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nodend_storage';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -390,7 +390,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">purpose</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">matrix storage</span></li>
   </ul>
 </nav>
 </div>
@@ -407,31 +407,33 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="purpose">
-<h1>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">nodend</span></code> package finds a symmetric row and column permutation,
-<span class="math notranslate nohighlight">\(P A P^T\)</span>, of a symmetric, sparse matrix <span class="math notranslate nohighlight">\(A\)</span> with the aim of limiting
-the fill-in during subsequent Cholesky-like factorization. The package
-is actually a wrapper to the METIS_NodeND procedure from versions
-4.0, 5.1 and 5.2 of the METIS package from the Karypis Lab.</p>
-<p>See Section 4 of $GALAHAD/doc/nodend.pdf for additional details.</p>
-</section>
-<section id="method">
-<h1>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h1>
-<p>Variants of node-based nested-dissection ordering are employed.</p>
-</section>
-<section id="reference">
-<h1>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h1>
-<p>The basic methods are those described in</p>
-<blockquote>
-<div><p>G. Karypis.
-METIS, A software package for partitioning unstructured
-graphs, partitioning meshes, and computing
-fill-reducing orderings of sparse matrices, Version 5,
-Department of Computer Science &amp; Engineering, University of Minnesota
-Minneapolis, MN 55455, USA (2013), see</p>
-<p><a class="github reference external" href="https://github.com/KarypisLab/METIS/blob/master/manual/manual.pdf">KarypisLab/METIS</a></p>
-</div></blockquote>
+  <section id="matrix-storage">
+<h1>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h1>
+<p>The sparsity pattern of the <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> sparse matrix <span class="math notranslate nohighlight">\(A\)</span> may
+be presented and stored in a couple of formats. But crucially symmetry
+is exploited by only indices from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i and column index j,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the integer array H_col. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
 </section>
 
 
@@ -456,24 +458,9 @@ Minneapolis, MN 55455, USA (2013), see</p>
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">purpose</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
-</ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/nodend_intro.rst.txt">
+    <a href="_sources/nodend_storage.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

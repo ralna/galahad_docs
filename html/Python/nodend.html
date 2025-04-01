@@ -445,9 +445,6 @@
 the fill-in during subsequent Cholesky-like factorization. The package
 is actually a wrapper to the METIS_NodeND procedure from versions
 4.0, 5.1 and 5.2 of the METIS package from the Karypis Lab.</p>
-<p><strong>Currently only the options and inform dictionaries are exposed</strong>; these are
-provided and used by other GALAHAD packages with Python interfaces.
-Please contact us if you would like full functionality!</p>
 <p>See Section 4 of $GALAHAD/doc/nodend.pdf for additional details.</p>
 </section>
 <section id="method">
@@ -466,6 +463,34 @@ Department of Computer Science &amp; Engineering, University of Minnesota
 Minneapolis, MN 55455, USA (2013), see</p>
 <p><a class="github reference external" href="https://github.com/KarypisLab/METIS/blob/master/manual/manual.pdf">KarypisLab/METIS</a></p>
 </div></blockquote>
+</section>
+<section id="matrix-storage">
+<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<p>The sparsity pattern of the <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> sparse matrix <span class="math notranslate nohighlight">\(A\)</span> may
+be presented and stored in a couple of formats. But crucially symmetry
+is exploited by only indices from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i and column index j,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the integer array H_col. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
 </section>
 <section id="functions">
 <h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
@@ -531,14 +556,16 @@ smaller than 1 means that no vertices will be ordered last.</p>
 compute at each level of nested dissection.</p>
 </dd>
 <dt>metis5_ptype<span class="classifier">int</span></dt><dd><p>the partitioning method. The value 0 gives multilevel recursive
-bisectioning, while 1 corresponds to multilevel <span class="math notranslate nohighlight">\(k\)</span>-way partitioning.</p>
+bisectioning, while 1 corresponds to multilevel <span class="math notranslate nohighlight">\(k\)</span>-way
+partitioning.</p>
 </dd>
 <dt>metis5_objtype<span class="classifier">int</span></dt><dd><p>the type of the objective. Currently the only and default value
 metis5_objtype = 2, specifies node-based nested dissection,
 and any invalid value will be replaced by this default.</p>
 </dd>
 <dt>metis5_ctype<span class="classifier">int</span></dt><dd><dl class="simple">
-<dt>the matching scheme to be used during coarsening: 0 = random matching,</dt><dd><p>and 1 = sorted heavy-edge matching.</p>
+<dt>the matching scheme to be used during coarsening:</dt><dd><p>0 = random matching,
+and 1 = sorted heavy-edge matching.</p>
 </dd>
 </dl>
 </dd>
@@ -593,9 +620,9 @@ among the partitions.</p>
 </dd>
 <dt>metis5_dropedges<span class="classifier">int</span></dt><dd><p>will edges be dropped (0 = no, 1 = yes) by MeTiS 5.2.</p>
 </dd>
-<dt>metis5_no2hop<span class="classifier">int</span></dt><dd><p>specify that the coarsening will not perform any 2–hop matchings when
-the standard matching approach fails to sufficiently coarsen the graph:
-0 = no, and 1 = yes.</p>
+<dt>metis5_no2hop<span class="classifier">int</span></dt><dd><p>specify that the coarsening will not perform any 2–hop matchings
+when the standard matching approach fails to sufficiently coarsen
+the graph: 0 = no, and 1 = yes.</p>
 </dd>
 <dt>metis5_twohop<span class="classifier">int</span></dt><dd><p>reserved for future use but ignored at present.</p>
 </dd>
@@ -604,6 +631,47 @@ the standard matching approach fails to sufficiently coarsen the graph:
 </dl>
 </dd>
 </dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.nodend.nodend.order">
+<span class="sig-prename descclassname"><span class="pre">nodend.</span></span><span class="sig-name descname"><span class="pre">order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nodend.nodend.order" title="Link to this definition">#</a></dt>
+<dd><p>Find a row/colum permutation for sparse Cholesky-like factorization.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>A_type<span class="classifier">string</span></dt><dd><p>specifies the symmetric storage scheme used for <span class="math notranslate nohighlight">\(A\)</span>.
+It should be one of ‘coordinate’ or ‘sparse_by_rows’;
+lower or upper case variants are allowed. If A_type is not one
+of the supported values, the identity permutation will be returned.</p>
+</dd>
+<dt>A_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the  lower triangular part of
+<span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need
+not be set for the sparse-by-row scheme.</p>
+</dd>
+<dt>A_row<span class="classifier">ndarray(A_ne)</span></dt><dd><p>holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>
+in the sparse co-ordinate storage scheme. It need not be set for
+the sparse-by-row scheme, and in this case can be None.</p>
+</dd>
+<dt>A_col<span class="classifier">ndarray(A_ne)</span></dt><dd><p>holds the column indices of the  lower triangular part of
+<span class="math notranslate nohighlight">\(A\)</span> in either of the supported storage schemes.</p>
+</dd>
+<dt>A_ptr<span class="classifier">ndarray(n+1)</span></dt><dd><p>holds the starting position of each row of the lower triangular
+part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries,
+in the sparse row-wise storage scheme. It need not be set when the
+coordinate scheme is used, and in this case can be None.</p>
+</dd>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">nodend.initialize</span></code>).</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong></p>
+<dl class="simple">
+<dt>perm<span class="classifier">ndarray(n)</span></dt><dd><p>holds the permutation array, so that the perm[<span class="math notranslate nohighlight">\(i\)</span>]-th rows and
+columns in the permuted matrix <span class="math notranslate nohighlight">\(P A P^T\)</span> correspond to those
+labelled i in <span class="math notranslate nohighlight">\(A\)</span>, 0 <span class="math notranslate nohighlight">\(\leq\)</span> i <span class="math notranslate nohighlight">\(\leq\)</span> n-1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -639,7 +707,7 @@ inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
 <p>One of the restrictions
 n <span class="math notranslate nohighlight">\(&gt; 0\)</span>, A.n <span class="math notranslate nohighlight">\(&gt; 0\)</span> or A.ne <span class="math notranslate nohighlight">\(&lt; 0\)</span>, for co-ordinate entry,
 or requirements that A.type contain its relevant string
-‘COORDINATE’, ‘SPARSE_BY_ROWS’ or ‘DENSE’, and
+‘coordinate’ or ‘sparse_by_rows’, and
 options[‘version’] in one of ‘4.0’, ‘5.1’ or ‘5.2’
 has been violated.</p>
 </li>
@@ -669,6 +737,38 @@ error occurred.</p>
 </dd></dl>
 
 </div></blockquote>
+</section>
+<section id="example-code">
+<h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
+<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">nodend</span><span class="whitespace">
+</span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
+</span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: nodend&quot;</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># set parameters</span><span class="whitespace">
+</span><span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+
+</span><span class="name">A_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">A_ne</span> <span class="operator">=</span> <span class="literal number integer">4</span><span class="whitespace">
+</span><span class="name">A_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">A_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">A_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+
+</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+
+</span><span class="comment single"># set some non-default options</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
+
+</span><span class="comment single"># find the ordering</span><span class="whitespace">
+</span><span class="name">perm</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">order</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">A_type</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_row</span><span class="punctuation">,</span> <span class="name">A_col</span><span class="punctuation">,</span> <span class="name">A_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; perm&quot;</span><span class="punctuation">,</span><span class="name">perm</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** nodend exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span></code></pre>
+<p>This example code is available in $GALAHAD/src/nodend/Python/test_nodend.py .</p>
 </section>
 </section>
 
@@ -722,10 +822,13 @@ error occurred.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nodend.nodend.initialize"><code class="docutils literal notranslate"><span class="pre">nodend.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nodend.nodend.order"><code class="docutils literal notranslate"><span class="pre">nodend.order()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
 </ul>
   </nav></div>
 
