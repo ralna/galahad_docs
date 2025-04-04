@@ -789,14 +789,14 @@
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="bqp_functions.html#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="bqp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_nodend_inform_type.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
@@ -823,19 +823,23 @@
 
 <span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-nodend-8h-information"><span class="std std-ref">nodend_information</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_nodend_inform_type.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
 <span id="details-global"></span><h1>typedefs<a class="headerlink" href="#typedefs" title="Link to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ipc-8h"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ipc_</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-rpc-8h"><span id="index-0"></span><span></span><span class="k">typedef</span> <span class="kt">double</span> <span class="n">rpc_</span></pre>
+<p><code class="docutils literal notranslate"><span class="pre">rpc_</span></code> is the real working precision used, but may be changed to <code class="docutils literal notranslate"><span class="pre">float</span></code> by
+defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">REAL_32</span></code> or (if supported) to
+<code class="docutils literal notranslate"><span class="pre">__real128</span></code> using the variable <code class="docutils literal notranslate"><span class="pre">REAL_128</span></code>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-ipc-8h"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ipc_</span></pre>
 <p><code class="docutils literal notranslate"><span class="pre">ipc_</span></code> is the default integer word length used, but may be changed to
 <code class="docutils literal notranslate"><span class="pre">int64_t</span></code> by defining the  preprocessor variable <code class="docutils literal notranslate"><span class="pre">INTEGER_64</span></code>.</p>
 </section>
 <section id="function-calls">
 <h1>function calls<a class="headerlink" href="#function-calls" title="Link to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-initialize"><span id="index-1"></span><span></span><span class="kt">void</span> <span class="n">nodend_initialize</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-initialize"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">nodend_initialize</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
@@ -868,7 +872,7 @@
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-read-specfile"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">nodend_read_specfile</span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[])</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-read-specfile"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">nodend_read_specfile</span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[])</span></pre>
 <p>Read the content of a specification file, and assign values
 associated with given keywords to the corresponding control
 parameters. An in-depth discussion of specification files is
@@ -893,7 +897,7 @@ to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-order"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">nodend_order</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-order"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">nodend_order</span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
@@ -1002,9 +1006,9 @@ has been violated.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-information"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">nodend_information</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-information"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">nodend_information</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="nodend.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_nodend_inform_type.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Provides output information</p>
@@ -1019,7 +1023,7 @@ has been violated.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="nodend.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="struct_nodend_inform_type.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
