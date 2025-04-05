@@ -750,38 +750,50 @@ error occurred.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.nodend.nodend.terminate">
+<span class="sig-prename descclassname"><span class="pre">nodend.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nodend.nodend.terminate" title="Link to this definition">#</a></dt>
+<dd><p>Deallocate all internal private storage.</p>
+</dd></dl>
+
 </div></blockquote>
 </section>
 <section id="example-code">
 <h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
-<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">nodend</span><span class="whitespace">
-</span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
-</span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: nodend&quot;</span><span class="punctuation">)</span><span class="whitespace">
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">galahad</span> <span class="kn">import</span> <span class="n">nodend</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">floatmode</span><span class="o">=</span><span class="s1">&#39;fixed&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">** python test: nodend&quot;</span><span class="p">)</span>
 
-</span><span class="comment single"># set parameters</span><span class="whitespace">
-</span><span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+<span class="c1"># set parameters</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
 
-</span><span class="name">A_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
-</span><span class="name">A_ne</span> <span class="operator">=</span> <span class="literal number integer">4</span><span class="whitespace">
-</span><span class="name">A_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
-</span><span class="name">A_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
-</span><span class="name">A_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+<span class="n">A_type</span> <span class="o">=</span> <span class="s1">&#39;coordinate&#39;</span>
+<span class="n">A_ne</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">A_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">A_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">A_ptr</span> <span class="o">=</span> <span class="kc">None</span>
 
-</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
-</span><span class="name">options</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+<span class="c1"># allocate internal data and set default options</span>
+<span class="n">options</span> <span class="o">=</span> <span class="n">nodend</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
-</span><span class="comment single"># set some non-default options</span><span class="whitespace">
-</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
-</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
+<span class="c1"># set some non-default options</span>
+<span class="n">options</span><span class="p">[</span><span class="s1">&#39;print_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#print(&quot;options:&quot;, options)</span>
 
-</span><span class="comment single"># find the ordering</span><span class="whitespace">
-</span><span class="name">perm</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">order</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">A_type</span><span class="punctuation">,</span> <span class="name">A_ne</span><span class="punctuation">,</span> <span class="name">A_row</span><span class="punctuation">,</span> <span class="name">A_col</span><span class="punctuation">,</span> <span class="name">A_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; perm&quot;</span><span class="punctuation">,</span><span class="name">perm</span><span class="punctuation">)</span><span class="whitespace">
+<span class="c1"># find the ordering</span>
+<span class="n">perm</span> <span class="o">=</span> <span class="n">nodend</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">A_type</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; perm&quot;</span><span class="p">,</span><span class="n">perm</span><span class="p">)</span>
 
-</span><span class="comment single"># get information</span><span class="whitespace">
-</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">nodend</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
-</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** nodend exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span></code></pre>
+<span class="c1"># get information</span>
+<span class="n">inform</span> <span class="o">=</span> <span class="n">nodend</span><span class="o">.</span><span class="n">information</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;** nodend exit status:&#39;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="c1"># deallocate internal data</span>
+
+<span class="n">nodend</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>This example code is available in $GALAHAD/src/nodend/Python/test_nodend.py .</p>
 </section>
 </section>
@@ -840,6 +852,7 @@ error occurred.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nodend.nodend.initialize"><code class="docutils literal notranslate"><span class="pre">nodend.initialize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nodend.nodend.order"><code class="docutils literal notranslate"><span class="pre">nodend.order()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nodend.nodend.terminate"><code class="docutils literal notranslate"><span class="pre">nodend.terminate()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>

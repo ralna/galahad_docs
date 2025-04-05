@@ -839,10 +839,10 @@ The string H_type = ‘sparse_by_rows’ should be specified.</p>
 <p>To find the required permutation, functions from the nodend package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-nodend-8h-initialize"><span class="std std-ref">nodend_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nodend-8h-read-specfile"><span class="std std-ref">nodend_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nodend-8h-order"><span class="std std-ref">nodend_import</span></a> find a row/colum permutation for sparse Cholesky-like factorization</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nodend-8h-information"><span class="std std-ref">nodend_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-initialize"><span class="std std-ref">nodend_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-read-specfile"><span class="std std-ref">nodend_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-order"><span class="std std-ref">nodend_import</span></a> find a row/colum permutation for sparse Cholesky-like factorization</p></li>
+<li><p><a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-information"><span class="std std-ref">nodend_information</span></a> (optional) - recover information about the solution and solution process</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-nodend-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -860,42 +860,46 @@ illustrations of use.</p>
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
-<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-nodend-8h-initialize"><span class="std std-ref">nodend_initialize</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-initialize"><span class="std std-ref">nodend_initialize</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-nodend-8h-read-specfile"><span class="std std-ref">nodend_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
+<span class="kt">void</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-read-specfile"><span class="std std-ref">nodend_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-nodend-8h-order"><span class="std std-ref">nodend_order</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-order"><span class="std std-ref">nodend_order</span></a><span></span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">perm</span><span class="p">[],</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">perm</span><span class="p">[],</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">H_type</span><span class="p">[],</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_row</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[]</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_row</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[]</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-nodend-8h-information"><span class="std std-ref">nodend_information</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-information"><span class="std std-ref">nodend_information</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+<span class="p">);</span>
+
+<span class="kt">void</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-nodend-8h-terminate"><span class="std std-ref">nodend_terminate</span></a><span></span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
@@ -913,7 +917,7 @@ defining the  preprocessor variable <code class="docutils literal notranslate"><
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-initialize"><span id="index-2"></span><span></span><span class="kt">void</span> <span class="n">nodend_initialize</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
@@ -930,7 +934,7 @@ defining the  preprocessor variable <code class="docutils literal notranslate"><
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -971,14 +975,14 @@ to the components of the control structure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-order"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">nodend_order</span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-control-type"><span class="std std-ref">nodend_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">perm</span><span class="p">[],</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">perm</span><span class="p">[],</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">H_type</span><span class="p">[],</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_row</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[]</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_row</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">A_ptr</span><span class="p">[]</span>
 <span class="p">)</span></pre>
 <p>Find a row/colum permutation for sparse Cholesky-like factorization.</p>
 <p class="rubric">Parameters:</p>
@@ -995,7 +999,7 @@ to the components of the control structure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>1</strong></dt><dd><p>The import was successful, and the package is ready
@@ -1054,25 +1058,25 @@ has been violated.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of variables.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>perm</p></td>
-<td><p>is a one-dimensional array of size n and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that returns the computed permutation array, so that the perm[i]-th rows and columns in the permuted matrix <span class="math notranslate nohighlight">\(P A P^T\)</span> correspond to those labelled i in <span class="math notranslate nohighlight">\(A\)</span>, 0 <span class="math notranslate nohighlight">\(\leq\)</span> i <span class="math notranslate nohighlight">\(\leq\)</span> n-1.</p></td>
+<td><p>is a one-dimensional array of size n and type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that returns the computed permutation array, so that the perm[i]-th rows and columns in the permuted matrix <span class="math notranslate nohighlight">\(P A P^T\)</span> correspond to those labelled i in <span class="math notranslate nohighlight">\(A\)</span>, 0 <span class="math notranslate nohighlight">\(\leq\)</span> i <span class="math notranslate nohighlight">\(\leq\)</span> n-1.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_type</p></td>
 <td><p>is a one-dimensional array of type char that specifies the <span class="xref std std-ref">symmetric storage scheme</span> used for the Hessian. It should be one of ‘coordinate’ or ‘sparse_by_rows’; lower or upper case variants are allowed. If A_type is not one of the supported values, the identity permutation will be returned.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_row</p></td>
-<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for the other scheme, and in this case can be NULL</p></td>
+<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for the other scheme, and in this case can be NULL</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_col</p></td>
-<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other scheme is used, and in this case can be NULL</p></td>
+<td><p>is a one-dimensional array of size n+1 and type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other scheme is used, and in this case can be NULL</p></td>
 </tr>
 </tbody>
 </table>
@@ -1080,7 +1084,7 @@ has been violated.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-information"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">nodend_information</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
@@ -1097,7 +1101,7 @@ has been violated.</p>
 <td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -1110,12 +1114,29 @@ has been violated.</p>
 </tbody>
 </table>
 </div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nodend-8h-terminate"><span id="index-6"></span><span></span><span class="kt">void</span> <span class="n">nodend_terminate</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">**</span><span class="n">data</span>
+<span class="p">)</span></pre>
+<p>Deallocate all internal private storage</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="available-structures">
 <h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="nodend-control-type-structure">
-<span id="doxid-structnodend-control-type"></span><span id="index-6"></span><h2>nodend_control_type structure<a class="headerlink" href="#nodend-control-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structnodend-control-type"></span><span id="index-7"></span><h2>nodend_control_type structure<a class="headerlink" href="#nodend-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_nodend.h&gt;</span>
@@ -1125,41 +1146,41 @@ has been violated.</p>
 
   <span class="kt">bool</span> <a class="reference internal" href="#doxid-structnodend-control-type-f-indexing"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
   <span class="kt">char</span> <a class="reference internal" href="#doxid-structnodend-control-type-version"><span class="std std-ref">version</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-error"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-out"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-print-level"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-error"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-out"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-print-level"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
   <span class="kt">bool</span> <a class="reference internal" href="#doxid-structnodend-control-type-no-metis-4-use-5-instead"><span class="std std-ref">no_metis_4_use_5_instead</span></a><span></span><span class="p">;</span>
   <span class="kt">char</span> <a class="reference internal" href="#doxid-structnodend-control-type-prefix"><span class="std std-ref">prefix</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-ptype"><span class="std std-ref">metis4_ptype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-ctype"><span class="std std-ref">metis4_ctype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-itype"><span class="std std-ref">metis4_itype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-rtype"><span class="std std-ref">metis4_rtype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-dbglvl"><span class="std std-ref">metis4_dbglvl</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-oflags"><span class="std std-ref">metis4_oflags</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-pfactor"><span class="std std-ref">metis4_pfactor</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-nseps"><span class="std std-ref">metis4_nseps</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ptype"><span class="std std-ref">metis5_ptype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-objtype"><span class="std std-ref">metis5_objtype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ctype"><span class="std std-ref">metis5_ctype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-iptype"><span class="std std-ref">metis5_iptype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-rtype"><span class="std std-ref">metis5_rtype</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-dbglvl"><span class="std std-ref">metis5_dbglvl</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-niter"><span class="std std-ref">metis5_niter</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ncuts"><span class="std std-ref">metis5_ncuts</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-seed"><span class="std std-ref">metis5_seed</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-no2hop"><span class="std std-ref">metis5_no2hop</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-minconn"><span class="std std-ref">metis5_minconn</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-contig"><span class="std std-ref">metis5_contig</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-compress"><span class="std std-ref">metis5_compress</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ccorder"><span class="std std-ref">metis5_ccorder</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-pfactor"><span class="std std-ref">metis5_pfactor</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-nseps"><span class="std std-ref">metis5_nseps</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ufactor"><span class="std std-ref">metis5_ufactor</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-niparts"><span class="std std-ref">metis5_niparts</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ondisk"><span class="std std-ref">metis5_ondisk</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-dropedges"><span class="std std-ref">metis5_dropedges</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-twohop"><span class="std std-ref">metis5_twohop</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-fast"><span class="std std-ref">metis5_fast</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-ptype"><span class="std std-ref">metis4_ptype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-ctype"><span class="std std-ref">metis4_ctype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-itype"><span class="std std-ref">metis4_itype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-rtype"><span class="std std-ref">metis4_rtype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-dbglvl"><span class="std std-ref">metis4_dbglvl</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-oflags"><span class="std std-ref">metis4_oflags</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-pfactor"><span class="std std-ref">metis4_pfactor</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis4-nseps"><span class="std std-ref">metis4_nseps</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ptype"><span class="std std-ref">metis5_ptype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-objtype"><span class="std std-ref">metis5_objtype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ctype"><span class="std std-ref">metis5_ctype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-iptype"><span class="std std-ref">metis5_iptype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-rtype"><span class="std std-ref">metis5_rtype</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-dbglvl"><span class="std std-ref">metis5_dbglvl</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-niter"><span class="std std-ref">metis5_niter</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ncuts"><span class="std std-ref">metis5_ncuts</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-seed"><span class="std std-ref">metis5_seed</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-no2hop"><span class="std std-ref">metis5_no2hop</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-minconn"><span class="std std-ref">metis5_minconn</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-contig"><span class="std std-ref">metis5_contig</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-compress"><span class="std std-ref">metis5_compress</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ccorder"><span class="std std-ref">metis5_ccorder</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-pfactor"><span class="std std-ref">metis5_pfactor</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-nseps"><span class="std std-ref">metis5_nseps</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ufactor"><span class="std std-ref">metis5_ufactor</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-niparts"><span class="std std-ref">metis5_niparts</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-ondisk"><span class="std std-ref">metis5_ondisk</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-dropedges"><span class="std std-ref">metis5_dropedges</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-twohop"><span class="std std-ref">metis5_twohop</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-control-type-metis5-fast"><span class="std std-ref">metis5_fast</span></a><span></span><span class="p">;</span>
   <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -1167,84 +1188,84 @@ has been violated.</p>
 <p>control derived type as a C struct</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-f-indexing"><span id="index-7"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-f-indexing"><span id="index-8"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-version"><span id="index-8"></span><span></span><span class="kt">char</span> <span class="n">version</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-version"><span id="index-9"></span><span></span><span class="kt">char</span> <span class="n">version</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>specify the version of METIS to be used. Possible values are 4.0, 5.1 and 5.2</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-error"><span id="index-9"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-error"><span id="index-10"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-out"><span id="index-10"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-out"><span id="index-11"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-print-level"><span id="index-11"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-print-level"><span id="index-12"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-no-metis-4-use-5-instead"><span id="index-12"></span><span></span><span class="kt">bool</span> <span class="n">no_metis_4_use_5_instead</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-no-metis-4-use-5-instead"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">no_metis_4_use_5_instead</span></pre>
 <p>if .no_metis_4_use_5_instead is true, and METIS 4.0 is not availble, use Metis 5.2 instead</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-prefix"><span id="index-13"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-prefix"><span id="index-14"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-ptype"><span id="index-14"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_ptype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-ptype"><span id="index-15"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_ptype</span></pre>
 <p>the partitioning method employed. 0 = multilevel recursive  bisectioning: 1 = multilevel k-way partitioning</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-ctype"><span id="index-15"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_ctype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-ctype"><span id="index-16"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_ctype</span></pre>
 <p>the matching scheme to be used during coarsening: 1 = random matching, 2 = heavy-edge matching, 3 = sorted heavy-edge matching, and 4 = k-way sorted heavy-edge matching.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-itype"><span id="index-16"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_itype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-itype"><span id="index-17"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_itype</span></pre>
 <p>the algorithm used during initial partitioning: 1 = edge-based region growing and 2 = node-based region growing.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-rtype"><span id="index-17"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_rtype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-rtype"><span id="index-18"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_rtype</span></pre>
 <p>the algorithm used for refinement: 1 = two-sided node Fiduccia-Mattheyses (FM) refinement, and 2 = one-sided node FM refinement.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-dbglvl"><span id="index-18"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_dbglvl</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-dbglvl"><span id="index-19"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_dbglvl</span></pre>
 <p>the amount of progress/debugging information printed: 0 = nothing, 1 = timings, and <span class="math notranslate nohighlight">\(&gt;\)</span> 1 increasingly more.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-oflags"><span id="index-19"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_oflags</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-oflags"><span id="index-20"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_oflags</span></pre>
 <p>select whether or not to compress the graph, and to order connected components separately: 0 = do neither, 1 = try to compress the graph, 2 = order each connected component separately, and 3 = do both.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-pfactor"><span id="index-20"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_pfactor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-pfactor"><span id="index-21"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_pfactor</span></pre>
 <p>the minimum degree of the vertices that will be ordered last. More specifically, any vertices with a degree greater than 0.1 metis4_pfactor times the average degree are removed from the graph, an ordering of the rest of the vertices is computed, and an overall ordering is computed by ordering the removed vertices at the end of the overall ordering. Any value smaller than 1 means that no vertices will be ordered last.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-nseps"><span id="index-21"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_nseps</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis4-nseps"><span id="index-22"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis4_nseps</span></pre>
 <p>the number of different separators that the algorithm will compute at each level of nested dissection.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ptype"><span id="index-22"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ptype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ptype"><span id="index-23"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ptype</span></pre>
 <p>the partitioning method. The value 0 gives multilevel recursive bisectioning, while 1 corresponds to multilevel <span class="math notranslate nohighlight">\(k\)</span>-way partitioning.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-objtype"><span id="index-23"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_objtype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-objtype"><span id="index-24"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_objtype</span></pre>
 <p>the type of the objective. Currently the only and default value metis5_objtype = 2, specifies node-based nested dissection, and any invalid value will be replaced by this default.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ctype"><span id="index-24"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ctype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ctype"><span id="index-25"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ctype</span></pre>
 <p>the matching scheme to be used during coarsening: 0 = random matching,  and 1 = sorted heavy-edge matching.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-iptype"><span id="index-25"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_iptype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-iptype"><span id="index-26"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_iptype</span></pre>
 <p>the algorithm used during initial partitioning: 2 = derive separators from edge cuts, and 3 = grow bisections using a greedy node-based strategy.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-rtype"><span id="index-26"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_rtype</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-rtype"><span id="index-27"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_rtype</span></pre>
 <p>the algorithm used for refinement: 2 = Two-sided node FM refinement,  and 3 = One-sided node FM refinement.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-dbglvl"><span id="index-27"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_dbglvl</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-dbglvl"><span id="index-28"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_dbglvl</span></pre>
 <p>the amount of progress/debugging information printed: 0 = nothing, 1 = diagnostics, 2 = plus timings, and <span class="math notranslate nohighlight">\(&gt;\)</span> 2 plus more.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-niparts"><span id="index-28"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_niparts</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-niparts"><span id="index-29"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_niparts</span></pre>
 <p>the number of initial partitions used by MeTiS 5.2.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-niter"><span id="index-29"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_niter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-niter"><span id="index-30"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_niter</span></pre>
 <p>the number of iterations used by the refinement algorithm.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ncuts"><span id="index-30"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ncuts</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ncuts"><span id="index-31"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ncuts</span></pre>
 <p>the number of different partitionings that it will compute: -1 = not used.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-seed"><span id="index-31"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_seed</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-seed"><span id="index-32"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_seed</span></pre>
 <p>the seed for the random number generator.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ondisk"><span id="index-32"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ondisk</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ondisk"><span id="index-33"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ondisk</span></pre>
 <p>whether on-disk storage is used (0 = no, 1 = yes) by MeTiS 5.2.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-minconn"><span id="index-33"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_minconn</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-minconn"><span id="index-34"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_minconn</span></pre>
 <p>specify that the partitioning routines should try to minimize the maximum degree of the subdomain graph: 0 = no, 1 = yes, and -1 = not used.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-contig"><span id="index-34"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_contig</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-contig"><span id="index-35"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_contig</span></pre>
 <p>specify that the partitioning routines should try to produce partitions that are contiguous: 0 = no, 1 = yes, and -1 = not used.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-compress"><span id="index-35"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_compress</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-compress"><span id="index-36"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_compress</span></pre>
 <p>specify that the graph should be compressed by combining together vertices that have identical adjacency lists: 0 = no, and 1 = yes.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ccorder"><span id="index-36"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ccorder</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ccorder"><span id="index-37"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ccorder</span></pre>
 <p>specify if the connected components of the graph should first be identified and ordered separately: 0 = no, and 1 = yes.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-pfactor"><span id="index-37"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_pfactor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-pfactor"><span id="index-38"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_pfactor</span></pre>
 <p>the minimum degree of the vertices that will be ordered last. More specifically, any vertices with a degree greater than 0.1 metis4_pfactor times the average degree are removed from the graph, an ordering of the rest of the vertices is computed, and an overall ordering is computed by ordering the removed vertices at the end of the overall ordering.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-nseps"><span id="index-38"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_nseps</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-nseps"><span id="index-39"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_nseps</span></pre>
 <p>the number of different separators that the algorithm will compute at each level of nested dissection.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ufactor"><span id="index-39"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ufactor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-ufactor"><span id="index-40"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_ufactor</span></pre>
 <p>the maximum allowed load imbalance (1 +metis5_ufactor)/1000 among the partitions.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-dropedges"><span id="index-40"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_dropedges</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-dropedges"><span id="index-41"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_dropedges</span></pre>
 <p>will edges be dropped (0 = no, 1 = yes) by MeTiS 5.2.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-no2hop"><span id="index-41"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_no2hop</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-no2hop"><span id="index-42"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_no2hop</span></pre>
 <p>specify that the coarsening will not perform any 2–hop matchings when the standard matching approach fails to sufficiently coarsen the graph: 0 = no, and 1 = yes.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-twohop"><span id="index-42"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_twohop</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-twohop"><span id="index-43"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_twohop</span></pre>
 <p>reserved for future use but ignored at present.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-fast"><span id="index-43"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_fast</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-control-type-metis5-fast"><span id="index-44"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">metis5_fast</span></pre>
 <p>reserved for future use but ignored at present.</p>
 </section>
 </section>
 <section id="nodend-time-type-structure">
-<span id="doxid-structnodend-time-type"></span><span id="index-44"></span><h2>nodend_time_type structure<a class="headerlink" href="#nodend-time-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structnodend-time-type"></span><span id="index-45"></span><h2>nodend_time_type structure<a class="headerlink" href="#nodend-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_nodend.h&gt;</span>
@@ -1252,10 +1273,10 @@ has been violated.</p>
 <span class="k">struct</span> <span class="n">nodend_time_type</span> <span class="p">{</span>
     <span class="c1">// components</span>
 
-    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type-total"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type-metis"><span class="std std-ref">metis</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type-clock-total"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type-clock-metis"><span class="std std-ref">clock_metis</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-time-type-total"><span class="std std-ref">total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-time-type-metis"><span class="std std-ref">metis</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-time-type-clock-total"><span class="std std-ref">clock_total</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-time-type-clock-metis"><span class="std std-ref">clock_metis</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structnodend-time-type">
@@ -1263,18 +1284,18 @@ has been violated.</p>
 <p>time derived type as a C struct</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-total"><span id="index-45"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-total"><span id="index-46"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-metis"><span id="index-46"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">metis</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-metis"><span id="index-47"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">metis</span></pre>
 <p>the CPU time spent in the METIS package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-clock-total"><span id="index-47"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-clock-total"><span id="index-48"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_total</span></pre>
 <p>the total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-clock-metis"><span id="index-48"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_metis</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-time-type-clock-metis"><span id="index-49"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">clock_metis</span></pre>
 <p>the clock time spent in the METIS package</p>
 </section>
 </section>
 <section id="nodend-inform-type-structure">
-<span id="doxid-structnodend-inform-type"></span><span id="index-49"></span><h2>nodend_inform_type structure<a class="headerlink" href="#nodend-inform-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structnodend-inform-type"></span><span id="index-50"></span><h2>nodend_inform_type structure<a class="headerlink" href="#nodend-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_nodend.h&gt;</span>
@@ -1282,11 +1303,11 @@ has been violated.</p>
 <span class="k">struct</span> <span class="n">nodend_inform_type</span> <span class="p">{</span>
   <span class="c1">// fields</span>
 
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-status"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
-  <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-alloc-status"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-status"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
+  <a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-alloc-status"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
   <span class="kt">char</span> <a class="reference internal" href="#doxid-structnodend-inform-type-bad-alloc"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
   <span class="kt">char</span> <a class="reference internal" href="#doxid-structnodend-inform-type-version"><span class="std std-ref">version</span></a><span></span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-  <span class="k">struct</span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-time"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
+  <span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span> <a class="reference internal" href="#doxid-structnodend-inform-type-time"><span class="std std-ref">time</span></a><span></span><span class="p">;</span>
   <span class="p">};</span></pre>
 </section>
 <section id="details-structnodend-inform-type">
@@ -1294,7 +1315,7 @@ has been violated.</p>
 <p>inform derived type as a C struct</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-status"><span id="index-50"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-status"><span id="index-51"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
 <p>return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1330,13 +1351,13 @@ has been violated.</p>
 <p>An internal METIS error occurred.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-alloc-status"><span id="index-51"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-alloc-status"><span id="index-52"></span><a class="reference internal" href="nodend_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-bad-alloc"><span id="index-52"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-bad-alloc"><span id="index-53"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-version"><span id="index-53"></span><span></span><span class="kt">char</span> <span class="n">version</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-version"><span id="index-54"></span><span></span><span class="kt">char</span> <span class="n">version</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span></pre>
 <p>the version of METIS that was actually used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-time"><span id="index-54"></span><span></span><span class="k">struct</span> <a class="reference internal" href="struct_nodend_time_type.html#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span> <span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnodend-inform-type-time"><span id="index-55"></span><span></span><span class="k">struct</span> <a class="reference internal" href="#doxid-structnodend-time-type"><span class="std std-ref">nodend_time_type</span></a><span></span> <span class="n">time</span></pre>
 <p>timings (see above)</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1436,6 +1457,10 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: NODEND_order exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
                    <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
+
+        <span class="o">//</span> <span class="n">Terminate</span> <span class="n">NODEND</span>
+        <span class="n">nodend_terminate</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span> <span class="p">);</span>
+
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1526,6 +1551,10 @@ the code is available in $GALAHAD/src/nodend/C/nodendtf.c .</p>
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: NODEND_order exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
                    <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
+
+        <span class="o">//</span> <span class="n">Terminate</span> <span class="n">NODEND</span>
+        <span class="n">nodend_terminate</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">data</span> <span class="p">);</span>
+
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
