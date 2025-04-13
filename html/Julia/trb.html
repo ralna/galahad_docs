@@ -562,20 +562,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the trb package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a9bffc46178a3e0b7eb2927d1c50440a1"><span class="std std-ref">trb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a4eaafdaf5187c8b91c119ce9395469e9"><span class="std std-ref">trb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a13bc38fb28201adb78af7acf910ff0d8"><span class="std std-ref">trb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a550c3ca1966ea0fa9de84423b8658cd7"><span class="std std-ref">trb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a9bffc46178a3e0b7eb2927d1c50440a1"><span class="std std-ref">trb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a4eaafdaf5187c8b91c119ce9395469e9"><span class="std std-ref">trb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a13bc38fb28201adb78af7acf910ff0d8"><span class="std std-ref">trb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a550c3ca1966ea0fa9de84423b8658cd7"><span class="std std-ref">trb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a5a58e6c0c022eb451f14c82d653967f7"><span class="std std-ref">trb_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a376b81748cec0bf992542d80b8d38f49"><span class="std std-ref">trb_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a7bb520e36666386824b216a84be08837"><span class="std std-ref">trb_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a95eac11acf02fe0d6eb4bc39ace5a100"><span class="std std-ref">trb_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a5a58e6c0c022eb451f14c82d653967f7"><span class="std std-ref">trb_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a376b81748cec0bf992542d80b8d38f49"><span class="std std-ref">trb_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a7bb520e36666386824b216a84be08837"><span class="std std-ref">trb_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a95eac11acf02fe0d6eb4bc39ace5a100"><span class="std std-ref">trb_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a105f41a31d49c59885c3372090bec776"><span class="std std-ref">trb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a739c7a44ddd0ce7b350cfa6da54948d0"><span class="std std-ref">trb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a105f41a31d49c59885c3372090bec776"><span class="std std-ref">trb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a739c7a44ddd0ce7b350cfa6da54948d0"><span class="std std-ref">trb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-trb-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -2025,7 +2025,8 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_trb)
+  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                    got_h::Bool, userdata::userdata_trb)
     u[1] = u[1] + 2.0 * (v[1] + v[3]) - cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * (v[2] + v[3])
     u[3] = u[3] + 2.0 * (v[1] + v[2] + 2.0 * v[3])
@@ -2072,7 +2073,8 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Apply preconditioner
-  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T}, userdata::userdata_trb)
+  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                userdata::userdata_trb)
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
     u[3] = 0.25 * v[3]
@@ -2104,7 +2106,8 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_trb)
+  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                         got_h::Bool, userdata::userdata_trb)
     u[1] = u[1] + -cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * v[2]
     u[3] = u[3] + 2.0 * v[3]
@@ -2113,8 +2116,9 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
 
   # Sparse Hessian-vector product
   function shessprod_diag(x::Vector{T}, nnz_v::INT,
-                          index_nz_v::Vector{INT}, v::Vector{T}, nnz_u::Ref{INT},
-                          index_nz_u::Vector{INT}, u::Vector{T}, got_h::Bool,
+                          index_nz_v::Vector{INT}, v::Vector{T},
+                          nnz_u::Ref{INT}, index_nz_u::Vector{INT},
+                          u::Vector{T}, got_h::Bool,
                           userdata::userdata_trb)
     p = zeros(T, 3)
     used = falses(3)
@@ -2195,11 +2199,13 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
+      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;coordinate&quot;,
+                 ne, H_row, H_col, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        trb_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        trb_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                   n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2221,12 +2227,13 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;sparse_by_rows&quot;, ne, C_NULL, H_col,
-                 H_ptr)
+      trb_import(T, INT, control, data, status, n, x_l, x_u,
+                 &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
 
       terminated = false
       while !terminated # reverse-communication loop
-        trb_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        trb_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                   n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2253,8 +2260,8 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
 
       terminated = false
       while !terminated # reverse-communication loop
-        trb_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g,
-                                   div(n * (n + 1), 2), H_dense, u, v)
+        trb_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x,
+                                   f[], g, div(n * (n + 1), 2), H_dense, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2276,11 +2283,13 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
     # diagonal
     if d == 4
       st = &#39;I&#39;
-      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
+      trb_import(T, INT, control, data, status, n, x_l, x_u,
+                 &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        trb_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, n, H_diag, u, v)
+        trb_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                   n, x, f[], g, n, H_diag, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2302,13 +2311,15 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
     # access by products
     if d == 5
       st = &#39;P&#39;
-      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
+      trb_import(T, INT, control, data, status, n, x_l, x_u, &quot;absent&quot;,
+                 ne, C_NULL, C_NULL, C_NULL)
       nnz_u = Ref{INT}(0)
 
       terminated = false
       while !terminated # reverse-communication loop
-        trb_solve_reverse_without_mat(T, INT, data, status, eval_status, n, x, f[], g, u, v,
-                                      index_nz_v, nnz_v, index_nz_u, nnz_u[])
+        trb_solve_reverse_without_mat(T, INT, data, status, eval_status,
+                                      n, x, f[], g, u, v, index_nz_v, nnz_v,
+                                      index_nz_u, nnz_u[])
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2322,7 +2333,8 @@ function test_trb(::Type{T}, ::Type{INT}) where {T,INT}
         elseif status[] == 6 # evaluate the product with P
           eval_status[] = prec(x, u, v, userdata)
         elseif status[] == 7 # evaluate sparse Hessian-vect prod
-          eval_status[] = shessprod(x, nnz_v[], index_nz_v, v, nnz_u, index_nz_u, u, false, userdata)
+          eval_status[] = shessprod(x, nnz_v[], index_nz_v, v, nnz_u,
+                                    index_nz_u, u, false, userdata)
         else
           @printf(&quot; the value %1i of status should not occur\n&quot;, status)
         end

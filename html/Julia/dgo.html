@@ -558,20 +558,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the dgo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span class="std std-ref">dgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span class="std std-ref">dgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span class="std std-ref">dgo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span class="std std-ref">dgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a80425d4671e565a45c13aa026f6897ef"><span class="std std-ref">dgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ab8ba227e6d624a0197afab9f77bbe66a"><span class="std std-ref">dgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ace7cbe696d8be7026753681d9b7cd149"><span class="std std-ref">dgo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ab52e88675fc811f7e9bc38148d42e932"><span class="std std-ref">dgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span class="std std-ref">dgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span class="std std-ref">dgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span class="std std-ref">dgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span class="std std-ref">dgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a3b573f5a56c7162383a757221a5b7a36"><span class="std std-ref">dgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a6ea7cfa79c25e784d21e10cc26ed9954"><span class="std std-ref">dgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a02f408b215596c01b0e3836dfa301b9f"><span class="std std-ref">dgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1a878a7d98d55794fa38f885a5d76aa4f0"><span class="std std-ref">dgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span class="std std-ref">dgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="dgo_functions.html#doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span class="std std-ref">dgo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1aea0c208de08f507be7a31fe3ab7d3b91"><span class="std std-ref">dgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dgo-8h-1ad12337a0c7ad3ac74e7f8c0783fbbfab"><span class="std std-ref">dgo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-dgo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -598,7 +598,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -631,7 +631,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -650,7 +650,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -733,7 +733,7 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1669,7 +1669,7 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dgo_inform_type.html#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -1698,10 +1698,10 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dgo_control_type.html#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdgo-control-type"><span class="std std-ref">dgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dgo_inform_type.html#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdgo-inform-type"><span class="std std-ref">dgo_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1904,7 +1904,7 @@ should then set eval_status to a non-zero value.</p>
 <p>the gap between the best objective value found and the lowest bound</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1aa59a8565c1e8326a5e51ad319778042c"><span id="index-60"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">why_stop</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></pre>
 <p>why did the iteration stop? This wil be ‘D’ if the box length is small enough, ‘F’ if the objective gap is small enough, and ‘ ‘ otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a46152da6b6a2aecc3da098819a6a81ac"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dgo_time_type.html#doxid-structdgo-time-type"><span class="std std-ref">dgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a46152da6b6a2aecc3da098819a6a81ac"><span id="index-61"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structdgo-time-type"><span class="std std-ref">dgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdgo-inform-type-1a06ea21c222dde5731d218b41438f5c69"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hash_inform_type.html#doxid-structhash-inform-type"><span class="std std-ref">hash_inform_type</span></a><span></span><span class="w"> </span><span class="n">hash_inform</span></pre>
 <p>inform parameters for HASH</p>
@@ -1945,7 +1945,8 @@ function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
-    f[] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 + mag * cos(freq * x[1]) + x[1] + x[2] + x[3]
+    f[] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 +
+           mag * cos(freq * x[1]) + x[1] + x[2] + x[3]
     return 0
   end
 
@@ -1986,7 +1987,8 @@ function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_dgo)
+  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool,
+                    userdata::userdata_dgo)
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -2080,7 +2082,8 @@ function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_dgo)
+  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                         got_h::Bool, userdata::userdata_dgo)
     freq = userdata.freq
     mag = userdata.mag
 
@@ -2092,8 +2095,9 @@ function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
 
   # Sparse Hessian-vector product
   function shessprod_diag(x::Vector{T}, nnz_v::INT, index_nz_v::Vector{INT},
-                          v::Vector{T}, nnz_u::Ref{INT}, index_nz_u::Vector{INT},
-                          u::Vector{T}, got_h::Bool, userdata)
+                          v::Vector{T}, nnz_u::Ref{INT},
+                          index_nz_u::Vector{INT}, u::Vector{T},
+                          got_h::Bool, userdata)
     freq = userdata.freq
     mag = userdata.mag
 
@@ -2177,11 +2181,13 @@ function test_dgo(::Type{T}, ::Type{INT}) where {T,INT}
     # sparse co-ordinate storage
     if d == 1
       st = &#39;C&#39;
-      dgo_import(T, INT, control, data, status, n, x_l, x_u, &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
+      dgo_import(T, INT, control, data, status, n, x_l, x_u, &quot;coordinate&quot;,
+                 ne, H_row, H_col, C_NULL)
 
       terminated = false
       while !terminated # reverse-communication loop
-        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        dgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                   n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit

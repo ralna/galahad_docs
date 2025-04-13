@@ -558,20 +558,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the arc package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span class="std std-ref">arc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span class="std std-ref">arc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span class="std std-ref">arc_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span class="std std-ref">arc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a54564960edd1c926630be24245773633"><span class="std std-ref">arc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1ad1eb586a01b707b822210edec1495481"><span class="std std-ref">arc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a4121482e6db477eee55cc2b50bc52835"><span class="std std-ref">arc_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aee92716b81a84655569637e028bc53c8"><span class="std std-ref">arc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span class="std std-ref">arc_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span class="std std-ref">arc_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span class="std std-ref">arc_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span class="std std-ref">arc_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aa952762f20eddedff0728c99ef8795b9"><span class="std std-ref">arc_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aea7f9bc40b893f4df507d807ea8cd670"><span class="std std-ref">arc_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1ac47e436d7364399dd7a60efac61ef955"><span class="std std-ref">arc_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a1f098df65cdabfcf80d8e6fb3b1035c5"><span class="std std-ref">arc_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span class="std std-ref">arc_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="arc_functions.html#doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span class="std std-ref">arc_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1aec0ce871d494f995e8ad500011a10d56"><span class="std std-ref">arc_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-arc-8h-1a7aa74c74e7ca781532d38d337f0d05eb"><span class="std std-ref">arc_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-arc-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -598,7 +598,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -631,7 +631,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -649,7 +649,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -725,7 +725,7 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1515,7 +1515,7 @@ eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_arc_inform_type.html#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -1544,10 +1544,10 @@ eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_arc_control_type.html#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structarc-control-type"><span class="std std-ref">arc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_arc_inform_type.html#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structarc-inform-type"><span class="std std-ref">arc_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1876,7 +1876,7 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <p>the norm of the gradient of the objective function at the best estimate of the solution determined by the package.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1adcd20aeaf7042e972ddab56f3867ce70"><span id="index-91"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">weight</span></pre>
 <p>the current value of the regularization weight</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4288efaa60a28f967b947ef1b07cf445"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_arc_time_type.html#doxid-structarc-time-type"><span class="std std-ref">arc_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a4288efaa60a28f967b947ef1b07cf445"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structarc-time-type"><span class="std std-ref">arc_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structarc-inform-type-1a68497e7bbd1695ac9b830fc8fe594d60"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rqs_inform_type.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a><span></span><span class="w"> </span><span class="n">rqs_inform</span></pre>
 <p>inform parameters for RQS</p>
@@ -1936,7 +1936,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian of the objective
-  function hess(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
+  function hess(x::Vector{T}, hval::Vector{T},
+                userdata::userdata_arc)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 2.0
     hval[3] = 2.0
@@ -1946,7 +1947,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Dense Hessian
-  function hess_dense(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
+  function hess_dense(x::Vector{T}, hval::Vector{T},
+                      userdata::userdata_arc)
     hval[1] = 2.0 - cos(x[1])
     hval[2] = 0.0
     hval[3] = 2.0
@@ -1957,7 +1959,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_arc)
+  function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                    got_h::Bool, userdata::userdata_arc)
     u[1] = u[1] + 2.0 * (v[1] + v[3]) - cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * (v[2] + v[3])
     u[3] = u[3] + 2.0 * (v[1] + v[2] + 2.0 * v[3])
@@ -1965,7 +1968,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Apply preconditioner
-  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T}, userdata::userdata_arc)
+  function prec(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                userdata::userdata_arc)
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
     u[3] = 0.25 * v[3]
@@ -1973,14 +1977,16 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Objective function
-  function fun_diag(x::Vector{T}, f::Ref{T}, userdata::userdata_arc)
+  function fun_diag(x::Vector{T}, f::Ref{T},
+                    userdata::userdata_arc)
     p = userdata.p
     f[] = (x[3] + p)^2 + x[2]^2 + cos(x[1])
     return 0
   end
 
   # Gradient of the objective
-  function grad_diag(x::Vector{T}, g::Vector{T}, userdata::userdata_arc)
+  function grad_diag(x::Vector{T}, g::Vector{T},
+                     userdata::userdata_arc)
     p = userdata.p
     g[1] = -sin(x[1])
     g[2] = 2.0 * x[2]
@@ -1989,7 +1995,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian of the objective
-  function hess_diag(x::Vector{T}, hval::Vector{T}, userdata::userdata_arc)
+  function hess_diag(x::Vector{T}, hval::Vector{T},
+                     userdata::userdata_arc)
     hval[1] = -cos(x[1])
     hval[2] = 2.0
     hval[3] = 2.0
@@ -1997,7 +2004,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
   end
 
   # Hessian-vector product
-  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T}, got_h::Bool, userdata::userdata_arc)
+  function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T},
+                         got_h::Bool, userdata::userdata_arc)
     u[1] = u[1] + -cos(x[1]) * v[1]
     u[2] = u[2] + 2.0 * v[2]
     u[3] = u[3] + 2.0 * v[3]
@@ -2056,7 +2064,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
 
       terminated = false
       while !terminated # reverse-communication loop
-        arc_solve_reverse_with_mat(T, INT, data, status, eval_status, n, x, f[], g, ne, H_val, u, v)
+        arc_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                   n, x, f[], g, ne, H_val, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
@@ -2078,8 +2087,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
     # sparse by rows
     if d == 2
       st = &#39;R&#39;
-      arc_import(T, INT, control, data, status, n, &quot;sparse_by_rows&quot;, ne,
-                 C_NULL, H_col, H_ptr)
+      arc_import(T, INT, control, data, status, n, &quot;sparse_by_rows&quot;,
+                 ne, C_NULL, H_col, H_ptr)
 
       terminated = false
       while !terminated # reverse-communication loop
@@ -2112,7 +2121,8 @@ function test_arc(::Type{T}, ::Type{INT}) where {T,INT}
       terminated = false
       while !terminated # reverse-communication loop
         arc_solve_reverse_with_mat(T, INT, data, status, eval_status,
-                                   n, x, f[], g, div(n * (n + 1), 2), H_dense, u, v)
+                                   n, x, f[], g, div(n * (n + 1), 2),
+                                   H_dense, u, v)
         if status[] == 0 # successful termination
           terminated = true
         elseif status[] &lt; 0 # error exit
