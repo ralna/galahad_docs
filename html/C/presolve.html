@@ -553,6 +553,30 @@
 
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nodend.html">NODEND - find a row/column ordering for symmetric matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="nodend_functions.html">overview of functions provided</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="struct_nodend_control_type.html">nodend_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+
+<li class="toctree-l3 has-children"><a class="reference internal" href="struct_nodend_inform_type.html">nodend_inform_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+
+</ul>
+</details></li>
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_nodend_control_type.html">nodend_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="struct_nodend_inform_type.html">nodend_inform_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="roots.html">ROOTS - find real roots of real polynomials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="roots_functions.html">overview of functions provided</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="struct_roots_control_type.html">roots_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -796,9 +820,6 @@ are also provided, where the <span class="math notranslate nohighlight">\(m\)</s
 <span class="math notranslate nohighlight">\(y^u\)</span>, as well as the <span class="math notranslate nohighlight">\(n\)</span>-dimensional vectors <span class="math notranslate nohighlight">\(x^l\)</span> and <span class="math notranslate nohighlight">\(x^u\)</span>
 are given.  Any component of <span class="math notranslate nohighlight">\(c^l\)</span>, <span class="math notranslate nohighlight">\(c^u\)</span>, <span class="math notranslate nohighlight">\(x^l\)</span>, <span class="math notranslate nohighlight">\(x^u\)</span>,
 <span class="math notranslate nohighlight">\(y^l\)</span>, <span class="math notranslate nohighlight">\(y^u\)</span>, <span class="math notranslate nohighlight">\(z^l\)</span> or <span class="math notranslate nohighlight">\(z^u\)</span> may be infinite.</p>
-<p><strong>Currently only the options and inform dictionaries are exposed</strong>; these are
-provided and used by other GALAHAD packages with Python interfaces.
-Please contact us if you would like full functionality!</p>
 <p>See Section 4 of $GALAHAD/doc/presolve.pdf for additional details.</p>
 </section>
 <section id="method">
@@ -1090,24 +1111,24 @@ illustrations of use.</p>
 
 <span class="c1">// structs</span>
 
-<span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
 <span class="kt">void</span> <a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span class="std std-ref">presolve_initialize</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span class="std std-ref">presolve_read_specfile</span></a><span></span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span class="std std-ref">presolve_import_problem</span></a><span></span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
@@ -1180,14 +1201,14 @@ illustrations of use.</p>
 
 <span class="kt">void</span> <a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span class="std std-ref">presolve_information</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
 <span class="kt">void</span> <a class="reference internal" href="presolve_functions.html#doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span class="std std-ref">presolve_terminate</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">);</span></pre>
 </section>
 <section id="typedefs">
@@ -1206,7 +1227,7 @@ defining the  preprocessor variable <code class="docutils literal notranslate"><
 <h2>function calls<a class="headerlink" href="#function-calls" title="Link to this heading">#</a></h2>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a30348a4e0a189046f55d995941693ed9"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">presolve_initialize</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
@@ -1221,7 +1242,7 @@ defining the  preprocessor variable <code class="docutils literal notranslate"><
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
@@ -1238,7 +1259,7 @@ defining the  preprocessor variable <code class="docutils literal notranslate"><
 </table>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1a78f57f6dd2885f41e9b79cc784ff673f"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">presolve_read_specfile</span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]</span>
 <span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values
@@ -1258,7 +1279,7 @@ relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a character string containing the name of the specification file</p></td>
@@ -1267,7 +1288,7 @@ relate to the components of the control structure.</p>
 </table>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1aca96df1bce848a32af9f599a11c4c991"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">presolve_import_problem</span><span class="p">(</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
@@ -1304,7 +1325,7 @@ relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a struct whose members provide control paramters for the remaining prcedures (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a struct whose members provide control paramters for the remaining prcedures (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1671,7 +1692,7 @@ presolve_import_problem.</p>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1adc22ebe32d1361b83889645ff473ca9b"><span id="index-8"></span><span></span><span class="kt">void</span> <span class="n">presolve_information</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Provides output information</p>
@@ -1686,7 +1707,7 @@ presolve_import_problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
@@ -1704,8 +1725,8 @@ presolve_import_problem.</p>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-presolve-8h-1abe2d3138390135885716064c3befb36b"><span id="index-9"></span><span></span><span class="kt">void</span> <span class="n">presolve_terminate</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <span class="k">struct</span> <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
 <span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
@@ -1719,10 +1740,10 @@ presolve_import_problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
+<td><p>is a struct containing control information (see <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type"><span class="std std-ref">presolve_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
+<td><p>is a struct containing output information (see <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type"><span class="std std-ref">presolve_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1735,49 +1756,49 @@ presolve_import_problem.</p>
 <span id="doxid-structpresolve-control-type"></span><span id="index-10"></span><h2>presolve_control_type structure<a class="headerlink" href="#presolve-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<p>control derived type as a C struct <a class="reference internal" href="#details-structpresolve-control-type"><span class="std std-ref">More…</span></a></p>
+<p>control derived type as a C struct <a class="reference internal" href="struct_presolve_control_type.html#details-structpresolve-control-type"><span class="std std-ref">More…</span></a></p>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;galahad_presolve.h&gt;</span>
 
 <span class="k">struct</span> <span class="n">presolve_control_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <span class="kt">bool</span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a8812e14a78de75cb35920f1ca14f8fcb"><span class="std std-ref">termination</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1ad2cba4a8892265253e3821f2a8398783"><span class="std std-ref">max_nbr_transforms</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1ab9b9f9490ee04ad60a88c98bedeb69bf"><span class="std std-ref">max_nbr_passes</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1afb60a9e6d661aebf74d5da10af97233f"><span class="std std-ref">c_accuracy</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1af3699b1a6b62c80d06c848f9bf316708"><span class="std std-ref">z_accuracy</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span class="std std-ref">infinity</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a96f36bbf8aecb8c1df4e9479e0495341"><span class="std std-ref">errout</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
-    <span class="kt">bool</span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a622f854458f44802d65ea5c644488b05"><span class="std std-ref">dual_transformations</span></a><span></span><span class="p">;</span>
-    <span class="kt">bool</span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a7fff1fe9af8dc83ace001c1f01daca4e"><span class="std std-ref">redundant_xc</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1ac5198d5a57920d3cbbc44fc43e1f461d"><span class="std std-ref">primal_constraints_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a5de3600b41511490861e5f5cc52c6c8d"><span class="std std-ref">dual_constraints_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a79b5f7f8d67056004a9ec1347eaf0b2a"><span class="std std-ref">singleton_columns_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a3f84400443972b69eb439c8ddbccd6e4"><span class="std std-ref">doubleton_columns_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a83a0db3aa9212dc0630226a80f23355e"><span class="std std-ref">unc_variables_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a916449dc4c15cc8c573f65d13a7b1837"><span class="std std-ref">dependent_variables_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1aedb83124a2aeb24018ca314263ea194d"><span class="std std-ref">sparsify_rows_freq</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a62b85e62f2dd65b004b9561006447321"><span class="std std-ref">max_fill</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1af309919911cc80fb67ce4309caff53ee"><span class="std std-ref">transf_file_nbr</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a8e55be8b47271c8bfe04e4eb7abe41d9"><span class="std std-ref">transf_buffer_size</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a3327bff5444eebb4a46aa1671123681f"><span class="std std-ref">transf_file_status</span></a><span></span><span class="p">;</span>
-    <span class="kt">char</span> <a class="reference internal" href="#doxid-structpresolve-control-type-1af7814ff832c4c4e7fab56d53c26b4bed"><span class="std std-ref">transf_file_name</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a15a549b266499b20a45e93ce9a91f083"><span class="std std-ref">y_sign</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a0ddf7a757e8d25df82bbd45c4cc522f4"><span class="std std-ref">inactive_y</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1aa643ec4b5dfb05f11c4c932158d92a37"><span class="std std-ref">z_sign</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a02a187d6425a995f970b86ab1ae6deaa"><span class="std std-ref">inactive_z</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a980e04d17981a03c6ce9142915baeec6"><span class="std std-ref">final_x_bounds</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a8b0b8e949abf9bb7eae7f6e258a9fadf"><span class="std std-ref">final_z_bounds</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a7797130742a276bfa34e28713c5f69fe"><span class="std std-ref">final_c_bounds</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a8d59a01fe70d5186b185454844aa5388"><span class="std std-ref">final_y_bounds</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a63d94a12589b2a15bedc5d4b172563d7"><span class="std std-ref">check_primal_feasibility</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a953e9d14756db97aaecceca97b78f334"><span class="std std-ref">check_dual_feasibility</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a133347eb5f45a24a77b63b4afd4212e8"><span class="std std-ref">pivot_tol</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1a6ff1d4c2c7c9a996e081de4beccebf86"><span class="std std-ref">min_rel_improve</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-control-type-1ac768d36daebcdaaec3ad82313c45fa64"><span class="std std-ref">max_growth_factor</span></a><span></span><span class="p">;</span>
+    <span class="kt">bool</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-f-indexing"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-termination"><span class="std std-ref">termination</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-max-nbr-transforms"><span class="std std-ref">max_nbr_transforms</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-max-nbr-passes"><span class="std std-ref">max_nbr_passes</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-c-accuracy"><span class="std std-ref">c_accuracy</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-z-accuracy"><span class="std std-ref">z_accuracy</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-infinity"><span class="std std-ref">infinity</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-out"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-errout"><span class="std std-ref">errout</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-print-level"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
+    <span class="kt">bool</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-dual-transformations"><span class="std std-ref">dual_transformations</span></a><span></span><span class="p">;</span>
+    <span class="kt">bool</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-redundant-xc"><span class="std std-ref">redundant_xc</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-primal-constraints-freq"><span class="std std-ref">primal_constraints_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-dual-constraints-freq"><span class="std std-ref">dual_constraints_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-singleton-columns-freq"><span class="std std-ref">singleton_columns_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-doubleton-columns-freq"><span class="std std-ref">doubleton_columns_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-unc-variables-freq"><span class="std std-ref">unc_variables_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-dependent-variables-freq"><span class="std std-ref">dependent_variables_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-sparsify-rows-freq"><span class="std std-ref">sparsify_rows_freq</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-max-fill"><span class="std std-ref">max_fill</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-transf-file-nbr"><span class="std std-ref">transf_file_nbr</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-transf-buffer-size"><span class="std std-ref">transf_buffer_size</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-transf-file-status"><span class="std std-ref">transf_file_status</span></a><span></span><span class="p">;</span>
+    <span class="kt">char</span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-transf-file-name"><span class="std std-ref">transf_file_name</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-y-sign"><span class="std std-ref">y_sign</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-inactive-y"><span class="std std-ref">inactive_y</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-z-sign"><span class="std std-ref">z_sign</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-inactive-z"><span class="std std-ref">inactive_z</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-final-x-bounds"><span class="std std-ref">final_x_bounds</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-final-z-bounds"><span class="std std-ref">final_z_bounds</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-final-c-bounds"><span class="std std-ref">final_c_bounds</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-final-y-bounds"><span class="std std-ref">final_y_bounds</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-check-primal-feasibility"><span class="std std-ref">check_primal_feasibility</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-check-dual-feasibility"><span class="std std-ref">check_dual_feasibility</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-pivot-tol"><span class="std std-ref">pivot_tol</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-min-rel-improve"><span class="std std-ref">min_rel_improve</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="struct_presolve_control_type.html#doxid-structpresolve-control-type-max-growth-factor"><span class="std std-ref">max_growth_factor</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -1785,29 +1806,29 @@ presolve_import_problem.</p>
 <p>control derived type as a C struct</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-f-indexing"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8812e14a78de75cb35920f1ca14f8fcb"><span id="index-12"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">termination</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-termination"><span id="index-12"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">termination</span></pre>
 <p>Determines the strategy for terminating the presolve analysis. Possible values are:</p>
 <ul class="simple">
 <li><p>1 presolving is continued as long as one of the sizes of the problem (n, m, a_ne, or h_ne) is being reduced;</p></li>
 <li><p>2 presolving is continued as long as problem transformations remain possible. NOTE: the maximum number of analysis passes (control.max_nbr_passes) and the maximum number of problem transformations (control.max_nbr_transforms) set an upper limit on the presolving effort irrespective of the choice of control.termination. The only effect of this latter parameter is to allow for early termination.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ad2cba4a8892265253e3821f2a8398783"><span id="index-13"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_nbr_transforms</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-max-nbr-transforms"><span id="index-13"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_nbr_transforms</span></pre>
 <p>The maximum number of problem transformations, cumulated over all calls to <code class="docutils literal notranslate"><span class="pre">presolve</span></code>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ab9b9f9490ee04ad60a88c98bedeb69bf"><span id="index-14"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_nbr_passes</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-max-nbr-passes"><span id="index-14"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_nbr_passes</span></pre>
 <p>The maximum number of analysis passes for problem analysis during a single call of <code class="docutils literal notranslate"><span class="pre">presolve_transform_problem</span></code>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1afb60a9e6d661aebf74d5da10af97233f"><span id="index-15"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">c_accuracy</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-c-accuracy"><span id="index-15"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">c_accuracy</span></pre>
 <p>The relative accuracy at which the general linear constraints are satisfied at the exit of the solver. Note that this value is not used before the restoration of the problem.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af3699b1a6b62c80d06c848f9bf316708"><span id="index-16"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">z_accuracy</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-z-accuracy"><span id="index-16"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">z_accuracy</span></pre>
 <p>The relative accuracy at which the dual feasibility constraints are satisfied at the exit of the solver. Note that this value is not used before the restoration of the problem.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a11a46bd456ea63bac8bdffb056fe98c9"><span id="index-17"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">infinity</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-infinity"><span id="index-17"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">infinity</span></pre>
 <p>The value beyond which a number is deemed equal to plus infinity (minus infinity being defined as its opposite)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-out"><span id="index-18"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
 <p>The unit number associated with the device used for printout.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a96f36bbf8aecb8c1df4e9479e0495341"><span id="index-19"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">errout</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-errout"><span id="index-19"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">errout</span></pre>
 <p>The unit number associated with the device used for error ouput.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-20"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-print-level"><span id="index-20"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
 <p>The level of printout requested by the user. Can take the values:</p>
 <ul class="simple">
 <li><p>0 no printout is produced</p></li>
@@ -1817,63 +1838,63 @@ presolve_import_problem.</p>
 <li><p>4 reports lots of information.</p></li>
 <li><p>5 reports a completely silly amount of information</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a622f854458f44802d65ea5c644488b05"><span id="index-21"></span><span></span><span class="kt">bool</span> <span class="n">dual_transformations</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-dual-transformations"><span id="index-21"></span><span></span><span class="kt">bool</span> <span class="n">dual_transformations</span></pre>
 <p>true if dual transformations of the problem are allowed. Note that this implies that the reduced problem is solved accurately (for the dual feasibility condition to hold) as to be able to restore the problem to the original constraints and variables. false prevents dual transformations to be applied, thus allowing for inexact solution of the reduced problem. The setting of this control parameter overides that of get_z, get_z_bounds, get_y, get_y_bounds, dual_constraints_freq, singleton_columns_freq, doubleton_columns_freq, z_accuracy, check_dual_feasibility.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a7fff1fe9af8dc83ace001c1f01daca4e"><span id="index-22"></span><span></span><span class="kt">bool</span> <span class="n">redundant_xc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-redundant-xc"><span id="index-22"></span><span></span><span class="kt">bool</span> <span class="n">redundant_xc</span></pre>
 <p>true if the redundant variables and constraints (i.e. variables that do not appear in the objective function and appear with a consistent sign in the constraints) are to be removed with their associated constraints before other transformations are attempted.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ac5198d5a57920d3cbbc44fc43e1f461d"><span id="index-23"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">primal_constraints_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-primal-constraints-freq"><span id="index-23"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">primal_constraints_freq</span></pre>
 <p>The frequency of primal constraints analysis in terms of presolving passes. A value of j = 2 indicates that primal constraints are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a5de3600b41511490861e5f5cc52c6c8d"><span id="index-24"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">dual_constraints_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-dual-constraints-freq"><span id="index-24"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">dual_constraints_freq</span></pre>
 <p>The frequency of dual constraints analysis in terms of presolving passes. A value of j = 2 indicates that dual constraints are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a79b5f7f8d67056004a9ec1347eaf0b2a"><span id="index-25"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">singleton_columns_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-singleton-columns-freq"><span id="index-25"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">singleton_columns_freq</span></pre>
 <p>The frequency of singleton column analysis in terms of presolving passes. A value of j = 2 indicates that singleton columns are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3f84400443972b69eb439c8ddbccd6e4"><span id="index-26"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">doubleton_columns_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-doubleton-columns-freq"><span id="index-26"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">doubleton_columns_freq</span></pre>
 <p>The frequency of doubleton column analysis in terms of presolving passes. A value of j indicates that doubleton columns are analyzed every 2 presolving passes. A zero value indicates that they are never analyzed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a83a0db3aa9212dc0630226a80f23355e"><span id="index-27"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">unc_variables_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-unc-variables-freq"><span id="index-27"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">unc_variables_freq</span></pre>
 <p>The frequency of the attempts to fix linearly unconstrained variables, expressed in terms of presolving passes. A value of j = 2 indicates that attempts are made every 2 presolving passes. A zero value indicates that no attempt is ever made.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a916449dc4c15cc8c573f65d13a7b1837"><span id="index-28"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">dependent_variables_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-dependent-variables-freq"><span id="index-28"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">dependent_variables_freq</span></pre>
 <p>The frequency of search for dependent variables in terms of presolving passes. A value of j = 2 indicates that dependent variables are searched for every 2 presolving passes. A zero value indicates that they are never searched for.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aedb83124a2aeb24018ca314263ea194d"><span id="index-29"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">sparsify_rows_freq</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-sparsify-rows-freq"><span id="index-29"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">sparsify_rows_freq</span></pre>
 <p>The frequency of the attempts to make A sparser in terms of presolving passes. A value of j = 2 indicates that attempts are made every 2 presolving passes. A zero value indicates that no attempt is ever made.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a62b85e62f2dd65b004b9561006447321"><span id="index-30"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_fill</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-max-fill"><span id="index-30"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_fill</span></pre>
 <p>The maximum percentage of fill in each row of A. Note that this is a row-wise measure: globally fill never exceeds the storage initially used for A, no matter how large control.max_fill is chosen. If max_fill is negative, no limit is put on row fill.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af309919911cc80fb67ce4309caff53ee"><span id="index-31"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_file_nbr</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-transf-file-nbr"><span id="index-31"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_file_nbr</span></pre>
 <p>The unit number to be associated with the file(s) used for saving problem transformations on a disk file.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8e55be8b47271c8bfe04e4eb7abe41d9"><span id="index-32"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_buffer_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-transf-buffer-size"><span id="index-32"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_buffer_size</span></pre>
 <p>The number of transformations that can be kept in memory at once (that is without being saved on a disk file).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a3327bff5444eebb4a46aa1671123681f"><span id="index-33"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_file_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-transf-file-status"><span id="index-33"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">transf_file_status</span></pre>
 <p>The exit status of the file where problem transformations are saved:</p>
 <ul class="simple">
 <li><p>0 the file is not deleted after program termination</p></li>
 <li><p>1 the file is not deleted after program termination</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1af7814ff832c4c4e7fab56d53c26b4bed"><span id="index-34"></span><span></span><span class="kt">char</span> <span class="n">transf_file_name</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-transf-file-name"><span id="index-34"></span><span></span><span class="kt">char</span> <span class="n">transf_file_name</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>The name of the file (to be) used for storing problem transformation on disk. NOTE: this parameter must be identical for all calls to <code class="docutils literal notranslate"><span class="pre">presolve</span></code> following <code class="docutils literal notranslate"><span class="pre">presolve_read_specfile</span></code>. It can then only be changed after calling presolve_terminate.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a15a549b266499b20a45e93ce9a91f083"><span id="index-35"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">y_sign</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-y-sign"><span id="index-35"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">y_sign</span></pre>
 <p>Determines the convention of sign used for the multipliers associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>1 All multipliers corresponding to active inequality constraints are non-negative for lower bound constraints and non-positive for upper bounds constraints.</p></li>
 <li><p>-1 All multipliers corresponding to active inequality constraints are non-positive for lower bound constraints and non-negative for upper bounds constraints.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a0ddf7a757e8d25df82bbd45c4cc522f4"><span id="index-36"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">inactive_y</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-inactive-y"><span id="index-36"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">inactive_y</span></pre>
 <p>Determines whether or not the multipliers corresponding to constraints that are inactive at the unreduced point corresponding to the reduced point on input to <code class="docutils literal notranslate"><span class="pre">presolve_restore_solution</span></code> must be set to zero. Possible values are: associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>0 All multipliers corresponding to inactive inequality constraints are forced to zero, possibly at the expense of deteriorating the dual feasibility condition.</p></li>
 <li><p>1 Multipliers corresponding to inactive inequality constraints are left unaltered.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1aa643ec4b5dfb05f11c4c932158d92a37"><span id="index-37"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">z_sign</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-z-sign"><span id="index-37"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">z_sign</span></pre>
 <p>Determines the convention of sign used for the dual variables associated with the bound constraints.</p>
 <ul class="simple">
 <li><p>1 All dual variables corresponding to active lower bounds are non-negative, and non-positive for active upper bounds.</p></li>
 <li><p>-1 All dual variables corresponding to active lower bounds are non-positive, and non-negative for active upper bounds.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a02a187d6425a995f970b86ab1ae6deaa"><span id="index-38"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">inactive_z</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-inactive-z"><span id="index-38"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">inactive_z</span></pre>
 <p>Determines whether or not the dual variables corresponding to bounds that are inactive at the unreduced point corresponding to the reduced point on input to <code class="docutils literal notranslate"><span class="pre">presolve_restore_solution</span></code> must be set to zero. Possible values are: associated with the general linear constraints.</p>
 <ul class="simple">
 <li><p>0: All dual variables corresponding to inactive bounds are forced to zero, possibly at the expense of deteriorating the dual feasibility condition.</p></li>
 <li><p>1 Dual variables corresponding to inactive bounds are left unaltered.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a980e04d17981a03c6ce9142915baeec6"><span id="index-39"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_x_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-final-x-bounds"><span id="index-39"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_x_bounds</span></pre>
 <p>The type of final bounds on the variables returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the variables (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1881,7 +1902,7 @@ presolve_import_problem.</p>
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8b0b8e949abf9bb7eae7f6e258a9fadf"><span id="index-40"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_z_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-final-z-bounds"><span id="index-40"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_z_bounds</span></pre>
 <p>The type of final bounds on the dual variables returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the dual variables (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1889,7 +1910,7 @@ presolve_import_problem.</p>
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a7797130742a276bfa34e28713c5f69fe"><span id="index-41"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_c_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-final-c-bounds"><span id="index-41"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_c_bounds</span></pre>
 <p>The type of final bounds on the constraints returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the constraints (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1897,7 +1918,7 @@ presolve_import_problem.</p>
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTES: 1) This parameter must be identical for all calls to presolve (except presolve_initialize). 2) If different from 0, its value must be identical to that of control.final_x_bounds.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a8d59a01fe70d5186b185454844aa5388"><span id="index-42"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_y_bounds</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-final-y-bounds"><span id="index-42"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">final_y_bounds</span></pre>
 <p>The type of final bounds on the multipliers returned by the package. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 the final bounds are the tightest bounds known on the multipliers (at the risk of being redundant with other constraints, which may cause degeneracy);</p></li>
@@ -1905,23 +1926,23 @@ presolve_import_problem.</p>
 <li><p>2 the loosest bounds that are known to keep the problem equivalent to the original problem. This option also implies that an additional real workspace of size 2 * n must be allocated.</p></li>
 </ul>
 <p>NOTE: this parameter must be identical for all calls to presolve (except presolve_initialize).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a63d94a12589b2a15bedc5d4b172563d7"><span id="index-43"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">check_primal_feasibility</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-check-primal-feasibility"><span id="index-43"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">check_primal_feasibility</span></pre>
 <p>The level of feasibility check (on the values of x) at the start of the restoration phase. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 no check at all;</p></li>
 <li><p>1 the primal constraints are recomputed at x and a message issued if the computed value does not match the input value, or if it is out of bounds (if control.print_level &gt;= 2);</p></li>
 <li><p>2 the same as for 1, but presolve is terminated if an incompatibilty is detected.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a953e9d14756db97aaecceca97b78f334"><span id="index-44"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">check_dual_feasibility</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-check-dual-feasibility"><span id="index-44"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">check_dual_feasibility</span></pre>
 <p>The level of dual feasibility check (on the values of x, y and z) at the start of the restoration phase. This parameter can take the values:</p>
 <ul class="simple">
 <li><p>0 no check at all;</p></li>
 <li><p>1 the dual feasibility condition is recomputed at ( x, y, z ) and a message issued if the computed value does not match the input value (if control.print_level &gt;= 2);</p></li>
 <li><p>2 the same as for 1, but presolve is terminated if an incompatibilty is detected. The last two values imply the allocation of an additional real workspace vector of size equal to the number of variables in the reduced problem.</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a133347eb5f45a24a77b63b4afd4212e8"><span id="index-45"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">pivot_tol</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-pivot-tol"><span id="index-45"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">pivot_tol</span></pre>
 <p>The relative pivot tolerance above which pivoting is considered as numerically stable in transforming the coefficient matrix A. A zero value corresponds to a totally unsafeguarded pivoting strategy (potentially unstable).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1a6ff1d4c2c7c9a996e081de4beccebf86"><span id="index-46"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">min_rel_improve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-min-rel-improve"><span id="index-46"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">min_rel_improve</span></pre>
 <p>The minimum relative improvement in the bounds on x, y and z for a tighter bound on these quantities to be accepted in the course of the analysis. More formally, if lower is the current value of the lower bound on one of the x, y or z, and if new_lower is a tentative tighter lower bound on the same quantity, it is only accepted if.</p>
 <p>new_lower &gt;= lower + tol * MAX( 1, ABS( lower ) ),</p>
 <p>where</p>
@@ -1929,7 +1950,7 @@ presolve_import_problem.</p>
 <p>Similarly, a tentative tighter upper bound new_upper only replaces the current upper bound upper if</p>
 <p>new_upper &lt;= upper - tol * MAX( 1, ABS( upper ) ).</p>
 <p>Note that this parameter must exceed the machine precision significantly.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-1ac768d36daebcdaaec3ad82313c45fa64"><span id="index-47"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">max_growth_factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-control-type-max-growth-factor"><span id="index-47"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">max_growth_factor</span></pre>
 <p>The maximum growth factor (in absolute value) that is accepted between the maximum data item in the original problem and any data item in the reduced problem. If a transformation results in this bound being exceeded, the transformation is skipped.</p>
 </section>
 </section>
@@ -1942,11 +1963,11 @@ presolve_import_problem.</p>
 <span class="k">struct</span> <span class="n">presolve_inform_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type-status"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> status_continue<span></span><span class="p">;</span>
     <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> status_continued<span></span><span class="p">;</span>
-    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span class="std std-ref">nbr_transforms</span></a><span></span><span class="p">;</span>
-    <span class="kt">char</span> <a class="reference internal" href="#doxid-structpresolve-inform-type-1ad3ed7aeb962cfe24345625354d733206"><span class="std std-ref">message</span></a><span></span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">];</span>
+    <a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type-nbr-transforms"><span class="std std-ref">nbr_transforms</span></a><span></span><span class="p">;</span>
+    <span class="kt">char</span> <a class="reference internal" href="struct_presolve_inform_type.html#doxid-structpresolve-inform-type-message"><span class="std std-ref">message</span></a><span></span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">];</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structpresolve-inform-type">
@@ -1954,7 +1975,7 @@ presolve_import_problem.</p>
 <p>inform derived type as a C struct</p>
 <section id="id6">
 <h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-49"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-status"><span id="index-49"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
 <p>The presolve exit condition. It can take the following values (symbol in parentheses is the related Fortran code):</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -2194,9 +2215,9 @@ H.ne &gt; 0 and A is stored in sparse coordinate format</p>
 <p>(WRONG_HNE) incompatible value of H_ne</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ac678d67797411ebadaab2a5e07f62e8a"><span id="index-50"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">nbr_transforms</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-nbr-transforms"><span id="index-50"></span><a class="reference internal" href="wcp_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">nbr_transforms</span></pre>
 <p>The final number of problem transformations, as reported to the user at exit.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-1ad3ed7aeb962cfe24345625354d733206"><span id="index-51"></span><span></span><span class="kt">char</span> <span class="n">message</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structpresolve-inform-type-message"><span id="index-51"></span><span></span><span class="kt">char</span> <span class="n">message</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>A few lines containing a description of the exit condition on exit of PRESOLVE, typically including more information than indicated in the description of control.status above. It is printed out on device errout at the end of execution if control.print_level &gt;= 1.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

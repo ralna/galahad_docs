@@ -397,6 +397,10 @@
 <li class="toctree-l2"><a class="reference internal" href="lms_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nodend.html">NODEND - find a row/column ordering for symmetric matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodend_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="roots.html">ROOTS - find real roots of real polynomials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="roots_functions.html">callable functions</a></li>
 </ul>
@@ -884,7 +888,7 @@ status from the package. Possible values are:</p>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_row</p></td>
-<td><p>is a one-dimensional array of size h_ne and type INT that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size h_ne and type INT that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_col</p></td>
 <td><p>is a one-dimensional array of size h_ne and type INT that gives the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme.</p></td>
@@ -928,7 +932,7 @@ status from the package. Possible values are:</p>
 <td><p>is a scalar variable of type INT that holds the number of entries in the constraint Jacobian matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>a_row</p></td>
-<td><p>is a one-dimensional array of size a_ne and type INT that gives the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size a_ne and type INT that gives the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>a_col</p></td>
 <td><p>is a one-dimensional array of size a_ne and type INT that gives the column indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate, storage scheme.</p></td>
@@ -973,7 +977,7 @@ status from the package. Possible values are:</p>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>h_c_ptr</p></td>
-<td><p>is a one-dimensional array of size h_c_ne and type INT that gives the constraint indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the <a class="reference internal" href="rpd_storage.html#details-rpd-storage"><span class="std std-ref">joint sparse co-ordinate storage scheme</span></a>.</p></td>
+<td><p>is a one-dimensional array of size h_c_ne and type INT that gives the constraint indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the <a class="reference internal" href="#details-rpd-storage"><span class="std std-ref">joint sparse co-ordinate storage scheme</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>h_c_row</p></td>
 <td><p>is a one-dimensional array of size h_c_ne and type INT that gives the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_c\)</span> in the joint sparse co-ordinate storage scheme.</p></td>
@@ -1219,23 +1223,23 @@ status from the package. Possible values are
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-16"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-f-indexing"><span id="index-16"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1ae6020f0898b39b85c5f656161513a1d0"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">qplib</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-qplib"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">qplib</span></pre>
 <p>QPLIB file input stream number.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-error"><span id="index-18"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-out"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-print-level"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 gives no output,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\geq\)</span> 1 gives increasingly verbose (debugging) output</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-21"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-space-critical"><span id="index-21"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if .space_critical true, every effort will be made to use as little space as possible. This may result in longer computation time</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-22"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-control-type-deallocate-error-fatal"><span id="index-22"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>if .deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
 </section>
 </section>
@@ -1256,7 +1260,7 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-status"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1284,15 +1288,15 @@ held in inform.alloc_status and inform.bad_alloc respectively.</p>
 <p>The problem type was not recognised.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-alloc-status"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation or deallocation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-26"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-bad-alloc"><span id="index-26"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation or deallocation error occurred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a0ae587ad93ebdbad173f9e8475f936b9"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">io_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-io-status"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">io_status</span></pre>
 <p>status from last read attempt</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a41ebd28ef1d7c6ade45642cb6acc1039"><span id="index-28"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">line</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-line"><span id="index-28"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">line</span></pre>
 <p>number of last line read from i/o file</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-1a1ed26df99ee0d5be3db580aff3ab5397"><span id="index-29"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">p_type</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrpd-inform-type-p-type"><span id="index-29"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">p_type</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span></pre>
 <p>problem type</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1335,11 +1339,8 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-  <span class="c1"># Initialize RPD */</span>
+  <span class="c1"># Initialize RPD</span>
   <span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-
-  <span class="c1"># Set user-defined control options */</span>
-  <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">f_indexing</span> <span class="o">=</span> <span class="n">true</span> <span class="c1"># fortran sparse matrix indexing</span>
 
   <span class="c1"># Recover vital statistics from the QPLIB file</span>
   <span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">qplib_file</span><span class="p">,</span> <span class="n">qplib_file_len</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">p_type</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">,</span>

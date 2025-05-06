@@ -397,6 +397,10 @@
 <li class="toctree-l2"><a class="reference internal" href="lms_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nodend.html">NODEND - find a row/column ordering for symmetric matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodend_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="roots.html">ROOTS - find real roots of real polynomials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="roots_functions.html">callable functions</a></li>
 </ul>
@@ -544,8 +548,8 @@ called in the following order:</p>
 <li><p><span class="xref std std-ref">scu_solve_system</span> - solve the block system (1)</p></li>
 <li><p><span class="xref std std-ref">scu_add_rows_and_cols</span> (optional) - update the factors of the Schur-complement matrix when rows and columns are added to (1).</p></li>
 <li><p><span class="xref std std-ref">scu_delete_rows_and_cols</span> (optional) - update the factors of the Schur-complement matrix when rows and columns are removed from (1).</p></li>
-<li><p><a class="reference internal" href="scu_functions.html#doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span class="std std-ref">scu_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="scu_functions.html#doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span class="std std-ref">scu_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-scu-8h-1ad52752848139c1772e7d5bb4aa2a3f6d"><span class="std std-ref">scu_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-scu-8h-1a6fc2d5a0cb41e7c912661c5101d2ffad"><span class="std std-ref">scu_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <span class="xref std std-ref">examples</span> section for
 illustrations of use.</p>
@@ -627,7 +631,7 @@ status from the package. Possible values are
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-3"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-control-type-f-indexing"><span id="index-3"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
 </section>
 </section>
@@ -645,11 +649,11 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-status"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. A non-zero value indicates an error or a request for further information. See SCU_solve for details.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-alloc-status"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the return status from the last attempted internal workspace array allocation or deallocation. A non-zero value indicates that the allocation or deallocation was unsuccessful, and corresponds to the fortran STAT= value on the user’s system.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-1a4387aa0c0c3c91d72fb78c8925f05993"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structscu-inform-type-inertia"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">inertia</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></pre>
 <p>the inertia of <span class="math notranslate nohighlight">\(S\)</span> when the extended matrix is symmetric. Specifically, inertia(i), i=0,1,2 give the number of positive, negative and zero eigenvalues of <span class="math notranslate nohighlight">\(S\)</span> respectively.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>

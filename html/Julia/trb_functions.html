@@ -732,7 +732,7 @@ unit control.alive_unit.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>g</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>. On successful termination, <code class="docutils literal notranslate"><span class="pre">g</span></code> will equivalently hold the optimal dual variables, <span class="math notranslate nohighlight">\(z\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>
@@ -916,7 +916,7 @@ unit control.alive_unit.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>g</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>. On successful termination, <code class="docutils literal notranslate"><span class="pre">g</span></code> will equivalently hold the optimal dual variables, <span class="math notranslate nohighlight">\(z\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>eval_f</p></td>
 <td><p>is a user-supplied function that must have the
@@ -1176,7 +1176,7 @@ eval_status to a non-zero value.</p>
 <td><p>is a scalar variable pointer of type T that holds the value of the objective function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>g</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g = \nabla_xf(x)\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>. On successful termination, <code class="docutils literal notranslate"><span class="pre">g</span></code> will equivalently hold the optimal dual variables, <span class="math notranslate nohighlight">\(z\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of the Hessian matrix <span class="math notranslate nohighlight">\(H\)</span>.</p></td>

@@ -397,6 +397,10 @@
 <li class="toctree-l2"><a class="reference internal" href="lms_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nodend.html">NODEND - find a row/column ordering for symmetric matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodend_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="roots.html">ROOTS - find real roots of real polynomials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="roots_functions.html">callable functions</a></li>
 </ul>
@@ -924,15 +928,15 @@ status from the package. Possible values are
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a6e8421b34d6b85dcb33c1dd0179efbb3"><span id="index-7"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-f-indexing"><span id="index-7"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a11614f44ef4d939bdd984953346a7572"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-error"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1aa8000eda101cade7c6c4b913fce0cc9c"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-out"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a12dae630bd8f5d2d00f6a86d652f5c81"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-print-level"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required. &lt;= 0 gives no output, = 1 gives a one-line summary for every iteration, = 2 gives a summary of the inner iteration for each iteration, &gt;= 3 gives increasingly verbose (debugging) output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1af04b00dd3ef8468bec194d10ee43f8b7"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">approximation_algorithm</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-approximation-algorithm"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">approximation_algorithm</span></pre>
 <p>which approximation algorithm should be used?</p>
 <ul class="simple">
 <li><p>1 : unsymmetric, parallel (Alg 2.1 in paper)</p></li>
@@ -940,7 +944,7 @@ status from the package. Possible values are
 <li><p>3 : composite, parallel (Alg 2.3 in paper)</p></li>
 <li><p>4 : composite, block parallel (Alg 2.4 in paper)</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a59b9cb51e0d19a10a7714b4582a883b1"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dense_linear_solver</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-dense-linear-solver"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">dense_linear_solver</span></pre>
 <p>which dense linear equation solver should be used?</p>
 <ul class="simple">
 <li><p>1 : Gaussian elimination</p></li>
@@ -948,20 +952,20 @@ status from the package. Possible values are
 <li><p>3 : singular-value decomposition</p></li>
 <li><p>4 : singular-value decomposition with divide-and-conquer</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a16e4be90c05808f00af594b1feabadbe"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_differences</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-extra-differences"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_differences</span></pre>
 <p>if available use an addition extra_differences differences</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f0"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sparse_row</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-sparse-row"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sparse_row</span></pre>
 <p>a row is considered sparse if it has no more than .sparse_row entries</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f1"><span id="index-15"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-recursion-max"><span id="index-15"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_max</span></pre>
 <p>limit on the maximum number of levels of recursion (Alg. 2.4)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a22a3fbc66d8826eb54a1708046e3c4f2"><span id="index-16"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_entries_required</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-recursion-entries-required"><span id="index-16"></span><span></span><span class="w">    </span>ipc_<span></span><span class="w"> </span><span class="n">recursion_entries_required</span></pre>
 <p>the minimum number of entries in a reduced row that are required
 if a further level of recuresion is allowed (Alg. 2.4)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a957fc1f4f26eeef3b0951791ff972e8d"><span id="index-17"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-space-critical"><span id="index-17"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if space is critical, ensure allocated arrays are no bigger than needed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a58a2c67fad6e808e8365eff67700cba5"><span id="index-18"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-deallocate-error-fatal"><span id="index-18"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>exit if any deallocation fails</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-1a1dc05936393ba705f516a0c275df4ffc"><span id="index-19"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-control-type-prefix"><span id="index-19"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 </section>
 </section>
@@ -985,25 +989,25 @@ if a further level of recuresion is allowed (Alg. 2.4)</p>
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a6e27f49150e9a14580fb313cc2777e00"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-status"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See SHA_solve for details</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a4335d5f44067aca76d5fff71eeb7d381"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-alloc-status"><span id="index-22"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a8eabc621540d71c2a7e3076d6c3826bc"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_degree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-max-degree"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_degree</span></pre>
 <p>the maximum degree in the adgacency graph.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a6"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">differences_needed</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-differences-needed"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">differences_needed</span></pre>
 <p>the number of differences that will be needed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a389835dfe2e9309431892a98be9beb2c"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_reduced_degree</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-max-reduced-degree"><span id="index-25"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_reduced_degree</span></pre>
 <p>the maximum reduced degree in the adgacency graph.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a962f442a0dd78d06c760ec5df7bf79a0"><span id="index-26"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">approximation_algorithm_used</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-approximation-algorithm-used"><span id="index-26"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">approximation_algorithm_used</span></pre>
 <p>the approximation algorithm actually used</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1ab9c826769c483d92749a2bad8b0b972b"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">bad_row</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-bad-row"><span id="index-27"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">bad_row</span></pre>
 <p>a failure occured when forming the bad_row-th row (0 = no failure).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1ab9c826769c483d92749a2bad8b0b972c"><span id="index-28"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">max_off_diagonal_difference</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-max-off-diagonal-difference"><span id="index-28"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">max_off_diagonal_difference</span></pre>
 <p>the maximum difference between estimated Hessian off-diagonal
 pairs if approximation algorithm 1, 3 or 4 has been employed and
 control.average_off_diagonals is true. It will be zero otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-1a19ba64e8444ca3672abd157e4f1303a3"><span id="index-29"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsha-inform-type-bad-alloc"><span id="index-29"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
