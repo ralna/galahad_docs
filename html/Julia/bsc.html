@@ -488,28 +488,107 @@
 <strong>builds the Schur complement</strong> <span class="math notranslate nohighlight">\(S = A D A^T\)</span> in sparse co-ordinate
 (and optionally sparse column) format(s). Full advantage is taken
 of any zero coefficients in the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p><strong>Currently only the options and inform dictionaries are exposed</strong>; these are
-provided and used by other GALAHAD packages with Python interfaces.
-Please contact us if you would like full functionality!</p>
 <p>See Section 4 of $GALAHAD/doc/bsc.pdf for a brief description of the
 method employed and other details.</p>
+</section>
+<section id="matrix-storage">
+<span id="details-asc-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<section id="unsymmetric-storage">
+<span id="details-asc-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h3>
+<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
+and stored in a variety of convenient input formats.</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(A\)</span> is stored as a compact dense matrix by rows, that is,
+the values of the entries of each row in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(n \ast i + j\)</span>  of the storage array A_val
+will hold the value <span class="math notranslate nohighlight">\(A_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>.
+The string A_type = ‘dense’ should be specified.</p>
+<p><em>Dense by columns</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(A\)</span> is stored as a compact dense matrix by columns, that is,
+the values of the entries of each column in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(m \ast j + i\)</span>  of the storage array A_val
+will hold the value <span class="math notranslate nohighlight">\(A_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>.
+The string A_type = ‘dense_by_columns’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(1 \leq l \leq ne\)</span>, of <span class="math notranslate nohighlight">\(A\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(A_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>,  <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays A_row and A_col and real array A_val,
+respectively, while the number of nonzeros is recorded as A_ne = <span class="math notranslate nohighlight">\(ne\)</span>.
+The string A_type = ‘coordinate’should be specified.</p>
+<p><em>Sparse row-wise storage</em> format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(A\)</span> the i-th component of the
+integer array A_ptr holds the position of the first entry in this row,
+while A_ptr(m+1) holds the total number of entries plus one.
+The column indices j, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>, and values
+<span class="math notranslate nohighlight">\(A_{ij}\)</span> of the  nonzero entries in the i-th row are stored in components
+l = A_ptr(i), <span class="math notranslate nohighlight">\(\ldots\)</span>, A_ptr(i+1)-1,  <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>,
+of the integer array A_col, and real array A_val, respectively.
+For sparse matrices, this scheme almost always requires less storage than
+its predecessor.
+The string A_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Sparse column-wise</em> storage format:
+Once again only the nonzero entries are stored, but this time
+they are ordered so that those in column j appear directly before those
+in column j+1. For the j-th column of <span class="math notranslate nohighlight">\(A\)</span> the j-th component of the
+integer array A_ptr holds the position of the first entry in this column,
+while A_ptr(n+1) holds the total number of entries plus one.
+The row indices i, <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, and values <span class="math notranslate nohighlight">\(A_{ij}\)</span>
+of the  nonzero entries in the j-th columnsare stored in components
+l = A_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, A_ptr(j+1)-1, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>,
+of the integer array A_row, and real array A_val, respectively.
+As before, for sparse matrices, this scheme almost always requires less
+storage than the co-ordinate format.
+The string A_type = ‘sparse_by_columns’ should be specified.</p>
+</section>
+<section id="symmetric-storage">
+<span id="details-asc-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h3>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Schur complement matrix <span class="math notranslate nohighlight">\(S\)</span> may be returned
+in a couple of formats. But crucially symmetry
+is exploited by only storing values from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(1 \leq l \leq ne\)</span>, of <span class="math notranslate nohighlight">\(S\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(S_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays S_row and S_col and real array S_val,
+respectively, while the number of nonzeros is recorded as S_ne = <span class="math notranslate nohighlight">\(ne\)</span>.
+Note that only the entries in the lower triangle should be stored.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(S\)</span> the i-th component of the
+integer array S_ptr holds the position of the first entry in this row,
+while S_ptr(n+1) holds the total number of entries plus one.
+The column indices j, <span class="math notranslate nohighlight">\(1 \leq j \leq i\)</span>, and values <span class="math notranslate nohighlight">\(S_{ij}\)</span> of the entries
+in the i-th row are stored in components l = S_ptr(i), …, S_ptr(i+1)-1 of the
+integer array S_col, and real array S_val, respectively. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.</p>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 <section id="introduction-to-function-calls">
 <h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the bsc package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><span class="xref std std-ref">bsc_read_specfile</span> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><span class="xref std std-ref">bsc_import</span> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
-<li><p><span class="xref std std-ref">bsc_reset_control</span> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><span class="xref std std-ref">bsc_form</span> - form the Schur complement <span class="math notranslate nohighlight">\(S\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-initialize"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-read-specfile"><span class="std std-ref">bsc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-import"><span class="std std-ref">bsc_import</span></a> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-reset-control"><span class="std std-ref">bsc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-form-s"><span class="std std-ref">bsc_form</span></a> - form the Schur complement <span class="math notranslate nohighlight">\(S\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-information"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-terminate"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
 </ul>
-<p>See the <span class="xref std std-ref">examples</span> section for
+<p>See the <a class="reference internal" href="#doxid-index-bsc-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t-and-integer-type-int">
@@ -521,7 +600,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-initialize"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -534,7 +613,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -552,7 +631,203 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-read-specfile"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<p>Read the content of a specification file, and assign values associated
+with given keywords to the corresponding control parameters.
+An in-depth discussion of specification files is
+<a class="reference internal" href="spec.html#details-spec-file"><span class="std std-ref">available</span></a>, and a detailed list of keywords
+with associated default values is provided in $GALAHAD/src/bsc/BSC.template.
+See also Table 2.1 in the Fortran documentation provided in
+$GALAHAD/doc/bsc.pdf for a list of how these keywords relate to the
+components of the control structure.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>specfile</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-import"><span id="index-2"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">)</span></pre>
+<p>Import problem data into internal storage prior to solution.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The import was successful</p></li>
+<li><p><strong>-1</strong>
+An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p></li>
+<li><p><strong>-2</strong>
+A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p></li>
+<li><p><strong>-3</strong>
+The restrictions n &gt; 0 or m &gt; 0 or requirement that
+a type contains its relevant string ‘dense’,
+‘coordinate’ or ‘sparse_by_rows’ has been violated.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>A_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-asc-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_row</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A_col</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_ne</p></td>
+<td><p>is a scalar variable of type INT that gives the number of entries in <span class="math notranslate nohighlight">\(S\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-reset-control"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<p>Reset control parameters after import if required.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The import was successful.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-form-s"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">)</span></pre>
+<p>Form the Schur complement matrix, <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the
+entry and exit status from the package.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The run was successful.</p></li>
+<li><p><strong>-1</strong>
+An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p></li>
+<li><p><strong>-2</strong>
+A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p></li>
+<li><p><strong>-3</strong>
+The restrictions n &gt; 0 or m &gt; 0 or requirement that
+a type contains its relevant string ‘dense’,
+‘coordinate’ or ‘sparse_by_rows’ has been violated.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>A_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_val</p></td>
+<td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme.</p></td>
+</tr>
+<tr class="row-even"><td><p>S_row</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that gives the row indices the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_col</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that gives the column indices the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme.</p></td>
+</tr>
+<tr class="row-even"><td><p>S_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that gives the starting position of each row the lower traingle of <span class="math notranslate nohighlight">\(S\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. If this scheme is not wanted, S_ptr can be NULL to save storage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_val</p></td>
+<td><p>is a one-dimensional array of size S_ne and type T that gives the values of the entries of the lower traingle of the matrix <span class="math notranslate nohighlight">\(S\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>is a one-dimensional array of size n and type T that gives the values of the diagonal entries in <span class="math notranslate nohighlight">\(D\)</span>. If <span class="math notranslate nohighlight">\(D\)</span> is the identity matrix, D can be NULL to save storage.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-information"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -565,7 +840,7 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -583,7 +858,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-terminate"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -596,10 +871,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -609,7 +884,7 @@ status from the package. Possible values are
 <h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
 <section id="bsc-control-type-structure">
-<span id="doxid-structbsc-control-type"></span><span id="index-3"></span><h2>bsc_control_type structure<a class="headerlink" href="#bsc-control-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structbsc-control-type"></span><span id="index-7"></span><h2>bsc_control_type structure<a class="headerlink" href="#bsc-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bsc_control_type</span>
@@ -630,17 +905,17 @@ status from the package. Possible values are
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-f-indexing"><span id="index-4"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-f-indexing"><span id="index-8"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-error"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-error"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>error and warning diagnostics occur on stream error</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-out"><span id="index-6"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-out"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>general output occurs on stream out</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-print-level"><span id="index-7"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-print-level"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>the level of output required is specified by print_level</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-max-col"><span id="index-8"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-max-col"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col</span></pre>
 <p>maximum permitted number of nonzeros in a column of <span class="math notranslate nohighlight">\(A\)</span>; -ve means unlimit</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-new-a"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_a</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-new-a"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">new_a</span></pre>
 <p>how much has <span class="math notranslate nohighlight">\(A\)</span> changed since it was last accessed:</p>
 <ul class="simple">
 <li><p>0 = not changed,</p></li>
@@ -648,20 +923,20 @@ status from the package. Possible values are
 <li><p>2 = structure changed</p></li>
 <li><p>3 = structure changed but values not required</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-extra-space-s"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_space_s</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-extra-space-s"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">extra_space_s</span></pre>
 <p>how much extra space is to be allocated in <span class="math notranslate nohighlight">\(S\)</span> above that needed to hold the Schur complement</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-s-also-by-column"><span id="index-11"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">s_also_by_column</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-s-also-by-column"><span id="index-15"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">s_also_by_column</span></pre>
 <p>should s.ptr also be set to indicate the first entry in each column of <span class="math notranslate nohighlight">\(S\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-space-critical"><span id="index-12"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-space-critical"><span id="index-16"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if .space_critical true, every effort will be made to use as little space as possible. This may result in longer computation time</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-deallocate-error-fatal"><span id="index-13"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-deallocate-error-fatal"><span id="index-17"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>if .deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-prefix"><span id="index-14"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-control-type-prefix"><span id="index-18"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 </section>
 </section>
 <section id="bsc-inform-type-structure">
-<span id="doxid-structbsc-inform-type"></span><span id="index-15"></span><h2>bsc_inform_type structure<a class="headerlink" href="#bsc-inform-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structbsc-inform-type"></span><span id="index-19"></span><h2>bsc_inform_type structure<a class="headerlink" href="#bsc-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
@@ -678,7 +953,7 @@ status from the package. Possible values are
 <p>inform derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-status"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-status"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>the return status from the package. Possible values are:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -702,22 +977,162 @@ its relevant string ‘dense’, ‘coordinate’ or ‘sparse_by_rows’ has be
 violated.</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-alloc-status"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-alloc-status"><span id="index-21"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>the status of the last attempted allocation/deallocation</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-bad-alloc"><span id="index-18"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-bad-alloc"><span id="index-22"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>the name of the array for which an allocation/deallocation error occurred.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-max-col-a"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col_a</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-max-col-a"><span id="index-23"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_col_a</span></pre>
 <p>the maximum number of entries in a column of <span class="math notranslate nohighlight">\(A\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-exceeds-max-col"><span id="index-20"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">exceeds_max_col</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-exceeds-max-col"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">exceeds_max_col</span></pre>
 <p>the number of columns of <span class="math notranslate nohighlight">\(A\)</span> that have more than control.max_col entries</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-time"><span id="index-21"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-time"><span id="index-25"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">time</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-clock-time"><span id="index-22"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbsc-inform-type-clock-time"><span id="index-26"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_time</span></pre>
 <p>the total clock time spent in the package</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
 </div>
 </section>
+</section>
+<section id="example-call">
+<span id="doxid-index-bsc-examples"></span><h2>example call<a class="headerlink" href="#example-call" title="Link to this heading">#</a></h2>
+<p>This is an example of how to use the package to find the Schur complement
+from given data <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(D\)</span>; the code is available in
+$GALAHAD/src/bsc/Julia/test_bsc.jl .
+A variety of supported Hessian and constraint matrix storage formats are shown.</p>
+<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_bsc.jl</span>
+<span class="c1"># Simple code to test the Julia interface to BSC</span>
+
+<span class="n">using</span> <span class="n">GALAHAD</span>
+<span class="n">using</span> <span class="n">Test</span>
+<span class="n">using</span> <span class="n">Quadmath</span>
+
+<span class="n">function</span> <span class="n">test_bsc</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+  <span class="c1"># Derived types</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bsc_control_type</span><span class="p">{</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bsc_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+
+  <span class="c1"># Set problem data</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># row dimension of A</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># column dimension of A</span>
+  <span class="n">A_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># number of entries in A</span>
+  <span class="n">A_row</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># row indices</span>
+  <span class="n">A_col</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># column indices</span>
+  <span class="n">A_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>  <span class="c1"># row pointers</span>
+  <span class="n">A_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># values</span>
+  <span class="n">A_dense_ne</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># number of elements in A as a dense matrix</span>
+  <span class="n">A_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+  <span class="n">D</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span> <span class="c1"># optional diagonal</span>
+
+  <span class="c1"># Set output storage</span>
+  <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">S_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+
+  <span class="c1"># loop over storage types</span>
+  <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+    <span class="c1"># Initialize BSC</span>
+    <span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="c1"># sparse co-ordinate storage</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+      <span class="n">bsc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+                 <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_row</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># sparse by rows</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+      <span class="n">bsc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+                 <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">A_col</span><span class="p">,</span> <span class="n">A_ptr</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="c1"># dense</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
+      <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+      <span class="n">A_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+      <span class="n">bsc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
+                 <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+    <span class="n">end</span>
+
+    <span class="n">S_row</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">INT</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+    <span class="n">S_col</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">INT</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+    <span class="n">S_ptr</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">INT</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">S_val</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ptr</span> <span class="ow">in</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span>
+      <span class="k">if</span> <span class="n">ptr</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
+          <span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span>
+                     <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+        <span class="k">else</span>
+          <span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
+                     <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+        <span class="n">end</span>
+      <span class="k">else</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span>
+          <span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">A_dense_ne</span><span class="p">,</span> <span class="n">A_dense</span><span class="p">,</span>
+                     <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+        <span class="k">else</span>
+          <span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
+                     <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+        <span class="n">end</span>
+      <span class="n">end</span>
+
+      <span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; format </span><span class="si">%c</span><span class="s2">: status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; format </span><span class="si">%c</span><span class="s2">: error status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+      <span class="n">end</span>
+
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_row: &quot;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_row</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">end</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_col: &quot;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_col</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">end</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_val: &quot;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">end</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">ptr</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_ptr: &quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span>
+          <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">end</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="n">end</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+
+  <span class="k">return</span> <span class="mi">0</span>
+<span class="n">end</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">libgalahad</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float32</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_single_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double</span>      <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float64</span> <span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_double_64</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
+                             <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;BSC -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_bsc</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -769,6 +1184,11 @@ violated.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsymmetric-storage">unsymmetric storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-storage">symmetric storage</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
@@ -783,6 +1203,7 @@ violated.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-call">example call</a></li>
 </ul>
   </nav></div>
 

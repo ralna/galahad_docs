@@ -593,7 +593,7 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 </section>
 <section id="symmetric-storage">
 <span id="details-as-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h3>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> scaing matrix <span class="math notranslate nohighlight">\(S\)</span> may also
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> scaling matrix <span class="math notranslate nohighlight">\(S\)</span> may also
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
 (i.e, those entries that lie on or below the leading diagonal).</p>
@@ -657,14 +657,14 @@ the string S_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the llsr package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span class="std std-ref">llsr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span class="std std-ref">llsr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span class="std std-ref">llsr_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span class="std std-ref">llsr_import_scaling</span></a> (optional) - set up problem data structures for <span class="math notranslate nohighlight">\(S\)</span> if required</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span class="std std-ref">llsr_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span class="std std-ref">llsr_solve_problem</span></a> - solve the regularization problem</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span class="std std-ref">llsr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="llsr_functions.html#doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span class="std std-ref">llsr_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1a926f9824ab2e2bc71450a4d0b483879d"><span class="std std-ref">llsr_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1a01bf988188420284ac4c125fef947efb"><span class="std std-ref">llsr_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1ac2dd0bee9270e6295c63a5365186070f"><span class="std std-ref">llsr_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1a75f3108d65fc8100776af18f6adf4c2c"><span class="std std-ref">llsr_import_scaling</span></a> (optional) - set up problem data structures for <span class="math notranslate nohighlight">\(S\)</span> if required</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1a9a9e3ae8ce66a5b7933b06061208c50c"><span class="std std-ref">llsr_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1aa702f5ffcde083da921921c4e1131d89"><span class="std std-ref">llsr_solve_problem</span></a> - solve the regularization problem</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1a1ba2eb99bc6364f476b85c7f507d43a2"><span class="std std-ref">llsr_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-llsr-8h-1af05d27e76348279a8c9c16298a819609"><span class="std std-ref">llsr_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-llsr-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -691,7 +691,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -726,7 +726,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -745,7 +745,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -826,7 +826,7 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -902,7 +902,7 @@ contains its relevant string ‘dense’, ‘coordinate’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1059,7 +1059,7 @@ progress is impossible.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_llsr_inform_type.html#doxid-structllsr-inform-type"><span class="std std-ref">llsr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structllsr-inform-type"><span class="std std-ref">llsr_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -1088,10 +1088,10 @@ progress is impossible.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_llsr_control_type.html#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structllsr-control-type"><span class="std std-ref">llsr_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_llsr_inform_type.html#doxid-structllsr-inform-type"><span class="std std-ref">llsr_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structllsr-inform-type"><span class="std std-ref">llsr_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1311,9 +1311,9 @@ progress is impossible.</p>
 <p>the multiplier corresponding to the regularization term</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-bad-alloc"><span id="index-52"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-time"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_llsr_time_type.html#doxid-structllsr-time-type"><span class="std std-ref">llsr_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-time"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structllsr-time-type"><span class="std std-ref">llsr_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-history"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_llsr_history_type.html#doxid-structllsr-history-type"><span class="std std-ref">llsr_history_type</span></a><span></span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-history"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structllsr-history-type"><span class="std std-ref">llsr_history_type</span></a><span></span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span></pre>
 <p>history information</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structllsr-inform-type-sbls-inform"><span id="index-55"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>information from the symmetric factorization and related linear solves (see sbls_c documentation)</p>

@@ -46,7 +46,7 @@
     <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'as_storage';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'asc_storage';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -410,10 +410,10 @@
                 <article class="bd-article">
                   
   <section id="matrix-storage">
-<span id="details-as-storage"></span><h1>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h1>
+<span id="details-asc-storage"></span><h1>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h1>
 <section id="unsymmetric-storage">
-<span id="details-as-storage-unsym"></span><h2>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h2>
-<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> model matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
+<span id="details-asc-storage-unsym"></span><h2>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
 The matrix <span class="math notranslate nohighlight">\(A\)</span> is stored as a compact dense matrix by rows, that is,
@@ -465,22 +465,11 @@ storage than the co-ordinate format.
 The string A_type = ‘sparse_by_columns’ should be specified.</p>
 </section>
 <section id="symmetric-storage">
-<span id="details-as-storage-sym"></span><h2>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h2>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> scaling matrix <span class="math notranslate nohighlight">\(S\)</span> may also
-be presented and stored in a variety of formats. But crucially symmetry
+<span id="details-asc-storage-sym"></span><h2>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Schur complement matrix <span class="math notranslate nohighlight">\(S\)</span> may be returned
+in a couple of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
 (i.e, those entries that lie on or below the leading diagonal).</p>
-<p><em>Dense</em> storage format:
-The matrix <span class="math notranslate nohighlight">\(S\)</span> is stored as a compact  dense matrix by rows, that
-is, the values of the entries of each row in turn are stored in order
-within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(S\)</span> is
-symmetric, only the lower triangular part (that is the part
-<span class="math notranslate nohighlight">\(S_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>) need be held.
-In this case the lower triangle should be stored by rows, that is
-component <span class="math notranslate nohighlight">\((i-1) * i / 2 + j\)</span>  of the storage array S_val
-will hold the value <span class="math notranslate nohighlight">\(S_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(S_{ji}\)</span>)
-for <span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>.
-The string S_type = ‘dense’ should be specified.</p>
 <p><em>Sparse co-ordinate</em> storage format:
 Only the nonzero entries of the matrices are stored.
 For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(1 \leq l \leq ne\)</span>, of <span class="math notranslate nohighlight">\(S\)</span>,
@@ -488,8 +477,7 @@ its row index i, column index j and value <span class="math notranslate nohighli
 <span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
 components of the integer arrays S_row and S_col and real array S_val,
 respectively, while the number of nonzeros is recorded as S_ne = <span class="math notranslate nohighlight">\(ne\)</span>.
-Note that only the entries in the lower triangle should be stored.
-The string S_type = ‘coordinate’ should be specified.</p>
+Note that only the entries in the lower triangle should be stored.</p>
 <p><em>Sparse row-wise</em> storage format:
 Again only the nonzero entries are stored, but this time
 they are ordered so that those in row i appear directly before those
@@ -500,27 +488,7 @@ The column indices j, <span class="math notranslate nohighlight">\(1 \leq j \leq
 in the i-th row are stored in components l = S_ptr(i), …, S_ptr(i+1)-1 of the
 integer array S_col, and real array S_val, respectively. Note that as before
 only the entries in the lower triangle should be stored. For sparse matrices,
-this scheme almost always requires less storage than its predecessor.
-The string S_type = ‘sparse_by_rows’ should be specified.</p>
-<p><em>Diagonal</em> storage format:
-If <span class="math notranslate nohighlight">\(S\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(S_{ij} = 0\)</span> for all
-<span class="math notranslate nohighlight">\(1 \leq i \neq j \leq n\)</span>) only the diagonals entries
-<span class="math notranslate nohighlight">\(S_{ii}\)</span>, <span class="math notranslate nohighlight">\(1 \leq i \leq n\)</span> need be stored,
-and the first n components of the array S_val may be used for the purpose.
-The string S_type = ‘diagonal’ should be specified.</p>
-<p><em>Multiples of the identity</em> storage format:
-If <span class="math notranslate nohighlight">\(S\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
-where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
-it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of S_val.
-The string S_type = ‘scaled_identity’ should be specified.</p>
-<p>The <em>identity matrix</em> format:
-If <span class="math notranslate nohighlight">\(S\)</span> is the identity matrix, no values need be stored.
-The string S_type = ‘identity’ should be specified. Strictly
-this is not required as <span class="math notranslate nohighlight">\(S\)</span> will be assumed to be <span class="math notranslate nohighlight">\(I\)</span> if it
-is not explicitly provided.</p>
-<p>The <em>zero matrix</em> format:
-The same is true if <span class="math notranslate nohighlight">\(S\)</span> is the zero matrix, but now
-the string S_type = ‘zero’ or ‘none’ should be specified.</p>
+this scheme almost always requires less storage than its predecessor.</p>
 </section>
 </section>
 
@@ -561,7 +529,7 @@ the string S_type = ‘zero’ or ‘none’ should be specified.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/as_storage.rst.txt">
+    <a href="_sources/asc_storage.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

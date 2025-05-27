@@ -44,6 +44,8 @@
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bsc_functions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -395,6 +397,10 @@
 <li class="toctree-l2"><a class="reference internal" href="lms_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nodend.html">NODEND - find a row/column ordering for symmetric matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodend_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="roots.html">ROOTS - find real roots of real polynomials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="roots_functions.html">callable functions</a></li>
 </ul>
@@ -479,7 +485,7 @@
                   
   <section id="callable-functions">
 <h1>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h1>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a32dd948f5ce268b0cdb340f435819c8e"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-initialize"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -492,7 +498,7 @@
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -510,7 +516,203 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a4c0ae2150d39c240539e1d3be836b0af"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-read-specfile"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<p>Read the content of a specification file, and assign values associated
+with given keywords to the corresponding control parameters.
+An in-depth discussion of specification files is
+<a class="reference internal" href="spec.html#details-spec-file"><span class="std std-ref">available</span></a>, and a detailed list of keywords
+with associated default values is provided in $GALAHAD/src/bsc/BSC.template.
+See also Table 2.1 in the Fortran documentation provided in
+$GALAHAD/doc/bsc.pdf for a list of how these keywords relate to the
+components of the control structure.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>specfile</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-import"><span id="index-2"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">A_type</span><span class="p">,</span><span class="w"> </span><span class="n">A_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_row</span><span class="p">,</span><span class="w"> </span><span class="n">A_col</span><span class="p">,</span><span class="w"> </span><span class="n">A_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">)</span></pre>
+<p>Import problem data into internal storage prior to solution.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The import was successful</p></li>
+<li><p><strong>-1</strong>
+An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p></li>
+<li><p><strong>-2</strong>
+A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p></li>
+<li><p><strong>-3</strong>
+The restrictions n &gt; 0 or m &gt; 0 or requirement that
+a type contains its relevant string ‘dense’,
+‘coordinate’ or ‘sparse_by_rows’ has been violated.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>A_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="bsc.html#details-asc-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_row</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A_col</p></td>
+<td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_ne</p></td>
+<td><p>is a scalar variable of type INT that gives the number of entries in <span class="math notranslate nohighlight">\(S\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-reset-control"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<p>Reset control parameters after import if required.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The import was successful.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-form-s"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bsc_form_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a_ne</span><span class="p">,</span><span class="w"> </span><span class="n">A_val</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">)</span></pre>
+<p>Form the Schur complement matrix, <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the
+entry and exit status from the package.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The run was successful.</p></li>
+<li><p><strong>-1</strong>
+An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p></li>
+<li><p><strong>-2</strong>
+A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p></li>
+<li><p><strong>-3</strong>
+The restrictions n &gt; 0 or m &gt; 0 or requirement that
+a type contains its relevant string ‘dense’,
+‘coordinate’ or ‘sparse_by_rows’ has been violated.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of rows of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of columns of <span class="math notranslate nohighlight">\(A\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>A_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>A_val</p></td>
+<td><p>is a one-dimensional array of size a_ne and type T that holds the values of the entries of the matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the available storage schemes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme.</p></td>
+</tr>
+<tr class="row-even"><td><p>S_row</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that gives the row indices the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in the sparse co-ordinate storage scheme.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_col</p></td>
+<td><p>is a one-dimensional array of size S_ne and type INT that gives the column indices the lower traingle of <span class="math notranslate nohighlight">\(S\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme.</p></td>
+</tr>
+<tr class="row-even"><td><p>S_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that gives the starting position of each row the lower traingle of <span class="math notranslate nohighlight">\(S\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. If this scheme is not wanted, S_ptr can be NULL to save storage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S_val</p></td>
+<td><p>is a one-dimensional array of size S_ne and type T that gives the values of the entries of the lower traingle of the matrix <span class="math notranslate nohighlight">\(S\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>is a one-dimensional array of size n and type T that gives the values of the diagonal entries in <span class="math notranslate nohighlight">\(D\)</span>. If <span class="math notranslate nohighlight">\(D\)</span> is the identity matrix, D can be NULL to save storage.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-information"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -523,7 +725,7 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="bsc.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -541,7 +743,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-8h-1a3a8a2f875e681225b4851d060e310271"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bsc-terminate"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bsc_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -554,10 +756,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bsc_control_type.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bsc_inform_type.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="bsc.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
