@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -660,13 +674,13 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the lsqp package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1aac395e385cae77c266ec108f21e9e8f9"><span class="std std-ref">lsqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1a830242147779223fa2dbed69c2c0c200"><span class="std std-ref">lsqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1a5b6f76c31025aa6794e81715f0362e70"><span class="std std-ref">lsqp_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1a3dc0d9ed7fad6f3ea575e1a53c06c35e"><span class="std std-ref">lsqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1a44019540a174679eda6d46b1ddae89f8"><span class="std std-ref">lsqp_solve_qp</span></a> - solve the quadratic program</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1aa86d9f9bfe75370d90a0be244a9a23ce"><span class="std std-ref">lsqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="lsqp_functions.html#doxid-galahad-lsqp-8h-1a7a9c9d7589c1acb11f0e2a579b1d8053"><span class="std std-ref">lsqp_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1aac395e385cae77c266ec108f21e9e8f9"><span class="std std-ref">lsqp_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1a830242147779223fa2dbed69c2c0c200"><span class="std std-ref">lsqp_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1a5b6f76c31025aa6794e81715f0362e70"><span class="std std-ref">lsqp_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1a3dc0d9ed7fad6f3ea575e1a53c06c35e"><span class="std std-ref">lsqp_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1a44019540a174679eda6d46b1ddae89f8"><span class="std std-ref">lsqp_solve_qp</span></a> - solve the quadratic program</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1aa86d9f9bfe75370d90a0be244a9a23ce"><span class="std std-ref">lsqp_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-lsqp-8h-1a7a9c9d7589c1acb11f0e2a579b1d8053"><span class="std std-ref">lsqp_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-lsqp-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -693,7 +707,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lsqp_control_type.html#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -728,7 +742,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lsqp_control_type.html#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -747,7 +761,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_lsqp_control_type.html#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -827,7 +841,7 @@ been violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_lsqp_control_type.html#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1028,7 +1042,7 @@ be symptomatic of a badly scaled problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lsqp_inform_type.html#doxid-structlsqp-inform-type"><span class="std std-ref">lsqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlsqp-inform-type"><span class="std std-ref">lsqp_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1059,10 +1073,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_lsqp_control_type.html#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structlsqp-control-type"><span class="std std-ref">lsqp_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_lsqp_inform_type.html#doxid-structlsqp-inform-type"><span class="std std-ref">lsqp_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structlsqp-inform-type"><span class="std std-ref">lsqp_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1269,9 +1283,9 @@ status from the package. Possible values are
 <p>name of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-control-type-prefix"><span id="index-61"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 </section>
 </section>
@@ -1377,11 +1391,11 @@ status from the package. Possible values are
 <p>the smallest pivot which was not judged to be zero when detecting linear dependent constraints</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-feasible"><span id="index-90"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">feasible</span></pre>
 <p>is the returned “solution” feasible?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-time"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lsqp_time_type.html#doxid-structlsqp-time-type"><span class="std std-ref">lsqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-time"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structlsqp-time-type"><span class="std std-ref">lsqp_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-fdc-inform"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-fdc-inform"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-sbls-inform"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-sbls-inform"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform parameters for SBLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1402,7 +1416,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_lsqp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_lsqp</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">lsqp_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1438,6 +1452,12 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
     <span class="c1"># Initialize LSQP</span>
     <span class="n">lsqp_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="c1"># Linear solvers</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">use_sls</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">sbls_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">sbls_control</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
 
     <span class="c1"># Start from 0</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>

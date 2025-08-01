@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" current active">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -558,24 +572,24 @@ given by</p>
 <p>To solve a given problem, functions from the dps package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span class="std std-ref">dps_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span class="std std-ref">dps_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span class="std std-ref">dps_import</span></a> - import control and matrix data structures</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span class="std std-ref">dps_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a29104b1214a3af5b4dc76dca722250b4"><span class="std std-ref">dps_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a2b7fed0d89483ec1c49b517be04acdcf"><span class="std std-ref">dps_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a7bc05b1c7fd874e96481d0521262bdee"><span class="std std-ref">dps_import</span></a> - import control and matrix data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a445d31a1c3e3aa63af85ceddd9769a5c"><span class="std std-ref">dps_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>one of</p>
 <ul>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span class="std std-ref">dps_solve_tr_problem</span></a> - solve the trust-region problem (1)</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span class="std std-ref">dps_solve_rq_problem</span></a> - solve the regularized-quadratic problem (2)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a0ce2d73010a90e735fd98393d63cb1a5"><span class="std std-ref">dps_solve_tr_problem</span></a> - solve the trust-region problem (1)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1ae3baff5b8a4b59c37a6ada62dff67cc6"><span class="std std-ref">dps_solve_rq_problem</span></a> - solve the regularized-quadratic problem (2)</p></li>
 </ul>
 </li>
 <li><p>optionally one of</p>
 <ul>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span class="std std-ref">dps_resolve_tr_problem</span></a> - resolve the trust-region problem (1) when the non-matrix data has changed</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span class="std std-ref">dps_resolve_rq_problem</span></a> - resolve the regularized-quadratic problem (2) when the non-matrix data has changed</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1af244a0e386040d5da2d11c3bd9d1e34d"><span class="std std-ref">dps_resolve_tr_problem</span></a> - resolve the trust-region problem (1) when the non-matrix data has changed</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a19e02a1d80eaedcb9e339f9963db352a"><span class="std std-ref">dps_resolve_rq_problem</span></a> - resolve the regularized-quadratic problem (2) when the non-matrix data has changed</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span class="std std-ref">dps_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="dps_functions.html#doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span class="std std-ref">dps_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a7617a692133347cb651f9a96244eb9f6"><span class="std std-ref">dps_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-dps-8h-1a1e67ac91c520fc4ec65df30e4140f57e"><span class="std std-ref">dps_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-dps-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -602,7 +616,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -635,7 +649,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -654,7 +668,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -730,7 +744,7 @@ or ‘sparse_by_rows’ has been violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1121,7 +1135,7 @@ progress is impossible.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1152,10 +1166,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1322,7 +1336,7 @@ status from the package. Possible values are
 <p>has the hard case occurred?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-bad-alloc"><span id="index-50"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array that provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-time"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_time_type.html#doxid-structdps-time-type"><span class="std std-ref">dps_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-time"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structdps-time-type"><span class="std std-ref">dps_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-sls-inform"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>information from SLS</p>
@@ -1345,7 +1359,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_dps</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_dps</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">dps_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1378,7 +1392,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="n">dps_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
 
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>

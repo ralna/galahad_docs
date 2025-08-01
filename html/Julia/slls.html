@@ -149,6 +149,13 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -587,23 +601,23 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the slls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">slls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">slls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">slls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">slls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p>set up problem data structures and fixed values by caling one of</p>
 <ul>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">slls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">slls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">slls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">slls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">slls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">slls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">slls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">slls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">slls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">slls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">slls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">slls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">slls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">slls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-slls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -630,7 +644,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -665,7 +679,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -684,7 +698,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -768,7 +782,7 @@ not explicitly available.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -830,7 +844,7 @@ respectively.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1259,7 +1273,7 @@ control.preconditioner = 2.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_slls_inform_type.html#doxid-structslls-inform-type"><span class="std std-ref">slls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structslls-inform-type"><span class="std std-ref">slls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -1288,10 +1302,10 @@ control.preconditioner = 2.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_slls_control_type.html#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structslls-control-type"><span class="std std-ref">slls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_slls_inform_type.html#doxid-structslls-inform-type"><span class="std std-ref">slls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structslls-inform-type"><span class="std std-ref">slls_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1407,7 +1421,7 @@ control.preconditioner = 2.</p>
 <p>name (max 30 characters) of generated SIF file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-control-type-prefix"><span id="index-40"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by a string (max 30 characters) prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-control-type-sbls-control"><span id="index-41"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-control-type-sbls-control"><span id="index-41"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-control-type-convert-control"><span id="index-42"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_control_type.html#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="w"> </span><span class="n">convert_control</span></pre>
 <p>control parameters for CONVERT</p>
@@ -1480,9 +1494,9 @@ control.preconditioner = 2.</p>
 <p>current value of the Euclidean norm of projected gradient of r(x).</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-bad-alloc"><span id="index-56"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_slls_time_type.html#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-convert-inform"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>
@@ -1511,7 +1525,7 @@ mutable struct userdata_slls{T}
   scale::T
 end
 
-function test_slls(::Type{T}, ::Type{INT}) where {T,INT}
+function test_slls(::Type{T}, ::Type{INT}; sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # Apply preconditioner
   function prec(n::INT, x::Vector{T}, p::Vector{T}, userdata::userdata_slls)
@@ -1640,6 +1654,10 @@ function test_slls(::Type{T}, ::Type{INT}) where {T,INT}
 
   # Initialize SLLS
   slls_initialize(T, INT, data, control, status)
+
+  # Linear solvers
+  @reset control[].sbls_control.symmetric_linear_solver = galahad_linear_solver(sls)
+  @reset control[].sbls_control.definite_linear_solver = galahad_linear_solver(dls)
 
   # Start from 0
   for i in 1:n

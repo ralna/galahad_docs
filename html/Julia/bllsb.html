@@ -149,6 +149,13 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -614,13 +628,13 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the bllsb package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bllsb-examples"><span class="std std-ref">examples</span></a> section for illustrations
 of use.</p>
@@ -647,7 +661,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -682,7 +696,7 @@ components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -701,7 +715,7 @@ components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -772,7 +786,7 @@ been violated.</p></li>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -916,7 +930,7 @@ be symptomatic of a badly scaled problem.</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bllsb_inform_type.html#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -944,10 +958,10 @@ The values were recorded successfully</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bllsb_control_type.html#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbllsb-control-type"><span class="std std-ref">bllsb_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bllsb_inform_type.html#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbllsb-inform-type"><span class="std std-ref">bllsb_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1158,7 +1172,7 @@ The values were recorded successfully</p></li>
 <p>name of generated QPLIB file containing input problem</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-prefix"><span id="index-61"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_control_type.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
@@ -1302,9 +1316,9 @@ The values were recorded successfully</p></li>
 <p>checkpoints(i) records the iteration at which the criticality measures first fall below <span class="math notranslate nohighlight">\(10^{-i-1}\)</span>, i = 0, …, 15 (-1 means not achieved)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-checkpointstime"><span id="index-103"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">checkpointsTime</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span></pre>
 <p>see checkpointsIter</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-time"><span id="index-104"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bllsb_time_type.html#doxid-structbllsb-time-type"><span class="std std-ref">bllsb_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-time"><span id="index-104"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbllsb-time-type"><span class="std std-ref">bllsb_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-fdc-inform"><span id="index-105"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fdc_inform_type.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-fdc-inform"><span id="index-105"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-sbls-inform"><span id="index-106"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters for SLS</p>
@@ -1339,7 +1353,7 @@ are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_bllsb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_bllsb</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">bllsb_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1368,8 +1382,8 @@ are shown.</p>
     <span class="n">bllsb_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
     <span class="c1"># Set user-defined control options</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">fdc_control</span><span class="o">.</span><span class="n">use_sls</span> <span class="o">=</span> <span class="n">true</span>
 
     <span class="c1"># Start from 0</span>

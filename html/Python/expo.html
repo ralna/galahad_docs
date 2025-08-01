@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EXPO &#8212; GALAHAD Python Interface 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'expo';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Least-Squares" href="ls.html" />
+    <link rel="prev" title="Generally-constrained Optimization" href="nlp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">EXPO - generally-constrained local optimization of a smooth function</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="nlp.html" class="nav-link">Generally-constrained Optimization</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">EXPO</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-galahad.expo">
+<span id="expo"></span><h1>EXPO<a class="headerlink" href="#module-galahad.expo" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">expo</span></code> package uses an <strong>exponential-penalty function method</strong>
+to solve a given <strong>constrained optimization problem</strong>.
+The aim is to find a (local) minimizer of a differentiable
+<strong>objective function</strong> <span class="math notranslate nohighlight">\(f(x)\)</span> of <span class="math notranslate nohighlight">\(n\)</span> variables <span class="math notranslate nohighlight">\(x\)</span>, subject
+to <span class="math notranslate nohighlight">\(m\)</span> <strong>general constraints</strong> <span class="math notranslate nohighlight">\(c_l \leq c(x) \leq c_u\)</span>
+and <strong>simple-bound constraints</strong> <span class="math notranslate nohighlight">\(x_l \leq x \leq x_u\)</span> on the variables.
+Here, any of the components of the vectors of bounds
+<span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span>, <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+The method offers the choice of direct and iterative solution
+of the key unconstrained-optimization subproblems, and
+is most suitable for large problems. First derivatives are required,
+and if second derivatives can be calculated, they will be exploited—if
+the product of second derivatives with a vector may be found but
+not the derivatives themselves, that may also be exploited.</p>
+<p><strong>N.B. This package is currently a beta release, and aspects may change
+before it is formally released</strong></p>
+<p>See Section 4 of $GALAHAD/doc/expo.pdf for additional details.</p>
+</section>
+<section id="terminology">
+<h2>terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h2>
+<p>The <strong>exponential penalty function</strong> is defined to be
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rl}\phi(x,w,\mu,v,\nu) \!\! &amp; = f(x)
++ \sum_{i} \mu_{li} w_{li} \exp[(c_{li} - c_i(x))/\mu_{li}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{i} \mu_{ui} w_{ui} \exp[(c_i(x) - c_{ui})/\mu_{ui}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{j} \nu_{lj} v_{lj} \exp[(x_{lj} - x_j)/\nu_{lj}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{j} \nu_{uj} v_{uj} \exp[(x_j - x_{uj})/\nu_{uj}],
+\end{array}
+\end{split}\]</div>
+
+where <span class="math notranslate nohighlight">\(c_{li}\)</span>, <span class="math notranslate nohighlight">\(c_{ui}\)</span> and <span class="math notranslate nohighlight">\(c_i(x)\)</span> are the <span class="math notranslate nohighlight">\(i\)</span>-th components
+of <span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span> and <span class="math notranslate nohighlight">\(c(x)\)</span>, and
+<span class="math notranslate nohighlight">\(c_{lj}\)</span>, <span class="math notranslate nohighlight">\(c_{uj}\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> are the <span class="math notranslate nohighlight">\(j\)</span>-th components
+of <span class="math notranslate nohighlight">\(x_l\)</span>, <span class="math notranslate nohighlight">\(x_u\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, respectively. Here the components
+of <span class="math notranslate nohighlight">\(\mu_l\)</span>, <span class="math notranslate nohighlight">\(\mu_u\)</span>, <span class="math notranslate nohighlight">\(\nu_l\)</span> and <span class="math notranslate nohighlight">\(\nu_u\)</span>
+are separate <strong>penalty parameters</strong> for each lower and upper,
+general and simple-bound constraint, respectively,
+while those of <span class="math notranslate nohighlight">\(w_l\)</span>, <span class="math notranslate nohighlight">\(w_u\)</span>, <span class="math notranslate nohighlight">\(v_l\)</span>, <span class="math notranslate nohighlight">\(v_u\)</span>
+are likewise separate <strong>weights</strong> for the same. The algorithm iterates by
+approximately minimizing <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span>
+for a fixed set of penalty parameters and weights, and then adjusting
+these parameters and weights. The adjustments are designed so the
+sequence of approximate minimizers of <span class="math notranslate nohighlight">\(\phi\)</span> converge
+to that of the specified constrained optimization problem.</p>
+<p>Key constructs are the <strong>gradient</strong> of the objective function
+<div class="math notranslate nohighlight">
+\[g(x) := \nabla_x f(x),\]</div>
+
+the <strong>Jacobian</strong> of the vector of constraints,
+<div class="math notranslate nohighlight">
+\[J(x) := \nabla_x c(x),\]</div>
+
+and the <strong>gradient</strong> and <strong>Hessian</strong> of the Lagrangian function
+<div class="math notranslate nohighlight">
+\[g_L(x,y,z) := g(x) - J^T(x)y - z  \;\;\mbox{and}\;\;
+H_L(x,y) := \nabla_{xx}  \left[ f(x) - \sum_{i} y_i c_i(x)\right]\]</div>
+
+for given vectors <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p>Any required solution <span class="math notranslate nohighlight">\(x\)</span> necessarily satisfies
+the <strong>primal optimality conditions</strong>
+<div class="math notranslate nohighlight">
+\[c_l \leq c(x) \leq c_u, \;\; x_l \leq x \leq x_u,\;\;\mbox{(1)}\]</div>
+
+the <strong>dual optimality conditions</strong>
+<div class="math notranslate nohighlight">
+\[g(x) = J^{T}(x) y + z,\;\;  y = y_l + y_u \;\;\mbox{and}\;\;
+z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
+
+and
+<div class="math notranslate nohighlight">
+\[y_l \geq 0, \;\; y_u \leq 0, \;\; z_l \geq 0 \;\;\mbox{and}\;\;
+z_u \leq 0,\;\;\mbox{(2b)}\]</div>
+
+and the <strong>complementary slackness conditions</strong>
+<div class="math notranslate nohighlight">
+\[( c(x) - c_l )^{T} y_l = 0,\;\; ( c(x) - c_u )^{T} y_u = 0,\;\;
+(x -x_l )^{T} z_l = 0 \;\;\mbox{and}\;\;(x -x_u )^{T} z_u = 0,\;\;\mbox{(3)}\]</div>
+
+where the vectors <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> are known as the <strong>Lagrange multipliers</strong> for
+the general constraints, and the <strong>dual variables</strong> for the simple bounds,
+respectively, and where the vector inequalities hold component-wise.</p>
+</section>
+<section id="method">
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
+<p>The method employed involves a sequential minimization of the exponential
+penalty function <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span> for a sequence of positive penalty
+parameters <span class="math notranslate nohighlight">\((\mu_{lk}, \mu_{uk}, \nu_{lk}, \nu_{uk})\)</span>
+and weights <span class="math notranslate nohighlight">\((w_{lk}, w_{uk}, v_{lk}, v_{uk})\)</span>,
+for increasing <span class="math notranslate nohighlight">\(k \geq 0\)</span>. Convergence is ensured if the
+penalty parameters are forced to zero, and may be accelerated
+by adjusting the weights. The minimization of <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span>
+is  accomplished using the trust-region unconstrained solver
+<code class="docutils literal notranslate"><span class="pre">TRU</span></code>. Although critical points <span class="math notranslate nohighlight">\(\{x_k\}\)</span> of
+<span class="math notranslate nohighlight">\(\phi(x,w_k,\mu_k,v_k,\nu_k)\)</span> converge to a local solution <span class="math notranslate nohighlight">\(x_*\)</span>
+of the underlying problem, the reduction of the penalty parameters to
+zero often results in <span class="math notranslate nohighlight">\(x_k\)</span> being a poor starting point for the minimization
+of <span class="math notranslate nohighlight">\(\phi(x,w_{k+1},\mu_{k+1},v_{k+1},\nu_{k+1})\)</span>. Consequently,
+a careful extrapolated starting point from <span class="math notranslate nohighlight">\(x_k\)</span> is used instead. Moreover,
+once the algorithm is confident that it is sufficiently close to <span class="math notranslate nohighlight">\(x_*\)</span>,
+it switches to Newton’s method to accelerate the convergence. Both the
+extrapolation and the Newton iteration rely on the block-linear-system
+solver <code class="docutils literal notranslate"><span class="pre">SSLS</span></code>.</p>
+<p>The iteration is terminated as soon as residuals to the
+optimality conditions (1)–(3) are sufficiently small. For
+infeasible problems, this will not be possible, and instead the
+residuals to (1) will be made as small as possible.</p>
+</section>
+<section id="references">
+<h2>references<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>The method is described in detail in</p>
+<blockquote>
+<div><p>N.Gould, S.Leyffer, A.Montoison and C.Vanaret (2025)
+The exponential multiplier method in the 21st century.
+RAL Technical Report, in preparation.</p>
+</div></blockquote>
+</section>
+<section id="matrix-storage">
+<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J = J(x)\)</span>
+may be presentedand stored in a variety of convenient input formats.</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J\)</span> is stored as a compact  dense matrix by rows, that is,
+the values of the entries of each row in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(n \ast i + j\)</span>  of the storage array J_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>.</p>
+<p><em>Dense by columns</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J\)</span> is stored as a compact  dense matrix by columns, that is,
+the values of the entries of each column in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(m \ast j + i\)</span>  of the storage array J_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(J\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(J_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>,  <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>,  are stored as
+the <span class="math notranslate nohighlight">\(l\)</span>-th components of the integer arrays J_row and
+J_col and real array J_val, respectively, while the number of nonzeros
+is recorded as J_ne = <span class="math notranslate nohighlight">\(ne\)</span>.</p>
+<p><em>Sparse row-wise storage</em> format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(J\)</span> the i-th component of the
+integer array J_ptr holds the position of the first entry in this row,
+while J_ptr(m) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>, and values
+<span class="math notranslate nohighlight">\(J_{ij}\)</span> of the  nonzero entries in the i-th row are stored in components
+l = J_ptr(i), <span class="math notranslate nohighlight">\(\ldots\)</span>, J_ptr(i+1)-1,  <span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>,
+of the integer array J_col, and real array J_val, respectively.
+For sparse matrices, this scheme almost always requires less storage than
+its predecessor.</p>
+<p><em>Sparse column-wise</em> storage format:
+Once again only the nonzero entries are stored, but this time
+they are ordered so that those in column j appear directly before those
+in column j+1. For the j-th column of <span class="math notranslate nohighlight">\(J\)</span> the j-th component of the
+integer array J_ptr holds the position of the first entry in this column,
+while J_ptr(n) holds the total number of entries.
+The row indices i, <span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>, and values <span class="math notranslate nohighlight">\(J_{ij}\)</span>
+of the  nonzero entries in the j-th columnsare stored in components
+l = J_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, J_ptr(j+1)-1, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>,
+of the integer array J_row, and real array J_val, respectively.
+As before, for sparse matrices, this scheme almost always requires less
+storage than the co-ordinate format.</p>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = Hl(x,y)\)</span> may
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the lower triangular part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\(i * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, and values
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> of the  entries in the i-th row are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that
+as before only the entries in the lower triangle should be stored. For
+sparse matrices, this scheme almost always requires less storage than
+its predecessor.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq n-1\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(0 \leq i \leq n-1\)</span> need
+be stored, and the first n components of the array H_val may be
+used for the purpose.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix.</p>
+</section>
+<section id="functions">
+<h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py function">
+<dt class="sig sig-object py" id="galahad.expo.expo.initialize">
+<span class="sig-prename descclassname"><span class="pre">expo.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.expo.expo.initialize" title="Link to this definition">#</a></dt>
+<dd><p>Set default option values and initialize private data</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>options<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing default control options:</dt><dd><dl>
+<dt>error<span class="classifier">int</span></dt><dd><p>error and warning diagnostics occur on stream error.</p>
+</dd>
+<dt>out<span class="classifier">int</span></dt><dd><p>general output occurs on stream out.</p>
+</dd>
+<dt>print_level<span class="classifier">int</span></dt><dd><p>the level of output required. Possible values are</p>
+<ul>
+<li><p><strong>&lt;= 0</strong></p>
+<p>gives no output.</p>
+</li>
+<li><p><strong>1</strong></p>
+<p>gives a one-line summary for every iteration.</p>
+</li>
+<li><p><strong>2</strong></p>
+<p>gives a summary of the inner iteration for each iteration.</p>
+</li>
+<li><p><strong>&gt;=3</strong></p>
+<p>gives increasingly verbose (debugging) output.</p>
+</li>
+</ul>
+</dd>
+<dt>start_print<span class="classifier">int</span></dt><dd><p>any printing will start on this iteration.</p>
+</dd>
+<dt>stop_print<span class="classifier">int</span></dt><dd><p>any printing will stop on this iteration.</p>
+</dd>
+<dt>print_gap<span class="classifier">int</span></dt><dd><p>the number of iterations between printing.</p>
+</dd>
+<dt>max_it<span class="classifier">int</span></dt><dd><p>the maximum number of iterations permitted.</p>
+</dd>
+<dt>max_eval<span class="classifier">int</span></dt><dd><p>the maximum number of function evaluations permitted.</p>
+</dd>
+<dt>alive_unit<span class="classifier">int</span></dt><dd><p>removal of the file alive_file from unit alive_unit
+terminates execution.</p>
+</dd>
+<dt>alive_file<span class="classifier">str</span></dt><dd><p>see alive_unit.</p>
+</dd>
+<dt>update_multipliers_itmin<span class="classifier">int</span></dt><dd><p>update the Lagrange multipliers/dual variables from iteration
+update_multipliers_itmin (&lt;0 means never) and once the primal
+infeasibility is below update_multipliers_tol</p>
+</dd>
+<dt>update_multipliers_tol<span class="classifier">float</span></dt><dd><p>see update_multipliers_itmin.</p>
+</dd>
+<dt>infinity<span class="classifier">float</span></dt><dd><p>any bound larger than infinity in modulus will be regarded as
+infinite.</p>
+</dd>
+<dt>stop_abs_p<span class="classifier">float</span></dt><dd><p>the required absolute accuracy for the primal infeasibility.</p>
+</dd>
+<dt>stop_rel_p<span class="classifier">float</span></dt><dd><p>the required relative accuracy for the primal infeasibility.</p>
+</dd>
+<dt>stop_abs_d<span class="classifier">float</span></dt><dd><p>the required absolute accuracy for the dual infeasibility.</p>
+</dd>
+<dt>stop_rel_d<span class="classifier">float</span></dt><dd><p>the required relative accuracy for the dual infeasibility.</p>
+</dd>
+<dt>stop_abs_c<span class="classifier">float</span></dt><dd><p>the required absolute accuracy for the complementarity.</p>
+</dd>
+<dt>stop_rel_c<span class="classifier">float</span></dt><dd><p>the required relative accuracy for the complementarity.</p>
+</dd>
+<dt>stop_s<span class="classifier">float</span></dt><dd><p>the smallest the norm of the step can be before termination.</p>
+</dd>
+<dt>initial_mu<span class="classifier">float</span></dt><dd><p>initial value for the penalty parameter (&lt;=0 means set
+automatically)</p>
+</dd>
+<dt>mu_reduce<span class="classifier">float</span></dt><dd><p>the amount by which the penalty parameter is decreased</p>
+</dd>
+<dt>obj_unbounded<span class="classifier">float</span></dt><dd><p>the smallest value the objective function may take before the
+problem is marked as unbounded.</p>
+</dd>
+<dt>try_advanced_start<span class="classifier">float</span></dt><dd><p>try an advanced start at the end of every iteration when the KKT
+residuals are smaller than .try_advanced_start (-ve means never)</p>
+</dd>
+<dt>try_sqp_start<span class="classifier">float</span></dt><dd><p>try an advanced SQP start at the end of every iteration when the
+KKT residuals are smaller than .try_sqp_start (-ve means never)</p>
+</dd>
+<dt>stop_advanced_start<span class="classifier">float</span></dt><dd><p>stop the advanced start search once the residuals small than
+.stop_advanced_start</p>
+</dd>
+<dt>cpu_time_limit<span class="classifier">float</span></dt><dd><p>the maximum CPU time allowed (-ve means infinite).</p>
+</dd>
+<dt>clock_time_limit<span class="classifier">float</span></dt><dd><p>the maximum elapsed clock time allowed (-ve means
+infinite).</p>
+</dd>
+<dt>hessian_available<span class="classifier">bool</span></dt><dd><p>is the Hessian matrix of second derivatives available or is
+access only via matrix-vector products (coming soon)?.</p>
+</dd>
+<dt>subproblem_direct<span class="classifier">bool</span></dt><dd><p>use a direct (factorization) or (preconditioned) iterative
+method (coming soon) to find the search direction.</p>
+</dd>
+<dt>space_critical<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">space_critical</span></code> is True, every effort will be made to
+use as little space as possible. This may result in longer
+computation time.</p>
+</dd>
+<dt>deallocate_error_fatal<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">deallocate_error_fatal</span></code> is True, any array/pointer
+deallocation error will terminate execution. Otherwise,
+computation will continue.</p>
+</dd>
+<dt>prefix<span class="classifier">str</span></dt><dd><p>all output lines will be prefixed by the string contained
+in quotes within <code class="docutils literal notranslate"><span class="pre">prefix</span></code>, e.g. ‘word’ (note the qutoes)
+will result in the prefix word.</p>
+</dd>
+<dt>bsc_options<span class="classifier">dict</span></dt><dd><p>default control options for BSC (see <code class="docutils literal notranslate"><span class="pre">bsc.initialize</span></code>).</p>
+</dd>
+<dt>tru_options<span class="classifier">dict</span></dt><dd><p>default control options for TRU (see <code class="docutils literal notranslate"><span class="pre">tru.initialize</span></code>).</p>
+</dd>
+<dt>ssls_options<span class="classifier">dict</span></dt><dd><p>default control options for SSLS (see <code class="docutils literal notranslate"><span class="pre">ssls.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.expo.expo.load">
+<span class="sig-prename descclassname"><span class="pre">expo.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.expo.expo.load" title="Link to this definition">#</a></dt>
+<dd><p>Import problem data into internal storage prior to solution.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>m<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
+</dd>
+<dt>J_type<span class="classifier">string</span></dt><dd><p>specifies the unsymmetric storage scheme used for the Jacobian
+<span class="math notranslate nohighlight">\(J = J(x)\)</span>.
+It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’;
+lower or upper case variants are allowed.</p>
+</dd>
+<dt>J_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in <span class="math notranslate nohighlight">\(J\)</span> in the sparse co-ordinate storage
+scheme. It need not be set for any of the other two schemes.</p>
+</dd>
+<dt>J_row<span class="classifier">ndarray(J_ne)</span></dt><dd><p>holds the row indices of <span class="math notranslate nohighlight">\(J\)</span>
+in the sparse co-ordinate storage scheme. It need not be set for
+any of the other two schemes, and in this case can be None.</p>
+</dd>
+<dt>J_col<span class="classifier">ndarray(J_ne)</span></dt><dd><p>holds the column indices of <span class="math notranslate nohighlight">\(J\)</span> in either the sparse co-ordinate,
+or the sparse row-wise storage scheme. It need not be set when the
+dense storage scheme is used, and in this case can be None.</p>
+</dd>
+<dt>J_ptr<span class="classifier">ndarray(m+1)</span></dt><dd><p>holds the starting position of each row of <span class="math notranslate nohighlight">\(J\)</span>, as well as the
+total number of entries, in the sparse row-wise storage
+scheme. It need not be set when the other schemes are used, and in
+this case can be None.</p>
+</dd>
+<dt>H_type<span class="classifier">string, optional</span></dt><dd><p>specifies the symmetric storage scheme used for the Hessian
+<span class="math notranslate nohighlight">\(Hl = H(x,y)\)</span>.
+It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’ or
+‘diagonal’; lower or upper case variants are allowed.
+This and the following H_* arguments are only required if
+a Newton approximation or tensor Gauss-Newton approximation
+model is required (see control.model = 4,…,8).</p>
+</dd>
+<dt>H_ne<span class="classifier">int, optional</span></dt><dd><p>holds the number of entries in the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need
+not be set for any of the other three schemes.</p>
+</dd>
+<dt>H_row<span class="classifier">ndarray(H_ne), optional</span></dt><dd><p>holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>
+in the sparse co-ordinate storage scheme. It need not be set for
+any of the other three schemes, and in this case can be None.</p>
+</dd>
+<dt>H_col<span class="classifier">ndarray(H_ne), optional</span></dt><dd><p>holds the column indices of the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise
+storage scheme. It need not be set when the dense or diagonal
+storage schemes are used, and in this case can be None.</p>
+</dd>
+<dt>H_ptr<span class="classifier">ndarray(n+1), optional</span></dt><dd><p>holds the starting position of each row of the lower triangular
+part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries,
+in the sparse row-wise storage scheme. It need not be set when the
+other schemes are used, and in this case can be None.</p>
+</dd>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">expo.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.expo.expo.solve">
+<span class="sig-prename descclassname"><span class="pre">expo.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_gj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_hl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.expo.expo.solve" title="Link to this definition">#</a></dt>
+<dd><p>Find an approximate  minimizer of a given constrained optimization
+problem using an exponential penalty method.</p>
+<p><strong>Parameters:</strong></p>
+<dl>
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>m<span class="classifier">int</span></dt><dd><p>holds the number of constraints.</p>
+</dd>
+<dt>J_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the Jacobian <span class="math notranslate nohighlight">\(J = J(x)\)</span>.</p>
+</dd>
+<dt>H_ne<span class="classifier">int, optional</span></dt><dd><p>holds the number of entries in the lower triangular part of
+the Hessian <span class="math notranslate nohighlight">\(H = H(x,y)\)</span>.</p>
+</dd>
+<dt>c_l<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(c^l\)</span> of the lower bounds on the
+constraints <span class="math notranslate nohighlight">\(c(x)\)</span>.</p>
+</dd>
+<dt>c_u<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(c^u\)</span> of the upper bounds on the
+constraints <span class="math notranslate nohighlight">\(c(x)\)</span>.</p>
+</dd>
+<dt>x_l<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^l\)</span> of the lower bounds on the
+optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>x_u<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the
+optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the initial values of optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>eval_fc<span class="classifier">callable</span></dt><dd><p>a user-defined function that must have the signature:</p>
+<p><code class="docutils literal notranslate"><span class="pre">f,</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">eval_fc(x)</span></code></p>
+<p>The value of the objective <span class="math notranslate nohighlight">\(f(x)\)</span> and components of the constraints
+<span class="math notranslate nohighlight">\(c(x)\)</span> evaluated at <span class="math notranslate nohighlight">\(x\)</span> must be assigned to <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code>,
+respectively.</p>
+</dd>
+<dt>eval_gj<span class="classifier">callable</span></dt><dd><p>a user-defined function that must have the signature:</p>
+<p><code class="docutils literal notranslate"><span class="pre">g,</span> <span class="pre">j</span> <span class="pre">=</span> <span class="pre">eval_gj(x)</span></code></p>
+<p>The components of the gradient <span class="math notranslate nohighlight">\(g(x)\)</span> and the nonzeros
+in the Jacobian <span class="math notranslate nohighlight">\(J(x)\)</span> of the constraint functions evaluated at
+<span class="math notranslate nohighlight">\(x\)</span> must be assigned to <code class="docutils literal notranslate"><span class="pre">g</span></code>  and <code class="docutils literal notranslate"><span class="pre">j</span></code>, respectively,
+the latter in the same order as specified in the sparsity pattern
+in <code class="docutils literal notranslate"><span class="pre">expo.load</span></code>.</p>
+</dd>
+<dt>eval_hl<span class="classifier">callable</span></dt><dd><p>a user-defined function that must have the signature:</p>
+<p><code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">eval_hl(x,y)</span></code></p>
+<p>The components of the nonzeros in the lower triangle of the Hessian
+<span class="math notranslate nohighlight">\(Hl(x,y)\)</span> evaluated at <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> must be assigned to <code class="docutils literal notranslate"><span class="pre">h</span></code> in the
+same order as specified in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">expo.load</span></code>.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong></p>
+<dl class="simple">
+<dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the value of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
+a successful call.</p>
+</dd>
+<dt>y<span class="classifier">ndarray(m)</span></dt><dd><p>holds the value of the Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span> after
+a successful call.</p>
+</dd>
+<dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the value of the dual variables <span class="math notranslate nohighlight">\(z\)</span> after a successful call.</p>
+</dd>
+<dt>c<span class="classifier">ndarray(m)</span></dt><dd><p>holds the value of the constraints <span class="math notranslate nohighlight">\(c(x)\)</span>.</p>
+</dd>
+<dt>gl<span class="classifier">ndarray(n)</span></dt><dd><p>holds the gradient <span class="math notranslate nohighlight">\(gl(x,y,z)\)</span> of the Lagrangian function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">expo.information()</span></span></dt>
+<dd><p>Provide optional output information</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>inform<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing output information:</dt><dd><dl>
+<dt>status<span class="classifier">int</span></dt><dd><p>return status.  Possible values are:</p>
+<ul>
+<li><p><strong>0</strong></p>
+<p>The run was successful.</p>
+</li>
+<li><p><strong>-1</strong></p>
+<p>An allocation error occurred. A message indicating the
+offending array is written on unit options[‘error’], and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-2</strong></p>
+<p>A deallocation error occurred.  A message indicating the
+offending array is written on unit options[‘error’] and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-3</strong></p>
+<p>The restriction n &gt; 0 or m &gt; 0 or requirement that type contains
+its relevant string ‘dense’, ‘coordinate’, ‘sparse_by_rows’,
+‘diagonal’ or ‘absent’ has been violated.</p>
+</li>
+<li><p><strong>-9</strong></p>
+<p>The analysis phase of the factorization failed; the return
+status from the factorization package is given by
+inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-10</strong></p>
+<p>The factorization failed; the return status from the
+factorization package is given by inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-11</strong></p>
+<p>The solution of a set of linear equations using factors
+from the factorization package failed; the return status
+from the factorization package is given by
+inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-15</strong></p>
+<p>The preconditioner <span class="math notranslate nohighlight">\(S(x)\)</span> appears not to be positive definite.</p>
+</li>
+<li><p><strong>-16</strong></p>
+<p>The problem is so ill-conditioned that further progress
+is impossible.</p>
+</li>
+<li><p><strong>-18</strong></p>
+<p>Too many iterations have been performed. This may happen if
+options[‘maxit’] is too small, but may also be symptomatic
+of a badly scaled problem.</p>
+</li>
+<li><p><strong>-19</strong></p>
+<p>The CPU time limit has been reached. This may happen if
+options[‘cpu_time_limit’] is too small, but may also be
+symptomatic of a badly scaled problem.</p>
+</li>
+<li><p><strong>-82</strong></p>
+<p>The user has forced termination of the solver by removing
+the file named options[‘alive_file’] from unit
+options[‘alive_unit’].</p>
+</li>
+</ul>
+</dd>
+<dt>alloc_status<span class="classifier">int</span></dt><dd><p>the status of the last attempted allocation/deallocation.</p>
+</dd>
+<dt>bad_alloc<span class="classifier">str</span></dt><dd><p>the name of the array for which an allocation/deallocation
+error occurred.</p>
+</dd>
+<dt>bad_eval<span class="classifier">str</span></dt><dd><p>the name of the user-supplied evaluation routine for which
+an error occurred.</p>
+</dd>
+<dt>iter<span class="classifier">int</span></dt><dd><p>the total number of iterations performed.</p>
+</dd>
+<dt>fc_eval<span class="classifier">int</span></dt><dd><p>the total number of evaluations of the objective function <span class="math notranslate nohighlight">\(f(x)\)</span>
+and constraint functions <span class="math notranslate nohighlight">\(c(x)\)</span>.</p>
+</dd>
+<dt>gj_eval<span class="classifier">int</span></dt><dd><p>the total number of evaluations of the gradient <span class="math notranslate nohighlight">\(g(x)\)</span> of <span class="math notranslate nohighlight">\(f(x)\)</span>
+and Jacobian <span class="math notranslate nohighlight">\(J(x)\)</span> of <span class="math notranslate nohighlight">\(c(x)\)</span>.</p>
+</dd>
+<dt>hl_eval<span class="classifier">int</span></dt><dd><p>the total number of evaluations of the Hessian <span class="math notranslate nohighlight">\(Hl(x,y)\)</span> of
+the Lagrangian.</p>
+</dd>
+<dt>obj<span class="classifier">float</span></dt><dd><p>the value of the objective function <span class="math notranslate nohighlight">\(f(x)\)</span> at the best estimate
+of the solution, x, determined by EXPO_solve.</p>
+</dd>
+<dt>primal_infeasibility<span class="classifier">float</span></dt><dd><p>the norm of the primal infeasibility at the best estimate of
+the solution x, determined by EXPO_solve.</p>
+</dd>
+<dt>dual_infeasibility<span class="classifier">float</span></dt><dd><p>the norm of the dual infeasibility at the best estimate of
+the solution x, determined by EXPO_solve.</p>
+</dd>
+<dt>complementary_slackness<span class="classifier">float</span></dt><dd><p>the norm of the complementary_slackness at the best estimate of
+the solution x, determined by EXPO_solve.</p>
+</dd>
+<dt>time<span class="classifier">dict</span></dt><dd><dl class="simple">
+<dt>dictionary containing timing information:</dt><dd><dl class="simple">
+<dt>total<span class="classifier">float</span></dt><dd><p>the total CPU time spent in the package.</p>
+</dd>
+<dt>preprocess<span class="classifier">float</span></dt><dd><p>the CPU time spent preprocessing the problem.</p>
+</dd>
+<dt>analyse<span class="classifier">float</span></dt><dd><p>the CPU time spent analysing the required matrices prior
+to factorization.</p>
+</dd>
+<dt>factorize<span class="classifier">float</span></dt><dd><p>the CPU time spent factorizing the required matrices.</p>
+</dd>
+<dt>solve<span class="classifier">float</span></dt><dd><p>the CPU time spent computing the search direction.</p>
+</dd>
+<dt>clock_total<span class="classifier">float</span></dt><dd><p>the total clock time spent in the package.</p>
+</dd>
+<dt>clock_preprocess<span class="classifier">float</span></dt><dd><p>the clock time spent preprocessing the problem.</p>
+</dd>
+<dt>clock_analyse<span class="classifier">float</span></dt><dd><p>the clock time spent analysing the required matrices prior
+to factorization.</p>
+</dd>
+<dt>clock_factorize<span class="classifier">float</span></dt><dd><p>the clock time spent factorizing the required matrices.</p>
+</dd>
+<dt>clock_solve<span class="classifier">float</span></dt><dd><p>the clock time spent computing the search direction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>bsc_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for BSC (see <code class="docutils literal notranslate"><span class="pre">bsc.information</span></code>).</p>
+</dd>
+<dt>tru_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for TRU (see <code class="docutils literal notranslate"><span class="pre">tru.information</span></code>).</p>
+</dd>
+<dt>ssls_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for SSLS (see <code class="docutils literal notranslate"><span class="pre">ssls.information</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.expo.expo.terminate">
+<span class="sig-prename descclassname"><span class="pre">expo.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.expo.expo.terminate" title="Link to this definition">#</a></dt>
+<dd><p>Deallocate all internal private storage.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="example-code">
+<h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
+<p>This example code is available in $GALAHAD/src/expo/Python/test_expo.py .</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nlp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Generally-constrained Optimization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ls.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Least-Squares</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">terminology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.expo.expo.initialize"><code class="docutils literal notranslate"><span class="pre">expo.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.expo.expo.load"><code class="docutils literal notranslate"><span class="pre">expo.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.expo.expo.solve"><code class="docutils literal notranslate"><span class="pre">expo.solve()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.expo.expo.terminate"><code class="docutils literal notranslate"><span class="pre">expo.terminate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/expo.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

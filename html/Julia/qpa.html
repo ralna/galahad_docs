@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -785,19 +799,19 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the qpa package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1afc82144e136ab34fe8a7aea4acd870fc"><span class="std std-ref">qpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a41a3965eddf14d030a6fa30795149369"><span class="std std-ref">qpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a2ecf96b51001b1613ac0637c3bc44824"><span class="std std-ref">qpa_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a9d60441b2beaddb4c653156592ffc1ea"><span class="std std-ref">qpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1afc82144e136ab34fe8a7aea4acd870fc"><span class="std std-ref">qpa_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a41a3965eddf14d030a6fa30795149369"><span class="std std-ref">qpa_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a2ecf96b51001b1613ac0637c3bc44824"><span class="std std-ref">qpa_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a9d60441b2beaddb4c653156592ffc1ea"><span class="std std-ref">qpa_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1af9c60939ef803461d90631dd48cb55d7"><span class="std std-ref">qpa_solve_qp</span></a> - solve the quadratic program (2)-(4)</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a1a95adb548b743128e0df4ab4e801f19"><span class="std std-ref">qpa_solve_l1qp</span></a> - solve the l1 quadratic program (1)</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a5b5ef5f0d8134d8f02b1da62a04a3ace"><span class="std std-ref">qpa_solve_bcl1qp</span></a> - solve the bound constrained l1 quadratic program (4)-(5)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1af9c60939ef803461d90631dd48cb55d7"><span class="std std-ref">qpa_solve_qp</span></a> - solve the quadratic program (2)-(4)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a1a95adb548b743128e0df4ab4e801f19"><span class="std std-ref">qpa_solve_l1qp</span></a> - solve the l1 quadratic program (1)</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a5b5ef5f0d8134d8f02b1da62a04a3ace"><span class="std std-ref">qpa_solve_bcl1qp</span></a> - solve the bound constrained l1 quadratic program (4)-(5)</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a631cf6ec1a95b27c712ace4fa7dc06f0"><span class="std std-ref">qpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="qpa_functions.html#doxid-galahad-qpa-8h-1a18b73b54796470edc039e3ac85bd30d5"><span class="std std-ref">qpa_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a631cf6ec1a95b27c712ace4fa7dc06f0"><span class="std std-ref">qpa_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-qpa-8h-1a18b73b54796470edc039e3ac85bd30d5"><span class="std std-ref">qpa_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-qpa-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -824,7 +838,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -859,7 +873,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -879,7 +893,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -980,7 +994,7 @@ been specified.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1535,7 +1549,7 @@ been specified.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_qpa_inform_type.html#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1566,10 +1580,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_qpa_control_type.html#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structqpa-control-type"><span class="std std-ref">qpa_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_qpa_inform_type.html#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structqpa-inform-type"><span class="std std-ref">qpa_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1854,7 +1868,7 @@ status from the package. Possible values are
 <p>the 1-norm of the infeasibility of the simple-bound constraints</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-merit"><span id="index-89"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">merit</span></pre>
 <p>the merit function value = obj + rho_g * infeas_g + rho_b * infeas_b</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-time"><span id="index-90"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_qpa_time_type.html#doxid-structqpa-time-type"><span class="std std-ref">qpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-time"><span id="index-90"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structqpa-time-type"><span class="std std-ref">qpa_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structqpa-inform-type-sls-inform"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters for SLS</p>
@@ -1877,7 +1891,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_qpa</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_qpa</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">qpa_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1918,6 +1932,9 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span>
     <span class="c1"># Initialize QPA</span>
     <span class="n">qpa_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+    <span class="c1"># Linear solvers</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
 
     <span class="c1"># Start from 0</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
@@ -2039,6 +2056,9 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> basic tests of l_1 qp storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="n">qpa_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+  <span class="c1"># Linear solvers</span>
+  <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
 
   <span class="c1"># Start from 0</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>

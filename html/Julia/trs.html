@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" current active">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -505,8 +519,7 @@ this is not the case, the package <code class="docutils literal notranslate"><sp
 <span class="math notranslate nohighlight">\(A x_* = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \geq 0\)</span> is a Lagrange
 multiplier corresponding to the constraint <span class="math notranslate nohighlight">\(\|x\|_M  \leq  \Delta\)</span>
 and <span class="math notranslate nohighlight">\(y_*\)</span> are Lagrange multipliers for the linear constraints <span class="math notranslate nohighlight">\(A x = 0\)</span>,
-if any;
-for the equality-constrained problem <span class="math notranslate nohighlight">\(\|x\|_M = \Delta\)</span>,
+if any; for the equality-constrained problem <span class="math notranslate nohighlight">\(\|x\|_M = \Delta\)</span>,
 the multiplier is unconstrained.
 In addition in all cases, the matrix <span class="math notranslate nohighlight">\(H + \lambda_* M\)</span> will be positive
 semi-definite on the null-space of <span class="math notranslate nohighlight">\(A\)</span>; in most instances it will actually
@@ -551,7 +564,7 @@ rather than a Cholesky factorization.</p>
 <p>The method is described in detail in</p>
 <blockquote>
 <div><p>H. S. Dollar, N. I. M. Gould and D. P. Robinson.
-<a href="#id3"><span class="problematic" id="id4">``</span></a>On solving trust-region and other regularised subproblems in optimization’’.
+“On solving trust-region and other regularised subproblems in optimization”.
 <em>Mathematical Programming Computation</em> <strong>2(1)</strong> (2010) 21–57.</p>
 </div></blockquote>
 </section>
@@ -674,15 +687,15 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the trs package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1acb066d992c4ec394402bc7b7317e1163"><span class="std std-ref">trs_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span class="std std-ref">trs_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1a4becded30e9b95fe7028b7799292c0af"><span class="std std-ref">trs_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1a427420b6025d522bb7b3c652e8c2be48"><span class="std std-ref">trs_import_m</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(M\)</span>, if any</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1ad726ff8f6c25c4384d2b952e8fab4409"><span class="std std-ref">trs_import_a</span></a> - (optional) set up problem data structures and fixed values for the constraint matrix <span class="math notranslate nohighlight">\(A\)</span>, if any</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1aae677e64bacb35354f49326815b694c3"><span class="std std-ref">trs_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span class="std std-ref">trs_solve_problem</span></a> - solve the trust-region problem</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1a3dda24010e564e2d6536cc7ea518451e"><span class="std std-ref">trs_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="trs_functions.html#doxid-galahad-trs-8h-1ab5cf0077db0631814fdd03599a585376"><span class="std std-ref">trs_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1acb066d992c4ec394402bc7b7317e1163"><span class="std std-ref">trs_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span class="std std-ref">trs_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1a4becded30e9b95fe7028b7799292c0af"><span class="std std-ref">trs_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1a427420b6025d522bb7b3c652e8c2be48"><span class="std std-ref">trs_import_m</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(M\)</span>, if any</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1ad726ff8f6c25c4384d2b952e8fab4409"><span class="std std-ref">trs_import_a</span></a> - (optional) set up problem data structures and fixed values for the constraint matrix <span class="math notranslate nohighlight">\(A\)</span>, if any</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1aae677e64bacb35354f49326815b694c3"><span class="std std-ref">trs_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span class="std std-ref">trs_solve_problem</span></a> - solve the trust-region problem</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1a3dda24010e564e2d6536cc7ea518451e"><span class="std std-ref">trs_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trs-8h-1ab5cf0077db0631814fdd03599a585376"><span class="std std-ref">trs_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-trs-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1333,10 +1346,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structtrs-time-type">
-<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-time-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id6">
-<h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrs-time-type-total"><span id="index-43"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrs-time-type-assemble"><span id="index-44"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">assemble</span></pre>
@@ -1368,10 +1381,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structtrs-history-type">
-<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-history-type" title="Link to this heading">#</a></h2>
+<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-history-type" title="Link to this heading">#</a></h2>
 <p>history derived type as a Julia structure</p>
-<section id="id8">
-<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrs-history-type-lambda"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">lambda</span></pre>
 <p>the value of <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrs-history-type-x-norm"><span id="index-55"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">x_norm</span></pre>
@@ -1401,10 +1414,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">ir_inform</span><span class="o">::</span><span class="kt">ir_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structtrs-inform-type">
-<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-inform-type" title="Link to this heading">#</a></h2>
+<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrs-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id10">
-<h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrs-inform-type-status"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
@@ -1482,7 +1495,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_trs</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_trs</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">trs_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1539,6 +1552,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="k">for</span> <span class="n">storage_type</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
         <span class="c1"># Initialize TRS</span>
         <span class="n">trs_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+        <span class="c1"># Linear solvers</span>
+        <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+        <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
 
         <span class="c1"># sparse co-ordinate storage</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
@@ -1791,17 +1808,17 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trs-time-type-structure">trs_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtrs-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trs-history-type-structure">trs_history_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtrs-history-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trs-inform-type-structure">trs_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtrs-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

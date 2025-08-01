@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" current active">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -661,15 +675,15 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the rqs package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1aeb8c3e1a278c83094aaaf185e9833fac"><span class="std std-ref">rqs_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1a1f6f3841ad5f7952dbc04a7cb19dd0e7"><span class="std std-ref">rqs_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1af815172e77293aa2a7c9dbcac2379f50"><span class="std std-ref">rqs_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1af0351d4956431c86e229f905041c222b"><span class="std std-ref">rqs_import_m</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(M\)</span>, if any</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1a3d1116ac5c18fe085e902c77ec2776b5"><span class="std std-ref">rqs_import_a</span></a> - (optional) set up problem data structures and fixed values for the constraint matrix <span class="math notranslate nohighlight">\(A\)</span>, if any</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1a86e1c32d2d07facbe602222e199a075f"><span class="std std-ref">rqs_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1a162e2301c9d4bde7d57f5f1e820e2b84"><span class="std std-ref">rqs_solve_problem</span></a> - solve the regularised quadratic problem</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1a586e85ec11c4647346916f49805fcb83"><span class="std std-ref">rqs_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="rqs_functions.html#doxid-galahad-rqs-8h-1ae1f727eadfaada300dc6a5e268ac2b74"><span class="std std-ref">rqs_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1aeb8c3e1a278c83094aaaf185e9833fac"><span class="std std-ref">rqs_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1a1f6f3841ad5f7952dbc04a7cb19dd0e7"><span class="std std-ref">rqs_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1af815172e77293aa2a7c9dbcac2379f50"><span class="std std-ref">rqs_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1af0351d4956431c86e229f905041c222b"><span class="std std-ref">rqs_import_m</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(M\)</span>, if any</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1a3d1116ac5c18fe085e902c77ec2776b5"><span class="std std-ref">rqs_import_a</span></a> - (optional) set up problem data structures and fixed values for the constraint matrix <span class="math notranslate nohighlight">\(A\)</span>, if any</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1a86e1c32d2d07facbe602222e199a075f"><span class="std std-ref">rqs_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1a162e2301c9d4bde7d57f5f1e820e2b84"><span class="std std-ref">rqs_solve_problem</span></a> - solve the regularised quadratic problem</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1a586e85ec11c4647346916f49805fcb83"><span class="std std-ref">rqs_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rqs-8h-1ae1f727eadfaada300dc6a5e268ac2b74"><span class="std std-ref">rqs_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-rqs-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -696,7 +710,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -731,7 +745,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -750,7 +764,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -971,7 +985,7 @@ a type contains its relevant string ‘dense’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1134,7 +1148,7 @@ problem.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rqs_inform_type.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1165,10 +1179,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rqs_control_type.html#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrqs-control-type"><span class="std std-ref">rqs_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rqs_inform_type.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1434,9 +1448,9 @@ status from the package. Possible values are
 <p>has the hard case occurred?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-bad-alloc"><span id="index-66"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-time"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rqs_time_type.html#doxid-structrqs-time-type"><span class="std std-ref">rqs_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-time"><span id="index-67"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structrqs-time-type"><span class="std std-ref">rqs_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-history"><span id="index-68"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rqs_history_type.html#doxid-structrqs-history-type"><span class="std std-ref">rqs_history_type</span></a><span></span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-history"><span id="index-68"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structrqs-history-type"><span class="std std-ref">rqs_history_type</span></a><span></span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span></pre>
 <p>history information</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structrqs-inform-type-sls-inform"><span id="index-69"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>cholesky information (see sls_c documentation)</p>
@@ -1461,7 +1475,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_rqs</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_rqs</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">rqs_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1518,6 +1532,10 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="k">for</span> <span class="n">storage_type</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
         <span class="c1"># Initialize RQS</span>
         <span class="n">rqs_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+        <span class="c1"># Linear solvers</span>
+        <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+        <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
 
         <span class="c1"># sparse co-ordinate storage</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>

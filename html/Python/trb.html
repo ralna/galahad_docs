@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'trb';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Least-Squares" href="ls.html" />
+    <link rel="next" title="Generally-constrained Optimization" href="nlp.html" />
     <link rel="prev" title="Bound-constrained Optimization" href="bco.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -148,6 +148,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -160,19 +167,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -286,6 +293,13 @@
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -804,17 +818,11 @@ will result in the prefix word.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trb.trb.load">
-<span class="sig-prename descclassname"><span class="pre">trb.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trb.trb.load" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trb.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trb.trb.load" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
-</dd>
-<dt>x_l<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^l\)</span> of the lower bounds on the
-optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
-</dd>
-<dt>x_u<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the
-optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </dd>
 <dt>H_type<span class="classifier">string</span></dt><dd><p>specifies the symmetric storage scheme used for the Hessian.
 It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’,
@@ -847,7 +855,7 @@ other schemes are used, and in this case can be None</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.trb.trb.solve">
-<span class="sig-prename descclassname"><span class="pre">trb.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_h)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trb.trb.solve" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">trb.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_h)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trb.trb.solve" title="Link to this definition">#</a></dt>
 <dd><p>Find an approximate local minimizer of a given function subject
 to simple bounds on the variables using a trust-region method.</p>
 <p><strong>Parameters:</strong></p>
@@ -855,6 +863,12 @@ to simple bounds on the variables using a trust-region method.</p>
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
 </dd>
 <dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>.</p>
+</dd>
+<dt>x_l<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^l\)</span> of the lower bounds on the
+optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>x_u<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the
+optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </dd>
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </dd>
@@ -1088,7 +1102,7 @@ factorization.</p>
 <span class="n">H_ptr</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="c1"># load data (and optionally non-default options)</span>
-<span class="n">trb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">H_type</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+<span class="n">trb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">H_type</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 
 <span class="c1"># define objective function and its derivatives</span>
 <span class="k">def</span> <span class="nf">eval_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1104,7 +1118,7 @@ factorization.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
 
 <span class="c1"># find optimum</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">trb</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eval_f</span><span class="p">,</span> <span class="n">eval_g</span><span class="p">,</span> <span class="n">eval_h</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">trb</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eval_f</span><span class="p">,</span> <span class="n">eval_g</span><span class="p">,</span> <span class="n">eval_h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; g:&quot;</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
 
@@ -1142,11 +1156,11 @@ factorization.</p>
       </div>
     </a>
     <a class="right-next"
-       href="ls.html"
+       href="nlp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Least-Squares</p>
+        <p class="prev-next-title">Generally-constrained Optimization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

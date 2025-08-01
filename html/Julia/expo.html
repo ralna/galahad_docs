@@ -1,0 +1,1536 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GALAHAD EXPO package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'expo';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="callable functions" href="expo_functions.html" />
+    <link rel="prev" title="Generally-constrained Optimization" href="nlp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">EXPO - generally-constrained local optimization of a smooth function</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="expo_functions.html">callable functions</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="nlp.html" class="nav-link">Generally-constrained Optimization</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD EXPO package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-galahad.expo">
+<span id="galahad-expo-package"></span><span id="doxid-index-expo"></span><h1>GALAHAD EXPO package<a class="headerlink" href="#module-galahad.expo" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">expo</span></code> package uses an <strong>exponential-penalty function method</strong>
+to solve a given <strong>constrained optimization problem</strong>.
+The aim is to find a (local) minimizer of a differentiable
+<strong>objective function</strong> <span class="math notranslate nohighlight">\(f(x)\)</span> of <span class="math notranslate nohighlight">\(n\)</span> variables <span class="math notranslate nohighlight">\(x\)</span>, subject
+to <span class="math notranslate nohighlight">\(m\)</span> <strong>general constraints</strong> <span class="math notranslate nohighlight">\(c_l \leq c(x) \leq c_u\)</span>
+and <strong>simple-bound constraints</strong> <span class="math notranslate nohighlight">\(x_l \leq x \leq x_u\)</span> on the variables.
+Here, any of the components of the vectors of bounds
+<span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span>, <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+The method offers the choice of direct and iterative solution
+of the key unconstrained-optimization subproblems, and
+is most suitable for large problems. First derivatives are required,
+and if second derivatives can be calculated, they will be exploited—if
+the product of second derivatives with a vector may be found but
+not the derivatives themselves, that may also be exploited.</p>
+<p><strong>N.B. This package is currently a beta release, and aspects may change
+before it is formally released</strong></p>
+<p>See Section 4 of $GALAHAD/doc/expo.pdf for additional details.</p>
+</section>
+<section id="terminology">
+<h2>terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h2>
+<p>The <strong>exponential penalty function</strong> is defined to be
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rl}\phi(x,w,\mu,v,\nu) \!\! &amp; = f(x)
++ \sum_{i} \mu_{li} w_{li} \exp[(c_{li} - c_i(x))/\mu_{li}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{i} \mu_{ui} w_{ui} \exp[(c_i(x) - c_{ui})/\mu_{ui}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{j} \nu_{lj} v_{lj} \exp[(x_{lj} - x_j)/\nu_{lj}] \\
+&amp; \;\;\;\;\;\;\;\;\;\;\;\;\;
++ \sum_{j} \nu_{uj} v_{uj} \exp[(x_j - x_{uj})/\nu_{uj}],
+\end{array}
+\end{split}\]</div>
+
+where <span class="math notranslate nohighlight">\(c_{li}\)</span>, <span class="math notranslate nohighlight">\(c_{ui}\)</span> and <span class="math notranslate nohighlight">\(c_i(x)\)</span> are the <span class="math notranslate nohighlight">\(i\)</span>-th components
+of <span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span> and <span class="math notranslate nohighlight">\(c(x)\)</span>, and
+<span class="math notranslate nohighlight">\(c_{lj}\)</span>, <span class="math notranslate nohighlight">\(c_{uj}\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> are the <span class="math notranslate nohighlight">\(j\)</span>-th components
+of <span class="math notranslate nohighlight">\(x_l\)</span>, <span class="math notranslate nohighlight">\(x_u\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, respectively. Here the components
+of <span class="math notranslate nohighlight">\(\mu_l\)</span>, <span class="math notranslate nohighlight">\(\mu_u\)</span>, <span class="math notranslate nohighlight">\(\nu_l\)</span> and <span class="math notranslate nohighlight">\(\nu_u\)</span>
+are separate <strong>penalty parameters</strong> for each lower and upper,
+general and simple-bound constraint, respectively,
+while those of <span class="math notranslate nohighlight">\(w_l\)</span>, <span class="math notranslate nohighlight">\(w_u\)</span>, <span class="math notranslate nohighlight">\(v_l\)</span>, <span class="math notranslate nohighlight">\(v_u\)</span>
+are likewise separate <strong>weights</strong> for the same. The algorithm iterates by
+approximately minimizing <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span>
+for a fixed set of penalty parameters and weights, and then adjusting
+these parameters and weights. The adjustments are designed so the
+sequence of approximate minimizers of <span class="math notranslate nohighlight">\(\phi\)</span> converge
+to that of the specified constrained optimization problem.</p>
+<p>Key constructs are the <strong>gradient</strong> of the objective function
+<div class="math notranslate nohighlight">
+\[g(x) := \nabla_x f(x),\]</div>
+
+the <strong>Jacobian</strong> of the vector of constraints,
+<div class="math notranslate nohighlight">
+\[J(x) := \nabla_x c(x),\]</div>
+
+and the <strong>gradient</strong> and <strong>Hessian</strong> of the Lagrangian function
+<div class="math notranslate nohighlight">
+\[g_L(x,y,z) := g(x) - J^T(x)y - z  \;\;\mbox{and}\;\;
+H_L(x,y) := \nabla_{xx}  \left[ f(x) - \sum_{i} y_i c_i(x)\right]\]</div>
+
+for given vectors <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p>Any required solution <span class="math notranslate nohighlight">\(x\)</span> necessarily satisfies
+the <strong>primal optimality conditions</strong>
+<div class="math notranslate nohighlight">
+\[c_l \leq c(x) \leq c_u, \;\; x_l \leq x \leq x_u,\;\;\mbox{(1)}\]</div>
+
+the <strong>dual optimality conditions</strong>
+<div class="math notranslate nohighlight">
+\[g(x) = J^{T}(x) y + z,\;\;  y = y_l + y_u \;\;\mbox{and}\;\;
+z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
+
+and
+<div class="math notranslate nohighlight">
+\[y_l \geq 0, \;\; y_u \leq 0, \;\; z_l \geq 0 \;\;\mbox{and}\;\;
+z_u \leq 0,\;\;\mbox{(2b)}\]</div>
+
+and the <strong>complementary slackness conditions</strong>
+<div class="math notranslate nohighlight">
+\[( c(x) - c_l )^{T} y_l = 0,\;\; ( c(x) - c_u )^{T} y_u = 0,\;\;
+(x -x_l )^{T} z_l = 0 \;\;\mbox{and}\;\;(x -x_u )^{T} z_u = 0,\;\;\mbox{(3)}\]</div>
+
+where the vectors <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> are known as the <strong>Lagrange multipliers</strong> for
+the general constraints, and the <strong>dual variables</strong> for the simple bounds,
+respectively, and where the vector inequalities hold component-wise.</p>
+</section>
+<section id="method">
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
+<p>The method employed involves a sequential minimization of the exponential
+penalty function <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span> for a sequence of positive penalty
+parameters <span class="math notranslate nohighlight">\((\mu_{lk}, \mu_{uk}, \nu_{lk}, \nu_{uk})\)</span>
+and weights <span class="math notranslate nohighlight">\((w_{lk}, w_{uk}, v_{lk}, v_{uk})\)</span>,
+for increasing <span class="math notranslate nohighlight">\(k \geq 0\)</span>. Convergence is ensured if the
+penalty parameters are forced to zero, and may be accelerated
+by adjusting the weights. The minimization of <span class="math notranslate nohighlight">\(\phi(x,w,\mu,v,\nu)\)</span>
+is  accomplished using the trust-region unconstrained solver
+<code class="docutils literal notranslate"><span class="pre">TRU</span></code>. Although critical points <span class="math notranslate nohighlight">\(\{x_k\}\)</span> of
+<span class="math notranslate nohighlight">\(\phi(x,w_k,\mu_k,v_k,\nu_k)\)</span> converge to a local solution <span class="math notranslate nohighlight">\(x_*\)</span>
+of the underlying problem, the reduction of the penalty parameters to
+zero often results in <span class="math notranslate nohighlight">\(x_k\)</span> being a poor starting point for the minimization
+of <span class="math notranslate nohighlight">\(\phi(x,w_{k+1},\mu_{k+1},v_{k+1},\nu_{k+1})\)</span>. Consequently,
+a careful extrapolated starting point from <span class="math notranslate nohighlight">\(x_k\)</span> is used instead. Moreover,
+once the algorithm is confident that it is sufficiently close to <span class="math notranslate nohighlight">\(x_*\)</span>,
+it switches to Newton’s method to accelerate the convergence. Both the
+extrapolation and the Newton iteration rely on the block-linear-system
+solver <code class="docutils literal notranslate"><span class="pre">SSLS</span></code>.</p>
+<p>The iteration is terminated as soon as residuals to the
+optimality conditions (1)–(3) are sufficiently small. For
+infeasible problems, this will not be possible, and instead the
+residuals to (1) will be made as small as possible.</p>
+</section>
+<section id="references">
+<h2>references<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>The method is described in detail in</p>
+<blockquote>
+<div><p>N.Gould, S.Leyffer, A.Montoison and C.Vanaret (2025)
+The exponential multiplier method in the 21st century.
+RAL Technical Report, in preparation.</p>
+</div></blockquote>
+</section>
+<section id="matrix-storage">
+<span id="details-expo-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<section id="unsymmetric-storage">
+<span id="details-expo-storage-unsym"></span><h3>unsymmetric storage<a class="headerlink" href="#unsymmetric-storage" title="Link to this heading">#</a></h3>
+<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J = J(x)\)</span> may be presented
+and stored in a variety of convenient input formats.</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J\)</span> is stored as a compact dense matrix by rows, that is,
+the values of the entries of each row in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(n \ast i + j\)</span>  of the storage array J_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>.
+The string J_type = ‘dense’ should be specified.</p>
+<p><em>Dense by columns</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J\)</span> is stored as a compact dense matrix by columns, that is,
+the values of the entries of each column in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(m \ast j + i\)</span>  of the storage array J_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>.
+The string J_type = ‘dense_by_columns’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(1 \leq l \leq ne\)</span>, of <span class="math notranslate nohighlight">\(J\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(J_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>,  <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays J_row and J_col and real array J_val,
+respectively, while the number of nonzeros is recorded as J_ne = <span class="math notranslate nohighlight">\(ne\)</span>.
+The string J_type = ‘coordinate’should be specified.</p>
+<p><em>Sparse row-wise storage</em> format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(J\)</span> the i-th component of the
+integer array J_ptr holds the position of the first entry in this row,
+while J_ptr(m+1) holds the total number of entries plus one.
+The column indices j, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>, and values
+<span class="math notranslate nohighlight">\(J_{ij}\)</span> of the  nonzero entries in the i-th row are stored in components
+l = J_ptr(i), <span class="math notranslate nohighlight">\(\ldots\)</span>, J_ptr(i+1)-1,  <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>,
+of the integer array J_col, and real array J_val, respectively.
+For sparse matrices, this scheme almost always requires less storage than
+its predecessor.
+The string J_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Sparse column-wise</em> storage format:
+Once again only the nonzero entries are stored, but this time
+they are ordered so that those in column j appear directly before those
+in column j+1. For the j-th column of <span class="math notranslate nohighlight">\(J\)</span> the j-th component of the
+integer array J_ptr holds the position of the first entry in this column,
+while J_ptr(n+1) holds the total number of entries plus one.
+The row indices i, <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, and values <span class="math notranslate nohighlight">\(J_{ij}\)</span>
+of the  nonzero entries in the j-th columnsare stored in components
+l = J_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, J_ptr(j+1)-1, <span class="math notranslate nohighlight">\(1 \leq j \leq n\)</span>,
+of the integer array J_row, and real array J_val, respectively.
+As before, for sparse matrices, this scheme almost always requires less
+storage than the co-ordinate format.
+The string J_type = ‘sparse_by_columns’ should be specified.</p>
+</section>
+<section id="symmetric-storage">
+<span id="details-expo-storage-sym"></span><h3>symmetric storage<a class="headerlink" href="#symmetric-storage" title="Link to this heading">#</a></h3>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = H(x,y)\)</span> may
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the lower triangular part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\((i-1) * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>.
+The string H_type = ‘dense’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(1 \leq l \leq ne\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(1 \leq j \leq i \leq n\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as H_ne = <span class="math notranslate nohighlight">\(ne\)</span>.
+Note that only the entries in the lower triangle should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n+1) holds the total number of entries plus one.
+The column indices j, <span class="math notranslate nohighlight">\(1 \leq j \leq i\)</span>, and values <span class="math notranslate nohighlight">\(H_{ij}\)</span> of the entries
+in the i-th row are stored in components l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(1 \leq i \neq j \leq n\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(1 \leq i \leq n\)</span> need be stored,
+and the first n components of the array H_val may be used for the purpose.
+The string H_type = ‘diagonal’ should be specified.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.
+The string H_type = ‘scaled_identity’ should be specified.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.
+The string H_type = ‘identity’ should be specified.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix, but now
+the string H_type = ‘zero’ or ‘none’ should be specified.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+<section id="introduction-to-function-calls">
+<h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
+<p>To solve a given problem, functions from the expo package must be
+called in the following order:</p>
+<p>To solve a given problem, functions from the expo package must be called in the following order:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span class="std std-ref">expo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span class="std std-ref">expo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span class="std std-ref">expo_import</span></a> - import structural data and set up data structures prior to solution</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1a07f0857c9923ad0f92d51ed00833afda"><span class="std std-ref">expo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span class="std std-ref">expo_solve_hessian_direct</span></a> - solve the problem using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span class="std std-ref">expo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="expo_functions.html#doxid-galahad-expo-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span class="std std-ref">expo_terminate</span></a> - deallocate data structures</p></li>
+</ul>
+<p>See the <a class="reference internal" href="#doxid-index-expo-examples"><span class="std std-ref">examples</span></a> section for
+illustrations of use.</p>
+</section>
+<section id="parametric-real-type-t-and-integer-type-int">
+<span id="details-t-and-int-types"></span><h2>parametric real type T and integer type INT<a class="headerlink" href="#parametric-real-type-t-and-integer-type-int" title="Link to this heading">#</a></h2>
+<p>Below, the symbol T refers to a parametric real type that may be Float32
+(single precision), Float64 (double precision) or, if supported, Float128
+(quadruple precision). The symbol INT refers to a parametric integer type
+that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
+</section>
+<section id="callable-functions">
+<span id="global"></span><h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<p>Set default control values and initialize private data</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>control</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_expo_control_type.html#doxid-structexpo-control-type"><span class="std std-ref">expo_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>inform</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_expo_inform_type.html#doxid-structexpo-inform-type"><span class="std std-ref">expo_inform_type</span></a>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<p>Read the content of a specification file, and assign values associated
+with given keywords to the corresponding control parameters.  An
+in-depth discussion of specification files is
+<a class="reference internal" href="spec.html#details-spec-file"><span class="std std-ref">available</span></a>, and a detailed list of keywords
+with associated default values is provided in
+$GALAHAD/src/expo/EXPO.template.  See also Table 2.1 in the Fortran
+documentation provided in $GALAHAD/doc/expo.pdf for a list of how these
+keywords relate to the components of the control structure.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_expo_control_type.html#doxid-structexpo-control-type"><span class="std std-ref">expo_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>specfile</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">J_type</span><span class="p">,</span><span class="w"> </span><span class="n">J_ne</span><span class="p">,</span><span class="w"> </span><span class="n">J_row</span><span class="p">,</span><span class="w"> </span><span class="n">J_col</span><span class="p">,</span><span class="w"> </span><span class="n">J_ptr</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="w"> </span><span class="p">)</span></pre>
+<p>Import problem data into internal storage prior to solution.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_expo_control_type.html#doxid-structexpo-control-type"><span class="std std-ref">expo_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>1</strong></dt><dd><p>The import was successful, and the package is ready
+for the solve phase</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-3</strong></dt><dd><p>The restrictions n &gt; 0, m &gt; 0 or requirement that
+J/H_type contains its relevant string ‘dense’,
+‘dense_by_columns’, ‘coordinate’, ‘sparse_by_rows’,
+‘sparse_by_columns’, ‘diagonal’ or ‘absent’ has been
+violated.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of general constraints.</p></td>
+</tr>
+<tr class="row-even"><td><p>J_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="expo_storage.html#details-expo-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian, <span class="math notranslate nohighlight">\(J\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’ or ‘absent’, the latter if access to the Jacobian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>J_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(J\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+</tr>
+<tr class="row-even"><td><p>J_row</p></td>
+<td><p>is a one-dimensional array of size J_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(J\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>J_col</p></td>
+<td><p>is a one-dimensional array of size J_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(J\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>J_ptr</p></td>
+<td><p>is a one-dimensional array of size m+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(J\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>H_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="expo_storage.html#details-expo-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian, <span class="math notranslate nohighlight">\(H_L\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to <span class="math notranslate nohighlight">\(H\)</span> is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>H_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H_L\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>H_row</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_L\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>H_col</p></td>
+<td><p>is a one-dimensional array of size H_ne and type INT that holds the column indices of the lower triangular part of <span class="math notranslate nohighlight">\(H_L\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense or diagonal storage schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>H_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1a07f0857c9923ad0f92d51ed00833afda"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<p>Reset control parameters after import if required.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_expo_control_type.html#doxid-structexpo-control-type"><span class="std std-ref">expo_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>1</strong></dt><dd><p>The import was successful, and the package is ready
+for the solve phase</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_solve_hessian_direct</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">c_l</span><span class="p">,</span><span class="w"> </span><span class="n">c_u</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">gl</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">eval_fc</span><span class="p">,</span><span class="w"> </span><span class="n">eval_gj</span><span class="p">,</span><span class="w"> </span><span class="n">eval_hl</span><span class="p">)</span></pre>
+<p>Find a local minimizer of the constrained optimization problem using the
+exponential penalty method.</p>
+<p>This call is for the case where the Hessian of the Lagrangian function is
+available specifically, and all function/derivative information is
+available by (direct) function calls.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>userdata</p></td>
+<td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the
+entry and exit status from the package.</p>
+<p>On initial entry, status must be set to 1.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>0</strong></dt><dd><p>The run was successful</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-3</strong></dt><dd><p>The restriction n &gt; 0 or requirement that type
+contains its relevant string ‘dense’, ‘coordinate’,
+‘sparse_by_rows’, or ‘diagonal’ has been violated.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
+return status from the factorization package is
+given in the component inform.factor_status</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
+factorization package is given in the component
+inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-11</strong></dt><dd><p>The solution of a set of linear equations using
+factors from the factorization package failed; the
+return status from the factorization package is
+given in the component inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-16</strong></dt><dd><p>The problem is so ill-conditioned that further
+progress is impossible.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-17</strong></dt><dd><p>The step is too small to make further impact.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may happen
+if control.max_it or control.max_eval is too small, but
+may also be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
+if control.cpu_time_limit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-82</strong></dt><dd><p>The user has forced termination of solver by
+removing the file named control.alive_file from unit
+unit control.alive_unit.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>j_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(J\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>h_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of <span class="math notranslate nohighlight">\(H_L\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>c_l</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(c_l\)</span> of the lower bounds on the constraint functions <span class="math notranslate nohighlight">\(c(x)\)</span>. The j-th component of c_l, <span class="math notranslate nohighlight">\(i = 1, \ldots, m\)</span>, contains <span class="math notranslate nohighlight">\(c_{li}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_u</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(c_u\)</span> of the upper bounds on the constraint functionss <span class="math notranslate nohighlight">\(c(x)\)</span>. The j-th component of c_u, <span class="math notranslate nohighlight">\(i = 1, \ldots, m\)</span>, contains <span class="math notranslate nohighlight">\(c_{ui}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_l</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_l\)</span> of the lower bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of x_l, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x_{lj}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_u</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_u\)</span> of the upper bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of x_u, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x_{uj}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>. This should be set on input to an estimate of the minimizer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>y</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(y\)</span> of the Lagrange multipliers. The j-th component of <code class="docutils literal notranslate"><span class="pre">y</span></code>, i = 1, … , m, contains <span class="math notranslate nohighlight">\(y_i\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>z</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>c</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the constraint functions <span class="math notranslate nohighlight">\(c(x)\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">c</span></code>, i = 1, … , m, contains <span class="math notranslate nohighlight">\(c_i(x)\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>gl</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the gradient <span class="math notranslate nohighlight">\(g_L(x,y,z) = \nabla_xf(x)\)</span> of the Lagrangian function. The j-th component of <code class="docutils literal notranslate"><span class="pre">gl</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_{Lj}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>eval_fc</p></td>
+<td><p>is a user-supplied function that must have the
+following signature:</p>
+<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_c</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<dl class="simple">
+<dt>The value of the objective function <span class="math notranslate nohighlight">\(f(x)\)</span> and</dt><dd><p>the components of the residual function <span class="math notranslate nohighlight">\(c(x)\)</span></p>
+</dd>
+<dt>evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> must be assigned to f and c,</dt><dd><p>respectively, and the function return value set to 0.
+If the evaluation is impossible at x, return should
+be set to a nonzero value. Data may be passed into
+<code class="docutils literal notranslate"><span class="pre">eval_fc</span></code> via the structure <code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>eval_gj</p></td>
+<td><p>is a user-supplied function that must have the
+following signature:</p>
+<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_j</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">j_ne</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<dl class="simple">
+<dt>The components of the gradient <span class="math notranslate nohighlight">\(g = g(x)\)</span> of the objective</dt><dd><p>and Jacobian <span class="math notranslate nohighlight">\(J = \nabla_x c(x\)</span>) of the constraints
+evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> must be assigned to g and to j,
+in the same order as presented
+to expo_import, and the function return  value set to 0.
+If the evaluation is impossible at x,</p>
+</dd>
+</dl>
+<p>return should be set to a nonzero value. Data may be
+passed into <code class="docutils literal notranslate"><span class="pre">eval_gj</span></code> via the structure <code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>eval_hl</p></td>
+<td><p>is a user-supplied function that must have the
+following signature:</p>
+<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_hl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">h_ne</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<dl class="simple">
+<dt>The nonzeros of the Hessian of the Lagrangian function</dt><dd><p><span class="math notranslate nohighlight">\(H_L(x,y) = \nabla_{xx}f(x) -\sum_i y_i \nabla_{xx}c_i(x)\)</span></p>
+</dd>
+</dl>
+<p>evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> and y=<span class="math notranslate nohighlight">\(y\)</span> must be assigned to h
+in the same order as presented to expo_import, and the
+function return value set to 0. If the evaluation is
+impossible at x, return should be set to a nonzero
+value. Data may be passed into <code class="docutils literal notranslate"><span class="pre">eval_hl</span></code> via the
+structure <code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<p>Provides output information</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>inform</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_expo_inform_type.html#doxid-structexpo-inform-type"><span class="std std-ref">expo_inform_type</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are
+(currently):</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-expo-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">expo_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<p>Deallocate all internal private storage</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>control</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_expo_control_type.html#doxid-structexpo-control-type"><span class="std std-ref">expo_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>inform</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_expo_inform_type.html#doxid-structexpo-inform-type"><span class="std std-ref">expo_inform_type</span></a>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="available-structures">
+<h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
+</section>
+<section id="expo-control-type-structure">
+<span id="doxid-structexpo-control-type"></span><span id="index-7"></span><h2>expo_control_type structure<a class="headerlink" href="#expo-control-type-structure" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">expo_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_level</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">start_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">stop_print</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">print_gap</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_it</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">max_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alive_unit</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alive_file</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">update_multipliers_itmin</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">update_multipliers_tol</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_abs_p</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_rel_p</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_abs_d</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_rel_d</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_abs_c</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_rel_c</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_s</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">initial_mu</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">mu_reduce</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">minimum_weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">obj_unbounded</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">try_advanced_start</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">try_sqp_start</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">stop_advanced_start</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">cpu_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_time_limit</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">hessian_available</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">subproblem_direct</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_control</span><span class="o">::</span><span class="kt">bsc_control_type</span>
+<span class="w">      </span><span class="n">tru_control</span><span class="o">::</span><span class="kt">tru_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ssls_control</span><span class="o">::</span><span class="kt">ssls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
+</section>
+<section id="detailed-documentation">
+<span id="details-structexpo-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
+<p>control derived type as a Julia structure</p>
+<section id="components">
+<h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-f-indexing"><span id="index-8"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<p>use C or Fortran sparse matrix indexing</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-error"><span id="index-9"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
+<p>error and warning diagnostics occur on stream error</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-out"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
+<p>general output occurs on stream out</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-print-level"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
+<p>the level of output required.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\leq\)</span> 0 gives no output,</p></li>
+<li><p>= 1 gives a one-line summary for every iteration,</p></li>
+<li><p>= 2 gives a summary of the inner iteration for each iteration,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\geq\)</span> 3 gives increasingly verbose (debugging) output</p></li>
+</ul>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-start-print"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">start_print</span></pre>
+<p>any printing will start on this iteration</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-print"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">stop_print</span></pre>
+<p>any printing will stop on this iteration</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-print-gap"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_gap</span></pre>
+<p>the number of iterations between printing</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-max-it"><span id="index-15"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_it</span></pre>
+<p>the maximum number of iterations permitted</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-max-eval"><span id="index-16"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">max_eval</span></pre>
+<p>the maximum number of function evaluations permitted</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-alive-unit"><span id="index-17"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alive_unit</span></pre>
+<p>removal of the file alive_file from unit alive_unit terminates execution</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-alive-file"><span id="index-18"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">alive_file</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<p>see alive_unit</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-update-multipliers-itmin"><span id="index-19"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">update_multipliers_itmin</span></pre>
+<p>update the Lagrange multipliers/dual variables from iteration .update_multipliers_itmin (&lt;0 means never) and once the primal infeasibility is below .update_multipliers_tol</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-update-multipliers-tol"><span id="index-20"></span><span></span><span class="n">T</span><span class="w">  </span><span class="n">update_multipliers_tol</span></pre>
+<p>see update_multipliers_itmin</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrb-control-type-infinity"><span id="index-21"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-abs-p"><span id="index-22"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_abs_p</span></pre>
+<p>the required absolute and relative accuracies for the primal infeasibility (1)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-rel-p"><span id="index-23"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_rel_p</span></pre>
+<p>see stop_abs_p</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-abs-d"><span id="index-24"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_abs_d</span></pre>
+<p>the required absolute and relative accuracies for the dual infeasibility (2)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-rel-d"><span id="index-25"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_rel_d</span></pre>
+<p>see stop_abs_d</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-abs-c"><span id="index-26"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_abs_c</span></pre>
+<p>the required absolute and relative accuracies for the complementary slackness (3)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-rel-c"><span id="index-27"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_rel_c</span></pre>
+<p>see stop_abs_c</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-s"><span id="index-28"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_s</span></pre>
+<p>the smallest the norm of the step can be before termination</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-initial-mu"><span id="index-29"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">initial_mu</span></pre>
+<p>initial value for the penalty parameter (&lt;=0 means set automatically)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-mu-reduce"><span id="index-30"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">mu_reduce</span></pre>
+<p>the amount by which the penalty parameter is decreased</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrb-control-type-obj-unbounded"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj_unbounded</span></pre>
+<p>the smallest value the objective function may take before the problem is marked as unbounded</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-try-advanced-start"><span id="index-32"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">try_advanced_start</span></pre>
+<p>try an advanced start at the end of every iteration when the KKT residuals are smaller than .try_advanced_start (-ve means never)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-try-sqp-start"><span id="index-33"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">try_sqp_start</span></pre>
+<p>try an advanced SQP start at the end of every iteration when the KKT residuals are smaller than .try_sqp_start (-ve means never)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-stop-advanced-start"><span id="index-34"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_advanced_start</span></pre>
+<p>stop the advanced start search once the residuals small tham .stop_advanced_start</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-cpu-time-limit"><span id="index-35"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">cpu_time_limit</span></pre>
+<p>the maximum CPU time allowed (-ve means infinite)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-clock-time-limit"><span id="index-36"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_time_limit</span></pre>
+<p>the maximum elapsed clock time allowed (-ve means infinite)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrb-control-type-hessian-available"><span id="index-37"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">hessian_available</span></pre>
+<p>is the Hessian matrix of second derivatives available or is access only via matrix-vector products (coming soon)?</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-subproblem-direct"><span id="index-38"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">subproblem_direct</span></pre>
+<p>use a direct (factorization) or (preconditioned) iterative method (coming soon) to find the search direction</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-space-critical"><span id="index-39"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<p>if .space_critical true, every effort will be made to use as little space as possible. This may result in longer computation time</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-deallocate-error-fatal"><span id="index-40"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<p>if .deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-prefix"><span id="index-41"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-bsc-control"><span id="index-42"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a><span></span><span class="w"> </span><span class="n">bsc_control</span></pre>
+<p>control parameters for BSC</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-tru-control"><span id="index-43"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="tru.html#doxid-structtru-control-type"><span class="std std-ref">tru_control_type</span></a><span></span><span class="w"> </span><span class="n">tru_control</span></pre>
+<p>control parameters for TRU</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-control-type-ssls-control"><span id="index-44"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ssls_control_type.html#doxid-structssls-control-type"><span class="std std-ref">ssls_control_type</span></a><span></span><span class="w"> </span><span class="n">ssls_control</span></pre>
+<p>control parameters for SSLS</p>
+</section>
+</section>
+<section id="expo-time-type-structure">
+<span id="doxid-structexpo-time-type"></span><span id="index-45"></span><h2>expo_time_type structure<a class="headerlink" href="#expo-time-type-structure" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">expo_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">preprocess</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">factorize</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">solve</span><span class="o">::</span><span class="kt">Float32</span>
+<span class="w">      </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_preprocess</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
+</section>
+<section id="details-structexpo-time-type">
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structexpo-time-type" title="Link to this heading">#</a></h2>
+<p>time derived type as a Julia structure</p>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-total"><span id="index-46"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">total</span></pre>
+<p>the total CPU time spent in the package</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-preprocess"><span id="index-47"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">preprocess</span></pre>
+<p>the CPU time spent preprocessing the problem</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-analyse"><span id="index-48"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">analyse</span></pre>
+<p>the CPU time spent analysing the required matrices prior to factorization</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-factorize"><span id="index-49"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">factorize</span></pre>
+<p>the CPU time spent factorizing the required matrices</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-solve"><span id="index-50"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">solve</span></pre>
+<p>the CPU time spent computing the search direction</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-clock-total"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
+<p>the total clock time spent in the package</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-clock-preprocess"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_preprocess</span></pre>
+<p>the clock time spent preprocessing the problem</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-clock-analyse"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
+<p>the clock time spent analysing the required matrices prior to factorization</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-clock-factorize"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
+<p>the clock time spent factorizing the required matrices</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-time-type-clock-solve"><span id="index-55"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
+<p>the clock time spent computing the search direction</p>
+</section>
+</section>
+<section id="expo-inform-type-structure">
+<span id="doxid-structexpo-inform-type"></span><span id="index-56"></span><h2>expo_inform_type structure<a class="headerlink" href="#expo-inform-type-structure" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">expo_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bad_eval</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
+<span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">fc_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">gj_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">hl_eval</span><span class="o">::</span><span class="kt">INT</span>
+<span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">primal_infeasibility</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">dual_infeasibility</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">complementary_slackness</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">expo_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">bsc_inform</span><span class="o">::</span><span class="kt">bsc_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">tru_inform</span><span class="o">::</span><span class="kt">tru_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ssls_inform</span><span class="o">::</span><span class="kt">ssls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
+</section>
+<section id="details-structexpo-inform-type">
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structexpo-inform-type" title="Link to this heading">#</a></h2>
+<p>inform derived type as a Julia structure</p>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-status"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<p>return status. See EXPO_solve for details</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-alloc-status"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<p>the status of the last attempted allocation/deallocation</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-bad-alloc"><span id="index-59"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<p>the name of the array for which an allocation/deallocation error occurred</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-bad-eval"><span id="index-60"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">bad_eval</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span></pre>
+<p>the name of the user-supplied evaluation routine for which an error occurred</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-iter"><span id="index-61"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
+<p>the total number of iterations performed</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-fc-eval"><span id="index-62"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">fc_eval</span></pre>
+<p>the total number of evaluations of the objective <span class="math notranslate nohighlight">\(f(x)\)</span> and constraint <span class="math notranslate nohighlight">\(c(x)\)</span> functions</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-gj-eval"><span id="index-63"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">gj_eval</span></pre>
+<p>the total number of evaluations of the gradient <span class="math notranslate nohighlight">\(g(x)\)</span> and Jacobian <span class="math notranslate nohighlight">\(J(x)\)</span></p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-hl-eval"><span id="index-64"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">hl_eval</span></pre>
+<p>the total number of evaluations of the Hessian <span class="math notranslate nohighlight">\(H(x,y)\)</span> of the Lagrangian</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-obj"><span id="index-65"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
+<p>the value of the objective function <span class="math notranslate nohighlight">\(f(x)\)</span> at the best estimate the solution, x, determined by EXPO_solve</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-primal-infeasibility"><span id="index-66"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">primal_infeasibility</span></pre>
+<p>the norm of the primal infeasibility (1) at the best estimate of the solution x, determined by EXPO_solve</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-dual-infeasibility"><span id="index-67"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">dual_infeasibility</span></pre>
+<p>the norm of the dual infeasibility (2) at the best estimate of the solution (x,y,z), determined by EXPO_solve</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-complementary-slacknes"><span id="index-68"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">complementary_slackness</span></pre>
+<p>the norm of the complementary slackness (3) at the best estimate of the solution (x,y,z), determined by EXPO_solve</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-time"><span id="index-69"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_expo_time_type.html#doxid-structexpo-time-type"><span class="std std-ref">expo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<p>timings (see above)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-bsc-inform"><span id="index-70"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="bsc.html#doxid-structbsc-inform-type"><span class="std std-ref">bsc_inform_type</span></a><span></span><span class="w"> </span><span class="n">bsc_inform</span></pre>
+<p>inform parameters for BSC</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-tru-inform"><span id="index-71"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="tru.html#doxid-structtru-inform-type"><span class="std std-ref">tru_inform_type</span></a><span></span><span class="w"> </span><span class="n">tru_inform</span></pre>
+<p>inform parameters for TRU</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structexpo-inform-type-ssls-inform"><span id="index-72"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ssls_inform_type.html#doxid-structssls-inform-type"><span class="std std-ref">ssls_inform_type</span></a><span></span><span class="w"> </span><span class="n">ssls_inform</span></pre>
+<p>inform parameters for SSLS</p>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
+</div>
+</section>
+</section>
+<section id="example-calls">
+<span id="doxid-index-expo-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
+<p>This is an example of how to use the package to solve a nonlinear least-squares
+problem; the code is available in $GALAHAD/src/expo/Julia/test_expo.jl .
+A variety of supported Hessian and constraint matrix storage formats are shown.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nlp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Generally-constrained Optimization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="expo_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">callable functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">terminology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsymmetric-storage">unsymmetric storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-storage">symmetric storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expo-control-type-structure">expo_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expo-time-type-structure">expo_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structexpo-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expo-inform-type-structure">expo_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structexpo-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/expo.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

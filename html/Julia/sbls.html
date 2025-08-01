@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="sbls_functions.html" />
-    <link rel="prev" title="callable functions" href="uls_functions.html" />
+    <link rel="prev" title="callable functions" href="ssls_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -436,6 +450,10 @@
 
 
 
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ssls.html">SSLS - solve block symmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssls_functions.html">callable functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">SBLS - precondition and solve block symmetric systems of linear equations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -729,14 +747,14 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the sbls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1a30b1a9463e4abd5cfa0150ffb30569a9"><span class="std std-ref">sbls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1abde2e76567a4c8721fe9c2386106e972"><span class="std std-ref">sbls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1ab7cbabccf52f8be7ae417e089eba4b82"><span class="std std-ref">sbls_import</span></a> - set up matrix data structures</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1afdfe80ab659c2936d23802b6a6103eb8"><span class="std std-ref">sbls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1a77799da1282c3567b56ae8db42b75f65"><span class="std std-ref">sbls_factorize_matrix</span></a> - form and factorize the block matrix from its components</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1a2c3ae7b15fc1c43771d395540c37b9fa"><span class="std std-ref">sbls_solve_system</span></a> - solve the block linear system of equations</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1a9f93f5c87ae0088ceb72c4f7e73c9418"><span class="std std-ref">sbls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="sbls_functions.html#doxid-galahad-sbls-8h-1a73d7d29d113a62c48cc176146539bca5"><span class="std std-ref">sbls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1a30b1a9463e4abd5cfa0150ffb30569a9"><span class="std std-ref">sbls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1abde2e76567a4c8721fe9c2386106e972"><span class="std std-ref">sbls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1ab7cbabccf52f8be7ae417e089eba4b82"><span class="std std-ref">sbls_import</span></a> - set up matrix data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1afdfe80ab659c2936d23802b6a6103eb8"><span class="std std-ref">sbls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1a77799da1282c3567b56ae8db42b75f65"><span class="std std-ref">sbls_factorize_matrix</span></a> - form and factorize the block matrix from its components</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1a2c3ae7b15fc1c43771d395540c37b9fa"><span class="std std-ref">sbls_solve_system</span></a> - solve the block linear system of equations</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1a9f93f5c87ae0088ceb72c4f7e73c9418"><span class="std std-ref">sbls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sbls-8h-1a73d7d29d113a62c48cc176146539bca5"><span class="std std-ref">sbls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-sbls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -763,7 +781,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -798,7 +816,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -819,7 +837,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -929,7 +947,7 @@ been violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1171,7 +1189,7 @@ the GALAHAD package ULS for further details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1202,10 +1220,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sbls_control_type.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sbls_inform_type.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1466,7 +1484,7 @@ status from the package. Possible values are
 <p>the norm of the residual</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-alternative"><span id="index-74"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">alternative</span></pre>
 <p>has an “alternative” <span class="math notranslate nohighlight">\(y\)</span> : <span class="math notranslate nohighlight">\(K y = 0\)</span> and <span class="math notranslate nohighlight">\(y^T c &gt; 0\)</span> been found when trying to solve <span class="math notranslate nohighlight">\(K y = c\)</span> for generic <span class="math notranslate nohighlight">\(K\)</span>?</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-time"><span id="index-75"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sbls_time_type.html#doxid-structsbls-time-type"><span class="std std-ref">sbls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-time"><span id="index-75"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structsbls-time-type"><span class="std std-ref">sbls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsbls-inform-type-sls-inform"><span id="index-76"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters from the GALAHAD package SLS used</p>
@@ -1492,7 +1510,7 @@ A variety of supported matrix storage formats are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_sbls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_sbls</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">sls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;sytr&quot;</span><span class="p">,</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;potr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
   <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">sbls_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
@@ -1540,8 +1558,10 @@ A variety of supported matrix storage formats are shown.</p>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">preconditioner</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">factorization</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">get_norm_residual</span> <span class="o">=</span> <span class="n">true</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
-    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="s2">&quot;sytr&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Linear solvers</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">symmetric_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">sls</span><span class="p">)</span>
+    <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">definite_linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
 
     <span class="c1"># sparse co-ordinate storage</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span>
@@ -1705,7 +1725,7 @@ A variety of supported matrix storage formats are shown.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="uls_functions.html"
+       href="ssls_functions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">

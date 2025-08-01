@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -548,20 +562,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the tru package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1af7def0657e11fee556d3006fb64fe267"><span class="std std-ref">tru_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a870a28132f2747e12d7c93c9ce6ffd01"><span class="std std-ref">tru_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a8175a402569a69faa351e2dcd3c48b94"><span class="std std-ref">tru_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a97ce8d0956fdb4165504433a93714495"><span class="std std-ref">tru_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1af7def0657e11fee556d3006fb64fe267"><span class="std std-ref">tru_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a870a28132f2747e12d7c93c9ce6ffd01"><span class="std std-ref">tru_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a8175a402569a69faa351e2dcd3c48b94"><span class="std std-ref">tru_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a97ce8d0956fdb4165504433a93714495"><span class="std std-ref">tru_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a638a31d7027eaf1ae39aa7278e7c5c5a"><span class="std std-ref">tru_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1aaa508227d17d8da723bb0401023acd96"><span class="std std-ref">tru_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a804863856294e362b724fca8953300d5"><span class="std std-ref">tru_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a97252b83eaab0b4d5d3ac53e6b317206"><span class="std std-ref">tru_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a638a31d7027eaf1ae39aa7278e7c5c5a"><span class="std std-ref">tru_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1aaa508227d17d8da723bb0401023acd96"><span class="std std-ref">tru_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a804863856294e362b724fca8953300d5"><span class="std std-ref">tru_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a97252b83eaab0b4d5d3ac53e6b317206"><span class="std std-ref">tru_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1a7c756ce759b44ddbd1ffac77bf497e5a"><span class="std std-ref">tru_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="tru_functions.html#doxid-galahad-tru-8h-1aa38f8880b4f63e610ae1f269353ac46e"><span class="std std-ref">tru_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1a7c756ce759b44ddbd1ffac77bf497e5a"><span class="std std-ref">tru_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-tru-8h-1aa38f8880b4f63e610ae1f269353ac46e"><span class="std std-ref">tru_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-tru-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1732,9 +1746,9 @@ eval_status to a non-zero value.</p>
 <p>control parameters for TRS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-gltr-control"><span id="index-53"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_gltr_control_type.html#doxid-structgltr-control-type"><span class="std std-ref">gltr_control_type</span></a><span></span><span class="w"> </span><span class="n">gltr_control</span></pre>
 <p>control parameters for GLTR</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-dps-control"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_control_type.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a><span></span><span class="w"> </span><span class="n">dps_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-dps-control"><span id="index-54"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="dps.html#doxid-structdps-control-type"><span class="std std-ref">dps_control_type</span></a><span></span><span class="w"> </span><span class="n">dps_control</span></pre>
 <p>control parameters for DPS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-psls-control"><span id="index-55"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-psls-control"><span id="index-55"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
 <p>control parameters for PSLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-control-type-lms-control"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_control_type.html#doxid-structlms-control-type"><span class="std std-ref">lms_control_type</span></a><span></span><span class="w"> </span><span class="n">lms_control</span></pre>
 <p>control parameters for LMS</p>
@@ -1866,9 +1880,9 @@ eval_status to a non-zero value.</p>
 <p>inform parameters for TRS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-gltr-inform"><span id="index-91"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_gltr_inform_type.html#doxid-structgltr-inform-type"><span class="std std-ref">gltr_inform_type</span></a><span></span><span class="w"> </span><span class="n">gltr_inform</span></pre>
 <p>inform parameters for GLTR</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-dps-inform"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_dps_inform_type.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a><span></span><span class="w"> </span><span class="n">dps_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-dps-inform"><span id="index-92"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="dps.html#doxid-structdps-inform-type"><span class="std std-ref">dps_inform_type</span></a><span></span><span class="w"> </span><span class="n">dps_inform</span></pre>
 <p>inform parameters for DPS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-psls-inform"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_inform_type.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a><span></span><span class="w"> </span><span class="n">psls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-psls-inform"><span id="index-93"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-inform-type"><span class="std std-ref">psls_inform_type</span></a><span></span><span class="w"> </span><span class="n">psls_inform</span></pre>
 <p>inform parameters for PSLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtru-inform-type-lms-inform"><span id="index-94"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_lms_inform_type.html#doxid-structlms-inform-type"><span class="std std-ref">lms_inform_type</span></a><span></span><span class="w"> </span><span class="n">lms_inform</span></pre>
 <p>inform parameters for LMS</p>
@@ -1903,7 +1917,7 @@ mutable struct userdata_tru{T}
   p::T
 end
 
-function test_tru(::Type{T}, ::Type{INT}) where {T,INT}
+function test_tru(::Type{T}, ::Type{INT}; sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # Objective function
   function fun(x::Vector{T}, f::Ref{T}, userdata::userdata_tru{T})
@@ -2030,6 +2044,12 @@ function test_tru(::Type{T}, ::Type{INT}) where {T,INT}
   for d in 1:5
     # Initialize TRU
     tru_initialize(T, INT, data, control, status)
+
+    # Linear solvers
+    @reset control[].trs_control.symmetric_linear_solver = galahad_linear_solver(sls)
+    @reset control[].trs_control.definite_linear_solver = galahad_linear_solver(dls)
+    @reset control[].psls_control.definite_linear_solver = galahad_linear_solver(dls)
+    @reset control[].dps_control.symmetric_linear_solver = galahad_linear_solver(sls)
 
     # Set user-defined control options
     # @reset control[].print_level = INT(1)
