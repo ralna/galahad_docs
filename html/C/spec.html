@@ -146,6 +146,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -158,19 +165,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -286,6 +293,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -410,12 +424,12 @@
   <section id="control-specification-files">
 <span id="details-spec-file"></span><span id="global"></span><h1>control specification files<a class="headerlink" href="#control-specification-files" title="Link to this heading">#</a></h1>
 <p>It is possible to set components of the structure <code class="docutils literal notranslate"><span class="pre">control</span></code>, of
-type <a href="#id1"><span class="problematic" id="id2">|package|</span></a> _control_type, by reading an appropriate
+type <code class="docutils literal notranslate"><span class="pre">package</span></code> _control_type, by reading an appropriate
 <strong>data specification file</strong>
-using the <a href="#id3"><span class="problematic" id="id4">|package|</span></a> _read_specfile function; here <a href="#id5"><span class="problematic" id="id6">|package|</span></a> refers
+using the <code class="docutils literal notranslate"><span class="pre">package</span></code> _read_specfile function; here <code class="docutils literal notranslate"><span class="pre">package</span></code> refers
 to the name of the package under consideration. This facility is
-useful as it allows one to change <a href="#id7"><span class="problematic" id="id8">|package|</span></a> control parameters
-without editing and recompiling programs that call <a href="#id9"><span class="problematic" id="id10">|package|</span></a> .</p>
+useful as it allows one to change <code class="docutils literal notranslate"><span class="pre">package</span></code> control parameters
+without editing and recompiling programs that call <code class="docutils literal notranslate"><span class="pre">package</span></code> .</p>
 <p>A specification file, or specfile, is a data file containing a number of
 “specification commands”. Each command occurs on a separate line, and
 comprises a “keyword”, which is a string (in a close-to-natural
@@ -427,26 +441,26 @@ each value must be separated from its keyword by at least one blank.
 Values must not contain more than 30 characters, and each line of the
 specfile is limited to 80 characters, including the blanks separating
 keyword and value.</p>
-<p>The portion of the specification file used by <a href="#id11"><span class="problematic" id="id12">|package|</span></a> _read_specfile
-must start with a “<code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">|package|</span></code>” command and end with an
-“<code class="docutils literal notranslate"><span class="pre">END</span></code>” command.  The syntax of the specfile is thus defined as follows:</p>
-<pre class="highlight doxyrest-title-code-block literal-block"><span></span>    <span class="p">(</span> <span class="o">..</span> <span class="n">lines</span> <span class="n">ignored</span> <span class="n">by</span> <span class="o">|</span><span class="n">package</span><span class="o">|</span><span class="n">_read_specfile</span> <span class="o">..</span> <span class="p">)</span>
-      <span class="n">BEGIN</span> <span class="o">|</span><span class="n">package</span><span class="o">|</span>
+<p>The portion of the specification file used by <code class="docutils literal notranslate"><span class="pre">package</span></code> _read_specfile
+must start with a <code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">package</span></code> command and end with an
+<code class="docutils literal notranslate"><span class="pre">END</span></code> command.  The syntax of the specfile is thus defined as follows:</p>
+<pre class="highlight doxyrest-title-code-block literal-block"><span></span>    <span class="p">(</span> <span class="o">..</span> <span class="n">lines</span> <span class="n">ignored</span> <span class="n">by</span> <span class="n">package_read_specfile</span> <span class="o">..</span> <span class="p">)</span>
+      <span class="n">BEGIN</span> <span class="n">package</span>
          <span class="n">keyword</span>    <span class="n">value</span>
          <span class="o">.......</span>    <span class="o">.....</span>
          <span class="n">keyword</span>    <span class="n">value</span>
       <span class="n">END</span>
-    <span class="p">(</span> <span class="o">..</span> <span class="n">lines</span> <span class="n">ignored</span> <span class="n">by</span> <span class="n">package</span><span class="o">|</span><span class="n">_read_specfile</span> <span class="o">..</span> <span class="p">)</span></pre>
+    <span class="p">(</span> <span class="o">..</span> <span class="n">lines</span> <span class="n">ignored</span> <span class="n">by</span> <span class="n">package_read_specfile</span> <span class="o">..</span> <span class="p">)</span></pre>
 <p>where keyword and value are two strings separated by (at least) one blank.
-The <code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">|package|</span></code> and <code class="docutils literal notranslate"><span class="pre">END</span></code> delimiter command lines
+The <code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">package</span></code> and <code class="docutils literal notranslate"><span class="pre">END</span></code> delimiter command lines
 may contain additional (trailing) strings so long as such strings are
 separated by one or more blanks, so that lines such as</p>
-<pre class="highlight doxyrest-title-code-block literal-block"><span></span>     <span class="n">BEGIN</span> <span class="o">|</span><span class="n">package</span><span class="o">|</span> <span class="n">SPECIFICATION</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block"><span></span>     <span class="n">BEGIN</span> <span class="n">package</span> <span class="n">SPECIFICATION</span></pre>
 <p>and</p>
-<pre class="highlight doxyrest-title-code-block literal-block"><span></span>    <span class="n">END</span> <span class="o">|</span><span class="n">package</span><span class="o">|</span> <span class="n">SPECIFICATION</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block"><span></span>    <span class="n">END</span> <span class="n">package</span> <span class="n">SPECIFICATION</span></pre>
 <p>are acceptable. Furthermore,
 between the
-<code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">|package|</span></code> and <code class="docutils literal notranslate"><span class="pre">END</span></code> delimiters,
+<code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">package</span></code> and <code class="docutils literal notranslate"><span class="pre">END</span></code> delimiters,
 specification commands may occur in any order.  Blank lines and
 lines whose first non-blank character is <code class="docutils literal notranslate"><span class="pre">!</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code> are ignored.
 The content of a line after a <code class="docutils literal notranslate"><span class="pre">!</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code> character is also ignored
