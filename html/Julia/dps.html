@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="callable functions" href="dps_functions.html" />
-    <link rel="prev" title="callable functions" href="rqs_functions.html" />
+    <link rel="prev" title="callable functions" href="trek_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -391,6 +391,10 @@
 <li class="toctree-l2"><a class="reference internal" href="rqs_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="trek_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="dps_functions.html">callable functions</a></li>
 </ul>
@@ -537,7 +541,7 @@ an alternative due to Goldfarb uses instead the simpler
 <p>Given the factors of <span class="math notranslate nohighlight">\(H\)</span> (and <span class="math notranslate nohighlight">\(M\)</span>), the required solution is
 found by making the change of variables <span class="math notranslate nohighlight">\(y = B^{1/2} L^T P^T x\)</span>
 (or <span class="math notranslate nohighlight">\(y = L^T P^T x\)</span> in the Goldfarb case)
-which results in <a href="#id1"><span class="problematic" id="id2">``</span></a>diagonal’’ trust-region and regularization subproblems,
+which results in ‘’diagonal’’ trust-region and regularization subproblems,
 whose solution may be easily obtained suing a Newton or higher-order iteration
 of a resulting “secular” equation. If subsequent problems, for which
 <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are unchanged, are to be attempted, the existing
@@ -550,8 +554,8 @@ potentially indefinite, matrix <span class="math notranslate nohighlight">\(H\)<
 <p>The method is described in detail for the trust-region case in</p>
 <blockquote>
 <div><p>N. I. M. Gould and J. Nocedal,
-<a href="#id3"><span class="problematic" id="id4">``</span></a>The modified absolute-value factorization for trust-region minimization’’.
-In <a href="#id5"><span class="problematic" id="id6">``</span></a>High Performance Algorithms and Software in Nonlinear Optimization’’
+‘’The modified absolute-value factorization for trust-region minimization’’.
+In ‘’High Performance Algorithms and Software in Nonlinear Optimization’’
 (R. De Leone, A. Murli, P. M. Pardalos and G. Toraldo, eds.),
 Kluwer Academic Publishers, (1998) 225–241,</p>
 </div></blockquote>
@@ -560,10 +564,68 @@ to solve the diagonal trust-region and regularization subproblems are as
 given by</p>
 <blockquote>
 <div><p>H. S. Dollar, N. I. M. Gould and D. P. Robinson,
-<a href="#id7"><span class="problematic" id="id8">``</span></a>On solving trust-region and other regularised subproblems in optimization’’.
+‘’On solving trust-region and other regularised subproblems in optimization’’.
 <em>Mathematical Programming Computation</em> <strong>2(1)</strong> (2010) 21–57</p>
 </div></blockquote>
 <p>with simplifications due to the diagonal Hessian.</p>
+</section>
+<section id="matrix-storage">
+<span id="details-dps-storage-sym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H\)</span> may
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\(i * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>.
+The string H_type = ‘dense’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, and values
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> of the  entries in the i-th row are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq n-1\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(0 \leq i \leq n-1\)</span> need be stored,
+and the first n components of the array H_val may be used for the purpose.
+The string H_type = ‘diagonal’ should be specified.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.
+The string H_type = ‘scaled_identity’ should be specified.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.
+The string H_type = ‘identity’ should be specified.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix, but now
+the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -1249,7 +1311,7 @@ status from the package. Possible values are
 <p>symmetric (indefinite) linear equation solver</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-prefix"><span id="index-28"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-sls-control"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-control-type-sls-control"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for the Cholesky factorization and solution</p>
 </section>
 </section>
@@ -1268,10 +1330,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structdps-time-type">
-<span id="id9"></span><h2>detailed documentation<a class="headerlink" href="#details-structdps-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structdps-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id10">
-<h3>components<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-time-type-total"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-time-type-analyse"><span id="index-32"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
@@ -1310,10 +1372,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structdps-inform-type">
-<span id="id11"></span><h2>detailed documentation<a class="headerlink" href="#details-structdps-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structdps-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id12">
-<h3>components<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-status"><span id="index-40"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See DPS_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-alloc-status"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1338,7 +1400,7 @@ status from the package. Possible values are
 <p>name of array that provoked an allocate failure</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-time"><span id="index-51"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structdps-time-type"><span class="std std-ref">dps_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-sls-inform"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdps-inform-type-sls-inform"><span id="index-52"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>information from SLS</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1458,11 +1520,6 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c</span><span class="s2">: DPS_resolve_problem exit status = </span><span class="si">%1i</span><span class="s2">, f = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
 
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n+m</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># end</span>
-
     <span class="c1"># Delete internal workspace</span>
     <span class="n">dps_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
@@ -1498,7 +1555,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rqs_functions.html"
+       href="trek_functions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -1537,6 +1594,7 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-function-calls">introduction to function calls</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
@@ -1548,12 +1606,12 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dps-time-type-structure">dps_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structdps-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dps-inform-type-structure">dps_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structdps-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

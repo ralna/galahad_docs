@@ -147,6 +147,13 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
@@ -160,19 +167,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -286,6 +293,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -500,22 +514,22 @@ overall violation of (1a), (2a) and (3),
 rather than reducing each of the terms individually. Given an estimate
 <span class="math notranslate nohighlight">\(v = (x, \; c, \; y, \; y^{l}, \; y^{u}, \; z, \; z^{l}, \; z^{u})\)</span>
 of the primal-dual variables, a correction
-<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \; c, \; y, \; y^{l}, \;
-y^{u} ,\;z,\;z^{l} ,\;z^{u} )\)</span>
+<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \; c, \; y, \; y^{l}, \;\)</span>
+<span class="math notranslate nohighlight">\(y^{u} ,\;z,\;z^{l} ,\;z^{u} )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
-nonlinear systems (1a), (2a) and a parameterized <a href="#id1"><span class="problematic" id="id2">``</span></a>residual
+nonlinear systems (1a), (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories
 proposed by Zhang (1994) and Zhao and Sun (1999) are possibilities.
 An improved estimate <span class="math notranslate nohighlight">\(v + \alpha \Delta v\)</span>
 is then used, where the step-size <span class="math notranslate nohighlight">\(\alpha\)</span>
 is chosen as close to 1.0 as possible while ensuring both that
 (1b) and (2b) continue to hold and that the individual components
-which make up the complementary slackness
-(3) do not deviate too significantly
+which make up the complementary slackness (3)
+do not deviate too significantly
 from their average value. The parameter that controls the perturbation
 of (3) is ultimately driven to zero.</p>
 <p>If the algorithm believes that it is close to the solution, it may take a
-speculative <a href="#id3"><span class="problematic" id="id4">``</span></a>pounce’’, based on an estimate of the ultimate active set,
+speculative ‘’pounce’’, based on an estimate of the ultimate active set,
 to avoid further costly iterations. If the pounce is unsuccessful, the
 iteration continues, and further pounces may be attempted later.</p>
 <p>The Newton equations are solved  by applying the matrix factorization
@@ -529,28 +543,28 @@ performance of the subsequent iteration.</p>
 <p>The basic algorithm is a generalisation of those of</p>
 <blockquote>
 <div><p>Y. Zhang,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>On the convergence of a class of infeasible interior-point methods
+‘’On the convergence of a class of infeasible interior-point methods
 for the horizontal linear complementarity problem’’.
 <em>SIAM J. Optimization</em> <strong>4(1)</strong> (1994) 208-227,</p>
 </div></blockquote>
 <p>and</p>
 <blockquote>
 <div><p>G. Zhao and J. Sun,
-<a href="#id7"><span class="problematic" id="id8">``</span></a>On the rate of local convergence of high-order infeasible
+‘’On the rate of local convergence of high-order infeasible
 path-following algorithms for <span class="math notranslate nohighlight">\(P_*\)</span> linear complementarity problems’’.
-<em>Computational Optimization and Applications</em> <a href="#id9"><span class="problematic" id="id10">**</span></a>14(1)* (1999) 293-307,</p>
+<em>Computational Optimization and Applications</em> <strong>14(1)</strong> (1999) 293-307,</p>
 </div></blockquote>
 <p>with many enhancements described by</p>
 <blockquote>
 <div><p>N. I. M. Gould, D. Orban and D. P. Robinson,
-<a href="#id11"><span class="problematic" id="id12">``</span></a>Trajectory-following methods for large-scale degenerate
+‘’Trajectory-following methods for large-scale degenerate
 convex quadratic programming’’,
 <em>Mathematical Programming Computation</em> <strong>5(2)</strong> (2013) 113-142</p>
 </div></blockquote>
 <p>and tailored for a regularized linear least-squares objective.</p>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-clls-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A_o\)</span>
 may be presented and stored in a variety of convenient input formats.
 Let <span class="math notranslate nohighlight">\(A\)</span> be <span class="math notranslate nohighlight">\(A_o\)</span> (with <span class="math notranslate nohighlight">\(o\)</span> instead of <span class="math notranslate nohighlight">\(m\)</span>) below as appropriate.</p>

@@ -401,6 +401,7 @@
 </details></li>
 
 
+
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_sls_control_type.html">sls_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
@@ -458,6 +459,7 @@
 </details></li>
 
 
+
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_ssls_control_type.html">ssls_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
@@ -490,6 +492,7 @@
 </details></li>
 
 
+
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_sbls_control_type.html">sbls_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
@@ -520,6 +523,7 @@
 
 </ul>
 </details></li>
+
 
 
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_psls_control_type.html">psls_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -556,6 +560,7 @@
 
 </ul>
 </details></li>
+
 
 
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_sils_control_type.html">sils_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -598,6 +603,7 @@
 </details></li>
 
 
+
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_gls_control_type.html">struct gls_control_type</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
@@ -632,6 +638,7 @@
 
 </ul>
 </details></li>
+
 
 
 <li class="toctree-l2 has-children"><a class="reference internal" href="struct_fdc_control_type.html">fdc_control_type structure</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -739,7 +746,7 @@ where <span class="math notranslate nohighlight">\(P_R\)</span> and <span class=
 </section>
 <section id="supported-solvers">
 <span id="details-uls-solvers"></span><h2>supported solvers<a class="headerlink" href="#supported-solvers" title="Link to this heading">#</a></h2>
-<p>The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">uls</span></code> are
+<p id="details-uls-supported-unsym">The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">uls</span></code> are
 given in the following table:</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id3">
 <caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
@@ -802,7 +809,7 @@ machined-tuned versions should be used.</p>
 </ul>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-uls-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -861,13 +868,13 @@ The string A_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the uls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a7afb5f2dde112e60686a5527a8f37ca4"><span class="std std-ref">uls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a5e2c9573bc8661114e9f073782b460ef"><span class="std std-ref">uls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a6c0599479b84ee7d7c4ee7c473b76a83"><span class="std std-ref">uls_factorize_matrix</span></a> - set up matrix data structures, analyse the structure to choose a suitable order for factorization, and then factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1ad2ad6daa4d54d75e40fbe253f2bc5881"><span class="std std-ref">uls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a01d3e7c19415125c660eba51d99c7518"><span class="std std-ref">uls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span> or <span class="math notranslate nohighlight">\(A^Tx=b\)</span></p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span class="std std-ref">uls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a36b2ea1ade2cdd8bca238f46e9e98435"><span class="std std-ref">uls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1a7afb5f2dde112e60686a5527a8f37ca4"><span class="std std-ref">uls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1a5e2c9573bc8661114e9f073782b460ef"><span class="std std-ref">uls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1a6c0599479b84ee7d7c4ee7c473b76a83"><span class="std std-ref">uls_factorize_matrix</span></a> - set up matrix data structures, analyse the structure to choose a suitable order for factorization, and then factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1ad2ad6daa4d54d75e40fbe253f2bc5881"><span class="std std-ref">uls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1a01d3e7c19415125c660eba51d99c7518"><span class="std std-ref">uls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span> or <span class="math notranslate nohighlight">\(A^Tx=b\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span class="std std-ref">uls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-uls-8h-1a36b2ea1ade2cdd8bca238f46e9e98435"><span class="std std-ref">uls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-uls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -881,9 +888,9 @@ illustrations of use.</p>
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">float</span> <a class="reference internal" href="#doxid-galahad-spc-8h"><span class="std std-ref">spc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">double</span> <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
@@ -892,47 +899,47 @@ illustrations of use.</p>
 
 <span class="c1">// global functions</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a7afb5f2dde112e60686a5527a8f37ca4"><span class="std std-ref">uls_initialize</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1a7afb5f2dde112e60686a5527a8f37ca4"><span class="std std-ref">uls_initialize</span></a><span></span><span class="p">(</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">solver</span><span class="p">[],</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a5e2c9573bc8661114e9f073782b460ef"><span class="std std-ref">uls_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1a5e2c9573bc8661114e9f073782b460ef"><span class="std std-ref">uls_read_specfile</span></a><span></span><span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">specfile</span><span class="p">[]);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a6c0599479b84ee7d7c4ee7c473b76a83"><span class="std std-ref">uls_factorize_matrix</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1a6c0599479b84ee7d7c4ee7c473b76a83"><span class="std std-ref">uls_factorize_matrix</span></a><span></span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">type</span><span class="p">[],</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">row</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">col</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ptr</span><span class="p">[]</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">row</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ptr</span><span class="p">[]</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1ad2ad6daa4d54d75e40fbe253f2bc5881"><span class="std std-ref">uls_reset_control</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1ad2ad6daa4d54d75e40fbe253f2bc5881"><span class="std std-ref">uls_reset_control</span></a><span></span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a01d3e7c19415125c660eba51d99c7518"><span class="std std-ref">uls_solve_system</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1a01d3e7c19415125c660eba51d99c7518"><span class="std std-ref">uls_solve_system</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">sol</span><span class="p">[],</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">sol</span><span class="p">[],</span>
     <span class="kt">bool</span> <span class="n">trans</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span class="std std-ref">uls_information</span></a><span></span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span class="std std-ref">uls_information</span></a><span></span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-uls-8h-1a36b2ea1ade2cdd8bca238f46e9e98435"><span class="std std-ref">uls_terminate</span></a><span></span><span class="p">(</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-galahad-uls-8h-1a36b2ea1ade2cdd8bca238f46e9e98435"><span class="std std-ref">uls_terminate</span></a><span></span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span>
@@ -981,7 +988,7 @@ and the obvious modifications apply equally here.</p>
 <h2>function calls<a class="headerlink" href="#function-calls" title="Link to this heading">#</a></h2>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1a7afb5f2dde112e60686a5527a8f37ca4"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">uls_initialize</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">solver</span><span class="p">[],</span> <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
                     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
-                    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
+                    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p>Select solver, set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
@@ -992,7 +999,7 @@ and the obvious modifications apply equally here.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>solver</p></td>
-<td><p>is a one-dimensional array of type char that specifies the <span class="xref std std-ref">solver package</span> that should be used to factorize the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘gls’, ‘ma28’, ‘ma48 or ‘getr’; lower or upper case variants are allowed. Only ‘getr’ is available by default, but others are easily installed (see README.external).</p></td>
+<td><p>is a one-dimensional array of type char that specifies the <a class="reference internal" href="#details-uls-supported-unsym"><span class="std std-ref">solver package</span></a> that should be used to factorize the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘gls’, ‘ma28’, ‘ma48 or ‘getr’; lower or upper case variants are allowed. Only ‘getr’ is available by default, but others are easily installed (see README.external).</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1001,7 +1008,7 @@ and the obvious modifications apply equally here.</p>
 <td><p>is a struct containing control information (see <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The initialization was successful.</p>
@@ -1047,15 +1054,15 @@ components of the control structure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1a6c0599479b84ee7d7c4ee7c473b76a83"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">uls_factorize_matrix</span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="n">type</span><span class="p">[],</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">val</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">row</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">col</span><span class="p">[],</span>
-    <span class="k">const</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ptr</span><span class="p">[]</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ne</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">val</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">row</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">col</span><span class="p">[],</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">ptr</span><span class="p">[]</span>
 <span class="p">)</span></pre>
 <p>Import matrix data into internal storage prior to solution, analyse the sparsity patern, and subsequently factorize the matrix</p>
 <p class="rubric">Parameters:</p>
@@ -1072,7 +1079,7 @@ components of the control structure.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package.</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1138,28 +1145,28 @@ details.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>m</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of rows in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of rows in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>n</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of columns in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of columns in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p>is a one-dimensional array of type char that specifies the <span class="xref std std-ref">unsymmetric storage scheme</span> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type char that specifies the <a class="reference internal" href="#details-uls-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the matrix <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ne</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
 <tr class="row-even"><td><p>val</p></td>
-<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a>, that holds the values of the entries of the matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
+<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a>, that holds the values of the entries of the matrix <span class="math notranslate nohighlight">\(A\)</span> in any of the supported storage schemes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>row</p></td>
-<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the row indices of the matrix <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the row indices of the matrix <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes, and in this case can be NULL.</p></td>
 </tr>
 <tr class="row-even"><td><p>col</p></td>
-<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the column indices of the matrix <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage schemes is used, and in this case can be NULL.</p></td>
+<td><p>is a one-dimensional array of size ne and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the column indices of the matrix <span class="math notranslate nohighlight">\(A\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set when the dense storage schemes is used, and in this case can be NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ptr</p></td>
-<td><p>is a one-dimensional array of size m+1 and type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the starting position of each row of the matrix <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be NULL.</p></td>
+<td><p>is a one-dimensional array of size m+1 and type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the starting position of each row of the matrix <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. It need not be set when the other schemes are used, and in this case can be NULL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1167,7 +1174,7 @@ details.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1ad2ad6daa4d54d75e40fbe253f2bc5881"><span id="index-6"></span><span></span><span class="kt">void</span> <span class="n">uls_reset_control</span><span class="p">(</span>
     <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-control-type"><span class="std std-ref">uls_control_type</span></a><span></span><span class="o">*</span> <span class="n">control</span><span class="p">,</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span>
 <span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
@@ -1184,7 +1191,7 @@ details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The import was successful.</p>
@@ -1199,10 +1206,10 @@ details.</p>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1a01d3e7c19415125c660eba51d99c7518"><span id="index-7"></span><span></span><span class="kt">void</span> <span class="n">uls_solve_system</span><span class="p">(</span>
     <span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">sol</span><span class="p">[],</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">m</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">n</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">sol</span><span class="p">[],</span>
     <span class="kt">bool</span> <span class="n">trans</span>
 <span class="p">)</span></pre>
 <p>Solve the linear system <span class="math notranslate nohighlight">\(Ax=b\)</span> or <span class="math notranslate nohighlight">\(A^Tx=b\)</span>.</p>
@@ -1217,7 +1224,7 @@ details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package.</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package.</p>
 <p>Possible values are:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1265,10 +1272,10 @@ for more details.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>m</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of rows in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of rows in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of columns in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that holds the number of columns in the unsymmetric matrix <span class="math notranslate nohighlight">\(A\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>sol</p></td>
 <td><p>is a one-dimensional array of size n and type double. On entry, it must hold the vector <span class="math notranslate nohighlight">\(b\)</span>. On a successful exit, its contains the solution <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
@@ -1279,7 +1286,7 @@ for more details.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span id="index-8"></span><span></span><span class="kt">void</span> <span class="n">uls_information</span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-uls-8h-1ab41cc4ccba208d7de3a0ccbc4b4efbcf"><span id="index-8"></span><span></span><span class="kt">void</span> <span class="n">uls_information</span><span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a><span></span><span class="o">*</span> <span class="n">inform</span><span class="p">,</span> <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="o">*</span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1295,7 +1302,7 @@ for more details.</p>
 <td><p>is a struct containing output information (see <a class="reference internal" href="#doxid-structuls-inform-type"><span class="std std-ref">uls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
+<td><p>is a scalar variable of type <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a>, that gives the exit status from the package. Possible values are (currently):</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>0</strong></dt><dd><p>The values were recorded successfully</p>
@@ -1347,30 +1354,30 @@ for more details.</p>
     <span class="c1">// fields</span>
 
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structuls-control-type-f-indexing"><span class="std std-ref">f_indexing</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-error"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-warning"><span class="std std-ref">warning</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-out"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-print-level"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-print-level-solver"><span class="std std-ref">print_level_solver</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-initial-fill-in-factor"><span class="std std-ref">initial_fill_in_factor</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-min-real-factor-size"><span class="std std-ref">min_real_factor_size</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-min-integer-factor-size"><span class="std std-ref">min_integer_factor_size</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-error"><span class="std std-ref">error</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-warning"><span class="std std-ref">warning</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-out"><span class="std std-ref">out</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-print-level"><span class="std std-ref">print_level</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-print-level-solver"><span class="std std-ref">print_level_solver</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-initial-fill-in-factor"><span class="std std-ref">initial_fill_in_factor</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-min-real-factor-size"><span class="std std-ref">min_real_factor_size</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-min-integer-factor-size"><span class="std std-ref">min_integer_factor_size</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-control-type-max-factor-size"><span class="std std-ref">max_factor_size</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-blas-block-size-factorize"><span class="std std-ref">blas_block_size_factorize</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-blas-block-size-solve"><span class="std std-ref">blas_block_size_solve</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-pivot-control"><span class="std std-ref">pivot_control</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-pivot-search-limit"><span class="std std-ref">pivot_search_limit</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-minimum-size-for-btf"><span class="std std-ref">minimum_size_for_btf</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-max-iterative-refinements"><span class="std std-ref">max_iterative_refinements</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-blas-block-size-factorize"><span class="std std-ref">blas_block_size_factorize</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-blas-block-size-solve"><span class="std std-ref">blas_block_size_solve</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-pivot-control"><span class="std std-ref">pivot_control</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-pivot-search-limit"><span class="std std-ref">pivot_search_limit</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-minimum-size-for-btf"><span class="std std-ref">minimum_size_for_btf</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-max-iterative-refinements"><span class="std std-ref">max_iterative_refinements</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structuls-control-type-stop-if-singular"><span class="std std-ref">stop_if_singular</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-array-increase-factor"><span class="std std-ref">array_increase_factor</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-switch-to-full-code-density"><span class="std std-ref">switch_to_full_code_density</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-array-decrease-factor"><span class="std std-ref">array_decrease_factor</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-relative-pivot-tolerance"><span class="std std-ref">relative_pivot_tolerance</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-absolute-pivot-tolerance"><span class="std std-ref">absolute_pivot_tolerance</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-zero-tolerance"><span class="std std-ref">zero_tolerance</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-acceptable-residual-relative"><span class="std std-ref">acceptable_residual_relative</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-acceptable-residual-absolute"><span class="std std-ref">acceptable_residual_absolute</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-array-increase-factor"><span class="std std-ref">array_increase_factor</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-switch-to-full-code-density"><span class="std std-ref">switch_to_full_code_density</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-array-decrease-factor"><span class="std std-ref">array_decrease_factor</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-relative-pivot-tolerance"><span class="std std-ref">relative_pivot_tolerance</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-absolute-pivot-tolerance"><span class="std std-ref">absolute_pivot_tolerance</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-zero-tolerance"><span class="std std-ref">zero_tolerance</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-acceptable-residual-relative"><span class="std std-ref">acceptable_residual_relative</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-control-type-acceptable-residual-absolute"><span class="std std-ref">acceptable_residual_absolute</span></a><span></span><span class="p">;</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structuls-control-type-prefix"><span class="std std-ref">prefix</span></a><span></span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
 <span class="p">};</span></pre>
 </section>
@@ -1381,29 +1388,29 @@ for more details.</p>
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-f-indexing"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-error"><span id="index-12"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-error"><span id="index-12"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-warning"><span id="index-13"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">warning</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-warning"><span id="index-13"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">warning</span></pre>
 <p>unit for warning messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-out"><span id="index-14"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-out"><span id="index-14"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-print-level"><span id="index-15"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-print-level"><span id="index-15"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-print-level-solver"><span id="index-16"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level_solver</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-print-level-solver"><span id="index-16"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">print_level_solver</span></pre>
 <p>controls level of diagnostic output from external solver</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-initial-fill-in-factor"><span id="index-17"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">initial_fill_in_factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-initial-fill-in-factor"><span id="index-17"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">initial_fill_in_factor</span></pre>
 <p>prediction of factor by which the fill-in will exceed the initial number of nonzeros in <span class="math notranslate nohighlight">\(A\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-min-real-factor-size"><span id="index-18"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">min_real_factor_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-min-real-factor-size"><span id="index-18"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">min_real_factor_size</span></pre>
 <p>initial size for real array for the factors and other data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-min-integer-factor-size"><span id="index-19"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">min_integer_factor_size</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-min-integer-factor-size"><span id="index-19"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">min_integer_factor_size</span></pre>
 <p>initial size for integer array for the factors and other data</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-max-factor-size"><span id="index-20"></span><span></span><span class="kt">int64_t</span> <span class="n">max_factor_size</span></pre>
 <p>maximum size for real array for the factors and other data</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-blas-block-size-factorize"><span id="index-21"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">blas_block_size_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-blas-block-size-factorize"><span id="index-21"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">blas_block_size_factorize</span></pre>
 <p>level 3 blocking in factorize</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-blas-block-size-solve"><span id="index-22"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">blas_block_size_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-blas-block-size-solve"><span id="index-22"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">blas_block_size_solve</span></pre>
 <p>level 2 and 3 blocking in solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-pivot-control"><span id="index-23"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-pivot-control"><span id="index-23"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_control</span></pre>
 <p>pivot control:</p>
 <ul class="simple">
 <li><p>1 Threshold Partial Pivoting is desired</p></li>
@@ -1412,29 +1419,29 @@ for more details.</p>
 <li><p>4 Threshold Symmetric Pivoting is desired</p></li>
 <li><p>5 Threshold Diagonal Pivoting is desired</p></li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-pivot-search-limit"><span id="index-24"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_search_limit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-pivot-search-limit"><span id="index-24"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_search_limit</span></pre>
 <p>number of rows/columns pivot selection restricted to (0 = no restriction)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-minimum-size-for-btf"><span id="index-25"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">minimum_size_for_btf</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-minimum-size-for-btf"><span id="index-25"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">minimum_size_for_btf</span></pre>
 <p>the minimum permitted size of blocks within the block-triangular form</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-max-iterative-refinements"><span id="index-26"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_iterative_refinements</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-max-iterative-refinements"><span id="index-26"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">max_iterative_refinements</span></pre>
 <p>maximum number of iterative refinements allowed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-stop-if-singular"><span id="index-27"></span><span></span><span class="kt">bool</span> <span class="n">stop_if_singular</span></pre>
 <p>stop if the matrix is found to be structurally singular</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-array-increase-factor"><span id="index-28"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">array_increase_factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-array-increase-factor"><span id="index-28"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">array_increase_factor</span></pre>
 <p>factor by which arrays sizes are to be increased if they are too small</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-switch-to-full-code-density"><span id="index-29"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">switch_to_full_code_density</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-switch-to-full-code-density"><span id="index-29"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">switch_to_full_code_density</span></pre>
 <p>switch to full code when the density exceeds this factor</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-array-decrease-factor"><span id="index-30"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">array_decrease_factor</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-array-decrease-factor"><span id="index-30"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">array_decrease_factor</span></pre>
 <p>if previously allocated internal workspace arrays are greater than array_decrease_factor times the currently required sizes, they are reset to current requirements</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-relative-pivot-tolerance"><span id="index-31"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">relative_pivot_tolerance</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-relative-pivot-tolerance"><span id="index-31"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">relative_pivot_tolerance</span></pre>
 <p>pivot threshold</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-absolute-pivot-tolerance"><span id="index-32"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">absolute_pivot_tolerance</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-absolute-pivot-tolerance"><span id="index-32"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">absolute_pivot_tolerance</span></pre>
 <p>any pivot small than this is considered zero</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-zero-tolerance"><span id="index-33"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">zero_tolerance</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-zero-tolerance"><span id="index-33"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">zero_tolerance</span></pre>
 <p>any entry smaller than this in modulus is reset to zero</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-acceptable-residual-relative"><span id="index-34"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">acceptable_residual_relative</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-acceptable-residual-relative"><span id="index-34"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">acceptable_residual_relative</span></pre>
 <p>refinement will cease as soon as the residual <span class="math notranslate nohighlight">\(\|Ax-b\|\)</span> falls below max( acceptable_residual_relative \* <span class="math notranslate nohighlight">\(\|b\|\)</span>, acceptable_residual_absolute )</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-acceptable-residual-absolute"><span id="index-35"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">acceptable_residual_absolute</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-acceptable-residual-absolute"><span id="index-35"></span><a class="reference internal" href="#doxid-galahad-rpc-8h"><span class="std std-ref">rpc_</span></a><span></span> <span class="n">acceptable_residual_absolute</span></pre>
 <p>see acceptable_residual_relative</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-control-type-prefix"><span id="index-36"></span><span></span><span class="kt">char</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
@@ -1449,20 +1456,20 @@ for more details.</p>
 <span class="k">struct</span> <span class="n">uls_inform_type</span> <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-status"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-alloc-status"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-status"><span class="std std-ref">status</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-alloc-status"><span class="std std-ref">alloc_status</span></a><span></span><span class="p">;</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structuls-inform-type-bad-alloc"><span class="std std-ref">bad_alloc</span></a><span></span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-more-info"><span class="std std-ref">more_info</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-more-info"><span class="std std-ref">more_info</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-inform-type-out-of-range"><span class="std std-ref">out_of_range</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-inform-type-duplicates"><span class="std std-ref">duplicates</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-inform-type-entries-dropped"><span class="std std-ref">entries_dropped</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-inform-type-workspace-factors"><span class="std std-ref">workspace_factors</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-compresses"><span class="std std-ref">compresses</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-compresses"><span class="std std-ref">compresses</span></a><span></span><span class="p">;</span>
     <span class="kt">int64_t</span> <a class="reference internal" href="#doxid-structuls-inform-type-entries-in-factors"><span class="std std-ref">entries_in_factors</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-rank"><span class="std std-ref">rank</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-structural-rank"><span class="std std-ref">structural_rank</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-pivot-control"><span class="std std-ref">pivot_control</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-iterative-refinements"><span class="std std-ref">iterative_refinements</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-rank"><span class="std std-ref">rank</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-structural-rank"><span class="std std-ref">structural_rank</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-pivot-control"><span class="std std-ref">pivot_control</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-iterative-refinements"><span class="std std-ref">iterative_refinements</span></a><span></span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-structuls-inform-type-alternative"><span class="std std-ref">alternative</span></a><span></span><span class="p">;</span>
     <span class="kt">char</span> <a class="reference internal" href="#doxid-structuls-inform-type-solver"><span class="std std-ref">solver</span></a><span></span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>
     <span class="k">struct</span> <span class="n">gls_ainfo_type</span> <a class="reference internal" href="#doxid-structuls-inform-type-gls-ainfo"><span class="std std-ref">gls_ainfo</span></a><span></span><span class="p">;</span>
@@ -1471,7 +1478,7 @@ for more details.</p>
     <span class="k">struct</span> <span class="n">ma48_ainfo</span> <a class="reference internal" href="#doxid-structuls-inform-type-ma48-ainfo"><span class="std std-ref">ma48_ainfo</span></a><span></span><span class="p">;</span>
     <span class="k">struct</span> <span class="n">ma48_finfo</span> <a class="reference internal" href="#doxid-structuls-inform-type-ma48-finfo"><span class="std std-ref">ma48_finfo</span></a><span></span><span class="p">;</span>
     <span class="k">struct</span> <span class="n">ma48_sinfo</span> <a class="reference internal" href="#doxid-structuls-inform-type-ma48-sinfo"><span class="std std-ref">ma48_sinfo</span></a><span></span><span class="p">;</span>
-    <a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-lapack-error"><span class="std std-ref">lapack_error</span></a><span></span><span class="p">;</span>
+    <a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <a class="reference internal" href="#doxid-structuls-inform-type-lapack-error"><span class="std std-ref">lapack_error</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 <section id="details-structuls-inform-type">
@@ -1479,7 +1486,7 @@ for more details.</p>
 <p>inform derived type as a C struct</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-status"><span id="index-38"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-status"><span id="index-38"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1513,11 +1520,11 @@ for more details.</p>
 <p>solver-specific error; see the solver’s info parameter</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-alloc-status"><span id="index-39"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-alloc-status"><span id="index-39"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">alloc_status</span></pre>
 <p>STAT value after allocate failure.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-bad-alloc"><span id="index-40"></span><span></span><span class="kt">char</span> <span class="n">bad_alloc</span><span class="p">[</span><span class="mi">81</span><span class="p">]</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-more-info"><span id="index-41"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">more_info</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-more-info"><span id="index-41"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">more_info</span></pre>
 <p>further information on failure</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-out-of-range"><span id="index-42"></span><span></span><span class="kt">int64_t</span> <span class="n">out_of_range</span></pre>
 <p>number of indices out-of-range</p>
@@ -1527,15 +1534,15 @@ for more details.</p>
 <p>number of entries dropped during the factorization</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-workspace-factors"><span id="index-45"></span><span></span><span class="kt">int64_t</span> <span class="n">workspace_factors</span></pre>
 <p>predicted or actual number of reals and integers to hold factors</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-compresses"><span id="index-46"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">compresses</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-compresses"><span id="index-46"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">compresses</span></pre>
 <p>number of compresses of data required</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-entries-in-factors"><span id="index-47"></span><span></span><span class="kt">int64_t</span> <span class="n">entries_in_factors</span></pre>
 <p>number of entries in factors</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-rank"><span id="index-48"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-rank"><span id="index-48"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">rank</span></pre>
 <p>estimated rank of the matrix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-structural-rank"><span id="index-49"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">structural_rank</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-structural-rank"><span id="index-49"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">structural_rank</span></pre>
 <p>structural rank of the matrix</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-pivot-control"><span id="index-50"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-pivot-control"><span id="index-50"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">pivot_control</span></pre>
 <p>pivot control:</p>
 <ul>
 <li><p><strong>1</strong></p>
@@ -1554,7 +1561,7 @@ for more details.</p>
 <p>Threshold Diagonal Pivoting has been desired</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-iterative-refinements"><span id="index-51"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">iterative_refinements</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-iterative-refinements"><span id="index-51"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">iterative_refinements</span></pre>
 <p>number of iterative refinements performed</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-alternative"><span id="index-52"></span><span></span><span class="kt">bool</span> <span class="n">alternative</span></pre>
 <p>has an “alternative” y: A^T y = 0 and yT b &gt; 0 been found when trying to solve A x = b ?</p>
@@ -1572,7 +1579,7 @@ for more details.</p>
 <p>see ma48_ainfo</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-ma48-sinfo"><span id="index-59"></span><span></span><span class="k">struct</span> ma48_sinfo<span></span> <span class="n">ma48_sinfo</span></pre>
 <p>see ma48_ainfo</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-lapack-error"><span id="index-60"></span><a class="reference internal" href="uls_functions.html#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">lapack_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structuls-inform-type-lapack-error"><span id="index-60"></span><a class="reference internal" href="#doxid-galahad-ipc-8h"><span class="std std-ref">ipc_</span></a><span></span> <span class="n">lapack_error</span></pre>
 <p>the LAPACK error return code</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1679,7 +1686,7 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="o">//</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;sol: &quot;</span><span class="p">);</span>
         <span class="o">//</span> <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -1700,7 +1707,7 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">right</span><span class="o">-</span><span class="n">hand</span> <span class="n">side</span> <span class="ow">and</span> <span class="n">solve</span> <span class="n">the</span> <span class="n">system</span> <span class="n">A</span><span class="o">^</span><span class="n">T</span> <span class="n">x</span> <span class="o">=</span> <span class="n">b</span>
@@ -1718,7 +1725,7 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="o">//</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;sol: &quot;</span><span class="p">);</span>
         <span class="o">//</span> <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -1739,7 +1746,7 @@ but to <code class="docutils literal notranslate"><span class="pre">int64_t</spa
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="o">//</span> <span class="n">Delete</span> <span class="n">internal</span> <span class="n">workspace</span>
@@ -1855,7 +1862,7 @@ the code is available in $GALAHAD/src/uls/C/ulstf.c .</p>
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="o">//</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;sol: &quot;</span><span class="p">);</span>
         <span class="o">//</span> <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -1876,7 +1883,7 @@ the code is available in $GALAHAD/src/uls/C/ulstf.c .</p>
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="o">//</span> <span class="n">Set</span> <span class="n">right</span><span class="o">-</span><span class="n">hand</span> <span class="n">side</span> <span class="ow">and</span> <span class="n">solve</span> <span class="n">the</span> <span class="n">system</span> <span class="n">A</span><span class="o">^</span><span class="n">T</span> <span class="n">x</span> <span class="o">=</span> <span class="n">b</span>
@@ -1894,7 +1901,7 @@ the code is available in $GALAHAD/src/uls/C/ulstf.c .</p>
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="o">//</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;sol: &quot;</span><span class="p">);</span>
         <span class="o">//</span> <span class="k">for</span><span class="p">(</span> <span class="n">ipc_</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -1915,7 +1922,7 @@ the code is available in $GALAHAD/src/uls/C/ulstf.c .</p>
             <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;   fail &quot;</span><span class="p">);</span>
           <span class="p">}</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">i_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; ULS_solve exit status = %1&quot;</span> <span class="n">d_ipc_</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inform</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="o">//</span> <span class="n">Delete</span> <span class="n">internal</span> <span class="n">workspace</span>

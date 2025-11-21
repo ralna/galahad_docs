@@ -148,6 +148,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -160,19 +167,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -291,6 +298,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -369,6 +383,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="sls.html">SLS - solve symmetric systems of linear equations (übersolver)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uls.html">ULS - solve unsymmetric systems of linear equations (übersolver)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssls.html">SSLS - solve block symmetric systems of linear equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sbls.html">SBLS - precondition and solve block symmetric systems of linear equations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">PSLS - precondition symmetric, positive-definite systems of linear equations (übersolver)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sils.html">SILS - solve symmetric systems of linear equations</a></li>
@@ -453,13 +468,13 @@ Berlin (1992), Section 3.3.10,</p>
 <p>along with the more modern versions implements in <code class="docutils literal notranslate"><span class="pre">ICFS</span></code> due to</p>
 <blockquote>
 <div><p>C.-J. Lin and J. J. More’,
-<a href="#id1"><span class="problematic" id="id2">``</span></a>Incomplete Cholesky factorizations with limited memory’’.
+‘’Incomplete Cholesky factorizations with limited memory’’.
 <em>SIAM Journal on Scientific Computing</em> <strong>21</strong> (1999) 21-45,</p>
 </div></blockquote>
 <p>and in <code class="docutils literal notranslate"><span class="pre">HSL_MI28</span></code> described by</p>
 <blockquote>
 <div><p>J. A. Scott and M. Tuma,
-<a href="#id3"><span class="problematic" id="id4">``</span></a>HSL_MI28: an efficient and robust
+‘’HSL_MI28: an efficient and robust
 limited-memory incomplete Cholesky factorization code’’.
 <em>ACM Transactions on Mathematical Software</em> <strong>40(4)</strong> (2014), Article 24.</p>
 </div></blockquote>
@@ -467,8 +482,8 @@ limited-memory incomplete Cholesky factorization code’’.
 with some preconditioners are described in the documentation to that
 package. The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">sls</span></code>
 are given in the following table.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id7">
-<caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 19.2%" />
 <col style="width: 19.2%" />
@@ -589,7 +604,7 @@ solvers directly rather that via this package.</p>
 <p>Orderings to reduce the bandwidth, as implemented in HSL’s <code class="docutils literal notranslate"><span class="pre">MC61</span></code>, are due to</p>
 <blockquote>
 <div><p>J. K. Reid and J. A. Scott,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>Ordering symmetric sparse matrices for small profile and wavefront’’.
+‘’Ordering symmetric sparse matrices for small profile and wavefront’’.
 <em>International Journal for Numerical Methods in Engineering</em>
 <strong>45</strong>  (1999) 1737-1755.</p>
 </div></blockquote>
@@ -599,7 +614,7 @@ is achieved using the Schur-complement updating package <code class="docutils li
 unless a complete re-factorization is likely more efficient.</p>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-psls-storage-sym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
@@ -797,11 +812,18 @@ computation time.</p>
 deallocation error will terminate execution. Otherwise,
 computation will continue.</p>
 </dd>
+<dt>symmetric_linear_solver<span class="classifier">str</span></dt><dd><p>the symmetric linear equation solver used when
+<code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> = 5. Possible choices are currently:
+sils, ma27, ma57, ma77, ma86, ma97, ssids, mumps, pardiso,
+mkl_pardiso, pastix, wsmp and sytrr, although only sils,
+sytr and, for OMP 4.0-compliant compilers, ssids are
+installed by default.</p>
+</dd>
 <dt>definite_linear_solver<span class="classifier">str</span></dt><dd><p>the definite linear equation solver used when
-<code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> = 3,4. Possible choices are currently:
+<code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> = 4. Possible choices are currently:
 sils, ma27, ma57, ma77, ma86, ma87, ma97, ssids, mumps, pardiso,
-mkl_pardiso, pastix, wsmp, potr and pbtr, although only sils,
-potr, pbtr and, for OMP 4.0-compliant compilers, ssids are
+mkl_pardiso, pastix, wsmp, sytr, potr and pbtr, although only sils,
+sytr, potr, pbtr and, for OMP 4.0-compliant compilers, ssids are
 installed by default.</p>
 </dd>
 <dt>prefix<span class="classifier">str</span></dt><dd><p>all output lines will be prefixed by the string contained

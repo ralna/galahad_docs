@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -438,6 +452,10 @@
 
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ssls.html">SSLS - solve block symmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssls_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="sbls.html">SBLS - precondition and solve block symmetric systems of linear equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sbls_functions.html">callable functions</a></li>
 </ul>
@@ -557,7 +575,7 @@ perturbation introduced.</p>
 </section>
 <section id="supported-solvers">
 <span id="details-sls-solvers"></span><h2>supported solvers<a class="headerlink" href="#supported-solvers" title="Link to this heading">#</a></h2>
-<p>The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">sls</span></code> are
+<p id="details-sls-supported-sym">The key features of the external solvers supported by <code class="docutils literal notranslate"><span class="pre">sls</span></code> are
 given in the following table:</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id5">
 <caption><span class="caption-text">External solver characteristics</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
@@ -841,19 +859,19 @@ the string A_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the sls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span class="std std-ref">sls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span class="std std-ref">sls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span class="std std-ref">sls_analyse_matrix</span></a> - set up matrix data structures and analyse the structure to choose a suitable order for factorization</p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span class="std std-ref">sls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span class="std std-ref">sls_factorize_matrix</span></a> - form and factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a1d8a0c73587ca6d7f5333d41b3e2472a"><span class="std std-ref">sls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ada1e7b9ed799335702f85a551b64bf88"><span class="std std-ref">sls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a380a7f50cc71c705d15a791acde946cf"><span class="std std-ref">sls_analyse_matrix</span></a> - set up matrix data structures and analyse the structure to choose a suitable order for factorization</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1aacc344b8cdf0b1c27965f191382372e4"><span class="std std-ref">sls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ab6666f5eb7b0bdbbc9c9b52b7a2e2c41"><span class="std std-ref">sls_factorize_matrix</span></a> - form and factorize the matrix <span class="math notranslate nohighlight">\(A\)</span></p></li>
 <li><p>one of</p>
 <ul>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span class="std std-ref">sls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span></p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span class="std std-ref">sls_partial_solve_system</span></a> - solve a linear system <span class="math notranslate nohighlight">\(Mx=b\)</span> involving one of the matrix factors <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a1b3e7546b59b06160c51e16b6781bc0b"><span class="std std-ref">sls_solve_system</span></a> - solve the linear system of equations <span class="math notranslate nohighlight">\(Ax=b\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1ac66dc50d8b54acab90d70ae649b92905"><span class="std std-ref">sls_partial_solve_system</span></a> - solve a linear system <span class="math notranslate nohighlight">\(Mx=b\)</span> involving one of the matrix factors <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(A\)</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span class="std std-ref">sls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="sls_functions.html#doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span class="std std-ref">sls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1a0ca4a126813c3aafac9d791a152b233c"><span class="std std-ref">sls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-sls-8h-1aa5aafa378e3500ce31783e13c3395d30"><span class="std std-ref">sls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-sls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -883,7 +901,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -922,7 +940,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -940,7 +958,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1086,7 +1104,7 @@ details.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1395,7 +1413,7 @@ for more details.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1426,10 +1444,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1753,7 +1771,7 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">ma86_info</span><span class="o">::</span><span class="kt">ma86_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">ma87_info</span><span class="o">::</span><span class="kt">ma87_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">ma97_info</span><span class="o">::</span><span class="kt">ma97_info</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
-<span class="w">      </span><span class="n">ssids_inform</span><span class="o">::</span><span class="kt">spral_ssids_inform</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
+<span class="w">      </span><span class="n">ssids_inform</span><span class="o">::</span><span class="kt">ssids_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">nodend_inform</span><span class="o">::</span><span class="kt">nodend_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mc61_info</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">mc61_rinfo</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="kt">T</span><span class="p">}</span>
@@ -1919,7 +1937,7 @@ status from the package. Possible values are
 to solve <span class="math notranslate nohighlight">\(A x = b\)</span> ?</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-solver"><span id="index-124"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">solver</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span></pre>
 <p>name of external solver used to factorize and solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-time"><span id="index-125"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_time_type.html#doxid-structsls-time-type"><span class="std std-ref">sls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-time"><span id="index-125"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structsls-time-type"><span class="std std-ref">sls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-sils-ainfo"><span id="index-126"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sils_ainfo_type.html#doxid-structsils-ainfo-type"><span class="std std-ref">sils_ainfo_type</span></a><span></span><span class="w"> </span><span class="n">sils_ainfo</span></pre>
 <p>the analyse output structure from sils</p>
@@ -1941,7 +1959,7 @@ to solve <span class="math notranslate nohighlight">\(A x = b\)</span> ?</p>
 <p>the output structure from hsl_ma87</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-ma97-info"><span id="index-135"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_hsl_types.html#details-structma97-info"><span class="std std-ref">ma97_info</span></a><span></span><span class="w"> </span><span class="n">ma97_info</span></pre>
 <p>the output structure from hsl_ma97</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-ssids-inform"><span id="index-136"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ssids_types.html#details-structspral-ssids-inform"><span class="std std-ref">spral_ssids_inform</span></a><span></span><span class="w"> </span><span class="n">ssids_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-ssids-inform"><span id="index-136"></span><span></span><span class="n">struct</span><span class="w"> </span>ssids_inform_type<span></span><span class="w"> </span><span class="n">ssids_inform</span></pre>
 <p>the output structure from ssids</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-nodend-inform"><span id="index-137"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="nodend.html#doxid-structnodend-inform-type"><span class="std std-ref">nodend_inform_type</span></a><span></span><span class="w"> </span><span class="n">nodend_inform</span></pre>
 <p>the output structure from nodend</p>

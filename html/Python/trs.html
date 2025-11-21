@@ -383,6 +383,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a regularized quadratic function using matrix factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a></li>
@@ -491,7 +492,7 @@ if any; for the equality-constrained problem <span class="math notranslate nohig
 the multiplier is unconstrained.
 In addition in all cases, the matrix <span class="math notranslate nohighlight">\(H + \lambda_* M\)</span> will be positive
 semi-definite on the null-space of <span class="math notranslate nohighlight">\(A\)</span>; in most instances it will actually
-be positive definite, but in special <a href="#id1"><span class="problematic" id="id2">``</span></a>hard’’ cases singularity is a
+be positive definite, but in special ‘’hard’’ cases singularity is a
 possibility.</p>
 <p>The method is iterative, and proceeds in two phases.
 Firstly, lower and upper bounds, <span class="math notranslate nohighlight">\(\lambda_L\)</span> and
@@ -532,12 +533,12 @@ rather than a Cholesky factorization.</p>
 <p>The method is described in detail in</p>
 <blockquote>
 <div><p>H. S. Dollar, N. I. M. Gould and D. P. Robinson.
-“On solving trust-region and other regularised subproblems in optimization”.
+‘’On solving trust-region and other regularised subproblems in optimization’’.
 <em>Mathematical Programming Computation</em> <strong>2(1)</strong> (2010) 21–57.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-trs-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, if it is needed, may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -588,7 +589,7 @@ of the integer array A_row, and real array A_val, respectively.
 As before, for sparse matrices, this scheme almost always requires less
 storage than the co-ordinate format.
 The string A_type = ‘sparse_by_columns’ should be specified.</p>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(H\)</span> and, optionally. <span class="math notranslate nohighlight">\(M\)</span> may also
+<p id="details-trs-storage-sym">The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(H\)</span> and, optionally, <span class="math notranslate nohighlight">\(M\)</span> may also
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
 (i.e, those entries that lie on or below the leading diagonal).</p>

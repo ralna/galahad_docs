@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,21 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -293,6 +302,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -388,9 +404,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -479,18 +500,18 @@ Lipschitz functions and Lipschitz first derivatives”
 <p>To solve a given problem, functions from the ugo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a172105bd528410f7c7e2fd77899ebc78"><span class="std std-ref">ugo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a6819d58a728f3bf97232ed719e72fb91"><span class="std std-ref">ugo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8bcbdf9ef1229535b77d9991eb543dcb"><span class="std std-ref">ugo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a51fa6faacfb75c3dcad44befd2e6cb40"><span class="std std-ref">ugo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1aa5b2949ab17e25a0a0c24f38c0d61a1a"><span class="std std-ref">ugo_solve_direct</span></a> - solve using function calls to evaluate function and derivative values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a0b8f123f8e67bb0cb8a27c5ce87c824c"><span class="std std-ref">ugo_solve_reverse</span></a> - solve returning to the calling program to obtain function and derivative values</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="ugo_functions.html#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1a8e1db35daea3247b2cc9eb8607d0abee"><span class="std std-ref">ugo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-ugo-8h-1ad9485926c547bb783aea3ee1adb3b084"><span class="std std-ref">ugo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-ugo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1132,32 +1153,56 @@ using Printf
 using Accessors
 using Quadmath
 
-function test_ugo(::Type{T}, ::Type{INT}) where {T,INT}
+# Custom userdata struct
+mutable struct userdata_ugo{T}
+  a::T
+end
+
+function test_ugo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;) where {T,INT}
   # Test problem objective
-  function objf(x::T)
-    a = 10.0
+  function objf(x::T, userdata::userdata_ugo{T})
+    a = userdata.a
     res = x * x * cos(a * x)
     return res
   end
 
   # Test problem first derivative
-  function gradf(x::T)
-    a = 10.0
+  function gradf(x::T, userdata::userdata_ugo{T})
+    a = userdata.a
     res = -a * x * x * sin(a * x) + 2.0 * x * cos(a * x)
     return res
   end
 
   # Test problem second derivative
-  function hessf(x::T)
-    a = 10.0
+  function hessf(x::T, userdata::userdata_ugo{T})
+    a = userdata.a
     res = -a * a * x * x * cos(a * x) - 4.0 * a * x * sin(a * x) + 2.0 * cos(a * x)
     return res
   end
+
+  # Evaluate test problem objective, first and second derivatives
+  function eval_fgh(x::T, f::Ptr{T}, g::Ptr{T}, h::Ptr{T}, userdata::Ptr{Cvoid})::INT
+    _f = unsafe_wrap(Vector{T}, f, 1)
+    _g = unsafe_wrap(Vector{T}, g, 1)
+    _h = unsafe_wrap(Vector{T}, h, 1)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_ugo{T}
+
+    _f[1] = objf(x, _userdata)
+    _g[1] = gradf(x, _userdata)
+    _h[1] = hessf(x, _userdata)
+    return INT(0)
+  end
+
+  eval_fgh_ptr = @eval @cfunction($eval_fgh, $INT, ($T, Ptr{$T}, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
   control = Ref{ugo_control_type{T,INT}}()
   inform = Ref{ugo_inform_type{T,INT}}()
+
+  # Set user data
+  userdata = userdata_ugo{T}(10)
+  userdata_ptr = pointer_from_objref(userdata)
 
   # Initialize UGO
   status = Ref{INT}()
@@ -1165,17 +1210,17 @@ function test_ugo(::Type{T}, ::Type{INT}) where {T,INT}
   ugo_initialize(T, INT, data, control, status)
 
   # Set user-defined control options
-  @reset control[].print_level = INT(1)
+  # @reset control[].print_level = INT(1)
 
   # Test problem bounds
   x_l = Ref{T}(-1.0)
   x_u = Ref{T}(2.0)
 
   # Test problem objective, gradient, Hessian values
-  x = Ref{T}(0.0)
-  f = Ref{T}(objf(x[]))
-  g = Ref{T}(gradf(x[]))
-  h = Ref{T}(hessf(x[]))
+  x = zeros(T, 1)
+  f = T[objf(x[1], userdata)]
+  g = T[gradf(x[1], userdata)]
+  h = T[hessf(x[1], userdata)]
 
   # import problem data
   ugo_import(T, INT, control, data, status, x_l, x_u)
@@ -1184,22 +1229,29 @@ function test_ugo(::Type{T}, ::Type{INT}) where {T,INT}
   status[] = 1
 
   # Solve the problem: min f(x), x_l ≤ x ≤ x_u
-  terminated = false
-  while !terminated
+  if mode == &quot;direct&quot;
     # Call UGO_solve
-    ugo_solve_reverse(T, INT, data, status, eval_status, x, f, g, h)
+    ugo_solve_direct(T, INT, data, userdata_ptr, status, x, f, g, h, eval_fgh_ptr)
+  end
 
-    # Evaluate f(x) and its derivatives as required
-    if (status[] ≥ 2)  # need objective
-      f[] = objf(x[])
-      if (status[] ≥ 3)  # need first derivative
-        g[] = gradf(x[])
-        if (status[] ≥ 4) # need second derivative
-          h[] = hessf(x[])
+  if mode == &quot;reverse&quot;
+    terminated = false
+    while !terminated
+      # Call UGO_solve
+      ugo_solve_reverse(T, INT, data, status, eval_status, x, f, g, h)
+
+      # Evaluate f(x) and its derivatives as required
+      if (status[] ≥ 2)  # need objective
+        f[1] = objf(x[1], userdata)
+        if (status[] ≥ 3)  # need first derivative
+          g[1] = gradf(x[1], userdata)
+          if (status[] ≥ 4) # need second derivative
+            h[1] = hessf(x[1], userdata)
+          end
         end
+      else  # the solution has been found (or an error has occured)
+        terminated = true
       end
-    else  # the solution has been found (or an error has occured)
-      terminated = true
     end
   end
 
@@ -1227,7 +1279,9 @@ for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
                              (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
   if isfile(libgalahad)
     @testset &quot;UGO -- $T -- $INT&quot; begin
-      @test test_ugo(T, INT) == 0
+      @testset &quot;$mode communication&quot; for mode in (&quot;reverse&quot;, &quot;direct&quot;)
+        @test test_ugo(T, INT; mode) == 0
+      end
     end
   end
 end
@@ -1310,13 +1364,13 @@ end
   </nav></div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/ugo.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ugo.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -1331,8 +1385,8 @@ end
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1365,7 +1419,8 @@ end
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

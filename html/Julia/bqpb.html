@@ -542,7 +542,7 @@ rather than reducing each of the terms individually. Given an estimate
 of the primal-dual variables, a correction
 <span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z,\;z^{l} ,\;z^{u} )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
-nonlinear systems (2a) and a parameterized <a href="#id1"><span class="problematic" id="id2">``</span></a>residual
+nonlinear systems (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories
 proposed by Zhang (1994) and Zhao and Sun (1999) are possibilities.
 An improved estimate <span class="math notranslate nohighlight">\(v + \alpha \Delta v\)</span>
@@ -568,21 +568,21 @@ package <code class="docutils literal notranslate"><span class="pre">CQP</span><
 <p>The basic algorithm is a generalisation of those of</p>
 <blockquote>
 <div><p>Y. Zhang,
-<a href="#id3"><span class="problematic" id="id4">``</span></a>On the convergence of a class of infeasible interior-point methods
+‘’On the convergence of a class of infeasible interior-point methods
 for the horizontal linear complementarity problem’’.
 <em>SIAM J. Optimization</em> <strong>4(1)</strong> (1994) 208-227,</p>
 </div></blockquote>
 <p>and</p>
 <blockquote>
 <div><p>G. Zhao and J. Sun,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>On the rate of local convergence of high-order infeasible
+‘’On the rate of local convergence of high-order infeasible
 path-following algorithms for <span class="math notranslate nohighlight">\(P_*\)</span> linear complementarity problems’’.
-<em>Computational Optimization and Applications</em> <a href="#id7"><span class="problematic" id="id8">**</span></a>14(1)* (1999) 293-307,</p>
+<em>Computational Optimization and Applications</em> <strong>14(1)</strong> (1999) 293-307,</p>
 </div></blockquote>
 <p>with many enhancements described by</p>
 <blockquote>
 <div><p>N. I. M. Gould, D. Orban and D. P. Robinson,
-<a href="#id9"><span class="problematic" id="id10">``</span></a>Trajectory-following methods for large-scale degenerate
+‘’Trajectory-following methods for large-scale degenerate
 convex quadratic programming’’,
 <em>Mathematical Programming Computation</em> <strong>5(2)</strong> (2013) 113-142.</p>
 </div></blockquote>
@@ -650,18 +650,18 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <p>To solve a given problem, functions from the bqpb package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1ad8fc12f75d4b6ca96fd0912785a04b6f"><span class="std std-ref">bqpb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1a4702d5710e0b6dd9e4fd05e30cc1915b"><span class="std std-ref">bqpb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1a489747f9b6b3edd736b318add2e6e96d"><span class="std std-ref">bqpb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1a28853e7625bc052a96d6189ac3c8bd04"><span class="std std-ref">bqpb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1ad8fc12f75d4b6ca96fd0912785a04b6f"><span class="std std-ref">bqpb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1a4702d5710e0b6dd9e4fd05e30cc1915b"><span class="std std-ref">bqpb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1a489747f9b6b3edd736b318add2e6e96d"><span class="std std-ref">bqpb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1a28853e7625bc052a96d6189ac3c8bd04"><span class="std std-ref">bqpb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1afdd78a23df912116a044a3cd87b082c1"><span class="std std-ref">bqpb_solve_qp</span></a> - solve the bound-constrained quadratic program</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1aa1378c5f67c67450b853cd33f978e0d7"><span class="std std-ref">bqpb_solve_sldqp</span></a> - solve the bound-constrained shifted least-distance problem</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1afdd78a23df912116a044a3cd87b082c1"><span class="std std-ref">bqpb_solve_qp</span></a> - solve the bound-constrained quadratic program</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1aa1378c5f67c67450b853cd33f978e0d7"><span class="std std-ref">bqpb_solve_sldqp</span></a> - solve the bound-constrained shifted least-distance problem</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1a01c7e22011ff22e8084be1e8a26d84c6"><span class="std std-ref">bqpb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bqpb-8h-1a6a2b870d2c3d4907b4551e7abc700893"><span class="std std-ref">bqpb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1a01c7e22011ff22e8084be1e8a26d84c6"><span class="std std-ref">bqpb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="bqpb_functions.html#doxid-galahad-bqpb-8h-1a6a2b870d2c3d4907b4551e7abc700893"><span class="std std-ref">bqpb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bqpb-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -996,6 +996,147 @@ been specified.</p>
 <span class="w">                              </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">)</span></pre>
 <p>Solve the shifted least-distance quadratic program</p>
 <p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the
+entry and exit status from the package.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>0</strong></dt><dd><p>The run was successful</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-3</strong></dt><dd><p>The restriction n &gt; 0 or requirement that h_type
+contains its relevant string ‘dense’, ‘coordinate’,
+‘sparse_by_rows’, ‘diagonal’, ‘scaled_identity’,
+‘identity’, ‘zero’ or ‘none’ has been violated.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-5</strong></dt><dd><p>The simple-bound constraints are inconsistent.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
+return status from the factorization package is
+given in the component inform.factor_status</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
+factorization package is given in the component
+inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-11</strong></dt><dd><p>The solution of a set of linear equations using
+factors from the factorization package failed; the
+return status from the factorization package is
+given in the component inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-16</strong></dt><dd><p>The problem is so ill-conditioned that further
+progress is impossible.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-17</strong></dt><dd><p>The step is too small to make further impact.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may
+happen if control.maxit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
+if control.cpu_time_limit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-23</strong></dt><dd><p>An entry from the strict upper triangle of <span class="math notranslate nohighlight">\(H\)</span> has
+been specified.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
+</tr>
+<tr class="row-even"><td><p>w</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values of the weights <span class="math notranslate nohighlight">\(w\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x0</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values of the shifts <span class="math notranslate nohighlight">\(x^0\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(g\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>f</p></td>
+<td><p>is a scalar of type T that holds the constant term <span class="math notranslate nohighlight">\(f\)</span> of the objective function.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_l</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_u</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>is a one-dimensional array of size n and type T thatholds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>is a one-dimensional array of size n and type T thatholds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_stat</p></td>
+<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bqpb-8h-1a01c7e22011ff22e8084be1e8a26d84c6"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">bqpb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
@@ -1288,10 +1429,10 @@ been specified.</p>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structbqpb-time-type">
-<span id="id11"></span><h2>detailed documentation<a class="headerlink" href="#details-structbqpb-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structbqpb-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id12">
-<h3>components<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-time-type-total"><span id="index-71"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-time-type-preprocess"><span id="index-72"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -1354,10 +1495,10 @@ been specified.</p>
 <span class="w">      </span><span class="n">rpd_inform</span><span class="o">::</span><span class="kt">rpd_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structbqpb-inform-type">
-<span id="id13"></span><h2>detailed documentation<a class="headerlink" href="#details-structbqpb-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structbqpb-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id14">
-<h3>components<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-inform-type-status"><span id="index-84"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See BQPB_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-inform-type-alloc-status"><span id="index-85"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1414,7 +1555,7 @@ been specified.</p>
 <p>return information from ROOTS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-inform-type-cro-inform"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a><span></span><span class="w"> </span><span class="n">cro_inform</span></pre>
 <p>inform parameters for CRO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-inform-type-rpd-inform"><span id="index-112"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbqpb-inform-type-rpd-inform"><span id="index-112"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rpd.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
 <p>inform parameters for RPD</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1557,17 +1698,6 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: BQPB_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-    <span class="c1"># @printf(&quot;gradient: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, g[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-
     <span class="c1"># Delete internal workspace</span>
     <span class="n">bqpb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
@@ -1605,17 +1735,6 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">else</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: BQPB_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
     <span class="n">end</span>
-
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-    <span class="c1"># @printf(&quot;gradient: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, g[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
     <span class="n">bqpb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
@@ -1704,12 +1823,12 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bqpb-time-type-structure">bqpb_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbqpb-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bqpb-inform-type-structure">bqpb_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbqpb-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

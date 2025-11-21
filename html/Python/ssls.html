@@ -470,7 +470,7 @@ Full advantage is taken of any zero coefficients in the matrices
 on  <code class="docutils literal notranslate"><span class="pre">SLS</span></code> for analysis, factorization and solves.</p>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-ssls-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> may be presented
 and stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -521,7 +521,7 @@ of the integer array A_row, and real array A_val, respectively.
 As before, for sparse matrices, this scheme almost always requires less
 storage than the co-ordinate format.
 The string A_type = ‘sparse_by_columns’ should be specified.</p>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H\)</span>, as well as the <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(m\)</span> matrix <span class="math notranslate nohighlight">\(C\)</span>,
+<p id="details-ssls-storage-sym">The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H\)</span>, as well as the <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(m\)</span> matrix <span class="math notranslate nohighlight">\(C\)</span>,
 may also be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
 (i.e, those entries that lie on or below the leading diagonal). We focus on

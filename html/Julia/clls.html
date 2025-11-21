@@ -531,22 +531,22 @@ overall violation of (1a), (2a) and (3),
 rather than reducing each of the terms individually. Given an estimate
 <span class="math notranslate nohighlight">\(v = (x, \; c, \; y, \; y^{l}, \; y^{u}, \; z, \; z^{l}, \; z^{u})\)</span>
 of the primal-dual variables, a correction
-<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \; c, \; y, \; y^{l}, \;
-y^{u} ,\;z,\;z^{l} ,\;z^{u} )\)</span>
+<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \; c, \; y, \; y^{l}, \;\)</span>
+<span class="math notranslate nohighlight">\(y^{u} ,\;z,\;z^{l} ,\;z^{u} )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
-nonlinear systems (1a), (2a) and a parameterized <a href="#id1"><span class="problematic" id="id2">``</span></a>residual
+nonlinear systems (1a), (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories
 proposed by Zhang (1994) and Zhao and Sun (1999) are possibilities.
 An improved estimate <span class="math notranslate nohighlight">\(v + \alpha \Delta v\)</span>
 is then used, where the step-size <span class="math notranslate nohighlight">\(\alpha\)</span>
 is chosen as close to 1.0 as possible while ensuring both that
 (1b) and (2b) continue to hold and that the individual components
-which make up the complementary slackness
-(3) do not deviate too significantly
+which make up the complementary slackness (3)
+do not deviate too significantly
 from their average value. The parameter that controls the perturbation
 of (3) is ultimately driven to zero.</p>
 <p>If the algorithm believes that it is close to the solution, it may take a
-speculative <a href="#id3"><span class="problematic" id="id4">``</span></a>pounce’’, based on an estimate of the ultimate active set,
+speculative ‘’pounce’’, based on an estimate of the ultimate active set,
 to avoid further costly iterations. If the pounce is unsuccessful, the
 iteration continues, and further pounces may be attempted later.</p>
 <p>The Newton equations are solved  by applying the matrix factorization
@@ -560,21 +560,21 @@ performance of the subsequent iteration.</p>
 <p>The basic algorithm is a generalisation of those of</p>
 <blockquote>
 <div><p>Y. Zhang,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>On the convergence of a class of infeasible interior-point methods
+‘’On the convergence of a class of infeasible interior-point methods
 for the horizontal linear complementarity problem’’.
 <em>SIAM J. Optimization</em> <strong>4(1)</strong> (1994) 208-227,</p>
 </div></blockquote>
 <p>and</p>
 <blockquote>
 <div><p>G. Zhao and J. Sun,
-<a href="#id7"><span class="problematic" id="id8">``</span></a>On the rate of local convergence of high-order infeasible
+‘’On the rate of local convergence of high-order infeasible
 path-following algorithms for <span class="math notranslate nohighlight">\(P_*\)</span> linear complementarity problems’’.
-<em>Computational Optimization and Applications</em> <a href="#id9"><span class="problematic" id="id10">**</span></a>14(1)* (1999) 293-307,</p>
+<em>Computational Optimization and Applications</em> <strong>14(1)</strong> (1999) 293-307,</p>
 </div></blockquote>
 <p>with many enhancements described by</p>
 <blockquote>
 <div><p>N. I. M. Gould, D. Orban and D. P. Robinson,
-<a href="#id11"><span class="problematic" id="id12">``</span></a>Trajectory-following methods for large-scale degenerate
+‘’Trajectory-following methods for large-scale degenerate
 convex quadratic programming’’,
 <em>Mathematical Programming Computation</em> <strong>5(2)</strong> (2013) 113-142</p>
 </div></blockquote>
@@ -584,7 +584,7 @@ convex quadratic programming’’,
 <span id="details-aao-storage-unsym"></span><span id="details-aao-storage"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A_o\)</span>
 may be presented and stored in a variety of convenient input formats.
-Let <span class="math notranslate nohighlight">\(A\)</span> be <span class="math notranslate nohighlight">\(A_o\)</span> (with <span class="math notranslate nohighlight">\(o\)</span> instead of <span class="math notranslate nohighlight">\(m\)</span> and <a href="#id17"><span class="problematic" id="id18">Ao_</span></a> instead of <a href="#id19"><span class="problematic" id="id20">A_</span></a>)
+Let <span class="math notranslate nohighlight">\(A\)</span> be <span class="math notranslate nohighlight">\(A_o\)</span> (with <span class="math notranslate nohighlight">\(o\)</span> instead of <span class="math notranslate nohighlight">\(m\)</span> and <a href="#id5"><span class="problematic" id="id6">Ao_</span></a> instead of <a href="#id7"><span class="problematic" id="id8">A_</span></a>)
 below as appropriate.</p>
 <p><em>Dense</em> storage format:
 The matrix <span class="math notranslate nohighlight">\(A\)</span> is stored as a compact dense matrix by rows, that is,
@@ -773,7 +773,7 @@ been violated.</p></li>
 <td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <span class="xref std std-ref">unsymmetric storage scheme</span> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-aao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -791,7 +791,7 @@ been violated.</p></li>
 <td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type INT that holds the starting position of each column of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <span class="xref std std-ref">unsymmetric storage scheme</span> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-aao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -806,12 +806,11 @@ been violated.</p></li>
 <td><p>is a scalar variable of type INT that holds the length of the pointer array if sparse row or column storage scheme is used for <span class="math notranslate nohighlight">\(A\)</span>. For the sparse row scheme,  A_ptr_ne should be at least o+1, while for the sparse column scheme,  it should be at least n+1, It need not be set when the other schemes are used.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_ptr</p></td>
-<td><p>is a one-dimensional array of size n+1 and type INT</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type INT that holds the starting position of each column of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>that holds the starting position of each row of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type INT that holds the starting position of each column of <span class="math notranslate nohighlight">\(A\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-clls-8h-1a9f7ccb0cffa909a2be7556edda430190"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">clls_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
@@ -1237,9 +1236,9 @@ The values were recorded successfully</p></li>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-sls-pounce-control"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-sls-pounce-control"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
 <p>control parameters for SLS pounce</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-control-type-fit-control"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fit_control_type.html#doxid-structfit-control-type"><span class="std std-ref">fit_control_type</span></a><span></span><span class="w"> </span><span class="n">fit_control</span></pre>
 <p>control parameters for FIT</p>
@@ -1268,10 +1267,10 @@ The values were recorded successfully</p></li>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structclls-time-type">
-<span id="id13"></span><h2>detailed documentation<a class="headerlink" href="#details-structclls-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structclls-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id14">
-<h3>components<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-time-type-total"><span id="index-69"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-time-type-preprocess"><span id="index-70"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -1331,10 +1330,10 @@ The values were recorded successfully</p></li>
 <span class="w">      </span><span class="n">rpd_inform</span><span class="o">::</span><span class="kt">rpd_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structclls-inform-type">
-<span id="id15"></span><h2>detailed documentation<a class="headerlink" href="#details-structclls-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structclls-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id16">
-<h3>components<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-inform-type-status"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See CLLS_solve for details.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-inform-type-alloc-status"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1393,7 +1392,7 @@ The values were recorded successfully</p></li>
 <p>return information from ROOTS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-inform-type-cro-inform"><span id="index-110"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a><span></span><span class="w"> </span><span class="n">cro_inform</span></pre>
 <p>inform parameters for CRO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-inform-type-rpd-inform"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structclls-inform-type-rpd-inform"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rpd.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
 <p>inform parameters for RPD</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1573,17 +1572,6 @@ are shown.</p>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: CLLS_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
     <span class="n">end</span>
 
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-    <span class="c1"># @printf(&quot;gradient: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, g[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-
     <span class="c1"># Delete internal workspace</span>
     <span class="n">clls_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
@@ -1671,12 +1659,12 @@ are shown.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clls-time-type-structure">clls_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structclls-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clls-inform-type-structure">clls_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structclls-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

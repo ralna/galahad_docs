@@ -526,7 +526,7 @@ rather than reducing each of the terms individually. Given an estimate
 of the primal-dual variables, a correction
 <span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z,, \;z^{l} ,\;z^{u} )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
-nonlinear systems (2a) and a parameterized <a href="#id1"><span class="problematic" id="id2">``</span></a>residual
+nonlinear systems (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories
 proposed by Zhang (1994) and Zhao and Sun (1999) are possibilities.
 An improved estimate <span class="math notranslate nohighlight">\(v + \alpha \Delta v\)</span>
@@ -538,7 +538,7 @@ which make up the complementary slackness
 from their average value. The parameter that controls the perturbation
 of (3) is ultimately driven to zero.</p>
 <p>If the algorithm believes that it is close to the solution, it may take a
-speculative <a href="#id3"><span class="problematic" id="id4">``</span></a>pounce’’, based on an estimate of the ultimate active set,
+speculative ‘’pounce’’, based on an estimate of the ultimate active set,
 to avoid further costly iterations. If the pounce is unsuccessful, the
 iteration continues, and further pounces may be attempted later.</p>
 <p>The Newton equations are solved  by applying the matrix factorization
@@ -549,21 +549,21 @@ package <code class="docutils literal notranslate"><span class="pre">SLS</span><
 <p>The basic algorithm is a generalisation of those of</p>
 <blockquote>
 <div><p>Y. Zhang,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>On the convergence of a class of infeasible interior-point methods
+‘’On the convergence of a class of infeasible interior-point methods
 for the horizontal linear complementarity problem’’.
 <em>SIAM J. Optimization</em> <strong>4(1)</strong> (1994) 208-227,</p>
 </div></blockquote>
 <p>and</p>
 <blockquote>
 <div><p>G. Zhao and J. Sun,
-<a href="#id7"><span class="problematic" id="id8">``</span></a>On the rate of local convergence of high-order infeasible
+‘’On the rate of local convergence of high-order infeasible
 path-following algorithms for <span class="math notranslate nohighlight">\(P_*\)</span> linear complementarity problems’’.
-<em>Computational Optimization and Applications</em> <a href="#id9"><span class="problematic" id="id10">**</span></a>14(1)* (1999) 293-307,</p>
+<em>Computational Optimization and Applications</em> <strong>14(1)</strong> (1999) 293-307,</p>
 </div></blockquote>
 <p>with many enhancements described by</p>
 <blockquote>
 <div><p>N. I. M. Gould, D. Orban and D. P. Robinson,
-<a href="#id11"><span class="problematic" id="id12">``</span></a>Trajectory-following methods for large-scale degenerate
+‘’Trajectory-following methods for large-scale degenerate
 convex quadratic programming’’,
 <em>Mathematical Programming Computation</em> <strong>5(2)</strong> (2013) 113-142</p>
 </div></blockquote>
@@ -756,7 +756,7 @@ been violated.</p></li>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <span class="xref std std-ref">unsymmetric storage scheme</span> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="slls.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -1174,9 +1174,9 @@ The values were recorded successfully</p></li>
 <p>all output lines will be prefixed by .prefix(2:LEN(TRIM(.prefix))-1) where .prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-fdc-control"><span id="index-62"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-control-type"><span class="std std-ref">fdc_control_type</span></a><span></span><span class="w"> </span><span class="n">fdc_control</span></pre>
 <p>control parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-sbls-control"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-sls-pounce-control"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_control_type.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-sls-pounce-control"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_control</span></pre>
 <p>control parameters for SLS pounce</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-control-type-fit-control"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fit_control_type.html#doxid-structfit-control-type"><span class="std std-ref">fit_control_type</span></a><span></span><span class="w"> </span><span class="n">fit_control</span></pre>
 <p>control parameters for FIT</p>
@@ -1205,10 +1205,10 @@ The values were recorded successfully</p></li>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structbllsb-time-type">
-<span id="id13"></span><h2>detailed documentation<a class="headerlink" href="#details-structbllsb-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structbllsb-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id14">
-<h3>components<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-time-type-total"><span id="index-69"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-time-type-preprocess"><span id="index-70"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -1268,10 +1268,10 @@ The values were recorded successfully</p></li>
 <span class="w">      </span><span class="n">rpd_inform</span><span class="o">::</span><span class="kt">rpd_inform_type</span><span class="p">{</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structbllsb-inform-type">
-<span id="id15"></span><h2>detailed documentation<a class="headerlink" href="#details-structbllsb-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structbllsb-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id16">
-<h3>components<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-status"><span id="index-82"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See BLLSB_solve for details.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-alloc-status"><span id="index-83"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1320,9 +1320,9 @@ The values were recorded successfully</p></li>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-fdc-inform"><span id="index-105"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="fdc.html#doxid-structfdc-inform-type"><span class="std std-ref">fdc_inform_type</span></a><span></span><span class="w"> </span><span class="n">fdc_inform</span></pre>
 <p>inform parameters for FDC</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-sbls-inform"><span id="index-106"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-sbls-inform"><span id="index-106"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>inform parameters for SLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-sls-pounce-inform"><span id="index-107"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_sls_inform_type.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-sls-pounce-inform"><span id="index-107"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_pounce_inform</span></pre>
 <p>inform parameters for SLS pounce</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-fit-inform"><span id="index-108"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_fit_inform_type.html#doxid-structfit-inform-type"><span class="std std-ref">fit_inform_type</span></a><span></span><span class="w"> </span><span class="n">fit_inform</span></pre>
 <p>return information from FIT</p>
@@ -1330,7 +1330,7 @@ The values were recorded successfully</p></li>
 <p>return information from ROOTS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-cro-inform"><span id="index-110"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_cro_inform_type.html#doxid-structcro-inform-type"><span class="std std-ref">cro_inform_type</span></a><span></span><span class="w"> </span><span class="n">cro_inform</span></pre>
 <p>inform parameters for CRO</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-rpd-inform"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbllsb-inform-type-rpd-inform"><span id="index-111"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rpd.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a><span></span><span class="w"> </span><span class="n">rpd_inform</span></pre>
 <p>inform parameters for RPD</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1400,7 +1400,7 @@ are shown.</p>
       <span class="n">Ao_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># vals</span>
 
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
-                   <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                   <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
       <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
@@ -1447,7 +1447,7 @@ are shown.</p>
       <span class="n">Ao_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
-                   <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                   <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
       <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
@@ -1459,7 +1459,7 @@ are shown.</p>
       <span class="n">Ao_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
-                   <span class="s2">&quot;dense_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                   <span class="s2">&quot;dense_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
       <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
                        <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
@@ -1473,17 +1473,6 @@ are shown.</p>
     <span class="k">else</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: BLLSB_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
     <span class="n">end</span>
-
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-    <span class="c1"># @printf(&quot;gradient: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, g[i])</span>
-    <span class="c1"># end</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
     <span class="n">bllsb_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
@@ -1572,12 +1561,12 @@ are shown.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bllsb-time-type-structure">bllsb_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbllsb-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bllsb-inform-type-structure">bllsb_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbllsb-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

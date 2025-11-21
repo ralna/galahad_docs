@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,19 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +295,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -515,14 +529,14 @@ SIAM/MPS Series on Optimization (2000),</p>
 due to</p>
 <blockquote>
 <div><p>D. Lera and Ya. D. Sergeyev,
-<a href="#id1"><span class="problematic" id="id2">``</span></a>Acceleration of univariate global optimization algorithms working with
+‘’Acceleration of univariate global optimization algorithms working with
 Lipschitz functions and Lipschitz first derivatives’’
 <em>SIAM J. Optimization</em> <strong>23(1)</strong> (2013) 508–529,</p>
 </div></blockquote>
 <p>while the Latin-hypercube sampling method employed is that of</p>
 <blockquote>
 <div><p>B. Beachkofski and R. Grandhi,
-<a href="#id3"><span class="problematic" id="id4">``</span></a>Improved Distributed Hypercube Sampling’’,
+‘’Improved Distributed Hypercube Sampling’’,
 43rd AIAA structures, structural dynamics, and materials conference,
 (2002) 2002-1274.</p>
 </div></blockquote>
@@ -579,20 +593,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the bgo package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a5d2b6e10b7c04279d6037e9abd32e19f"><span class="std std-ref">bgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a7a9e6738996809b7fd96a6e9bee6e467"><span class="std std-ref">bgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a5902cb8c7c213954de6b963a507f3a4b"><span class="std std-ref">bgo_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1acd46c656b1551f4659d725e65b70e1e6"><span class="std std-ref">bgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a5d2b6e10b7c04279d6037e9abd32e19f"><span class="std std-ref">bgo_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a7a9e6738996809b7fd96a6e9bee6e467"><span class="std std-ref">bgo_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a5902cb8c7c213954de6b963a507f3a4b"><span class="std std-ref">bgo_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1acd46c656b1551f4659d725e65b70e1e6"><span class="std std-ref">bgo_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1ab9193a994bd19d94aa97156e83345bd4"><span class="std std-ref">bgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1aeaa490762fe0950e577509ade6ae36d5"><span class="std std-ref">bgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1af99998a6921ff67b79e6558fb2a27f2f"><span class="std std-ref">bgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a84e69267132736f46cb7b5970a24b772"><span class="std std-ref">bgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1ab9193a994bd19d94aa97156e83345bd4"><span class="std std-ref">bgo_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1aeaa490762fe0950e577509ade6ae36d5"><span class="std std-ref">bgo_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1af99998a6921ff67b79e6558fb2a27f2f"><span class="std std-ref">bgo_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a84e69267132736f46cb7b5970a24b772"><span class="std std-ref">bgo_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1a96c2a39622f5c497a4286f5e8ebc4ddc"><span class="std std-ref">bgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="bgo_functions.html#doxid-galahad-bgo-8h-1ae41275e1234f0e01ff2aae00746d94d6"><span class="std std-ref">bgo_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1a96c2a39622f5c497a4286f5e8ebc4ddc"><span class="std std-ref">bgo_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bgo-8h-1ae41275e1234f0e01ff2aae00746d94d6"><span class="std std-ref">bgo_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bgo-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -619,7 +633,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -652,7 +666,7 @@ keywords relate to the components of the control structure.
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -671,7 +685,7 @@ keywords relate to the components of the control structure.
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -727,7 +741,7 @@ violated.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x^u_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="tru.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="dgo.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
@@ -754,7 +768,7 @@ violated.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1666,7 +1680,7 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bgo_inform_type.html#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit status from the package. Possible values are (currently):</p>
@@ -1695,10 +1709,10 @@ should then set eval_status to a non-zero value.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_bgo_control_type.html#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structbgo-control-type"><span class="std std-ref">bgo_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_bgo_inform_type.html#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structbgo-inform-type"><span class="std std-ref">bgo_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1810,10 +1824,10 @@ should then set eval_status to a non-zero value.</p>
 <span class="w">      </span><span class="n">clock_multivariate_local</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structbgo-time-type">
-<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structbgo-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structbgo-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id6">
-<h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-time-type-total"><span id="index-34"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-time-type-univariate-global"><span id="index-35"></span><span></span><span class="kt">Float32</span><span class="w"> </span><span class="n">univariate_global</span></pre>
@@ -1849,10 +1863,10 @@ should then set eval_status to a non-zero value.</p>
 <span class="w">      </span><span class="n">trb_inform</span><span class="o">::</span><span class="kt">trb_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structbgo-inform-type">
-<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structbgo-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structbgo-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id8">
-<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-status"><span id="index-41"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See BGO_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-alloc-status"><span id="index-42"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1869,7 +1883,7 @@ should then set eval_status to a non-zero value.</p>
 <p>the value of the objective function at the best estimate of the solution determined by BGO_solve</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-norm-pg"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
 <p>the norm of the projected gradient of the objective function at the best estimate of the solution determined by BGO_solve</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-time"><span id="index-49"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_bgo_time_type.html#doxid-structbgo-time-type"><span class="std std-ref">bgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-time"><span id="index-49"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structbgo-time-type"><span class="std std-ref">bgo_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>timings (see above)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structbgo-inform-type-ugo-inform"><span id="index-50"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="ugo.html#doxid-structugo-inform-type"><span class="std std-ref">ugo_inform_type</span></a><span></span><span class="w"> </span><span class="n">ugo_inform</span></pre>
 <p>inform parameters for UGO</p>
@@ -1898,37 +1912,55 @@ using Accessors
 using Quadmath
 
 # Custom userdata struct
-struct userdata_bgo{T,INT}
+mutable struct userdata_bgo{T}
   p::T
-  freq::INT
-  mag::INT
+  freq::T
+  mag::T
 end
 
-function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
+function test_bgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # Objective function
-  function fun(x::Vector{T}, f::Ref{T}, userdata::userdata_bgo)
+  function fun(x::Vector{T}, f::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
-    f[] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 +
-           mag * cos(freq * x[1]) + sum(x)
-    return 0
+    f[1] = (x[1] + x[3] + p)^2 + (x[2] + x[3])^2 +
+            mag * cos(freq * x[1]) + sum(x)
+    return INT(0)
   end
 
+  function fun_c(n::INT, x::Ptr{T}, f::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _f = unsafe_wrap(Vector{T}, f, 1)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    fun(_x, _f, _userdata)
+  end
+
+  fun_ptr = @eval @cfunction($fun_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Gradient of the objective
-  function grad(x::Vector{T}, g::Vector{T}, userdata::userdata_bgo)
+  function grad(x::Vector{T}, g::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
     g[1] = 2.0 * (x[1] + x[3] + p) - mag * freq * sin(freq * x[1]) + 1.0
     g[2] = 2.0 * (x[2] + x[3]) + 1.0
     g[3] = 2.0 * (x[1] + x[3] + p) + 2.0 * (x[2] + x[3]) + 1.0
-    return 0
+    return INT(0)
   end
 
+  function grad_c(n::INT, x::Ptr{T}, g::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _g = unsafe_wrap(Vector{T}, g, n)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    grad(_x, _g, _userdata)
+  end
+
+  grad_ptr = @eval @cfunction($grad_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Hessian of the objective
-  function hess(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo)
+  function hess(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1936,11 +1968,20 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
     hval[2] = 2.0
     hval[3] = 2.0
     hval[4] = 4.0
-    return 0
+    return INT(0)
   end
 
+  function hess_c(n::INT, ne::INT, x::Ptr{T}, hval::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _hval = unsafe_wrap(Vector{T}, hval, ne)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    hess(_x, _hval, _userdata)
+  end
+
+  hess_ptr = @eval @cfunction($hess_c, $INT, ($INT, $INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Dense Hessian
-  function hess_dense(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo)
+  function hess_dense(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -1949,25 +1990,45 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
     hval[3] = 2.0
     hval[4] = 2.0
     hval[5] = 4.0
-    return 0
+    return INT(0)
   end
+
+  function hess_dense_c(n::INT, ne::INT, x::Ptr{T}, hval::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _hval = unsafe_wrap(Vector{T}, hval, ne)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    hess_dense(_x, _hval, _userdata)
+  end
+
+  hess_dense_ptr = @eval @cfunction($hess_dense_c, $INT, ($INT, $INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
 
   # Hessian-vector product
   function hessprod(x::Vector{T}, u::Vector{T}, v::Vector{T},
-                    got_h::Bool, userdata::userdata_bgo)
+                    got_h::Bool, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
     u[1] = u[1] + 2.0 * (v[1] + v[3]) - mag * freq^2 * cos(freq * x[1]) * v[1]
     u[2] = u[2] + 2.0 * (v[2] + v[3])
     u[3] = u[3] + 2.0 * (v[1] + v[2] + 2.0 * v[3])
-    return 0
+    return INT(0)
   end
+
+  function hessprod_c(n::INT, x::Ptr{T}, u::Ptr{T}, v::Ptr{T},
+                      got_h::Bool, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _u = unsafe_wrap(Vector{T}, u, n)
+    _v = unsafe_wrap(Vector{T}, v, n)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    hessprod(_x, _u, _v, got_h, _userdata)
+  end
+
+  hessprod_ptr = @eval @cfunction($hessprod_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{$T}, Bool, Ptr{Cvoid}))
 
   # Sparse Hessian-vector product
   function shessprod(x::Vector{T}, nnz_v::INT, index_nz_v::Vector{INT},
-                     v::Vector{T}, nnz_u::Ref{INT}, index_nz_u::Vector{INT},
-                     u::Vector{T}, got_h::Bool, userdata::userdata_bgo)
+                     v::Vector{T}, nnz_u::Vector{INT}, index_nz_u::Vector{INT},
+                     u::Vector{T}, got_h::Bool, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -2003,30 +2064,64 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
         index_nz_u[nnz_u[]] = j
       end
     end
-    return 0
+    return INT(0)
   end
+
+  function shessprod_c(n::INT, x::Ptr{T}, nnz_v::INT, index_nz_v::Ptr{INT},
+                       v::Ptr{T}, nnz_u::Ptr{INT}, index_nz_u::Ptr{INT},
+                       u::Ptr{T}, got_h::Bool, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _u = unsafe_wrap(Vector{T}, u, n)
+    _v = unsafe_wrap(Vector{T}, v, n)
+    _index_nz_v = unsafe_wrap(Vector{INT}, index_nz_v, nnz_v)
+    _nnz_u = unsafe_wrap(Vector{INT}, nnz_u, 1)
+    _index_nz_u = unsafe_wrap(Vector{INT}, index_nz_u, n)  # Is it right?
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    shessprod(_x, nnz_v, _index_nz_v, _v, _nnz_u, _index_nz_u, _u, got_h, _userdata)
+  end
+
+  shessprod_ptr = @eval @cfunction($shessprod_c, $INT, ($INT, Ptr{$T}, $INT, Ptr{$INT}, Ptr{$T}, Ptr{$INT}, Ptr{$INT}, Ptr{$T}, Bool, Ptr{Cvoid}))
 
   # Apply preconditioner
   function prec(x::Vector{T}, u::Vector{T}, v::Vector{T},
-                   userdata::userdata_bgo)
+                   userdata::userdata_bgo{T})
     u[1] = 0.5 * v[1]
     u[2] = 0.5 * v[2]
     u[3] = 0.25 * v[3]
-    return 0
+    return INT(0)
   end
 
+  function prec_c(n::INT, x::Ptr{T}, u::Ptr{T}, v::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _u = unsafe_wrap(Vector{T}, u, n)
+    _v = unsafe_wrap(Vector{T}, v, n)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    prec(_x, _u, _v, _userdata)
+  end
+
+  prec_ptr = @eval @cfunction($prec_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Objective function
-  function fun_diag(x::Vector{T}, f::Ref{T}, userdata::userdata_bgo)
+  function fun_diag(x::Vector{T}, f::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
 
-    f[] = (x[3] + p)^2 + x[2]^2 + mag * cos(freq * x[1]) + x[1] + x[2] + x[3]
-    return 0
+    f[1] = (x[3] + p)^2 + x[2]^2 + mag * cos(freq * x[1]) + x[1] + x[2] + x[3]
+    return INT(0)
   end
 
+  function fun_diag_c(n::INT, x::Ptr{T}, f::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _f = unsafe_wrap(Vector{T}, f, 1)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    fun_diag(_x, _f, _userdata)
+  end
+
+  fun_diag_ptr = @eval @cfunction($fun_diag_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Gradient of the objective
-  function grad_diag(x::Vector{T}, g::Vector{T}, userdata::userdata_bgo)
+  function grad_diag(x::Vector{T}, g::Vector{T}, userdata::userdata_bgo{T})
     p = userdata.p
     freq = userdata.freq
     mag = userdata.mag
@@ -2034,65 +2129,59 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
     g[1] = -mag * freq * sin(freq * x[1]) + 1
     g[2] = 2.0 * x[2] + 1
     g[3] = 2.0 * (x[3] + p) + 1
-    return 0
+    return INT(0)
   end
 
+  function grad_diag_c(n::INT, x::Ptr{T}, g::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _g = unsafe_wrap(Vector{T}, g, n)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    grad_diag(_x, _g, _userdata)
+  end
+
+  grad_diag_ptr = @eval @cfunction($grad_diag_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
+
   # Hessian of the objective
-  function hess_diag(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo)
+  function hess_diag(x::Vector{T}, hval::Vector{T}, userdata::userdata_bgo{T})
     freq = userdata.freq
     mag = userdata.mag
 
     hval[1] = -mag * freq^2 * cos(freq * x[1])
     hval[2] = 2.0
     hval[3] = 2.0
-    return 0
+    return INT(0)
   end
+
+  function hess_diag_c(n::INT, ne::INT, x::Ptr{T}, hval::Ptr{T}, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _hval = unsafe_wrap(Vector{T}, hval, ne)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    hess_diag(_x, _hval, _userdata)
+  end
+
+  hess_diag_ptr = @eval @cfunction($hess_diag_c, $INT, ($INT, $INT, Ptr{$T}, Ptr{$T}, Ptr{Cvoid}))
 
   # Hessian-vector product
   function hessprod_diag(x::Vector{T}, u::Vector{T}, v::Vector{T},
-                    got_h::Bool, userdata::userdata_bgo)
+                    got_h::Bool, userdata::userdata_bgo{T})
     freq = userdata.freq
     mag = userdata.mag
 
     u[1] += -mag * freq^2 * cos(freq * x[1]) * v[1]
     u[2] += 2.0 * v[2]
     u[3] += 2.0 * v[3]
-    return 0
+    return INT(0)
   end
 
-  # Sparse Hessian-vector product
-  function shessprod_diag(x::Vector{T}, nnz_v::INT, index_nz_v::Vector{INT},
-                          v::Vector{T}, nnz_u::Ref{INT},
-                          index_nz_u::Vector{INT}, u::Vector{T},
-                          got_h::Bool, userdata::userdata_bgo)
-    freq = userdata.freq
-    mag = userdata.mag
-
-    p = zeros(3)
-    used = falses(3)
-    for i in 1:nnz_v
-      j = index_nz_v[i]
-      if j == 1
-        p[1] -= mag * freq^2 * cos(freq * x[1]) * v[1]
-        used[1] = true
-      elseif j == 2
-        p[2] += 2.0 * v[2]
-        used[2] = true
-      elseif j == 3
-        p[3] += 2.0 * v[3]
-        used[3] = true
-      end
-    end
-    nnz_u[] = 0
-    for j in 1:3
-      if used[j]
-        u[j] = p[j]
-        nnz_u[] += 1
-        index_nz_u[nnz_u[]] = j
-      end
-    end
-    return 0
+  function hessprod_diag_c(n::INT, x::Ptr{T}, u::Ptr{T}, v::Ptr{T}, got_h::Bool, userdata::Ptr{Cvoid})
+    _x = unsafe_wrap(Vector{T}, x, n)
+    _u = unsafe_wrap(Vector{T}, u, n)
+    _v = unsafe_wrap(Vector{T}, v, n)
+    _userdata = unsafe_pointer_to_objref(userdata)::userdata_bgo{T}
+    hessprod_diag(_x, _u, _v, got_h, _userdata)
   end
+
+  hessprod_diag_ptr = @eval @cfunction($hessprod_diag_c, $INT, ($INT, Ptr{$T}, Ptr{$T}, Ptr{$T}, Bool, Ptr{Cvoid}))
 
   # Derived types
   data = Ref{Ptr{Cvoid}}()
@@ -2100,11 +2189,13 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
   inform = Ref{bgo_inform_type{T,INT}}()
 
   # Set user data
-  userdata = userdata_bgo(4.0, 10, 1000)
+  userdata = userdata_bgo{T}(4, 10, 1000)
+  userdata_ptr = pointer_from_objref(userdata)
 
   # Set problem data
-  n = INT(3) # dimension
-  ne = INT(5) # Hesssian elements
+  n = INT(3)  # dimension
+  ne = INT(5)  # Hesssian elements
+  ne_dense = div(n * (n + 1), 2)  # dense Hesssian elements
   x_l = T[-10, -10, -10]
   x_u = T[0.5, 0.5, 0.5]
   H_row = INT[1, 2, 3, 3, 3]  # Hessian H
@@ -2117,281 +2208,367 @@ function test_bgo(::Type{T}, ::Type{INT}) where {T,INT}
   status = Ref{INT}()
 
   @printf(&quot; Fortran sparse matrix indexing\n\n&quot;)
-  @printf(&quot; tests reverse-communication options\n\n&quot;)
 
-  # reverse-communication input/output
-  eval_status = Ref{INT}()
-  nnz_u = Ref{INT}()
-  nnz_v = Ref{INT}()
-  f = Ref{T}(0.0)
-  u = zeros(T, n)
-  v = zeros(T, n)
-  index_nz_u = zeros(INT, n)
-  index_nz_v = zeros(INT, n)
-  H_val = zeros(T, ne)
-  H_dense = zeros(T, div(n * (n + 1), 2))
-  H_diag = zeros(T, n)
+  if mode == &quot;direct&quot;
+    @printf(&quot; tests options for all-in-one storage format\n\n&quot;)
 
-  for d in 1:5
+    for d in 1:5
+      # Initialize BGO
+      bgo_initialize(T, INT, data, control, status)
 
-    # Initialize BGO
-    bgo_initialize(T, INT, data, control, status)
+      # Set linear solvers
+      @reset control[].trb_control.trs_control.symmetric_linear_solver = galahad_linear_solver(sls)
+      @reset control[].trb_control.trs_control.definite_linear_solver = galahad_linear_solver(dls)
+      @reset control[].trb_control.psls_control.definite_linear_solver = galahad_linear_solver(dls)
 
-    # Set user-defined control options
-    @reset control[].attempts_max = INT(10000)
-    @reset control[].max_evals = INT(20000)
-    @reset control[].sampling_strategy = INT(3)
-    @reset control[].trb_control.maxit = INT(100)
-    # @reset control[].print_level = CINT(1)
+      # Set user-defined control options
+      # @reset control[].print_level = INT(1)
+      @reset control[].attempts_max = INT(10000)
+      @reset control[].max_evals = INT(20000)
+      @reset control[].sampling_strategy = INT(3)
+      @reset control[].trb_control.maxit = INT(100)
 
-    # Start from 0
-    x = T[0.0, 0.0, 0.0]
+      # Start from 0
+      x = T[0, 0, 0]
 
-    # sparse co-ordinate storage
-    if d == 1
-      st = &#39;C&#39;
-      bgo_import(T, INT, control, data, status, n, x_l, x_u,
-                 &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
+      # sparse co-ordinate storage
+      if d == 1
+        st = &#39;C&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
 
-      terminated = false
-      while !terminated # reverse-communication loop
-        bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
-                                   n, x, f[], g, ne, H_val, u, v)
-        if status[] == 0 # successful termination
-          terminated = true
-        elseif status[] &lt; 0 # error exit
-          terminated = true
-        elseif status[] == 2 # evaluate f
-          eval_status[] = fun(x, f, userdata)
-        elseif status[] == 3 # evaluate g
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 4 # evaluate H
-          eval_status[] = hess(x, H_val, userdata)
-        elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(x, u, v, userdata)
-        elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        else
-          @printf(&quot; the value %1i of status should not occur\n&quot;,
-                  status)
+        bgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+                           ne, fun_ptr, grad_ptr, hess_ptr, hessprod_ptr, prec_ptr)
+      end
+
+      # sparse by rows
+      if d == 2
+        st = &#39;R&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
+
+        bgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+                           ne, fun_ptr, grad_ptr, hess_ptr, hessprod_ptr, prec_ptr)
+      end
+
+      # dense
+      if d == 3
+        st = &#39;D&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;dense&quot;, ne_dense, C_NULL, C_NULL, C_NULL)
+
+        bgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+                           ne_dense, fun_ptr, grad_ptr, hess_dense_ptr,
+                           hessprod_ptr, prec_ptr)
+      end
+
+      # diagonal
+      if d == 4
+        st = &#39;I&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;diagonal&quot;, n, C_NULL, C_NULL, C_NULL)
+
+        bgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+                           n, fun_diag_ptr, grad_diag_ptr, hess_diag_ptr,
+                           hessprod_diag_ptr, prec_ptr)
+      end
+
+      # access by products
+      if d == 5
+        st = &#39;P&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
+
+        bgo_solve_without_mat(T, INT, data, userdata_ptr, status, n, x, g,
+                              fun_ptr, grad_ptr, hessprod_ptr,
+                              shessprod_ptr, prec_ptr)
+      end
+
+      # Record solution information
+      bgo_information(T, INT, data, inform, status)
+
+      if inform[].status == 0
+        @printf(&quot;%c:%6i evaluations. Optimal objective value = %.2f, status = %1i\n&quot;,
+                st, inform[].f_eval, inform[].obj, inform[].status)
+      else
+        @printf(&quot;%c: BGO_solve exit status = %1i\n&quot;, st, inform[].status)
+      end
+
+      # Delete internal workspace
+      bgo_terminate(T, INT, data, control, inform)
+    end
+  end
+
+  if mode == &quot;reverse&quot;
+    @printf(&quot; tests reverse-communication options\n\n&quot;)
+
+    # reverse-communication input/output
+    eval_status = Ref{INT}()
+    nnz_u = zeros(INT, 1)
+    nnz_v = zeros(INT, 1)
+    f = zeros(T, 1)
+    u = zeros(T, n)
+    v = zeros(T, n)
+    index_nz_u = zeros(INT, n)
+    index_nz_v = zeros(INT, n)
+    H_val = zeros(T, ne)
+    H_dense = zeros(T, div(n * (n + 1), 2))
+    H_diag = zeros(T, n)
+
+    for d in 1:5
+      # Initialize BGO
+      bgo_initialize(T, INT, data, control, status)
+
+      # Set linear solvers
+      @reset control[].trb_control.trs_control.symmetric_linear_solver = galahad_linear_solver(sls)
+      @reset control[].trb_control.trs_control.definite_linear_solver = galahad_linear_solver(dls)
+      @reset control[].trb_control.psls_control.definite_linear_solver = galahad_linear_solver(dls)
+
+      # Set user-defined control options
+      @reset control[].attempts_max = INT(10000)
+      @reset control[].max_evals = INT(20000)
+      @reset control[].sampling_strategy = INT(3)
+      @reset control[].trb_control.maxit = INT(100)
+      # @reset control[].print_level = CINT(1)
+
+      # Start from 0
+      x = T[0.0, 0.0, 0.0]
+
+      # sparse co-ordinate storage
+      if d == 1
+        st = &#39;C&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
+
+        terminated = false
+        while !terminated # reverse-communication loop
+          bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                     n, x, f[], g, ne, H_val, u, v)
+          if status[] == 0 # successful termination
+            terminated = true
+          elseif status[] &lt; 0 # error exit
+            terminated = true
+          elseif status[] == 2 # evaluate f
+            eval_status[] = fun(x, f, userdata)
+          elseif status[] == 3 # evaluate g
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 4 # evaluate H
+            eval_status[] = hess(x, H_val, userdata)
+          elseif status[] == 5 # evaluate Hv product
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 6 # evaluate the product with P
+            eval_status[] = prec(x, u, v, userdata)
+          elseif status[] == 23 # evaluate f and g
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 25 # evaluate f and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 35 # evaluate g and Hv product
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 235 # evaluate f, g and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          else
+            @printf(&quot; the value %1i of status should not occur\n&quot;,
+                    status)
+          end
         end
       end
-    end
 
-    # sparse by rows
-    if d == 2
-      st = &#39;R&#39;
-      bgo_import(T, INT, control, data, status, n, x_l, x_u,
-                 &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
+      # sparse by rows
+      if d == 2
+        st = &#39;R&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
 
-      terminated = false
-      while !terminated # reverse-communication loop
-        bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
-                                   n, x, f[], g, ne, H_val, u, v)
-        if status[] == 0 # successful termination
-          terminated = true
-        elseif status[] &lt; 0 # error exit
-          terminated = true
-        elseif status[] == 2 # evaluate f
-          eval_status[] = fun(x, f, userdata)
-        elseif status[] == 3 # evaluate g
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 4 # evaluate H
-          eval_status[] = hess(x, H_val, userdata)
-        elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(x, u, v, userdata)
-        elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        else
-          @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+        terminated = false
+        while !terminated # reverse-communication loop
+          bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                     n, x, f[], g, ne, H_val, u, v)
+          if status[] == 0 # successful termination
+            terminated = true
+          elseif status[] &lt; 0 # error exit
+            terminated = true
+          elseif status[] == 2 # evaluate f
+            eval_status[] = fun(x, f, userdata)
+          elseif status[] == 3 # evaluate g
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 4 # evaluate H
+            eval_status[] = hess(x, H_val, userdata)
+          elseif status[] == 5 # evaluate Hv product
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 6 # evaluate the product with P
+            eval_status[] = prec(x, u, v, userdata)
+          elseif status[] == 23 # evaluate f and g
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 25 # evaluate f and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 35 # evaluate g and Hv product
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 235 # evaluate f, g and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          else
+            @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+          end
         end
       end
-    end
 
-    # dense
-    if d == 3
-      st = &#39;D&#39;
-      bgo_import(T, INT, control, data, status, n, x_l, x_u,
-                 &quot;dense&quot;, ne, C_NULL, C_NULL, C_NULL)
+      # dense
+      if d == 3
+        st = &#39;D&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;dense&quot;, ne_dense, C_NULL, C_NULL, C_NULL)
 
-      terminated = false
-      while !terminated # reverse-communication loop
-        bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
-                                   n, x, f[], g, div(n * (n + 1), 2),
-                                   H_dense, u, v)
-        if status[] == 0 # successful termination
-          terminated = true
-        elseif status[] &lt; 0 # error exit
-          terminated = true
-        elseif status[] == 2 # evaluate f
-          eval_status[] = fun(x, f, userdata)
-        elseif status[] == 3 # evaluate g
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 4 # evaluate H
-          eval_status[] = hess_dense(x, H_dense, userdata)
-        elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(x, u, v, userdata)
-        elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        else
-          @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+        terminated = false
+        while !terminated # reverse-communication loop
+          bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                     n, x, f[], g, ne_dense,
+                                     H_dense, u, v)
+          if status[] == 0 # successful termination
+            terminated = true
+          elseif status[] &lt; 0 # error exit
+            terminated = true
+          elseif status[] == 2 # evaluate f
+            eval_status[] = fun(x, f, userdata)
+          elseif status[] == 3 # evaluate g
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 4 # evaluate H
+            eval_status[] = hess_dense(x, H_dense, userdata)
+          elseif status[] == 5 # evaluate Hv product
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 6 # evaluate the product with P
+            eval_status[] = prec(x, u, v, userdata)
+          elseif status[] == 23 # evaluate f and g
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 25 # evaluate f and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 35 # evaluate g and Hv product
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 235 # evaluate f, g and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          else
+            @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+          end
         end
       end
-    end
 
-    # diagonal
-    if d == 4
-      st = &#39;I&#39;
-      bgo_import(T, INT, control, data, status, n, x_l, x_u,
-                 &quot;diagonal&quot;, ne, C_NULL, C_NULL, C_NULL)
+      # diagonal
+      if d == 4
+        st = &#39;I&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;diagonal&quot;, n, C_NULL, C_NULL, C_NULL)
 
-      terminated = false
-      while !terminated # reverse-communication loop
-        bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
-                                   n, x, f[], g, n, H_diag, u, v)
-        if status[] == 0 # successful termination
-          terminated = true
-        elseif status[] &lt; 0 # error exit
-          terminated = true
-        elseif status[] == 2 # evaluate f
-          eval_status[] = fun_diag(x, f, userdata)
-        elseif status[] == 3 # evaluate g
-          eval_status[] = grad_diag(x, g, userdata)
-        elseif status[] == 4 # evaluate H
-          eval_status[] = hess_diag(x, H_diag, userdata)
-        elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod_diag(x, u, v, false, userdata)
-        elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(x, u, v, userdata)
-        elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun_diag(x, f, userdata)
-          eval_status[] = grad_diag(x, g, userdata)
-        elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun_diag(x, f, userdata)
-          eval_status[] = hessprod_diag(x, u, v, false, userdata)
-        elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad_diag(x, g, userdata)
-          eval_status[] = hessprod_diag(x, u, v, false, userdata)
-        elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun_diag(x, f, userdata)
-          eval_status[] = grad_diag(x, g, userdata)
-          eval_status[] = hessprod_diag(x, u, v, false, userdata)
-        else
-          @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+        terminated = false
+        while !terminated # reverse-communication loop
+          bgo_solve_reverse_with_mat(T, INT, data, status, eval_status,
+                                     n, x, f[], g, n, H_diag, u, v)
+          if status[] == 0 # successful termination
+            terminated = true
+          elseif status[] &lt; 0 # error exit
+            terminated = true
+          elseif status[] == 2 # evaluate f
+            eval_status[] = fun_diag(x, f, userdata)
+          elseif status[] == 3 # evaluate g
+            eval_status[] = grad_diag(x, g, userdata)
+          elseif status[] == 4 # evaluate H
+            eval_status[] = hess_diag(x, H_diag, userdata)
+          elseif status[] == 5 # evaluate Hv product
+            eval_status[] = hessprod_diag(x, u, v, false, userdata)
+          elseif status[] == 6 # evaluate the product with P
+            eval_status[] = prec(x, u, v, userdata)
+          elseif status[] == 23 # evaluate f and g
+            eval_status[] = fun_diag(x, f, userdata)
+            eval_status[] = grad_diag(x, g, userdata)
+          elseif status[] == 25 # evaluate f and Hv product
+            eval_status[] = fun_diag(x, f, userdata)
+            eval_status[] = hessprod_diag(x, u, v, false, userdata)
+          elseif status[] == 35 # evaluate g and Hv product
+            eval_status[] = grad_diag(x, g, userdata)
+            eval_status[] = hessprod_diag(x, u, v, false, userdata)
+          elseif status[] == 235 # evaluate f, g and Hv product
+            eval_status[] = fun_diag(x, f, userdata)
+            eval_status[] = grad_diag(x, g, userdata)
+            eval_status[] = hessprod_diag(x, u, v, false, userdata)
+          else
+            @printf(&quot; the value %1i of status should not occur\n&quot;, status)
+          end
         end
       end
-    end
 
-    # access by products
-    if d == 5
-      st = &#39;P&#39;
-      bgo_import(T, INT, control, data, status, n, x_l, x_u,
-                 &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
+      # access by products
+      if d == 5
+        st = &#39;P&#39;
+        bgo_import(T, INT, control, data, status, n, x_l, x_u,
+                   &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
 
-      nnz_u = Ref{INT}(0)
-      terminated = false
-      while !terminated # reverse-communication loop
-        bgo_solve_reverse_without_mat(T, INT, data, status, eval_status,
-                                      n, x, f[], g, u, v, index_nz_v,
-                                      nnz_v, index_nz_u, nnz_u[])
-        if status[] == 0 # successful termination
-          terminated = true
-        elseif status[] &lt; 0 # error exit
-          terminated = true
-        elseif status[] == 2 # evaluate f
-          eval_status[] = fun(x, f, userdata)
-        elseif status[] == 3 # evaluate g
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 5 # evaluate Hv product
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 6 # evaluate the product with P
-          eval_status[] = prec(x, u, v, userdata)
-        elseif status[] == 7 # evaluate sparse Hess-vect product
-          eval_status[] = shessprod(x, nnz_v[], index_nz_v, v,
-                                    nnz_u, index_nz_u, u,
-                                    false, userdata)
-        elseif status[] == 23 # evaluate f and g
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-        elseif status[] == 25 # evaluate f and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 35 # evaluate g and Hv product
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        elseif status[] == 235 # evaluate f, g and Hv product
-          eval_status[] = fun(x, f, userdata)
-          eval_status[] = grad(x, g, userdata)
-          eval_status[] = hessprod(x, u, v, false, userdata)
-        else
-          @printf(&quot; the value %1i of status should not occur\n&quot;,
-                  status)
+        nnz_u = zeros(INT, 1)
+        terminated = false
+        while !terminated # reverse-communication loop
+          bgo_solve_reverse_without_mat(T, INT, data, status, eval_status,
+                                        n, x, f[], g, u, v, index_nz_v,
+                                        nnz_v, index_nz_u, nnz_u[])
+          if status[] == 0 # successful termination
+            terminated = true
+          elseif status[] &lt; 0 # error exit
+            terminated = true
+          elseif status[] == 2 # evaluate f
+            eval_status[] = fun(x, f, userdata)
+          elseif status[] == 3 # evaluate g
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 5 # evaluate Hv product
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 6 # evaluate the product with P
+            eval_status[] = prec(x, u, v, userdata)
+          elseif status[] == 7 # evaluate sparse Hess-vect product
+            eval_status[] = shessprod(x, nnz_v[], index_nz_v, v,
+                                      nnz_u, index_nz_u, u,
+                                      false, userdata)
+          elseif status[] == 23 # evaluate f and g
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+          elseif status[] == 25 # evaluate f and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 35 # evaluate g and Hv product
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          elseif status[] == 235 # evaluate f, g and Hv product
+            eval_status[] = fun(x, f, userdata)
+            eval_status[] = grad(x, g, userdata)
+            eval_status[] = hessprod(x, u, v, false, userdata)
+          else
+            @printf(&quot; the value %1i of status should not occur\n&quot;,
+                    status)
+          end
         end
       end
+
+      # Record solution information
+      bgo_information(T, INT, data, inform, status)
+
+      if inform[].status == 0
+        @printf(&quot;%c:%6i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
+                inform[].f_eval, inform[].obj, inform[].status)
+      else
+        @printf(&quot;%c: BGO_solve exit status = %1i\n&quot;, st, inform[].status)
+      end
+
+      # Delete internal workspace
+      bgo_terminate(T, INT, data, control, inform)
     end
-
-    # Record solution information
-    bgo_information(T, INT, data, inform, status)
-
-    if inform[].status == 0
-      @printf(&quot;%c:%6i evaluations. Optimal objective value = %5.2f status = %1i\n&quot;, st,
-              inform[].f_eval, inform[].obj, inform[].status)
-    else
-      @printf(&quot;%c: BGO_solve exit status = %1i\n&quot;, st, inform[].status)
-    end
-
-    # @printf(&quot;x: &quot;)
-    # for i in 1:n
-    #   @printf(&quot;%f &quot;, x[i])
-    # end
-    # @printf(&quot;\n&quot;)
-    # @printf(&quot;gradient: &quot;)
-    # for i in 1:n
-    #  @printf(&quot;%f &quot;, g[i])
-    # end
-    # @printf(&quot;\n&quot;)
-
-    # Delete internal workspace
-    bgo_terminate(T, INT, data, control, inform)
   end
   return 0
 end
@@ -2404,7 +2581,9 @@ for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
                              (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
   if isfile(libgalahad)
     @testset &quot;BGO -- $T -- $INT&quot; begin
-      @test test_bgo(T, INT) == 0
+      @testset &quot;$mode communication&quot; for mode in (&quot;reverse&quot;, &quot;direct&quot;)
+        @test test_bgo(T, INT; mode) == 0
+      end
     end
   end
 end
@@ -2475,12 +2654,12 @@ end
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bgo-time-type-structure">bgo_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbgo-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bgo-inform-type-structure">bgo_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structbgo-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

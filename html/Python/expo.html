@@ -561,7 +561,7 @@ RAL Technical Report, in preparation.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-expo-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J = J(x)\)</span>
 may be presentedand stored in a variety of convenient input formats.</p>
 <p><em>Dense</em> storage format:
@@ -608,7 +608,7 @@ l = J_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, J_pt
 of the integer array J_row, and real array J_val, respectively.
 As before, for sparse matrices, this scheme almost always requires less
 storage than the co-ordinate format.</p>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = Hl(x,y)\)</span> may
+<p id="details-expo-storage-sym">The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = Hl(x,y)\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the lower triangular part
 (i.e, those entries that lie on or below the leading diagonal).</p>
@@ -727,6 +727,13 @@ infinite.</p>
 <dt>stop_rel_c<span class="classifier">float</span></dt><dd><p>the required relative accuracy for the complementarity.</p>
 </dd>
 <dt>stop_s<span class="classifier">float</span></dt><dd><p>the smallest the norm of the step can be before termination.</p>
+</dd>
+<dt>stop_subproblem_rel<span class="classifier">float</span></dt><dd><p>the subproblem minimization that uses GALAHAD TRU will be
+stopped as  soon as the relative decrease in the subproblem
+gradient falls below .stop_subproblem_rel. If
+.stop_subproblem_rel is 1.0 or bigger or 0.0 or smaller,
+this value will be ignored, and the choice of stopping
+rule delegated to .control_tru.stop_g_relative (see below)</p>
 </dd>
 <dt>initial_mu<span class="classifier">float</span></dt><dd><p>initial value for the penalty parameter (&lt;=0 means set
 automatically)</p>

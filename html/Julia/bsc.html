@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -170,7 +170,9 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -446,9 +448,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -594,13 +601,13 @@ this scheme almost always requires less storage than its predecessor.</p>
 <p>To solve a given problem, functions from the bsc package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-initialize"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-read-specfile"><span class="std std-ref">bsc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-import"><span class="std std-ref">bsc_import</span></a> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-reset-control"><span class="std std-ref">bsc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-form-s"><span class="std std-ref">bsc_form</span></a> - form the Schur complement <span class="math notranslate nohighlight">\(S\)</span></p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-information"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
-<li><p><a class="reference internal" href="bsc_functions.html#doxid-galahad-bsc-terminate"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-initialize"><span class="std std-ref">bsc_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-read-specfile"><span class="std std-ref">bsc_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-import"><span class="std std-ref">bsc_import</span></a> - set up matrix data structures for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-reset-control"><span class="std std-ref">bsc_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-form-s"><span class="std std-ref">bsc_form</span></a> - form the Schur complement <span class="math notranslate nohighlight">\(S\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-information"><span class="std std-ref">bsc_information</span></a> (optional) - recover information about the process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-bsc-terminate"><span class="std std-ref">bsc_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bsc-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1104,28 +1111,28 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
         <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; format </span><span class="si">%c</span><span class="s2">: error status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
       <span class="n">end</span>
 
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_row: &quot;</span><span class="p">)</span>
-      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span><span class="p">[]</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_row</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-      <span class="n">end</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_col: &quot;</span><span class="p">)</span>
-      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span><span class="p">[]</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_col</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-      <span class="n">end</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_val: &quot;</span><span class="p">)</span>
-      <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">S_ne</span><span class="p">[]</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-      <span class="n">end</span>
-      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">ptr</span> <span class="o">==</span> <span class="mi">1</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;S_ptr: &quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span>
-          <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%1i</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">end</span>
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-      <span class="n">end</span>
+      <span class="c1"># @printf(&quot;S_row: &quot;)</span>
+      <span class="c1"># for i = 1:S_ne[]</span>
+      <span class="c1">#   @printf(&quot;%1i &quot;, S_row[i])</span>
+      <span class="c1"># end</span>
+      <span class="c1"># @printf(&quot;\n&quot;);</span>
+      <span class="c1"># @printf(&quot;S_col: &quot;)</span>
+      <span class="c1"># for i = 1:S_ne[]</span>
+      <span class="c1">#   @printf(&quot;%1i &quot;, S_col[i])</span>
+      <span class="c1"># end</span>
+      <span class="c1"># @printf(&quot;\n&quot;)</span>
+      <span class="c1"># @printf(&quot;S_val: &quot;)</span>
+      <span class="c1"># for i = 1:S_ne[]</span>
+      <span class="c1">#   @printf(&quot;%.2f &quot;, S_val[i])</span>
+      <span class="c1"># end</span>
+      <span class="c1"># @printf(&quot;\n&quot;)</span>
+      <span class="c1"># if ptr == 1</span>
+      <span class="c1">#   @printf(&quot;S_ptr: &quot;)</span>
+      <span class="c1">#   for i = 1:m+1</span>
+      <span class="c1">#     @printf(&quot;%1i &quot;, S_ptr[i])</span>
+      <span class="c1">#   end</span>
+      <span class="c1">#   @printf(&quot;\n&quot;)</span>
+      <span class="c1"># end</span>
     <span class="n">end</span>
   <span class="n">end</span>
 
@@ -1221,13 +1228,13 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   </nav></div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/bsc.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bsc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -1242,8 +1249,8 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1276,7 +1283,8 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

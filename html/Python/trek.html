@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TREK &#8212; GALAHAD Python Interface 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'trek';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DPS" href="dps.html" />
+    <link rel="prev" title="RQS" href="rqs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a regularized quadratic function using matrix factorization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llsr.html">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llst.html">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lstr.html">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="reg.html" class="nav-link">Regularization subproblems</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TREK</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-galahad.trek">
+<span id="trek"></span><h1>TREK<a class="headerlink" href="#module-galahad.trek" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">trek</span></code> package uses an <strong>extended-Krylov-subspace iteration</strong> to find the
+global minimizer of a <strong>quadratic objective function</strong> within
+an <strong>ellipsoidal region</strong>; this is commonly known as the
+<strong>trust-region subproblem</strong>.
+The aim is to minimize the quadratic objective function
+<div class="math notranslate nohighlight">
+\[q(x) = f + c^T x + \frac{1}{2} x^T H x,\]</div>
+
+where the vector <span class="math notranslate nohighlight">\(x\)</span> is required to satisfy
+the ellipsoidal  <strong>trust-region constraint</strong> <span class="math notranslate nohighlight">\(\|x\|_S \leq  \Delta\)</span>.
+where the <span class="math notranslate nohighlight">\(S\)</span>-norm of <span class="math notranslate nohighlight">\(x\)</span> is defined to be <span class="math notranslate nohighlight">\(\|x\|_S = \sqrt{x^T S x}\)</span>,
+and where the <strong>radius</strong> <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>.
+The matrix <span class="math notranslate nohighlight">\(S\)</span> need not be provided in the commonly-occurring
+<span class="math notranslate nohighlight">\(\ell_2\)</span>-trust-region case for which <span class="math notranslate nohighlight">\(S = I\)</span>, the <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span>
+identity matrix.</p>
+<p>Factorization of the matrices <span class="math notranslate nohighlight">\(H\)</span> and, if present, <span class="math notranslate nohighlight">\(S\)</span>
+will be required, so this package is most suited
+for the case where such a factorization may be found efficiently. If
+this is not the case, the package <code class="docutils literal notranslate"><span class="pre">gltr</span></code> may be preferred.</p>
+<p>See Section 4 of $GALAHAD/doc/trek.pdf for additional details.</p>
+</section>
+<section id="method">
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
+<p>The required solution <span class="math notranslate nohighlight">\(x_*\)</span> necessarily satisfies the optimality condition
+<span class="math notranslate nohighlight">\(H x_* + \lambda_* S x_* + c = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \geq 0\)</span> is a Lagrange
+multiplier corresponding to the constraint <span class="math notranslate nohighlight">\(\|x\|_M  \leq  \Delta\)</span>.
+In addition in all cases, the matrix <span class="math notranslate nohighlight">\(H + \lambda_* S\)</span> will be positive
+semi-definite; in most instances it will actually be positive definite,
+but in special “hard” cases singularity is a possibility.</p>
+<p>The method is iterative, and is based upon building a solution approximation
+from an orthogonal basis of the evolving extended Krylov subspaces
+<span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c) = \mbox{span}\{c,H^{-1}c,H c,H^{-2}c,H^2c,\ldots,\)</span>
+<span class="math notranslate nohighlight">\(H^{-m}c,H^{m}c\}\)</span>
+as <span class="math notranslate nohighlight">\(m\)</span> increases. The key observations are (i) the manifold of
+solutions to the optimality system
+\[ ( H + \lambda I ) x(\lambda) = - c\]
+as a function of <span class="math notranslate nohighlight">\(\sigma\)</span> is of approximately very low rank, (ii)
+the subspace <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)</span> rapidly gives a very good
+approximation to this manifold, (iii) it is straightforward to
+build an orthogonal basis of <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)</span>
+using short-term recurrences and a single factorization of <span class="math notranslate nohighlight">\(H\)</span>, and
+(iv) solutions to the trust-region subproblem restricted to elements
+of the orthogonal subspace may be found very efficiently
+using effective high-order root-finding methods. The fact that the
+second element in the subspace is <span class="math notranslate nohighlight">\(H^{-1} c\)</span> means that it is easy
+to check for the interior-solution possibility <span class="math notranslate nohighlight">\(x = - H^{-1} c\)</span>
+that occurs when such a <span class="math notranslate nohighlight">\(x\)</span> satisfies <span class="math notranslate nohighlight">\(\|x\| \leq \Delta\)</span>.
+Coping with general scalings <span class="math notranslate nohighlight">\(S\)</span> is a straightforward extension so long
+as factorization of <span class="math notranslate nohighlight">\(S\)</span> is also possible.</p>
+</section>
+<section id="reference">
+<h2>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<p>The method is described in detail in</p>
+<blockquote>
+<div><p>H. Al Daas and N. I. M. Gould.
+Extended-Krylov-subspace methods for trust-region and norm-regularization
+subproblems. Preprint STFC-P-2025-002, Rutherford Appleton Laboratory,
+Oxfordshire, England.</p>
+</div></blockquote>
+</section>
+<section id="matrix-storage">
+<span id="details-trek-storage-sym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(H\)</span> and, optionally, <span class="math notranslate nohighlight">\(S\)</span> may also
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\(i * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>.
+The string H_type = ‘dense’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, and values
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> of the  entries in the i-th row are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq n-1\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(0 \leq i \leq n-1\)</span> need be stored,
+and the first n components of the array H_val may be used for the purpose.
+The string H_type = ‘diagonal’ should be specified.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.
+The string H_type = ‘scaled_identity’ should be specified.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.
+The string H_type = ‘identity’ should be specified.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix, but now
+the string H_type = ‘zero’ or ‘none’ should be specified.</p>
+</section>
+<section id="functions">
+<h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py function">
+<dt class="sig sig-object py" id="galahad.trek.trek.initialize">
+<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.initialize" title="Link to this definition">#</a></dt>
+<dd><p>Set default option values and initialize private data</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>options<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing default control options:</dt><dd><dl>
+<dt>error<span class="classifier">int</span></dt><dd><p>error and warning diagnostics occur on stream error.</p>
+</dd>
+<dt>out<span class="classifier">int</span></dt><dd><p>general output occurs on stream out.</p>
+</dd>
+<dt>print_level<span class="classifier">int</span></dt><dd><p>the level of output required is specified by print_level.
+Possible values are</p>
+<ul>
+<li><p><strong>&lt;=0</strong></p>
+<p>gives no output,</p>
+</li>
+<li><p><strong>1</strong></p>
+<p>gives a one-line summary for every iteration.</p>
+</li>
+<li><p><strong>2</strong></p>
+<p>gives a summary of the inner iteration for each iteration.</p>
+</li>
+<li><p><strong>&gt;=3</strong></p>
+<p>gives increasingly verbose (debugging) output.</p>
+</li>
+</ul>
+</dd>
+<dt>eks_max<span class="classifier">int</span></dt><dd><p>maximum dimension of the extended Krylov space employed.
+If a negative value is given, the value 100 will be used instead.</p>
+</dd>
+<dt>it_max<span class="classifier">int</span></dt><dd><p>the maximum number of iterations allowed.
+If a negative value is given, the value 100 will be used instead.</p>
+</dd>
+<dt>f<span class="classifier">float</span></dt><dd><p>the value of <span class="math notranslate nohighlight">\(f\)</span> in the objective function. This value has no
+effect on the computed <span class="math notranslate nohighlight">\(x\)</span>, and takes the value 0.0 by default.</p>
+</dd>
+<dt>reduction<span class="classifier">float</span></dt><dd><p>the value of the reduction factor for a suggested subsequent
+trust-region radius, see control[‘next_radius’]. The suggested
+radius will be <code class="docutils literal notranslate"><span class="pre">reduction</span></code> times the smaller of the current
+radius and <span class="math notranslate nohighlight">\(\|x\|_S\)</span> at the output <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>stop_residual<span class="classifier">float</span></dt><dd><p>the value of the stopping tolerance used by the algorithm. The
+iteration stops as soon as <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are found to satisfy
+<span class="math notranslate nohighlight">\(\| ( H + \lambda S ) x + c \| &lt;\)</span> <code class="docutils literal notranslate"><span class="pre">stop_residual</span></code>
+<span class="math notranslate nohighlight">\(\times \max( 1, \|c\| )\)</span>.</p>
+</dd>
+<dt>reorthogonalize<span class="classifier">bool</span></dt><dd><p>should be set to True if the generated basis of the
+extended-Krylov subspace is to be reorthogonalized at every
+iteration. This can be very expensive, and is generally
+not warranted.</p>
+</dd>
+<dt>s_version_52<span class="classifier">bool</span></dt><dd><p>should be set to True if Algorithm 5.2 in the paper is used
+to generate the extended Krylov space recurrences when a non-unit
+<span class="math notranslate nohighlight">\(S\)</span> is given, and False if those from Algorithm B.3 ares used
+instead. In practice, there is very little difference in
+performance and accuracy.</p>
+</dd>
+<dt>perturb_c<span class="classifier">bool</span></dt><dd><p>should be set to True if the user wishes to make a tiny
+pseudo-random perturbations to the components of the term <span class="math notranslate nohighlight">\(c\)</span>
+to try to protect from the so-called (probability zero) “hard”
+case. Perturbations are generally not needed, and should only
+be used in very exceptional cases.</p>
+</dd>
+<dt>stop_check_all_orders<span class="classifier">bool</span></dt><dd><p>should be set to True if the algorithm checks for termination
+for each new member of the extended Krylov space. Such checks
+incur some extra cost, and experience shows that testing every
+second member is sufficient.</p>
+</dd>
+<dt>new_radius<span class="classifier">bool</span></dt><dd><p>should be set to True if the call retains the previous <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>
+and <span class="math notranslate nohighlight">\(c\)</span>, but with a new, smaller radius.</p>
+</dd>
+<dt>new_values<span class="classifier">bool</span></dt><dd><p>should be set to True if the any of the values of <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>
+and <span class="math notranslate nohighlight">\(c\)</span> has changed since a previous call.</p>
+</dd>
+<dt>space_critical<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">space_critical</span></code> is True, every effort will be made to
+use as little space as possible. This may result in longer
+computation time.</p>
+</dd>
+<dt>deallocate_error_fatal<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">deallocate_error_fatal</span></code> is True, any array/pointer
+deallocation error will terminate execution. Otherwise,
+computation will continue.</p>
+</dd>
+<dt>linear_solver<span class="classifier">str</span></dt><dd><p>linear equation solver used for systems involving <span class="math notranslate nohighlight">\(H\)</span>.</p>
+</dd>
+<dt>linear_solver_for_s<span class="classifier">str</span></dt><dd><p>linear equation solver used for systems involving <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>prefix<span class="classifier">str</span></dt><dd><p>all output lines will be prefixed by the string contained
+in quotes within <code class="docutils literal notranslate"><span class="pre">prefix</span></code>, e.g. ‘word’ (note the qutoes)
+will result in the prefix word.</p>
+</dd>
+<dt>sls_options<span class="classifier">dict</span></dt><dd><p>default control options for SLS (see <code class="docutils literal notranslate"><span class="pre">sls.initialize</span></code>).</p>
+</dd>
+<dt>sls_s_options<span class="classifier">dict</span></dt><dd><p>default control options for SLS applied to <span class="math notranslate nohighlight">\(S\)</span>
+(see <code class="docutils literal notranslate"><span class="pre">sls.initialize</span></code>).</p>
+</dd>
+<dt>trs_options<span class="classifier">dict</span></dt><dd><p>default control options for TRS (see <code class="docutils literal notranslate"><span class="pre">trs.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.trek.trek.load">
+<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.load" title="Link to this definition">#</a></dt>
+<dd><p>Import problem data into internal storage prior to solution.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>H_type<span class="classifier">string</span></dt><dd><p>specifies the symmetric storage scheme used for the Hessian <span class="math notranslate nohighlight">\(H\)</span>.
+It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’,
+‘diagonal’, ‘scaled_identity’, ‘identity’, ‘zero’  or ‘none’;
+lower or upper case variants are allowed.</p>
+</dd>
+<dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need
+not be set for any of the other schemes.</p>
+</dd>
+<dt>H_row<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>
+in the sparse co-ordinate storage scheme. It need not be set for
+any of the other schemes, and in this case can be None.</p>
+</dd>
+<dt>H_col<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the column indices of the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise
+storage scheme. It need not be set when the other storage schemes
+are used, and in this case can be None.</p>
+</dd>
+<dt>H_ptr<span class="classifier">ndarray(n+1)</span></dt><dd><p>holds the starting position of each row of the lower triangular
+part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries,
+in the sparse row-wise storage scheme. It need not be set when the
+other schemes are used, and in this case can be None.</p>
+</dd>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.load_s(n,</span> <span class="pre">S_type,</span> <span class="pre">S_ne,</span> <span class="pre">S_row,</span> <span class="pre">S_col,</span> <span class="pre">S_ptr,</span> <span class="pre">options=None)</span></span></dt>
+<dd><p>Import problem data for the scaling matrix <span class="math notranslate nohighlight">\(S\)</span>, if needed,
+into internal storage prior to solution.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>S_type<span class="classifier">string</span></dt><dd><p>specifies the symmetric storage scheme used for the Hessian <span class="math notranslate nohighlight">\(H\)</span>.
+It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’,
+‘diagonal’, ‘scaled_identity’, ‘identity’, ‘zero’  or ‘none’;
+lower or upper case variants are allowed.</p>
+</dd>
+<dt>S_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in the sparse co-ordinate storage scheme. It need
+not be set for any of the other schemes.</p>
+</dd>
+<dt>S_row<span class="classifier">ndarray(S_ne)</span></dt><dd><p>holds the row indices of the lower triangular part of <span class="math notranslate nohighlight">\(H\)</span>
+in the sparse co-ordinate storage scheme. It need not be set for
+any of the other schemes, and in this case can be None.</p>
+</dd>
+<dt>S_col<span class="classifier">ndarray(S_ne)</span></dt><dd><p>holds the column indices of the  lower triangular part of
+<span class="math notranslate nohighlight">\(H\)</span> in either the sparse co-ordinate, or the sparse row-wise
+storage scheme. It need not be set when the other storage schemes
+are used, and in this case can be None.</p>
+</dd>
+<dt>S_ptr<span class="classifier">ndarray(n+1)</span></dt><dd><p>holds the starting position of each row of the lower triangular
+part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the total number of entries,
+in the sparse row-wise storage scheme. It need not be set when the
+other schemes are used, and in this case can be None.</p>
+</dd>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.reset_options(options)</span></span></dt>
+<dd><p>Reset control parameters after import if required.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>options<span class="classifier">dict</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.trek.trek.solve_problem">
+<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.solve_problem" title="Link to this definition">#</a></dt>
+<dd><p>Find the global minimizer of the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span>
+within the trust-region constraint.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>H_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+the Hessian <span class="math notranslate nohighlight">\(H\)</span>.</p>
+</dd>
+<dt>H_val<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
+<span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
+<code class="docutils literal notranslate"><span class="pre">trek.load</span></code>.</p>
+</dd>
+<dt>c<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(c\)</span> in the objective function.</p>
+</dd>
+<dt>radius<span class="classifier">float</span></dt><dd><p>holds the strictly positive trust-region radius, <span class="math notranslate nohighlight">\(\Delta\)</span>.</p>
+</dd>
+<dt>S_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
+the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it is not the identity matrix.
+Otherwise it should be None.</p>
+</dd>
+<dt>S_val<span class="classifier">ndarray(S_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the scaling
+matrix <span class="math notranslate nohighlight">\(S\)</span> in the same order as specified in the sparsity pattern in
+<code class="docutils literal notranslate"><span class="pre">trek.load_s</span></code> if needed. Otherwise it should be None.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong></p>
+<dl class="simple">
+<dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
+a successful call.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.information()</span></span></dt>
+<dd><p>Provide optional output information</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>inform<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing output information:</dt><dd><dl>
+<dt>status<span class="classifier">int</span></dt><dd><p>return status.  Possible values are:</p>
+<ul>
+<li><p><strong>0</strong></p>
+<p>The run was successful.</p>
+</li>
+<li><p><strong>-1</strong></p>
+<p>An allocation error occurred. A message indicating the
+offending array is written on unit options[‘error’], and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-2</strong></p>
+<p>A deallocation error occurred.  A message indicating the
+offending array is written on unit options[‘error’] and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-3</strong>
+The restriction n &gt; 0, radius &gt; 0,
+or requirement that type contains
+its relevant string ‘dense’, ‘coordinate’, ‘sparse_by_rows’,
+‘diagonal’, ‘scaled_identity’,  ‘identity’, ‘zero’ or ‘none’
+has been violated.</p></li>
+<li><p><strong>-9</strong></p>
+<p>The analysis phase of the factorization failed; the return
+status from the factorization package is given by
+inform[‘sls_inform’][‘status’] or
+inform[‘sls_s_inform’][‘status’] as appropriate.</p>
+</li>
+<li><p><strong>-10</strong></p>
+<p>The factorization failed; the return status from the
+factorization package is given by inform[‘sls_inform’][‘status’]
+or inform[‘sls_s_inform’][‘status’] as appropriate.</p>
+</li>
+<li><p><strong>-11</strong></p>
+<p>The solution of a set of linear equations using factors
+from the factorization package failed; the return status
+from the factorization package is given by
+inform[‘sls_inform’][‘status’] or
+inform[‘sls_s_inform’][‘status’] as appropriate.</p>
+</li>
+<li><p><strong>-15</strong></p>
+<p><span class="math notranslate nohighlight">\(S\)</span> does not appear to be strictly diagonally dominant.</p>
+</li>
+<li><p><strong>-16</strong></p>
+<p>The problem is so ill-conditioned that further progress
+is impossible.</p>
+</li>
+<li><p><strong>-18</strong></p>
+<p>Too many iterations have been required. This may happen if
+options[‘eks max’] is too small, but may also be symptomatic of
+a badly scaled problem.</p>
+</li>
+<li><p><strong>-31</strong></p>
+<p>A resolve call has been made before an initial call (see
+options[‘new_radius’] and options[‘new_values’]).</p>
+</li>
+<li><p><strong>-38</strong></p>
+<blockquote>
+<div><p>An error occurred in a call to an LAPACK subroutine.</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt>alloc_status<span class="classifier">int</span></dt><dd><p>the status of the last attempted allocation/deallocation.</p>
+</dd>
+<dt>bad_alloc<span class="classifier">str</span></dt><dd><p>the name of the array for which an allocation/deallocation
+error occurred.</p>
+</dd>
+<dt>iter<span class="classifier">int</span></dt><dd><p>the total number of iterations required</p>
+</dd>
+<dt>n_vec<span class="classifier">int</span></dt><dd><p>the number of orthogonal vectors required</p>
+</dd>
+<dt>obj<span class="classifier">float</span></dt><dd><p>the value of the quadratic function.</p>
+</dd>
+<dt>x_norm<span class="classifier">float</span></dt><dd><p>the <span class="math notranslate nohighlight">\(S\)</span>-norm of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(||x||_S\)</span>.</p>
+</dd>
+<dt>multiplier<span class="classifier">float</span></dt><dd><p>the Lagrange multiplier corresponding to the trust-region
+constraint.</p>
+</dd>
+<dt>radius<span class="classifier">float</span></dt><dd><p>the current trust-region radius</p>
+</dd>
+<dt>next_radius<span class="classifier">float</span></dt><dd><p>the  proposed next trust-region radius to be used</p>
+</dd>
+<dt>error<span class="classifier">float</span></dt><dd><p>the maximum relative residual error</p>
+</dd>
+<dt>time<span class="classifier">dict</span></dt><dd><dl class="simple">
+<dt>dictionary containing timing information:</dt><dd><dl class="simple">
+<dt>total<span class="classifier">float</span></dt><dd><p>total CPU time spent in the package.</p>
+</dd>
+<dt>assemble<span class="classifier">float</span></dt><dd><p>CPU time spent building <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>analyse<span class="classifier">float</span></dt><dd><p>CPU time spent reordering <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span> prior to
+factorization.</p>
+</dd>
+<dt>factorize<span class="classifier">float</span></dt><dd><p>CPU time spent factorizing <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>solve<span class="classifier">float</span></dt><dd><p>CPU time spent solving linear systems inolving
+<span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>clock_total<span class="classifier">float</span></dt><dd><p>total clock time spent in the package.</p>
+</dd>
+<dt>clock_assemble<span class="classifier">float</span></dt><dd><p>clock time spent building <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>clock_analyse<span class="classifier">float</span></dt><dd><p>clock time spent reordering <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span> prior to
+factorization.</p>
+</dd>
+<dt>clock_factorize<span class="classifier">float</span></dt><dd><p>clock time spent factorizing <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+<dt>clock_solve<span class="classifier">float</span></dt><dd><p>clock time spent solving linear systems inolving
+<span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>sls_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for SLS for <span class="math notranslate nohighlight">\(H\)</span> (see <code class="docutils literal notranslate"><span class="pre">sls.information</span></code>).</p>
+</dd>
+<dt>sls_s_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for SLS for <span class="math notranslate nohighlight">\(S\)</span> (see <code class="docutils literal notranslate"><span class="pre">sls.information</span></code>).</p>
+</dd>
+<dt>trs_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for TRS (see <code class="docutils literal notranslate"><span class="pre">trs.information</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.trek.trek.terminate">
+<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.terminate" title="Link to this definition">#</a></dt>
+<dd><p>Deallocate all internal private storage.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="example-code">
+<h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
+<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">trek</span><span class="whitespace">
+</span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
+</span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: trek&quot;</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># set parameters</span><span class="whitespace">
+</span><span class="name">p</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+</span><span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+</span><span class="name">m</span> <span class="operator">=</span> <span class="literal number integer">1</span><span class="whitespace">
+</span><span class="name">infinity</span> <span class="operator">=</span> <span class="name builtin">float</span><span class="punctuation">(</span><span class="literal string double">&quot;inf&quot;</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single">#  describe objective function</span><span class="whitespace">
+
+</span><span class="name">f</span> <span class="operator">=</span> <span class="literal number float">0.96</span><span class="whitespace">
+</span><span class="name">g</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">0.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">0.0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">H_ne</span> <span class="operator">=</span> <span class="literal number integer">4</span><span class="whitespace">
+</span><span class="name">H_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">H_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">H_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">3.0</span><span class="punctuation">,</span><span class="literal number float">4.0</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single">#  describe norm</span><span class="whitespace">
+
+</span><span class="name">S_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">S_ne</span> <span class="operator">=</span> <span class="literal number integer">3</span><span class="whitespace">
+</span><span class="name">S_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">S_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">S_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">S_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+
+</span><span class="comment single"># set some non-default options</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
+
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">trek</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_type</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_row</span><span class="punctuation">,</span> <span class="name">H_col</span><span class="punctuation">,</span> <span class="name">H_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># set trust-region radius</span><span class="whitespace">
+
+</span><span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 1&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># reset trust-region radius to the suggested smaller value</span><span class="whitespace">
+
+</span><span class="name">radius</span> <span class="operator">=</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'next_radius'</span><span class="punctuation">]</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_radius'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">True</span><span class="whitespace">
+</span><span class="name">trek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 2 with smaller radius&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># reinitialize trust-region radius</span><span class="whitespace">
+
+</span><span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_radius'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">False</span><span class="whitespace">
+</span><span class="name">trek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">trek</span><span class="operator">.</span><span class="name">load_s</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">S_type</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_row</span><span class="punctuation">,</span> <span class="name">S_col</span><span class="punctuation">,</span> <span class="name">S_ptr</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 3 with additional non-unit norm&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_val</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># deallocate internal data</span><span class="whitespace">
+
+</span><span class="name">trek</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
+<p>This example code is available in $GALAHAD/src/trek/Python/test_trek.py .</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rqs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RQS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dps.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DPS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.initialize"><code class="docutils literal notranslate"><span class="pre">trek.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.load"><code class="docutils literal notranslate"><span class="pre">trek.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.solve_problem"><code class="docutils literal notranslate"><span class="pre">trek.solve_problem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.terminate"><code class="docutils literal notranslate"><span class="pre">trek.terminate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/trek.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

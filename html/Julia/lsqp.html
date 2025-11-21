@@ -602,14 +602,14 @@ free (unbounded on both sides) constraints are temporarily removed.</p>
 <p>The basic algorithm is that of</p>
 <blockquote>
 <div><p>Y. Zhang,
-<a href="#id1"><span class="problematic" id="id2">``</span></a>On the convergence of a class of infeasible interior-point methods
+‘’On the convergence of a class of infeasible interior-point methods
 for the horizontal linear complementarity problem’’.
 <em>SIAM J. Optimization</em> <strong>4(1)</strong> (1994) 208-227,</p>
 </div></blockquote>
 <p>with a number of enhancements described by</p>
 <blockquote>
 <div><p>A. R. Conn, N. I. M. Gould, D. Orban and Ph. L. Toint,
-<a href="#id3"><span class="problematic" id="id4">``</span></a>A primal-dual trust-region algorithm for minimizing a non-convex
+‘’ primal-dual trust-region algorithm for minimizing a non-convex
 function subject to general inequality and linear equality constraints’’.
 <em>Mathematical Programming **87*</em> (1999) 215-249.</p>
 </div></blockquote>
@@ -814,7 +814,7 @@ been violated.</p>
 <td><p>is a scalar variable of type INT that holds the number of general linear constraints.</p></td>
 </tr>
 <tr class="row-even"><td><p>A_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="wcp.html#details-a-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="uls.html#details-a-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the constraint Jacobian, <span class="math notranslate nohighlight">\(A\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>A_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -1308,10 +1308,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structlsqp-time-type">
-<span id="id5"></span><h2>detailed documentation<a class="headerlink" href="#details-structlsqp-time-type" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structlsqp-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
-<section id="id6">
-<h3>components<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-time-type-total"><span id="index-65"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-time-type-preprocess"><span id="index-66"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">preprocess</span></pre>
@@ -1361,10 +1361,10 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">sbls_inform</span><span class="o">::</span><span class="kt">sbls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="details-structlsqp-inform-type">
-<span id="id7"></span><h2>detailed documentation<a class="headerlink" href="#details-structlsqp-inform-type" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structlsqp-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
-<section id="id8">
-<h3>components<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-status"><span id="index-78"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>return status. See LSQP_solve for details</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structlsqp-inform-type-alloc-status"><span id="index-79"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
@@ -1508,14 +1508,6 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
     <span class="k">else</span>
       <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">: LSQP_solve exit status = </span><span class="si">%1i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
     <span class="n">end</span>
-    <span class="c1"># @printf(&quot;x: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, x[i])</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
-    <span class="c1"># @printf(&quot;gradient: &quot;)</span>
-    <span class="c1"># for i = 1:n</span>
-    <span class="c1">#   @printf(&quot;%f &quot;, g[i])</span>
-    <span class="c1"># @printf(&quot;\n&quot;)</span>
 
     <span class="c1"># Delete internal workspace</span>
     <span class="n">lsqp_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
@@ -1604,12 +1596,12 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lsqp-time-type-structure">lsqp_time_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structlsqp-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lsqp-inform-type-structure">lsqp_inform_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structlsqp-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calls">example calls</a></li>

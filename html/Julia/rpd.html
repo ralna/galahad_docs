@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -150,6 +150,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="ls.html">
     Least-Squares
   </a>
@@ -162,19 +169,21 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="qp.html">
-    Quadratic Programming
-  </a>
-</li>
-
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
@@ -288,6 +297,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="bco.html">
     Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
   </a>
 </li>
 
@@ -432,9 +448,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -529,24 +550,24 @@ H_ptr. Once again, only the lower traingle is stored.</p>
 <p>To solve a given problem, functions from the rpd package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span class="std std-ref">rpd_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span class="std std-ref">rpd_get_stats</span></a> - read a given QPLIB file into internal data structures, and report vital statistics</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6805ebb5cc097db7df39723c64cef793"><span class="std std-ref">rpd_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ad0148374adcd7bf5f34f378ba0995a21"><span class="std std-ref">rpd_get_stats</span></a> - read a given QPLIB file into internal data structures, and report vital statistics</p></li>
 <li><p>(optionally, and in any order, where relevant)</p>
 <ul>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span class="std std-ref">rpd_get_g</span></a> - get the objective gradient term <span class="math notranslate nohighlight">\(g\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span class="std std-ref">rpd_get_f</span></a> - get the objective constant term <span class="math notranslate nohighlight">\(f\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the variable bounds <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the constraint bounds <span class="math notranslate nohighlight">\(c_l\)</span> and <span class="math notranslate nohighlight">\(c_u\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span class="std std-ref">rpd_get_h</span></a> - get the objective Hessian term <span class="math notranslate nohighlight">\(H\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span class="std std-ref">rpd_get_a</span></a> - get the constrain Jacobian term <span class="math notranslate nohighlight">\(A\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span class="std std-ref">rpd_get_h_c</span></a> - get the constraint Hessian terms <span class="math notranslate nohighlight">\(H_c\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span class="std std-ref">rpd_get_x_type</span></a> - determine the type of each variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span class="std std-ref">rpd_get_x</span></a> - get initial value of the variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span class="std std-ref">rpd_get_y</span></a> - get initial value of Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span class="std std-ref">rpd_get_z</span></a> - get initial value of the dual variables <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1aa5be687c00e4a7980c5ea7c258717d3a"><span class="std std-ref">rpd_get_g</span></a> - get the objective gradient term <span class="math notranslate nohighlight">\(g\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a38dc68ed79b192e3fcd961b8589d202c"><span class="std std-ref">rpd_get_f</span></a> - get the objective constant term <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the variable bounds <span class="math notranslate nohighlight">\(x_l\)</span> and <span class="math notranslate nohighlight">\(x_u\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a6a5cbf68b561cc6db0ba08304d28787c"><span class="std std-ref">rpd_get_xlu</span></a> - get the constraint bounds <span class="math notranslate nohighlight">\(c_l\)</span> and <span class="math notranslate nohighlight">\(c_u\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a02021324df6f485160d327f2f5fca0d3"><span class="std std-ref">rpd_get_h</span></a> - get the objective Hessian term <span class="math notranslate nohighlight">\(H\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a8b0c3c507b12512b09ee4ec92596148e"><span class="std std-ref">rpd_get_a</span></a> - get the constrain Jacobian term <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1a55ae091188ad0d88920565549bd47451"><span class="std std-ref">rpd_get_h_c</span></a> - get the constraint Hessian terms <span class="math notranslate nohighlight">\(H_c\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1af784ecc65c925575788a494bd8118f4d"><span class="std std-ref">rpd_get_x_type</span></a> - determine the type of each variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1afbc831595295e9153e4740d852a35c27"><span class="std std-ref">rpd_get_x</span></a> - get initial value of the variable <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ac9fd1a08acf460b7962ad5393d69fff5"><span class="std std-ref">rpd_get_y</span></a> - get initial value of Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1ab1579a81766096bd1764f0fb0cc10db3"><span class="std std-ref">rpd_get_z</span></a> - get initial value of the dual variables <span class="math notranslate nohighlight">\(z\)</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="rpd_functions.html#doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span class="std std-ref">rpd_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-rpd-8h-1af49fc46839c605dd71d2666189d0d8a9"><span class="std std-ref">rpd_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-rpd-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -573,7 +594,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -608,7 +629,7 @@ status from the package. Possible values are
 <td><p>is a scalar variable of type INT that gives the number of characters in the name encoded in qplib_file.</p></td>
 </tr>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -1162,7 +1183,7 @@ status from the package. Possible values are:</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1193,10 +1214,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_rpd_control_type.html#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structrpd-control-type"><span class="std std-ref">rpd_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="struct_rpd_inform_type.html#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structrpd-inform-type"><span class="std std-ref">rpd_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1325,108 +1346,110 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
 
   <span class="c1"># extend the qplib_file string to include the actual position of the</span>
   <span class="c1"># provided ALLINIT.qplib example file provided as part GALAHAD</span>
-  <span class="n">qplib_file</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">ENV</span><span class="p">[</span><span class="s2">&quot;GALAHAD&quot;</span><span class="p">],</span> <span class="s2">&quot;examples&quot;</span><span class="p">,</span> <span class="s2">&quot;ALLINIT.qplib&quot;</span><span class="p">)</span>
-  <span class="n">qplib_file_len</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">qplib_file</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">haskey</span><span class="p">(</span><span class="n">ENV</span><span class="p">,</span> <span class="s2">&quot;GALAHAD&quot;</span><span class="p">)</span>
+    <span class="n">qplib_file</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">ENV</span><span class="p">[</span><span class="s2">&quot;GALAHAD&quot;</span><span class="p">],</span> <span class="s2">&quot;examples&quot;</span><span class="p">,</span> <span class="s2">&quot;ALLINIT.qplib&quot;</span><span class="p">)</span>
+    <span class="n">qplib_file_len</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">qplib_file</span><span class="p">)</span>
 
-  <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">n</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">h_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">a_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">h_c_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
-  <span class="n">p_type</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">Cchar</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">h_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">a_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">h_c_ne</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
+    <span class="n">p_type</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">Cchar</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; Fortran sparse matrix indexing</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; basic tests of storage formats</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-  <span class="c1"># Initialize RPD</span>
-  <span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+    <span class="c1"># Initialize RPD</span>
+    <span class="n">rpd_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
-  <span class="c1"># Recover vital statistics from the QPLIB file</span>
-  <span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">qplib_file</span><span class="p">,</span> <span class="n">qplib_file_len</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">p_type</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">,</span>
-                <span class="n">h_c_ne</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; QPLIB file is of type </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">Char</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="o">*</span><span class="p">,</span> <span class="n">p_type</span><span class="p">))</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; n = </span><span class="si">%i</span><span class="s2">, m = </span><span class="si">%i</span><span class="s2">, h_ne = </span><span class="si">%i</span><span class="s2">, a_ne = </span><span class="si">%i</span><span class="s2">, h_c_ne = </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">m</span><span class="p">[],</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">a_ne</span><span class="p">[],</span>
-          <span class="n">h_c_ne</span><span class="p">[])</span>
+    <span class="c1"># Recover vital statistics from the QPLIB file</span>
+    <span class="n">rpd_get_stats</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">qplib_file</span><span class="p">,</span> <span class="n">qplib_file_len</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">p_type</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">,</span>
+                  <span class="n">h_c_ne</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; QPLIB file is of type </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">Char</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="o">*</span><span class="p">,</span> <span class="n">p_type</span><span class="p">))</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; n = </span><span class="si">%i</span><span class="s2">, m = </span><span class="si">%i</span><span class="s2">, h_ne = </span><span class="si">%i</span><span class="s2">, a_ne = </span><span class="si">%i</span><span class="s2">, h_c_ne = </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">m</span><span class="p">[],</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">a_ne</span><span class="p">[],</span>
+            <span class="n">h_c_ne</span><span class="p">[])</span>
 
-  <span class="c1"># Recover g</span>
-  <span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">g</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; g = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="c1"># Recover g</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">rpd_get_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">g</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; g = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
-  <span class="c1"># Recover f</span>
-  <span class="n">f</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">T</span><span class="p">}()</span>
-  <span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; f = </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">[])</span>
+    <span class="c1"># Recover f</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">T</span><span class="p">}()</span>
+    <span class="n">rpd_get_f</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; f = </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">[])</span>
 
-  <span class="c1"># Recover xlu</span>
-  <span class="n">x_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">x_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="c1"># Recover xlu</span>
+    <span class="n">x_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">x_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">rpd_get_xlu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_l</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_u</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
-  <span class="c1"># Recover clu</span>
-  <span class="n">c_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
-  <span class="n">c_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
-  <span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c1"># Recover clu</span>
+    <span class="n">c_l</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
+    <span class="n">c_u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
+    <span class="n">rpd_get_clu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_l = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; c_u = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_u</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
-  <span class="c1"># Recover H</span>
-  <span class="n">h_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
-  <span class="n">h_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
-  <span class="n">h_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">h_row</span><span class="p">,</span> <span class="n">h_col</span><span class="p">,</span> <span class="n">h_val</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_row, h_col, h_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_ne</span><span class="p">[]</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1"># Recover H</span>
+    <span class="n">h_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
+    <span class="n">h_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
+    <span class="n">h_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[])</span>
+    <span class="n">rpd_get_h</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_ne</span><span class="p">[],</span> <span class="n">h_row</span><span class="p">,</span> <span class="n">h_col</span><span class="p">,</span> <span class="n">h_val</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_row, h_col, h_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_ne</span><span class="p">[]</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">end</span>
+
+    <span class="c1"># Recover A</span>
+    <span class="n">a_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
+    <span class="n">a_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
+    <span class="n">a_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
+    <span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[],</span> <span class="n">a_row</span><span class="p">,</span> <span class="n">a_col</span><span class="p">,</span> <span class="n">a_val</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; a_row, a_col, a_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">a_ne</span><span class="p">[]</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">end</span>
+
+    <span class="c1"># Recover H_c</span>
+    <span class="n">h_c_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+    <span class="n">h_c_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+    <span class="n">h_c_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+    <span class="n">h_c_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
+    <span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[],</span> <span class="n">h_c_ptr</span><span class="p">,</span> <span class="n">h_c_row</span><span class="p">,</span> <span class="n">h_c_col</span><span class="p">,</span> <span class="n">h_c_val</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_c_row, h_c_col, h_c_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_c_ne</span><span class="p">[]</span>
+      <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_c_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">end</span>
+
+    <span class="c1"># Recover x_type</span>
+    <span class="n">x_type</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_type</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_type = </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="n">x_type</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+    <span class="c1"># Recover x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+    <span class="c1"># Recover y</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
+    <span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; y = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># Recover z</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
+    <span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">z</span><span class="p">)</span>
+    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; z = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+    <span class="c1"># Delete internal workspace</span>
+    <span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="n">end</span>
-
-  <span class="c1"># Recover A</span>
-  <span class="n">a_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
-  <span class="n">a_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
-  <span class="n">a_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">a_ne</span><span class="p">[],</span> <span class="n">a_row</span><span class="p">,</span> <span class="n">a_col</span><span class="p">,</span> <span class="n">a_val</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; a_row, a_col, a_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">a_ne</span><span class="p">[]</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-  <span class="n">end</span>
-
-  <span class="c1"># Recover H_c</span>
-  <span class="n">h_c_ptr</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">h_c_row</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">h_c_col</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">h_c_val</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[])</span>
-  <span class="n">rpd_get_h_c</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">h_c_ne</span><span class="p">[],</span> <span class="n">h_c_ptr</span><span class="p">,</span> <span class="n">h_c_row</span><span class="p">,</span> <span class="n">h_c_col</span><span class="p">,</span> <span class="n">h_c_val</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; h_c_row, h_c_col, h_c_val =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">h_c_ne</span><span class="p">[]</span>
-    <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">h_c_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h_c_val</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-  <span class="n">end</span>
-
-  <span class="c1"># Recover x_type</span>
-  <span class="n">x_type</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_x_type</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x_type</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x_type = </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_type</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
-          <span class="n">x_type</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-  <span class="c1"># Recover x</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_x</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">x</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; x = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-  <span class="c1"># Recover y</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">[])</span>
-  <span class="n">rpd_get_y</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">m</span><span class="p">[],</span> <span class="n">y</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; y = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-  <span class="c1"># Recover z</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">[])</span>
-  <span class="n">rpd_get_z</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">[],</span> <span class="n">z</span><span class="p">)</span>
-  <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot; z = </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="s2"> </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-  <span class="c1"># Delete internal workspace</span>
-  <span class="n">rpd_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
   <span class="k">return</span> <span class="mi">0</span>
 <span class="n">end</span>
 
@@ -1516,13 +1539,13 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   </nav></div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/rpd.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rpd.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -1537,8 +1560,8 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1571,7 +1594,8 @@ A variety of supported Hessian and constraint matrix storage formats are shown.<
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

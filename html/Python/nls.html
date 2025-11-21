@@ -567,14 +567,14 @@ cost of more involved derivative requirements.</p>
 <p>The generic adaptive cubic regularization method is described in detail in</p>
 <blockquote>
 <div><p>C. Cartis,  N. I. M. Gould and Ph. L. Toint,
-<a href="#id1"><span class="problematic" id="id2">``</span></a>Adaptive cubic regularisation methods for unconstrained optimization.
+‘’Adaptive cubic regularisation methods for unconstrained optimization.
 Part I: motivation, convergence and numerical results’’
 <em>Mathematical Programming</em> <strong>127(2)</strong> (2011) 245–295,</p>
 </div></blockquote>
-<p>and uses <a href="#id3"><span class="problematic" id="id4">``</span></a>tricks’’ as suggested in</p>
+<p>and uses ‘’tricks’’ as suggested in</p>
 <blockquote>
 <div><p>N. I. M. Gould, M. Porcelli and Ph. L. Toint,
-<a href="#id5"><span class="problematic" id="id6">``</span></a>Updating the regularization parameter in the adaptive cubic regularization
+‘’Updating the regularization parameter in the adaptive cubic regularization
 algorithm’’.
 <em>Computational Optimization and Applications</em>
 <strong>53(1)</strong> (2012) 1–22.</p>
@@ -582,14 +582,14 @@ algorithm’’.
 <p>The specific methods employed here are discussed in</p>
 <blockquote>
 <div><p>N. I. M. Gould, J. A. Scott and T. Rees,
-<a href="#id7"><span class="problematic" id="id8">``</span></a>Convergence and evaluation-complexity analysis of a regularized
+‘’Convergence and evaluation-complexity analysis of a regularized
 tensor-Newton method for solving nonlinear least-squares problems’’.
 <em>Computational Optimization and Applications</em>
 <strong>73(1)</strong> (2019) 1–35.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-nls-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J = J(x)\)</span> and the
 residual-Hessians-vector product matrix <span class="math notranslate nohighlight">\(P(x,v)\)</span> may be presented
 and stored in a variety of convenient input formats. Let
@@ -638,7 +638,7 @@ l = A_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, A_pt
 of the integer array A_row, and real array A_val, respectively.
 As before, for sparse matrices, this scheme almost always requires less
 storage than the co-ordinate format.</p>
-<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = H(x,y)\)</span> may
+<p id="details-nls-storage-sym">The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = H(x,y)\)</span> may
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the lower triangular part
 (i.e, those entries that lie on or below the leading diagonal).</p>
