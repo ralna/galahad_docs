@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Regularization subproblems &#8212; GALAHAD Python Interface 1.0 documentation</title>
+    <title>matrix storage &#8212; GALAHAD Python Interface 1.0 documentation</title>
   
   
   
@@ -42,11 +42,11 @@
     <script src="_static/documentation_options.js?v=f2a433a1"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reg';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nrek_storage';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TRS" href="trs.html" />
-    <link rel="prev" title="QPB" href="qpb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.0" />
@@ -178,8 +178,8 @@
 </li>
 
 
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
     Regularization subproblems
   </a>
 </li>
@@ -265,8 +265,10 @@
       
       
       
+        
+      
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -323,8 +325,8 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
     Regularization subproblems
   </a>
 </li>
@@ -372,30 +374,6 @@
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a norm-regularized quadratic function using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nrek.html">NREK - global minization of a norm-regularized quadratic function using extended-Krylov-subspace iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llsr.html">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llst.html">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lstr.html">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a></li>
-</ul>
-</div>
-</nav></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -426,7 +404,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Regularization subproblems</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">matrix storage</span></li>
   </ul>
 </nav>
 </div>
@@ -443,42 +421,63 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="regularization-subproblems">
-<h1>Regularization subproblems<a class="headerlink" href="#regularization-subproblems" title="Link to this heading">#</a></h1>
-<p><strong>Release:</strong> 1.0</p>
-<p><strong>Date:</strong> 22 November 2025</p>
-<p><strong>Author:</strong> <a class="reference external" href="mailto:jaroslav&#46;fowkes&#37;&#52;&#48;stfc&#46;ac&#46;uk">Jaroslav Fowkes</a> and <a class="reference external" href="mailto:nick&#46;gould&#37;&#52;&#48;stfc&#46;ac&#46;uk">Nick Gould</a></p>
-<p>GALAHAD <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> is a suite of open-source routines for large-scale continuous
-optimization.  Currently there are twelve packages designed to find a global
-minimizer of a variety of regularized quadratic functions</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a norm-regularized quadratic function using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nrek.html">NREK - global minization of a norm-regularized quadratic function using extended-Krylov-subspace iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llsr.html">LLSR - global minization of a regularized linear least-squares objective using matrix factorizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llst.html">LLST - global minization of a linear least-squares objective within an ellipsoid using matrix factorizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lstr.html">LSTR - global minization of a linear least-squares objective within a sphere using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lsrt.html">LSRT - global minization of a regularized linear least-squares objective using an iterative method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="l2rt.html">L2RT - global minization of a regularized linear least-Euclidean-norm objective using an iterative method</a></li>
-</ul>
-</div>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Gould, N. I. M., Orban, D., &amp; Toint, Ph. L. (2003). GALAHAD, a library of thread-safe Fortran 90 packages for large-scale nonlinear optimization. ACM Transactions on Mathematical Software (TOMS), 29(4), 353-372.</p>
-</aside>
-</aside>
-</div></blockquote>
-</section>
+  <section id="matrix-storage">
+<span id="details-nrek-storage-sym"></span><h1>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h1>
+<p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(H\)</span> and, optionally, <span class="math notranslate nohighlight">\(S\)</span> may also
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the <em>lower triangular</em> part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\(i * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>.
+The string H_type = ‘dense’ should be specified.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.
+The string H_type = ‘coordinate’ should be specified.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, and values
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> of the  entries in the i-th row are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that as before
+only the entries in the lower triangle should be stored. For sparse matrices,
+this scheme almost always requires less storage than its predecessor.
+The string H_type = ‘sparse_by_rows’ should be specified.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq n-1\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(0 \leq i \leq n-1\)</span> need be stored,
+and the first n components of the array H_val may be used for the purpose.
+The string H_type = ‘diagonal’ should be specified.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.
+The string H_type = ‘scaled_identity’ should be specified.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.
+The string H_type = ‘identity’ should be specified.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix, but now
+the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 </section>
 
 
@@ -491,24 +490,6 @@ minimizer of a variety of regularized quadratic functions</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="qpb.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">QPB</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="trs.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TRS</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -521,21 +502,9 @@ minimizer of a variety of regularized quadratic functions</p>
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/reg.rst.txt">
+    <a href="_sources/nrek_storage.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

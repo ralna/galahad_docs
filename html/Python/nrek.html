@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TREK &#8212; GALAHAD Python Interface 1.0 documentation</title>
+    <title>NREK &#8212; GALAHAD Python Interface 1.0 documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'trek';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nrek';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="NREK" href="nrek.html" />
-    <link rel="prev" title="RQS" href="rqs.html" />
+    <link rel="next" title="DPS" href="dps.html" />
+    <link rel="prev" title="TREK" href="trek.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.0" />
@@ -383,8 +383,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="trs.html">TRS - global minization of a quadratic function within an ellipsoid using matrix factorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rqs.html">RQS - global minization of a norm-regularized quadratic function using matrix factorization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nrek.html">NREK - global minization of a norm-regularized quadratic function using extended-Krylov-subspace iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NREK - global minization of a norm-regularized quadratic function using extended-Krylov-subspace iteration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gltr.html">GLTR - global minization of a quadratic function within an ellipsoid using an iterative method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glrt.html">GLRT - global minization of a regularized quadratic function</a></li>
@@ -431,7 +431,7 @@
     
     <li class="breadcrumb-item"><a href="reg.html" class="nav-link">Regularization subproblems</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TREK</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">NREK</span></li>
   </ul>
 </nav>
 </div>
@@ -448,36 +448,33 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-galahad.trek">
-<span id="trek"></span><h1>TREK<a class="headerlink" href="#module-galahad.trek" title="Link to this heading">#</a></h1>
+  <section id="module-galahad.nrek">
+<span id="nrek"></span><h1>NREK<a class="headerlink" href="#module-galahad.nrek" title="Link to this heading">#</a></h1>
 <section id="purpose">
 <h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">trek</span></code> package uses an <strong>extended-Krylov-subspace iteration</strong> to find the
-global minimizer of a <strong>quadratic objective function</strong> within
-an <strong>ellipsoidal region</strong>; this is commonly known as the
-<strong>trust-region subproblem</strong>.
-The aim is to minimize the quadratic objective function
+<p>The <code class="docutils literal notranslate"><span class="pre">nrek</span></code> package uses an <strong>extended-Krylov-subspace iteration</strong> to find the
+global minimizer of a <strong>norm-regularized quadratic objective function</strong>;
+this is commonly known as the <strong>norm-regularization subproblem</strong>.
+The aim is to minimize the regularized quadratic objective function
 <div class="math notranslate nohighlight">
-\[q(x) = f + c^T x + \frac{1}{2} x^T H x,\]</div>
+\[r(x) = f + c^T x + \frac{1}{2} x^T H x + \frac{1}{p} \sigma \|x\|_S^p,\]</div>
 
-where the vector <span class="math notranslate nohighlight">\(x\)</span> is required to satisfy
-the ellipsoidal  <strong>trust-region constraint</strong> <span class="math notranslate nohighlight">\(\|x\|_S \leq  \Delta\)</span>,
 where the <span class="math notranslate nohighlight">\(S\)</span>-norm of <span class="math notranslate nohighlight">\(x\)</span> is defined to be <span class="math notranslate nohighlight">\(\|x\|_S = \sqrt{x^T S x}\)</span>,
-and where the <strong>radius</strong> <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>.
+and where the <strong>weight</strong> <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> and <strong>power</strong> <span class="math notranslate nohighlight">\(p&gt;2\)</span>.
 The matrix <span class="math notranslate nohighlight">\(S\)</span> need not be provided in the commonly-occurring
 <span class="math notranslate nohighlight">\(\ell_2\)</span>-trust-region case for which <span class="math notranslate nohighlight">\(S = I\)</span>, the <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span>
 identity matrix.</p>
 <p>Factorization of the matrices <span class="math notranslate nohighlight">\(H\)</span> and, if present, <span class="math notranslate nohighlight">\(S\)</span>
 will be required, so this package is most suited
 for the case where such a factorization may be found efficiently. If
-this is not the case, the package <code class="docutils literal notranslate"><span class="pre">gltr</span></code> may be preferred.</p>
-<p>See Section 4 of $GALAHAD/doc/trek.pdf for additional details.</p>
+this is not the case, the package <code class="docutils literal notranslate"><span class="pre">glrt</span></code> may be preferred.</p>
+<p>See Section 4 of $GALAHAD/doc/nrek.pdf for additional details.</p>
 </section>
 <section id="method">
 <h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>The required solution <span class="math notranslate nohighlight">\(x_*\)</span> necessarily satisfies the optimality condition
-<span class="math notranslate nohighlight">\(H x_* + \lambda_* S x_* + c = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \geq 0\)</span> is a Lagrange
-multiplier corresponding to the constraint <span class="math notranslate nohighlight">\(\|x\|_M  \leq  \Delta\)</span>.
+<span class="math notranslate nohighlight">\(H x_* + \lambda_* S x_* + c = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \sigma \|x_*\|^{p-2}\)</span>
+is a Lagrange multiplier for the regularization.
 In addition in all cases, the matrix <span class="math notranslate nohighlight">\(H + \lambda_* S\)</span> will be positive
 semi-definite; in most instances it will actually be positive definite,
 but in special “hard” cases singularity is a possibility.</p>
@@ -493,12 +490,9 @@ the subspace <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)
 approximation to this manifold, (iii) it is straightforward to
 build an orthogonal basis of <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)</span>
 using short-term recurrences and a single factorization of <span class="math notranslate nohighlight">\(H\)</span>, and
-(iv) solutions to the trust-region subproblem restricted to elements
+(iv) solutions to the norm-regularization subproblem restricted to elements
 of the orthogonal subspace may be found very efficiently
-using effective high-order root-finding methods. The fact that the
-second element in the subspace is <span class="math notranslate nohighlight">\(H^{-1} c\)</span> means that it is easy
-to check for the interior-solution possibility <span class="math notranslate nohighlight">\(x = - H^{-1} c\)</span>
-that occurs when such a <span class="math notranslate nohighlight">\(x\)</span> satisfies <span class="math notranslate nohighlight">\(\|x\| \leq \Delta\)</span>.
+using effective high-order root-finding methods.
 Coping with general scalings <span class="math notranslate nohighlight">\(S\)</span> is a straightforward extension so long
 as factorization of <span class="math notranslate nohighlight">\(S\)</span> is also possible.</p>
 </section>
@@ -513,7 +507,7 @@ Oxfordshire, England.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
-<span id="details-trek-storage-sym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<span id="details-nrek-storage-sym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
 <p>The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\(H\)</span> and, optionally, <span class="math notranslate nohighlight">\(S\)</span> may also
 be presented and stored in a variety of formats. But crucially symmetry
 is exploited by only storing values from the <em>lower triangular</em> part
@@ -574,8 +568,8 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 <h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><dl class="py function">
-<dt class="sig sig-object py" id="galahad.trek.trek.initialize">
-<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.initialize" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.nrek.nrek.initialize">
+<span class="sig-prename descclassname"><span class="pre">nrek.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nrek.nrek.initialize" title="Link to this definition">#</a></dt>
 <dd><p>Set default option values and initialize private data</p>
 <p><strong>Returns:</strong></p>
 <dl>
@@ -611,10 +605,9 @@ If a negative value is given, the value 100 will be used instead.</p>
 <dt>f<span class="classifier">float</span></dt><dd><p>the value of <span class="math notranslate nohighlight">\(f\)</span> in the objective function. This value has no
 effect on the computed <span class="math notranslate nohighlight">\(x\)</span>, and takes the value 0.0 by default.</p>
 </dd>
-<dt>reduction<span class="classifier">float</span></dt><dd><p>the value of the reduction factor for a suggested subsequent
-trust-region radius, see control[‘next_radius’]. The suggested
-radius will be <code class="docutils literal notranslate"><span class="pre">reduction</span></code> times the smaller of the current
-radius and <span class="math notranslate nohighlight">\(\|x\|_S\)</span> at the output <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<dt>increase<span class="classifier">float</span></dt><dd><p>the value of the increase factor for a suggested subsequent
+regularization weight, see control[‘next_weight’]. The suggested
+weight will be <code class="docutils literal notranslate"><span class="pre">increase</span></code> times the current weight.</p>
 </dd>
 <dt>stop_residual<span class="classifier">float</span></dt><dd><p>the value of the stopping tolerance used by the algorithm. The
 iteration stops as soon as <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are found to satisfy
@@ -643,8 +636,8 @@ for each new member of the extended Krylov space. Such checks
 incur some extra cost, and experience shows that testing every
 second member is sufficient.</p>
 </dd>
-<dt>new_radius<span class="classifier">bool</span></dt><dd><p>should be set to True if the call retains the previous <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>
-and <span class="math notranslate nohighlight">\(c\)</span>, but with a new, smaller radius.</p>
+<dt>new_weight<span class="classifier">bool</span></dt><dd><p>should be set to True if the call retains the previous <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>
+and <span class="math notranslate nohighlight">\(c\)</span>, but with a new, larger weight.</p>
 </dd>
 <dt>new_values<span class="classifier">bool</span></dt><dd><p>should be set to True if the any of the values of <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>
 and <span class="math notranslate nohighlight">\(c\)</span> has changed since a previous call.</p>
@@ -670,7 +663,7 @@ will result in the prefix word.</p>
 <dt>sls_s_options<span class="classifier">dict</span></dt><dd><p>default control options for SLS applied to <span class="math notranslate nohighlight">\(S\)</span>
 (see <code class="docutils literal notranslate"><span class="pre">sls.initialize</span></code>).</p>
 </dd>
-<dt>trs_options<span class="classifier">dict</span></dt><dd><p>default control options for TRS (see <code class="docutils literal notranslate"><span class="pre">trs.initialize</span></code>).</p>
+<dt>rqs_options<span class="classifier">dict</span></dt><dd><p>default control options for RQS (see <code class="docutils literal notranslate"><span class="pre">rqs.initialize</span></code>).</p>
 </dd>
 </dl>
 </dd>
@@ -680,8 +673,8 @@ will result in the prefix word.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.trek.trek.load">
-<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.load" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.nrek.nrek.load">
+<span class="sig-prename descclassname"><span class="pre">nrek.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nrek.nrek.load" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
@@ -710,14 +703,14 @@ part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the 
 in the sparse row-wise storage scheme. It need not be set when the
 other schemes are used, and in this case can be None.</p>
 </dd>
-<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">nrek.initialize</span></code>).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.load_s(n,</span> <span class="pre">S_type,</span> <span class="pre">S_ne,</span> <span class="pre">S_row,</span> <span class="pre">S_col,</span> <span class="pre">S_ptr,</span> <span class="pre">options=None)</span></span></dt>
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">nrek.load_s(n,</span> <span class="pre">S_type,</span> <span class="pre">S_ne,</span> <span class="pre">S_row,</span> <span class="pre">S_col,</span> <span class="pre">S_ptr,</span> <span class="pre">options=None)</span></span></dt>
 <dd><p>Import problem data for the scaling matrix <span class="math notranslate nohighlight">\(S\)</span>, if needed,
 into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
@@ -747,27 +740,26 @@ part of <span class="math notranslate nohighlight">\(H\)</span>, as well as the 
 in the sparse row-wise storage scheme. It need not be set when the
 other schemes are used, and in this case can be None.</p>
 </dd>
-<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">nrek.initialize</span></code>).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.reset_options(options)</span></span></dt>
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">nrek.reset_options(options)</span></span></dt>
 <dd><p>Reset control parameters after import if required.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
-<dt>options<span class="classifier">dict</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">trek.initialize</span></code>).</p>
+<dt>options<span class="classifier">dict</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">nrek.initialize</span></code>).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.trek.trek.solve_problem">
-<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.solve_problem" title="Link to this definition">#</a></dt>
-<dd><p>Find the global minimizer of the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span>
-within the trust-region constraint.</p>
+<dt class="sig sig-object py" id="galahad.nrek.nrek.solve_problem">
+<span class="sig-prename descclassname"><span class="pre">nrek.</span></span><span class="sig-name descname"><span class="pre">solve_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nrek.nrek.solve_problem" title="Link to this definition">#</a></dt>
+<dd><p>Find the global minimizer of the regularized quadratic objective function.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
@@ -777,11 +769,13 @@ the Hessian <span class="math notranslate nohighlight">\(H\)</span>.</p>
 </dd>
 <dt>H_val<span class="classifier">ndarray(H_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the Hessian
 <span class="math notranslate nohighlight">\(H\)</span> in the same order as specified in the sparsity pattern in
-<code class="docutils literal notranslate"><span class="pre">trek.load</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">nrek.load</span></code>.</p>
 </dd>
 <dt>c<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(c\)</span> in the objective function.</p>
 </dd>
-<dt>radius<span class="classifier">float</span></dt><dd><p>holds the strictly positive trust-region radius, <span class="math notranslate nohighlight">\(\Delta\)</span>.</p>
+<dt>power<span class="classifier">float</span></dt><dd><p>holds the regularization power, <span class="math notranslate nohighlight">\(p &gt; 2\)</span>.</p>
+</dd>
+<dt>weight<span class="classifier">float</span></dt><dd><p>holds the strictly positive regularization weight, <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 </dd>
 <dt>S_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the lower triangular part of
 the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it is not the identity matrix.
@@ -789,7 +783,7 @@ Otherwise it should be None.</p>
 </dd>
 <dt>S_val<span class="classifier">ndarray(S_ne)</span></dt><dd><p>holds the values of the nonzeros in the lower triangle of the scaling
 matrix <span class="math notranslate nohighlight">\(S\)</span> in the same order as specified in the sparsity pattern in
-<code class="docutils literal notranslate"><span class="pre">trek.load_s</span></code> if needed. Otherwise it should be None.</p>
+<code class="docutils literal notranslate"><span class="pre">nrek.load_s</span></code> if needed. Otherwise it should be None.</p>
 </dd>
 </dl>
 <p><strong>Returns:</strong></p>
@@ -802,7 +796,7 @@ a successful call.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">trek.information()</span></span></dt>
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">nrek.information()</span></span></dt>
 <dd><p>Provide optional output information</p>
 <p><strong>Returns:</strong></p>
 <dl>
@@ -828,7 +822,7 @@ the name of the offending array are held in
 inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
 </li>
 <li><p><strong>-3</strong>
-The restriction n &gt; 0, radius &gt; 0,
+The restriction n &gt; 0, power &gt; 2, weight &gt; 0,
 or requirement that type contains
 its relevant string ‘dense’, ‘coordinate’, ‘sparse_by_rows’,
 ‘diagonal’, ‘scaled_identity’,  ‘identity’, ‘zero’ or ‘none’
@@ -865,7 +859,7 @@ a badly scaled problem.</p>
 </li>
 <li><p><strong>-31</strong></p>
 <p>A resolve call has been made before an initial call (see
-options[‘new_radius’] and options[‘new_values’]).</p>
+options[‘new_weight’] and options[‘new_values’]).</p>
 </li>
 <li><p><strong>-38</strong></p>
 <blockquote>
@@ -883,16 +877,18 @@ error occurred.</p>
 </dd>
 <dt>n_vec<span class="classifier">int</span></dt><dd><p>the number of orthogonal vectors required</p>
 </dd>
-<dt>obj<span class="classifier">float</span></dt><dd><p>the value of the quadratic function.</p>
+<dt>obj<span class="classifier">float</span></dt><dd><p>the value of the quadratic function
+<span class="math notranslate nohighlight">\(f + c^T x + \frac{1}{2} x^T H x\)</span></p>
+</dd>
+<dt>obj_regularization<span class="classifier">float</span></dt><dd><p>the value of the regularized quadratic function, <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
 </dd>
 <dt>x_norm<span class="classifier">float</span></dt><dd><p>the <span class="math notranslate nohighlight">\(S\)</span>-norm of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(||x||_S\)</span>.</p>
 </dd>
-<dt>multiplier<span class="classifier">float</span></dt><dd><p>the Lagrange multiplier corresponding to the trust-region
-constraint.</p>
+<dt>multiplier<span class="classifier">float</span></dt><dd><p>the Lagrange multiplier associated with the regularization.</p>
 </dd>
-<dt>radius<span class="classifier">float</span></dt><dd><p>the current trust-region radius</p>
+<dt>weight<span class="classifier">float</span></dt><dd><p>the current regularization weight</p>
 </dd>
-<dt>next_radius<span class="classifier">float</span></dt><dd><p>the  proposed next trust-region radius to be used</p>
+<dt>next_weight<span class="classifier">float</span></dt><dd><p>the  proposed next regularization weight to be used</p>
 </dd>
 <dt>error<span class="classifier">float</span></dt><dd><p>the maximum relative residual error</p>
 </dd>
@@ -930,7 +926,7 @@ factorization.</p>
 </dd>
 <dt>sls_s_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for SLS for <span class="math notranslate nohighlight">\(S\)</span> (see <code class="docutils literal notranslate"><span class="pre">sls.information</span></code>).</p>
 </dd>
-<dt>trs_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for TRS (see <code class="docutils literal notranslate"><span class="pre">trs.information</span></code>).</p>
+<dt>rqs_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for RQS (see <code class="docutils literal notranslate"><span class="pre">rqs.information</span></code>).</p>
 </dd>
 </dl>
 </dd>
@@ -940,8 +936,8 @@ factorization.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.trek.trek.terminate">
-<span class="sig-prename descclassname"><span class="pre">trek.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.trek.trek.terminate" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.nrek.nrek.terminate">
+<span class="sig-prename descclassname"><span class="pre">nrek.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.nrek.nrek.terminate" title="Link to this definition">#</a></dt>
 <dd><p>Deallocate all internal private storage.</p>
 </dd></dl>
 
@@ -949,10 +945,10 @@ factorization.</p>
 </section>
 <section id="example-code">
 <h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
-<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">trek</span><span class="whitespace">
+<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">nrek</span><span class="whitespace">
 </span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
 </span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: trek&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: nrek&quot;</span><span class="punctuation">)</span><span class="whitespace">
 
 </span><span class="comment single"># set parameters</span><span class="whitespace">
 </span><span class="name">p</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
@@ -981,65 +977,66 @@ factorization.</p>
 </span><span class="name">S_val</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">2.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
 
 </span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
-</span><span class="name">options</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
 
 </span><span class="comment single"># set some non-default options</span><span class="whitespace">
 </span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
 </span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
 
 </span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
-</span><span class="name">trek</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_type</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_row</span><span class="punctuation">,</span> <span class="name">H_col</span><span class="punctuation">,</span> <span class="name">H_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">nrek</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_type</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_row</span><span class="punctuation">,</span> <span class="name">H_col</span><span class="punctuation">,</span> <span class="name">H_ptr</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
 
-</span><span class="comment single"># set trust-region radius</span><span class="whitespace">
+</span><span class="comment single"># set regularization power and weight</span><span class="whitespace">
 
-</span><span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+</span><span class="name">power</span> <span class="operator">=</span> <span class="literal number float">3.0</span><span class="whitespace">
+</span><span class="name">weight</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
 
-</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="comment single"># find minimum of the norm-regularized quadratic</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 1&quot;</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">power</span><span class="punctuation">,</span> <span class="name">weight</span><span class="punctuation">)</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
 
 </span><span class="comment single"># get information</span><span class="whitespace">
-</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
 
-</span><span class="comment single"># reset trust-region radius to the suggested smaller value</span><span class="whitespace">
+</span><span class="comment single"># reset regularization weight to the suggested larger value</span><span class="whitespace">
 
-</span><span class="name">radius</span> <span class="operator">=</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'next_radius'</span><span class="punctuation">]</span><span class="whitespace">
-</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_radius'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">True</span><span class="whitespace">
-</span><span class="name">trek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">weight</span> <span class="operator">=</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'next_weight'</span><span class="punctuation">]</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_weight'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">True</span><span class="whitespace">
+</span><span class="name">nrek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
 
-</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
-</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 2 with smaller radius&quot;</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="comment single"># find minimum of the norm-regularized quadratic</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 2 with smaller weight&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">power</span><span class="punctuation">,</span> <span class="name">weight</span><span class="punctuation">)</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
 
 </span><span class="comment single"># get information</span><span class="whitespace">
-</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
 
-</span><span class="comment single"># reinitialize trust-region radius</span><span class="whitespace">
+</span><span class="comment single"># reinitialize the regularization weight</span><span class="whitespace">
 
-</span><span class="name">radius</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
-</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_radius'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">False</span><span class="whitespace">
-</span><span class="name">trek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">weight</span> <span class="operator">=</span> <span class="literal number float">1.0</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'new_weight'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword constant">False</span><span class="whitespace">
+</span><span class="name">nrek</span><span class="operator">.</span><span class="name">reset_options</span><span class="punctuation">(</span><span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
 
 </span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
-</span><span class="name">trek</span><span class="operator">.</span><span class="name">load_s</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">S_type</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_row</span><span class="punctuation">,</span> <span class="name">S_col</span><span class="punctuation">,</span> <span class="name">S_ptr</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">nrek</span><span class="operator">.</span><span class="name">load_s</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">S_type</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_row</span><span class="punctuation">,</span> <span class="name">S_col</span><span class="punctuation">,</span> <span class="name">S_ptr</span><span class="punctuation">)</span><span class="whitespace">
 
-</span><span class="comment single"># find minimum of quadratic within the trust region</span><span class="whitespace">
+</span><span class="comment single"># find minimum of the norm-regularized quadratic</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> solve problem 3 with additional non-unit norm&quot;</span><span class="punctuation">)</span><span class="whitespace">
-</span><span class="name">x</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">radius</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_val</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">solve_problem</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">H_ne</span><span class="punctuation">,</span> <span class="name">H_val</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">power</span><span class="punctuation">,</span> <span class="name">weight</span><span class="punctuation">,</span> <span class="name">S_ne</span><span class="punctuation">,</span> <span class="name">S_val</span><span class="punctuation">)</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
 
 </span><span class="comment single"># get information</span><span class="whitespace">
-</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">trek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">nrek</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
 </span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
 
 </span><span class="comment single"># deallocate internal data</span><span class="whitespace">
 
-</span><span class="name">trek</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
-<p>This example code is available in $GALAHAD/src/trek/Python/test_trek.py .</p>
+</span><span class="name">nrek</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
+<p>This example code is available in $GALAHAD/src/nrek/Python/test_nrek.py .</p>
 </section>
 </section>
 
@@ -1054,20 +1051,20 @@ factorization.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rqs.html"
+       href="trek.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RQS</p>
+        <p class="prev-next-title">TREK</p>
       </div>
     </a>
     <a class="right-next"
-       href="nrek.html"
+       href="dps.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">NREK</p>
+        <p class="prev-next-title">DPS</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1095,10 +1092,10 @@ factorization.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.initialize"><code class="docutils literal notranslate"><span class="pre">trek.initialize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.load"><code class="docutils literal notranslate"><span class="pre">trek.load()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.solve_problem"><code class="docutils literal notranslate"><span class="pre">trek.solve_problem()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.trek.trek.terminate"><code class="docutils literal notranslate"><span class="pre">trek.terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nrek.nrek.initialize"><code class="docutils literal notranslate"><span class="pre">nrek.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nrek.nrek.load"><code class="docutils literal notranslate"><span class="pre">nrek.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nrek.nrek.solve_problem"><code class="docutils literal notranslate"><span class="pre">nrek.solve_problem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.nrek.nrek.terminate"><code class="docutils literal notranslate"><span class="pre">nrek.terminate()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
@@ -1108,7 +1105,7 @@ factorization.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/trek.rst.txt">
+    <a href="_sources/nrek.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

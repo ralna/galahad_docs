@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GALAHAD TREK package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
+    <title>GALAHAD NREK package &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="_static/target-highlight.js?v=df7d332b"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'trek';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nrek';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="callable functions" href="trek_functions.html" />
-    <link rel="prev" title="callable functions" href="rqs_functions.html" />
+    <link rel="next" title="callable functions" href="nrek_functions.html" />
+    <link rel="prev" title="callable functions" href="trek_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -391,8 +391,12 @@
 <li class="toctree-l2"><a class="reference internal" href="rqs_functions.html">callable functions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trek.html">TREK - global minization of a quadratic function within an ellipsoid using extended-Krylov-subspace iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="trek_functions.html">callable functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">NREK - global minization of a regularized quadratic function using extended-Krylov-subspace iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nrek_functions.html">callable functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -465,7 +469,7 @@
     
     <li class="breadcrumb-item"><a href="reg.html" class="nav-link">Regularization subproblems</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD TREK package</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">GALAHAD NREK package</span></li>
   </ul>
 </nav>
 </div>
@@ -482,36 +486,33 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-galahad.trek">
-<span id="galahad-trek-package"></span><span id="doxid-index-trek"></span><h1>GALAHAD TREK package<a class="headerlink" href="#module-galahad.trek" title="Link to this heading">#</a></h1>
+  <section id="module-galahad.nrek">
+<span id="galahad-nrek-package"></span><span id="doxid-index-nrek"></span><h1>GALAHAD NREK package<a class="headerlink" href="#module-galahad.nrek" title="Link to this heading">#</a></h1>
 <section id="purpose">
 <h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">trek</span></code> package uses an <strong>extended-Krylov-subspace iteration</strong> to find the
-global minimizer of a <strong>quadratic objective function</strong> within
-an <strong>ellipsoidal region</strong>; this is commonly known as the
-<strong>trust-region subproblem</strong>.
-The aim is to minimize the quadratic objective function
+<p>The <code class="docutils literal notranslate"><span class="pre">nrek</span></code> package uses an <strong>extended-Krylov-subspace iteration</strong> to find the
+global minimizer of a <strong>norm-regularized quadratic objective function</strong>;
+this is commonly known as the <strong>norm-regularization subproblem</strong>.
+The aim is to minimize the regularized quadratic objective function
 <div class="math notranslate nohighlight">
-\[q(x) = f + c^T x + \frac{1}{2} x^T H x,\]</div>
+\[r(x) = f + c^T x + \frac{1}{2} x^T H x + \frac{1}{p} \sigma \|x\|_S^p,\]</div>
 
-where the vector <span class="math notranslate nohighlight">\(x\)</span> is required to satisfy
-the ellipsoidal  <strong>trust-region constraint</strong> <span class="math notranslate nohighlight">\(\|x\|_S \leq  \Delta\)</span>,
 where the <span class="math notranslate nohighlight">\(S\)</span>-norm of <span class="math notranslate nohighlight">\(x\)</span> is defined to be <span class="math notranslate nohighlight">\(\|x\|_S = \sqrt{x^T S x}\)</span>,
-and where the <strong>radius</strong> <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>.
+and where the <strong>weight</strong> <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> and <strong>power</strong> <span class="math notranslate nohighlight">\(p&gt;2\)</span>.
 The matrix <span class="math notranslate nohighlight">\(S\)</span> need not be provided in the commonly-occurring
 <span class="math notranslate nohighlight">\(\ell_2\)</span>-trust-region case for which <span class="math notranslate nohighlight">\(S = I\)</span>, the <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span>
 identity matrix.</p>
 <p>Factorization of the matrices <span class="math notranslate nohighlight">\(H\)</span> and, if present, <span class="math notranslate nohighlight">\(S\)</span>
 will be required, so this package is most suited
 for the case where such a factorization may be found efficiently. If
-this is not the case, the package <code class="docutils literal notranslate"><span class="pre">gltr</span></code> may be preferred.</p>
-<p>See Section 4 of $GALAHAD/doc/trek.pdf for additional details.</p>
+this is not the case, the package <code class="docutils literal notranslate"><span class="pre">glrt</span></code> may be preferred.</p>
+<p>See Section 4 of $GALAHAD/doc/nrek.pdf for additional details.</p>
 </section>
 <section id="method">
 <h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>The required solution <span class="math notranslate nohighlight">\(x_*\)</span> necessarily satisfies the optimality condition
-<span class="math notranslate nohighlight">\(H x_* + \lambda_* S x_* + c = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \geq 0\)</span> is a Lagrange
-multiplier corresponding to the constraint <span class="math notranslate nohighlight">\(\|x\|_M  \leq  \Delta\)</span>.
+<span class="math notranslate nohighlight">\(H x_* + \lambda_* S x_* + c = 0\)</span>, where <span class="math notranslate nohighlight">\(\lambda_* \sigma \|x_*\|^{p-2}\)</span>
+is a Lagrange multiplier for the regularization.
 In addition in all cases, the matrix <span class="math notranslate nohighlight">\(H + \lambda_* S\)</span> will be positive
 semi-definite; in most instances it will actually be positive definite,
 but in special “hard” cases singularity is a possibility.</p>
@@ -527,12 +528,9 @@ the subspace <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)
 approximation to this manifold, (iii) it is straightforward to
 build an orthogonal basis of <span class="math notranslate nohighlight">\({\cal K}_{2m+1}(H,c)\)</span>
 using short-term recurrences and a single factorization of <span class="math notranslate nohighlight">\(H\)</span>, and
-(iv) solutions to the trust-region subproblem restricted to elements
+(iv) solutions to the norm-regularization subproblem restricted to elements
 of the orthogonal subspace may be found very efficiently
-using effective high-order root-finding methods. The fact that the
-second element in the subspace is <span class="math notranslate nohighlight">\(H^{-1} c\)</span> means that it is easy
-to check for the interior-solution possibility <span class="math notranslate nohighlight">\(x = - H^{-1} c\)</span>
-that occurs when such a <span class="math notranslate nohighlight">\(x\)</span> satisfies <span class="math notranslate nohighlight">\(\|x\| \leq \Delta\)</span>.
+using effective high-order root-finding methods.
 Coping with general scalings <span class="math notranslate nohighlight">\(S\)</span> is a straightforward extension so long
 as factorization of <span class="math notranslate nohighlight">\(S\)</span> is also possible.</p>
 </section>
@@ -609,19 +607,19 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 </section>
 <section id="introduction-to-function-calls">
 <h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
-<p>To solve a given problem, functions from the trek package must be
+<p>To solve a given problem, functions from the nrek package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1acb066d992c4ec394402bc7b7317e1163"><span class="std std-ref">trek_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span class="std std-ref">trek_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1a4becded30e9b95fe7028b7799292c0af"><span class="std std-ref">trek_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1a427420b6025d522bb7b3c652e8c2be48"><span class="std std-ref">trek_import_s</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(S\)</span>, if any</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1aae677e64bacb35354f49326815b694c3"><span class="std std-ref">trek_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span class="std std-ref">trek_solve_problem</span></a> - solve the trust-region problem</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1a3dda24010e564e2d6536cc7ea518451e"><span class="std std-ref">trek_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-trek-8h-1ab5cf0077db0631814fdd03599a585376"><span class="std std-ref">trek_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1acb066d992c4ec394402bc7b7317e1163"><span class="std std-ref">nrek_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span class="std std-ref">nrek_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1a4becded30e9b95fe7028b7799292c0af"><span class="std std-ref">nrek_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1a427420b6025d522bb7b3c652e8c2be48"><span class="std std-ref">nrek_import_s</span></a> - (optional) set up problem data structures and fixed values for the scaling matrix <span class="math notranslate nohighlight">\(S\)</span>, if any</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1aae677e64bacb35354f49326815b694c3"><span class="std std-ref">nrek_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span class="std std-ref">nrek_solve_problem</span></a> - solve the trust-region problem</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1a3dda24010e564e2d6536cc7ea518451e"><span class="std std-ref">nrek_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nrek-8h-1ab5cf0077db0631814fdd03599a585376"><span class="std std-ref">nrek_terminate</span></a> - deallocate data structures</p></li>
 </ul>
-<p>See the <a class="reference internal" href="#doxid-index-trek-examples"><span class="std std-ref">examples</span></a> section for
+<p>See the <a class="reference internal" href="#doxid-index-nrek-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
 </section>
 <section id="parametric-real-type-t-and-integer-type-int">
@@ -633,7 +631,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 </section>
 <section id="callable-functions">
 <h2>callable functions<a class="headerlink" href="#callable-functions" title="Link to this heading">#</a></h2>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1acb066d992c4ec394402bc7b7317e1163"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1acb066d992c4ec394402bc7b7317e1163"><span id="index-0"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Set default control values and initialize private data</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -646,7 +644,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structtrek-control-type"><span class="std std-ref">trek_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structnrek-control-type"><span class="std std-ref">nrek_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -664,14 +662,14 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1adc7c56e7be2f7cc9d32921582d379b13"><span id="index-1"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_read_specfile</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">specfile</span><span class="p">)</span></pre>
 <p>Read the content of a specification file, and assign values associated
 with given keywords to the corresponding control parameters.  An
 in-depth discussion of specification files is
 <a class="reference internal" href="spec.html#details-spec-file"><span class="std std-ref">available</span></a>, and a detailed list of keywords
 with associated default values is provided in
-$GALAHAD/src/trek/TREK.template.  See also Table 2.1 in the Fortran
-documentation provided in $GALAHAD/doc/trek.pdf for a list of how these
+$GALAHAD/src/nrek/NREK.template.  See also Table 2.1 in the Fortran
+documentation provided in $GALAHAD/doc/nrek.pdf for a list of how these
 keywords relate to the components of the control structure.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -681,7 +679,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structtrek-control-type"><span class="std std-ref">trek_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structnrek-control-type"><span class="std std-ref">nrek_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -689,7 +687,7 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1a4becded30e9b95fe7028b7799292c0af"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1a4becded30e9b95fe7028b7799292c0af"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <span class="w">                         </span><span class="n">H_type</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_row</span><span class="p">,</span><span class="w"> </span><span class="n">H_col</span><span class="p">,</span><span class="w"> </span><span class="n">H_ptr</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
@@ -700,7 +698,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structtrek-control-type"><span class="std std-ref">trek_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structnrek-control-type"><span class="std std-ref">nrek_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -767,7 +765,7 @@ has been violated.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1a427420b6025d522bb7b3c652e8c2be48"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_import_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">S_type</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1a427420b6025d522bb7b3c652e8c2be48"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_import_s</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">S_type</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_row</span><span class="p">,</span><span class="w"> </span><span class="n">S_col</span><span class="p">,</span><span class="w"> </span><span class="n">S_ptr</span><span class="p">)</span></pre>
 <p>Import data for the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -841,7 +839,7 @@ a type contains its relevant string ‘dense’,
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1aae677e64bacb35354f49326815b694c3"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1aae677e64bacb35354f49326815b694c3"><span id="index-4"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -851,7 +849,7 @@ a type contains its relevant string ‘dense’,
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structtrek-control-type"><span class="std std-ref">trek_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structnrek-control-type"><span class="std std-ref">nrek_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -871,9 +869,9 @@ status from the package. Possible values are:</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">)</span></pre>
-<p>Solve the trust-region subproblem.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1aadb8a751c29efcef663bf9560a1f9a8e"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">H_ne</span><span class="p">,</span><span class="w"> </span><span class="n">H_val</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">S_ne</span><span class="p">,</span><span class="w"> </span><span class="n">S_val</span><span class="p">)</span></pre>
+<p>Solve the norm-regularization subproblem.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -916,7 +914,7 @@ respectively.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>-3</strong></dt><dd><p>The restrictions n &gt; 0, or radius &gt; 0, or
+<dt><strong>-3</strong></dt><dd><p>The restrictions n &gt; 0, power &gt; 2 or weight &gt; 0, or
 requirement that a type contains its relevant string
 ‘dense’, ‘coordinate’, ‘sparse_by_rows’, ‘diagonal’
 ‘scaled_identity’,’identity’, ‘zero’ or ‘none’ has
@@ -960,7 +958,7 @@ of a badly scaled problem.</p>
 <ul class="simple">
 <li><p><strong>-31</strong>
 A resolve call has been made before an initial call (see
-control.new_radius and control.new_values).</p></li>
+control.new_weight and control.new_values).</p></li>
 <li><p><strong>-38</strong>
 An error occurred in a call to an LAPACK subroutine.</p></li>
 </ul>
@@ -982,22 +980,25 @@ An error occurred in a call to an LAPACK subroutine.</p></li>
 <tr class="row-even"><td><p>c</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the linear term <span class="math notranslate nohighlight">\(c\)</span> of the objective function. The j-th component of <code class="docutils literal notranslate"><span class="pre">c</span></code>, j = 1, … , m, contains <span class="math notranslate nohighlight">\(c_j\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>radius</p></td>
-<td><p>is a scalar of type T that holds the trust-region radius, <span class="math notranslate nohighlight">\(\Delta\)</span>, used. radius must be strictly positive</p></td>
+<tr class="row-odd"><td><p>power</p></td>
+<td><p>is a scalar of type T that holds the regularization power, <span class="math notranslate nohighlight">\(p\)</span>, used. power  must be strictly larger than two</p></td>
 </tr>
-<tr class="row-even"><td><p>x</p></td>
+<tr class="row-even"><td><p>weight</p></td>
+<td><p>is a scalar of type T that holds the regularization weight, <span class="math notranslate nohighlight">\(\Delta\)</span>, used. weight must be strictly positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>S_ne</p></td>
+<tr class="row-even"><td><p>S_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the scaling matrix <span class="math notranslate nohighlight">\(S\)</span> if it not the identity matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p>S_val</p></td>
+<tr class="row-odd"><td><p>S_val</p></td>
 <td><p>is a one-dimensional array of size S_ne and type T that holds the values of the entries of the scaling matrix <span class="math notranslate nohighlight">\(S\)</span>, if it is not the identity matrix, in any of the available storage schemes. If S_val is C_NULL, <span class="math notranslate nohighlight">\(S\)</span> will be taken to be the identity matrix.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1a3dda24010e564e2d6536cc7ea518451e"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1a3dda24010e564e2d6536cc7ea518451e"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1010,7 +1011,7 @@ An error occurred in a call to an LAPACK subroutine.</p></li>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structtrek-inform-type"><span class="std std-ref">trek_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_nrek_inform_type.html#doxid-structnrek-inform-type"><span class="std std-ref">nrek_inform_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -1028,7 +1029,7 @@ status from the package. Possible values are
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-trek-8h-1ab5cf0077db0631814fdd03599a585376"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">trek_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-nrek-8h-1ab5cf0077db0631814fdd03599a585376"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">nrek_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">)</span></pre>
 <p>Deallocate all internal private storage</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1041,10 +1042,10 @@ status from the package. Possible values are
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structtrek-control-type"><span class="std std-ref">trek_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structnrek-control-type"><span class="std std-ref">nrek_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
-<td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structtrek-inform-type"><span class="std std-ref">trek_inform_type</span></a>)</p></td>
+<td><p>is a structure containing output information (see <a class="reference internal" href="struct_nrek_inform_type.html#doxid-structnrek-inform-type"><span class="std std-ref">nrek_inform_type</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1053,11 +1054,11 @@ status from the package. Possible values are
 <section id="available-structures">
 <h2>available structures<a class="headerlink" href="#available-structures" title="Link to this heading">#</a></h2>
 </section>
-<section id="trek-control-type-structure">
-<span id="doxid-structtrek-control-type"></span><span id="index-8"></span><h2>trek_control_type structure<a class="headerlink" href="#trek-control-type-structure" title="Link to this heading">#</a></h2>
+<section id="nrek-control-type-structure">
+<span id="doxid-structnrek-control-type"></span><span id="index-8"></span><h2>nrek_control_type structure<a class="headerlink" href="#nrek-control-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">trek_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nrek_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">f_indexing</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">out</span><span class="o">::</span><span class="kt">INT</span>
@@ -1065,13 +1066,13 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">eks_max</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">it_max</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">f</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">reduction</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">increase</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_residual</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">reorthogonalize</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">s_version_52</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">perturb_c</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">stop_check_all_orders</span><span class="o">::</span><span class="kt">Bool</span>
-<span class="w">      </span><span class="n">new_radius</span><span class="o">::</span><span class="kt">Bool</span>
+<span class="w">      </span><span class="n">new_weight</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">new_values</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">space_critical</span><span class="o">::</span><span class="kt">Bool</span>
 <span class="w">      </span><span class="n">deallocate_error_fatal</span><span class="o">::</span><span class="kt">Bool</span>
@@ -1080,68 +1081,68 @@ status from the package. Possible values are
 <span class="w">      </span><span class="n">prefix</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">sls_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">sls_s_control</span><span class="o">::</span><span class="kt">sls_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
-<span class="w">      </span><span class="n">trs_control</span><span class="o">::</span><span class="kt">ir_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">rqs_control</span><span class="o">::</span><span class="kt">ir_control_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-structtrek-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
+<span id="details-structnrek-control-type"></span><h2>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h2>
 <p>control derived type as a Julia structure</p>
 <section id="components">
 <h3>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-f-indexing"><span id="index-9"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-f-indexing"><span id="index-9"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">f_indexing</span></pre>
 <p>use C or Fortran sparse matrix indexing</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-error"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-error"><span id="index-10"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">error</span></pre>
 <p>unit for error messages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-out"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-out"><span id="index-11"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">out</span></pre>
 <p>unit for monitor output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-print-level"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-print-level"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">print_level</span></pre>
 <p>controls level of diagnostic output</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-eks-max"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">eks_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-eks-max"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">eks_max</span></pre>
 <p>maximum dimension of the extended Krylov space employed. If a negative value is given, the value 100 will be used instead</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-it-max"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">it_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-it-max"><span id="index-14"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">it_max</span></pre>
 <p>the maximum number of iterations allowed.  If a negative value is given, the value 100 will be used instead</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-f"><span id="index-15"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">f</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-f"><span id="index-15"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">f</span></pre>
 <p>the value of <span class="math notranslate nohighlight">\(f\)</span> in the objective function. This value has no effect on the computed <span class="math notranslate nohighlight">\(x\)</span>, and takes the value 0.0 by default</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-reduction"><span id="index-16"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">reduction</span></pre>
-<p>the value of the reduction factor for a suggested subsequent trust-region radius, see control[‘next_radius’]. The suggested radius will be <code class="docutils literal notranslate"><span class="pre">reduction</span></code> times the smaller of the current radius and <span class="math notranslate nohighlight">\(\|x\|_S\)</span> at the output <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-stop-residual"><span id="index-17"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_residual</span></pre>
-<p>the value of the stopping tolerance used by the algorithm. The iteration stops as soon as <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are found to satisfy <span class="math notranslate nohighlight">\(\| ( H + \lambda S ) x + c \| &lt;\)</span> <code class="docutils literal notranslate"><span class="pre">stop_residual</span></code> <span class="math notranslate nohighlight">\(\times \max( 1, \|c\| )\)</span>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-reorthogonalize"><span id="index-18"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">reorthogonalize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-increase"><span id="index-16"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">increase</span></pre>
+<p>the value of the increase factor for a suggested subsequent regularization weight, see control[‘next_weight’]. The suggested weight will be <code class="docutils literal notranslate"><span class="pre">increase</span></code> times the current weight</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-stop-residual"><span id="index-17"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_residual</span></pre>
+<p>the value of the stopping tolerance used by the algorithm. The iteration stops as soon as <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are found to satisfy <span class="math notranslate nohighlight">\(\| ( H + \lambda S ) x + c \| &lt;\)</span> <code class="docutils literal notranslate"><span class="pre">stop_residual</span></code> <span class="math notranslate nohighlight">\(\times \max( 1, \|c\| )\)</span></p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-reorthogonalize"><span id="index-18"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">reorthogonalize</span></pre>
 <p>should be set to true if the generated basis of the extended-Krylov subspace is to be reorthogonalized at every iteration. This can be very expensive, and is generally not warranted</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-s-version-52"><span id="index-19"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">s_version_52</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-s-version-52"><span id="index-19"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">s_version_52</span></pre>
 <p>should be set to true if Algorithm 5.2 in the paper is used to generate the extended Krylov space recurrences when a non-unit <span class="math notranslate nohighlight">\(S\)</span> is given, and false if those from Algorithm B.3 ares used instead. In practice, there is very little difference in performance and accuracy</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-perturb-c"><span id="index-20"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">perturb_c</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-perturb-c"><span id="index-20"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">perturb_c</span></pre>
 <p>should be set to true if the user wishes to make a tiny pseudo-random perturbations to the components of the term <span class="math notranslate nohighlight">\(c\)</span> to try to protect from the so-called (probability zero) “hard” case. Perturbations are generally not needed, and should only be used in very exceptional cases</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-stop-check-all-orders"><span id="index-21"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">stop_check_all_orders</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-stop-check-all-orders"><span id="index-21"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">stop_check_all_orders</span></pre>
 <p>should be set to true if the algorithm checks for termination for each new member of the extended Krylov space. Such checks incur some extra cost, and experience shows that testing every second member is sufficient</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-new-radius"><span id="index-22"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">new_radius</span></pre>
-<p>should be set to true if the call retains the previous <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(c\)</span>, but with a new, smaller radius</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-new-values"><span id="index-23"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">new_values</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-new-weight"><span id="index-22"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">new_weight</span></pre>
+<p>should be set to true if the call retains the previous <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(c\)</span>, but with a new, smaller weight</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-new-values"><span id="index-23"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">new_values</span></pre>
 <p>should be set to true if the any of the values of <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(c\)</span> has changed since a previous call</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-space-critical"><span id="index-24"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-space-critical"><span id="index-24"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if space is critical, ensure allocated arrays are no bigger than needed</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-deallocate-error-fatal"><span id="index-25"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-deallocate-error-fatal"><span id="index-25"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>exit if any deallocation fails</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-linear-solver"><span id="index-26"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">linear_solver</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-linear-solver"><span id="index-26"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">linear_solver</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>the name of the linear equation solver used to solve any symmetric positive-definite linear system involving <span class="math notranslate nohighlight">\(H\)</span> that might arise. Possible choices are currently: ‘sils’, ‘ma27’, ‘ma57’, ‘ma77’, ‘ma86’, ‘ma87’, ‘ma97’, ssids, ‘pardiso’, ‘wsmp’, ‘sytr’, ‘potr’ and ‘pbtr’ although only ‘sytr’, ‘potr’, ‘pbtr’ and, for OMP 4.0-compliant compilers, ‘ssids’ are installed by default; others are easily installed (see README.external). More details of the capabilities of each solver are provided in the documentation for <a class="reference internal" href="sls.html#details-sls-solvers"><span class="std std-ref">galahad_sls</span></a>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-linear-solver-for-s"><span id="index-27"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">linear_solver_for_s</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-linear-solver-for-s"><span id="index-27"></span><span></span><span class="n">char</span><span class="w"> </span><span class="n">linear_solver_for_s</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span></pre>
 <p>the name of the linear equation solver used to solve any symmetric positive-definite linear system involving the optional <span class="math notranslate nohighlight">\(S\)</span> that might arise. Possible choices are currently: ‘sils’, ‘ma27’, ‘ma57’, ‘ma77’, ‘ma86’, ‘ma87’, ‘ma97’, ssids, ‘pardiso’, ‘wsmp’, ‘sytr’, ‘potr’ and ‘pbtr’ although only ‘sytr’, ‘potr’, ‘pbtr’ and, for OMP 4.0-compliant compilers, ‘ssids’ are installed by default; others are easily installed (see README.external). More details of the capabilities of each solver are provided in the documentation for <a class="reference internal" href="sls.html#details-sls-solvers"><span class="std std-ref">galahad_sls</span></a>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-prefix"><span id="index-28"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-prefix"><span id="index-28"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-sls-control"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-sls-control"><span id="index-29"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_control</span></pre>
 <p>control parameters for the Cholesky factorization and solution
 involving <span class="math notranslate nohighlight">\(H\)</span> (see sls_c documentation)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-sls-s-control"><span id="index-30"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_s_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-sls-s-control"><span id="index-30"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-control-type"><span class="std std-ref">sls_control_type</span></a><span></span><span class="w"> </span><span class="n">sls_s_control</span></pre>
 <p>control parameters for the Cholesky factorization and solution
 involving <span class="math notranslate nohighlight">\(S\)</span> (see sls_c documentation)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-control-type-trs-control"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ir_control_type.html#doxid-structir-control-type"><span class="std std-ref">trs_control_type</span></a><span></span><span class="w"> </span><span class="n">trs_control</span></pre>
-<p>control parameters for the solution of diagonal trust-region subproblems (see trs_c documentation)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-control-type-rqs-control"><span id="index-31"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_ir_control_type.html#doxid-structir-control-type"><span class="std std-ref">rqs_control_type</span></a><span></span><span class="w"> </span><span class="n">rqs_control</span></pre>
+<p>control parameters for the solution of diagonal norm-regularization subproblems (see rqs_c documentation)</p>
 </section>
 </section>
-<section id="trek-time-type-structure">
-<span id="doxid-structtrek-time-type"></span><span id="index-32"></span><h2>trek_time_type structure<a class="headerlink" href="#trek-time-type-structure" title="Link to this heading">#</a></h2>
+<section id="nrek-time-type-structure">
+<span id="doxid-structnrek-time-type"></span><span id="index-32"></span><h2>nrek_time_type structure<a class="headerlink" href="#nrek-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">trek_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nrek_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">total</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">assemble</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">analyse</span><span class="o">::</span><span class="kt">T</span>
@@ -1153,38 +1154,38 @@ involving <span class="math notranslate nohighlight">\(S\)</span> (see sls_c doc
 <span class="w">      </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
-<section id="details-structtrek-time-type">
-<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrek-time-type" title="Link to this heading">#</a></h2>
+<section id="details-structnrek-time-type">
+<span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structnrek-time-type" title="Link to this heading">#</a></h2>
 <p>time derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-total"><span id="index-33"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-total"><span id="index-33"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-assemble"><span id="index-34"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">assemble</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-assemble"><span id="index-34"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">assemble</span></pre>
 <p>CPU time spent building <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-analyse"><span id="index-35"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-analyse"><span id="index-35"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
 <p>CPU time spent reordering <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span> prior to factorization.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-factorize"><span id="index-36"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-factorize"><span id="index-36"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
 <p>CPU time spent factorizing <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-solve"><span id="index-37"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-solve"><span id="index-37"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
 <p>CPU time spent solving linear systems inolving <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-clock-total"><span id="index-38"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-clock-total"><span id="index-38"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
 <p>total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-clock-assemble"><span id="index-39"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_assemble</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-clock-assemble"><span id="index-39"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_assemble</span></pre>
 <p>clock time spent building <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-clock-analyse"><span id="index-40"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-clock-analyse"><span id="index-40"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
 <p>clock time spent reordering <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span> prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-clock-factorize"><span id="index-41"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-clock-factorize"><span id="index-41"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
 <p>clock time spent factorizing <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-time-type-clock-solve"><span id="index-42"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-time-type-clock-solve"><span id="index-42"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
 <p>clock time spent solving linear systems inolving <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(S\)</span></p>
 </section>
 </section>
-<section id="trek-inform-type-structure">
-<span id="doxid-structtrek-inform-type"></span><span id="index-43"></span><h2>trek_inform_type structure<a class="headerlink" href="#trek-inform-type-structure" title="Link to this heading">#</a></h2>
+<section id="nrek-inform-type-structure">
+<span id="doxid-structnrek-inform-type"></span><span id="index-43"></span><h2>nrek_inform_type structure<a class="headerlink" href="#nrek-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">trek_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">nrek_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">alloc_status</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
@@ -1192,21 +1193,21 @@ involving <span class="math notranslate nohighlight">\(S\)</span> (see sls_c doc
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">x_norm</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">multiplier</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">radius</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">      </span><span class="n">next_radius</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">next_weight</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">error</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
-<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">trek_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">nrek_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">      </span><span class="n">sls_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
 <span class="w">      </span><span class="n">sls_s_inform</span><span class="o">::</span><span class="kt">sls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
-<span class="w">      </span><span class="n">trs_inform</span><span class="o">::</span><span class="kt">trs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
+<span class="w">      </span><span class="n">rqs_inform</span><span class="o">::</span><span class="kt">rqs_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span></pre>
 </section>
-<section id="details-structtrek-inform-type">
-<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structtrek-inform-type" title="Link to this heading">#</a></h2>
+<section id="details-structnrek-inform-type">
+<span id="id3"></span><h2>detailed documentation<a class="headerlink" href="#details-structnrek-inform-type" title="Link to this heading">#</a></h2>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-status"><span id="index-44"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-status"><span id="index-44"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status:</p>
 <ul>
 <li><p><strong>0</strong></p>
@@ -1240,52 +1241,54 @@ involving <span class="math notranslate nohighlight">\(S\)</span> (see sls_c doc
 <p>too many iterations have been required. This may happen if control.eks max is too small, but may also be symptomatic of  a badly scaled problem.</p>
 </li>
 <li><p><strong>-31</strong></p>
-<p>a resolve call has been made before an initial call (see control.new_radius and control.new_values)</p>
+<p>a resolve call has been made before an initial call (see control.new_weight and control.new_values)</p>
 </li>
 <li><p><strong>-38</strong></p>
 <p>an error occurred in a call to an LAPACK subroutine</p>
 </li>
 </ul>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-alloc-status"><span id="index-45"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-alloc-status"><span id="index-45"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-iter"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-iter"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>the total number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-n-vec"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">n_vec</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-n-vec"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">n_vec</span></pre>
 <p>the number of orthogonal vectors required (the dimension of the extended-Krylov subspace)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-obj"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
-<p>the value of the quadratic function</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-x-norm"><span id="index-49"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">x_norm</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-obj"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
+<p>the value of the quadratic function <span class="math notranslate nohighlight">\(f + c^T x + \frac{1}{2} x^T H x\)</span></p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-ob-regularizedj"><span id="index-49"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj_regularized</span></pre>
+<p>the value of the regularized quadratic function <span class="math notranslate nohighlight">\(r(x)\)</span></p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-x-norm"><span id="index-50"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">x_norm</span></pre>
 <p>the <span class="math notranslate nohighlight">\(S\)</span> -norm of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(||x||_S\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-multiplier"><span id="index-50"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">multiplier</span></pre>
-<p>the Lagrange multiplier corresponding to the trust-region constraint</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-radius"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">radius</span></pre>
-<p>the value of the current radius</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-next-radius"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">next_radius</span></pre>
-<p>the value of the the proposed next radius to be used if the current radius proves to be too large (see inform.reduction).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-error"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-multiplier"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">multiplier</span></pre>
+<p>the Lagrange multiplier associated with the regularization</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-weight"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">weight</span></pre>
+<p>the value of the current weight</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-next-weight"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">next_weight</span></pre>
+<p>the value of the the proposed next weight to be used if the current weight proves to be too small (see inform.increase).</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-error"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">error</span></pre>
 <p>the value of the norm of the maximum relative residual error, <span class="math notranslate nohighlight">\(\|(H+\lambda S) x + c\|/\max(1,\|c\|)\)</span></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-bad-alloc"><span id="index-54"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-bad-alloc"><span id="index-55"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array that provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-time"><span id="index-55"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structtrek-time-type"><span class="std std-ref">trek_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-time"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structnrek-time-type"><span class="std std-ref">nrek_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>time information</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-sls-inform"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-sls-inform"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_inform</span></pre>
 <p>Cholesky information for factorization and solves with <span class="math notranslate nohighlight">\(H\)</span> (see sls_c documentation)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-sls-s-inform"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_s_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-sls-s-inform"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sls.html#doxid-structsls-inform-type"><span class="std std-ref">sls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sls_s_inform</span></pre>
 <p>Cholesky information for factorization and solves with <span class="math notranslate nohighlight">\(S\)</span> (see sls_c documentation)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structtrek-inform-type-trs-inform"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="trs.html#doxid-structtrs-inform-type"><span class="std std-ref">trs_inform_type</span></a><span></span><span class="w"> </span><span class="n">trs_inform</span></pre>
-<p>diagonal trust-region solve information (see trs_c documentation)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnrek-inform-type-rqs-inform"><span id="index-59"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="rqs.html#doxid-structrqs-inform-type"><span class="std std-ref">rqs_inform_type</span></a><span></span><span class="w"> </span><span class="n">rqs_inform</span></pre>
+<p>diagonal norm-regularization solve information (see rqs_c documentation)</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
 </div>
 </section>
 </section>
 <section id="example-calls">
-<span id="doxid-index-trek-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
+<span id="doxid-index-nrek-examples"></span><h2>example calls<a class="headerlink" href="#example-calls" title="Link to this heading">#</a></h2>
 <p>This is an example of how to use the package to solve a trust-region subproblem;
-the code is available in $GALAHAD/src/trek/Julia/test_trek.jl .
+the code is available in $GALAHAD/src/nrek/Julia/test_nrek.jl .
 A variety of supported Hessian and scaling matrix storage formats are shown.</p>
-<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_trek.jl</span>
-<span class="c1"># Simple code to test the Julia interface to TREK</span>
+<div class="code julia highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_nrek.jl</span>
+<span class="c1"># Simple code to test the Julia interface to NREK</span>
 
 <span class="n">using</span> <span class="n">GALAHAD</span>
 <span class="n">using</span> <span class="n">Test</span>
@@ -1293,11 +1296,11 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
 <span class="n">using</span> <span class="n">Accessors</span>
 <span class="n">using</span> <span class="n">Quadmath</span>
 
-<span class="n">function</span> <span class="n">test_trek</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;pbtr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
+<span class="n">function</span> <span class="n">test_nrek</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="p">::</span><span class="n">Type</span><span class="p">{</span><span class="n">INT</span><span class="p">};</span> <span class="n">dls</span><span class="p">::</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;pbtr&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}</span>
   <span class="c1"># Derived types</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">Ptr</span><span class="p">{</span><span class="n">Cvoid</span><span class="p">}}()</span>
-  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">trek_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
-  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">trek_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">control</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">nrek_control_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
+  <span class="n">inform</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">nrek_inform_type</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">INT</span><span class="p">}}()</span>
 
   <span class="c1"># Set problem data</span>
   <span class="n">n</span> <span class="o">=</span> <span class="n">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># dimension of H</span>
@@ -1319,6 +1322,7 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
   <span class="n">H_diag</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
   <span class="n">S_diag</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+  <span class="n">power</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> <span class="c1"># regularization power</span>
 
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
   <span class="n">status</span> <span class="o">=</span> <span class="n">Ref</span><span class="p">{</span><span class="n">INT</span><span class="p">}()</span>
@@ -1331,8 +1335,8 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
   <span class="k">for</span> <span class="n">s_is</span> <span class="ow">in</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span> <span class="c1"># include a scaling matrix?</span>
 
     <span class="k">for</span> <span class="n">storage_type</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
-      <span class="c1"># Initialize TREK</span>
-      <span class="n">trek_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+      <span class="c1"># Initialize NREK</span>
+      <span class="n">nrek_initialize</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
       <span class="c1"># Linear solvers</span>
       <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">linear_solver</span> <span class="o">=</span> <span class="n">galahad_linear_solver</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
@@ -1342,10 +1346,10 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
       <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
         <span class="c1"># import the control parameters and structural data</span>
-        <span class="n">trek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">nrek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                    <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_row</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-          <span class="n">trek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">nrek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                         <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_row</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
@@ -1354,10 +1358,10 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
       <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
         <span class="c1"># import the control parameters and structural data</span>
-        <span class="n">trek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">nrek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                    <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">H_col</span><span class="p">,</span> <span class="n">H_ptr</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-          <span class="n">trek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">nrek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                         <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">S_col</span><span class="p">,</span> <span class="n">S_ptr</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
@@ -1366,10 +1370,10 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
       <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
         <span class="c1"># import the control parameters and structural data</span>
-        <span class="n">trek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">nrek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                    <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-          <span class="n">trek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">nrek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                         <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
@@ -1378,22 +1382,22 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
       <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">4</span>
         <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span>
         <span class="c1"># import the control parameters and structural data</span>
-        <span class="n">trek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">nrek_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                    <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">H_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-          <span class="n">trek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+          <span class="n">nrek_s_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                         <span class="s2">&quot;diagonal&quot;</span><span class="p">,</span> <span class="n">S_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
         <span class="n">end</span>
       <span class="n">end</span>
 
-      <span class="k">for</span> <span class="n">r_is</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1"># original or smaller radius</span>
+      <span class="k">for</span> <span class="n">r_is</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1"># original or larger weight</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">r_is</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-          <span class="n">radius</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+          <span class="n">weight</span> <span class="o">=</span> <span class="n">one</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
         <span class="k">else</span>
-          <span class="n">radius</span> <span class="o">=</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">next_radius</span>
-          <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">new_radius</span> <span class="o">=</span> <span class="n">true</span>
-          <span class="n">trek_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+          <span class="n">weight</span> <span class="o">=</span> <span class="n">inform</span><span class="p">[]</span><span class="o">.</span><span class="n">next_weight</span>
+          <span class="nd">@reset</span> <span class="n">control</span><span class="p">[]</span><span class="o">.</span><span class="n">new_weight</span> <span class="o">=</span> <span class="n">true</span>
+          <span class="n">nrek_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
         <span class="n">end</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">r_is</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -1411,12 +1415,12 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
         <span class="c1"># sparse co-ordinate storage</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">1</span>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="k">else</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
@@ -1424,12 +1428,12 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
         <span class="c1"># sparse by rows</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">2</span>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="k">else</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
@@ -1437,12 +1441,12 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
         <span class="c1"># dense</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">3</span>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="n">S_dense_ne</span><span class="p">,</span> <span class="n">S_dense</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="k">else</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
@@ -1450,25 +1454,25 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
         <span class="c1"># diagonal</span>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">4</span>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diah_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diag_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="n">n</span><span class="p">,</span> <span class="n">S_diag</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="k">else</span>
-            <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diah_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">nrek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diag_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
                                <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
 
-        <span class="n">trek_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+        <span class="n">nrek_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
-        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c%s</span><span class="s2">: TREK_solve_problem exit status = </span><span class="si">%1i</span><span class="s2">,</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s2">&quot;format </span><span class="si">%c%s</span><span class="s2">: NREK_solve_problem exit status = </span><span class="si">%1i</span><span class="s2">,</span>
                 <span class="n">f</span> <span class="o">=</span> <span class="o">%</span><span class="mf">.2</span><span class="n">f</span>\<span class="n">n</span><span class="s2">&quot;, st, sr, inform[].status, inform[].obj)</span>
 
       <span class="n">end</span>
 
       <span class="c1"># Delete internal workspace</span>
-      <span class="n">trek_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
+      <span class="n">nrek_terminate</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">inform</span><span class="p">)</span>
 
     <span class="n">end</span>
   <span class="n">end</span>
@@ -1483,8 +1487,8 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
                              <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple</span>   <span class="p">),</span>
                              <span class="p">(</span><span class="n">Float128</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">GALAHAD</span><span class="o">.</span><span class="n">libgalahad_quadruple_64</span><span class="p">))</span>
   <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">libgalahad</span><span class="p">)</span>
-    <span class="nd">@testset</span> <span class="s2">&quot;TREK -- $T -- $INT&quot;</span> <span class="n">begin</span>
-      <span class="nd">@test</span> <span class="n">test_trek</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="nd">@testset</span> <span class="s2">&quot;NREK -- $T -- $INT&quot;</span> <span class="n">begin</span>
+      <span class="nd">@test</span> <span class="n">test_nrek</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
     <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
@@ -1503,7 +1507,7 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rqs_functions.html"
+       href="trek_functions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -1512,7 +1516,7 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
       </div>
     </a>
     <a class="right-next"
-       href="trek_functions.html"
+       href="nrek_functions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1550,18 +1554,18 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-real-type-t-and-integer-type-int">parametric real type T and integer type INT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callable-functions">callable functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-structures">available structures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trek-control-type-structure">trek_control_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrek-control-type-structure">nrek_control_type structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-documentation">detailed documentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">components</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trek-time-type-structure">trek_time_type structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtrek-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrek-time-type-structure">nrek_time_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnrek-time-type">detailed documentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">components</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trek-inform-type-structure">trek_inform_type structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structtrek-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrek-inform-type-structure">nrek_inform_type structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-structnrek-inform-type">detailed documentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">components</a></li>
 </ul>
 </li>
@@ -1572,7 +1576,7 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/trek.rst.txt">
+    <a href="_sources/nrek.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
