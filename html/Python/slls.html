@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'slls';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Linear Programming" href="lp.html" />
+    <link rel="next" title="SLLSB" href="sllsb.html" />
     <link rel="prev" title="NLS" href="nls.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -386,6 +386,7 @@
 <li class="toctree-l1"><a class="reference internal" href="clls.html">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nls.html">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a></li>
 </ul>
 </div>
 </nav></div>
@@ -449,18 +450,29 @@
 a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|_2^2\]</div>
 
 where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
 <strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
 \[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-the norm <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
-<span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span> is a vector, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
-<span class="math notranslate nohighlight">\(e\)</span> is a vector of ones, and any of the components
-of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
+
+where the <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> real <strong>design matrix</strong> <span class="math notranslate nohighlight">\(A_o\)</span>, the vector <span class="math notranslate nohighlight">\(b\)</span>
+of <strong>observations</strong>
+and the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are given,
+<span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{1,\ldots,n\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for <span class="math notranslate nohighlight">\(1 \leq i, \neq j \leq m\)</span>,
+and where the Euclidean and weighted-Euclidean norms
+are given by <span class="math notranslate nohighlight">\(\|v\|_2^2 = v^T v\)</span> and <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span>,
+respectively, with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
 The method offers the choice of direct and iterative solution of the key
 regularization subproblems, and is most suitable for problems
 involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -471,28 +483,33 @@ involving a large number of unknowns <span class="math notranslate nohighlight">
 <p>Any required solution <span class="math notranslate nohighlight">\(x\)</span> necessarily satisfies
 the <strong>primal optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m\]</div>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T ( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
+\[A_o^T W ( A_o x - b) + \sigma (x-x_s) = \sum_{i=1}^m e_{\cal C_i} y_i + z,
+\;\;\mbox{and}\;\; z_{\cal C_i} \geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
 
 and the <strong>complementary slackness conditions</strong>
 <div class="math notranslate nohighlight">
 \[x^T z = 0,\]</div>
 
-for some scalar Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>, where the
+where the components of the vector <span class="math notranslate nohighlight">\(y\)</span> are known as the
+<strong>Lagrange multipliers</strong> for the primal equality constraints
+<span class="math notranslate nohighlight">\(z\)</span> is are <strong>dual variables</strong> for the primal inequalities,
+and the vector inequalities hold component-wise.</p>
+<p>for some scalar Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>, where the
 vector <span class="math notranslate nohighlight">\(z\)</span> is known as the <strong>dual variables</strong> for the bounds <span class="math notranslate nohighlight">\(x \geq 0\)</span>,
 and the vector inequalities hold component-wise.</p>
 </section>
 <section id="method">
 <h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
-<p>Projected-gradient methods iterate towards a point that satisfies
-these optimality conditions by ultimately aiming to satisfy
-<span class="math notranslate nohighlight">\(A_o^T ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
-that the remaining conditions are satisfied at each stage.
-Appropriate norms of the amounts by which the optimality conditions
-fail to be satisfied are known as the primal and dual infeasibility,
+<p>Projected-gradient methods iterate towards a point that satisfies these
+optimality conditions by ultimately aiming to satisfy the dual optimality
+condistions, while ensuring that the remaining conditions are satisfied
+at each stage. Appropriate norms of the amounts by which the optimality
+conditions fail to be satisfied are known as the primal and dual infeasibility,
 and the violation of complementary slackness, respectively.</p>
 <p>The method is iterative. Each iteration proceeds in two stages.
 Firstly, a search direction <span class="math notranslate nohighlight">\(s\)</span> from the current estimate of the solution
@@ -507,7 +524,7 @@ regularize the subproblem very slightly to avoid a ill-posedness.
 Thereafter, a piecewise linesearch (arc search) is carried out along
 the arc <span class="math notranslate nohighlight">\(x(\alpha) = P( x + \alpha s)\)</span> for <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>,
 where the projection operator <span class="math notranslate nohighlight">\(P(v)\)</span> gives the nearest point to <span class="math notranslate nohighlight">\(v\)</span>
-within the regular simplex;
+within the intersection of specified simplices;
 thus this arc bends the search direction into the feasible region.
 The arc search is performed either exactly, by passing through a set
 of increasing breakpoints at which it changes direction, or inexactly,
@@ -518,10 +535,10 @@ All computation is designed to exploit sparsity in <span class="math notranslate
 <h2>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <p>Full details are provided in</p>
 <blockquote>
-<div><p>N. I. M. Gould (2023).
+<div><p>H. Al Daas, J. M. Fowkes, N. I. M. Gould and J. Huntley (2026).
 ‘’Linear least-squares over the unit simplex’’.
 STFC-Rutherford Appleton Laboratory Computational Mathematics Group
-Internal Report 2023-2.</p>
+Internal Report 2026-1.</p>
 </div></blockquote>
 </section>
 <section id="matrix-storage">
@@ -653,11 +670,6 @@ arcsearch (-ve=infini.</p>
 <dt>sif_file_device<span class="classifier">int</span></dt><dd><p>the unit number to write generated SIF file describing the
 current problem.</p>
 </dd>
-<dt>weight<span class="classifier">float</span></dt><dd><p>the value of the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma\)</span>,
-i.e., the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span> will be regularized
-by adding <span class="math notranslate nohighlight">\(1/2 \sigma \|x\|_2^2\)</span>; any value of weight smaller
-than zero will be regarded as zero.</p>
-</dd>
 <dt>stop_d<span class="classifier">float</span></dt><dd><p>the required accuracy for the dual infeasibility.</p>
 </dd>
 <dt>stop_cg_relative<span class="classifier">float</span></dt><dd><p>the CG iteration will be stopped as soon as the current
@@ -722,13 +734,16 @@ will result in the prefix word.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="galahad.slls.slls.load">
-<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ptr_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.load" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ptr_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cohort</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.load" title="Link to this definition">#</a></dt>
 <dd><p>Import problem data into internal storage prior to solution.</p>
 <p><strong>Parameters:</strong></p>
 <dl class="simple">
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
 </dd>
-<dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
+<dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals (observations).</p>
+</dd>
+<dt>m<span class="classifier">int</span></dt><dd><p>holds the number of cohorts; this will be ignored (and treated
+internally as 1) if cohort (see later) is None.</p>
 </dd>
 <dt>Ao_type<span class="classifier">string</span></dt><dd><p>specifies the unsymmetric storage scheme used for the objective
 design matrix <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’,
@@ -759,14 +774,23 @@ as well as the total number of entries, in the sparse column-wise
 storage scheme. It need not be set when the other schemes are used,
 and in this case can be None.</p>
 </dd>
+<dt>cohort<span class="classifier">ndarray(n)</span></dt><dd><p>specifies which cohort each variable is associated with.
+If variable <span class="math notranslate nohighlight">\(x_j\)</span> is associated with cohort <span class="math notranslate nohighlight">\(\cal C_i\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>, cohort(j) should be set to i, while
+if <span class="math notranslate nohighlight">\(x_j\)</span> is unconstrained cohort(j) &lt; 0 should be assigned.
+At least one value cohort(j) for <span class="math notranslate nohighlight">\(j = 0,\ldots\,n-1\)</span> is expected
+to take the value <span class="math notranslate nohighlight">\(i\)</span> for every <span class="math notranslate nohighlight">\(0 \leq i \leq m-1\)</span>, that is
+no empty cohorts are allowed. If all the variables lie in a
+single cohort, cohort can be set as None.</p>
+</dd>
 <dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">slls.initialize</span></code>).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.slls.slls.solve_ls">
-<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">solve_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.solve_ls" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.slls.slls.solve">
+<span class="sig-prename descclassname"><span class="pre">slls.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.slls.slls.solve" title="Link to this definition">#</a></dt>
 <dd><p>Find a solution to the simplex-constraind regularized linear least-squares
 problem involving the least-squares objective function <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
 <p><strong>Parameters:</strong></p>
@@ -774,6 +798,8 @@ problem involving the least-squares objective function <span class="math notrans
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
 </dd>
 <dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
+</dd>
+<dt>m<span class="classifier">int</span></dt><dd><p>holds the number of cohorts.</p>
 </dd>
 <dt>Ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
 </dd>
@@ -784,20 +810,26 @@ problem involving the least-squares objective function <span class="math notrans
 <dt>b<span class="classifier">ndarray(o)</span></dt><dd><p>holds the values of the observation vector <span class="math notranslate nohighlight">\(b\)</span> in the
 objective function.</p>
 </dd>
+<dt>sigma<span class="classifier">float</span></dt><dd><p>holds the regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p>
+</dd>
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the initial estimate of the minimizer <span class="math notranslate nohighlight">\(x\)</span>, if known.
 This is not crucial, and if no suitable value is known, then any
 value, such as <span class="math notranslate nohighlight">\(x=0\)</span>, suffices and will be adjusted accordingly.</p>
 </dd>
-<dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the initial estimate of the dual variables <span class="math notranslate nohighlight">\(z\)</span>
-associated with the simple bound constraints, if known.
-This is not crucial, and if no suitable value is known, then any
-value, such as <span class="math notranslate nohighlight">\(z=0\)</span>, suffices and will be adjusted accordingly.</p>
+<dt>w<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the weights <span class="math notranslate nohighlight">\(w\)</span>. If all the weights are one,
+w can be set as None.</p>
+</dd>
+<dt>x_s<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the shifts <span class="math notranslate nohighlight">\(x_s\)</span>. If all the shifts are zero,
+x_s can be set as None.</p>
 </dd>
 </dl>
 <p><strong>Returns:</strong></p>
 <dl class="simple">
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
 a successful call.</p>
+</dd>
+<dt>y<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the Lagrange multipliers associated with the
+simplex equality constraint for each cohort.</p>
 </dd>
 <dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the dual variables associated with the
 simple bound constraints.</p>
@@ -890,6 +922,8 @@ error occurred.</p>
 <dt>norm_pg<span class="classifier">float</span></dt><dd><p>current value of the Euclidean norm of projected gradient
 of <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
 </dd>
+<dt>lapack_error<span class="classifier">int</span></dt><dd><p>the output scalars and arrays from LAPACK routines.</p>
+</dd>
 <dt>time<span class="classifier">dict</span></dt><dd><dl class="simple">
 <dt>dictionary containing timing information:</dt><dd><dl class="simple">
 <dt>total<span class="classifier">float</span></dt><dd><p>the total CPU time spent in the package.</p>
@@ -934,6 +968,8 @@ to factorization.</p>
 <span class="c1"># set parameters</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">o</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">infinity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
 
 <span class="c1">#  describe A = (  I  ) and b = ( i * e )</span>
@@ -964,23 +1000,69 @@ to factorization.</p>
 <span class="c1">#print(&quot;options:&quot;, options)</span>
 
 <span class="c1"># load data (and optionally non-default options)</span>
-<span class="n">slls</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_type</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">slls</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_type</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 
 <span class="c1">#  provide starting values (not crucial)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
   <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-  <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
 <span class="c1"># find minimizer</span>
-<span class="c1">#print(&quot;\n solve slls&quot;)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
-  <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">solve_ls</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> solve slls&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
+  <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; y:&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; z:&quot;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; g:&quot;</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x_stat:&quot;</span><span class="p">,</span><span class="n">x_stat</span><span class="p">)</span>
+
+<span class="c1"># get information</span>
+<span class="n">inform</span> <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">information</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">inform</span><span class="p">[</span><span class="s1">&#39;obj&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;** slls exit status:&#39;</span><span class="p">,</span> <span class="n">inform</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="c1"># deallocate internal data</span>
+
+<span class="n">slls</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+
+<span class="c1"># use an explicit cohort</span>
+
+<span class="c1"># allocate internal data and set default options</span>
+<span class="n">options</span> <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="c1"># set some non-default options</span>
+<span class="n">options</span><span class="p">[</span><span class="s1">&#39;print_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#print(&quot;options:&quot;, options)</span>
+
+<span class="n">cohort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">cohort</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># load data (and optionally non-default options)</span>
+<span class="n">slls</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_type</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">,</span> <span class="n">cohort</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+<span class="c1">#  provide starting values (not crucial)</span>
+
+<span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">x_s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
+  <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># find minimizer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> solve slls with an explicit cohort&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
+  <span class="o">=</span> <span class="n">slls</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; y:&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; z:&quot;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; g:&quot;</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x_stat:&quot;</span><span class="p">,</span><span class="n">x_stat</span><span class="p">)</span>
 
@@ -1018,11 +1100,11 @@ to factorization.</p>
       </div>
     </a>
     <a class="right-next"
-       href="lp.html"
+       href="sllsb.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Programming</p>
+        <p class="prev-next-title">SLLSB</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1053,7 +1135,7 @@ to factorization.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.slls.slls.initialize"><code class="docutils literal notranslate"><span class="pre">slls.initialize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.slls.slls.load"><code class="docutils literal notranslate"><span class="pre">slls.load()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.slls.slls.solve_ls"><code class="docutils literal notranslate"><span class="pre">slls.solve_ls()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.slls.slls.solve"><code class="docutils literal notranslate"><span class="pre">slls.solve()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.slls.slls.terminate"><code class="docutils literal notranslate"><span class="pre">slls.terminate()</span></code></a></li>
 </ul>
 </li>

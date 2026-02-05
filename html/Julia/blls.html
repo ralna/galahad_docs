@@ -403,6 +403,10 @@
 <li class="toctree-l2"><a class="reference internal" href="slls_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -603,23 +607,23 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the blls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">blls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">blls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">blls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">blls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p>set up problem data structures and fixed values by caling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">blls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">blls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">blls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">blls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">blls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">blls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">blls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">blls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">blls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">blls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">blls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-blls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">blls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">blls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="blls_functions.html#doxid-galahad-blls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">blls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-blls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -646,7 +650,7 @@ that may be Int32 (32-bit integer) or Int64 (64-bit integer).</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -681,7 +685,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -700,7 +704,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -753,7 +757,7 @@ violated.</p>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="slls.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -784,7 +788,7 @@ not explicitly available.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -846,7 +850,7 @@ respectively.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -867,410 +871,20 @@ for the solve phase</p>
 </table>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
+<span class="w">                                </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
 <p>Solve the bound-constrained linear least-squares problem when the
 Jacobian <span class="math notranslate nohighlight">\(A\)</span> is available.</p>
 <p class="rubric">Parameters:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>data</p></td>
-<td><p>holds private internal data</p></td>
-</tr>
-<tr class="row-even"><td><p>userdata</p></td>
-<td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
-</tr>
-<tr class="row-odd"><td><p>status</p></td>
-<td><p>is a scalar variable of type INT that gives the entry and exit status from the package.</p>
-<p>On initial entry, status must be set to 1.</p>
-<p>Possible exit values are:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>0</strong></dt><dd><p>The run was successful.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
-the offending array is written on unit
-control.error, and the returned allocation status
-and a string containing the name of the offending
-array are held in inform.alloc_status and
-inform.bad_alloc respectively.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
-the offending array is written on unit control.error
-and the returned allocation status and a string
-containing the name of the offending array are held
-in inform.alloc_status and inform.bad_alloc
-respectively.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-3</strong></dt><dd><p>The restrictions n &gt; 0, o &gt; 0 or requirement that a
-type contains its relevant string ‘coordinate’,
-‘sparse_by_rows’, ‘sparse_by_columns’,
-‘dense_by_rows’ or ‘dense_by_columns’ has been
-violated.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-4</strong></dt><dd><p>The simple-bound constraints are inconsistent.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
-return status from the factorization package is
-given in the component inform.factor_status</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
-factorization package is given in the component
-inform.factor_status.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may
-happen if control.maxit is too small, but may also
-be symptomatic of a badly scaled problem.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
-if control.cpu_time_limit is too small, but may also
-be symptomatic of a badly scaled problem.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
-</tr>
-<tr class="row-odd"><td><p>o</p></td>
-<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
-</tr>
-<tr class="row-even"><td><p>Ao_ne</p></td>
-<td><p>is a scalar variable of type INT that holds the number of entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ao_val</p></td>
-<td><p>is a one-dimensional array of size Ao_ne and type T that holds the values of the entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> in any of the available storage schemes.</p></td>
-</tr>
-<tr class="row-even"><td><p>b</p></td>
-<td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x_l</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>x_u</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>z</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>r</p></td>
-<td><p>is a one-dimensional array of size om and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>g</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
-</tr>
-<tr class="row-even"><td><p>w</p></td>
-<td><p>is an optional one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
-</tr>
-<tr class="row-odd"><td><p>eval_prec</p></td>
-<td><p>is an optional user-supplied function that may be
-C_NULL. If non-NULL, it must have the following
-signature:</p>
-<pre class="highlight literal-block"><span></span><span class="n">eval_prec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
-<p>The product <span class="math notranslate nohighlight">\(p = P^{-1} v\)</span> involving the user’s
-preconditioner <span class="math notranslate nohighlight">\(P\)</span> with the vector v=<span class="math notranslate nohighlight">\(v\)</span>, the result
-<span class="math notranslate nohighlight">\(p\)</span> must be retured in p, and the function return
-value set to 0. If the evaluation is impossible,
-return should be set to a nonzero value. Data may be
-passed into <code class="docutils literal notranslate"><span class="pre">eval_prec</span></code> via the structure
-<code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
-<span class="w">                                       </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
 <span class="w">                                       </span><span class="n">nz_v</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_start</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_end</span><span class="p">,</span><span class="w"> </span><span class="n">nz_p</span><span class="p">,</span>
-<span class="w">                                       </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
+<span class="w">                                       </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
 <p>Solve the bound-constrained linear least-squares problem when the
 products of the Jacobian <span class="math notranslate nohighlight">\(A\)</span> and its transpose with specified vectors
 may be computed by the calling program.</p>
 <p class="rubric">Parameters:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>data</p></td>
-<td><p>holds private internal data</p></td>
-</tr>
-<tr class="row-even"><td><p>status</p></td>
-<td><p>is a scalar variable of type INT that gives the
-entry and exit status from the package.</p>
-<p>Possible exit values are:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>0</strong></dt><dd><p>The run was successful.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
-the offending array is written on unit
-control.error, and the returned allocation status
-and a string containing the name of the offending
-array are held in inform.alloc_status and
-inform.bad_alloc respectively.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
-the offending array is written on unit control.error
-and the returned allocation status and a string
-containing the name of the offending array are held
-in inform.alloc_status and inform.bad_alloc
-respectively.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-3</strong></dt><dd><p>The restriction n &gt; 0 or requirement that a type
-contains its relevant string ‘coordinate’,
-‘sparse_by_rows’, ‘sparse_by_columns’,
-‘dense_by_rows’ or ‘dense_by_columns’ has been
-violated.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-4</strong></dt><dd><p>The simple-bound constraints are inconsistent.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
-return status from the factorization package is
-given in the component inform.factor_status</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
-factorization package is given in the component
-inform.factor_status.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-11</strong></dt><dd><p>The solution of a set of linear equations using
-factors from the factorization package failed; the
-return status from the factorization package is
-given in the component inform.factor_status.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may
-happen if control.maxit is too small, but may also
-be symptomatic of a badly scaled problem.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
-if control.cpu_time_limit is too small, but may also
-be symptomatic of a badly scaled problem.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>2</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_ov\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
-given output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
-user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be stored in v and the
-product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
-should be set to 0, and blls_solve_reverse_a_prod
-re-entered with all other arguments unchanged. If
-the product cannot be formed, v need not be set, but
-blls_solve_reverse_a_prod should be re-entered with
-eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>3</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of the residual
-Jacobian <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector <span class="math notranslate nohighlight">\(v\)</span> is
-required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be
-stored in v and the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned
-in p, status_eval should be set to 0, and
-blls_solve_reverse_a_prod re-entered with all other
-arguments unchanged. If the product cannot be
-formed, v need not be set, but
-blls_solve_reverse_a_prod should be re-entered with
-eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>4</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_ov\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
-given sparse output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
-user. The nonzero components of the vector <span class="math notranslate nohighlight">\(v\)</span> will
-be stored as entries
-nz_in[nz_in_start-1:nz_in_end-1] of v and the
-product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
-should be set to 0, and blls_solve_reverse_a_prod
-re-entered with all other arguments unchanged; The
-remaining components of v should be ignored. If the
-product cannot be formed, v need not be set, but
-blls_solve_reverse_a_prod should be re-entered with
-eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>5</strong></dt><dd><p>The nonzero components of the product <span class="math notranslate nohighlight">\(A_ov\)</span> of the
-design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given sparse output
-vector <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The nonzero
-components of the vector <span class="math notranslate nohighlight">\(v\)</span> will be stored as
-entries nz_in[nz_in_start-1:nz_in_end-1] of v; the
-remaining components of v should be ignored. The
-resulting <strong>nonzeros</strong> in the product <span class="math notranslate nohighlight">\(A_ov\)</span> must be
-placed in their appropriate comnponents of p, while
-a list of indices of the nonzeros placed in nz_out[0
-: nz_out_end-1] and the number of nonzeros recorded
-in nz_out_end. Additionally, status_eval should be
-set to 0, and blls_solve_reverse_a_prod re-entered
-with all other arguments unchanged. If the product
-cannot be formed, v, nz_out_end and nz_out need not
-be set, but blls_solve_reverse_a_prod should be
-re-entered with eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>6</strong></dt><dd><p>A subset of the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of
-the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector
-<span class="math notranslate nohighlight">\(v\)</span> is required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will
-be stored in v and components
-nz_in[nz_in_start-1:nz_in_end-1] of the product
-<span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned in the relevant components
-of p (the remaining components should not be set),
-status_eval should be set to 0, and
-blls_solve_reverse_a_prod re-entered with all other
-arguments unchanged. If the product cannot be
-formed, v need not be set, but
-blls_solve_reverse_a_prod should be re-entered with
-eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>7</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(P^{-1}v\)</span> of the inverse of the
-preconditioner <span class="math notranslate nohighlight">\(P\)</span> with a given output vector <span class="math notranslate nohighlight">\(v\)</span> is
-required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be
-stored in v and the product <span class="math notranslate nohighlight">\(P^{-1} v\)</span> must be
-returned in p, status_eval should be set to 0, and
-blls_solve_reverse_a_prod re-entered with all other
-arguments unchanged. If the product cannot be
-formed, v need not be set, but
-blls_solve_reverse_a_prod should be re-entered with
-eval_status set to a nonzero value. This value of
-status can only occur if the user has set
-control.preconditioner = 2.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>eval_status</p></td>
-<td><p>is a scalar variable of type INT that is used to indicate if the matrix products can be provided (see <code class="docutils literal notranslate"><span class="pre">status</span></code> above)</p></td>
-</tr>
-<tr class="row-even"><td><p>n</p></td>
-<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
-</tr>
-<tr class="row-odd"><td><p>o</p></td>
-<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
-</tr>
-<tr class="row-even"><td><p>b</p></td>
-<td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x_l</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>x_u</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>r</p></td>
-<td><p>is a one-dimensional array of size o and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>g</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>z</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x_stat</p></td>
-<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
-</tr>
-<tr class="row-even"><td><p>v</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>p</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
-</tr>
-<tr class="row-even"><td><p>nz_v</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>nz_v_start</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
-</tr>
-<tr class="row-even"><td><p>nz_v_end</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>nz_p</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
-</tr>
-<tr class="row-even"><td><p>nz_p_end</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>w</p></td>
-<td><p>is an optional one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1a457b8ee7c630715bcb43427f254b555f"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
@@ -1313,7 +927,7 @@ control.preconditioner = 2.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
 <td><p>is a structure containing output information (see <a class="reference internal" href="#doxid-structblls-inform-type"><span class="std std-ref">blls_inform_type</span></a>)</p></td>
@@ -1345,7 +959,6 @@ control.preconditioner = 2.</p>
 <span class="w">      </span><span class="n">cg_maxit</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">arcsearch_max_steps</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">sif_file_device</span><span class="o">::</span><span class="kt">INT</span>
-<span class="w">      </span><span class="n">weight</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">infinity</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">stop_d</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">identical_bounds_tol</span><span class="o">::</span><span class="kt">T</span>
@@ -1403,52 +1016,50 @@ control.preconditioner = 2.</p>
 <p>the maximum number of steps allowed in a piecewise arcsearch (-ve=infini</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-sif-file-device"><span id="index-24"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">sif_file_device</span></pre>
 <p>the unit number to write generated SIF file describing the current probl</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-weight"><span id="index-25"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">weight</span></pre>
-<p>the value of the non-negative regularization weight sigma, i.e., the quadratic objective function q(x) will be regularized by adding 1/2 weight ||x||^2; any value smaller than zero will be regarded as zero.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-infinity"><span id="index-26"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-infinity"><span id="index-25"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">infinity</span></pre>
 <p>any bound larger than infinity in modulus will be regarded as infinite</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stop-d"><span id="index-27"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_d</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stop-d"><span id="index-26"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_d</span></pre>
 <p>the required accuracy for the dual infeasibility</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-identical-bounds-tol"><span id="index-28"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">identical_bounds_tol</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-identical-bounds-tol"><span id="index-27"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">identical_bounds_tol</span></pre>
 <p>any pair of constraint bounds (x_l,x_u) that are closer than identical_bounds_tol will be reset to the average of their values</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stop-cg-relative"><span id="index-29"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_cg_relative</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stop-cg-relative"><span id="index-28"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stop_cg_relative</span></pre>
 <p>the CG iteration will be stopped as soon as the current norm of the preconditioned gradient is smaller than max( stop_cg_relative * initial preconditioned gradient, stop_cg_absolute)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-max"><span id="index-30"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-max"><span id="index-29"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_max</span></pre>
 <p>the largest permitted arc length during the piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-initial"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_initial</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-initial"><span id="index-30"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_initial</span></pre>
 <p>the initial arc length during the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-reduction"><span id="index-32"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_reduction</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-alpha-reduction"><span id="index-31"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">alpha_reduction</span></pre>
 <p>the arc length reduction factor for the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-arcsearch-acceptance-tol"><span id="index-33"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">arcsearch_acceptance_tol</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-arcsearch-acceptance-tol"><span id="index-32"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">arcsearch_acceptance_tol</span></pre>
 <p>the required relative reduction during the inexact piecewise line search</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stabilisation-weight"><span id="index-34"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stabilisation_weight</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-stabilisation-weight"><span id="index-33"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">stabilisation_weight</span></pre>
 <p>the stabilisation weight added to the search-direction subproblem</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-cpu-time-limit"><span id="index-35"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">cpu_time_limit</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-cpu-time-limit"><span id="index-34"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">cpu_time_limit</span></pre>
 <p>the maximum CPU time allowed (-ve = no limit)</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-direct-subproblem-solve"><span id="index-36"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">direct_subproblem_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-direct-subproblem-solve"><span id="index-35"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">direct_subproblem_solve</span></pre>
 <p>direct_subproblem_solve is true if the least-squares subproblem is to be solved using a matrix factorization, and false if conjugate gradients are to be preferred</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-exact-arc-search"><span id="index-37"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">exact_arc_search</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-exact-arc-search"><span id="index-36"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">exact_arc_search</span></pre>
 <p>exact_arc_search is true if an exact arc_search is required, and false if an approximation suffices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-advance"><span id="index-38"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">advance</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-advance"><span id="index-37"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">advance</span></pre>
 <p>advance is true if an inexact exact arc_search can increase steps as well as decrease them</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-space-critical"><span id="index-39"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-space-critical"><span id="index-38"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">space_critical</span></pre>
 <p>if space_critical is true, every effort will be made to use as little space as possible. This may result in longer computation times</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-deallocate-error-fatal"><span id="index-40"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-deallocate-error-fatal"><span id="index-39"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">deallocate_error_fatal</span></pre>
 <p>if deallocate_error_fatal is true, any array/pointer deallocation error will terminate execution. Otherwise, computation will continue</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-generate-sif-file"><span id="index-41"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">generate_sif_file</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-generate-sif-file"><span id="index-40"></span><span></span><span class="kt">Bool</span><span class="w"> </span><span class="n">generate_sif_file</span></pre>
 <p>if generate_sif_file is true, a SIF file describing the current problem will be generated</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-sif-file-name"><span id="index-42"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">sif_file_name</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-sif-file-name"><span id="index-41"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">sif_file_name</span></pre>
 <p>name (max 30 characters) of generated SIF file containing input problem</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-prefix"><span id="index-43"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-prefix"><span id="index-42"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">31</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">prefix</span></pre>
 <p>all output lines will be prefixed by a string (max 30 characters) prefix(2:LEN(TRIM(.prefix))-1) where prefix contains the required string enclosed in quotes, e.g. “string” or ‘string’</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-sbls-control"><span id="index-44"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-sbls-control"><span id="index-43"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-control-type"><span class="std std-ref">sbls_control_type</span></a><span></span><span class="w"> </span><span class="n">sbls_control</span></pre>
 <p>control parameters for SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-convert-control"><span id="index-45"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_control_type.html#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="w"> </span><span class="n">convert_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-control-type-convert-control"><span id="index-44"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_control_type.html#doxid-structconvert-control-type"><span class="std std-ref">convert_control_type</span></a><span></span><span class="w"> </span><span class="n">convert_control</span></pre>
 <p>control parameters for CONVERT</p>
 </section>
 </section>
 <section id="blls-time-type-structure">
-<span id="doxid-structblls-time-type"></span><span id="index-46"></span><h2>blls_time_type structure<a class="headerlink" href="#blls-time-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structblls-time-type"></span><span id="index-45"></span><h2>blls_time_type structure<a class="headerlink" href="#blls-time-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight literal-block"><span></span><span class="k">struct</span> <span class="kt">blls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -1466,26 +1077,26 @@ control.preconditioner = 2.</p>
 <p>time derived type as a Julia structure</p>
 <section id="id2">
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-total"><span id="index-47"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-total"><span id="index-46"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-analyse"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-analyse"><span id="index-47"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
 <p>the CPU time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-factorize"><span id="index-49"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-factorize"><span id="index-48"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
 <p>the CPU time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-solve"><span id="index-50"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-solve"><span id="index-49"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
 <p>the CPU time spent in the linear solution phase</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-total"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-total"><span id="index-50"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
 <p>the total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-analyse"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-analyse"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
 <p>the clock time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-factorize"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-factorize"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
 <p>the clock time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-solve"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-solve"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
 <p>the clock time spent in the linear solution phase</p>
 </section>
 </section>
 <section id="blls-inform-type-structure">
-<span id="doxid-structblls-inform-type"></span><span id="index-55"></span><h2>blls_inform_type structure<a class="headerlink" href="#blls-inform-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structblls-inform-type"></span><span id="index-54"></span><h2>blls_inform_type structure<a class="headerlink" href="#blls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">blls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
@@ -1506,27 +1117,27 @@ control.preconditioner = 2.</p>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-status"><span id="index-56"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-status"><span id="index-55"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-alloc-status"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-alloc-status"><span id="index-56"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>Fortran STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-factorization-status"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-factorization-status"><span id="index-57"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
 <p>status return from factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-iter"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-iter"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-cg-iter"><span id="index-60"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-cg-iter"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
 <p>number of CG iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-obj"><span id="index-61"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-obj"><span id="index-60"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
 <p>current value of the objective function, r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-norm-pg"><span id="index-62"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-norm-pg"><span id="index-61"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
 <p>current value of the Euclidean norm of projected gradient of r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-bad-alloc"><span id="index-63"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-bad-alloc"><span id="index-62"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-time"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structblls-time-type"><span class="std std-ref">blls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-time"><span id="index-63"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structblls-time-type"><span class="std std-ref">blls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-sbls-inform"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-sbls-inform"><span id="index-64"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-convert-inform"><span id="index-66"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-inform-type-convert-inform"><span id="index-65"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1582,6 +1193,7 @@ function test_blls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
   # Set problem data
   n = INT(10)  # dimension
   o = n + INT(1)  # number of residuals
+  sigma = one(T) # regularization weight
   Ao_ne = 2 * n # sparse Jacobian elements
   Ao_dense_ne = o * n # dense Jacobian elements
   # row-wise storage
@@ -1605,6 +1217,7 @@ function test_blls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
   r = zeros(T, o) # residual
   g = zeros(T, n) # gradient
   w = zeros(T, o) # weights
+  x_s = zeros(T, n) # shifts
 
   # Set output storage
   x_stat = zeros(INT, n) # variable status
@@ -1625,6 +1238,7 @@ function test_blls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
   #       (e^T)          (n + 1)
 
   for i in 1:n
+    x_s[i] = 0.5
     b[i] = i
   end
   b[n + 1] = n + 1
@@ -1713,43 +1327,68 @@ function test_blls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
       # sparse co-ordinate storage
       if d == 1
         st = &quot;CO&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;coordinate&quot;, Ao_ne, Ao_row, Ao_col, INT(0), C_NULL)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_ne, Ao_val, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;coordinate&quot;,
+                    Ao_ne, Ao_row, Ao_col, INT(0), C_NULL)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_ne, Ao_val,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       # sparse by rows
       if d == 2
         st = &quot;SR&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;sparse_by_rows&quot;, Ao_ne, C_NULL, Ao_col, Ao_ptr_ne, Ao_ptr)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_ne, Ao_val, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;sparse_by_rows&quot;,
+                    Ao_ne, C_NULL, Ao_col, Ao_ptr_ne, Ao_ptr)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_ne, Ao_val,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       # dense
       if d == 3
         st = &quot;DD&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;dense&quot;, Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_dense_ne, Ao_dense, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;dense&quot;,
+                    Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_dense_ne, Ao_dense,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       # dense by rows
       if d == 4
         st = &quot;DR&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;dense_by_rows&quot;, Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_dense_ne, Ao_dense, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;dense_by_rows&quot;,
+                    Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_dense_ne, Ao_dense,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       # sparse by columns
       if d == 5
         st = &quot;SC&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;sparse_by_columns&quot;, Ao_ne, Ao_by_col_row, C_NULL, Ao_by_col_ptr_ne, Ao_by_col_ptr)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_ne, Ao_by_col_val, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;sparse_by_columns&quot;,
+                    Ao_ne, Ao_by_col_row, C_NULL,
+                    Ao_by_col_ptr_ne, Ao_by_col_ptr)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_ne, Ao_by_col_val,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       # dense by columns
       if d == 6
         st = &quot;DC&quot;
-        blls_import(T, INT, control, data, status, n, o, &quot;dense_by_columns&quot;, Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
-        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o, Ao_dense_ne, Ao_by_col_dense, b, x_l, x_u, x, z, r, g, x_stat, w, prec_ptr)
+        blls_import(T, INT, control, data, status, n, o, &quot;dense_by_columns&quot;,
+                    Ao_dense_ne, C_NULL, C_NULL, INT(0), C_NULL)
+        blls_solve_given_a(T, INT, data, userdata_ptr, status, n, o,
+                           Ao_dense_ne, Ao_by_col_dense,
+                           b, sigma, x_l, x_u, x, z, r, g, x_stat,
+                           w, x_s, prec_ptr)
       end
 
       blls_information(T, INT, data, inform, status)
@@ -1803,9 +1442,9 @@ function test_blls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
     terminated = false
     while !terminated # reverse-communication loop
       blls_solve_reverse_a_prod(T, INT, data, status, eval_status, n, o, b,
-                                x_l, x_u, x, z, r, g, x_stat, v, p,
+                                sigma, x_l, x_u, x, z, r, g, x_stat, v, p,
                                 nz_v, nz_v_start, nz_v_end,
-                                nz_p, nz_p_end, w)
+                                nz_p, nz_p_end, w, x_s)
 
       if status[] == 0 # successful termination
         terminated = true

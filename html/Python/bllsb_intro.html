@@ -424,21 +424,33 @@
   <section id="purpose">
 <h1>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">bllsb</span></code> package uses a <strong>primal-dual interior-point crossover method</strong>
-to solve a <strong>bound-constrained linear least-squares problem</strong>,
+to solve a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|^2\]</div>
 
-subject to the simple bounds
+where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
+<strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
-\[x_l \leq x \leq x_u,\]</div>
+\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-where the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
-and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
-<span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
-and any of the components
-of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
+
+where the <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> real <strong>design matrix</strong> <span class="math notranslate nohighlight">\(A_o\)</span>,
+the vector <span class="math notranslate nohighlight">\(b\)</span> of <strong>observations</strong>,
+the <strong>shifts</strong> <span class="math notranslate nohighlight">\(x_s\)</span>,
+and the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are given,
+<span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{1,\ldots,n\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for <span class="math notranslate nohighlight">\(1 \leq i, \neq j \leq m\)</span>,
+and where the Euclidean and weighted-Euclidean norms
+are given by <span class="math notranslate nohighlight">\(\|v\|_2^2 = v^T v\)</span> and <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span>,
+respectively, with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
 The method is most suitable for problems
 involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>See Section 4 of $GALAHAD/doc/bllsb.pdf for additional details.</p>
@@ -452,7 +464,7 @@ the <strong>primal optimality conditions</strong>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W ( A_o x-b ) + \sigma x = z,\;\;
+\[A_o^T W ( A_o x-b ) + \sigma ( x - x_s )= z,\;\;
 \mbox{and}\;\; z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
 
 and
@@ -464,28 +476,28 @@ and the <strong>complementary slackness conditions</strong>
 \[(x -x_l )^{T} z_l = 0 \;\;\mbox{and}\;\;(x -x_u )^{T} z_u = 0,\;\;\mbox{(3)}\]</div>
 
 where the components of the vector <span class="math notranslate nohighlight">\(z\)</span> are known as
-the <strong>dual variables</strong> for the bounds
-where the vector inequalities hold component-wise,
+the <strong>dual variables</strong> for the bounds (1),
+the vector inequalities hold component-wise,
 and where <span class="math notranslate nohighlight">\(W\)</span> is the diagonal matrix whose entries are the <span class="math notranslate nohighlight">\(w_j\)</span>.</p>
 </section>
 <section id="method">
 <h1>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h1>
 <p>Primal-dual interior point methods iterate towards a point that satisfies
 these optimality conditions by ultimately aiming to satisfy
-(2a) and (3), while ensuring that (1) and (2b) are
+(1a), (2a) and (3), while ensuring that (1b) and (2b) are
 satisfied as strict inequalities at each stage.
 Appropriate norms of the amounts by
-which (2a) and (3) fail to be satisfied are known as the
+which (2a) and (2b) fail to be satisfied are known as the
 primal and dual infeasibility, and the violation of complementary slackness,
-respectively. The fact that (1) and (2b) are satisfied as strict
+respectively. The fact that (1b) and (2b) are satisfied as strict
 inequalities gives such methods their other title, namely
 interior-point methods.</p>
 <p>The method aims at each stage to reduce the
 overall violation of (2a) and (3),
 rather than reducing each of the terms individually. Given an estimate
-<span class="math notranslate nohighlight">\(v = (x, \; z, \; z^{l}, \; z^{u})\)</span>
+<span class="math notranslate nohighlight">\(v = (x, \; z)\)</span>
 of the primal-dual variables, a correction
-<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z,, \;z^{l} ,\;z^{u} )\)</span>
+<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
 nonlinear systems (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories

@@ -386,6 +386,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nls.html">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a></li>
 </ul>
 </div>
 </nav></div>
@@ -449,7 +450,7 @@
 to solve a <strong>constrained linear least-squares</strong> problem
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|^2\]</div>
 
 subject to the general linear constraints and simple bounds
 <div class="math notranslate nohighlight">
@@ -458,7 +459,7 @@ subject to the general linear constraints and simple bounds
 where the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
 and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
 <span class="math notranslate nohighlight">\(A_o\)</span> and <span class="math notranslate nohighlight">\(A\)</span> are, respectively, given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span>
-matrices, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
+matrices, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(x_s\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
 and any of the components
 of the vectors <span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span>, <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
 The method offers the choice of direct and iterative solution of the key
@@ -479,7 +480,7 @@ and
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W ( A_o x-b ) + \sigma x = A^{T} y + z,\;\;
+\[A_o^T W ( A_o x-b ) + \sigma (x-x_s)  = A^{T} y + z,\;\;
 y = y_l + y_u \;\;\mbox{and}\;\; z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
 
 and
@@ -946,8 +947,8 @@ and in this case can be None.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.clls.clls.solve_clls">
-<span class="sig-prename descclassname"><span class="pre">clls.</span></span><span class="sig-name descname"><span class="pre">solve_clls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.clls.clls.solve_clls" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.clls.clls.solve">
+<span class="sig-prename descclassname"><span class="pre">clls.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.clls.clls.solve" title="Link to this definition">#</a></dt>
 <dd><p>Find a solution to the constrained (regularized) linear least-squares
 problem.</p>
 <p><strong>Parameters:</strong></p>
@@ -963,7 +964,7 @@ problem.</p>
 <dt>Ao_val<span class="classifier">ndarray(Ao_ne)</span></dt><dd><p>holds the values of the nonzeros in <span class="math notranslate nohighlight">\(A_o\)</span> in the same order as
 specified in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">clls.load</span></code>.</p>
 </dd>
-<dt>b<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the linear term <span class="math notranslate nohighlight">\(g\)</span> in the objective function.</p>
+<dt>b<span class="classifier">ndarray(o)</span></dt><dd><p>holds the values of the observations <span class="math notranslate nohighlight">\(b\)</span> in the objective function.</p>
 </dd>
 <dt>sigma<span class="classifier">float</span></dt><dd><p>holds the regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p>
 </dd>
@@ -1006,15 +1007,14 @@ value, such as <span class="math notranslate nohighlight">\(z=0\)</span>, suffic
 <dt>w<span class="classifier">ndarray(o)</span></dt><dd><p>holds the positive regularization weights <span class="math notranslate nohighlight">\(w\)</span>. If unit weights are
 to be used, this can be replaced by None.</p>
 </dd>
+<dt>x_s<span class="classifier">ndarray(n)</span></dt><dd><p>holds the shifts <span class="math notranslate nohighlight">\(x_s\)</span>. If zero shifts are
+to be used, this can be replaced by None.</p>
+</dd>
 </dl>
 <p><strong>Returns:</strong></p>
 <dl class="simple">
 <dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
 a successful call.</p>
-</dd>
-<dt>r<span class="classifier">ndarray(o)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(r(x) = A_ox-b\)</span>.</p>
-</dd>
-<dt>c<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(c(x) = Ax\)</span>.</p>
 </dd>
 <dt>y<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the Lagrange multipliers associated with the
 general linear constraints.</p>
@@ -1022,15 +1022,19 @@ general linear constraints.</p>
 <dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the dual variables associated with the
 simple bound constraints.</p>
 </dd>
-<dt>c_stat<span class="classifier">ndarray(m)</span></dt><dd><p>holds the return status for each constraint. The i-th component will
-be negative if the value of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint <span class="math notranslate nohighlight">\((Ax)_i\)</span>) lies on
-its lower bound, positive if it lies on its upper bound, and
-zero if it lies between bounds.</p>
+<dt>r<span class="classifier">ndarray(o)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(r(x) = A_ox-b\)</span>.</p>
+</dd>
+<dt>c<span class="classifier">ndarray(m)</span></dt><dd><p>holds the values of the residuals <span class="math notranslate nohighlight">\(c(x) = Ax\)</span>.</p>
 </dd>
 <dt>x_stat<span class="classifier">ndarray(n)</span></dt><dd><p>holds the return status for each variable. The i-th component will be
 negative if the <span class="math notranslate nohighlight">\(i\)</span>-th variable lies on its lower bound,
 positive if it lies on its upper bound, and zero if it lies
 between bounds.</p>
+</dd>
+<dt>c_stat<span class="classifier">ndarray(m)</span></dt><dd><p>holds the return status for each constraint. The i-th component will
+be negative if the value of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint <span class="math notranslate nohighlight">\((Ax)_i\)</span>) lies on
+its lower bound, positive if it lies on its upper bound, and
+zero if it lies between bounds.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1256,6 +1260,7 @@ to factorization.</p>
 
 <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
+<span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
 
 <span class="c1"># allocate internal data and set default options</span>
 <span class="n">options</span> <span class="o">=</span> <span class="n">clls</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
@@ -1276,14 +1281,14 @@ to factorization.</p>
 
 <span class="c1"># find optimum of clls</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> problem: solve clls&quot;</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span> \
-  <span class="o">=</span> <span class="n">clls</span><span class="o">.</span><span class="n">solve_clls</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
-                    <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">c_stat</span> \
+  <span class="o">=</span> <span class="n">clls</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">A_ne</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span>
+               <span class="n">c_l</span><span class="p">,</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; c:&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; y:&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; z:&quot;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; c:&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x_stat:&quot;</span><span class="p">,</span><span class="n">x_stat</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; c_stat:&quot;</span><span class="p">,</span><span class="n">c_stat</span><span class="p">)</span>
 
@@ -1355,7 +1360,7 @@ to factorization.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.clls.clls.initialize"><code class="docutils literal notranslate"><span class="pre">clls.initialize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.clls.clls.load"><code class="docutils literal notranslate"><span class="pre">clls.load()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.clls.clls.solve_clls"><code class="docutils literal notranslate"><span class="pre">clls.solve_clls()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.clls.clls.solve"><code class="docutils literal notranslate"><span class="pre">clls.solve()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.clls.clls.terminate"><code class="docutils literal notranslate"><span class="pre">clls.terminate()</span></code></a></li>
 </ul>
 </li>

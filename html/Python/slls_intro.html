@@ -427,18 +427,29 @@
 a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|_2^2\]</div>
 
 where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
 <strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
 \[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-the norm <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
-<span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span> is a vector, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
-<span class="math notranslate nohighlight">\(e\)</span> is a vector of ones, and any of the components
-of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
+
+where the <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> real <strong>design matrix</strong> <span class="math notranslate nohighlight">\(A_o\)</span>, the vector <span class="math notranslate nohighlight">\(b\)</span>
+of <strong>observations</strong>
+and the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are given,
+<span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{1,\ldots,n\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for <span class="math notranslate nohighlight">\(1 \leq i, \neq j \leq m\)</span>,
+and where the Euclidean and weighted-Euclidean norms
+are given by <span class="math notranslate nohighlight">\(\|v\|_2^2 = v^T v\)</span> and <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span>,
+respectively, with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
 The method offers the choice of direct and iterative solution of the key
 regularization subproblems, and is most suitable for problems
 involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -449,28 +460,33 @@ involving a large number of unknowns <span class="math notranslate nohighlight">
 <p>Any required solution <span class="math notranslate nohighlight">\(x\)</span> necessarily satisfies
 the <strong>primal optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m\]</div>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T ( A_o x - b) + \sigma x = \lambda e + z, \;\;\mbox{and}\;\; z \geq 0,\]</div>
+\[A_o^T W ( A_o x - b) + \sigma (x-x_s) = \sum_{i=1}^m e_{\cal C_i} y_i + z,
+\;\;\mbox{and}\;\; z_{\cal C_i} \geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
 
 and the <strong>complementary slackness conditions</strong>
 <div class="math notranslate nohighlight">
 \[x^T z = 0,\]</div>
 
-for some scalar Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>, where the
+where the components of the vector <span class="math notranslate nohighlight">\(y\)</span> are known as the
+<strong>Lagrange multipliers</strong> for the primal equality constraints
+<span class="math notranslate nohighlight">\(z\)</span> is are <strong>dual variables</strong> for the primal inequalities,
+and the vector inequalities hold component-wise.</p>
+<p>for some scalar Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>, where the
 vector <span class="math notranslate nohighlight">\(z\)</span> is known as the <strong>dual variables</strong> for the bounds <span class="math notranslate nohighlight">\(x \geq 0\)</span>,
 and the vector inequalities hold component-wise.</p>
 </section>
 <section id="method">
 <h1>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h1>
-<p>Projected-gradient methods iterate towards a point that satisfies
-these optimality conditions by ultimately aiming to satisfy
-<span class="math notranslate nohighlight">\(A_o^T ( A_o x - b) + \sigma x = \lambda e + z\)</span>, while ensuring
-that the remaining conditions are satisfied at each stage.
-Appropriate norms of the amounts by which the optimality conditions
-fail to be satisfied are known as the primal and dual infeasibility,
+<p>Projected-gradient methods iterate towards a point that satisfies these
+optimality conditions by ultimately aiming to satisfy the dual optimality
+condistions, while ensuring that the remaining conditions are satisfied
+at each stage. Appropriate norms of the amounts by which the optimality
+conditions fail to be satisfied are known as the primal and dual infeasibility,
 and the violation of complementary slackness, respectively.</p>
 <p>The method is iterative. Each iteration proceeds in two stages.
 Firstly, a search direction <span class="math notranslate nohighlight">\(s\)</span> from the current estimate of the solution
@@ -485,7 +501,7 @@ regularize the subproblem very slightly to avoid a ill-posedness.
 Thereafter, a piecewise linesearch (arc search) is carried out along
 the arc <span class="math notranslate nohighlight">\(x(\alpha) = P( x + \alpha s)\)</span> for <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>,
 where the projection operator <span class="math notranslate nohighlight">\(P(v)\)</span> gives the nearest point to <span class="math notranslate nohighlight">\(v\)</span>
-within the regular simplex;
+within the intersection of specified simplices;
 thus this arc bends the search direction into the feasible region.
 The arc search is performed either exactly, by passing through a set
 of increasing breakpoints at which it changes direction, or inexactly,
@@ -496,10 +512,10 @@ All computation is designed to exploit sparsity in <span class="math notranslate
 <h1>reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h1>
 <p>Full details are provided in</p>
 <blockquote>
-<div><p>N. I. M. Gould (2023).
+<div><p>H. Al Daas, J. M. Fowkes, N. I. M. Gould and J. Huntley (2026).
 ‘’Linear least-squares over the unit simplex’’.
 STFC-Rutherford Appleton Laboratory Computational Mathematics Group
-Internal Report 2023-2.</p>
+Internal Report 2026-1.</p>
 </div></blockquote>
 </section>
 

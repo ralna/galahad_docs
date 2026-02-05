@@ -386,6 +386,7 @@
 <li class="toctree-l1"><a class="reference internal" href="clls.html">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nls.html">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a></li>
 </ul>
 </div>
 </nav></div>
@@ -655,11 +656,6 @@ arcsearch (-ve=infini.</p>
 <dt>sif_file_device<span class="classifier">int</span></dt><dd><p>the unit number to write generated SIF file describing the
 current problem.</p>
 </dd>
-<dt>weight<span class="classifier">float</span></dt><dd><p>the value of the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma\)</span>,
-i.e., the quadratic objective function <span class="math notranslate nohighlight">\(q(x)\)</span> will be regularized
-by adding <span class="math notranslate nohighlight">\(1/2 \sigma \|x\|_2^2\)</span>; any value of weight smaller
-than zero will be regarded as zero.</p>
-</dd>
 <dt>infinity<span class="classifier">float</span></dt><dd><p>any bound larger than infinity in modulus will be regarded
 as infinite.</p>
 </dd>
@@ -777,8 +773,8 @@ and in this case can be None.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="galahad.blls.blls.solve_ls">
-<span class="sig-prename descclassname"><span class="pre">blls.</span></span><span class="sig-name descname"><span class="pre">solve_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.blls.blls.solve_ls" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="galahad.blls.blls.solve">
+<span class="sig-prename descclassname"><span class="pre">blls.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ao_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.blls.blls.solve" title="Link to this definition">#</a></dt>
 <dd><p>Find a solution to the bound-constraind regularized linear least-squares
 problem involving the least-squares objective function <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
 <p><strong>Parameters:</strong></p>
@@ -786,8 +782,6 @@ problem involving the least-squares objective function <span class="math notrans
 <dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
 </dd>
 <dt>o<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
-</dd>
-<dt>w<span class="classifier">ndarray(o)</span></dt><dd><p>holds the weights <span class="math notranslate nohighlight">\(w\)</span> in the objective function.</p>
 </dd>
 <dt>Ao_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the constraint Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>.</p>
 </dd>
@@ -797,6 +791,8 @@ problem involving the least-squares objective function <span class="math notrans
 </dd>
 <dt>b<span class="classifier">ndarray(o)</span></dt><dd><p>holds the values of the observation vector <span class="math notranslate nohighlight">\(b\)</span> in the
 objective function.</p>
+</dd>
+<dt>sigma<span class="classifier">float</span></dt><dd><p>holds the regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p>
 </dd>
 <dt>x_l<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of the lower bounds <span class="math notranslate nohighlight">\(x_l\)</span> on the variables.
 The lower bound on any component of <span class="math notranslate nohighlight">\(x\)</span> that is unbounded from
@@ -814,6 +810,12 @@ value, such as <span class="math notranslate nohighlight">\(x=0\)</span>, suffic
 associated with the simple bound constraints, if known.
 This is not crucial, and if no suitable value is known, then any
 value, such as <span class="math notranslate nohighlight">\(z=0\)</span>, suffices and will be adjusted accordingly.</p>
+</dd>
+<dt>w<span class="classifier">ndarray(o)</span></dt><dd><p>holds the positive regularization weights <span class="math notranslate nohighlight">\(w\)</span>. If unit weights are
+to be used, this can be replaced by None.</p>
+</dd>
+<dt>x_s<span class="classifier">ndarray(n)</span></dt><dd><p>holds the shifts <span class="math notranslate nohighlight">\(x_s\)</span>. If zero shifts are
+to be used, this can be replaced by None.</p>
 </dd>
 </dl>
 <p><strong>Returns:</strong></p>
@@ -956,6 +958,7 @@ to factorization.</p>
 <span class="c1"># set parameters</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">o</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">infinity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
 
 <span class="c1">#  describe A = (  I  ) and b = ( i * e )</span>
@@ -978,12 +981,15 @@ to factorization.</p>
   <span class="n">Ao_val</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
   <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="c1">#  set the weights</span>
+<span class="c1">#  set the weights and shifts</span>
 
 <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">o</span><span class="p">):</span>
   <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">x_s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
 <span class="c1">#  specify the bounds on the variables</span>
 
@@ -1017,11 +1023,11 @@ to factorization.</p>
 
 <span class="c1"># find minimizer</span>
 <span class="c1">#print(&quot;\n solve blls&quot;)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
-  <span class="o">=</span> <span class="n">blls</span><span class="o">.</span><span class="n">solve_ls</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x_stat</span> \
+  <span class="o">=</span> <span class="n">blls</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; z:&quot;</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; r:&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; g:&quot;</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; x_stat:&quot;</span><span class="p">,</span><span class="n">x_stat</span><span class="p">)</span>
 
@@ -1094,7 +1100,7 @@ to factorization.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.blls.blls.initialize"><code class="docutils literal notranslate"><span class="pre">blls.initialize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.blls.blls.load"><code class="docutils literal notranslate"><span class="pre">blls.load()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.blls.blls.solve_ls"><code class="docutils literal notranslate"><span class="pre">blls.solve_ls()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.blls.blls.solve"><code class="docutils literal notranslate"><span class="pre">blls.solve()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.blls.blls.terminate"><code class="docutils literal notranslate"><span class="pre">blls.terminate()</span></code></a></li>
 </ul>
 </li>

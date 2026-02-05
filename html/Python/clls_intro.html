@@ -427,7 +427,7 @@
 to solve a <strong>constrained linear least-squares</strong> problem
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|^2\]</div>
 
 subject to the general linear constraints and simple bounds
 <div class="math notranslate nohighlight">
@@ -436,7 +436,7 @@ subject to the general linear constraints and simple bounds
 where the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
 and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
 <span class="math notranslate nohighlight">\(A_o\)</span> and <span class="math notranslate nohighlight">\(A\)</span> are, respectively, given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span>
-matrices, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
+matrices, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(x_s\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
 and any of the components
 of the vectors <span class="math notranslate nohighlight">\(c_l\)</span>, <span class="math notranslate nohighlight">\(c_u\)</span>, <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
 The method offers the choice of direct and iterative solution of the key
@@ -457,7 +457,7 @@ and
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W ( A_o x-b ) + \sigma x = A^{T} y + z,\;\;
+\[A_o^T W ( A_o x-b ) + \sigma (x-x_s)  = A^{T} y + z,\;\;
 y = y_l + y_u \;\;\mbox{and}\;\; z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
 
 and

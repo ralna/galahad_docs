@@ -403,6 +403,10 @@
 <li class="toctree-l2"><a class="reference internal" href="slls_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -463,21 +467,33 @@
 <section id="purpose">
 <h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">bllsb</span></code> package uses a <strong>primal-dual interior-point crossover method</strong>
-to solve a <strong>bound-constrained linear least-squares problem</strong>,
+to solve a given <strong>simplex-constrained linear least-squares problem</strong>.
 The aim is to minimize the (regularized) least-squares objective function
 <div class="math notranslate nohighlight">
-\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x\|^2\]</div>
+\[q(x) = \frac{1}{2} \| A_o x - b\|_W^2 +  \frac{1}{2}\sigma \|x-x_s\|^2\]</div>
 
-subject to the simple bounds
+where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
+<strong>regular simplex</strong>
 <div class="math notranslate nohighlight">
-\[x_l \leq x \leq x_u,\]</div>
+\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
 
-where the norms <span class="math notranslate nohighlight">\(\|r\|_W = \sqrt{\sum_{i=1}^o w_i r_i^2}\)</span>
-and <span class="math notranslate nohighlight">\(\|x\| = \sqrt{\sum_{i=1}^n x_i^2}\)</span>,
-<span class="math notranslate nohighlight">\(A_o\)</span> is a given  <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix,
-<span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(w\)</span> are vectors, <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span> is a scalar,
-and any of the components
-of the vectors <span class="math notranslate nohighlight">\(x_l\)</span> or <span class="math notranslate nohighlight">\(x_u\)</span> may be infinite.
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m,\]</div>
+
+where the <span class="math notranslate nohighlight">\(o\)</span> by <span class="math notranslate nohighlight">\(n\)</span> real <strong>design matrix</strong> <span class="math notranslate nohighlight">\(A_o\)</span>,
+the vector <span class="math notranslate nohighlight">\(b\)</span> of <strong>observations</strong>,
+the <strong>shifts</strong> <span class="math notranslate nohighlight">\(x_s\)</span>,
+and the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are given,
+<span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{1,\ldots,n\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for <span class="math notranslate nohighlight">\(1 \leq i, \neq j \leq m\)</span>,
+and where the Euclidean and weighted-Euclidean norms
+are given by <span class="math notranslate nohighlight">\(\|v\|_2^2 = v^T v\)</span> and <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span>,
+respectively, with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
 The method is most suitable for problems
 involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>See Section 4 of $GALAHAD/doc/bllsb.pdf for additional details.</p>
@@ -491,7 +507,7 @@ the <strong>primal optimality conditions</strong>
 
 the <strong>dual optimality conditions</strong>
 <div class="math notranslate nohighlight">
-\[A_o^T W ( A_o x-b ) + \sigma x = z,\;\;
+\[A_o^T W ( A_o x-b ) + \sigma ( x - x_s )= z,\;\;
 \mbox{and}\;\; z = z_l + z_u,\;\;\mbox{(2a)}\]</div>
 
 and
@@ -503,28 +519,28 @@ and the <strong>complementary slackness conditions</strong>
 \[(x -x_l )^{T} z_l = 0 \;\;\mbox{and}\;\;(x -x_u )^{T} z_u = 0,\;\;\mbox{(3)}\]</div>
 
 where the components of the vector <span class="math notranslate nohighlight">\(z\)</span> are known as
-the <strong>dual variables</strong> for the bounds
-where the vector inequalities hold component-wise,
+the <strong>dual variables</strong> for the bounds (1),
+the vector inequalities hold component-wise,
 and where <span class="math notranslate nohighlight">\(W\)</span> is the diagonal matrix whose entries are the <span class="math notranslate nohighlight">\(w_j\)</span>.</p>
 </section>
 <section id="method">
 <h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
 <p>Primal-dual interior point methods iterate towards a point that satisfies
 these optimality conditions by ultimately aiming to satisfy
-(2a) and (3), while ensuring that (1) and (2b) are
+(1a), (2a) and (3), while ensuring that (1b) and (2b) are
 satisfied as strict inequalities at each stage.
 Appropriate norms of the amounts by
-which (2a) and (3) fail to be satisfied are known as the
+which (2a) and (2b) fail to be satisfied are known as the
 primal and dual infeasibility, and the violation of complementary slackness,
-respectively. The fact that (1) and (2b) are satisfied as strict
+respectively. The fact that (1b) and (2b) are satisfied as strict
 inequalities gives such methods their other title, namely
 interior-point methods.</p>
 <p>The method aims at each stage to reduce the
 overall violation of (2a) and (3),
 rather than reducing each of the terms individually. Given an estimate
-<span class="math notranslate nohighlight">\(v = (x, \; z, \; z^{l}, \; z^{u})\)</span>
+<span class="math notranslate nohighlight">\(v = (x, \; z)\)</span>
 of the primal-dual variables, a correction
-<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z,, \;z^{l} ,\;z^{u} )\)</span>
+<span class="math notranslate nohighlight">\(\Delta v = \Delta (x, \;z )\)</span>
 is obtained by solving a suitable linear system of Newton equations for the
 nonlinear systems (2a) and a parameterized ‘’residual
 trajectory’’ perturbation of (3); residual trajectories
@@ -628,13 +644,13 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <h2>introduction to function calls<a class="headerlink" href="#introduction-to-function-calls" title="Link to this heading">#</a></h2>
 <p>To solve a given problem, functions from the bllsb package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a782387ad9cccc5f2e2da9df9016fb923"><span class="std std-ref">bllsb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ade439e5e06c2852fcb089bb39a667a74"><span class="std std-ref">bllsb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a6a2be17b6f871df80bbac93940b83af3"><span class="std std-ref">bllsb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span class="std std-ref">bllsb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span class="std std-ref">bllsb_solve_blls</span></a> - solve the bound-constrained (regularized) linear least-squares problem</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1adfb7589696e4e07fdb65f02bc42c5daf"><span class="std std-ref">bllsb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="bllsb_functions.html#doxid-galahad-bllsb-8h-1a84e12e9e546f51762d305333dce68e2b"><span class="std std-ref">bllsb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-bllsb-examples"><span class="std std-ref">examples</span></a> section for illustrations
 of use.</p>
@@ -756,7 +772,7 @@ been violated.</p></li>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="slls.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -804,9 +820,9 @@ The import was successful.</p></li>
 </table>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
-<span class="w">                          </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
-<span class="w">                          </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
-<p>Solve the linearly-constrained regularized linear least-squares problem.</p>
+<span class="w">                          </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
+<p>Solve the bound-constrained regularized linear least-squares problem.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -902,17 +918,20 @@ be symptomatic of a badly scaled problem.</p></li>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p>r</p></td>
-<td><p>is a one-dimensional array of size o and type T that holds the residual <span class="math notranslate nohighlight">\(r(x) = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i(x)\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>z</p></td>
+<tr class="row-even"><td><p>z</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>r</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the residual <span class="math notranslate nohighlight">\(r(x) = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i(x)\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>w</p></td>
-<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of strictly-positive observation weights. The i-th component of w, i = 0, … , o-1, contains <span class="math notranslate nohighlight">\(w_i\)</span>. If the weights are all one, w can be set to C_NULL.</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of strictly-positive observation weights. The i-th component of w, i = 1, … , o, contains <span class="math notranslate nohighlight">\(w_i\)</span>. If the weights are all one, w can be set to C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the shifts. The j-th component of w, j = 1, … , n, contains <span class="math notranslate nohighlight">\({x_s}_j\)</span>. If the shifts are all zero, x_s can be set to C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1367,6 +1386,7 @@ are shown.</p>
   <span class="n">x_l</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">Inf</span><span class="p">]</span>  <span class="c1"># variable lower bound</span>
   <span class="n">x_u</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">Inf</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># variable upper bound</span>
   <span class="n">w</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>  <span class="c1"># weights</span>
+  <span class="n">x_s</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># shifts</span>
 
   <span class="c1"># Set output storage</span>
   <span class="n">r</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span> <span class="c1"># residual values</span>
@@ -1402,8 +1422,8 @@ are shown.</p>
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
-                       <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+      <span class="n">bllsb_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+                          <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by rows</span>
@@ -1420,8 +1440,8 @@ are shown.</p>
                    <span class="s2">&quot;sparse_by_rows&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">Ao_col</span><span class="p">,</span>
                    <span class="n">Ao_ptr_ne</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
-                       <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+      <span class="n">bllsb_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+                          <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="c1"># sparse by columns</span>
@@ -1437,8 +1457,8 @@ are shown.</p>
                    <span class="s2">&quot;sparse_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_row</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span>
                    <span class="n">Ao_ptr_ne</span><span class="p">,</span> <span class="n">Ao_ptr</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
-                       <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+      <span class="n">bllsb_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_val</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+                          <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">4</span> <span class="c1"># dense by rows</span>
@@ -1449,8 +1469,8 @@ are shown.</p>
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
-                       <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+      <span class="n">bllsb_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+                          <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">5</span> <span class="c1"># dense by cols</span>
@@ -1461,8 +1481,8 @@ are shown.</p>
       <span class="n">bllsb_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span>
                    <span class="s2">&quot;dense_by_columns&quot;</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">INT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">C_NULL</span><span class="p">)</span>
 
-      <span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
-                       <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+      <span class="n">bllsb_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">Ao_ne</span><span class="p">,</span> <span class="n">Ao_dense</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>
+                          <span class="n">sigma</span><span class="p">,</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x_stat</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_s</span><span class="p">)</span>
     <span class="n">end</span>
 
     <span class="n">bllsb_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">inform</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>

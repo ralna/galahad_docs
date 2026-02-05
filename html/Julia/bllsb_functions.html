@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -170,9 +170,7 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -405,6 +403,10 @@
 <li class="toctree-l2"><a class="reference internal" href="slls_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -412,14 +414,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -578,7 +575,7 @@ been violated.</p></li>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="bllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -626,9 +623,9 @@ The import was successful.</p></li>
 </table>
 </div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-bllsb-8h-1ac2d720ee7b719bf63c3fa208d37f1bc1"><span id="index-4"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">bllsb_solve_blls</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
-<span class="w">                          </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
-<span class="w">                          </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
-<p>Solve the linearly-constrained regularized linear least-squares problem.</p>
+<span class="w">                          </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
+<p>Solve the bound-constrained regularized linear least-squares problem.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -724,17 +721,20 @@ be symptomatic of a badly scaled problem.</p></li>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p>r</p></td>
-<td><p>is a one-dimensional array of size o and type T that holds the residual <span class="math notranslate nohighlight">\(r(x) = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i(x)\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>z</p></td>
+<tr class="row-even"><td><p>z</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>r</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the residual <span class="math notranslate nohighlight">\(r(x) = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i(x)\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>x_stat</p></td>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>w</p></td>
-<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of strictly-positive observation weights. The i-th component of w, i = 0, … , o-1, contains <span class="math notranslate nohighlight">\(w_i\)</span>. If the weights are all one, w can be set to C_NULL.</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of strictly-positive observation weights. The i-th component of w, i = 1, … , o, contains <span class="math notranslate nohighlight">\(w_i\)</span>. If the weights are all one, w can be set to C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the shifts. The j-th component of w, j = 1, … , n, contains <span class="math notranslate nohighlight">\({x_s}_j\)</span>. If the shifts are all zero, x_s can be set to C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -830,13 +830,13 @@ The values were recorded successfully</p></li>
 
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/bllsb_functions.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/bllsb_functions.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -851,8 +851,8 @@ The values were recorded successfully</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -885,8 +885,7 @@ The values were recorded successfully</p></li>
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

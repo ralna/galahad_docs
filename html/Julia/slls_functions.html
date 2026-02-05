@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'slls_functions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Linear Programming" href="lp.html" />
+    <link rel="next" title="GALAHAD SLLSB package" href="sllsb.html" />
     <link rel="prev" title="GALAHAD SLLS package" href="slls.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,9 +170,7 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -405,6 +403,10 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -412,14 +414,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -526,8 +523,9 @@ keywords relate to the components of the control structure.</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
-<span class="w">                         </span><span class="n">Ao_type</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_row</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_col</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span id="index-2"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_import</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">Ao_type</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_row</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_col</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_ptr</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">cohort</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -589,28 +587,35 @@ violated.</p>
 <tr class="row-odd"><td><p>o</p></td>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
-<tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="wcp.html#details-a-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of cohorts. If all the variables lie in a single cohort, this value will be ignored.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ao_ne</p></td>
+<tr class="row-odd"><td><p>Ao_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="uls.html#details-a-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
 </tr>
-<tr class="row-even"><td><p>Ao_row</p></td>
+<tr class="row-odd"><td><p>Ao_row</p></td>
 <td><p>is a one-dimensional array of size A_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate or sparse column-wise storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ao_col</p></td>
+<tr class="row-even"><td><p>Ao_col</p></td>
 <td><p>is a one-dimensional array of size A_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A_o\)</span> in either the sparse co-ordinate, or the sparse row-wise storage scheme. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
 </tr>
-<tr class="row-even"><td><p>Ao_ptr_ne</p></td>
+<tr class="row-odd"><td><p>Ao_ptr_ne</p></td>
 <td><p>is a scalar variable of type INT, that holds the length of the pointer array if sparse row or column storage scheme is used for <span class="math notranslate nohighlight">\(A_o\)</span>. For the sparse row scheme, Ao_ptr_ne should be at least o+1, while for the sparse column scheme, it should be at least n+1, It need not be set when the other schemes are used.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ao_ptr</p></td>
+<tr class="row-even"><td><p>Ao_ptr</p></td>
 <td><p>is a one-dimensional array of size Ao_ptr_ne and type INT, that holds the starting position of each row of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it holds the starting position of each column of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cohort</p></td>
+<td><p>is a one-dimensional array of size n and type INT, that specifies which cohort each variable is associated with. If variable <span class="math notranslate nohighlight">\(x_j\)</span> is associated with cohort <span class="math notranslate nohighlight">\(\cal C_i\)</span>, <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, cohort[j] should be set to i, while if <span class="math notranslate nohighlight">\(x_j\)</span> is unconstrained cohort[j] = 0 should be assigned. At least one value cohort[j] for <span class="math notranslate nohighlight">\(j = 1,\ldots\,n\)</span> is expected to take the value <span class="math notranslate nohighlight">\(i\)</span> for every <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, that is no empty cohorts are allowed. If all the variables lie in a single cohort, cohort can be set as C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_import_without_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span id="index-3"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_import_without_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">cohort</span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution when <span class="math notranslate nohighlight">\(A_o\)</span> is
 not explicitly available.</p>
 <p class="rubric">Parameters:</p>
@@ -668,7 +673,13 @@ respectively.</p>
 <td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>o</p></td>
-<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals (observations).</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of cohorts. If all the variables lie in a single cohort, this value will be ignored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cohort</p></td>
+<td><p>is a one-dimensional array of size n and type INT, that specifies which cohort each variable is associated with. If variable <span class="math notranslate nohighlight">\(x_j\)</span> is associated with cohort <span class="math notranslate nohighlight">\(\cal C_i\)</span>, <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, cohort[j] should be set to i, while if <span class="math notranslate nohighlight">\(x_j\)</span> is unconstrained cohort[j] = 0 should be assigned. At least one value cohort[j] for <span class="math notranslate nohighlight">\(j = 1,\ldots\,n\)</span> is expected to take the value <span class="math notranslate nohighlight">\(i\)</span> for every <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, that is no empty cohorts are allowed. If all the variables lie in a single cohort, cohort can be set as C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -703,11 +714,11 @@ for the solve phase</p>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
-<p>Solve the bound-constrained linear least-squares problem when the
-Jacobian <span class="math notranslate nohighlight">\(A\)</span> is available.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span id="index-5"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_given_a</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">Ao_ne</span><span class="p">,</span><span class="w"> </span><span class="n">Ao_val</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">,</span><span class="w"> </span><span class="n">eval_prec</span><span class="p">)</span></pre>
+<p>Solve the simplex-constrained linear least-squares problem when the design
+matrix <span class="math notranslate nohighlight">\(A_o\)</span> is available.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -802,31 +813,46 @@ be symptomatic of a badly scaled problem.</p>
 <tr class="row-odd"><td><p>o</p></td>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
-<tr class="row-even"><td><p>Ao_ne</p></td>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of cohorts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ao_val</p></td>
+<tr class="row-even"><td><p>Ao_val</p></td>
 <td><p>is a one-dimensional array of size Ao_ne and type T that holds the values of the entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> in any of the available storage schemes.</p></td>
 </tr>
-<tr class="row-even"><td><p>b</p></td>
+<tr class="row-odd"><td><p>b</p></td>
 <td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>sigma</p></td>
+<td><p>is a scalar of type T that holds the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p>z</p></td>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(y\)</span> of the Lagrange multipliers. The i-th component of <code class="docutils literal notranslate"><span class="pre">y</span></code>, i = 1, … , o, contains $y_ji.</p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>r</p></td>
+<tr class="row-even"><td><p>r</p></td>
 <td><p>is a one-dimensional array of size om and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p>g</p></td>
+<tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>x_stat</p></td>
+<tr class="row-even"><td><p>x_stat</p></td>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
-<tr class="row-even"><td><p>eval_prec</p></td>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the norm shifts in the least-squares objective function. It need not be set if the shifts are all zeros, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>eval_prec</p></td>
 <td><p>is an optional user-supplied function that may be
 C_NULL. If non-NULL, it must have the following
 signature:</p>
@@ -843,12 +869,13 @@ passed into <code class="docutils literal notranslate"><span class="pre">eval_pr
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
-<span class="w">                                       </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
-<span class="w">                                       </span><span class="n">nz_v</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_start</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_end</span><span class="p">,</span><span class="w"> </span><span class="n">nz_p</span><span class="p">,</span>
-<span class="w">                                       </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span></pre>
-<p>Solve the bound-constrained linear least-squares problem when the
-products of the Jacobian <span class="math notranslate nohighlight">\(A\)</span> and its transpose with specified vectors
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_start</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_end</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">nz_p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
+<p>Solve the simplex-constrained linear least-squares problem when the
+products of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors
 may be computed by the calling program.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1048,17 +1075,23 @@ control.preconditioner = 2.</p>
 <tr class="row-odd"><td><p>o</p></td>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
-<tr class="row-even"><td><p>b</p></td>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of cohorts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
 <td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>x_l</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p>x_u</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+<tr class="row-even"><td><p>sigma</p></td>
+<td><p>is a scalar of type T that holds the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>x</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(y\)</span> of the Lagrange multipliers. The i-th component of <code class="docutils literal notranslate"><span class="pre">y</span></code>, i = 1, … , o, contains $y_ji.</p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p>r</p></td>
 <td><p>is a one-dimensional array of size o and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
@@ -1066,35 +1099,35 @@ control.preconditioner = 2.</p>
 <tr class="row-odd"><td><p>g</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p>z</p></td>
-<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>x_stat</p></td>
+<tr class="row-even"><td><p>x_stat</p></td>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
-<tr class="row-even"><td><p>v</p></td>
+<tr class="row-odd"><td><p>v</p></td>
 <td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>p</p></td>
+<tr class="row-even"><td><p>p</p></td>
 <td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_v</p></td>
+<tr class="row-odd"><td><p>nz_v</p></td>
 <td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_v_start</p></td>
+<tr class="row-even"><td><p>nz_v_start</p></td>
 <td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_v_end</p></td>
+<tr class="row-odd"><td><p>nz_v_end</p></td>
 <td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_p</p></td>
+<tr class="row-even"><td><p>nz_p</p></td>
 <td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_p_end</p></td>
+<tr class="row-odd"><td><p>nz_p_end</p></td>
 <td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>w</p></td>
-<td><p>is an optional one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
+<tr class="row-even"><td><p>w</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the norm shifts in the least-squares objective function. It need not be set if the shifts are all zeros, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1171,11 +1204,11 @@ control.preconditioner = 2.</p>
       </div>
     </a>
     <a class="right-next"
-       href="lp.html"
+       href="sllsb.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Programming</p>
+        <p class="prev-next-title">GALAHAD SLLSB package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1191,13 +1224,13 @@ control.preconditioner = 2.</p>
 
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/slls_functions.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/slls_functions.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -1212,8 +1245,8 @@ control.preconditioner = 2.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1246,8 +1279,7 @@ control.preconditioner = 2.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

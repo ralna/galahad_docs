@@ -395,6 +395,10 @@
 <li class="toctree-l2"><a class="reference internal" href="trek_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nrek.html">NREK - global minization of a regularized quadratic function using extended-Krylov-subspace iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nrek_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="dps.html">DPS - global minization of a regularized quadratic function in a diagonalising norm using matrix factorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="dps_functions.html">callable functions</a></li>
 </ul>
@@ -1314,10 +1318,10 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
   <span class="n">S_ptr</span> <span class="o">=</span> <span class="n">INT</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
   <span class="n">H_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
   <span class="n">S_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-  <span class="n">H_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
-  <span class="n">S_dense</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-  <span class="n">H_diag</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
-  <span class="n">S_diag</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+  <span class="n">H_dense_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+  <span class="n">S_dense_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+  <span class="n">H_diag_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+  <span class="n">S_diag_val</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
   <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
   <span class="n">st</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
@@ -1413,11 +1417,11 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">)</span>
           <span class="k">else</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
 
@@ -1426,11 +1430,11 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="n">S_ne</span><span class="p">,</span> <span class="n">S_val</span><span class="p">)</span>
           <span class="k">else</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_ne</span><span class="p">,</span> <span class="n">H_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
 
@@ -1439,11 +1443,11 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="n">S_dense_ne</span><span class="p">,</span> <span class="n">S_dense</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="n">S_dense_ne</span><span class="p">,</span> <span class="n">S_dense_val</span><span class="p">)</span>
           <span class="k">else</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
                                <span class="n">H_dense_ne</span><span class="p">,</span> <span class="n">H_dense_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
 
@@ -1451,12 +1455,12 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
         <span class="k">if</span> <span class="n">storage_type</span> <span class="o">==</span> <span class="mi">4</span>
           <span class="k">if</span> <span class="n">s_is</span> <span class="o">==</span> <span class="mi">1</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diah_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="n">n</span><span class="p">,</span> <span class="n">S_diag</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diag_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+                               <span class="n">n</span><span class="p">,</span> <span class="n">S_diag_val</span><span class="p">)</span>
           <span class="k">else</span>
             <span class="n">trek_solve_problem</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diah_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
-                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
+                               <span class="n">n</span><span class="p">,</span> <span class="n">H_diag_val</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+                               <span class="mi">0</span><span class="p">,</span> <span class="n">C_NULL</span><span class="p">)</span>
           <span class="n">end</span>
         <span class="n">end</span>
 
@@ -1486,6 +1490,7 @@ A variety of supported Hessian and scaling matrix storage formats are shown.</p>
     <span class="nd">@testset</span> <span class="s2">&quot;TREK -- $T -- $INT&quot;</span> <span class="n">begin</span>
       <span class="nd">@test</span> <span class="n">test_trek</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">INT</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
     <span class="n">end</span>
+  <span class="n">end</span>
 <span class="n">end</span>
 </pre></div>
 </div>

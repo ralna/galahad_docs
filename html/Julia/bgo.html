@@ -741,7 +741,7 @@ violated.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x^u_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="dgo.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
@@ -2210,7 +2210,7 @@ function test_bgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
   @printf(&quot; Fortran sparse matrix indexing\n\n&quot;)
 
   if mode == &quot;direct&quot;
-    @printf(&quot; tests options for all-in-one storage format\n\n&quot;)
+    @printf(&quot; bgo tests options for all-in-one storage format\n\n&quot;)
 
     for d in 1:5
       # Initialize BGO
@@ -2300,7 +2300,7 @@ function test_bgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
   end
 
   if mode == &quot;reverse&quot;
-    @printf(&quot; tests reverse-communication options\n\n&quot;)
+    @printf(&quot; bgo tests reverse-communication options\n\n&quot;)
 
     # reverse-communication input/output
     eval_status = Ref{INT}()
@@ -2325,11 +2325,11 @@ function test_bgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
       @reset control[].trb_control.psls_control.definite_linear_solver = galahad_linear_solver(dls)
 
       # Set user-defined control options
+      # @reset control[].print_level = INT(1)
       @reset control[].attempts_max = INT(10000)
       @reset control[].max_evals = INT(20000)
       @reset control[].sampling_strategy = INT(3)
       @reset control[].trb_control.maxit = INT(100)
-      # @reset control[].print_level = CINT(1)
 
       # Start from 0
       x = T[0.0, 0.0, 0.0]
