@@ -909,7 +909,10 @@ error occurred.</p>
 </dd>
 <dt>cg_iter<span class="classifier">int</span></dt><dd><p>number of CG iterations required.</p>
 </dd>
-<dt>obj<span class="classifier">float</span></dt><dd><p>current value of the objective function, <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
+<dt>obj<span class="classifier">float</span></dt><dd><p>current value of the regularized objective function, <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
+</dd>
+<dt>ls_obj<span class="classifier">float</span></dt><dd><p>current value of the least-squares function,
+<span class="math notranslate nohighlight">\(\half \| \bmA_o \bmx - \bmb\|_W^2\)</span>.</p>
 </dd>
 <dt>norm_pg<span class="classifier">float</span></dt><dd><p>current value of the Euclidean norm of projected gradient
 of <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
@@ -918,12 +921,7 @@ of <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
 <dt>dictionary containing timing information:</dt><dd><dl class="simple">
 <dt>total<span class="classifier">float</span></dt><dd><p>the total CPU time spent in the package.</p>
 </dd>
-<dt>analyse<span class="classifier">float</span></dt><dd><p>the CPU time spent analysing the required matrices prior
-to factorization.</p>
-</dd>
-<dt>factorize<span class="classifier">float</span></dt><dd><p>the CPU time spent factorizing the required matrices.</p>
-</dd>
-<dt>solve<span class="classifier">float</span></dt><dd><p>the CPU time spent computing the search direction.</p>
+<dt>clock_total<span class="classifier">float</span></dt><dd><p>the total clock time spent in the package.</p>
 </dd>
 </dl>
 </dd>

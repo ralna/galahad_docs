@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SNLS &#8212; GALAHAD Python Interface 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snls';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Programming" href="lp.html" />
+    <link rel="prev" title="SLLSB" href="sllsb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Python Interface 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="blls.html">BLLS - bound-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bllsb.html">BLLSB - bound-constrained linear least-squares using an interior-point method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clls.html">CLLS - linearly-constrained linear least-squares using an interior-point method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nls.html">NLS - unconstrained local nonlinear least-squares using a regularization method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slls.html">SLLS - simplex-constrained linear least-squares using a preconditioned, projected-gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SNLS - simplex-constrained nonlinear least-squares using a regularization method</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="ls.html" class="nav-link">Least-Squares</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">SNLS</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-galahad.snls">
+<span id="snls"></span><h1>SNLS<a class="headerlink" href="#module-galahad.snls" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">snls</span></code> package uses a <strong>regularization method</strong> to solve
+a given <strong>simplex-constrained nonlinear least-squares problem</strong>.
+The aim is to minimize the least-squares objective function
+<div class="math notranslate nohighlight">
+\[f(x) :=
+\frac{1}{2} \sum_{i=0}^{m_r-1} w_i r_i^2(x) \equiv \frac{1}{2} \|r(x)\|^2_W\]</div>
+
+where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
+<strong>regular simplex</strong>
+<div class="math notranslate nohighlight">
+\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
+
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 0,\ldots,m_c-1, \hspace{10mm} \mbox{(1)}\]</div>
+
+where the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> are given, <span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{0,\ldots,n-1\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq m_r-1\)</span>, and where the weighted-Euclidean norms
+is given by <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span> with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
+The method offers the choice of projected-gradient and interior-point
+solution of the key regularization subproblems, and is most suitable
+for problems involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.
+First derivatives of the residual function <span class="math notranslate nohighlight">\(r(x)\)</span> are required, and if
+second derivatives of the <span class="math notranslate nohighlight">\(r_i(x)\)</span> can be calculated, they may be exploited.</p>
+<p>See Section 4 of $GALAHAD/doc/snls.pdf for additional details.</p>
+</section>
+<section id="terminology">
+<h2>terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h2>
+<p>The <strong>primal optimality</strong> conditions (1) and <strong>dual optimality</strong> conditions
+<div class="math notranslate nohighlight">
+\[J_r^T(x) W r(x) = \sum_{i=0}^{m_c-1} e_{\cal C_i}^{} y_i + z\]</div>
+
+necessarily hold at an optimal point <span class="math notranslate nohighlight">\(x\)</span> for some <strong>Lagrange multipliers</strong>
+<span class="math notranslate nohighlight">\(y\)</span> and <strong>dual variables</strong> <span class="math notranslate nohighlight">\(z \geq 0\)</span>, where additionally <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span>
+satisfy the <strong>complementarity</strong> conditions <span class="math notranslate nohighlight">\(x_i z_i = 0\)</span> for <span class="math notranslate nohighlight">\(i=0,\ldots,n-1\)</span>.</p>
+<p>The algorithm used by the package is iterative. From the current best estimate
+of the minimizer <span class="math notranslate nohighlight">\(x_k\)</span>, a trial improved point <span class="math notranslate nohighlight">\(x_k + s_k\)</span> is sought.
+The correction <span class="math notranslate nohighlight">\(s_k\)</span> is chosen to improve a model <span class="math notranslate nohighlight">\(m_k(s)\)</span> of
+the objective function <span class="math notranslate nohighlight">\(f(x_k+s)\)</span> built around
+<span class="math notranslate nohighlight">\(x_k\)</span>. The model is the sum of two basic components,
+a suitable approximation <span class="math notranslate nohighlight">\(t_k(s)\)</span> of <span class="math notranslate nohighlight">\(f(x_k+s)\)</span>,
+and a regularization term <span class="math notranslate nohighlight">\(\frac{1}{2} \sigma_k \|s\|_2^2\)</span>
+involving a weight <span class="math notranslate nohighlight">\(\sigma_k\)</span>. The weight is adjusted as
+the algorithm progresses to ensure convergence.</p>
+<p>The model <span class="math notranslate nohighlight">\(t_k(s)\)</span> is a truncated Taylor-series approximation, and this
+relies on being able to compute or estimate derivatives of <span class="math notranslate nohighlight">\(c(x)\)</span>.
+Various models are provided, and each has different derivative requirements.
+We denote the <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> residual <strong>Jacobian</strong>
+<span class="math notranslate nohighlight">\(J(x) \equiv \nabla_x c(x)\)</span> as the matrix  whose <span class="math notranslate nohighlight">\(i,j\)</span>-th component
+<div class="math notranslate nohighlight">
+\[J(x)_{i,j} := \partial r_i(x) / \partial x_j \;\;
+\mbox{for $i=0,\ldots,m_r$ and $j=0,\ldots,n-1$.}\]</div>
+
+For a given <span class="math notranslate nohighlight">\(m_r\)</span>-vector <span class="math notranslate nohighlight">\(y\)</span>, the <strong>weighted-residual Hessian</strong> is the sum
+<div class="math notranslate nohighlight">
+\[H(x,y) := \sum_{\ell=0}^{m_r-1} y_{\ell} H_{\ell}(x), \;\; \mbox{where}\;\; H_{\ell}(x)_{i,j} := \partial^2 r_{\ell}(x) / \partial x_i \partial x_j \;\; \mbox{for $i,j=0,\ldots,n-1$}\]</div>
+
+is the Hessian of <span class="math notranslate nohighlight">\(r_\ell(x)\)</span>.
+The models <span class="math notranslate nohighlight">\(t_k(s)\)</span> provided are,</p>
+<ol class="arabic">
+<li><p>the <strong>Gauss-Newton</strong> approximation
+<span class="math notranslate nohighlight">\(\frac{1}{2} \| r(x_k) + J(x_k) s\|^2_W\)</span>,</p></li>
+<li><p>the <strong>Newton (second-order Taylor)</strong> approximation</p>
+<p><span class="math notranslate nohighlight">\(f(x_k) + g(x_k)^T s + \frac{1}{2} s^T [ J^T(x_k) W J(x_k) + H(x_k,W r(x_k))] s\)</span></p>
+</li>
+</ol>
+<p>(although the latter has yet to be implemented).</p>
+</section>
+<section id="method">
+<h2>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h2>
+<p>An adaptive regularization method is used.
+In this, an improvement to a current
+estimate of the required minimizer, <span class="math notranslate nohighlight">\(x_k\)</span> is sought by computing a
+step <span class="math notranslate nohighlight">\(s_k\)</span>. The step is chosen to approximately minimize a model <span class="math notranslate nohighlight">\(t_k(s)\)</span>
+of <span class="math notranslate nohighlight">\(f_{\rho,r}(x_k+s)\)</span>
+that includes a weighted regularization term
+<span class="math notranslate nohighlight">\(\frac{\sigma_k}{p} \|s\|_{S_k}^p\)</span>
+for some specified positive <strong>weight</strong> <span class="math notranslate nohighlight">\(\sigma_k\)</span>. The quality of the
+resulting step <span class="math notranslate nohighlight">\(s_k\)</span> is assessed by computing the “ratio”
+<span class="math notranslate nohighlight">\((f(x_k) - f(x_k + s_k))/(t_k(0) - t_k(s_k))\)</span>.
+The step is deemed to have succeeded if the ratio exceeds a given <span class="math notranslate nohighlight">\(\eta_s &gt; 0\)</span>,
+and in this case <span class="math notranslate nohighlight">\(x_{k+1} = x_k + s_k\)</span>. Otherwise
+<span class="math notranslate nohighlight">\(x_{k+1} = x_k\)</span>, and the weight is increased by powers of a given
+increase factor up to a given limit. If the ratio is larger than
+<span class="math notranslate nohighlight">\(\eta_v \geq \eta_d\)</span>, the weight will be decreased by powers of a given
+decrease factor again up to a given limit. The method will terminate
+as soon as <span class="math notranslate nohighlight">\(f(x_k)\)</span> or
+<span class="math notranslate nohighlight">\(\|\nabla_x f(x_k)\|\)</span> is smaller than a specified value.</p>
+<p>The step <span class="math notranslate nohighlight">\(s_k\)</span> may be computed either by employing a projected-gradient
+method to minimize the model within the simplex constraint set
+<span class="math notranslate nohighlight">\(\cal C(x_k+s)\)</span> using the GALAHAD module <code class="docutils literal notranslate"><span class="pre">slls</span></code>, or by
+applying the interior-point method available in the module <code class="docutils literal notranslate"><span class="pre">sllsb</span></code>
+to the same subproblem. Experience has shown that it can be beneficial
+to use the latter method during early iterations, but to switch to the
+former as the iterates approach convergence.</p>
+</section>
+<section id="references">
+<h2>references<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>The generic adaptive cubic regularization method is described in detail in</p>
+<blockquote>
+<div><p>C. Cartis,  N. I. M. Gould and Ph. L. Toint,
+‘’Evaluation complexity of algorithms for nonconvex optimization’’
+SIAM-MOS Series on Optimization (2022),</p>
+</div></blockquote>
+<p>and uses ‘’tricks’’ as suggested in</p>
+<blockquote>
+<div><p>N. I. M. Gould, M. Porcelli and Ph. L. Toint,
+‘’Updating the regularization parameter in the adaptive cubic regularization
+algorithm’’.
+<em>Computational Optimization and Applications</em>
+<strong>53(1)</strong> (2012) 1–22.</p>
+</div></blockquote>
+<p>The specific methods employed here are discussed in</p>
+<blockquote>
+<div><p>N. I. M. Gould et. al.,
+‘’Nonlinear least-squares over unit simplices’’.
+Rutherford Appleton Laboratory, Oxfordshire, England (2026) in preparation.</p>
+</div></blockquote>
+</section>
+<section id="matrix-storage">
+<span id="details-snls-storage-unsym"></span><h2>matrix storage<a class="headerlink" href="#matrix-storage" title="Link to this heading">#</a></h2>
+<p>The <strong>unsymmetric</strong> <span class="math notranslate nohighlight">\(m_r\)</span> by <span class="math notranslate nohighlight">\(n\)</span> Jacobian matrix <span class="math notranslate nohighlight">\(J_r = J_r(x)\)</span>
+may be presented and stored in a variety of convenient input formats.</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J_r\)</span> is stored as a compact dense matrix by rows, that is,
+the values of the entries of each row in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(n \ast i + j\)</span>  of the storage array Jr_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq i \leq m_r-1\)</span>, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>.</p>
+<p><em>Dense by columns</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(J_r\)</span> is stored as a compact dense matrix by columns, that is,
+the values of the entries of each column in turn are
+stored in order within an appropriate real one-dimensional array.
+In this case, component <span class="math notranslate nohighlight">\(m \ast j + i\)</span>  of the storage array Jr_val
+will hold the value <span class="math notranslate nohighlight">\(J_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq i \leq m_r-1\)</span>, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(J_r\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(J_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq i \leq m_r-1\)</span>,  <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>,  are stored as
+the <span class="math notranslate nohighlight">\(l\)</span>-th components of the integer arrays Jr_row and
+Jr_col and real array Jr_val, respectively, while the number of nonzeros
+is recorded as Jr_ne = <span class="math notranslate nohighlight">\(ne\)</span>.</p>
+<p><em>Sparse row-wise storage</em> format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(J_r\)</span> the i-th component of the
+integer array Jr_ptr holds the position of the first entry in this row,
+while Jr_ptr(m) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>, and values
+<span class="math notranslate nohighlight">\(J_{ij}\)</span> of the  nonzero entries in the i-th row are stored in components
+l = Jr_ptr(i), <span class="math notranslate nohighlight">\(\ldots\)</span>, Jr_ptr(i+1)-1,  <span class="math notranslate nohighlight">\(0 \leq i \leq m_r-1\)</span>,
+of the integer array Jr_col, and real array Jr_val, respectively.
+For sparse matrices, this scheme almost always requires less storage than
+its predecessor.</p>
+<p><em>Sparse column-wise</em> storage format:
+Once again only the nonzero entries are stored, but this time
+they are ordered so that those in column j appear directly before those
+in column j+1. For the j-th column of <span class="math notranslate nohighlight">\(J_r\)</span> the j-th component of the
+integer array Jr_ptr holds the position of the first entry in this column,
+while Jr_ptr(n) holds the total number of entries.
+The row indices i, <span class="math notranslate nohighlight">\(0 \leq i \leq m_r-1\)</span>, and values <span class="math notranslate nohighlight">\(J_{ij}\)</span>
+of the  nonzero entries in the j-th columnsare stored in components
+l = Jr_ptr(j), <span class="math notranslate nohighlight">\(\ldots\)</span>, Jr_ptr(j+1)-1, <span class="math notranslate nohighlight">\(0 \leq j \leq n-1\)</span>,
+of the integer array Jr_row, and real array Jr_val, respectively.
+As before, for sparse matrices, this scheme almost always requires less
+storage than the co-ordinate format.</p>
+<p id="details-snls-storage-sym">The <strong>symmetric</strong> <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(H = H(x,y)\)</span> may
+be presented and stored in a variety of formats. But crucially symmetry
+is exploited by only storing values from the lower triangular part
+(i.e, those entries that lie on or below the leading diagonal).</p>
+<p><em>Dense</em> storage format:
+The matrix <span class="math notranslate nohighlight">\(H\)</span> is stored as a compact  dense matrix by rows, that
+is, the values of the entries of each row in turn are stored in order
+within an appropriate real one-dimensional array. Since <span class="math notranslate nohighlight">\(H\)</span> is
+symmetric, only the lower triangular part (that is the part
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>) need be held.
+In this case the lower triangle should be stored by rows, that is
+component <span class="math notranslate nohighlight">\(i * i / 2 + j\)</span>  of the storage array H_val
+will hold the value <span class="math notranslate nohighlight">\(H_{ij}\)</span> (and, by symmetry, <span class="math notranslate nohighlight">\(H_{ji}\)</span>)
+for <span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>.</p>
+<p><em>Sparse co-ordinate</em> storage format:
+Only the nonzero entries of the matrices are stored.
+For the <span class="math notranslate nohighlight">\(l\)</span>-th entry, <span class="math notranslate nohighlight">\(0 \leq l \leq ne-1\)</span>, of <span class="math notranslate nohighlight">\(H\)</span>,
+its row index i, column index j and value <span class="math notranslate nohighlight">\(H_{ij}\)</span>,
+<span class="math notranslate nohighlight">\(0 \leq j \leq i \leq n-1\)</span>,  are stored as the <span class="math notranslate nohighlight">\(l\)</span>-th
+components of the integer arrays H_row and H_col and real array H_val,
+respectively, while the number of nonzeros is recorded as
+H_ne = <span class="math notranslate nohighlight">\(ne\)</span>. Note that only the entries in the lower triangle
+should be stored.</p>
+<p><em>Sparse row-wise</em> storage format:
+Again only the nonzero entries are stored, but this time
+they are ordered so that those in row i appear directly before those
+in row i+1. For the i-th row of <span class="math notranslate nohighlight">\(H\)</span> the i-th component of the
+integer array H_ptr holds the position of the first entry in this row,
+while H_ptr(n) holds the total number of entries.
+The column indices j, <span class="math notranslate nohighlight">\(0 \leq j \leq i\)</span>, and values
+<span class="math notranslate nohighlight">\(H_{ij}\)</span> of the  entries in the i-th row are stored in components
+l = H_ptr(i), …, H_ptr(i+1)-1 of the
+integer array H_col, and real array H_val, respectively. Note that
+as before only the entries in the lower triangle should be stored. For
+sparse matrices, this scheme almost always requires less storage than
+its predecessor.</p>
+<p><em>Diagonal</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is diagonal (i.e., <span class="math notranslate nohighlight">\(H_{ij} = 0\)</span> for all
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq n-1\)</span>) only the diagonals entries
+<span class="math notranslate nohighlight">\(H_{ii}\)</span>, <span class="math notranslate nohighlight">\(0 \leq i \leq n-1\)</span> need
+be stored, and the first n components of the array H_val may be
+used for the purpose.</p>
+<p><em>Multiples of the identity</em> storage format:
+If <span class="math notranslate nohighlight">\(H\)</span> is a multiple of the identity matrix, (i.e., <span class="math notranslate nohighlight">\(H = \alpha I\)</span>
+where <span class="math notranslate nohighlight">\(I\)</span> is the n by n identity matrix and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar),
+it suffices to store <span class="math notranslate nohighlight">\(\alpha\)</span> as the first component of H_val.</p>
+<p>The <em>identity matrix</em> format:
+If <span class="math notranslate nohighlight">\(H\)</span> is the identity matrix, no values need be stored.</p>
+<p>The <em>zero matrix</em> format:
+The same is true if <span class="math notranslate nohighlight">\(H\)</span> is the zero matrix.</p>
+</section>
+<section id="functions">
+<h2>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py function">
+<dt class="sig sig-object py" id="galahad.snls.snls.initialize">
+<span class="sig-prename descclassname"><span class="pre">snls.</span></span><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.snls.snls.initialize" title="Link to this definition">#</a></dt>
+<dd><p>Set default option values and initialize private data</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>options<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing default control options:</dt><dd><dl>
+<dt>error<span class="classifier">int</span></dt><dd><p>error and warning diagnostics occur on stream error.</p>
+</dd>
+<dt>out<span class="classifier">int</span></dt><dd><p>general output occurs on stream out.</p>
+</dd>
+<dt>print_level<span class="classifier">int</span></dt><dd><p>the level of output required. Possible values are</p>
+<ul>
+<li><p><strong>&lt;= 0</strong></p>
+<p>gives no output.</p>
+</li>
+<li><p><strong>1</strong></p>
+<p>gives a one-line summary for every iteration.</p>
+</li>
+<li><p><strong>2</strong></p>
+<p>gives a summary of the inner iteration for each iteration.</p>
+</li>
+<li><p><strong>&gt;=3</strong></p>
+<p>gives increasingly verbose (debugging) output.</p>
+</li>
+</ul>
+</dd>
+<dt>start_print<span class="classifier">int</span></dt><dd><p>any printing will start on this iteration.</p>
+</dd>
+<dt>stop_print<span class="classifier">int</span></dt><dd><p>any printing will stop on this iteration.</p>
+</dd>
+<dt>print_gap<span class="classifier">int</span></dt><dd><p>the number of iterations between printing.</p>
+</dd>
+<dt>maxit<span class="classifier">int</span></dt><dd><p>the maximum number of iterations performed.</p>
+</dd>
+<dt>alive_unit<span class="classifier">int</span></dt><dd><p>removal of the file alive_file from unit alive_unit
+terminates execution.</p>
+</dd>
+<dt>alive_file<span class="classifier">str</span></dt><dd><p>see alive_unit.</p>
+</dd>
+<dt>jacobian_available<span class="classifier">int</span></dt><dd><p>is the Jacobian matrix of first derivatives available
+(<span class="math notranslate nohighlight">\(\geq\)</span> 2), is access only via matrix-vector products
+(=1) or is it not available (<span class="math notranslate nohighlight">\(\leq\)</span> 0) ?.</p>
+</dd>
+<dt>subproblem_solver<span class="classifier">int</span></dt><dd><p>the solver used to compute the step.  Possible values are</p>
+<ul>
+<li><p><strong>1</strong></p>
+<p>use a projected-gradient method from the GALAHAD module <code class="docutils literal notranslate"><span class="pre">slls</span></code>.</p>
+</li>
+<li><p><strong>2</strong></p>
+<p>use an interior-point method from the GALAHAD module <code class="docutils literal notranslate"><span class="pre">sllsb</span></code>.</p>
+</li>
+<li><p><strong>3</strong></p>
+<p>use an interior-point method, but switch to a
+projected-gradient method when sufficient progress has
+been made, see stop_pg_switch below.</p>
+</li>
+</ul>
+</dd>
+<dt>non_monotone<span class="classifier">int</span></dt><dd><p>non-monotone &lt;= 0 monotone strategy used, anything else
+non-monotone strategy with this history length used.</p>
+</dd>
+<dt>weight_update_strategy<span class="classifier">int</span></dt><dd><p>define the weight-update strategy: 1 (basic), 2 (reset to
+zero when very successful), 3 (imitate TR), 4 (increase
+lower bound), 5 (GPT).</p>
+</dd>
+<dt>stop_r_absolute<span class="classifier">float</span></dt><dd><p>overall convergence tolerances. The iteration will
+terminate when <span class="math notranslate nohighlight">\(||c(x)||_2 \leq \max(\)</span>
+<code class="docutils literal notranslate"><span class="pre">stop_c_absolute,</span></code> <code class="docutils literal notranslate"><span class="pre">stop_c_relative</span></code> *
+<span class="math notranslate nohighlight">\(\|r(x_0)\|_2\)</span> or when the norm of the
+gradient, <span class="math notranslate nohighlight">\(g(x) = J^T(x) W r(x)\)</span>, satisfies
+<span class="math notranslate nohighlight">\(\|P[x-g(x)]-x\|_2 \leq \max(\)</span> <code class="docutils literal notranslate"><span class="pre">stop_pg_absolute,</span></code>
+<code class="docutils literal notranslate"><span class="pre">stop_pg_relative</span></code> *
+<span class="math notranslate nohighlight">\(\|P[x_0 - g(x_0)] - x_0\|_2\)</span>, or if the norm of
+the step is less than <code class="docutils literal notranslate"><span class="pre">stop_s</span></code>, where <span class="math notranslate nohighlight">\(x_0\)</span> is the initial point,</p>
+</dd>
+<dt>stop_r_relative<span class="classifier">float</span></dt><dd><p>see stop_r_absolute.</p>
+</dd>
+<dt>stop_pg_absolute<span class="classifier">float</span></dt><dd><p>see stop_r_absolute.</p>
+</dd>
+<dt>stop_pg_relative<span class="classifier">float</span></dt><dd><p>see stop_r_absolute.</p>
+</dd>
+<dt>stop_s<span class="classifier">float</span></dt><dd><p>see stop_r_absolute.</p>
+</dd>
+<dt>stop_pg_switch<span class="classifier">float</span></dt><dd><p>the step-computation solver will switch from an interior-point
+method to a projected-gradient one if subproblem_solver = 3
+(see above) and <span class="math notranslate nohighlight">\(\|P[x-g(x)]-x\|_2 \leq \max(\)</span>
+<code class="docutils literal notranslate"><span class="pre">stop_pg_absolute,</span></code> <code class="docutils literal notranslate"><span class="pre">stop_pg_switch</span></code> *
+<span class="math notranslate nohighlight">\(\|P[x_0 - g(x_0)] - x_0\|_2\)</span>.</p>
+</dd>
+<dt>initial_weight<span class="classifier">float</span></dt><dd><p>initial value for the regularization weight (-ve means
+<span class="math notranslate nohighlight">\(1/\|g_0\|)\)</span>).</p>
+</dd>
+<dt>minimum_weight<span class="classifier">float</span></dt><dd><p>minimum permitted regularization weight.</p>
+</dd>
+<dt>eta_successful<span class="classifier">float</span></dt><dd><p>potential iterate will only be accepted if the actual
+decrease f - f(x_new) is larger than <code class="docutils literal notranslate"><span class="pre">eta_successful</span></code>
+times that predicted by a quadratic model of the decrease.
+The regularization weight will be decreaed if this
+relative decrease is greater than <code class="docutils literal notranslate"><span class="pre">eta_very_successful</span></code>
+but smaller than <code class="docutils literal notranslate"><span class="pre">eta_too_successful</span></code>.</p>
+</dd>
+<dt>eta_very_successful<span class="classifier">float</span></dt><dd><p>see eta_successful.</p>
+</dd>
+<dt>eta_too_successful<span class="classifier">float</span></dt><dd><p>see eta_successful.</p>
+</dd>
+<dt>weight_decrease_min<span class="classifier">float</span></dt><dd><p>on very successful iterations, the regularization weight
+will be reduced by the factor <code class="docutils literal notranslate"><span class="pre">weight_decrease</span></code> but no
+more than <code class="docutils literal notranslate"><span class="pre">weight_decrease_min</span></code> while if the iteration
+is unsucceful, the weight will be increased by a factor
+<code class="docutils literal notranslate"><span class="pre">weight_increase</span></code> but no more than
+<code class="docutils literal notranslate"><span class="pre">weight_increase_max</span></code> (these are delta_1, delta_2,
+delta3 and delta_max in Gould, Porcelli and Toint, 2011).</p>
+</dd>
+<dt>weight_decrease<span class="classifier">float</span></dt><dd><p>see weight_decrease_min</p>
+</dd>
+<dt>weight_increase<span class="classifier">float</span></dt><dd><p>see weight_decrease_min</p>
+</dd>
+<dt>weight_increase_max<span class="classifier">float</span></dt><dd><p>see weight_decrease_min</p>
+</dd>
+<dt>switch_to_newton<span class="classifier">float</span></dt><dd><p>if newton_acceleration (see below) is true, the Gauss-Newton
+model will switch to the Newton one as soon as the norm of the
+projected gradient is smaller than switch_to_newton.</p>
+<blockquote>
+<div><p><strong>not yet implemented</strong></p>
+</div></blockquote>
+</dd>
+<dt>cpu_time_limit<span class="classifier">float</span></dt><dd><p>the maximum CPU time allowed (-ve means infinite).</p>
+</dd>
+<dt>clock_time_limit<span class="classifier">float</span></dt><dd><p>the maximum elapsed clock time allowed (-ve means
+infinite).</p>
+</dd>
+<dt>newton_acceleration<span class="classifier">bool</span></dt><dd><p>should available second derivatives be used to accelerate the
+iteration when possible? <strong>not yet implemented</strong></p>
+</dd>
+<dt>magic_step<span class="classifier">bool</span></dt><dd><p>allow the user to perform a “magic” step to improve the
+objective.</p>
+</dd>
+<dt>print_obj<span class="classifier">bool</span></dt><dd><p>print values of the objective/gradient rather than <span class="math notranslate nohighlight">\(\|r\|\)</span>
+and its gradient.</p>
+</dd>
+<dt>space_critical<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">space_critical</span></code> is True, every effort will be made to
+use as little space as possible. This may result in longer
+computation time.</p>
+</dd>
+<dt>deallocate_error_fatal<span class="classifier">bool</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">deallocate_error_fatal</span></code> is True, any array/pointer
+deallocation error will terminate execution. Otherwise,
+computation will continue.</p>
+</dd>
+<dt>prefix<span class="classifier">str</span></dt><dd><p>all output lines will be prefixed by the string contained
+in quotes within <code class="docutils literal notranslate"><span class="pre">prefix</span></code>, e.g. ‘word’ (note the qutoes)
+will result in the prefix word.</p>
+</dd>
+<dt>slls_options<span class="classifier">dict</span></dt><dd><p>default control options for <cite>slls</cite> (see <code class="docutils literal notranslate"><span class="pre">slls.initialize</span></code>).</p>
+</dd>
+<dt>sllsb_options<span class="classifier">dict</span></dt><dd><p>default control options for <cite>sllsb</cite> (see <code class="docutils literal notranslate"><span class="pre">sllsb.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">snls.load(n,</span> <span class="pre">m_r,</span> <span class="pre">m_c,</span> <span class="pre">J_type,</span> <span class="pre">J_ne,</span> <span class="pre">J_row,</span> <span class="pre">J_col,</span> <span class="pre">J_ptr_ne,</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">J_ptr,</span> <span class="pre">cohort,</span> <span class="pre">options=None)</span></span></dt>
+<dd><p>Import problem data into internal storage prior to solution.</p>
+<p><strong>Parameters:</strong></p>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>m_r<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
+</dd>
+<dt>m_c<span class="classifier">int</span></dt><dd><p>holds the number of cohorts.</p>
+</dd>
+<dt>J_type<span class="classifier">string</span></dt><dd><p>specifies the unsymmetric storage scheme used for the Jacobian
+<span class="math notranslate nohighlight">\(J = J(x)\)</span>.
+It should be one of ‘coordinate’, ‘sparse_by_rows’ or ‘dense’;
+lower or upper case variants are allowed.</p>
+</dd>
+<dt>Jr_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in <span class="math notranslate nohighlight">\(J_r\)</span> in the sparse co-ordinate
+storage scheme. It need not be set for any of the other schemes.</p>
+</dd>
+<dt>Jr_row<span class="classifier">ndarray(Jr_ne)</span></dt><dd><p>holds the row indices of <span class="math notranslate nohighlight">\(J_r\)</span>
+in the sparse co-ordinate storage and sparse by columns schemes
+It need not be set for any of the other schemes, and in this case
+can be None.</p>
+</dd>
+<dt>Jr_col<span class="classifier">ndarray(Jr_ne)</span></dt><dd><p>holds the column indices of <span class="math notranslate nohighlight">\(J_r\)</span> in either the sparse co-ordinate,
+or the sparse row-wise storage scheme. It need not be set when the
+other schemes are used, and in this case can be None.</p>
+</dd>
+<dt>Jr_ptr_ne<span class="classifier">int</span></dt><dd><p>holds the dimension of J_ptr. This should be at least m_r+1 if <span class="math notranslate nohighlight">\(J_r\)</span>
+is stored in the sparse_by_rows scheme, n+1 for the sparse_by_cols
+scheme and 0 otherwise.</p>
+</dd>
+<dt>Jr_ptr<span class="classifier">ndarray(J_ptr_ne)</span></dt><dd><p>holds the starting position of each row of <span class="math notranslate nohighlight">\(J_r\)</span>, as well as the
+total number of entries, in the sparse row-wise storage
+scheme, or the starting position of each column of <span class="math notranslate nohighlight">\(J_r\)</span>, as well
+as the total number of entries, in the sparse column-wise storage
+scheme. It need not be set when the other schemes are used, and in
+this case can be None.</p>
+</dd>
+<dt>cohort<span class="classifier">ndarray(n), optional</span></dt><dd><p>specifies which cohort, <span class="math notranslate nohighlight">\(i=0,\ldots,m_c-1\)</span>, variable <span class="math notranslate nohighlight">\(x_j\)</span>
+<span class="math notranslate nohighlight">\(j=0,\ldots,n-1\)</span>, lies in, or to a negative number if <span class="math notranslate nohighlight">\(x_j\)</span>
+is not constrained. If all variables lie in a single cohort,
+it may be set to None.</p>
+</dd>
+<dt>options<span class="classifier">dict, optional</span></dt><dd><p>dictionary of control options (see <code class="docutils literal notranslate"><span class="pre">snls.initialize</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.snls.snls.solve">
+<span class="sig-prename descclassname"><span class="pre">snls.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Jr_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_jr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#galahad.snls.snls.solve" title="Link to this definition">#</a></dt>
+<dd><p>Find an approximate local unconstrained minimizer of a given
+least-squares function subject to non-overlapping simplex constraints
+using a regularization method.</p>
+<p><strong>Parameters:</strong></p>
+<dl>
+<dt>n<span class="classifier">int</span></dt><dd><p>holds the number of variables.</p>
+</dd>
+<dt>m_r<span class="classifier">int</span></dt><dd><p>holds the number of residuals.</p>
+</dd>
+<dt>m_c<span class="classifier">int</span></dt><dd><p>holds the number of cohorts.</p>
+</dd>
+<dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the values of optimization variables <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</dd>
+<dt>eval_r<span class="classifier">callable</span></dt><dd><p>a user-defined function that must have the signature:</p>
+<p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">eval_r(x)</span></code></p>
+<p>The components of the residual <span class="math notranslate nohighlight">\(r(x)\)</span> evaluated at <span class="math notranslate nohighlight">\(x\)</span> must be
+assigned to <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+</dd>
+<dt>Jr_ne<span class="classifier">int</span></dt><dd><p>holds the number of entries in the Jacobian <span class="math notranslate nohighlight">\(J_r = J_r(x)\)</span>.</p>
+</dd>
+<dt>eval_jr<span class="classifier">callable</span></dt><dd><p>a user-defined function that must have the signature:</p>
+<p><code class="docutils literal notranslate"><span class="pre">jr</span> <span class="pre">=</span> <span class="pre">eval_jr(x)</span></code></p>
+<p>The components of the nonzeros in the Jacobian
+<span class="math notranslate nohighlight">\(J_r(x)\)</span> of the objective function evaluated at
+<span class="math notranslate nohighlight">\(x\)</span> must be assigned to <code class="docutils literal notranslate"><span class="pre">jr</span></code> in the same order as specified
+in the sparsity pattern in <code class="docutils literal notranslate"><span class="pre">snls.load</span></code>.</p>
+</dd>
+<dt>w<span class="classifier">ndarray(m_r), optional</span></dt><dd><p>holds the vector of weights <span class="math notranslate nohighlight">\(w\)</span>. If w is Null, weights of
+one will be presumed.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong></p>
+<dl class="simple">
+<dt>x<span class="classifier">ndarray(n)</span></dt><dd><p>holds the value of the approximate minimizer <span class="math notranslate nohighlight">\(x\)</span> after
+a successful call.</p>
+</dd>
+<dt>y<span class="classifier">ndarray(m_c)</span></dt><dd><p>holds the value of the Lagrange multipliers <span class="math notranslate nohighlight">\(y\)</span>.</p>
+</dd>
+<dt>z<span class="classifier">ndarray(n)</span></dt><dd><p>holds the value of the dual variables <span class="math notranslate nohighlight">\(z\)</span>.</p>
+</dd>
+<dt>r<span class="classifier">ndarray(m_r)</span></dt><dd><p>holds the value of the residuals <span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
+</dd>
+<dt>g<span class="classifier">ndarray(n)</span></dt><dd><p>holds the gradient <span class="math notranslate nohighlight">\(\nabla f(x)\)</span> of the objective function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">[optional]</span> <span class="pre">snls.information()</span></span></dt>
+<dd><p>Provide optional output information</p>
+<p><strong>Returns:</strong></p>
+<dl>
+<dt>inform<span class="classifier">dict</span></dt><dd><dl>
+<dt>dictionary containing output information:</dt><dd><dl>
+<dt>status<span class="classifier">int</span></dt><dd><p>return status.  Possible values are:</p>
+<ul>
+<li><p><strong>0</strong></p>
+<p>The run was successful.</p>
+</li>
+<li><p><strong>-1</strong></p>
+<p>An allocation error occurred. A message indicating the
+offending array is written on unit options[‘error’], and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-2</strong></p>
+<p>A deallocation error occurred.  A message indicating the
+offending array is written on unit options[‘error’] and
+the returned allocation status and a string containing
+the name of the offending array are held in
+inform[‘alloc_status’] and inform[‘bad_alloc’] respectively.</p>
+</li>
+<li><p><strong>-3</strong></p>
+<p>The restriction n &gt; 0 or m_r &gt; 0 or requirement that type contains
+its relevant string ‘dense’, ‘dense_by_rows’, ‘dense_by_columns’,
+‘sparse_by_rows’, ‘sparse_by_columns’, ‘coordinate’ or
+‘diagonal’ has been violated.</p>
+</li>
+<li><p><strong>-9</strong></p>
+<p>The analysis phase of the factorization failed; the return
+status from the factorization package is given by
+inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-10</strong></p>
+<p>The factorization failed; the return status from the
+factorization package is given by inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-11</strong></p>
+<p>The solution of a set of linear equations using factors
+from the factorization package failed; the return status
+from the factorization package is given by
+inform[‘factor_status’].</p>
+</li>
+<li><p><strong>-16</strong></p>
+<p>The problem is so ill-conditioned that further progress
+is impossible.</p>
+</li>
+<li><p><strong>-18</strong></p>
+<p>Too many iterations have been performed. This may happen if
+options[‘maxit’] is too small, but may also be symptomatic
+of a badly scaled problem.</p>
+</li>
+<li><p><strong>-19</strong></p>
+<p>The CPU time limit has been reached. This may happen if
+options[‘cpu_time_limit’] is too small, but may also be
+symptomatic of a badly scaled problem.</p>
+</li>
+<li><p><strong>-82</strong></p>
+<p>The user has forced termination of the solver by removing
+the file named options[‘alive_file’] from unit
+options[‘alive_unit’].</p>
+</li>
+</ul>
+</dd>
+<dt>alloc_status<span class="classifier">int</span></dt><dd><p>the status of the last attempted allocation/deallocation.</p>
+</dd>
+<dt>bad_alloc<span class="classifier">str</span></dt><dd><p>the name of the array for which an allocation/deallocation
+error occurred.</p>
+</dd>
+<dt>bad_eval<span class="classifier">str</span></dt><dd><p>the name of the user-supplied evaluation routine for which
+an error occurred.</p>
+</dd>
+<dt>iter<span class="classifier">int</span></dt><dd><p>the total number of iterations performed.</p>
+</dd>
+<dt>inner_iter<span class="classifier">int</span></dt><dd><p>the total number of inner iterations performed when finding
+the step.</p>
+</dd>
+<dt>r_eval<span class="classifier">int</span></dt><dd><p>the total number of evaluations of the residual function
+<span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
+</dd>
+<dt>j_eval<span class="classifier">int</span></dt><dd><p>the total number of evaluations of the Jacobian <span class="math notranslate nohighlight">\(J_r(x)\)</span> of
+<span class="math notranslate nohighlight">\(r(x)\)</span>.</p>
+</dd>
+<dt>obj<span class="classifier">float</span></dt><dd><p>the value of the objective function
+<span class="math notranslate nohighlight">\(\frac{1}{2}\|r(x)\|^2_W\)</span> at the best estimate the
+solution, x, determined by SNLS_solve.</p>
+</dd>
+<dt>norm_c<span class="classifier">float</span></dt><dd><p>the norm of the residual <span class="math notranslate nohighlight">\(\|c(x)\|_W\)</span> at the best estimate
+of the solution x, determined by SNLS_solve.</p>
+</dd>
+<dt>norm_g<span class="classifier">float</span></dt><dd><p>the norm of the gradient of <span class="math notranslate nohighlight">\(\|r(x)\|_W\)</span> of the objective
+function at the best estimate, x, of the solution
+determined by SNLS_solve.</p>
+</dd>
+<dt>norm_pg<span class="classifier">float</span></dt><dd><p>the norm of the projected gradient <span class="math notranslate nohighlight">\(P[x- J_r^T(x) r(x)] - x\)</span>
+at the best estimate, x, of the solution determined by SNLS_solve.</p>
+</dd>
+<dt>weight<span class="classifier">float</span></dt><dd><p>the final regularization weight used.</p>
+</dd>
+<dt>time<span class="classifier">dict</span></dt><dd><dl class="simple">
+<dt>dictionary containing timing information:</dt><dd><dl class="simple">
+<dt>total<span class="classifier">float</span></dt><dd><p>the total CPU time spent in the package.</p>
+</dd>
+<dt>slls<span class="classifier">float</span></dt><dd><p>the CPU time spent in the <code class="docutils literal notranslate"><span class="pre">slls</span></code> package</p>
+</dd>
+<dt>sllsb<span class="classifier">float</span></dt><dd><p>the CPU time spent in the <code class="docutils literal notranslate"><span class="pre">sllsb</span></code> package</p>
+</dd>
+<dt>clock_total<span class="classifier">float</span></dt><dd><p>the total clock time spent in the package.</p>
+</dd>
+<dt>clock_slls<span class="classifier">float</span></dt><dd><p>the clock time spent in the <code class="docutils literal notranslate"><span class="pre">slls</span></code> package</p>
+</dd>
+<dt>clock_sllsb<span class="classifier">float</span></dt><dd><p>the clock time spent in the <code class="docutils literal notranslate"><span class="pre">sllsb</span></code> package</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>slls_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for <code class="docutils literal notranslate"><span class="pre">slls</span></code> (see <code class="docutils literal notranslate"><span class="pre">slls.information</span></code>).</p>
+</dd>
+<dt>sllsb_inform<span class="classifier">dict</span></dt><dd><p>inform parameters for <code class="docutils literal notranslate"><span class="pre">sllsb</span></code> (see <code class="docutils literal notranslate"><span class="pre">sllsb.information</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="galahad.snls.snls.terminate">
+<span class="sig-prename descclassname"><span class="pre">snls.</span></span><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galahad.snls.snls.terminate" title="Link to this definition">#</a></dt>
+<dd><p>Deallocate all internal private storage.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="example-code">
+<h2>example code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h2>
+<pre class="code python literal-block"><code><span class="keyword namespace">from</span> <span class="name namespace">galahad</span> <span class="keyword namespace">import</span> <span class="name">snls</span><span class="whitespace">
+</span><span class="keyword namespace">import</span> <span class="name namespace">numpy</span> <span class="keyword">as</span> <span class="name namespace">np</span><span class="whitespace">
+</span><span class="name">np</span><span class="operator">.</span><span class="name">set_printoptions</span><span class="punctuation">(</span><span class="name">precision</span><span class="operator">=</span><span class="literal number integer">4</span><span class="punctuation">,</span><span class="name">suppress</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">,</span><span class="name">floatmode</span><span class="operator">=</span><span class="literal string single">'fixed'</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double">** python test: snls&quot;</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># set parameters</span><span class="whitespace">
+</span><span class="name">p</span> <span class="operator">=</span> <span class="literal number float">4.0</span><span class="whitespace">
+</span><span class="name">n</span> <span class="operator">=</span> <span class="literal number integer">5</span><span class="whitespace">
+</span><span class="name">m_r</span> <span class="operator">=</span> <span class="literal number integer">4</span><span class="whitespace">
+
+</span><span class="comment single"># set Jacobian sparsity</span><span class="whitespace">
+</span><span class="name">Jr_type</span> <span class="operator">=</span> <span class="literal string single">'coordinate'</span><span class="whitespace">
+</span><span class="name">Jr_ne</span> <span class="operator">=</span> <span class="literal number integer">8</span><span class="whitespace">
+</span><span class="name">Jr_row</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">3</span><span class="punctuation">,</span><span class="literal number integer">3</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">Jr_col</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="literal number integer">3</span><span class="punctuation">,</span><span class="literal number integer">3</span><span class="punctuation">,</span><span class="literal number integer">4</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name">Jr_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+
+</span><span class="comment single"># set cohorts</span><span class="whitespace">
+</span><span class="name">m_c</span> <span class="operator">=</span> <span class="literal number integer">2</span><span class="whitespace">
+</span><span class="name">cohort</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="literal number integer">0</span><span class="punctuation">,</span><span class="literal number integer">1</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># set weights</span><span class="whitespace">
+</span><span class="name">w</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">,</span><span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+
+</span><span class="comment single"># set some non-default options</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'jacobian_available'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">2</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'stop_pg_absolute'</span><span class="punctuation">]</span> <span class="operator">=</span>  <span class="literal number float">0.00001</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'slls_options'</span><span class="punctuation">][</span><span class="literal string single">'sbls_options'</span><span class="punctuation">][</span><span class="literal string single">'symmetric_linear_solver'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'sytr '</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'slls_options'</span><span class="punctuation">][</span><span class="literal string single">'sbls_options'</span><span class="punctuation">][</span><span class="literal string single">'definite_linear_solver'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'potr '</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
+
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">snls</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">m_r</span><span class="punctuation">,</span> <span class="name">m_c</span><span class="punctuation">,</span> <span class="name">Jr_type</span><span class="punctuation">,</span> <span class="name">Jr_ne</span><span class="punctuation">,</span> <span class="name">Jr_row</span><span class="punctuation">,</span> <span class="name">Jr_col</span><span class="punctuation">,</span> <span class="literal number integer">0</span><span class="punctuation">,</span> <span class="name">Jr_ptr</span><span class="punctuation">,</span><span class="whitespace">
+</span>          <span class="name">cohort</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># define residual function and its Jacobian</span><span class="whitespace">
+</span><span class="keyword">def</span> <span class="name function">eval_r</span><span class="punctuation">(</span><span class="name">x</span><span class="punctuation">):</span><span class="whitespace">
+</span>    <span class="keyword">return</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">]</span><span class="operator">*</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span> <span class="operator">-</span> <span class="name">p</span><span class="punctuation">,</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span><span class="operator">*</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]</span> <span class="operator">-</span> <span class="literal number float">1.0</span><span class="punctuation">,</span><span class="whitespace">
+</span>                     <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]</span><span class="operator">*</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">-</span> <span class="literal number float">1.0</span><span class="punctuation">,</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">]</span><span class="operator">*</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">4</span><span class="punctuation">]</span> <span class="operator">-</span> <span class="literal number float">1.0</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="keyword">def</span> <span class="name function">eval_jr</span><span class="punctuation">(</span><span class="name">x</span><span class="punctuation">):</span><span class="whitespace">
+</span>    <span class="keyword">return</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">4</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">]])</span><span class="whitespace">
+
+</span><span class="comment single"># set starting point</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># find minimizer</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> sparse solve snls&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span><span class="punctuation">,</span> <span class="name">y</span><span class="punctuation">,</span> <span class="name">z</span><span class="punctuation">,</span> <span class="name">r</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">x_stat</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">solve</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">m_r</span><span class="punctuation">,</span> <span class="name">m_c</span><span class="punctuation">,</span> <span class="name">x</span><span class="punctuation">,</span> <span class="name">eval_r</span><span class="punctuation">,</span> <span class="name">Jr_ne</span><span class="punctuation">,</span> <span class="name">eval_jr</span><span class="punctuation">,</span> <span class="name">w</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; y:&quot;</span><span class="punctuation">,</span><span class="name">y</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; z:&quot;</span><span class="punctuation">,</span><span class="name">z</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; r:&quot;</span><span class="punctuation">,</span><span class="name">r</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; g:&quot;</span><span class="punctuation">,</span><span class="name">g</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x_stat:&quot;</span><span class="punctuation">,</span><span class="name">x_stat</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;inform:&quot;, inform)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** snls exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># deallocate internal data</span><span class="whitespace">
+</span><span class="name">snls</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span><span class="whitespace">
+
+</span><span class="comment single"># repeat problem using dense format</span><span class="whitespace">
+
+</span><span class="comment single"># set Jacobian sparsity</span><span class="whitespace">
+</span><span class="name">Jr_type</span> <span class="operator">=</span> <span class="literal string single">'dense'</span><span class="whitespace">
+</span><span class="name">Jr_ne</span> <span class="operator">=</span> <span class="name">n</span> <span class="operator">*</span> <span class="name">m_r</span><span class="whitespace">
+</span><span class="name">Jr_row</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">Jr_col</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+</span><span class="name">Jr_ptr</span> <span class="operator">=</span> <span class="keyword constant">None</span><span class="whitespace">
+
+</span><span class="comment single"># allocate internal data and set default options</span><span class="whitespace">
+</span><span class="name">options</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">()</span><span class="whitespace">
+
+</span><span class="comment single"># set some non-default options</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'print_level'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">0</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'jacobian_available'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal number integer">2</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'stop_pg_absolute'</span><span class="punctuation">]</span> <span class="operator">=</span>  <span class="literal number float">0.00001</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'slls_options'</span><span class="punctuation">][</span><span class="literal string single">'sbls_options'</span><span class="punctuation">][</span><span class="literal string single">'symmetric_linear_solver'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'sytr '</span><span class="whitespace">
+</span><span class="name">options</span><span class="punctuation">[</span><span class="literal string single">'slls_options'</span><span class="punctuation">][</span><span class="literal string single">'sbls_options'</span><span class="punctuation">][</span><span class="literal string single">'definite_linear_solver'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'potr '</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;options:&quot;, options)</span><span class="whitespace">
+
+</span><span class="comment single"># load data (and optionally non-default options)</span><span class="whitespace">
+</span><span class="name">snls</span><span class="operator">.</span><span class="name">load</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">m_r</span><span class="punctuation">,</span> <span class="name">m_c</span><span class="punctuation">,</span> <span class="name">Jr_type</span><span class="punctuation">,</span> <span class="name">Jr_ne</span><span class="punctuation">,</span> <span class="name">Jr_row</span><span class="punctuation">,</span> <span class="name">Jr_col</span><span class="punctuation">,</span> <span class="literal number integer">0</span><span class="punctuation">,</span> <span class="name">Jr_ptr</span><span class="punctuation">,</span><span class="whitespace">
+</span>          <span class="name">cohort</span><span class="punctuation">,</span> <span class="name">options</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># define the dense Jacobian</span><span class="whitespace">
+</span><span class="keyword">def</span> <span class="name function">eval_jr_dense</span><span class="punctuation">(</span><span class="name">x</span><span class="punctuation">):</span><span class="whitespace">
+</span>    <span class="keyword">return</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">],</span> <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span><span class="whitespace">
+</span>                     <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span><span class="whitespace">
+</span>                     <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">],</span> <span class="literal number float">0.0</span><span class="punctuation">,</span><span class="whitespace">
+</span>                     <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="literal number float">0.0</span><span class="punctuation">,</span>  <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">4</span><span class="punctuation">],</span> <span class="name">x</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">]])</span><span class="whitespace">
+
+</span><span class="comment single"># set starting point</span><span class="whitespace">
+</span><span class="name">x</span> <span class="operator">=</span> <span class="name">np</span><span class="operator">.</span><span class="name">array</span><span class="punctuation">([</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">,</span><span class="literal number float">0.5</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># find minimizer</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;</span><span class="literal string escape">\n</span><span class="literal string double"> dense solve snls&quot;</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name">x</span><span class="punctuation">,</span> <span class="name">y</span><span class="punctuation">,</span> <span class="name">z</span><span class="punctuation">,</span> <span class="name">r</span><span class="punctuation">,</span> <span class="name">g</span><span class="punctuation">,</span> <span class="name">x_stat</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">solve</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">,</span> <span class="name">m_r</span><span class="punctuation">,</span> <span class="name">m_c</span><span class="punctuation">,</span> <span class="name">x</span><span class="punctuation">,</span> <span class="name">eval_r</span><span class="punctuation">,</span> <span class="name">Jr_ne</span><span class="punctuation">,</span> <span class="name">eval_jr_dense</span><span class="punctuation">,</span> <span class="name">w</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x:&quot;</span><span class="punctuation">,</span><span class="name">x</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; y:&quot;</span><span class="punctuation">,</span><span class="name">y</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; z:&quot;</span><span class="punctuation">,</span><span class="name">z</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; r:&quot;</span><span class="punctuation">,</span><span class="name">r</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; g:&quot;</span><span class="punctuation">,</span><span class="name">g</span><span class="punctuation">)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; x_stat:&quot;</span><span class="punctuation">,</span><span class="name">x_stat</span><span class="punctuation">)</span><span class="whitespace">
+
+</span><span class="comment single"># get information</span><span class="whitespace">
+</span><span class="name">inform</span> <span class="operator">=</span> <span class="name">snls</span><span class="operator">.</span><span class="name">information</span><span class="punctuation">()</span><span class="whitespace">
+</span><span class="comment single">#print(&quot;inform:&quot;, inform)</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot; f: </span><span class="literal string interpol">%.4f</span><span class="literal string double">&quot;</span> <span class="operator">%</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'obj'</span><span class="punctuation">])</span><span class="whitespace">
+</span><span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string single">'** snls exit status:'</span><span class="punctuation">,</span> <span class="name">inform</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span><span class="whitespace">
+
+</span><span class="comment single"># deallocate internal data</span><span class="whitespace">
+</span><span class="name">snls</span><span class="operator">.</span><span class="name">terminate</span><span class="punctuation">()</span></code></pre>
+<p>This example code is available in $GALAHAD/src/snls/Python/test_snls.py .</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sllsb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SLLSB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lp.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linear Programming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">terminology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-storage">matrix storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.snls.snls.initialize"><code class="docutils literal notranslate"><span class="pre">snls.initialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.snls.snls.solve"><code class="docutils literal notranslate"><span class="pre">snls.solve()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galahad.snls.snls.terminate"><code class="docutils literal notranslate"><span class="pre">snls.terminate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">example code</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/snls.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'sllsb_functions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Linear Programming" href="lp.html" />
+    <link rel="next" title="GALAHAD SNLS package" href="snls.html" />
     <link rel="prev" title="GALAHAD SLLSB package" href="sllsb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -407,6 +407,10 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="snls.html">SNLS - simplex-constrained nonlinear least-squares using a regularization method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="snls_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -528,6 +532,80 @@ components of the control structure.</p>
 <span class="w">                      </span><span class="n">cohort</span><span class="w"> </span><span class="p">)</span></pre>
 <p>Import problem data into internal storage prior to solution.</p>
 <p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>control</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="sllsb.html#doxid-structsllsb-control-type"><span class="std std-ref">sllsb_control_type</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the exit
+status from the package. Possible values are:</p>
+<ul class="simple">
+<li><p><strong>0</strong>
+The import was successful</p></li>
+<li><p><strong>-1</strong>
+An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p></li>
+<li><p><strong>-2</strong>
+A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p></li>
+<li><p><strong>-3</strong>
+The restrictions n &gt; 0 or o &gt; 0 or requirement that
+a type contains its relevant string ‘dense’,
+‘coordinate’, ‘sparse_by_rows’, ‘diagonal’,
+‘scaled_identity’, ‘identity’, ‘zero’ or ‘none’ has
+been violated.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>o</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>is a scalar variable of type INT that holds the number of cohorts. If all the variables lie in a single cohort, this value will be ignored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ao_type</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the objective design matrix, <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense’ or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ao_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ao_row</p></td>
+<td><p>is a one-dimensional array of size Ao_ne and type INT that holds the row indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and sparse column-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ao_col</p></td>
+<td><p>is a one-dimensional array of size Ao_ne and type INT that holds the column indices of <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate and the sparse row-wise storage schemes. It need not be set for any of the other schemes, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ao_ptr_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the length of the pointer array if sparse row or column storage scheme is used for <span class="math notranslate nohighlight">\(A_o\)</span>. For the sparse row scheme,  Ao_ptr_ne should be at least o+1, while for the sparse column scheme,  it should be at least n+1, It need not be set when the other schemes are used.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ao_ptr</p></td>
+<td><p>is a one-dimensional array of size n+1 and type INT that holds the starting position of each row of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse row-wise storage scheme. By contrast, it is a one-dimensional array of size n+1 and type INT that holds the starting position of each column of <span class="math notranslate nohighlight">\(A_o\)</span>, as well as the total number of entries, in the sparse column-wise storage scheme. It need not be set when the other schemes are used, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cohort</p></td>
+<td><p>is a one-dimensional array of size n and type INT, that specifies which cohort each variable is associated with. If variable <span class="math notranslate nohighlight">\(x_j\)</span> is associated with cohort <span class="math notranslate nohighlight">\(\cal C_i\)</span>, <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, cohort[j] should be set to i, while if <span class="math notranslate nohighlight">\(x_j\)</span> is unconstrained cohort[j] = 0 should be assigned. At least one value cohort[j] for <span class="math notranslate nohighlight">\(j = 1,\ldots\,n\)</span> is expected to take the value <span class="math notranslate nohighlight">\(i\)</span> for every <span class="math notranslate nohighlight">\(1 \leq i \leq m\)</span>, that is no empty cohorts are allowed. If all the variables lie in a single cohort, cohort can be set as C_NULL.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-sllsb-8h-1a9f7ccb0cffa909a2be7556edda430190"><span id="index-3"></span><span></span><span class="k">function</span><span class="w"> </span><span class="n">sllsb_reset_control</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Reset control parameters after import if required.</p>
 <p class="rubric">Parameters:</p>
@@ -743,11 +821,11 @@ The values were recorded successfully</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="lp.html"
+       href="snls.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Programming</p>
+        <p class="prev-next-title">GALAHAD SNLS package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -427,9 +427,9 @@
 minimizer of a differentiable weighted sum-of-squares objective function
 <div class="math notranslate nohighlight">
 \[f(x) :=
-\frac{1}{2} \sum_{i=1}^m w_i c_i^2(x) \equiv \frac{1}{2} \|c(x)\|^2_W\]</div>
+\frac{1}{2} \sum_{i=0}^{m-1} w_i c_i^2(x) \equiv \frac{1}{2} \|c(x)\|^2_W\]</div>
 
-of many variables <span class="math notranslate nohighlight">\(x\)</span> involving positive weights <span class="math notranslate nohighlight">\(w_i\)</span>, <span class="math notranslate nohighlight">\(i=1,\ldots,m\)</span>.
+of many variables <span class="math notranslate nohighlight">\(x\)</span> involving positive weights <span class="math notranslate nohighlight">\(w_i\)</span>, <span class="math notranslate nohighlight">\(i=0,\ldots,m-1\)</span>.
 The method offers the choice of direct and iterative solution of the key
 regularization subproblems, and is most suitable for large problems.
 First derivatives of the residual function <span class="math notranslate nohighlight">\(c(x)\)</span> are required, and if
@@ -464,12 +464,12 @@ We denote the <span class="math notranslate nohighlight">\(m\)</span> by <span c
 <span class="math notranslate nohighlight">\(J(x) \equiv \nabla_x c(x)\)</span> as the matrix  whose <span class="math notranslate nohighlight">\(i,j\)</span>-th component
 <div class="math notranslate nohighlight">
 \[J(x)_{i,j} := \partial c_i(x) / \partial x_j \;\;
-\mbox{for $i=1,\ldots,m$ and $j=1,\ldots,n$.}\]</div>
+\mbox{for $i=0,\ldots,m-1$ and $j=0,\ldots,n-1$.}\]</div>
 
 For a given <span class="math notranslate nohighlight">\(m\)</span>-vector <span class="math notranslate nohighlight">\(y\)</span>, the
 <strong>weighted-residual Hessian</strong> is the sum
 <div class="math notranslate nohighlight">
-\[H(x,y) := \sum_{\ell=1}^m y_{\ell} H_{\ell}(x), \;\; \mbox{where}\;\; H_{\ell}(x)_{i,j} := \partial^2 c_{\ell}(x) / \partial x_i \partial x_j \;\; \mbox{for $i,j=1,\ldots,n$}\]</div>
+\[H(x,y) := \sum_{\ell=0}^{m-1} y_{\ell} H_{\ell}(x), \;\; \mbox{where}\;\; H_{\ell}(x)_{i,j} := \partial^2 c_{\ell}(x) / \partial x_i \partial x_j \;\; \mbox{for $i,j=0,\ldots,n-1$}\]</div>
 
 is the Hessian of <span class="math notranslate nohighlight">\(c_\ell(x)\)</span>.
 Finally, for a given vector <span class="math notranslate nohighlight">\(v\)</span>, we define
@@ -493,7 +493,7 @@ The models <span class="math notranslate nohighlight">\(t_k(s)\)</span> provided
 where the <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(s^T \cdot P(x_k,s)\)</span> is
 shorthand for the scalar <span class="math notranslate nohighlight">\(s^T H_i(x_k) s\)</span>,
 where <span class="math notranslate nohighlight">\(W\)</span> is the diagonal matrix of weights
-<span class="math notranslate nohighlight">\(w_i\)</span>, <span class="math notranslate nohighlight">\(i = 1, \ldots m\)</span>0.</p></li>
+<span class="math notranslate nohighlight">\(w_i\)</span>, <span class="math notranslate nohighlight">\(i = 0, \ldots m-1\)</span>.</p></li>
 </ol>
 </section>
 <section id="method">

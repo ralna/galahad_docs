@@ -480,7 +480,7 @@
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>is a scalar variable of type INT that gives the exit
@@ -515,7 +515,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>specfile</p></td>
 <td><p>is a one-dimensional array of type Vararg{Cchar} that must give the name of the specification file</p></td>
@@ -534,7 +534,7 @@ keywords relate to the components of the control structure.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -587,7 +587,7 @@ violated.</p>
 <td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
 </tr>
 <tr class="row-even"><td><p>Ao_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="sllsb.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="slls.html#details-ao-storage-unsym"><span class="std std-ref">unsymmetric storage scheme</span></a> used for the Jacobian <span class="math notranslate nohighlight">\(A_o\)</span>. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘sparse_by_columns’, ‘dense_by_rows’, or ‘dense_by_columns’; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ao_ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in <span class="math notranslate nohighlight">\(A_o\)</span> in the sparse co-ordinate storage scheme. It need not be set for any of the other schemes.</p></td>
@@ -618,7 +618,7 @@ not explicitly available.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -680,7 +680,7 @@ respectively.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>control</p></td>
-<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure whose members provide control parameters for the remaining procedures (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
 <td><p>holds private internal data</p></td>
@@ -706,6 +706,155 @@ for the solve phase</p>
 <p>Solve the bound-constrained linear least-squares problem when the
 Jacobian <span class="math notranslate nohighlight">\(A\)</span> is available.</p>
 <p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>userdata</p></td>
+<td><p>is a structure that allows data to be passed into the function and derivative evaluation programs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the entry and exit status from the package.</p>
+<p>On initial entry, status must be set to 1.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>0</strong></dt><dd><p>The run was successful.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-3</strong></dt><dd><p>The restrictions n &gt; 0, o &gt; 0 or requirement that a
+type contains its relevant string ‘coordinate’,
+‘sparse_by_rows’, ‘sparse_by_columns’,
+‘dense_by_rows’ or ‘dense_by_columns’ has been
+violated.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-4</strong></dt><dd><p>The simple-bound constraints are inconsistent.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
+return status from the factorization package is
+given in the component inform.factor_status</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
+factorization package is given in the component
+inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may
+happen if control.maxit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
+if control.cpu_time_limit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
+</tr>
+<tr class="row-odd"><td><p>o</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ao_ne</p></td>
+<td><p>is a scalar variable of type INT that holds the number of entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ao_val</p></td>
+<td><p>is a one-dimensional array of size Ao_ne and type T that holds the values of the entries in the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> in any of the available storage schemes.</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigma</p></td>
+<td><p>is a scalar of type T that holds the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_l</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_u</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>is a one-dimensional array of size om and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>g</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_stat</p></td>
+<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the shifts. The j-th component of w, j = 1, … , n, contains <span class="math notranslate nohighlight">\({x_s}_j\)</span>. If the shifts are all zero, x_s can be set to C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>eval_prec</p></td>
+<td><p>is an optional user-supplied function that may be
+C_NULL. If non-NULL, it must have the following
+signature:</p>
+<pre class="highlight literal-block"><span></span><span class="n">eval_prec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<p>The product <span class="math notranslate nohighlight">\(p = P^{-1} v\)</span> involving the user’s
+preconditioner <span class="math notranslate nohighlight">\(P\)</span> with the vector v=<span class="math notranslate nohighlight">\(v\)</span>, the result
+<span class="math notranslate nohighlight">\(p\)</span> must be retured in p, and the function return
+value set to 0. If the evaluation is impossible,
+return should be set to a nonzero value. Data may be
+passed into <code class="docutils literal notranslate"><span class="pre">eval_prec</span></code> via the structure
+<code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                       </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span><span class="w"> </span><span class="n">x_l</span><span class="p">,</span><span class="w"> </span><span class="n">x_u</span><span class="p">,</span>
 <span class="w">                                       </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
@@ -715,6 +864,260 @@ Jacobian <span class="math notranslate nohighlight">\(A\)</span> is available.</
 products of the Jacobian <span class="math notranslate nohighlight">\(A\)</span> and its transpose with specified vectors
 may be computed by the calling program.</p>
 <p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>holds private internal data</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>is a scalar variable of type INT that gives the
+entry and exit status from the package.</p>
+<p>Possible exit values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>0</strong></dt><dd><p>The run was successful.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-1</strong></dt><dd><p>An allocation error occurred. A message indicating
+the offending array is written on unit
+control.error, and the returned allocation status
+and a string containing the name of the offending
+array are held in inform.alloc_status and
+inform.bad_alloc respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-2</strong></dt><dd><p>A deallocation error occurred. A message indicating
+the offending array is written on unit control.error
+and the returned allocation status and a string
+containing the name of the offending array are held
+in inform.alloc_status and inform.bad_alloc
+respectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-3</strong></dt><dd><p>The restriction n &gt; 0 or requirement that a type
+contains its relevant string ‘coordinate’,
+‘sparse_by_rows’, ‘sparse_by_columns’,
+‘dense_by_rows’ or ‘dense_by_columns’ has been
+violated.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-4</strong></dt><dd><p>The simple-bound constraints are inconsistent.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-9</strong></dt><dd><p>The analysis phase of the factorization failed; the
+return status from the factorization package is
+given in the component inform.factor_status</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-10</strong></dt><dd><p>The factorization failed; the return status from the
+factorization package is given in the component
+inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-11</strong></dt><dd><p>The solution of a set of linear equations using
+factors from the factorization package failed; the
+return status from the factorization package is
+given in the component inform.factor_status.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-18</strong></dt><dd><p>Too many iterations have been performed. This may
+happen if control.maxit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>-19</strong></dt><dd><p>The CPU time limit has been reached. This may happen
+if control.cpu_time_limit is too small, but may also
+be symptomatic of a badly scaled problem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>2</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_ov\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
+given output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
+user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be stored in v and the
+product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
+should be set to 0, and blls_solve_reverse_a_prod
+re-entered with all other arguments unchanged. If
+the product cannot be formed, v need not be set, but
+blls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>3</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of the residual
+Jacobian <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector <span class="math notranslate nohighlight">\(v\)</span> is
+required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be
+stored in v and the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned
+in p, status_eval should be set to 0, and
+blls_solve_reverse_a_prod re-entered with all other
+arguments unchanged. If the product cannot be
+formed, v need not be set, but
+blls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>4</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_ov\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
+given sparse output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
+user. The nonzero components of the vector <span class="math notranslate nohighlight">\(v\)</span> will
+be stored as entries
+nz_v[nz_v_start:nz_v_end] of v and the
+product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
+should be set to 0, and blls_solve_reverse_a_prod
+re-entered with all other arguments unchanged; The
+remaining components of v should be ignored. If the
+product cannot be formed, v need not be set, but
+blls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>5</strong></dt><dd><p>The nonzero components of the product <span class="math notranslate nohighlight">\(A_ov\)</span> of the
+design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given sparse output
+vector <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The nonzero
+components of the vector <span class="math notranslate nohighlight">\(v\)</span> will be stored as
+entries nz_v[nz_v_start:nz_v_end] of v; the
+remaining components of v should be ignored. The
+resulting <strong>nonzeros</strong> in the product <span class="math notranslate nohighlight">\(A_ov\)</span> must be
+placed in their appropriate comnponents of p, while
+a list of indices of the nonzeros placed in nz_p[1
+: nz_p_end] and the number of nonzeros recorded
+in nz_p_end. Additionally, status_eval should be
+set to 0, and blls_solve_reverse_a_prod re-entered
+with all other arguments unchanged. If the product
+cannot be formed, v, nz_p_end and nz_p need not
+be set, but blls_solve_reverse_a_prod should be
+re-entered with eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>6</strong></dt><dd><p>A subset of the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of
+the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector
+<span class="math notranslate nohighlight">\(v\)</span> is required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will
+be stored in v and components
+nz_v[nz_v_start:nz_v_end] of the product
+<span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned in the relevant components
+of p (the remaining components should not be set),
+status_eval should be set to 0, and
+blls_solve_reverse_a_prod re-entered with all other
+arguments unchanged. If the product cannot be
+formed, v need not be set, but
+blls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>7</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(P^{-1}v\)</span> of the inverse of the
+preconditioner <span class="math notranslate nohighlight">\(P\)</span> with a given output vector <span class="math notranslate nohighlight">\(v\)</span> is
+required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will be
+stored in v and the product <span class="math notranslate nohighlight">\(P^{-1} v\)</span> must be
+returned in p, status_eval should be set to 0, and
+blls_solve_reverse_a_prod re-entered with all other
+arguments unchanged. If the product cannot be
+formed, v need not be set, but
+blls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value. This value of
+status can only occur if the user has set
+control.preconditioner = 2.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>eval_status</p></td>
+<td><p>is a scalar variable of type INT that is used to indicate if the matrix products can be provided (see <code class="docutils literal notranslate"><span class="pre">status</span></code> above)</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>is a scalar variable of type INT that holds the number of variables</p></td>
+</tr>
+<tr class="row-odd"><td><p>o</p></td>
+<td><p>is a scalar variable of type INT that holds the number of residuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>is a one-dimensional array of size m and type T that holds the constant term <span class="math notranslate nohighlight">\(b\)</span> in the residuals. The i-th component of <code class="docutils literal notranslate"><span class="pre">b</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(b_i\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigma</p></td>
+<td><p>is a scalar of type T that holds the non-negative regularization weight <span class="math notranslate nohighlight">\(\sigma \geq 0\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_l</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the lower bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_l</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_u</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the upper bounds <span class="math notranslate nohighlight">\(x^l\)</span> on the variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">x_u</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x^l_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x\)</span> of the optimization variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">x</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(x_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>r</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values of the residuals <span class="math notranslate nohighlight">\(r = A_o x - b\)</span>. The i-th component of <code class="docutils literal notranslate"><span class="pre">r</span></code>, i = 1, … , o, contains <span class="math notranslate nohighlight">\(r_i\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values of the gradient <span class="math notranslate nohighlight">\(g = A_o^T W r\)</span>. The j-th component of <code class="docutils literal notranslate"><span class="pre">g</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(g_j\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(z\)</span> of the dual variables. The j-th component of <code class="docutils literal notranslate"><span class="pre">z</span></code>, j = 1, … , n, contains <span class="math notranslate nohighlight">\(z_j\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p>x_stat</p></td>
+<td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
+</tr>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>p</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+</tr>
+<tr class="row-odd"><td><p>nz_v</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>nz_v_start</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+</tr>
+<tr class="row-odd"><td><p>nz_v_end</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>nz_p</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-odd"><td><p>nz_p_end</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>w</p></td>
+<td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x_s</p></td>
+<td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the shifts. The j-th component of w, j = 1, … , n, contains <span class="math notranslate nohighlight">\({x_s}_j\)</span>. If the shifts are all zero, x_s can be set to C_NULL.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-blls-8h-1a457b8ee7c630715bcb43427f254b555f"><span id="index-7"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">blls_information</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span></pre>
 <p>Provides output information</p>
 <p class="rubric">Parameters:</p>
@@ -757,7 +1160,7 @@ may be computed by the calling program.</p>
 <td><p>holds private internal data</p></td>
 </tr>
 <tr class="row-even"><td><p>control</p></td>
-<td><p>is a structure containing control information (see <a class="reference internal" href="struct_blls_control_type.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
+<td><p>is a structure containing control information (see <a class="reference internal" href="blls.html#doxid-structblls-control-type"><span class="std std-ref">blls_control_type</span></a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>inform</p></td>
 <td><p>is a structure containing output information (see <a class="reference internal" href="blls.html#doxid-structblls-inform-type"><span class="std std-ref">blls_inform_type</span></a>)</p></td>

@@ -403,6 +403,14 @@
 <li class="toctree-l2"><a class="reference internal" href="slls_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sllsb.html">SLLSB - simplex-constrained linear least-squares using an interior-point method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="snls.html">SNLS - simplex-constrained nonlinear least-squares using a regularization method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="snls_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -727,20 +735,20 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 called in the following order:</p>
 <p>To solve a given problem, functions from the nls package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span class="std std-ref">nls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span class="std std-ref">nls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span class="std std-ref">nls_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span class="std std-ref">nls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span class="std std-ref">nls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span class="std std-ref">nls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span class="std std-ref">nls_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span class="std std-ref">nls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span class="std std-ref">nls_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span class="std std-ref">nls_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span class="std std-ref">nls_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span class="std std-ref">nls_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span class="std std-ref">nls_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span class="std std-ref">nls_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span class="std std-ref">nls_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span class="std std-ref">nls_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span class="std std-ref">nls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span class="std std-ref">nls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span class="std std-ref">nls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span class="std std-ref">nls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-nls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1082,7 +1090,7 @@ unit control.alive_unit.</p>
 <tr class="row-odd"><td><p>eval_c</p></td>
 <td><p>is a user-supplied function that must have the
 following signature:</p>
-<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_c</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_c</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
 <p>The componnts of the residual function <span class="math notranslate nohighlight">\(c(x)\)</span>
 evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> must be assigned to c, and the
 function return value set to 0. If the evaluation is
@@ -1278,7 +1286,7 @@ unit control.alive_unit.</p>
 <tr class="row-odd"><td><p>eval_c</p></td>
 <td><p>is a user-supplied function that must have the
 following signature:</p>
-<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_c</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
+<pre class="highlight literal-block"><span></span><span class="k">function</span><span class="w"> </span><span class="n">eval_c</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">userdata</span><span class="p">)</span></pre>
 <p>The componnts of the residual function <span class="math notranslate nohighlight">\(c(x)\)</span>
 evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> must be assigned to c, and the
 function return value set to 0. If the evaluation is
@@ -1468,7 +1476,7 @@ of residual functions, <span class="math notranslate nohighlight">\(\nabla_x c(x
 function. The l-th component of the Jacobian stored
 according to the scheme specified for the remainder
 of <span class="math notranslate nohighlight">\(J\)</span> in the earlier call to nls_import should be
-set in J_val[l], for l = 0, …, J_ne-1 and
+set in J_val[l], for l = 1, …, J_ne and
 eval_status should be set to 0. If the user is
 unable to evaluate a component of <span class="math notranslate nohighlight">\(J\)</span> for instance,
 if a component of the matrix is undefined at <span class="math notranslate nohighlight">\(x\)</span> the
@@ -1484,7 +1492,7 @@ evaluated at x=<span class="math notranslate nohighlight">\(x\)</span> and v=<sp
 function. The l-th component of the matrix stored
 according to the scheme specified for the remainder
 of <span class="math notranslate nohighlight">\(H\)</span> in the earlier call to nls_import should be
-set in H_val[l], for l = 0, …, H_ne-1 and
+set in H_val[l], for l = 1, …, H_ne and
 eval_status should be set to 0. If the user is
 unable to evaluate a component of <span class="math notranslate nohighlight">\(H\)</span> for instance,
 if a component of the matrix is undefined at <span class="math notranslate nohighlight">\(x\)</span> the
@@ -1504,7 +1512,7 @@ the Hessian of the i-th component of the residual
 function. The l-th component of the matrix stored
 according to the scheme specified for the remainder
 of <span class="math notranslate nohighlight">\(P\)</span> in the earlier call to nls_import should be
-set in P_val[l], for l = 0, …, P_ne-1 and
+set in P_val[l], for l = 1, …, P_ne and
 eval_status should be set to 0. If the user is
 unable to evaluate a component of <span class="math notranslate nohighlight">\(P\)</span> for instance,
 if a component of the matrix is undefined at <span class="math notranslate nohighlight">\(x\)</span> the
@@ -2027,7 +2035,7 @@ regularization parameter in the adaptive cubic regularization algorithm” RAL-T
 <p>control parameters for RQS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-glrt-control"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a><span></span><span class="w"> </span><span class="n">glrt_control</span></pre>
 <p>control parameters for GLRT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-psls-control"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-psls-control"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
 <p>control parameters for PSLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-subproblem-control-type-bsc-control"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a><span></span><span class="w"> </span><span class="n">bsc_control</span></pre>
 <p>control parameters for BSC</p>
@@ -2235,7 +2243,7 @@ if the step is less than .stop_s</p>
 <p>control parameters for RQS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-glrt-control"><span id="index-107"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_glrt_control_type.html#doxid-structglrt-control-type"><span class="std std-ref">glrt_control_type</span></a><span></span><span class="w"> </span><span class="n">glrt_control</span></pre>
 <p>control parameters for GLRT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-psls-control"><span id="index-108"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="psls.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-psls-control"><span id="index-108"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_psls_control_type.html#doxid-structpsls-control-type"><span class="std std-ref">psls_control_type</span></a><span></span><span class="w"> </span><span class="n">psls_control</span></pre>
 <p>control parameters for PSLS</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structnls-control-type-bsc-control"><span id="index-109"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="bsc.html#doxid-structbsc-control-type"><span class="std std-ref">bsc_control_type</span></a><span></span><span class="w"> </span><span class="n">bsc_control</span></pre>
 <p>control parameters for BSC</p>

@@ -872,8 +872,8 @@ passed into <code class="docutils literal notranslate"><span class="pre">eval_pr
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_start</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_end</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">nz_p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
+<span class="w">                                        </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">iv</span><span class="p">,</span><span class="w"> </span><span class="n">lvl</span><span class="p">,</span><span class="w"> </span><span class="n">lvu</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
 <p>Solve the simplex-constrained linear least-squares problem when the
 products of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors
 may be computed by the calling program.</p>
@@ -995,11 +995,27 @@ eval_status set to a nonzero value.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>4</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o v\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
+<dt><strong>4</strong></dt><dd><p>The <span class="math notranslate nohighlight">\(j\)</span>-th column of the residual Jacobian <span class="math notranslate nohighlight">\(Av_o\)</span> is
+required from the user, where index holds the
+value of <span class="math notranslate nohighlight">\(j\)</span>. The resulting <strong>nonzeros</strong> and their
+correspinding row indices of the j-th column of <span class="math notranslate nohighlight">\(Av_o\)</span>
+must be placed in p[1:lp] and ip[1:lp],
+respectively, with lp set accordingly. Additionally
+eval_status should be set to 0, and
+slls_solve_reverse_a_prod re-entered with all
+other arguments unchanged. If the column cannot be formed,
+p, nz_out and nz_out_end need not be set, but
+slls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>5</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o v\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
 given sparse output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
 user. The nonzero components of the vector <span class="math notranslate nohighlight">\(v\)</span> will
 be stored as entries
-nz_in[nz_in_start-1:nz_in_end-1] of v and the
+iv[lvl:lvu] of v and the
 product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
 should be set to 0, and slls_solve_reverse_a_prod
 re-entered with all other arguments unchanged; The
@@ -1011,31 +1027,11 @@ eval_status set to a nonzero value.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>5</strong></dt><dd><p>The nonzero components of the product <span class="math notranslate nohighlight">\(A_ov\)</span> of the
-design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given sparse output
-vector <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The nonzero
-components of the vector <span class="math notranslate nohighlight">\(v\)</span> will be stored as
-entries nz_in[nz_in_start-1:nz_in_end-1] of v; the
-remaining components of v should be ignored. The
-resulting <strong>nonzeros</strong> in the product <span class="math notranslate nohighlight">\(A_ov\)</span> must be
-placed in their appropriate comnponents of p, while
-a list of indices of the nonzeros placed in nz_out[0
-: nz_out_end-1] and the number of nonzeros recorded
-in nz_out_end. Additionally, status_eval should be
-set to 0, and slls_solve_reverse_a_prod re-entered
-with all other arguments unchanged. If the product
-cannot be formed, v, nz_out_end and nz_out need not
-be set, but slls_solve_reverse_a_prod should be
-re-entered with eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
 <dt><strong>6</strong></dt><dd><p>A subset of the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of
 the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector
 <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will
 be stored in v and components
-nz_in[nz_in_start-1:nz_in_end-1] of the product
+iv[lvl:lvu] of the product
 <span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned in the relevant components
 of p (the remaining components should not be set),
 status_eval should be set to 0, and
@@ -1103,30 +1099,33 @@ control.preconditioner = 2.</p>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>v</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-7 above for details).</p></td>
 </tr>
 <tr class="row-even"><td><p>p</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-7 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_v</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-odd"><td><p>iv</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_v_start</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-even"><td><p>lvl</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_v_end</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-odd"><td><p>lvu</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_p</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>nz_p_end</p></td>
+<tr class="row-even"><td><p>index</p></td>
 <td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>w</p></td>
+<tr class="row-odd"><td><p>ip</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>lp</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
 <td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>x_s</p></td>
+<tr class="row-even"><td><p>x_s</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the norm shifts in the least-squares objective function. It need not be set if the shifts are all zeros, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>

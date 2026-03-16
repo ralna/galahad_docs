@@ -407,6 +407,10 @@
 <li class="toctree-l2"><a class="reference internal" href="sllsb_functions.html">callable functions</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="snls.html">SNLS - simplex-constrained nonlinear least-squares using a regularization method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="snls_functions.html">callable functions</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -621,23 +625,23 @@ The string Ao_type = ‘sparse_by_columns’ should be specified.</p>
 <p>To solve a given problem, functions from the slls package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">slls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">slls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a12708c98f2473e03cd46f4dcfdb03409"><span class="std std-ref">slls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1aa24c9c2fdaaaac84df5b98abbf84c859"><span class="std std-ref">slls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
 <li><p>set up problem data structures and fixed values by caling one of</p>
 <ul>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">slls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">slls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1afacd84f0b7592f4532cf7b77d278282f"><span class="std std-ref">slls_import</span></a> - in the case that <span class="math notranslate nohighlight">\(A_o\)</span> is explicitly available</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a419f9b0769b4389beffbbc5f7d0fd58c"><span class="std std-ref">slls_import_without_a</span></a> - in the case that only the effect of applying <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose to a vector is possible</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">slls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a96981ac9a0e3f44b2b38362fc3ab9991"><span class="std std-ref">slls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">slls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">slls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1acf6d292989a5ac09f7f3e507283fb5bf"><span class="std std-ref">slls_solve_given_a</span></a> - solve the problem using values of <span class="math notranslate nohighlight">\(A_o\)</span></p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span class="std std-ref">slls_solve_reverse_a_prod</span></a> - solve the problem by returning to the caller for products of <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">slls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="slls_functions.html#doxid-galahad-slls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">slls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1a457b8ee7c630715bcb43427f254b555f"><span class="std std-ref">slls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-slls-8h-1ade863ffb6b142bfce669729f56911ac1"><span class="std std-ref">slls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-slls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -1056,8 +1060,8 @@ passed into <code class="docutils literal notranslate"><span class="pre">eval_pr
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-galahad-slls-8h-1ac139bc1c65cf12cb532c4ab09f3af9d0"><span id="index-6"></span><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">slls_solve_reverse_a_prod</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">INT</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">eval_status</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">sigma</span><span class="p">,</span>
 <span class="w">                                        </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">x_stat</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_start</span><span class="p">,</span><span class="w"> </span><span class="n">nz_v_end</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">nz_p</span><span class="p">,</span><span class="w"> </span><span class="n">nz_p_end</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
+<span class="w">                                        </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">iv</span><span class="p">,</span><span class="w"> </span><span class="n">lvl</span><span class="p">,</span><span class="w"> </span><span class="n">lvu</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x_s</span><span class="p">)</span></pre>
 <p>Solve the simplex-constrained linear least-squares problem when the
 products of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> and its transpose with specified vectors
 may be computed by the calling program.</p>
@@ -1179,11 +1183,27 @@ eval_status set to a nonzero value.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>4</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o v\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
+<dt><strong>4</strong></dt><dd><p>The <span class="math notranslate nohighlight">\(j\)</span>-th column of the residual Jacobian <span class="math notranslate nohighlight">\(Av_o\)</span> is
+required from the user, where index holds the
+value of <span class="math notranslate nohighlight">\(j\)</span>. The resulting <strong>nonzeros</strong> and their
+correspinding row indices of the j-th column of <span class="math notranslate nohighlight">\(Av_o\)</span>
+must be placed in p[1:lp] and ip[1:lp],
+respectively, with lp set accordingly. Additionally
+eval_status should be set to 0, and
+slls_solve_reverse_a_prod re-entered with all
+other arguments unchanged. If the column cannot be formed,
+p, nz_out and nz_out_end need not be set, but
+slls_solve_reverse_a_prod should be re-entered with
+eval_status set to a nonzero value.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>5</strong></dt><dd><p>The product <span class="math notranslate nohighlight">\(A_o v\)</span> of the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a
 given sparse output vector <span class="math notranslate nohighlight">\(v\)</span> is required from the
 user. The nonzero components of the vector <span class="math notranslate nohighlight">\(v\)</span> will
 be stored as entries
-nz_in[nz_in_start-1:nz_in_end-1] of v and the
+iv[lvl:lvu] of v and the
 product <span class="math notranslate nohighlight">\(A_ov\)</span> must be returned in p, status_eval
 should be set to 0, and slls_solve_reverse_a_prod
 re-entered with all other arguments unchanged; The
@@ -1195,31 +1215,11 @@ eval_status set to a nonzero value.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>5</strong></dt><dd><p>The nonzero components of the product <span class="math notranslate nohighlight">\(A_ov\)</span> of the
-design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given sparse output
-vector <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The nonzero
-components of the vector <span class="math notranslate nohighlight">\(v\)</span> will be stored as
-entries nz_in[nz_in_start-1:nz_in_end-1] of v; the
-remaining components of v should be ignored. The
-resulting <strong>nonzeros</strong> in the product <span class="math notranslate nohighlight">\(A_ov\)</span> must be
-placed in their appropriate comnponents of p, while
-a list of indices of the nonzeros placed in nz_out[0
-: nz_out_end-1] and the number of nonzeros recorded
-in nz_out_end. Additionally, status_eval should be
-set to 0, and slls_solve_reverse_a_prod re-entered
-with all other arguments unchanged. If the product
-cannot be formed, v, nz_out_end and nz_out need not
-be set, but slls_solve_reverse_a_prod should be
-re-entered with eval_status set to a nonzero value.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
 <dt><strong>6</strong></dt><dd><p>A subset of the product <span class="math notranslate nohighlight">\(A_o^Tv\)</span> of the transpose of
 the design matrix <span class="math notranslate nohighlight">\(A_o\)</span> with a given output vector
 <span class="math notranslate nohighlight">\(v\)</span> is required from the user. The vector <span class="math notranslate nohighlight">\(v\)</span> will
 be stored in v and components
-nz_in[nz_in_start-1:nz_in_end-1] of the product
+iv[lvl:lvu] of the product
 <span class="math notranslate nohighlight">\(A_o^Tv\)</span> must be returned in the relevant components
 of p (the remaining components should not be set),
 status_eval should be set to 0, and
@@ -1287,30 +1287,33 @@ control.preconditioner = 2.</p>
 <td><p>is a one-dimensional array of size n and type INT that gives the optimal status of the problem variables. If x_stat(j) is negative, the variable <span class="math notranslate nohighlight">\(x_j\)</span> most likely lies on its lower bound, if it is positive, it lies on its upper bound, and if it is zero, it lies between its bounds.</p></td>
 </tr>
 <tr class="row-odd"><td><p>v</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-7 above for details).</p></td>
 </tr>
 <tr class="row-even"><td><p>p</p></td>
-<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-4 above for details).</p></td>
+<td><p>is a one-dimensional array of size n and type T that is used for reverse communication (see status=2-7 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_v</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-odd"><td><p>iv</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_v_start</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-even"><td><p>lvl</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-odd"><td><p>nz_v_end</p></td>
-<td><p>is a scalar of type INT that is used for reverse communication (see status=3-4 above for details).</p></td>
+<tr class="row-odd"><td><p>lvu</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=5-6 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>nz_p</p></td>
-<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
-</tr>
-<tr class="row-odd"><td><p>nz_p_end</p></td>
+<tr class="row-even"><td><p>index</p></td>
 <td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
 </tr>
-<tr class="row-even"><td><p>w</p></td>
+<tr class="row-odd"><td><p>ip</p></td>
+<td><p>is a one-dimensional array of size n and type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-even"><td><p>lp</p></td>
+<td><p>is a scalar of type INT that is used for reverse communication (see status=4 above for details).</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
 <td><p>is a one-dimensional array of size o and type T that holds the values <span class="math notranslate nohighlight">\(w\)</span> of the weights on the residuals in the least-squares objective function. It need not be set if the weights are all ones, and in this case can be C_NULL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>x_s</p></td>
+<tr class="row-even"><td><p>x_s</p></td>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x_s\)</span> of the norm shifts in the least-squares objective function. It need not be set if the shifts are all zeros, and in this case can be C_NULL.</p></td>
 </tr>
 </tbody>
@@ -1486,13 +1489,7 @@ control.preconditioner = 2.</p>
 </div>
 <pre class="highlight literal-block"><span></span><span class="k">struct</span> <span class="kt">slls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">  </span><span class="n">total</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">analyse</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">factorize</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">solve</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
+<span class="w">  </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="details-structslls-time-type">
 <span id="id1"></span><h2>detailed documentation<a class="headerlink" href="#details-structslls-time-type" title="Link to this heading">#</a></h2>
@@ -1501,16 +1498,12 @@ control.preconditioner = 2.</p>
 <h3>components<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-time-type-total"><span id="index-43"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-time-type-analyse"><span id="index-44"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
-<p>the CPU time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-time-type-factorize"><span id="index-45"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
-<p>the CPU time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-time-type-solve"><span id="index-46"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
-<p>the CPU time spent in the linear solution phase</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-time-type-clock-total"><span id="index-44"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
+<p>the total clock time spent in the package</p>
 </section>
 </section>
 <section id="slls-inform-type-structure">
-<span id="doxid-structslls-inform-type"></span><span id="index-47"></span><h2>slls_inform_type structure<a class="headerlink" href="#slls-inform-type-structure" title="Link to this heading">#</a></h2>
+<span id="doxid-structslls-inform-type"></span><span id="index-45"></span><h2>slls_inform_type structure<a class="headerlink" href="#slls-inform-type-structure" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="w">    </span><span class="k">struct</span> <span class="kt">slls_inform_type</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="kt">INT</span><span class="p">}</span>
@@ -1520,6 +1513,7 @@ control.preconditioner = 2.</p>
 <span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">ls_obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">norm_pg</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">slls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -1532,29 +1526,31 @@ control.preconditioner = 2.</p>
 <p>inform derived type as a Julia structure</p>
 <section id="id4">
 <h3>components<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-status"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-status"><span id="index-46"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">status</span></pre>
 <p>reported return status.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-alloc-status"><span id="index-49"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-alloc-status"><span id="index-47"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">alloc_status</span></pre>
 <p>Fortran STAT value after allocate failure.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-factorization-status"><span id="index-50"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-factorization-status"><span id="index-48"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">factorization_status</span></pre>
 <p>status return from factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-iter"><span id="index-51"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-iter"><span id="index-49"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">iter</span></pre>
 <p>number of iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-cg-iter"><span id="index-52"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-cg-iter"><span id="index-50"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
 <p>number of CG iterations required</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-obj"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
-<p>current value of the objective function, r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-norm-pg"><span id="index-54"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
-<p>current value of the Euclidean norm of projected gradient of r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-bad-alloc"><span id="index-55"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-obj"><span id="index-51"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
+<p>current value of the objective function, <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-ls-obj"><span id="index-52"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">ls_obj</span></pre>
+<p>current value of the least-squares function, <span class="math notranslate nohighlight">\(\frac{1}{2} \| A_o x - b\|_W^2\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-norm-pg"><span id="index-53"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
+<p>current value of the Euclidean norm of projected gradient of <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-bad-alloc"><span id="index-54"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-55"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_slls_time_type.html#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-56"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-convert-inform"><span id="index-58"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-convert-inform"><span id="index-57"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-lapack-error"><span id="index-59"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lapack_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-lapack-error"><span id="index-58"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lapack_error</span></pre>
 <p>the output flag from LAPACK routines</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></div>
@@ -1778,7 +1774,7 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
 
       if inform[].status == 0
         @printf(&quot;%s:%6i iterations. Optimal objective value = %.2f, status = %1i\n&quot;,
-                st, inform[].iter, inform[].obj, inform[].status)
+                st, inform[].iter, (double)inform[].obj, inform[].status)
       else
         @printf(&quot;%s: SLLS_solve exit status = %1i\n&quot;, st, inform[].status)
       end
@@ -1794,15 +1790,15 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
     # reverse-communication input/output
     on = max(o, n)
     eval_status = Ref{INT}()
-    nz_v_start = Ref{INT}()
-    nz_v_end = Ref{INT}()
-    nz_p_end = Ref{INT}()
-    nz_v = zeros(INT, on)
-    nz_p = zeros(INT, o)
-    mask = zeros(INT, o)
+    lvl = Ref{INT}()
+    lvu = Ref{INT}()
+    index = Ref{INT}()
+    lp = Ref{INT}()
+    iv = zeros(INT, on)
+    ip = zeros(INT, o)
     v = zeros(T, on)
     p = zeros(T, on)
-    nz_p_end = INT(1)
+    lp = INT(1)
 
     # Initialize SLLS
     slls_initialize(T, INT, data, control, status)
@@ -1817,9 +1813,6 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
     end
 
     st = &quot;RC&quot;
-    for i in 1:o
-      mask[i] = 0
-    end
 
     slls_import_without_a(T, INT, control, data, status, n, o, m, C_NULL)
 
@@ -1827,8 +1820,7 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
     while !terminated # reverse-communication loop
       slls_solve_reverse_a_prod(T, INT, data, status, eval_status, n, o, m,
                                 b, sigma, x, y, z, r, g, x_stat, v, p,
-                                nz_v, nz_v_start, nz_v_end,
-                                nz_p, nz_p_end, C_NULL, C_NULL)
+                                iv, lvl, lvu, index, ip, lp, C_NULL, C_NULL)
       if status[] == 0 # successful termination
         terminated = true
       elseif status[] &lt; 0 # error exit
@@ -1843,37 +1835,25 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
         for i in 1:n
           p[i] = v[i] + v[o]
         end
-      elseif status[] == 4 # evaluate p = Av for sparse v
+      elseif status[] == 4 # evaluate the index-th sparse column of Ao
+        lp = 1
+        ip[lp] = index[]
+        p[lp] = 1.0
+        lp = lp + 1
+        ip[lp] = o
+        p[lp] = 1.0
+      elseif status[] == 5 # evaluate p = Av for sparse v
         for i in 1:o
           p[i] = 0.0
         end
-        for l in nz_v_start[]:nz_v_end[]
-          i = nz_v[l]
+        for l in lvl[]:lvu[]
+          i = iv[l]
           p[i] = v[i]
           p[o] = p[o] + v[i]
         end
-      elseif status[] == 5 # evaluate p = sparse Av for sparse v
-        nz_p_end = 0
-        for l in nz_v_start[]:nz_v_end[]
-          i = nz_v[l]
-          nz_p_end = nz_p_end + 1
-          nz_p[nz_p_end] = i
-          p[i] = v[i]
-          if mask[i] == 0
-            mask[i] = 1
-            nz_p_end = nz_p_end + 1
-            nz_p[nz_p_end] = o
-            p[o] = v[i]
-          else
-            p[o] = p[o] + v[i]
-          end
-        end
-        for l in 1:nz_p_end
-          mask[nz_p[l]] = 0
-        end
       elseif status[] == 6 # evaluate p = sparse A^Tv
-        for l in nz_v_start[]:nz_v_end[]
-          i = nz_v[l]
+        for l in lvl[]:lvu[]
+          i = iv[l]
           p[i] = v[i] + v[o]
         end
       elseif status[] == 7 # evaluate p = P^{-}v
@@ -1893,7 +1873,7 @@ function test_slls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls
     # Print solution details
     if inform[].status == 0
       @printf(&quot;%s:%6i iterations. Optimal objective value = %5.2f status = %1i\n&quot;,
-              st, inform[].iter, inform[].obj, inform[].status)
+              st, inform[].iter, (double)inform[].obj, inform[].status)
     else
       @printf(&quot;%s: SLLS_solve exit status = %1i\n&quot;, st, inform[].status)
     end

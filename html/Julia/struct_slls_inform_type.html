@@ -44,6 +44,8 @@
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/target-highlight.js?v=df7d332b"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'struct_slls_inform_type';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -432,6 +434,7 @@
 <span class="w">      </span><span class="n">iter</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">cg_iter</span><span class="o">::</span><span class="kt">INT</span>
 <span class="w">      </span><span class="n">obj</span><span class="o">::</span><span class="kt">T</span>
+<span class="w">      </span><span class="n">ls_obj</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">norm_pg</span><span class="o">::</span><span class="kt">T</span>
 <span class="w">      </span><span class="n">bad_alloc</span><span class="o">::</span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span>
 <span class="w">      </span><span class="n">time</span><span class="o">::</span><span class="kt">slls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -455,18 +458,20 @@
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-cg-iter"><span id="index-5"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">cg_iter</span></pre>
 <p>number of CG iterations required</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-obj"><span id="index-6"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">obj</span></pre>
-<p>current value of the objective function, r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-norm-pg"><span id="index-7"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
-<p>current value of the Euclidean norm of projected gradient of r(x).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-bad-alloc"><span id="index-8"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
+<p>current value of the objective function, <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-ls-obj"><span id="index-7"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">ls_obj</span></pre>
+<p>current value of the least-squares function, <span class="math notranslate nohighlight">\(\frac{1}{2} \| A_o x - b\|_W^2\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-norm-pg"><span id="index-8"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">norm_pg</span></pre>
+<p>current value of the Euclidean norm of projected gradient of <span class="math notranslate nohighlight">\(q(x)\)</span>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-bad-alloc"><span id="index-9"></span><span></span><span class="kt">NTuple</span><span class="p">{</span><span class="mi">81</span><span class="p">,</span><span class="kt">Cchar</span><span class="p">}</span><span class="w"> </span><span class="n">bad_alloc</span></pre>
 <p>name of array which provoked an allocate failure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-9"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="slls.html#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-time"><span id="index-10"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="slls.html#doxid-structslls-time-type"><span class="std std-ref">slls_time_type</span></a><span></span><span class="w"> </span><span class="n">time</span></pre>
 <p>times for various stages</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-10"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-sbls-inform"><span id="index-11"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="sbls.html#doxid-structsbls-inform-type"><span class="std std-ref">sbls_inform_type</span></a><span></span><span class="w"> </span><span class="n">sbls_inform</span></pre>
 <p>inform values from SBLS</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-convert-inform"><span id="index-11"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structslls-inform-type-convert-inform"><span id="index-12"></span><span></span><span class="n">struct</span><span class="w"> </span><a class="reference internal" href="struct_convert_inform_type.html#doxid-structconvert-inform-type"><span class="std std-ref">convert_inform_type</span></a><span></span><span class="w"> </span><span class="n">convert_inform</span></pre>
 <p>inform values for CONVERT</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-lapack-error"><span id="index-12"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lapack_error</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structsls-inform-type-lapack-error"><span id="index-13"></span><span></span><span class="n">INT</span><span class="w"> </span><span class="n">lapack_error</span></pre>
 <p>the output flag from LAPACK routines</p>
 </section>
 </section>

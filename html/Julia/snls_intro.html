@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>purpose &#8212; GALAHAD Julia interfaces 1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=56dcb7b8"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/target-highlight.js?v=df7d332b"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snls_intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/galahad.small.png" class="logo__image only-light" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+    <img src="_static/galahad.small.png" class="logo__image only-dark pst-js-only" alt="GALAHAD Julia interfaces 1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="uco.html">
+    Unconstrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bco.html">
+    Bound-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nlp.html">
+    Generally-constrained Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ls.html">
+    Least-Squares
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lp.html">
+    Linear Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="qp.html">
+    Quadratic Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reg.html">
+    Regularization subproblems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sys.html">
+    Linear Systems
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="go.html">
+    Global Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auxiliary.html">
+    Auxiliary Procedures
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">purpose</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="purpose">
+<h1>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">snls</span></code> package uses a <strong>regularization method</strong> to solve
+a given <strong>simplex-constrained nonlinear least-squares problem</strong>.
+The aim is to minimize the least-squares objective function
+<div class="math notranslate nohighlight">
+\[f(x) :=
+\frac{1}{2} \sum_{i=1}^{m_r} w_i r_i^2(x) \equiv \frac{1}{2} \|r(x)\|^2_W\]</div>
+
+where the variables <span class="math notranslate nohighlight">\(x\)</span> are required to lie within the
+<strong>regular simplex</strong>
+<div class="math notranslate nohighlight">
+\[e^T x = 1 \;\;\mbox{and}\;\; x \geq 0,\]</div>
+
+or an intersection of <strong>multiple non-overlapping regular simplices</strong>
+<div class="math notranslate nohighlight">
+\[e_{\cal C_i}^T x_{\cal C_i}^{} = 1 \;\;\mbox{and}\;\; x_{\cal C_i}^{}
+\geq 0 \;\;\mbox{for}\;\; i = 1,\ldots,m_c, \hspace{10mm} \mbox{(1)}\]</div>
+
+where the non-negative <strong>weights</strong> <span class="math notranslate nohighlight">\(w\)</span> are given, <span class="math notranslate nohighlight">\(e\)</span> is the vector of ones,
+the vector <span class="math notranslate nohighlight">\(v_{\cal C}\)</span> is made up of those entries of <span class="math notranslate nohighlight">\(v\)</span> indexed by
+the set <span class="math notranslate nohighlight">\(\cal C\)</span>,
+the index sets of <strong>cohorts</strong> <span class="math notranslate nohighlight">\(\cal C_i \subseteq \{0,\ldots,n-1\}\)</span>
+for which <span class="math notranslate nohighlight">\(\cal C_i \cap \cal C_j = \emptyset\)</span> for
+<span class="math notranslate nohighlight">\(0 \leq i \neq j \leq m_r-1\)</span>, and where the weighted-Euclidean norms
+is given by <span class="math notranslate nohighlight">\(\|v\|_W^2 = v^T W v\)</span> with <span class="math notranslate nohighlight">\(W = \mbox{diag}(w)\)</span>.
+The method offers the choice of projected-gradient and interior-point
+solution of the key regularization subproblems, and is most suitable
+for problems involving a large number of unknowns <span class="math notranslate nohighlight">\(x\)</span>.
+First derivatives of the residual function <span class="math notranslate nohighlight">\(r(x)\)</span> are required, and if
+second derivatives of the <span class="math notranslate nohighlight">\(r_i(x)\)</span> can be calculated, they may be exploited.</p>
+<p>See Section 4 of $GALAHAD/doc/snls.pdf for additional details.</p>
+</section>
+<section id="terminology">
+<h1>terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h1>
+<p>The <strong>primal optimality</strong> conditions (1) and <strong>dual optimality</strong> conditions
+<div class="math notranslate nohighlight">
+\[J_r^T(x) W r(x) = \sum_{i=1}^{m_c} e_{\cal C_i}^{} y_i + z\]</div>
+
+necessarily hold at an optimal point <span class="math notranslate nohighlight">\(x\)</span> for some <strong>Lagrange multipliers</strong>
+<span class="math notranslate nohighlight">\(y\)</span> and <strong>dual variables</strong> <span class="math notranslate nohighlight">\(z \geq 0\)</span>, where additionally <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span>
+satisfy the <strong>complementarity</strong> conditions <span class="math notranslate nohighlight">\(x_i z_i = 0\)</span> for <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>.</p>
+<p>The algorithm used by the package is iterative. From the current best estimate
+of the minimizer <span class="math notranslate nohighlight">\(x_k\)</span>, a trial improved point <span class="math notranslate nohighlight">\(x_k + s_k\)</span> is sought.
+The correction <span class="math notranslate nohighlight">\(s_k\)</span> is chosen to improve a model <span class="math notranslate nohighlight">\(m_k(s)\)</span> of
+the objective function <span class="math notranslate nohighlight">\(f(x_k+s)\)</span> built around
+<span class="math notranslate nohighlight">\(x_k\)</span>. The model is the sum of two basic components,
+a suitable approximation <span class="math notranslate nohighlight">\(t_k(s)\)</span> of <span class="math notranslate nohighlight">\(f(x_k+s)\)</span>,
+and a regularization term <span class="math notranslate nohighlight">\(\frac{1}{2} \sigma_k \|s\|_2^2\)</span>
+involving a weight <span class="math notranslate nohighlight">\(\sigma_k\)</span>. The weight is adjusted as
+the algorithm progresses to ensure convergence.</p>
+<p>The model <span class="math notranslate nohighlight">\(t_k(s)\)</span> is a truncated Taylor-series approximation, and this
+relies on being able to compute or estimate derivatives of <span class="math notranslate nohighlight">\(c(x)\)</span>.
+Various models are provided, and each has different derivative requirements.
+We denote the <span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span> residual <strong>Jacobian</strong>
+<span class="math notranslate nohighlight">\(J(x) \equiv \nabla_x c(x)\)</span> as the matrix  whose <span class="math notranslate nohighlight">\(i,j\)</span>-th component
+<div class="math notranslate nohighlight">
+\[J(x)_{i,j} := \partial r_i(x) / \partial x_j \;\;
+\mbox{for $i=1,\ldots,m_r$ and $j=1,\ldots,n$.}\]</div>
+
+For a given <span class="math notranslate nohighlight">\(m_r\)</span>-vector <span class="math notranslate nohighlight">\(y\)</span>, the <strong>weighted-residual Hessian</strong> is the sum
+<div class="math notranslate nohighlight">
+\[H(x,y) := \sum_{\ell=1}^{m_r} y_{\ell} H_{\ell}(x), \;\; \mbox{where}\;\; H_{\ell}(x)_{i,j} := \partial^2 r_{\ell}(x) / \partial x_i \partial x_j \;\; \mbox{for $i,j=1,\ldots,n$}\]</div>
+
+is the Hessian of <span class="math notranslate nohighlight">\(r_\ell(x)\)</span>.
+The models <span class="math notranslate nohighlight">\(t_k(s)\)</span> provided are,</p>
+<ol class="arabic">
+<li><p>the <strong>Gauss-Newton</strong> approximation
+<span class="math notranslate nohighlight">\(\frac{1}{2} \| r(x_k) + J(x_k) s\|^2_W\)</span>,</p></li>
+<li><p>the <strong>Newton (second-order Taylor)</strong> approximation</p>
+<p><span class="math notranslate nohighlight">\(f(x_k) + g(x_k)^T s + \frac{1}{2} s^T [ J^T(x_k) W J(x_k) + H(x_k,W r(x_k))] s\)</span></p>
+</li>
+</ol>
+<p>(although the latter has yet to be implemented).</p>
+</section>
+<section id="method">
+<h1>method<a class="headerlink" href="#method" title="Link to this heading">#</a></h1>
+<p>An adaptive regularization method is used.
+In this, an improvement to a current
+estimate of the required minimizer, <span class="math notranslate nohighlight">\(x_k\)</span> is sought by computing a
+step <span class="math notranslate nohighlight">\(s_k\)</span>. The step is chosen to approximately minimize a model <span class="math notranslate nohighlight">\(t_k(s)\)</span>
+of <span class="math notranslate nohighlight">\(f_{\rho,r}(x_k+s)\)</span>
+that includes a weighted regularization term
+<span class="math notranslate nohighlight">\(\frac{\sigma_k}{p} \|s\|_{S_k}^p\)</span>
+for some specified positive <strong>weight</strong> <span class="math notranslate nohighlight">\(\sigma_k\)</span>. The quality of the
+resulting step <span class="math notranslate nohighlight">\(s_k\)</span> is assessed by computing the “ratio”
+<span class="math notranslate nohighlight">\((f(x_k) - f(x_k + s_k))/(t_k(0) - t_k(s_k))\)</span>.
+The step is deemed to have succeeded if the ratio exceeds a given <span class="math notranslate nohighlight">\(\eta_s &gt; 0\)</span>,
+and in this case <span class="math notranslate nohighlight">\(x_{k+1} = x_k + s_k\)</span>. Otherwise
+<span class="math notranslate nohighlight">\(x_{k+1} = x_k\)</span>, and the weight is increased by powers of a given
+increase factor up to a given limit. If the ratio is larger than
+<span class="math notranslate nohighlight">\(\eta_v \geq \eta_d\)</span>, the weight will be decreased by powers of a given
+decrease factor again up to a given limit. The method will terminate
+as soon as <span class="math notranslate nohighlight">\(f(x_k)\)</span> or
+<span class="math notranslate nohighlight">\(\|\nabla_x f(x_k)\|\)</span> is smaller than a specified value.</p>
+<p>The step <span class="math notranslate nohighlight">\(s_k\)</span> may be computed either by employing a projected-gradient
+method to minimize the model within the simplex constraint set
+<span class="math notranslate nohighlight">\(\cal C(x_k+s)\)</span> using the GALAHAD module <code class="docutils literal notranslate"><span class="pre">slls</span></code>, or by
+applying the interior-point method available in the module <code class="docutils literal notranslate"><span class="pre">sllsb</span></code>
+to the same subproblem. Experience has shown that it can be beneficial
+to use the latter method during early iterations, but to switch to the
+former as the iterates approach convergence.</p>
+</section>
+<section id="references">
+<h1>references<a class="headerlink" href="#references" title="Link to this heading">#</a></h1>
+<p>The generic adaptive cubic regularization method is described in detail in</p>
+<blockquote>
+<div><p>C. Cartis,  N. I. M. Gould and Ph. L. Toint,
+‘’Evaluation complexity of algorithms for nonconvex optimization’’
+SIAM-MOS Series on Optimization (2022),</p>
+</div></blockquote>
+<p>and uses ‘’tricks’’ as suggested in</p>
+<blockquote>
+<div><p>N. I. M. Gould, M. Porcelli and Ph. L. Toint,
+‘’Updating the regularization parameter in the adaptive cubic regularization
+algorithm’’.
+<em>Computational Optimization and Applications</em>
+<strong>53(1)</strong> (2012) 1–22.</p>
+</div></blockquote>
+<p>The specific methods employed here are discussed in</p>
+<blockquote>
+<div><p>N. I. M. Gould et. al.,
+‘’Nonlinear least-squares over unit simplices’’.
+Rutherford Appleton Laboratory, Oxfordshire, England (2026) in preparation.</p>
+</div></blockquote>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">purpose</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">terminology</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#method">method</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">references</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/snls_intro.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright Gould/Orban/Toint, for GALAHAD productions, GALAHAD 4 C/Python interfaces copyright Fowkes/Gould, GALAHAD 5 Julia interfaces copyright Fowkes/Gould/Montoison/Orban.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

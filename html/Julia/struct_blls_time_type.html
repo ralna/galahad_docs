@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -166,9 +166,7 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -378,14 +376,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -434,13 +427,7 @@
 </div>
 <pre class="highlight literal-block"><span></span><span class="k">struct</span> <span class="kt">blls_time_type</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 <span class="w">  </span><span class="n">total</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">analyse</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">factorize</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">solve</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_analyse</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_factorize</span><span class="o">::</span><span class="kt">T</span>
-<span class="w">  </span><span class="n">clock_solve</span><span class="o">::</span><span class="kt">T</span></pre>
+<span class="w">  </span><span class="n">clock_total</span><span class="o">::</span><span class="kt">T</span></pre>
 </section>
 <section id="detailed-documentation">
 <span id="details-structblls-time-type"></span><h1>detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading">#</a></h1>
@@ -449,20 +436,8 @@
 <h2>components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-total"><span id="index-1"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">total</span></pre>
 <p>the total CPU time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-analyse"><span id="index-2"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">analyse</span></pre>
-<p>the CPU time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-factorize"><span id="index-3"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">factorize</span></pre>
-<p>the CPU time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-solve"><span id="index-4"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">solve</span></pre>
-<p>the CPU time spent in the linear solution phase</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-total"><span id="index-5"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-total"><span id="index-2"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_total</span></pre>
 <p>the total clock time spent in the package</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-analyse"><span id="index-6"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_analyse</span></pre>
-<p>the clock time spent analysing the required matrices prior to factorization</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-factorize"><span id="index-7"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_factorize</span></pre>
-<p>the clock time spent factorizing the required matrices</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structblls-time-type-clock-solve"><span id="index-8"></span><span></span><span class="n">T</span><span class="w"> </span><span class="n">clock_solve</span></pre>
-<p>the clock time spent in the linear solution phase</p>
 </section>
 </section>
 
@@ -505,13 +480,13 @@
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/struct_blls_time_type.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/struct_blls_time_type.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -526,8 +501,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -560,8 +535,7 @@
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
