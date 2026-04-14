@@ -2116,8 +2116,9 @@ mutable struct userdata_snls{T}
   p::T
 end
 
-function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
-                   sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
+Base.unsafe_convert(::Type{Ptr{Cvoid}}, userdata::userdata_snls) = pointer_from_objref(userdata)
+
+function test_snls(::Type{T}, ::Type{INT}; sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # ==================== define evaluation functions ====================
 
@@ -2227,16 +2228,18 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
     jaccol(n, _x, index, _val, _row, nz, got_jr, _userdata)
   end
 
-  jaccol_ptr = @eval @cfunction($jacprod_c, $INT,
+  jaccol_ptr = @eval @cfunction($jaccol_c, $INT,
       ($INT, $INT, Ptr{$T}, $INT, Ptr{$T}, Ptr{$INT}, $INT,
        Bool, Ptr{Cvoid}))
 
+
   # compute a sparse product with the Jacobian
   function sjacprod(n::INT, m_r::INT, x::Vector{T}, transpose::Bool,
-                    v::Vector{T}, p::Vector{T}, free::Vector(INT), n_free::INT,
+                    v::Vector{T}, p::Vector{T}, free::Vector{INT}, n_free::INT,
                     got_jr::Bool, userdata::userdata_snls{T})
 
     if (transpose)
+      resize!(p, n)
       for i in 1:n_free
         j = free[i]
         if j == 1
@@ -2245,10 +2248,10 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
           p[n] = x[m_r] * v[m_r]
         else
           p[j] = x[j-1] * v[j-1] + x[j+1] * v[j]
-        ]
+        end
       end
     else
-      p = zeros(T, m_r)
+      resize!(p, m_r)
       for i in 1:n_free
         j = free[i]
         val = v[j]
@@ -2261,6 +2264,7 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
           p[j] = p[j] + x[j+1] * val
         end
       end
+    end
     return INT(0)
   end
 
@@ -2275,7 +2279,7 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
     sjacprod(n, m_r, _x, transpose, _v, _p, _free, n_free, got_jr, _userdata)
   end
 
-  sjacprod_ptr = @eval @cfunction($jacprod_c, $INT,
+  sjacprod_ptr = @eval @cfunction($sjacprod_c, $INT,
       ($INT, $INT, Ptr{$T}, Bool, Ptr{$T}, Ptr{$T}, Ptr{$INT}, $INT,
        Bool, Ptr{Cvoid}))
 
@@ -2287,30 +2291,27 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   inform = Ref{snls_inform_type{T,INT}}()
 
   # Set user data
-  userdata = userdata_snls{T}(1)
-  userdata_ptr = pointer_from_objref(userdata)
-  userdata.p = 4.0
+  userdata = userdata_snls{T}(4)
 
   # Set problem dimensions
   n = INT(5)  # number of variables
   m_r = INT(4)  # number of residuals
-  m_c = INT(4)  # number of cohorts
+  m_c = INT(2)  # number of cohorts
 
   # Set problem data
   jr_ne = INT(8) # Jacobian elements
-  Jr_row[] = INT[1, 1, 2, 2, 3, 3, 4, 4]  # Jacobian Jr
-  Jr_col[] = INT[1, 2, 2, 3, 3, 4, 4, 5]
-  Jr_val = Array{T, 1}(undef, jr_ne)
-  cohort[] = INT[1, 2, 0, 1, 2]  # cohorts
-  w[] = T[1.0, 1.0, 1.0, 1.0]  # weights
+  Jr_row = INT[1, 1, 2, 2, 3, 3, 4, 4]  # Jacobian Jr
+  Jr_col = INT[1, 2, 2, 3, 3, 4, 4, 5]
+  cohort = INT[1, 2, 0, 1, 2]  # cohorts
+  w = T[1.0, 1.0, 1.0, 1.0]  # weights
 
   # Set space for output arrays
-  x = Array{T, 1}(undef, n)
-  y = Array{T, 1}(undef, m_c)
-  z = Array{T, 1}(undef, n)
-  r = Array{T, 1}(undef, m_r)
-  g = Array{T, 1}(undef, n)
-  x_stat = Array{INT, 1}(undef, n)
+  x = Vector{T}(undef, n)
+  y = Vector{T}(undef, m_c)
+  z = Vector{T}(undef, n)
+  r = Vector{T}(undef, m_r)
+  g = Vector{T}(undef, n)
+  x_stat = Vector{INT}(undef, n)
 
   status = Ref{INT}()
 
@@ -2327,21 +2328,21 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   @reset control[].f_indexing = true # fortran sparse matrix indexing
   # @reset control[].print_level = INT(1)
   @reset control[].stop_pg_absolute = T(0.00001)
-  @reset control[].slls_control[].sbls_control[].definite_linear_solver
-    = galahad_linear_solver(dls)
-  @reset control[].slls_control[].sbls_control[].symmetric_linear_solver
-    = galahad_linear_solver(sls)
+  @reset control[].slls_control.sbls_control.definite_linear_solver =
+    galahad_linear_solver(dls)
+  @reset control[].slls_control.sbls_control.symmetric_linear_solver =
+    galahad_linear_solver(sls)
 
-  x = fill(0.5, n) # initial guess
+  x = fill!(x, T(0.5))  # initial guess
   snls_import(T, INT, control, data, status, n, m_r, m_c,
               &quot;coordinate&quot;, jr_ne, Jr_row, Jr_col, 0, C_NULL, cohort)
   snls_solve_with_jac(T, INT, data, userdata, status, n, m_r, m_c,
-                      x, y, z, r, g, x_stat, res, jr_ne, jac, w)
+                      x, y, z, r, g, x_stat, res_ptr, jr_ne, jac_ptr, w)
   snls_information(T, INT, data, inform, status)
 
   if inform[].status == 0
-    @printf(&quot; SNLS(JF):%6d iterations. Optimal objective value&quot;
-       &quot; = %5.2f status = %1d\n&quot;, inform[].iter, inform[].obj, inform[].status)
+    @printf(&quot; SNLS(JF):%6d iterations. Optimal objective value = %5.2f \
+      status = %1d\n&quot;, inform[].iter, Float64(inform[].obj), inform[].status)
   else
     @printf(&quot; SNLS(JF): exit status = %1d\n&quot;, inform[].status)
   end
@@ -2362,22 +2363,22 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   # @reset control[].slls_@reset control[].print_level = INT(1)
   @reset control[].stop_pg_absolute = T(0.00001)
   # @reset control[].maxit = INT(1)
-  # @reset control[].slls_control[].maxit = INT(5)
-  @reset control[].slls_control[].sbls_control[].definite_linear_solver
-    = galahad_linear_solver(dls)
-  @reset control[].slls_control[].sbls_control[].symmetric_linear_solver
-    = galahad_linear_solver(sls)
+  # @reset control[].slls_control.maxit = INT(5)
+  @reset control[].slls_control.sbls_control.definite_linear_solver =
+    galahad_linear_solver(dls)
+  @reset control[].slls_control.sbls_control.symmetric_linear_solver =
+    galahad_linear_solver(sls)
 
-  x = fill(0.5, n) # initial guess
+  x = fill(T(0.5), n) # initial guess
   snls_import_without_jac(T, INT, control, data, status, n, m_r, m_c, cohort)
   snls_solve_with_jacprod(T, INT, data, userdata, status, n, m_r, m_c,
                           x, y, z, r, g, x_stat,
-                          res, jacprod, jaccol, sjacprod, w)
+                          res_ptr, jacprod_ptr, jaccol_ptr, sjacprod_ptr, w)
   snls_information(T, INT, data, inform, status)
 
   if inform[].status == 0
-    @printf(&quot; SNLS(PF):%6d iterations. Optimal objective value&quot;
-       &quot; = %5.2f status = %1d\n&quot;, inform[].iter, inform[].obj, inform[].status)
+    @printf(&quot; SNLS(PF):%6d iterations. Optimal objective value = %5.2f \
+     status = %1d\n&quot;, inform[].iter, Float64(inform[].obj), inform[].status)
   else
     @printf(&quot; SNLS(PF): exit status = %1d\n&quot;, inform[].status)
   end
@@ -2386,22 +2387,21 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   snls_terminate(T, INT, data, control, inform)
 
   # reverse-communication input/output
-
+  Jr_val = Vector{T}(undef, jr_ne)
   mrn = max(m_r, n)
   lp = zero(INT)
-  eval_status = zero(INT)
-  lvl = zero(INT)
-  lvu = zero(INT)
-  index = zero(INT)
-  iv = Array{INT, 1}(undef, mrn )
-  ip = Array{INT, 1}(undef, mrn )
-  v = Array{T, 1}(undef, mrn )
-  p = Array{T, 1}(undef, mrn )
-  bool got_jr
+  eval_status = Ref{INT}()
+  lvl = Ref{INT}(0)
+  lvu = Ref{INT}(0)
+  index = Ref{INT}(0)
+  iv = Vector{INT}(undef, mrn)
+  ip = Vector{INT}(undef, mrn)
+  v = Vector{T}(undef, mrn)
+  p = Vector{T}(undef, mrn)
+  got_jr = false
 
   # solve when Jacobian is available via reverse access
   # ---------------------------------------------------
-
   # Initialize SNLS
   snls_initialize(T, INT, data, control, inform)
 
@@ -2410,26 +2410,27 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   @reset control[].f_indexing = true # fortran sparse matrix indexing
   # @reset control[].print_level = INT(1)
   @reset control[].stop_pg_absolute = T(0.00001)
-  @reset control[].slls_control[].sbls_control[].definite_linear_solver
-    = galahad_linear_solver(dls)
-  @reset control[].slls_control[].sbls_control[].symmetric_linear_solver
-    = galahad_linear_solver(sls)
+  @reset control[].slls_control.sbls_control.definite_linear_solver =
+    galahad_linear_solver(dls)
+  @reset control[].slls_control.sbls_control.symmetric_linear_solver =
+    galahad_linear_solver(sls)
 
-  x = fill(0.5, n) # initial guess
+  x = fill(T(0.5), n) # initial guess
   snls_import(T, INT, control, data, status, n, m_r, m_c,
               &quot;coordinate&quot;, jr_ne, Jr_row, Jr_col, 0, C_NULL, cohort)
   terminated = false
   while !terminated # reverse-communication loop
-    snls_solve_reverse_with_jac(T, INT, data, status, eval_status, n, m_r, m_c,
-                                x, y, z, r, g, x_stat, jr_ne, Jr_val, w)
-    if status == 0 # successful termination
+    snls_solve_reverse_with_jac(T, INT, data, status, eval_status,
+                                n, m_r, m_c, x, y, z, r, g, x_stat,
+                                jr_ne, Jr_val, w)
+    if status[] == 0 # successful termination
       terminated = true
-    elseif status &lt; 0 # error exit
+    elseif status[] &lt; 0 # error exit
       terminated = true
-    elseif status == 2 # evaluate r
-      eval_status = res(x, r, userdata)
-    elseif status == 3 # evaluate Jr
-      eval_status = jac(x, Jr_val, userdata)
+    elseif status[] == 2 # evaluate r
+      eval_status[] = res(x, r, userdata)
+    elseif status[] == 3 # evaluate Jr
+      eval_status[] = jac(x, Jr_val, userdata)
     else
       @printf(&quot; the value %i of status should not occur\n&quot;, status)
     end
@@ -2437,8 +2438,8 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   snls_information(T, INT, data, inform, status)
 
   if inform[].status == 0
-    @printf(&quot; SNLS(JR):%6d iterations. Optimal objective value&quot;
-       &quot; = %5.2f status = %1d\n&quot;, inform[].iter, inform[].obj, inform[].status)
+    @printf(&quot; SNLS(JR):%6d iterations. Optimal objective value = %5.2f \
+     status = %1d\n&quot;, inform[].iter, Float64(inform[].obj), inform[].status)
   else
     @printf(&quot; SNLS(JR): exit status = %1d\n&quot;, inform[].status)
   end
@@ -2457,36 +2458,38 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   @reset control[].f_indexing = true # fortran sparse matrix indexing
   # @reset control[].print_level = INT(1)
   # @reset control[].slls_control[].print_level = INT(1)
-  @reset control[].stop_pg_absolute = 0.00001
-  @reset control[].slls_control[].sbls_control[].definite_linear_solver
-    = galahad_linear_solver(dls)
-  @reset control[].slls_control[].sbls_control[].symmetric_linear_solver
-    = galahad_linear_solver(sls)
+  @reset control[].stop_pg_absolute = T(0.00001)
+  @reset control[].slls_control.sbls_control.definite_linear_solver =
+    galahad_linear_solver(dls)
+  @reset control[].slls_control.sbls_control.symmetric_linear_solver =
+    galahad_linear_solver(sls)
 
-  x = fill(0.5, n) # initial guess
+  x = fill(T(0.5), n) # initial guess
   snls_import_without_jac(T, INT, control, data, status, n, m_r, m_c, cohort)
   terminated = false
-  while  !terminated # reverse-communication loop
+  while !terminated # reverse-communication loop
     snls_solve_reverse_with_jacprod(T, INT, data, status, eval_status,
-                                    n, m_r, m_c, x, y, z, r, g, x_stat, v,
-                                    iv, lvl, lvu, index, p, ip, lp, w)
-    if status == 0 # successful termination
+                                    n, m_r, m_c, x, y, z, r, g, x_stat,
+                                    v, iv, lvl, lvu, index, p, ip, lp, w)
+    if status[] == 0 # successful termination
       terminated = true
-    elseif status &lt; 0 # error exit
+    elseif status[] &lt; 0 # error exit
       terminated = true
-    elseif status == 2 # evaluate r
-      eval_status = res(x, r, userdata)
+    elseif status[] == 2 # evaluate r
+      eval_status[] = res(x, r, userdata)
       got_jr = false
-    elseif status == 4 # evaluate p = Jr v
-      eval_status = jacprod(x, false, v, p, got_jr, userdata)
-    elseif status == 5 # evaluate p = Jr&#39; v
-      eval_status = jacprod(x, true, v, p, got_jr, userdata)
-    elseif status == 6 # find the index-th column of Jr
-      eval_status = jaccol(n, x, index, p, ip, lp, got_jr, userdata)
-    elseif status == 7 # evaluate p = J_o sparse(v)
-      eval_status = sjacprod(n, m_r, x, false, v, p, iv, lvu, got_jr, userdata)
-    elseif status == 8 # evaluate p = sparse(Jr&#39; v)
-      eval_status = sjacprod(n, m_r, x, true, v, p, iv, lvu, got_jr, userdata)
+    elseif status[] == 4 # evaluate p = Jr v
+      eval_status[] = jacprod(x, false, v, p, got_jr, userdata)
+    elseif status[] == 5 # evaluate p = Jr&#39; v
+      eval_status[] = jacprod(x, true, v, p, got_jr, userdata)
+    elseif status[] == 6 # find the index-th column of Jr
+      eval_status[] = jaccol(n, x, index[], p, ip, lp, got_jr, userdata)
+    elseif status[] == 7 # evaluate p = J_o sparse(v)
+      eval_status[] = sjacprod(n, m_r, x, false, v, p, iv, lvu[], got_jr,
+                               userdata)
+    elseif status[] == 8 # evaluate p = sparse(Jr&#39; v)
+      eval_status[] = sjacprod(n, m_r, x, true, v, p, iv, lvu[], got_jr,
+                               userdata)
     else
       @printf(&quot; the value %1d of status should not occur\n&quot;, status)
     end
@@ -2494,8 +2497,8 @@ function test_snls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;,
   snls_information(T, INT, data, inform, status)
 
   if inform[].status == 0
-    @printf(&quot; SNLS(PR):%6d iterations. Optimal objective value&quot;
-       &quot; = %5.2f status = %1d\n&quot;, inform[].iter, inform[].obj, inform[].status)
+    @printf(&quot; SNLS(PR):%6d iterations. Optimal objective value = %5.2f \
+      status = %1d\n&quot;, inform[].iter, Float64(inform[].obj), inform[].status)
   else
     @printf(&quot; SNLS(PR): exit status = %1d\n&quot;, inform[].status)
   end
@@ -2514,9 +2517,7 @@ for (T, INT, libgalahad) in ((Float32 , Int32, GALAHAD.libgalahad_single      ),
                              (Float128, Int64, GALAHAD.libgalahad_quadruple_64))
   if isfile(libgalahad)
     @testset &quot;SNLS -- $T -- $INT&quot; begin
-      @testset &quot;$mode communication&quot; for mode in (&quot;reverse&quot;, &quot;direct&quot;)
-        @test test_snls(T, INT; mode) == 0
-      end
+      @test test_snls(T, INT) == 0
     end
   end
 end

@@ -720,7 +720,7 @@ violated.</p>
 <td><p>is a one-dimensional array of size n and type T that holds the values <span class="math notranslate nohighlight">\(x^u\)</span> of the upper bounds on the optimization variables <span class="math notranslate nohighlight">\(x\)</span>. The j-th component of x_u, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>, contains <span class="math notranslate nohighlight">\(x^u_j\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>H_type</p></td>
-<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
+<td><p>is a one-dimensional array of type Vararg{Cchar} that specifies the <a class="reference internal" href="tru.html#details-hx-storage-sym"><span class="std std-ref">symmetric storage scheme</span></a> used for the Hessian. It should be one of ‘coordinate’, ‘sparse_by_rows’, ‘dense’, ‘diagonal’ or ‘absent’, the latter if access to the Hessian is via matrix-vector products; lower or upper case variants are allowed.</p></td>
 </tr>
 <tr class="row-even"><td><p>ne</p></td>
 <td><p>is a scalar variable of type INT that holds the number of entries in the lower triangular part of H in the sparse co-ordinate storage scheme. It need not be set for any of the other three schemes.</p></td>
@@ -1952,6 +1952,8 @@ mutable struct userdata_dgo{T}
   mag::T
 end
 
+Base.unsafe_convert(::Type{Ptr{Cvoid}}, userdata::userdata_dgo) = pointer_from_objref(userdata)
+
 function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # Objective function
@@ -2223,7 +2225,6 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
 
   # Set user data
   userdata = userdata_dgo{T}(4.0, 10.0, 1000.0)
-  userdata_ptr = pointer_from_objref(userdata)
 
   # Set problem data
   n = INT(3)  # dimension
@@ -2268,7 +2269,7 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
         dgo_import(T, INT, control, data, status, n, x_l, x_u,
                    &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
 
-        dgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+        dgo_solve_with_mat(T, INT, data, userdata, status, n, x, g,
                            ne, fun_ptr, grad_ptr, hess_ptr,
                            hessprod_ptr, prec_ptr)
       end
@@ -2279,7 +2280,7 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
         dgo_import(T, INT, control, data, status, n, x_l, x_u,
                    &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
 
-        dgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+        dgo_solve_with_mat(T, INT, data, userdata, status, n, x, g,
                            ne, fun_ptr, grad_ptr, hess_ptr,
                            hessprod_ptr, prec_ptr)
       end
@@ -2290,7 +2291,7 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
         dgo_import(T, INT, control, data, status, n, x_l, x_u,
                    &quot;dense&quot;, ne_dense, C_NULL, C_NULL, C_NULL)
 
-        dgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+        dgo_solve_with_mat(T, INT, data, userdata, status, n, x, g,
                            ne_dense, fun_ptr, grad_ptr, hess_dense_ptr,
                            hessprod_ptr, prec_ptr)
       end
@@ -2301,7 +2302,7 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
         dgo_import(T, INT, control, data, status, n, x_l, x_u,
                    &quot;diagonal&quot;, n, C_NULL, C_NULL, C_NULL)
 
-        dgo_solve_with_mat(T, INT, data, userdata_ptr, status, n, x, g,
+        dgo_solve_with_mat(T, INT, data, userdata, status, n, x, g,
                            n, fun_diag_ptr, grad_diag_ptr, hess_diag_ptr,
                            hessprod_diag_ptr, prec_ptr)
       end
@@ -2312,7 +2313,7 @@ function test_dgo(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
         dgo_import(T, INT, control, data, status, n, x_l, x_u,
                    &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
 
-        dgo_solve_without_mat(T, INT, data, userdata_ptr, status, n, x, g,
+        dgo_solve_without_mat(T, INT, data, userdata, status, n, x, g,
                               fun_ptr, grad_ptr, hessprod_ptr, shessprod_ptr, prec_ptr)
       end
 

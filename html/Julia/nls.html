@@ -735,20 +735,20 @@ the string H_type = ‘zero’ or ‘none’ should be specified.</p>
 called in the following order:</p>
 <p>To solve a given problem, functions from the nls package must be called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span class="std std-ref">nls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span class="std std-ref">nls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span class="std std-ref">nls_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span class="std std-ref">nls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1aa344bb15b74ab3b3ee6afb2de072b19f"><span class="std std-ref">nls_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1adf9db7eff2fce137ae2abd2e013c47b3"><span class="std std-ref">nls_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a3f0eb83fd31ee4108156f2e84176389d"><span class="std std-ref">nls_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a07f0857c9923ad0f92d51ed00833afda"><span class="std std-ref">nls_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span class="std std-ref">nls_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span class="std std-ref">nls_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span class="std std-ref">nls_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span class="std std-ref">nls_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1ae923c2e6afabb3563fe0998d45b715c4"><span class="std std-ref">nls_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a692ecbfaa428584e60aa4c33d7278a64"><span class="std std-ref">nls_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a9ad89605640c53c33ddd5894b5e3edd1"><span class="std std-ref">nls_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a6dddd928c19adec0abf76bdb2d75da17"><span class="std std-ref">nls_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span class="std std-ref">nls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="nls_functions.html#doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span class="std std-ref">nls_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a765da96b0a1f3d07dab53cc3400c22d8"><span class="std std-ref">nls_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-nls-8h-1a7babe9112dfad1eb7b57b70135704ab0"><span class="std std-ref">nls_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-nls-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -2497,6 +2497,8 @@ mutable struct userdata_nls{T}
   p::T
 end
 
+Base.unsafe_convert(::Type{Ptr{Cvoid}}, userdata::userdata_nls) = pointer_from_objref(userdata)
+
 function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # compute the residuals
@@ -2682,7 +2684,6 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
 
   # Set user data
   userdata = userdata_nls{T}(1)
-  userdata_ptr = pointer_from_objref(userdata)
 
   # Set problem data
   n = INT(2)  # variables
@@ -2740,7 +2741,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                    &quot;coordinate&quot;, h_ne, H_row, H_col, C_NULL,
                    &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-        nls_solve_with_mat(T, INT, data, userdata_ptr, status,
+        nls_solve_with_mat(T, INT, data, userdata, status,
                            n, m, x, c, g, res_ptr, j_ne, jac_ptr,
                            h_ne, hess_ptr, p_ne, rhessprods_ptr)
       end
@@ -2753,7 +2754,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                    &quot;sparse_by_rows&quot;, h_ne, C_NULL, H_col, H_ptr,
                    &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-        nls_solve_with_mat(T, INT, data, userdata_ptr, status,
+        nls_solve_with_mat(T, INT, data, userdata, status,
                            n, m, x, c, g, res_ptr, j_ne, jac_ptr,
                            h_ne, hess_ptr, p_ne, rhessprods_ptr)
       end
@@ -2766,7 +2767,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                    &quot;dense&quot;, h_ne_dense, C_NULL, C_NULL, C_NULL,
                    &quot;dense&quot;, p_ne_dense, C_NULL, C_NULL, C_NULL, W)
 
-        nls_solve_with_mat(T, INT, data, userdata_ptr, status,
+        nls_solve_with_mat(T, INT, data, userdata, status,
                            n, m, x, c, g, res_ptr, j_ne_dense, jac_dense_ptr,
                            h_ne_dense, hess_dense_ptr, p_ne_dense, rhessprods_dense_ptr)
       end
@@ -2779,7 +2780,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                    &quot;diagonal&quot;, n, C_NULL, C_NULL, C_NULL,
                    &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-        nls_solve_with_mat(T, INT, data, userdata_ptr, status,
+        nls_solve_with_mat(T, INT, data, userdata, status,
                            n, m, x, c, g, res_ptr, j_ne, jac_ptr,
                            n, hess_ptr, p_ne, rhessprods_ptr)
       end
@@ -2792,7 +2793,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                    &quot;absent&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                    &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-        nls_solve_without_mat(T, INT, data, userdata_ptr, status,
+        nls_solve_without_mat(T, INT, data, userdata, status,
                               n, m, x, c, g, res_ptr, jacprod_ptr,
                               hessprod_ptr, p_ne, rhessprods_ptr)
       end
@@ -3041,7 +3042,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                  &quot;sparse_by_rows&quot;, h_ne, C_NULL, H_col, H_ptr,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-      nls_solve_with_mat(T, INT, data, userdata_ptr, status,
+      nls_solve_with_mat(T, INT, data, userdata, status,
                          n, m, x, c, g, res_ptr, j_ne, jac_ptr,
                          h_ne, hess_ptr, p_ne, rhessprods_ptr)
 
@@ -3082,7 +3083,7 @@ function test_nls(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
                  &quot;absent&quot;, h_ne, C_NULL, C_NULL, C_NULL,
                  &quot;sparse_by_columns&quot;, p_ne, P_row, C_NULL, P_ptr, W)
 
-      nls_solve_without_mat(T, INT, data, userdata_ptr, status,
+      nls_solve_without_mat(T, INT, data, userdata, status,
                             n, m, x, c, g, res_ptr, jacprod_ptr,
                             hessprod_ptr, p_ne, rhessprods_ptr)
 

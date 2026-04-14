@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
   -->
   <noscript>
     <style>
@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css?v=ff3f4257" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a6bbf7ec" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=56dcb7b8"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -170,9 +170,7 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -396,14 +394,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -583,20 +576,20 @@ The string H_type = ‘diagonal’ should be specified.</p>
 <p>To solve a given problem, functions from the trb package must be
 called in the following order:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a9bffc46178a3e0b7eb2927d1c50440a1"><span class="std std-ref">trb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a4eaafdaf5187c8b91c119ce9395469e9"><span class="std std-ref">trb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a13bc38fb28201adb78af7acf910ff0d8"><span class="std std-ref">trb_import</span></a> - set up problem data structures and fixed values</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a550c3ca1966ea0fa9de84423b8658cd7"><span class="std std-ref">trb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a9bffc46178a3e0b7eb2927d1c50440a1"><span class="std std-ref">trb_initialize</span></a> - provide default control parameters and set up initial data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a4eaafdaf5187c8b91c119ce9395469e9"><span class="std std-ref">trb_read_specfile</span></a> (optional) - override control values by reading replacement values from a file</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a13bc38fb28201adb78af7acf910ff0d8"><span class="std std-ref">trb_import</span></a> - set up problem data structures and fixed values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a550c3ca1966ea0fa9de84423b8658cd7"><span class="std std-ref">trb_reset_control</span></a> (optional) - possibly change control parameters if a sequence of problems are being solved</p></li>
 <li><p>solve the problem by calling one of</p>
 <ul>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a5a58e6c0c022eb451f14c82d653967f7"><span class="std std-ref">trb_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a376b81748cec0bf992542d80b8d38f49"><span class="std std-ref">trb_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a7bb520e36666386824b216a84be08837"><span class="std std-ref">trb_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a95eac11acf02fe0d6eb4bc39ace5a100"><span class="std std-ref">trb_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a5a58e6c0c022eb451f14c82d653967f7"><span class="std std-ref">trb_solve_with_mat</span></a> - solve using function calls to evaluate function, gradient and Hessian values</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a376b81748cec0bf992542d80b8d38f49"><span class="std std-ref">trb_solve_without_mat</span></a> - solve using function calls to evaluate function and gradient values and Hessian-vector products</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a7bb520e36666386824b216a84be08837"><span class="std std-ref">trb_solve_reverse_with_mat</span></a> - solve returning to the calling program to obtain function, gradient and Hessian values, or</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a95eac11acf02fe0d6eb4bc39ace5a100"><span class="std std-ref">trb_solve_reverse_without_mat</span></a> - solve returning to the calling prorgram to obtain function and gradient values and Hessian-vector products</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a105f41a31d49c59885c3372090bec776"><span class="std std-ref">trb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
-<li><p><a class="reference internal" href="trb_functions.html#doxid-galahad-trb-8h-1a739c7a44ddd0ce7b350cfa6da54948d0"><span class="std std-ref">trb_terminate</span></a> - deallocate data structures</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a105f41a31d49c59885c3372090bec776"><span class="std std-ref">trb_information</span></a> (optional) - recover information about the solution and solution process</p></li>
+<li><p><a class="reference internal" href="#doxid-galahad-trb-8h-1a739c7a44ddd0ce7b350cfa6da54948d0"><span class="std std-ref">trb_terminate</span></a> - deallocate data structures</p></li>
 </ul>
 <p>See the <a class="reference internal" href="#doxid-index-trb-examples"><span class="std std-ref">examples</span></a> section for
 illustrations of use.</p>
@@ -2029,6 +2022,8 @@ mutable struct userdata_trb{T}
   p::T
 end
 
+Base.unsafe_convert(::Type{Ptr{Cvoid}}, userdata::userdata_trb) = pointer_from_objref(userdata)
+
 function test_trb(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls::String=&quot;sytr&quot;, dls::String=&quot;potr&quot;) where {T,INT}
 
   # Objective function
@@ -2255,7 +2250,6 @@ function test_trb(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
 
   # Set user data
   userdata = userdata_trb{T}(4)
-  userdata_ptr = pointer_from_objref(userdata)
 
   # Set problem data
   n = INT(3)  # dimension
@@ -2291,35 +2285,35 @@ function test_trb(::Type{T}, ::Type{INT}; mode::String=&quot;reverse&quot;, sls:
       if d == 1
         st = &#39;C&#39;
         trb_import(T, INT, control, data, status, n, &quot;coordinate&quot;, ne, H_row, H_col, C_NULL)
-        trb_solve_with_mat(T, INT, data, userdata_ptr, status, n, x_l, x_u, x, g, ne, fun_ptr, grad_ptr, hess_ptr, prec_ptr)
+        trb_solve_with_mat(T, INT, data, userdata, status, n, x_l, x_u, x, g, ne, fun_ptr, grad_ptr, hess_ptr, prec_ptr)
       end
 
       # sparse by rows
       if d == 2
         st = &#39;R&#39;
         trb_import(T, INT, control, data, status, n, &quot;sparse_by_rows&quot;, ne, C_NULL, H_col, H_ptr)
-        trb_solve_with_mat(T, INT, data, userdata_ptr, status, n, x_l, x_u, x, g, ne, fun_ptr, grad_ptr, hess_ptr, prec_ptr)
+        trb_solve_with_mat(T, INT, data, userdata, status, n, x_l, x_u, x, g, ne, fun_ptr, grad_ptr, hess_ptr, prec_ptr)
       end
 
       # dense
       if d == 3
         st = &#39;D&#39;
         trb_import(T, INT, control, data, status, n, &quot;dense&quot;, ne_dense, C_NULL, C_NULL, C_NULL)
-        trb_solve_with_mat(T, INT, data, userdata_ptr, status, n, x_l, x_u, x, g, ne_dense, fun_ptr, grad_ptr, hess_dense_ptr, prec_ptr)
+        trb_solve_with_mat(T, INT, data, userdata, status, n, x_l, x_u, x, g, ne_dense, fun_ptr, grad_ptr, hess_dense_ptr, prec_ptr)
       end
 
       # diagonal
       if d == 4
         st = &#39;I&#39;
         trb_import(T, INT, control, data, status, n, &quot;diagonal&quot;, n, C_NULL, C_NULL, C_NULL)
-        trb_solve_with_mat(T, INT, data, userdata_ptr, status, n, x_l, x_u, x, g, n, fun_diag_ptr, grad_diag_ptr, hess_diag_ptr, prec_ptr)
+        trb_solve_with_mat(T, INT, data, userdata, status, n, x_l, x_u, x, g, n, fun_diag_ptr, grad_diag_ptr, hess_diag_ptr, prec_ptr)
       end
 
       # access by products
       if d == 5
         st = &#39;P&#39;
         trb_import(T, INT, control, data, status, n, &quot;absent&quot;, ne, C_NULL, C_NULL, C_NULL)
-        trb_solve_without_mat(T, INT, data, userdata_ptr, status, n, x_l, x_u, x, g, fun_ptr, grad_ptr, hessprod_ptr, shessprod_ptr, prec_ptr)
+        trb_solve_without_mat(T, INT, data, userdata, status, n, x_l, x_u, x, g, fun_ptr, grad_ptr, hessprod_ptr, shessprod_ptr, prec_ptr)
       end
 
       # Record solution information
@@ -2629,13 +2623,13 @@ end
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/trb.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/trb.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -2650,8 +2644,8 @@ end
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2684,8 +2678,7 @@ end
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
